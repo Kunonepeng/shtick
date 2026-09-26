@@ -1,0 +1,240 @@
+---
+title: "字符编码 · 教师演示实验"
+subtitle: "Teacher-facing Demo Lab"
+jupyter: python3
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    toc-title: "Teacher Demo 导航"
+execute:
+  echo: true
+  warning: false
+---
+
+# 使用方式
+
+这是教师版 Notebook。它可以包含答案、预期输出、教学提示和技术注解。学生课堂使用 `demo-lab-student.ipynb`。
+
+生成：
+
+```bash
+quarto convert 1-2-encoding/1-2-3-character-encoding/demo-lab-teacher.qmd
+```
+
+---
+
+# Q0 乱码悬念 {#q0-demo}
+
+## 教师操作
+
+学生先只看输出，不看机制。
+
+```{python}
+text = "你好"
+print("原文：", text)
+```
+
+```{python}
+raw = text.encode("utf-8")
+wrong = raw.decode("gbk")
+print("乱码：", wrong)
+```
+
+## 教师提示
+
+此时不要解释 `encode`、`decode` 和 bytes。只追问：
+
+> 错误发生在输入、字符身份、bytes，还是显示环节？
+
+完整解释放到 Q13。
+
+---
+
+# Q3 ASCII：7 bit 与 1 byte {#q3-demo}
+
+```{python}
+ch = "A"
+code = ord(ch)
+ascii_byte = ch.encode("ascii")[0]
+
+print(f"Character        : {ch}")
+print(f"Decimal code     : {code}")
+print(f"Hex code         : 0x{code:02X}")
+print(f"ASCII 7-bit code : {code:07b}")
+print(f"Stored in 1 byte : {ascii_byte:08b}")
+print(f"MSB              : {(ascii_byte >> 7) & 1}")
+```
+
+教师追问：
+
+> ASCII 只需要 7 bit，为什么保存时看到 8 bit？
+
+结论：左侧补 0，MSB=0。
+
+---
+
+# Q6–Q7 Plan B：GB2312 机内码 {#q6-demo}
+
+只有在 WinHex 不稳定，或需要快速复核时使用。
+
+```{python}
+text = "A中B国C文"
+
+def bits(byte):
+    return f"{byte:08b}"
+
+def msb(byte):
+    return (byte >> 7) & 1
+
+print("Text:", text)
+print("GB2312 bytes:", text.encode("gb2312").hex(" ").upper())
+print()
+print(f"{'字符':<4}{'Hex':<10}{'Bytes':<8}{'Binary':<22}{'MSB'}")
+print("-" * 60)
+
+for ch in text:
+    raw = ch.encode("gb2312")
+    hex_bytes = " ".join(f"{b:02X}" for b in raw)
+    binary = " ".join(bits(b) for b in raw)
+    msbs = " ".join(str(msb(b)) for b in raw)
+    print(f"{ch:<4}{hex_bytes:<10}{len(raw):<8}{binary:<22}{msbs}")
+```
+
+教学结论只限定在 GB2312 机内码模型。
+
+---
+
+# Q8 同一个汉字：GB2312 vs UTF-8 {#q8-demo}
+
+```{python}
+ch = "中"
+for encoding in ["gb2312", "utf-8"]:
+    raw = ch.encode(encoding)
+    print(f"{encoding:<8} bytes = {raw.hex(' ').upper():<10} length = {len(raw)}")
+```
+
+```{python}
+text = "A中B国C文"
+for encoding in ["gb2312", "utf-8"]:
+    raw = text.encode(encoding)
+    print(f"{encoding:<8}: {raw.hex(' ').upper()}")
+```
+
+结论：字节长度取决于编码方案。
+
+---
+
+# Q9 英文输入与中文输入 {#q9-demo}
+
+这里故意不显示 `U+0041` / `U+4F60`，避免提前泄露 Q10。
+
+```{python}
+from IPython.display import display, HTML
+
+english = [
+    ("键盘输入", "按下 A"),
+    ("字符确定", "字符 A"),
+    ("字形信息", "font → glyph A"),
+    ("显示", "pixels → A"),
+]
+
+chinese = [
+    ("键盘输入", "按下 n、i"),
+    ("输入码", "ni"),
+    ("输入法", "IME → 选择“你”"),
+    ("字符确定", "字符“你”"),
+    ("字形信息", "font → glyph 你"),
+    ("显示", "pixels → 你"),
+]
+
+def flow_column(title, items, accent):
+    blocks = []
+    for label, value in items:
+        blocks.append(f"""
+        <div style="border:2px solid {accent}; border-radius:8px; padding:10px 12px; margin:7px 0; background:#fff;">
+          <div style="font-size:13px;color:#666;">{label}</div>
+          <div style="font-size:18px;font-weight:700;color:#222;">{value}</div>
+        </div>
+        """)
+    arrow = '<div style="text-align:center;font-size:22px;color:#6251B1;">↓</div>'
+    return f"""
+    <div style="width:46%;vertical-align:top;">
+      <div style="font-size:23px;font-weight:800;margin-bottom:12px;">{title}</div>
+      {arrow.join(blocks)}
+    </div>
+    """
+
+html = f"""
+<div style="display:flex; justify-content:space-between; gap:28px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Microsoft YaHei',sans-serif;">
+  {flow_column("英文字符 A", english, "#6251B1")}
+  {flow_column("中文字符 你", chinese, "#FF0000")}
+</div>
+<div style="margin-top:20px; padding:14px 18px; border-left:5px solid #6251B1; background:#f7f5ff; font-size:18px;">
+  中文输入多了 <b>输入码 → IME → 选字</b>；英文和中文最终都需要 <b>字形信息 → 像素</b>。
+</div>
+"""
+
+display(HTML(html))
+```
+
+---
+
+# Q10 Unicode：字符身份 {#q10-demo}
+
+```{python}
+for ch in ["A", "你", "中"]:
+    code_point = ord(ch)
+    print(f"{ch}  decimal={code_point:<6}  hex=0x{code_point:X}  Unicode=U+{code_point:04X}")
+```
+
+---
+
+# Q11 同一个字符，不同 byte 表示 {#q11-demo}
+
+```{python}
+ch = "你"
+print("Character :", ch)
+print("Code point:", f"U+{ord(ch):04X}")
+print()
+for encoding in ["utf-8", "gb18030", "utf-16-be"]:
+    raw = ch.encode(encoding)
+    print(f"{encoding:<10}{raw.hex(' ').upper():<14}{len(raw)} byte(s)")
+```
+
+---
+
+# Q13 乱码揭秘 {#q13-demo}
+
+```{python}
+text = "你好"
+utf8_bytes = text.encode("utf-8")
+correct = utf8_bytes.decode("utf-8")
+wrong = utf8_bytes.decode("gbk")
+
+print("原文              :", text)
+print("UTF-8 bytes       :", utf8_bytes.hex(" ").upper())
+print("按 UTF-8 正确解码 :", correct)
+print("按 GBK 错误解码   :", wrong)
+```
+
+```{python}
+print("同一批 bytes：")
+print(utf8_bytes.hex(" ").upper())
+print()
+print("UTF-8 →", utf8_bytes.decode("utf-8"))
+print("GBK   →", utf8_bytes.decode("gbk"))
+```
+
+---
+
+# 课前检查
+
+```{python}
+import sys
+print("Python:", sys.version.split()[0])
+assert "A".encode("ascii") == b"A"
+assert "中".encode("gb2312").hex().upper() == "D6D0"
+assert "你".encode("utf-8").hex().upper() == "E4BDA0"
+print("Encoding checks: OK")
+```
