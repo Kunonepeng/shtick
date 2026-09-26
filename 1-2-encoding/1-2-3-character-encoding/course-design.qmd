@@ -55,6 +55,26 @@ format:
 - 输入码、机内码、字形码的对比建模；
 - 课程末尾重建完整流程。
 
+## C0.1 课堂执行方式
+
+课堂只在两个主要界面之间切换：
+
+```text
+Deck
+负责：问题、活动、图表、结论
+   ⇄
+JupyterLab
+负责：需要运行代码才能观察的证据
+```
+
+代码演示统一放在：
+
+`demo-lab.qmd → demo-lab.ipynb`
+
+Notebook 使用与 Deck 相同的 Q 编号。教师在 Deck 讲到 Q3、Q6、Q8、Q9、Q10、Q11、Q13 时，切到 Notebook 的同名章节；运行后立即回到 Deck。
+
+WinHex 只作为 Q6–Q8 的首选真实文件观察工具；如果环境不稳定，直接使用 Notebook 中的 Q6 Plan B。
+
 # C1 驱动问题 {#c1}
 
 > 当我在键盘上输入 `ni`，选择“你”，直到屏幕出现“你”，计算机内部经历了哪些表示？  
@@ -185,7 +205,7 @@ GB2312 汉字机内码:
 | 理解输入码 | 英文输入与中文输入流程对比 |
 | 理解字形码 | 字体 / glyph 演示记录 |
 | 区分不同编码 | 同一字符 GB2312 / UTF-8 字节对照 |
-| 理解乱码 | `teacher-demo.qmd` 故障定位 |
+| 理解乱码 | `demo-lab.qmd` 的 Q0 / Q13 故障定位 |
 | 建立总模型 | Exit Ticket 流程图 |
 
 ---
@@ -216,7 +236,7 @@ GB2312 汉字机内码:
 
 开场只展示现象，不解释原因。
 
-使用 `teacher-demo.qmd`：
+使用 `demo-lab.qmd` 的 Q0 / Q13：
 
 - 先显示正确文本；
 - 再显示乱码；
@@ -511,11 +531,9 @@ MSB = 0
 
 **Python 验证：A 的 ASCII 编码**
 
-课堂可直接运行：
+课堂切换到 JupyterLab：
 
-```bash
-python 1-2-encoding/1-2-3-character-encoding/demos/demo_ascii_7bit.py
-```
+`demo-lab.ipynb → Q3 ASCII：7 bit 与 1 byte`
 
 核心代码：
 
@@ -665,13 +683,11 @@ A中B国C文
 
 **Plan B：如果 WinHex 无法使用**
 
-运行：
+切换到 JupyterLab：
 
-```bash
-python 1-2-encoding/1-2-3-character-encoding/demos/demo_gb2312_machine_code.py
-```
+`demo-lab.ipynb → Q6–Q7 Plan B：GB2312 机内码`
 
-程序对同一文本进行 GB2312 编码：
+Notebook 对同一文本进行 GB2312 编码：
 
 ```text
 A中B国C文
@@ -940,13 +956,11 @@ A      A      A
 
 **课堂可视化 Demo**
 
-运行：
+切换到 JupyterLab：
 
-```bash
-python 1-2-encoding/1-2-3-character-encoding/demos/demo_input_glyph_flow.py
-```
+`demo-lab.ipynb → Q9 英文输入与中文输入`
 
-程序并排显示两条流程，并支持逐步高亮：
+Notebook 在输出区并排显示两条流程：
 
 ```text
 英文 A                         中文 你
@@ -964,18 +978,12 @@ font → glyph A                 font → glyph 你
 pixels → A                     pixels → 你
 ```
 
-课堂操作：
-
-- `Space` / `→`：下一步；
-- `←`：上一步；
-- `R`：重置。
-
 演示目的不是模拟真实操作系统 IME，而是把两条信息流程并排显示，突出两点：
 
 1. 中文输入比英文字符输入多了“**输入码 → IME → 选字**”环节；
 2. 英文和中文在显示阶段都需要“**字符 → 字形信息 → 像素**”。
 
-脚本使用 Python 标准库 Tkinter；如果图形界面不可用，会自动切换为文本模式。
+可视化直接显示在 Notebook 输出区，不打开额外 GUI 窗口。
 
 **本环节形成的三层模型**
 
@@ -1110,7 +1118,7 @@ GB2312  ─────────→  GBK  ─────────→  GB1
 
 ## Q13 同一批 bytes 为什么会变成乱码？ {#q13}
 
-重新回到开场的 `teacher-demo.qmd`。
+重新回到开场的 `demo-lab.qmd` 的 Q0 / Q13。
 
 完整显示：
 
@@ -1447,15 +1455,24 @@ bytes
 
 # D0 演示映射 {#d0}
 
-| 演示 | 对应问题 | 状态 |
+课堂代码统一入口：
+
+`demo-lab.qmd → demo-lab.ipynb`
+
+| Notebook 章节 | 对应问题 | 课堂用途 |
 |---|---|---|
-| `teacher-demo.qmd` | Q0 / Q13 乱码 | 已有 |
-| `demos/demo_ascii_7bit.py` | Q3 ASCII 7 bit / 1 byte | 已有 |
-| WinHex GB2312 实验 | Q6–Q8 | 首选 |
-| `demos/demo_gb2312_machine_code.py` | Q6–Q7 WinHex Plan B | 已有 |
-| `demos/demo_input_glyph_flow.py` | Q9 英文输入 vs 汉字输入 | 已有 |
-| 字体 / glyph / 点阵 | Q9 | 待设计 |
-| Unicode / bytes inspector | Q10–Q11 | 待设计 |
+| Q0 乱码悬念 | Q0 | 只看现象，不解释 |
+| Q3 ASCII：7 bit 与 1 byte | Q3 | `A → 0x41 → 1000001 → 01000001` |
+| Q6–Q7 GB2312 Plan B | Q6–Q7 | WinHex 失败时观察 byte / MSB |
+| Q8 GB2312 vs UTF-8 | Q8 | 比较同一汉字的 byte 长度 |
+| Q9 英文输入与中文输入 | Q9 | 输入码 / IME / 字形流程可视化 |
+| Q10 Unicode | Q10 | 观察 code point |
+| Q11 同一字符，不同 bytes | Q11 | UTF-8 / GB18030 / UTF-16BE |
+| Q13 乱码揭秘 | Q13 | 展开 encode → bytes → wrong decode |
+
+WinHex 保留为 Q6–Q8 的首选实验工具；Notebook 中的 Q6 是无需额外软件的 Plan B。
+
+`demos/*.py` 保留作独立调试或备用，不作为课堂切换入口。
 
 ---
 
@@ -1464,7 +1481,7 @@ bytes
 | V2 页 | 内容 | V3 动作 | 说明 |
 |---:|---|---|---|
 | 1 | 封面 | KEEP | 保留 |
-| 2 | 乱码开场 | KEEP + REFINE | 连接 `teacher-demo.qmd`，先隐藏原理 |
+| 2 | 乱码开场 | KEEP + REFINE | 连接 `demo-lab.qmd` 的 Q0 / Q13，先隐藏原理 |
 | 3 | 四个核心问题 | REFINE | 改为“键盘→屏幕”课程地图 |
 | 4–5 | 自己发明字符表 | REWRITE | 改为 Q1-A 秘密编码表 + Q1-B 只有 8 个位置 |
 | 6–7 | 不同机器不同表 | MERGE | 接在 Q1 的“无编码表无法解码”之后 |
@@ -1606,33 +1623,38 @@ ni → 输入码 → IME → 字符“你”
 
 # N0 后续产物 {#n0}
 
-按以下顺序继续：
+当前课堂执行结构：
 
-1. `student-lab.qmd`
-   - 3-bit 英文字符编码挑战
-   - ASCII 查表
-   - ASCII 编码比较
-   - 汉字编码设计讨论
-   - WinHex 观察记录
-   - GB2312 / UTF-8 对照
-   - 英文输入 / 汉字输入对比
-   - 最终模型
+```text
+course-design.qmd
+      ├── slides.qmd      → 课堂 Deck
+      └── demo-lab.qmd    → demo-lab.ipynb
+```
 
-2. 教师演示
-   - 保留 `teacher-demo.qmd`
-   - 已有 ASCII 7-bit 演示：`demos/demo_ascii_7bit.py`
-   - 新增 ASCII 表交互查找演示
-   - 已有英文 / 中文输入流程演示：`demos/demo_input_glyph_flow.py`
-   - 新增更细的字体 / glyph / 点阵演示
-   - 新增 Unicode / bytes inspector
+已完成：
 
-3. `slides.qmd`
-   - 用于检查问题链、活动时间和内容密度
+- `demo-lab.qmd`：Q0 / Q3 / Q6–Q11 / Q13 代码演示统一入口；
+- WinHex Plan B 已并入 Notebook；
+- Q9 英文/中文输入流程改为 Notebook 内联可视化；
+- 原 `teacher-demo.qmd` 内容已并入 `demo-lab.qmd`，不再单独维护。
 
-4. PowerPoint V3
-   - 教学结构确认后生成
-   - 严格遵循项目 slide style guide
-   - Speaker Notes 保存逐字稿和来源
+下一步：
+
+1. `slides.qmd`
+   - 按 Q0–Q14 建立课堂 Deck；
+   - 只放问题、证据图、活动指令和结论；
+   - 需要运行代码的位置明确标注“切换到 Demo Lab：Qx”。
+
+2. PowerPoint V3
+   - 教学结构确认后生成；
+   - 严格遵循项目 slide style guide；
+   - Speaker Notes 保存逐字稿和来源。
+
+3. 学生材料
+   - Q1 编码游戏；
+   - ASCII 查表任务；
+   - WinHex 观察表；
+   - Exit Ticket。
 
 ---
 
