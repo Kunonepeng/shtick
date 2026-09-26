@@ -5,7 +5,8 @@ subtitle: "可执行的信息科技课程"
 
 ## 当前课程
 
-- [1-2-3 字符编码](1-2-encoding/1-2-3-character-encoding/course-design.qmd)
+- [1-2-3 字符编码 · 教学设计](1-2-encoding/1-2-3-character-encoding/course-design.qmd)
+- [1-2-3 字符编码 · Demo Lab](1-2-encoding/1-2-3-character-encoding/demo-lab.qmd)
 
 ## 工作流
 
@@ -15,7 +16,6 @@ subtitle: "可执行的信息科技课程"
 Quarto source
    ├── 教师教学设计 / 学历案
    ├── 学生活动
-   ├── Notebook
-   ├── Demo
-   └── Slides
+   ├── Deck / Slides
+   └── Demo Lab / Notebook
 ```
