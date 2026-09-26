@@ -8,4 +8,9 @@ _freeze/
 **/*.quarto_ipynb
 
 # Quarto-generated notebooks
-1-2-encoding/1-2-3-character-encoding/demo-lab.ipynb
+1-2-encoding/1-2-3-character-encoding/demo-lab-teacher.ipynb
+1-2-encoding/1-2-3-character-encoding/demo-lab-student.ipynb
+
+# Generated lab files
+1-2-encoding/1-2-3-character-encoding/assets/gb2312-lab.txt
+1-2-encoding/1-2-3-character-encoding/assets/utf8-lab.txt
