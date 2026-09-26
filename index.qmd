@@ -1,22 +1,26 @@
 ---
 title: "shtick"
-subtitle: "可执行的信息科技课程"
 ---
 
-## 当前课程
+# shtick
+
+Senior High School Information Technology Course materials.
+
+The name comes from `SHSIC` being easy to mistype or remember as `shtick`.
+
+## Lessons
 
 - [1-2-3 字符编码 · 教学设计](1-2-encoding/1-2-3-character-encoding/course-design.qmd)
-- [1-2-3 字符编码 · Slides](1-2-encoding/1-2-3-character-encoding/slides.qmd)
-- [1-2-3 字符编码 · Demo Lab](1-2-encoding/1-2-3-character-encoding/demo-lab.qmd)
+- [1-2-3 字符编码 · Reveal.js reference](1-2-encoding/1-2-3-character-encoding/slides.qmd)
+- [1-2-3 字符编码 · Teacher Demo Lab](1-2-encoding/1-2-3-character-encoding/demo-lab-teacher.qmd)
+- [1-2-3 字符编码 · Student Demo Lab](1-2-encoding/1-2-3-character-encoding/demo-lab-student.qmd)
 
-## 工作流
+## Current workflow
 
 ```text
-教学设计
-   ↓
-Quarto source
-   ├── 教师教学设计 / 学历案
-   ├── 学生活动
-   ├── Deck / Slides
-   └── Demo Lab / Notebook
+course-design.qmd
+      ├── PPTX / WPS classroom deck
+      ├── demo-lab-teacher.qmd
+      ├── demo-lab-student.qmd
+      └── slides.qmd  # Reveal.js reference / experiment
 ```
