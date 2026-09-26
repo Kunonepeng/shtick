@@ -1,0 +1,106 @@
+---
+title: "教师 Demo：乱码是怎样产生的？"
+subtitle: "字符编码 · Q0 故障注入"
+jupyter: python3
+format:
+  html:
+    code-fold: false
+execute:
+  echo: true
+  warning: false
+---
+
+## 1. 先让学生看正确文本
+
+```{python}
+text = "你好, 欢迎来到字符编码课堂"
+print(text)
+```
+
+**先不要解释。**
+
+提问：
+
+> 如果同一份文字稍后变成乱码，究竟是哪一层发生了变化？
+
+---
+
+## 2. 文本保存时，真正写下的是什么？
+
+```{python}
+raw = text.encode("utf-8")
+
+print(raw)
+```
+
+进一步查看字节：
+
+```{python}
+print(raw.hex(" ").upper())
+```
+
+教师追问：
+
+> 文件里保存的是屏幕上的“你”这个形状吗？
+
+---
+
+## 3. 故意使用另一套规则解释同一批字节
+
+```{python}
+wrong = raw.decode("gb18030")
+print(wrong)
+```
+
+现在学生会看到类似乱码。
+
+教师暂时只问：
+
+> 字节变了吗？
+
+---
+
+## 4. 检查证据
+
+```{python}
+print("原始 UTF-8 字节：")
+print(raw.hex(" ").upper())
+
+roundtrip = text.encode("utf-8").decode("utf-8")
+
+print("\n正确解码：")
+print(roundtrip)
+```
+
+结论暂时只写：
+
+> **同一批字节，用不同规则解释，可以得到不同字符。**
+
+完整原理留到课程后半段再解释。
+
+---
+
+## 5. 课堂回扣
+
+课程最后重新运行：
+
+```{python}
+bad = text.encode("utf-8").decode("gb18030")
+
+print("原文：", text)
+print("乱码：", bad)
+```
+
+让学生指出故障位置：
+
+```text
+字符
+ ↓
+encode
+ ↓
+bytes
+ ↓
+decode   ← 这里使用了不匹配的规则
+ ↓
+字符
+```

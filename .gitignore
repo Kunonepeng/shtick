@@ -3,3 +3,6 @@ _site/
 _freeze/
 **/.ipynb_checkpoints/
 .DS_Store
+
+/.quarto/
+**/*.quarto_ipynb
