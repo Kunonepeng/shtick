@@ -4,7 +4,8 @@ project:
   render:
     - index.qmd
     - 1-2-encoding/1-2-3-character-encoding/course-design.qmd
-    - 1-2-encoding/1-2-3-character-encoding/demo-lab.qmd
+    - 1-2-encoding/1-2-3-character-encoding/demo-lab-teacher.qmd
+    - 1-2-encoding/1-2-3-character-encoding/demo-lab-student.qmd
     - 1-2-encoding/1-2-3-character-encoding/slides.qmd
 
 website:
@@ -17,8 +18,10 @@ website:
         text: 字符编码
       - href: 1-2-encoding/1-2-3-character-encoding/slides.qmd
         text: Slides
-      - href: 1-2-encoding/1-2-3-character-encoding/demo-lab.qmd
-        text: Demo Lab
+      - href: 1-2-encoding/1-2-3-character-encoding/demo-lab-teacher.qmd
+        text: Teacher Demo
+      - href: 1-2-encoding/1-2-3-character-encoding/demo-lab-student.qmd
+        text: Student Demo
 
 format:
   html:
