@@ -1,14 +1,13 @@
 ---
 title: "字符编码"
-subtitle: "从按下键盘，到屏幕出现汉字"
+subtitle: "Reveal.js reference deck"
 jupyter: python3
 format:
   revealjs:
     theme: [default, styles/violet-rail.scss]
     transition: fade
     center: false
-    slide-number: true
-    chalkboard: true
+    slide-number: false
     width: 1600
     height: 900
 execute:
@@ -18,171 +17,73 @@ execute:
 
 ## 字符编码
 
-<div class="kicker">1-2-3 Character Encoding</div>
+<div class="kicker">Reveal.js reference / experimental deck</div>
 
-<div class="big-question">
-当我输入 <span class="focus">ni</span>，选择“你”，直到屏幕显示“你”，计算机经历了哪些表示？
-</div>
+<div class="big-question">从按下键盘，到屏幕出现汉字，计算机经历了哪些表示？</div>
 
 ::: {.notes}
-本 deck 控制课堂节奏。需要现场修改输入时，切换到 demo-lab.ipynb 的同名 Q 编号。
+正式课堂仍以 WPS / PowerPoint PPTX 为准。本 deck 用于参考与实验。
 :::
-
----
-
-## 今日路线
-
-```text
-Q0  乱码悬念
-Q1  字符集与编码映射
-Q2  ASCII 表怎样读
-Q3  ASCII: 7 bit vs 1 byte
-Q4  ASCII 字符比较
-Q5  从 ASCII 迁移到汉字编码
-Q6  WinHex / 机内码
-Q8  GB2312 vs UTF-8
-Q9  输入码 / 字形码
-Q10 Unicode 码位
-Q11 码位 vs bytes
-Q13 乱码揭秘
-Q14 完整模型
-```
-
-<div class="evidence">
-代码证据优先嵌入 deck；需要现场修改时切换到 <strong>Demo Lab</strong>。
-</div>
 
 ---
 
 ## Q0 同一份文字，为什么会变成乱码？
 
-```{python}
-#| echo: false
-text = "你好"
-raw = text.encode("utf-8")
-wrong = raw.decode("gbk")
-print("原文：", text)
-print("乱码：", wrong)
-```
-
-<div class="big-question">
-错误发生在输入、字符身份、字节，还是显示环节？
-</div>
-
-::: {.notes}
-这里只保留悬念，不解释 encode/decode。后面 Q13 回扣。
-:::
+<div class="big-question">错误发生在输入、字符身份、bytes，还是显示环节？</div>
 
 ---
 
-## Q1-A 同一个字符集，不同编码映射
+## Q0 现象
 
-<div class="two-col">
-<div>
+```text
+原文：你好
+乱码：浣犲ソ
+```
 
-**字符集**
+<div class="evidence">先不解释 encode / decode。课程后半段回到这个问题。</div>
+
+---
+
+## Q1-A 同一个字符集，为什么还读不懂？
 
 ```text
 A  E  H  L  O  R  S  T
+
+000 001 010 011 100 101 110 111
 ```
 
-**可用编码**
-
-```text
-000 001 010 011
-100 101 110 111
-```
-
-</div>
-<div>
-
-**规则**
-
-1. 每位学生自行打乱 8 个编码；
-2. 编码 `HELLO`；
-3. 只交换比特串，不交换编码表；
-4. 再交换编码表，重新解码。
-
-</div>
-</div>
+任务：每人自行打乱编码，编码 HELLO，只交换比特串。
 
 ---
 
 ## Q1-A 结论
 
 ```text
-相同字符集
-+
-相同编码长度
-+
-不同字符—编码映射
-=
-同一串比特可以得到不同解释
+相同字符集 + 相同编码长度 + 不同映射
+= 同一串 bits 可以得到不同解释
 ```
 
-<div class="evidence">
-通信双方必须共享同一套 <strong>字符 ↔ 编码</strong> 的对应规则。
-</div>
+<div class="evidence">通信双方必须共享同一套“字符 ↔ 编码”映射。</div>
 
 ---
 
-## Q1-B 只有 8 个位置：哪些字符进入字符集？
-
-候选字符：
+## Q1-B 你的 3-bit 字符集能编码 CODE 吗？
 
 ```text
-A  C  D  E  H  L  O  R  S  T  X  Y
-```
+字符集 = { A, E, H, L, O, R, S, T }
 
-限制：
-
-```text
-3 bit → 2³ = 8 个位置
-```
-
-任务：必须能够编码：
-
-```text
-HELLO
-STAR
+C O D E
 ```
 
 ---
 
 ## Q1-B 结论
 
-`HELLO` + `STAR` 需要的 8 个不同字母：
-
 ```text
-H E L O S T A R
+C、D 不在字符集中。
 ```
 
-因此字符集至少是：
-
-```text
-{A, E, H, L, O, R, S, T}
-```
-
-<div class="evidence">
-`CODE` 无法完整表示，因为 `C`、`D` 没有进入字符集。
-</div>
-
----
-
-## Q2 ASCII 表怎样读？
-
-示例：查找 `A`
-
-```text
-高 3 位：100
-低 4 位：0001
-
-组合：1000001₂ = 0x41 = 65
-```
-
-<div class="evidence">
-ASCII 先规定字符集，再给每个位置分配唯一编码。
-</div>
+<div class="evidence">设计字符编码：先确定字符集，再设计编码映射。</div>
 
 ---
 
@@ -191,138 +92,43 @@ ASCII 先规定字符集，再给每个位置分配唯一编码。
 ```{python}
 ch = "A"
 code = ord(ch)
-ascii_byte = ch.encode("ascii")[0]
-
-print(f"Character        : {ch}")
-print(f"Decimal code     : {code}")
-print(f"Hex code         : 0x{code:02X}")
 print(f"ASCII 7-bit code : {code:07b}")
-print(f"Stored in 1 byte : {ascii_byte:08b}")
-print(f"MSB              : {(ascii_byte >> 7) & 1}")
-```
-
-::: {.notes}
-这段代码也在 demo-lab.ipynb 的 Q3 中。课堂一般不需要切换，除非学生想换别的字符试。
-:::
-
----
-
-## Q3 观察结论
-
-```text
-ASCII 7-bit code : 1000001
-Stored in 1 byte : 01000001
-                   ↑
-                  MSB = 0
-```
-
-| 问题 | 答案 |
-|---|---|
-| ASCII 编码需要多少位？ | 7 bit |
-| 计算机通常用多少位保存一个 ASCII 字符？ | 1 byte = 8 bit |
-| 补出的最高位是什么？ | 0 |
-
----
-
-## Q4 ASCII 字符比较
-
-从 ASCII 表中找出：
-
-```text
-'0' = 0x30    '9' = 0x39
-'A' = 0x41    'Z' = 0x5A
-'a' = 0x61    'z' = 0x7A
-```
-
-结论：
-
-```text
-数字字符 < 大写英文字母 < 小写英文字母
-```
-
-练习：按 ASCII 编码从小到大排列：
-
-```text
-'a'   '3'   'B'   '9'   'Z'   'b'
+print(f"Stored in 1 byte : {code:08b}")
 ```
 
 ---
 
-## Q5 如果让你设计汉字编码？
-
-| ASCII 的设计经验 | 汉字编码要重新回答的问题 |
-|---|---|
-| 先确定字符集 | 哪些汉字进入字符集？ |
-| 每个字符唯一映射 | 每个汉字对应什么编码？ |
-| 7 bit | 容量够吗？ |
-| 1 byte 保存 | 1 byte 够吗？ |
-| 兼容已有系统 | 怎样兼容 ASCII 文本？ |
+## Q3 结论
 
 ```text
-7 bit  → 128
-8 bit  → 256
-16 bit → 65536
+1000001
+01000001
+↑
+补 0，MSB = 0
 ```
 
 ---
 
-## Q6 WinHex：汉字写进文件后是什么？
-
-首选：WinHex 观察 `A中B国C文`
-
-```text
-41  D6 D0  42  B9 FA  43  CE C4
-│     ││    │    ││    │    ││
-A     中    B    国    C    文
-```
-
-<div class="evidence">
-如果 WinHex 不可用，切换到 <strong>Demo Lab → Q6–Q7</strong>。
-</div>
-
----
-
-## Q6–Q7 Plan B：Python 观察 GB2312 机内码
+## Q6 在 GB2312 中，A中B国C文 写成什么 bytes？
 
 ```{python}
 text = "A中B国C文"
-
-def bits(byte):
-    return f"{byte:08b}"
-
-def msb(byte):
-    return (byte >> 7) & 1
-
-print("GB2312 bytes:", text.encode("gb2312").hex(" ").upper())
-print()
-print(f"{'字符':<4}{'Hex':<10}{'Bytes':<8}{'Binary':<22}{'MSB'}")
-print("-" * 60)
-
-for ch in text:
-    raw = ch.encode("gb2312")
-    hex_bytes = " ".join(f"{b:02X}" for b in raw)
-    binary = " ".join(bits(b) for b in raw)
-    msbs = " ".join(str(msb(b)) for b in raw)
-    print(f"{ch:<4}{hex_bytes:<10}{len(raw):<8}{binary:<22}{msbs}")
+print(text.encode("gb2312").hex(" ").upper())
 ```
 
 ---
 
-## Q7 什么是机内码？
-
-传统 GB2312 教材模型：
+## Q6–Q7 观察
 
 ```text
-ASCII:
-0xxxxxxx
-
-GB2312 汉字机内码:
-1xxxxxxx 1xxxxxxx
+41  D6 D0  42  B9 FA  43  CE C4
+A     中    B    国    C    文
 ```
 
-<div class="evidence">
-在本模型中，计算机可以通过最高位区分单字节 ASCII 和双字节汉字机内码。
-</div>
+```text
+ASCII:  0xxxxxxx
+GB2312: 1xxxxxxx 1xxxxxxx
+```
 
 ---
 
@@ -330,212 +136,72 @@ GB2312 汉字机内码:
 
 ```{python}
 ch = "中"
-
-for encoding in ["gb2312", "utf-8"]:
-    raw = ch.encode(encoding)
-    print(
-        f"{encoding:<8}"
-        f"bytes = {raw.hex(' ').upper():<10}"
-        f"length = {len(raw)}"
-    )
+for enc in ["gb2312", "utf-8"]:
+    raw = ch.encode(enc)
+    print(enc, raw.hex(" ").upper(), len(raw))
 ```
 
 ---
 
 ## Q8 结论
 
+<div class="evidence">字符占多少 bytes，取决于编码方案。</div>
+
+---
+
+## Q9 英文输入和中文输入有什么不同？
+
 ```text
-中（GB2312） → D6 D0      → 2 bytes
-中（UTF-8）  → E4 B8 AD   → 3 bytes
-```
-
-<div class="evidence">
-字符占多少 byte，不是字符本身固有的属性，而取决于具体编码方案。
-</div>
-
----
-
-## Q9 英文输入 vs 中文输入
-
-```{python}
-#| echo: false
-from IPython.display import HTML, display
-
-html = """
-<div style="display:grid; grid-template-columns:1fr 1fr; gap:28px; font-family:Arial,'Microsoft YaHei',sans-serif;">
-  <div>
-    <h3>英文字符 A</h3>
-    <div class="flow-box">键盘输入：按下 A</div>
-    <div class="flow-box">字符确定：A</div>
-    <div class="flow-box">字符身份：U+0041</div>
-    <div class="flow-box">字形信息：font → glyph A</div>
-    <div class="flow-box">显示：pixels → A</div>
-  </div>
-  <div>
-    <h3>中文字符 你</h3>
-    <div class="flow-box">键盘输入：按下 n、i</div>
-    <div class="flow-box red">输入码：ni</div>
-    <div class="flow-box red">输入法：IME → 选择“你”</div>
-    <div class="flow-box">字符身份：U+4F60</div>
-    <div class="flow-box">字形信息：font → glyph 你</div>
-    <div class="flow-box">显示：pixels → 你</div>
-  </div>
-</div>
-"""
-
-display(HTML(html))
+英文：按下 A → 字符 A
+中文：按下 n、i → 输入码 ni → IME → 字符“你”
 ```
 
 ---
 
-## Q9 结论：输入码与字形码
+## Q9 结论
 
 ```text
 输入码：怎么输入这个汉字？
-内码：计算机内部怎样表示这个字符？
-字形码：这个字符怎样显示出来？
-```
-
-<div class="evidence">
-中文输入多了“输入码 → IME → 选字”；英文和中文最终都需要“字形信息 → 像素”。
-</div>
-
----
-
-## Q10 Unicode：字符身份
-
-```{python}
-for ch in ["A", "你", "中"]:
-    code_point = ord(ch)
-    print(
-        f"{ch}  "
-        f"decimal={code_point:<6}  "
-        f"hex=0x{code_point:X}  "
-        f"Unicode=U+{code_point:04X}"
-    )
+字形信息：这个字符怎样画出来？
 ```
 
 ---
 
-## Q11 同一个字符，不同 bytes
+## Q10 同一个“你”，如何拥有稳定身份？
 
 ```{python}
 ch = "你"
-
-print("Character :", ch)
-print("Code point:", f"U+{ord(ch):04X}")
-print()
-
-for encoding in ["utf-8", "gb18030", "utf-16-be"]:
-    raw = ch.encode(encoding)
-    print(f"{encoding:<10}{raw.hex(' ').upper():<14}{len(raw)} byte(s)")
+print(ch, f"U+{ord(ch):04X}")
 ```
 
 ---
 
-## Q11 结论
+## Q11 同一个 U+4F60，为什么可以写成不同 bytes？
 
-```text
-字符身份 / code point
-        ≠
-具体 byte 表示
-```
-
-例：
-
-```text
-你 / U+4F60
-
-UTF-8     E4 BD A0
-GB18030   C4 E3
-UTF-16BE  4F 60
+```{python}
+ch = "你"
+for enc in ["utf-8", "gb18030", "utf-16-be"]:
+    print(enc, ch.encode(enc).hex(" ").upper())
 ```
 
 ---
 
-## Q12 中文编码标准为什么不断扩展？
-
-| 标准 | 时间 | 汉字覆盖 |
-|---|---:|---:|
-| GB2312 | 1980 | 6,763 |
-| GBK | 1995 | 21,003 |
-| GB18030-2000 | 2000 | 27,533 |
-| GB18030-2005 | 2005 | 70,244 |
-| GB18030-2022 | 2022 | 87,887 |
-
-<div class="evidence">
-字符集不断扩大，是中文编码标准演进的重要驱动力。
-</div>
-
----
-
-## Q13 乱码揭秘
+## Q13 同一批 bytes 为什么会变成乱码？
 
 ```{python}
 text = "你好"
-utf8_bytes = text.encode("utf-8")
-correct = utf8_bytes.decode("utf-8")
-wrong = utf8_bytes.decode("gbk")
-
-print("原文              :", text)
-print("UTF-8 bytes       :", utf8_bytes.hex(" ").upper())
-print("按 UTF-8 正确解码 :", correct)
-print("按 GBK 错误解码   :", wrong)
+raw = text.encode("utf-8")
+print(raw.hex(" ").upper())
+print(raw.decode("utf-8"))
+print(raw.decode("gbk"))
 ```
-
----
-
-## Q13 故障位置
-
-```text
-字符
- ↓
-encode
- ↓
-bytes
- ↓
-decode  ← 使用了不匹配的规则
- ↓
-字符
-```
-
-<div class="evidence">
-乱码不一定意味着字节已经损坏。很多乱码是“字节还在，但解释字节的规则错了”。
-</div>
 
 ---
 
 ## Q14 完整模型
 
 ```text
-键盘
-  ↓
-输入码（汉字输入）
-  ↓
-IME
-  ↓
-字符 / code point
-  ↓
-encode
-  ↓
-bytes
-  ↓
-decode
-  ↓
-字符
-  ↓
-字形码 / font / glyph
-  ↓
-pixels
+键盘 → 输入码 → IME → 字符 / code point
+→ encode → bytes → decode → 字符
+→ 字形信息 / glyph → pixels
 ```
-
----
-
-## Exit Ticket
-
-1. 3 bit 最多可以表示多少个不同字符？
-2. ASCII 为什么使用 7 bit？
-3. ASCII 用 1 byte 保存时，最高位是什么？
-4. 在 GB2312 机内码模型中，汉字怎样与 ASCII 区分？
-5. `U+4F60` 与 `E4 BD A0` 分别是什么？
-6. 为什么同一批 bytes 会变成乱码？
