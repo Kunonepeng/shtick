@@ -6,3 +6,6 @@ _freeze/
 
 /.quarto/
 **/*.quarto_ipynb
+
+# Quarto-generated notebooks
+1-2-encoding/1-2-3-character-encoding/teacher-demo.ipynb
