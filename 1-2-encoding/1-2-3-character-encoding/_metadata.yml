@@ -1,0 +1,7 @@
+lang: zh-CN
+
+jupyter: python3
+
+execute:
+  warning: false
+  error: false
