@@ -106,11 +106,17 @@ pedagogical source of truth
         ↓
 ┌───────────────────────────────┐
 │                               │
-PPTX classroom deck        demo-lab.qmd
+PPTX classroom deck        Jupyter demo sources
 │                               │
-WPS / PowerPoint           demo-lab.ipynb
-│                               │
-production presentation    live code demonstration
+WPS / PowerPoint           ├── demo-lab-teacher.qmd
+│                          │       ↓
+│                          │   demo-lab-teacher.ipynb
+│                          │
+│                          └── demo-lab-student.qmd
+│                                  ↓
+│                              demo-lab-student.ipynb
+│
+production presentation    teacher/student demo views
 │
 └───────────────┐
                 ↓
@@ -303,7 +309,79 @@ Preferred lesson rhythm:
 
 ---
 
-# 5. Official classroom deck: PPTX
+# 5. Student-facing vs teacher-facing information
+
+Whenever content is designed, revised, or reviewed, explicitly decide whether each piece of information is:
+
+1. **student-facing**;
+2. **teacher-facing**;
+3. **shared, but revealed at different times**.
+
+Do not make this decision implicitly.
+
+## 5.1 Student-facing information
+
+Student-facing information is what students need to see **at that moment** to think, observe, act, compare, or form a conclusion.
+
+Typical student-facing content:
+
+- the current question;
+- necessary givens;
+- experiment / activity instructions;
+- evidence needed for reasoning;
+- diagrams and examples;
+- code that students are expected to read or manipulate;
+- the conclusion **after** students have had time to think;
+- concise terminology that students need to retain.
+
+Student-facing material should be concise and projection-readable.
+
+## 5.2 Teacher-facing information
+
+Teacher-facing information supports teaching but should not normally occupy student visual space.
+
+Typical teacher-facing content:
+
+- full teaching transcript;
+- teaching intention;
+- expected student responses;
+- likely misconceptions;
+- follow-up questions;
+- timing advice;
+- technical caveats;
+- alternative examples;
+- troubleshooting steps;
+- demo fallback plans;
+- source URLs and research notes;
+- answers or hints that would spoil the current question;
+- implementation details students do not need.
+
+Teacher-facing information belongs primarily in:
+
+- PPTX Speaker Notes;
+- `course-design.qmd`;
+- `demo-lab-teacher.qmd / .ipynb`;
+- teacher reference material.
+
+## 5.3 Review rule
+
+For every significant piece of information, ask:
+
+```text
+Does the student need to see this now?
+Does it help the student think, or does it tell them what to think?
+Will it spoil the question?
+Is this mainly guidance for the teacher?
+Can it move to Speaker Notes or the teacher notebook?
+```
+
+If information is useful to the teacher but not necessary for students at that moment, keep it teacher-facing.
+
+If information reveals the answer, clue, conclusion, or key inference before students have attempted the question, it must not appear on the question slide or student notebook at that stage.
+
+---
+
+# 6. Official classroom deck: PPTX
 
 The official classroom presentation format is currently `.pptx`.
 
@@ -318,7 +396,7 @@ It is acceptable to generate PPTX directly. Do not force the production deck thr
 
 ---
 
-# 6. PPTX visual standard: strict compliance
+# 7. PPTX visual standard: strict compliance
 
 Every production PPTX deck must strictly follow:
 
@@ -343,7 +421,7 @@ At minimum, preserve:
 
 Do not introduce a new visual language unless the project explicitly changes the style guide.
 
-## 6.1 Student-facing content only
+## 7.1 Student-facing content only
 
 The slide itself should contain only information students need to see at that moment.
 
@@ -362,7 +440,7 @@ Do not turn the slide into a teacher handout.
 
 Complementary teacher-facing information belongs in Speaker Notes.
 
-## 6.2 One slide, one current teaching focus
+## 7.2 One slide, one current teaching focus
 
 Do not put everything that is eventually true onto one slide.
 
@@ -384,7 +462,7 @@ If a slide is dense, split it.
 
 Do not solve density by shrinking normal teaching text below the style-guide standard.
 
-## 6.3 Progressive disclosure
+## 7.3 Progressive disclosure
 
 Prefer duplicated slides over complicated animation.
 
@@ -411,9 +489,69 @@ Typical changes:
 
 Do not recreate a build slide from scratch if it can be duplicated.
 
+## 7.4 Every major question gets a question-only slide
+
+Every major classroom question should first appear on its **own question slide**.
+
+The purpose is to create a clean thinking pause.
+
+The question slide must not expose:
+
+- the answer;
+- hints that effectively reveal the answer;
+- the conclusion;
+- answer-colored emphasis;
+- explanatory diagrams that give away the inference;
+- completed calculations;
+- teacher annotations.
+
+It may include only the information students genuinely need in order to attempt the question:
+
+- the question itself;
+- necessary givens;
+- a neutral evidence image or table, if required;
+- concise task instructions.
+
+Sparse question slides are encouraged.
+
+## 7.5 Question slide → answer slide pairing
+
+The next slide should reveal the answer, explanation, evidence, or worked reasoning.
+
+The answer slide must be created by **duplicating the question slide**, not rebuilding it.
+
+The question itself must remain visually fixed across the transition:
+
+- same font family;
+- same font size;
+- same weight;
+- same x/y position;
+- same text-box width and height;
+- same line breaks where practical;
+- same alignment;
+- same surrounding base geometry.
+
+Then add the answer / explanation without moving the question unless there is a compelling layout reason.
+
+Preferred transition:
+
+```text
+Question-only slide
+        ↓ duplicate
+Same question in exactly the same place
++ answer / evidence / explanation
+        ↓
+optional additional duplicated slides
++ one new focus at a time
+```
+
+This is intended to reduce visual noise during slide switching so students perceive the new information, not a shifting layout.
+
+For question/answer pairs, layout stability is more important than squeezing both into a single slide.
+
 ---
 
-# 7. Speaker Notes are mandatory
+# 8. Speaker Notes are mandatory
 
 Every teaching slide must contain Speaker Notes.
 
@@ -451,7 +589,7 @@ Research URLs, technical caveats, alternative explanations, likely misconception
 
 ---
 
-# 8. PPTX layout quality assurance
+# 9. PPTX layout quality assurance
 
 A deck is not complete because the PPTX file was successfully generated.
 
@@ -472,7 +610,7 @@ Specifically prevent:
 - content entering the violet rails / unsafe margins;
 - font substitution changing line breaks.
 
-## 8.1 Required QA workflow
+## 9.1 Required QA workflow
 
 For every production deck:
 
@@ -488,7 +626,7 @@ For every production deck:
 
 A deck with visible overlap, clipping, broken wrapping, or unstable alignment is not classroom-ready.
 
-## 8.2 Text-box rule
+## 9.2 Text-box rule
 
 Do not assume a text box fits because the source string fits programmatically.
 
@@ -505,7 +643,7 @@ Do not reduce normal teaching text simply to force content into a box.
 
 ---
 
-# 9. Reveal.js / Quarto deck
+# 10. Reveal.js / Quarto deck
 
 A Reveal.js version should still be maintained.
 
@@ -553,17 +691,106 @@ When Reveal.js reaches the required classroom quality, this policy can be revisi
 
 ---
 
-# 10. Jupyter classroom workflow
+# 11. Demonstrations and Jupyter classroom workflow
 
-Use one Jupyter Notebook for one class whenever practical.
+Students generally respond well to demonstrations. Whenever a concept is meaningfully improved by seeing it happen, a demo is encouraged.
 
-Preferred source:
+Do not add demos merely for entertainment. A demo should provide evidence, expose a misconception, create cognitive conflict, or make an invisible process visible.
+
+Good candidates include:
+
+- bytes changing under different encodings;
+- the same bytes producing different text under different decoding rules;
+- ASCII / Unicode values;
+- image / sound / text digitization;
+- input → IME → character → glyph workflows;
+- bit-level patterns;
+- visual comparisons that are difficult to understand from static prose.
+
+The preferred place for executable demo code is JupyterLab.
+
+## 11.1 Two Notebook versions are required
+
+For a class that uses Jupyter demos, maintain two views:
 
 ```text
-demo-lab.qmd
+demo-lab-teacher.qmd
         ↓
-demo-lab.ipynb
+demo-lab-teacher.ipynb
+
+demo-lab-student.qmd
+        ↓
+demo-lab-student.ipynb
 ```
+
+Use the same Q identifiers and demo identifiers in both versions.
+
+Where practical, share the underlying computation through small reusable functions / modules so the two notebooks do not drift technically.
+
+### Teacher-facing Notebook
+
+The teacher version may contain:
+
+- complete runnable code;
+- expected output;
+- answers;
+- teaching transcript / prompts;
+- likely student predictions;
+- explanation of what to observe;
+- technical caveats;
+- troubleshooting notes;
+- fallback code;
+- optional extensions;
+- source references.
+
+It should be optimized for reliable classroom presentation and teacher control.
+
+### Student-facing Notebook
+
+The student version should contain only what students need to participate.
+
+It may contain:
+
+- the question;
+- necessary setup;
+- short readable code;
+- incomplete / editable cells when student manipulation is useful;
+- observation prompts;
+- spaces for predictions or conclusions;
+- outputs that are appropriate to reveal at that stage.
+
+It should not expose teacher-only notes, hidden answers, or conclusions before the intended reveal.
+
+## 11.2 Demo design rule
+
+For every demo, specify:
+
+```text
+What question does this demo answer?
+What should students predict before running it?
+What exactly should students observe?
+What should remain hidden until after the run?
+What conclusion should students infer?
+What is the fallback if the demo fails?
+```
+
+A demo should normally sit inside the same cognitive sequence as the lesson:
+
+```text
+question
+  ↓
+prediction
+  ↓
+run demo
+  ↓
+observe evidence
+  ↓
+explain
+  ↓
+form concept
+```
+
+## 11.3 Classroom switching
 
 Use the same Q identifiers as the course design and deck.
 
@@ -584,12 +811,12 @@ WinHex    = useful real-file evidence
 Notebook  = Plan B / manipulation / fallback
 ```
 
-Small, deterministic code examples may appear directly in the PPTX.
+Small, deterministic code examples may also appear directly in the PPTX when the output itself is evidence and no live manipulation is needed.
 
 Use Jupyter when the teacher may need to:
 
 - modify input live;
-- try a student-suggested character;
+- try a student-suggested value;
 - compare encodings;
 - inspect bytes;
 - rerun an experiment;
@@ -602,7 +829,7 @@ General rule:
 
 ---
 
-# 11. Teaching activities
+# 12. Teaching activities
 
 An activity must have a clear cognitive purpose.
 
@@ -621,7 +848,7 @@ Prefer short activities that feed directly into the next question.
 
 ---
 
-# 12. Technical accuracy
+# 13. Technical accuracy
 
 All substantive technical claims should be checked before becoming classroom material.
 
@@ -703,7 +930,7 @@ Do not imply that the visible shape itself is the stored character identity.
 
 ---
 
-# 13. Research and sources
+# 14. Research and sources
 
 When factual information depends on a standard, specification, product behavior, or historical fact, verify it.
 
@@ -723,13 +950,14 @@ Research URLs normally belong in Speaker Notes or teacher references unless the 
 
 ---
 
-# 14. Typical lesson files
+# 15. Typical lesson files
 
 A lesson directory may contain:
 
 ```text
 course-design.qmd
-demo-lab.qmd
+demo-lab-teacher.qmd
+demo-lab-student.qmd
 slides.qmd
 
 assets/
@@ -742,9 +970,10 @@ references/
 Roles:
 
 ```text
-course-design.qmd  → pedagogical source of truth
-demo-lab.qmd       → executable classroom demonstrations
-slides.qmd         → experimental Reveal.js implementation
+course-design.qmd       → pedagogical source of truth
+demo-lab-teacher.qmd     → teacher-facing executable demonstrations
+demo-lab-student.qmd     → student-facing executable demonstrations
+slides.qmd               → experimental Reveal.js implementation
 *.pptx             → current production classroom deck
 assets/            → screenshots, diagrams, evidence
 demos/             → reusable supporting code
@@ -755,7 +984,7 @@ Avoid creating multiple files with nearly identical purposes unless there is a c
 
 ---
 
-# 15. Definition of done
+# 16. Definition of done
 
 A lesson is classroom-ready only when:
 
@@ -763,7 +992,12 @@ A lesson is classroom-ready only when:
 - cognitive conflict creates a genuine need for the concepts;
 - technical claims have been checked;
 - student activities have a clear cognitive purpose;
+- suitable concepts use demonstrations where demos provide meaningful evidence;
+- teacher-facing and student-facing information have been explicitly separated;
+- teacher and student Jupyter versions are aligned where Jupyter is used;
 - the PPTX strictly follows `slide-style-guide.md`;
+- every major question has a question-only slide before its answer / explanation;
+- question/answer slide pairs preserve the question's position, typography, and base geometry;
 - every slide contains only necessary student-facing information;
 - every teaching slide has a Speaker Notes transcript;
 - complementary teacher information is in Speaker Notes;
