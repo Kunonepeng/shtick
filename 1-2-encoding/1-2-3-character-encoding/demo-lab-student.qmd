@@ -1,0 +1,216 @@
+---
+title: "字符编码 · 学生演示实验"
+subtitle: "Student-facing Demo Lab"
+jupyter: python3
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    toc-title: "Student Demo 导航"
+execute:
+  echo: true
+  warning: false
+---
+
+# 使用方式
+
+本 Notebook 只放学生需要看到和操作的内容。答案、教师提示、技术注解放在教师版 Notebook 或 Speaker Notes 中。
+
+---
+
+# Q0 乱码悬念 {#q0-demo}
+
+运行下面两格，先只观察现象。
+
+```{python}
+print("原文：", "你好")
+```
+
+```{python}
+# 这一格只显示结果，暂时不解释内部规则。
+print("乱码：", "浣犲ソ")
+```
+
+记录你的预测：
+
+> 错误可能发生在输入、字符身份、bytes，还是显示环节？为什么？
+
+---
+
+# Q3 ASCII：7 bit 与 1 byte {#q3-demo}
+
+运行代码，观察 `A` 的编码。
+
+```{python}
+ch = "A"
+code = ord(ch)
+ascii_byte = ch.encode("ascii")[0]
+
+print(f"Character        : {ch}")
+print(f"Decimal code     : {code}")
+print(f"Hex code         : 0x{code:02X}")
+print(f"ASCII 7-bit code : {code:07b}")
+print(f"Stored in 1 byte : {ascii_byte:08b}")
+print(f"MSB              : {(ascii_byte >> 7) & 1}")
+```
+
+思考：
+
+> `1000001` 和 `01000001` 有什么关系？多出来的一位是什么？
+
+---
+
+# Q6–Q7 GB2312 机内码观察 {#q6-demo}
+
+WinHex 不可用时运行这一节。
+
+```{python}
+text = "A中B国C文"
+
+def bits(byte):
+    return f"{byte:08b}"
+
+def msb(byte):
+    return (byte >> 7) & 1
+
+print("GB2312 bytes:", text.encode("gb2312").hex(" ").upper())
+print()
+print(f"{'字符':<4}{'Hex':<10}{'Bytes':<8}{'Binary':<22}{'MSB'}")
+print("-" * 60)
+
+for ch in text:
+    raw = ch.encode("gb2312")
+    hex_bytes = " ".join(f"{b:02X}" for b in raw)
+    binary = " ".join(bits(b) for b in raw)
+    msbs = " ".join(str(msb(b)) for b in raw)
+    print(f"{ch:<4}{hex_bytes:<10}{len(raw):<8}{binary:<22}{msbs}")
+```
+
+记录：
+
+1. ASCII 字符占几个 byte？MSB 是什么？
+2. GB2312 汉字占几个 bytes？每个 byte 的 MSB 是什么？
+
+---
+
+# Q8 同一个汉字：GB2312 vs UTF-8 {#q8-demo}
+
+```{python}
+ch = "中"
+for encoding in ["gb2312", "utf-8"]:
+    raw = ch.encode(encoding)
+    print(f"{encoding:<8} bytes = {raw.hex(' ').upper():<10} length = {len(raw)}")
+```
+
+思考：
+
+> 同一个“中”，为什么 byte 数不同？
+
+---
+
+# Q9 英文输入与中文输入 {#q9-demo}
+
+注意：这里暂时不显示 Unicode 码位。先比较输入流程。
+
+```{python}
+from IPython.display import display, HTML
+
+english = [
+    ("键盘输入", "按下 A"),
+    ("字符确定", "字符 A"),
+    ("字形信息", "font → glyph A"),
+    ("显示", "pixels → A"),
+]
+
+chinese = [
+    ("键盘输入", "按下 n、i"),
+    ("输入码", "ni"),
+    ("输入法", "IME → 选择“你”"),
+    ("字符确定", "字符“你”"),
+    ("字形信息", "font → glyph 你"),
+    ("显示", "pixels → 你"),
+]
+
+def flow_column(title, items, accent):
+    blocks = []
+    for label, value in items:
+        blocks.append(f"""
+        <div style="border:2px solid {accent}; border-radius:8px; padding:10px 12px; margin:7px 0; background:#fff;">
+          <div style="font-size:13px;color:#666;">{label}</div>
+          <div style="font-size:18px;font-weight:700;color:#222;">{value}</div>
+        </div>
+        """)
+    arrow = '<div style="text-align:center;font-size:22px;color:#6251B1;">↓</div>'
+    return f"""
+    <div style="width:46%;vertical-align:top;">
+      <div style="font-size:23px;font-weight:800;margin-bottom:12px;">{title}</div>
+      {arrow.join(blocks)}
+    </div>
+    """
+
+html = f"""
+<div style="display:flex; justify-content:space-between; gap:28px; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Microsoft YaHei',sans-serif;">
+  {flow_column("英文字符 A", english, "#6251B1")}
+  {flow_column("中文字符 你", chinese, "#FF0000")}
+</div>
+"""
+
+display(HTML(html))
+```
+
+记录：
+
+1. 中文输入比英文输入多了哪一层？
+2. 字符确定以后，为什么还需要字形信息？
+
+---
+
+# Q10 Unicode：字符身份 {#q10-demo}
+
+现在观察字符身份。
+
+```{python}
+for ch in ["A", "你", "中"]:
+    code_point = ord(ch)
+    print(f"{ch}  Unicode=U+{code_point:04X}")
+```
+
+---
+
+# Q11 同一个字符，不同 byte 表示 {#q11-demo}
+
+```{python}
+ch = "你"
+print("Character :", ch)
+print("Code point:", f"U+{ord(ch):04X}")
+print()
+for encoding in ["utf-8", "gb18030", "utf-16-be"]:
+    raw = ch.encode(encoding)
+    print(f"{encoding:<10}{raw.hex(' ').upper():<14}{len(raw)} byte(s)")
+```
+
+思考：
+
+> `U+4F60` 和 `E4 BD A0` 是同一种东西吗？
+
+---
+
+# Q13 乱码揭秘 {#q13-demo}
+
+现在展开 Q0 的机制。
+
+```{python}
+text = "你好"
+utf8_bytes = text.encode("utf-8")
+correct = utf8_bytes.decode("utf-8")
+wrong = utf8_bytes.decode("gbk")
+
+print("原文              :", text)
+print("UTF-8 bytes       :", utf8_bytes.hex(" ").upper())
+print("按 UTF-8 正确解码 :", correct)
+print("按 GBK 错误解码   :", wrong)
+```
+
+记录：
+
+> bytes 有没有改变？错误发生在哪一步？
