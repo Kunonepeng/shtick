@@ -1,0 +1,411 @@
+---
+title: "字符编码 · 课堂演示实验"
+subtitle: "一节课使用一个 Jupyter Notebook"
+jupyter: python3
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    toc-title: "Demo 导航"
+execute:
+  echo: true
+  warning: false
+---
+
+# 使用方式
+
+本文件只放**需要运行代码的课堂演示**。概念讲解、问题、活动和结论放在课堂 Deck 中。
+
+课堂切换原则：
+
+```text
+Deck 提出问题
+   ↓
+需要运行代码时切到 JupyterLab
+   ↓
+运行对应 Q 编号
+   ↓
+回到 Deck 讨论与总结
+```
+
+生成 Notebook：
+
+```bash
+quarto convert 1-2-encoding/1-2-3-character-encoding/demo-lab.qmd
+```
+
+生成文件：
+
+```text
+demo-lab.ipynb
+```
+
+建议上课前：
+
+1. 打开 `demo-lab.ipynb`；
+2. Restart Kernel；
+3. Clear All Outputs；
+4. 使用左侧 Table of Contents 按 Q 编号跳转。
+
+---
+
+# Q0 乱码悬念 {#q0-demo}
+
+Deck 中先提出问题，再切到这里运行。
+
+先显示正确文本：
+
+```{python}
+text = "你好"
+print(text)
+```
+
+现在故意使用不匹配的规则：
+
+```{python}
+raw = text.encode("utf-8")
+wrong = raw.decode("gbk")
+
+print(wrong)
+```
+
+此时不要解释 `encode` 和 `decode`。
+
+只问：
+
+> 同一份“你好”，为什么会变成另一串字符？
+
+完整解释留到 Q13。
+
+---
+
+# Q3 ASCII：7 bit 与 1 byte {#q3-demo}
+
+目标：用 `A` 验证 ASCII 编码、1-byte 存储和 MSB。
+
+```{python}
+ch = "A"
+
+code = ord(ch)
+ascii_byte = ch.encode("ascii")[0]
+
+print(f"Character        : {ch}")
+print(f"Decimal code     : {code}")
+print(f"Hex code         : 0x{code:02X}")
+print(f"ASCII 7-bit code : {code:07b}")
+print(f"Stored in 1 byte : {ascii_byte:08b}")
+print(f"MSB              : {(ascii_byte >> 7) & 1}")
+```
+
+预期观察：
+
+```text
+A
+65
+0x41
+1000001
+01000001
+MSB = 0
+```
+
+课堂追问：
+
+> ASCII 需要 7 bit，为什么显示成 8 bit 时左边多了一个 0？
+
+---
+
+# Q6–Q7 Plan B：GB2312 机内码 {#q6-demo}
+
+只有在 WinHex 不方便使用，或需要快速复核结果时运行这一节。
+
+实验文本：
+
+```text
+A中B国C文
+```
+
+```{python}
+text = "A中B国C文"
+
+def bits(byte):
+    return f"{byte:08b}"
+
+def msb(byte):
+    return (byte >> 7) & 1
+
+print("Text:", text)
+print("GB2312 bytes:", text.encode("gb2312").hex(" ").upper())
+print()
+
+print(f"{'字符':<4}{'Hex':<10}{'Bytes':<8}{'Binary':<22}{'MSB'}")
+print("-" * 60)
+
+for ch in text:
+    raw = ch.encode("gb2312")
+    hex_bytes = " ".join(f"{b:02X}" for b in raw)
+    binary = " ".join(bits(b) for b in raw)
+    msbs = " ".join(str(msb(b)) for b in raw)
+
+    print(f"{ch:<4}{hex_bytes:<10}{len(raw):<8}{binary:<22}{msbs}")
+```
+
+重点观察：
+
+```text
+A   → 41       → 01000001           → MSB 0
+中  → D6 D0    → 11010110 11010000  → MSB 1 1
+国  → B9 FA    → 10111001 11111010  → MSB 1 1
+文  → CE C4    → 11001110 11000100  → MSB 1 1
+```
+
+本实验只用于传统 GB2312 机内码模型。
+
+---
+
+# Q8 同一个汉字：GB2312 vs UTF-8 {#q8-demo}
+
+目标：限制“汉字总是占 2 byte”的结论。
+
+```{python}
+ch = "中"
+
+for encoding in ["gb2312", "utf-8"]:
+    raw = ch.encode(encoding)
+    print(
+        f"{encoding:<8}"
+        f"bytes = {raw.hex(' ').upper():<10}"
+        f"length = {len(raw)}"
+    )
+```
+
+再观察中英文混合文本：
+
+```{python}
+text = "A中B国C文"
+
+for encoding in ["gb2312", "utf-8"]:
+    raw = text.encode(encoding)
+    print(f"{encoding:<8}: {raw.hex(' ').upper()}")
+```
+
+课堂结论留给 Deck：
+
+> 字符占多少 byte，取决于采用的编码方案。
+
+---
+
+# Q9 英文输入与中文输入 {#q9-demo}
+
+目标：把“输入码”和“字形信息”放在同一幅流程图中比较。
+
+这一 Demo 在 Notebook 内显示，不打开第二个 GUI 窗口。
+
+```{python}
+from IPython.display import display, HTML
+
+english = [
+    ("键盘输入", "按下 A"),
+    ("字符确定", "字符 A"),
+    ("字符身份", "A / U+0041"),
+    ("字形信息", "font → glyph A"),
+    ("显示", "pixels → A"),
+]
+
+chinese = [
+    ("键盘输入", "按下 n、i"),
+    ("输入码", "ni"),
+    ("输入法", "IME → 选择“你”"),
+    ("字符身份", "你 / U+4F60"),
+    ("字形信息", "font → glyph 你"),
+    ("显示", "pixels → 你"),
+]
+
+def flow_column(title, items, accent):
+    blocks = []
+    for label, value in items:
+        blocks.append(
+            f"""
+            <div style="
+                border:2px solid {accent};
+                border-radius:8px;
+                padding:10px 12px;
+                margin:7px 0;
+                background:#fff;
+            ">
+              <div style="font-size:13px;color:#666;">{label}</div>
+              <div style="font-size:18px;font-weight:700;color:#222;">{value}</div>
+            </div>
+            """
+        )
+    arrow = '<div style="text-align:center;font-size:22px;color:#6251B1;">↓</div>'
+    return f"""
+    <div style="width:46%;vertical-align:top;">
+      <div style="font-size:23px;font-weight:800;margin-bottom:12px;">{title}</div>
+      {arrow.join(blocks)}
+    </div>
+    """
+
+html = f"""
+<div style="
+    display:flex;
+    justify-content:space-between;
+    gap:28px;
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Microsoft YaHei',sans-serif;
+">
+  {flow_column("英文字符 A", english, "#6251B1")}
+  {flow_column("中文字符 你", chinese, "#FF0000")}
+</div>
+
+<div style="
+    margin-top:20px;
+    padding:14px 18px;
+    border-left:5px solid #6251B1;
+    background:#f7f5ff;
+    font-size:18px;
+">
+  中文输入多了 <b>输入码 → IME → 选字</b>；
+  英文和中文最终都需要 <b>字符 → 字形信息 → 像素</b>。
+</div>
+"""
+
+display(HTML(html))
+```
+
+课堂观察：
+
+- 英文 `A` 通常可由按键直接确定字符；
+- 中文“你”先输入 `ni`，再由 IME 确定字符；
+- 两者确定字符以后，都还需要字体 / glyph 才能显示。
+
+---
+
+# Q10 Unicode：字符身份 {#q10-demo}
+
+目标：观察字符与 Unicode 码位的对应关系。
+
+```{python}
+for ch in ["A", "你", "中"]:
+    code_point = ord(ch)
+    print(
+        f"{ch}  "
+        f"decimal={code_point:<6}  "
+        f"hex=0x{code_point:X}  "
+        f"Unicode=U+{code_point:04X}"
+    )
+```
+
+重点：
+
+```text
+你 → U+4F60
+```
+
+码位回答：
+
+> 这是哪个字符？
+
+---
+
+# Q11 同一个字符，不同 byte 表示 {#q11-demo}
+
+目标：区分字符身份和编码后的 bytes。
+
+```{python}
+ch = "你"
+
+print("Character :", ch)
+print("Code point:", f"U+{ord(ch):04X}")
+print()
+
+for encoding in ["utf-8", "gb18030", "utf-16-be"]:
+    raw = ch.encode(encoding)
+    print(
+        f"{encoding:<10}"
+        f"{raw.hex(' ').upper():<14}"
+        f"{len(raw)} byte(s)"
+    )
+```
+
+预期：
+
+```text
+你
+U+4F60
+
+UTF-8      E4 BD A0
+GB18030    C4 E3
+UTF-16BE   4F 60
+```
+
+结论在 Deck 中完成：
+
+```text
+字符身份 / code point
+        ≠
+具体 byte 表示
+```
+
+---
+
+# Q13 乱码揭秘 {#q13-demo}
+
+现在回到 Q0，把整个过程展开。
+
+```{python}
+text = "你好"
+
+utf8_bytes = text.encode("utf-8")
+correct = utf8_bytes.decode("utf-8")
+wrong = utf8_bytes.decode("gbk")
+
+print("原文              :", text)
+print("UTF-8 bytes       :", utf8_bytes.hex(" ").upper())
+print("按 UTF-8 正确解码 :", correct)
+print("按 GBK 错误解码   :", wrong)
+```
+
+再确认：错误解码前后，byte 并没有改变。
+
+```{python}
+print("同一批 bytes：")
+print(utf8_bytes.hex(" ").upper())
+
+print()
+print("UTF-8 →", utf8_bytes.decode("utf-8"))
+print("GBK   →", utf8_bytes.decode("gbk"))
+```
+
+课堂回到 Deck，定位故障：
+
+```text
+字符
+ ↓
+encode
+ ↓
+bytes
+ ↓
+decode  ← 使用了不匹配的规则
+ ↓
+字符
+```
+
+---
+
+# 课前检查
+
+上课前依次运行：
+
+```{python}
+import sys
+
+print("Python:", sys.version.split()[0])
+print("Kernel OK")
+
+assert "A".encode("ascii") == b"A"
+assert "中".encode("gb2312").hex().upper() == "D6D0"
+assert "你".encode("utf-8").hex().upper() == "E4BDA0"
+
+print("Encoding checks: OK")
+```
+
+如果这一格运行成功，本 Notebook 的核心编码 Demo 可以正常使用。
