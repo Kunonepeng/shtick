@@ -91,6 +91,15 @@ for ch in text:
 1. ASCII 字符占几个 byte？MSB 是什么？
 2. GB2312 汉字占几个 bytes？每个 byte 的 MSB 是什么？
 
+接着看“中”的两种数值：
+
+```text
+GB2312 字符表中的国标码：56 50
+实验文件中的 bytes：     D6 D0
+```
+
+3. 每个 byte 相差多少（十六进制）？这说明表中的编码值与文件中的 bytes 是同一个表示吗？
+
 ---
 
 # Q8 同一个汉字：GB2312 vs UTF-8 {#q8-demo}
