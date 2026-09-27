@@ -184,7 +184,9 @@ display(HTML(html))
 
 ---
 
-# Q10 Unicode：字符身份 {#q10-demo}
+# Q10 Unicode 要解决什么问题？ {#q10-demo}
+
+先回看 Q1：两套私人编码表只交换 bits，双方读不懂。再回看 Q8：“中”在 GB2312 与 UTF-8 中的 bytes 不同。问学生：跨系统交换时，怎样确认是同一个字符？此时再运行码位演示。
 
 ```{python}
 for ch in ["A", "你", "中"]:
@@ -192,19 +194,55 @@ for ch in ["A", "你", "中"]:
     print(f"{ch}  decimal={code_point:<6}  hex=0x{code_point:X}  Unicode=U+{code_point:04X}")
 ```
 
+形成结论：Unicode 为字符约定共同身份。本例中的“你”是 `U+4F60`；保存时的 bytes 与显示时的字形仍是另外两层。不要把“统一码位”说成“所有文件 bytes 相同”，也不要暗示所有可见字形都只由一个码位产生。
+
 ---
 
-# Q11 同一个字符，不同 byte 表示 {#q11-demo}
+# Q11-A 同一码位，文件 bytes 一定相同吗？ {#q11a-demo}
+
+先让学生判断 `U+4F60` 是否就是文件里固定的 `4F 60`。保留预测后运行：
 
 ```{python}
 ch = "你"
 print("Character :", ch)
 print("Code point:", f"U+{ord(ch):04X}")
 print()
-for encoding in ["utf-8", "gb18030", "utf-16-be"]:
+for encoding in ["utf-8", "utf-16-be", "utf-32-be"]:
     raw = ch.encode(encoding)
-    print(f"{encoding:<10}{raw.hex(' ').upper():<14}{len(raw)} byte(s)")
+    print(f"{encoding:<10}{raw.hex(' ').upper()}")
 ```
+
+预期：`E4 BD A0`、`4F 60`、`00 00 4F 60`。同一码位在三种 UTF 中得到不同表示；`4F 60` 只是这里的 UTF-16BE bytes。
+
+---
+
+# Q11-B 8、16、32 是每个字符的位数吗？ {#q11b-demo}
+
+先展示 `A` 与“你”的结果，再问：UTF-16 是否对每个字符都恰好用 2 bytes？最后加入 `U+1F600` 检验。
+
+```{python}
+encodings = [("UTF-8", "utf-8"), ("UTF-16BE", "utf-16-be"), ("UTF-32BE", "utf-32-be")]
+
+def show_lengths(samples):
+    print("样本       码位       UTF-8  UTF-16BE  UTF-32BE")
+    for label, ch in samples:
+        lengths = [len(ch.encode(name)) for _, name in encodings]
+        print(f"{label:<10} U+{ord(ch):04X}       {lengths[0]:>1}         {lengths[1]:>1}          {lengths[2]:>1}")
+
+show_lengths([("A", "A"), ("你", "你")])
+```
+
+停在前两行，听学生判断。然后再运行：
+
+```{python}
+show_lengths([("U+1F600", chr(0x1F600))])
+```
+
+预期 byte 数：`A` 为 1 / 2 / 4，“你”为 3 / 2 / 4，`U+1F600` 为 4 / 4 / 4。8、16、32 指编码单元宽度；UTF-16 对 `U+1F600` 使用两个 16-bit 代理码元。无需让学生手算代理对。
+
+技术注解：代码指定 BE 且不写 BOM，用来比较文件 bytes。Unicode 标准同时规定字符身份与 UTF 编码形式；不要把 UTF 讲成与 Unicode 并列的三套字符集。一个可见字形也可能涉及多个码位。
+
+来源：Unicode Standard, Chapter 3: https://www.unicode.org/versions/Unicode18.0.0/core-spec/chapter-3/；Unicode FAQ: https://www.unicode.org/faq/utf_bom.html。
 
 ---
 

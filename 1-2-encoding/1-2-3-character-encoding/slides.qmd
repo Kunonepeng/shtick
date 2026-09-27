@@ -269,22 +269,72 @@ for enc in ["gb2312", "utf-8"]:
 
 ---
 
-## Q10 同一个“你”，如何拥有稳定身份？
+## Q10 各系统的编码表不同，怎样确认是同一个“你”？
 
-```{python}
-ch = "你"
-print(ch, f"U+{ord(ch):04X}")
-```
+Q1 的两张私人编码表不相通；Q8 中同一个“中”又有不同的 bytes。
+
+系统之间需要共同约定什么？
 
 ---
 
-## Q11 同一个 U+4F60，为什么可以写成不同 bytes？
+## Q10 各系统的编码表不同，怎样确认是同一个“你”？
 
-```{python}
-ch = "你"
-for enc in ["utf-8", "gb18030", "utf-16-be"]:
-    print(enc, ch.encode(enc).hex(" ").upper())
+```text
+字符“你” → Unicode 码位 U+4F60
 ```
+
+<div class="evidence">Unicode 为字符约定共同身份。文件 bytes 与屏幕字形还需要另外处理。</div>
+
+---
+
+## Q11-A U+4F60 是文件里固定的 4F 60 吗？
+
+先预测：换一种 UTF 编码形式，文件中的 bytes 会变吗？
+
+---
+
+## Q11-A U+4F60 是文件里固定的 4F 60 吗？
+
+| 字符身份 | 编码形式 | 文件 bytes |
+|---|---|---|
+| `你 → U+4F60` | UTF-8 | `E4 BD A0` |
+| 同一字符、同一码位 | UTF-16BE | `4F 60` |
+| 同一字符、同一码位 | UTF-32BE | `00 00 4F 60` |
+
+<div class="evidence">UTF-8、UTF-16、UTF-32 是 Unicode 的编码形式；码位不是固定的 byte sequence。</div>
+
+---
+
+## Q11-B UTF-16 是否意味着每个字符都占 16 bit？
+
+先预测 `A` 和“你”在三种 UTF 中各占几个 bytes。UTF-16 是否会一直占 2 bytes？
+
+---
+
+## Q11-B UTF-16 是否意味着每个字符都占 16 bit？
+
+| 码位 | UTF-8 | UTF-16BE | UTF-32BE |
+|---|---:|---:|---:|
+| `U+0041` (`A`) | 1 byte | 2 bytes | 4 bytes |
+| `U+4F60` (`你`) | 3 bytes | 2 bytes | 4 bytes |
+
+这两行能否证明 UTF-16 对每个字符都占 2 bytes？
+
+---
+
+## Q11-B UTF-16 是否意味着每个字符都占 16 bit？
+
+| 码位 | UTF-8 | UTF-16BE | UTF-32BE |
+|---|---:|---:|---:|
+| `U+0041` (`A`) | 1 byte | 2 bytes | 4 bytes |
+| `U+4F60` (`你`) | 3 bytes | 2 bytes | 4 bytes |
+| `U+1F600` | 4 bytes | 4 bytes | 4 bytes |
+
+<div class="evidence">8、16、32 指编码单元的 bit 数，不是每个字符固定占用的 bit 数。</div>
+
+::: {.notes}
+表中 UTF-16BE / UTF-32BE 不带 BOM。UTF-16 对 U+1F600 使用两个 16-bit 代理码元；课堂不要求手算。完整 byte 证据在 Q11 Notebook。
+:::
 
 ---
 

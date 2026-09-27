@@ -174,9 +174,9 @@ display(HTML(html))
 
 ---
 
-# Q10 Unicode：字符身份 {#q10-demo}
+# Q10 为什么需要共同的字符身份？ {#q10-demo}
 
-现在观察字符身份。
+回看 Q1 的两张私人编码表，以及 Q8 中同一个“中”的两种 bytes。不同系统怎样确认它们谈的是同一个字符？先预测，再观察码位。
 
 ```{python}
 for ch in ["A", "你", "中"]:
@@ -186,21 +186,52 @@ for ch in ["A", "你", "中"]:
 
 ---
 
-# Q11 同一个字符，不同 byte 表示 {#q11-demo}
+# Q11-A 同一码位，文件 bytes 一定相同吗？ {#q11a-demo}
+
+先预测：`U+4F60` 是否意味着文件里总是 `4F 60`？运行后比较三行结果。
 
 ```{python}
 ch = "你"
 print("Character :", ch)
 print("Code point:", f"U+{ord(ch):04X}")
 print()
-for encoding in ["utf-8", "gb18030", "utf-16-be"]:
+for encoding in ["utf-8", "utf-16-be", "utf-32-be"]:
     raw = ch.encode(encoding)
-    print(f"{encoding:<10}{raw.hex(' ').upper():<14}{len(raw)} byte(s)")
+    print(f"{encoding:<10}{raw.hex(' ').upper()}")
 ```
 
 思考：
 
-> `U+4F60` 和 `E4 BD A0` 是同一种东西吗？
+> 哪一项保持不变？哪一项随着 UTF 形式改变？
+
+---
+
+# Q11-B 8、16、32 是每个字符的位数吗？ {#q11b-demo}
+
+先预测 `A` 和“你”在三种 UTF 中各占几个 bytes，再运行第一格。
+
+```{python}
+encodings = [("UTF-8", "utf-8"), ("UTF-16BE", "utf-16-be"), ("UTF-32BE", "utf-32-be")]
+
+def show_lengths(samples):
+    print("样本       码位       UTF-8  UTF-16BE  UTF-32BE")
+    for label, ch in samples:
+        lengths = [len(ch.encode(name)) for _, name in encodings]
+        print(f"{label:<10} U+{ord(ch):04X}       {lengths[0]:>1}         {lengths[1]:>1}          {lengths[2]:>1}")
+
+show_lengths([("A", "A"), ("你", "你")])
+```
+
+现在判断：这两行能否证明 UTF-16 对每个字符都占 2 bytes？先预测 `U+1F600`，再运行第二格。
+
+```{python}
+show_lengths([("U+1F600", chr(0x1F600))])
+```
+
+记录：
+
+1. UTF-16 中哪个样本没有只占 2 bytes？
+2. 编码名称里的 8、16、32 更可能指什么？
 
 ---
 
