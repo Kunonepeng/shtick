@@ -38,8 +38,8 @@ TECH_REQUIRED = [
     ('Q14 storage/read path', ['保存并读取']),
 ]
 
-QUESTION_HEADING_RE = re.compile(r'^#{1,3}\\s+(Q[0-9]+(?:-[A-Z])?)\\s+(.+?)\\s*$', re.M)
-VISIBLE_Q_RE = re.compile(r'(?<![A-Za-z0-9])Q\\d+(?:-[A-Z])?(?![A-Za-z0-9])')
+QUESTION_HEADING_RE = re.compile(r'^#{1,3}\s+(Q[0-9]+(?:-[A-Z])?)\s+(.+?)\s*$', re.M)
+VISIBLE_Q_RE = re.compile(r'(?<![A-Za-z0-9])Q\d+(?:-[A-Z])?(?![A-Za-z0-9])')
 
 def inch(v):
     return float(v) / EMU_PER_INCH
@@ -50,7 +50,7 @@ def pt(v):
 def norm(s):
     s = s or ''
     s = s.replace('“','').replace('”','').replace('‘','').replace('’','')
-    return re.sub(r'[^0-9A-Za-z\\u4e00-\\u9fff]+', '', s).lower()
+    return re.sub(r'[^0-9A-Za-z\u4e00-\u9fff]+', '', s).lower()
 
 def text_of_shape(shape):
     if not getattr(shape, 'has_text_frame', False):
