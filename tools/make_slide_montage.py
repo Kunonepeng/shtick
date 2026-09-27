@@ -10,7 +10,7 @@ ap.add_argument('--out', required=True)
 args=ap.parse_args()
 rdir=Path(args.render_dir)
 data=json.loads(Path(args.data).read_text(encoding='utf-8'))
-files=sorted(rdir.glob('slide-*.png'), key=lambda p:int(re.search(r'(\\d+)$',p.stem).group(1)))
+files=sorted(rdir.glob('slide-*.png'), key=lambda p:int(re.search(r'(\d+)$',p.stem).group(1)))
 if not files:
     raise SystemExit('No rendered slide PNGs found')
 cols=5
