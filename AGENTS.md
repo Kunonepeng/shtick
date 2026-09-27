@@ -569,6 +569,82 @@ This is intended to reduce visual noise during slide switching so students perce
 
 For question/answer pairs, layout stability is more important than squeezing both into a single slide.
 
+## 7.6 Generated teaching images
+
+Use generated images only when they improve the teaching explanation.
+
+Before creating or inserting an image, classify the visual:
+
+```text
+Factual evidence
+    → real screenshot / standard / primary-source image
+
+Exact technical structure
+    → native PPT shapes / table / code / diagram
+
+Conceptual or situational illustration
+    → generated image may be appropriate
+```
+
+Core rule:
+
+> **Generated images illustrate; native diagrams and real screenshots prove.**
+
+Do not use generated images to fabricate or replace evidence such as:
+
+- ASCII / Unicode tables;
+- standards pages;
+- WinHex or software screenshots;
+- exact byte sequences;
+- code output;
+- historical documents;
+- technical diagrams where exact labels, values, geometry, or relationships matter.
+
+Generated images are appropriate for:
+
+- a cognitive-conflict opening scene;
+- a classroom situation;
+- an analogy or metaphor;
+- a human interaction that makes an abstract problem concrete;
+- a hero illustration where factual precision is not the evidence being taught.
+
+### Generated-image workflow
+
+For every generated teaching image:
+
+1. write one sentence stating the **teaching purpose** before writing the prompt;
+2. decide the intended slide region and aspect ratio;
+3. write the prompt using the project prompt structure in `image-generation-prompts.md`;
+4. normally generate the illustration **without explanatory text, technical labels, byte values, arrows, or conclusions**;
+5. add precise labels, arrows, focus rectangles, and technical values later as native PPT objects;
+6. insert the image as a clean rectangular visual with no decorative frame, shadow, glow, or card treatment;
+7. check that the image does not imply technically false details;
+8. preserve the exact generation prompt for reproducibility.
+
+### Prompt provenance
+
+For every generated image used in a production deck, preserve:
+
+```text
+[Image ID]
+[Slide / Q]
+[Teaching purpose]
+[Intended composition / aspect ratio]
+[Exact prompt]
+[Post-generation edits, if any]
+```
+
+Store the exact prompt in at least one durable project location:
+
+- lesson-local `assets/generated/image-prompts.md`; and/or
+- the relevant slide's Speaker Notes under `[图片生成提示词]`.
+
+Reusable prompt patterns live in:
+
+`image-generation-prompts.md`
+
+Do not rely on memory to reconstruct prompts later.
+
 ---
 
 # 8. Speaker Notes are mandatory
@@ -1061,6 +1137,9 @@ A lesson is classroom-ready only when:
 - technical claims have been checked;
 - student activities have a clear cognitive purpose;
 - suitable concepts use demonstrations where demos provide meaningful evidence;
+- generated images have a stated teaching purpose and are used only where illustration is appropriate;
+- exact prompts for production generated images are preserved in project files or Speaker Notes;
+- generated imagery is not being used as a substitute for factual evidence or exact technical diagrams;
 - teacher-facing and student-facing information have been explicitly separated;
 - teacher and student Jupyter versions are aligned where Jupyter is used;
 - `course-design.qmd` preserves the design rationale and transition logic;
