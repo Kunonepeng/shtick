@@ -307,6 +307,26 @@ Preferred lesson rhythm:
 完整模型
 ```
 
+## 4.4 Preserve course-design depth during refactoring
+
+Do not shorten `course-design.qmd` merely to make the repository cleaner.
+
+When reviewing or refactoring, preserve:
+
+- pedagogical rationale;
+- cognitive-conflict design;
+- question-chain logic;
+- expected student responses;
+- activity intent;
+- demo purpose;
+- transition logic;
+- technical caveats;
+- source notes.
+
+If the file becomes too long, move secondary teacher-facing detail into `teacher-guide.qmd`, `appendix.qmd`, or a references section rather than deleting it.
+
+Refactoring may improve structure, naming, and navigation, but it must not reduce the pedagogical information content.
+
 ---
 
 # 5. Student-facing vs teacher-facing information
@@ -559,33 +579,81 @@ Every slide must contain a usable **teacher transcript**: what the teacher can a
 
 The transcript should not merely repeat visible text.
 
-Example:
+Speaker Notes should begin with the **full classroom question or page purpose**, not only an internal identifier such as `Q3` or `Q9`.
+
+Preferred form:
 
 ```text
-Slide:
-“汉字真的总是占 2 byte 吗？”
-
-Speaker Notes:
-“刚才我们在 GB2312 中看到，一个汉字用了两个字节。
-现在我不改这个‘中’字，只改保存规则。
-请看 UTF-8 的结果。还是两个字节吗？”
+[问题] ASCII 是 7 bit，为什么计算机中常常看到 8 bit？
+[内部编号] Q3
 ```
 
-Where appropriate, Speaker Notes may also contain:
+The internal Q number is for navigation only. The complete question is the meaningful teaching unit.
+
+Where appropriate, Speaker Notes may contain:
 
 ```text
+[问题 / 页面目的]
+[内部编号]
 [教学意图]
 [教师逐字稿]
-[预期学生回答]
-[追问]
+[追问问题]
+[预期学生反应]
+[形成结论]
+[Demo 操作]
 [技术注解]
 [来源]
-[Demo 操作]
 ```
 
 Not every slide needs every subsection, but every teaching slide needs a transcript.
 
 Research URLs, technical caveats, alternative explanations, likely misconceptions, and other non-student-facing information should normally be placed in Speaker Notes rather than on the slide.
+
+## 8.1 Transcript quality
+
+The transcript should be written as language a teacher can actually say in class.
+
+It should:
+
+- sound natural when spoken aloud;
+- create curiosity before giving an explanation;
+- invite students to predict, compare, vote, argue, observe, or explain;
+- pause for student thinking instead of immediately supplying the answer;
+- refer explicitly to what students can see on the slide or in the demo;
+- use short transitions that connect the current question to the previous one;
+- anticipate common student answers and use them to move the discussion forward;
+- keep technical caveats in teacher-facing language rather than crowding the slide;
+- preserve a lively classroom rhythm without becoming theatrical or exaggerated.
+
+Avoid transcripts that merely read the slide aloud.
+
+Weak:
+
+> ASCII 是 7 bit。这里显示 8 bit。最高位是 0。
+
+Prefer:
+
+> 先别算。ASCII 明明只有 128 个位置，7 bit 已经够了。那为什么文件里我们偏偏看到 8 bit？多出来的这一位到底从哪儿来的？先看 A，谁能指出那一位在哪里？
+
+## 8.2 Follow-up questions
+
+`追问问题` belongs in Speaker Notes unless students must read it directly.
+
+Follow-up questions should deepen the current reasoning, not introduce unrelated content.
+
+Good follow-up questions help students:
+
+- explain an observation;
+- challenge a premature conclusion;
+- connect evidence to a concept;
+- compare two cases;
+- transfer the idea to a new example.
+
+Do not place teacher prompts, expected answers, follow-up questions, technical caveats, or navigation labels such as `Q1-A` on the student-facing slide unless students genuinely need to see them.
+
+The slide shows the learning object.
+
+The Speaker Notes guide the teaching conversation.
 
 ---
 
@@ -971,13 +1039,13 @@ Roles:
 
 ```text
 course-design.qmd       → pedagogical source of truth
-demo-lab-teacher.qmd     → teacher-facing executable demonstrations
-demo-lab-student.qmd     → student-facing executable demonstrations
-slides.qmd               → experimental Reveal.js implementation
-*.pptx             → current production classroom deck
-assets/            → screenshots, diagrams, evidence
-demos/             → reusable supporting code
-references/        → supporting source material
+demo-lab-teacher.qmd    → teacher-facing executable demonstrations
+demo-lab-student.qmd    → student-facing executable demonstrations
+slides.qmd              → experimental Reveal.js implementation
+*.pptx                  → current production classroom deck
+assets/                 → screenshots, diagrams, evidence
+demos/                  → reusable supporting code
+references/             → supporting source material
 ```
 
 Avoid creating multiple files with nearly identical purposes unless there is a clear reason.
@@ -995,13 +1063,15 @@ A lesson is classroom-ready only when:
 - suitable concepts use demonstrations where demos provide meaningful evidence;
 - teacher-facing and student-facing information have been explicitly separated;
 - teacher and student Jupyter versions are aligned where Jupyter is used;
+- `course-design.qmd` preserves the design rationale and transition logic;
 - the PPTX strictly follows `slide-style-guide.md`;
 - every major question has a question-only slide before its answer / explanation;
 - question/answer slide pairs preserve the question's position, typography, and base geometry;
 - every slide contains only necessary student-facing information;
-- every teaching slide has a Speaker Notes transcript;
+- every teaching slide has Speaker Notes with the full question/page purpose and a usable transcript;
 - complementary teacher information is in Speaker Notes;
 - every slide has been rendered and visually inspected;
+- all native deck text explicitly uses the required Alibaba PuHuiTi 3.0 font family/variant;
 - there is no overlap, clipping, accidental wrapping, or broken alignment;
 - the final deck has been checked in WPS / PowerPoint when practical;
 - Notebook demos have been tested;
