@@ -1,0 +1,116 @@
+name: Character Encoding PPTX Audit
+
+on:
+  push:
+    branches:
+      - audit/character-encoding-v6-2
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      DECK: 1-2-encoding/1-2-3-character-encoding/1-2-3-character-encoding-v6-2.pptx
+      COURSE: 1-2-encoding/1-2-3-character-encoding/course-design.qmd
+      OUT: audit-output
+      RENDER: audit-output/rendered-slides
+
+    steps:
+      - name: Checkout audit branch
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Python audit dependencies
+        run: python -m pip install --quiet python-pptx pillow
+
+      - name: Run structural and pedagogical audit
+        run: |
+          mkdir -p "$OUT"
+          python tools/pptx_audit.py "$DECK" --course "$COURSE" --outdir "$OUT"
+
+      - name: Install rendering dependencies
+        run: |
+          if ! command -v libreoffice >/dev/null 2>&1; then
+            sudo apt-get update -qq
+            sudo apt-get install -y libreoffice-impress
+          fi
+          if ! command -v pdftoppm >/dev/null 2>&1; then
+            sudo apt-get update -qq
+            sudo apt-get install -y poppler-utils
+          fi
+          sudo apt-get update -qq
+          sudo apt-get install -y fonts-noto-cjk >/dev/null
+
+      - name: Render all slides
+        run: |
+          mkdir -p "$RENDER"
+          libreoffice --headless --convert-to pdf --outdir "$OUT" "$DECK"
+          PDF=$(find "$OUT" -maxdepth 1 -type f -name '*.pdf' | head -1)
+          test -n "$PDF"
+          pdftoppm -png -r 96 "$PDF" "$RENDER/slide" >/dev/null
+          python tools/make_slide_montage.py "$RENDER" --data "$OUT/audit-data.json" --out "$OUT/montage.jpg"
+
+      - name: Print audit report and visual payloads
+        run: |
+          echo '===== AUDIT_REPORT_BEGIN ====='
+          cat "$OUT/audit-report.md"
+          echo '===== AUDIT_REPORT_END ====='
+          python - <<'PY'
+          import base64, io, json, re
+          from pathlib import Path
+          from PIL import Image
+
+          out=Path("audit-output")
+          data=json.loads((out/"audit-data.json").read_text(encoding="utf-8"))
+
+          def emit(path, begin, end, maxw=None, quality=78):
+              p=Path(path)
+              if p.suffix.lower() in {".png",".jpg",".jpeg"}:
+                  im=Image.open(p).convert("RGB")
+                  if maxw and im.width > maxw:
+                      h=round(im.height*maxw/im.width)
+                      im=im.resize((maxw,h))
+                  bio=io.BytesIO()
+                  im.save(bio,"JPEG",quality=quality,optimize=True)
+                  raw=bio.getvalue()
+              else:
+                  raw=p.read_bytes()
+              print(begin)
+              print(base64.b64encode(raw).decode("ascii"))
+              print(end)
+
+          emit(out/"montage.jpg","===== MONTAGE_JPEG_BASE64_BEGIN =====","===== MONTAGE_JPEG_BASE64_END =====",maxw=1900,quality=75)
+
+          rendered=out/"rendered-slides"
+          files=sorted(rendered.glob("slide-*.png"), key=lambda p:int(re.search(r"(\d+)$",p.stem).group(1)))
+          selected=[]
+          # Prioritize slides tied to current Unicode/UTF and synthesis questions.
+          for q in data.get("questions",[]):
+              if q.get("id") in {"Q10","Q11","Q11-A","Q11-B","Q14"}:
+                  selected.extend(q.get("slides",[]))
+          selected.extend(data.get("high_risk_slides",[]))
+          seen=[]
+          for n in selected:
+              if n not in seen and 1 <= n <= len(files):
+                  seen.append(n)
+          for n in seen[:8]:
+              emit(files[n-1],f"===== SLIDE_{n}_JPEG_BASE64_BEGIN =====",f"===== SLIDE_{n}_JPEG_BASE64_END =====",maxw=1500,quality=82)
+          PY
+
+      - name: Upload audit package
+        uses: actions/upload-artifact@v4
+        with:
+          name: character-encoding-v6-2-audit
+          path: |
+            audit-output/audit-report.md
+            audit-output/audit-data.json
+            audit-output/montage.jpg
+            audit-output/rendered-slides/*.png
