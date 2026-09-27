@@ -86,17 +86,19 @@ format:
 
 # 1. 课前准备
 
-1. 用 WPS 打开 \`1-2-3-character-encoding-v6-2.pptx\`，检查字体、换行和 Speaker Notes。
-2. 打开 JupyterLab：
-   - \`demo-lab-teacher.ipynb\`
-   - \`demo-lab-student.ipynb\`
-3. 运行：
+Notebook 与两份原始 lab 文件是生成物，项目通过 \`.gitignore\` 不直接跟踪它们。
+
+1. 从仓库根目录运行：
 
 \`\`\`bash
-python 1-2-encoding/1-2-3-character-encoding/demos/create_lab_files.py
+python tools/build_character_encoding_classroom_package.py
 python 1-2-encoding/1-2-3-character-encoding/demos/check_classroom_package.py
 \`\`\`
 
+2. 用 WPS 打开 \`1-2-3-character-encoding-v6-2.pptx\`，检查字体、换行和 Speaker Notes。
+3. 打开 JupyterLab：
+   - \`demo-lab-teacher.ipynb\`
+   - \`demo-lab-student.ipynb\`
 4. 用 WinHex 分别打开：
    - \`assets/gb2312-lab.txt\`
    - \`assets/utf8-lab.txt\`
@@ -971,14 +973,16 @@ Companion artifacts:
 - \`worksheets/character-encoding-exit-ticket.qmd\`
 - \`worksheets/character-encoding-exit-ticket.pdf\`
 
-Before class:
+The two role-specific notebooks and raw lab files are **generated artifacts** and are intentionally ignored by Git.
+
+Before class, from the repository root run:
 
 \`\`\`bash
-python 1-2-encoding/1-2-3-character-encoding/demos/create_lab_files.py
+python tools/build_character_encoding_classroom_package.py
 python 1-2-encoding/1-2-3-character-encoding/demos/check_classroom_package.py
 \`\`\`
 
-Then open the production PPTX and the two role-specific notebooks.
+This generates the notebooks, raw GB2312 / UTF-8 lab files, and refreshes the printable worksheet. Then open the production PPTX and the two role-specific notebooks.
 '''
 (LESSON / "CLASSROOM-PACKAGE.md").write_text(README, encoding="utf-8")
 
