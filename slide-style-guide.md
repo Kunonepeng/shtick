@@ -382,6 +382,39 @@ Use:
 
 Purpose: identify the exact part of a screenshot, infographic, character table, or timeline being discussed **on this slide**.
 
+### 9.5 Generated teaching illustrations
+
+Generated imagery is allowed, but it must serve a specific teaching purpose.
+
+Use this decision rule:
+
+| Need | Preferred visual source |
+|---|---|
+| Prove a fact, standard, software behavior, or historical artifact | Real screenshot / primary-source image |
+| Show exact technical relationships, values, bytes, code, or labels | Native PPT diagram / table / code |
+| Create a situation, analogy, cognitive conflict, or human context | Generated illustration |
+
+Core rule:
+
+> **Generated images illustrate; native diagrams and real screenshots prove.**
+
+For generated illustrations:
+
+- define the teaching purpose before generation;
+- generate for the intended slide crop/aspect ratio;
+- prefer white or very light neutral backgrounds that integrate with the Violet-Rail canvas;
+- keep composition simple and leave deliberate negative space for native PPT labels;
+- normally do **not** ask the image model to render Chinese explanatory text, binary strings, byte values, arrows, legends, or conclusions;
+- add all precise teaching labels and annotations as native PPT objects;
+- do not use generated software UI or generated standards pages as evidence;
+- use clean rectangular crops with no shadow, glossy frame, decorative mask, or card background;
+- verify that incidental visual details do not introduce technical misconceptions;
+- preserve the exact prompt used to generate every production image.
+
+Prompt provenance should be stored in the slide's Speaker Notes under `[图片生成提示词]` and/or in a lesson-local `assets/generated/image-prompts.md`.
+
+Use the reusable prompt patterns and examples in `image-generation-prompts.md`.
+
 ---
 
 ## 10. Progressive disclosure / “build” technique
@@ -937,6 +970,9 @@ Before accepting a generated slide, verify:
 - [ ] Essential cyan text on white uses the darker readable cyan; bright cyan is limited to outlines, arrows, or large highlights.
 - [ ] Red appears only on the item students should inspect now.
 - [ ] Images are evidence and are not placed in decorative cards.
+- [ ] Generated images are used only for illustration/analogy/context, not as substitutes for factual evidence or exact technical diagrams.
+- [ ] Every production generated image has a preserved exact prompt and a stated teaching purpose.
+- [ ] Precise labels, byte values, arrows, and conclusions are native PPT objects rather than baked into generated imagery.
 - [ ] There are no unnecessary gradients, drop shadows, glows, or rounded UI panels.
 - [ ] If the slide is part of a build sequence, the base geometry remains fixed across slides.
 - [ ] The slide can still be understood when exported to PDF with no animation.
