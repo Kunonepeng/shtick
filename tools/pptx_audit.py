@@ -225,6 +225,7 @@ def main():
                 'visible_chars':len(visible),'notes_chars':len(notes),'notes_has_purpose':notes_has_purpose,
                 'notes_has_transcript':notes_has_transcript,'top_rail':toprail,'bottom_rail':bottomrail,
                 'oob':oob,'small_text':small,'visible_q_labels':VISIBLE_Q_RE.findall(visible),
+                'visible_text':visible,'notes_text':notes,
             })
             if idx>1 and (not toprail or not bottomrail):
                 missing=('top' if not toprail else '')+(' and ' if (not toprail and not bottomrail) else '')+('bottom' if not bottomrail else '')
