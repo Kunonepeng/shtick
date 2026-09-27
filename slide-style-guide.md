@@ -24,7 +24,9 @@ The overall feeling should be **clear, rigorous, modern, and teacher-led**, not 
 
 ---
 
-## 2. Reference-deck anatomy
+## 2. Reference-deck anatomy (descriptive)
+
+The figures in this section record where the style came from. They are **not** targets for a new lesson. Determine a new deck's slide count, question sequence, and necessary layouts from `course-design.qmd`. Do not inspect, copy, or match the reference deck merely because it is named here; use it only when the task expressly calls for it.
 
 - **Canvas:** 16:9 widescreen, **13.333 × 7.5 in**.
 - **44 slides** in the reference deck.
@@ -36,13 +38,13 @@ The overall feeling should be **clear, rigorous, modern, and teacher-led**, not 
 
 | Element | Position / size | Rule |
 |---|---:|---|
-| Top rail | `y ≈ 0.05 in`, full bleed | 8 pt, `#6251B1` |
-| Bottom rail | `y ≈ 7.45 in`, full bleed | 8 pt, `#6251B1` |
-| Slide title | `x=0.665`, `y=0.665`, `w≈12.0`, `h≈0.77 in` | Left aligned |
-| Main content area | `x=0.665`, `y=1.63`, `w≈12.0`, `h≈5.21 in` | Default working region |
+| Top rail | rectangle `x=0`, `y=0`, `w=13.333`, `h=8 pt` | `#6251B1` |
+| Bottom rail | rectangle `x=0`, `y=7.5 in − 8 pt`, `w=13.333`, `h=8 pt` | `#6251B1` |
+| One-line slide title | `x=0.665`, `y=0.665`, `w≈12.0`, `h≈0.77 in` | Left aligned; see the two-line variant in §3.3 |
+| Main content area | `x=0.665`, `y=1.63`, `w≈12.0`, `h≈5.21 in` | One-line title default; two-line title starts content at `y=2.25 in` |
 | Left/right safe margin | `≈0.67 in` | Keep native content inside this margin unless a screenshot intentionally bleeds wider |
 
-**Important:** the rails should extend slightly beyond the slide edges so they visually bleed cleanly from edge to edge.
+The rail rectangles meet the canvas edges exactly. Eight points is approximately `0.1111 in`, so the bottom rail starts at approximately `y=7.3889 in`. Their visual centerlines stay close to the reference positions of `0.05` and `7.45 in`. Do not place rail objects outside the slide canvas; edge-aligned rectangles give the same full-width appearance and pass overflow checks.
 
 ---
 
@@ -58,6 +60,8 @@ Preferred variants seen in the deck:
 - **Alibaba PuHuiTi 3.0 85 Bold** — dense technical emphasis, code-related explanation, secondary strong text
 - **Alibaba PuHuiTi 3.0 55 Regular** — body copy, captions, explanatory text
 
+The expected font files are `AlibabaPuHuiTi-3-115-Black.ttf`, `AlibabaPuHuiTi-3-85-Bold.ttf`, and `AlibabaPuHuiTi-3-55-Regular.ttf`. Check the face resolved by WPS / PowerPoint or the rendering tool; a font name stored in the PPTX does not prove that the renderer used it. If **85 Bold** is substituted, use **115 Black** for strong emphasis or **55 Regular** for ordinary text, then render again. Do not accept an unrelated fallback font silently.
+
 Do **not** mix in another Chinese UI font for native content. Imported website screenshots may naturally contain other fonts; those are evidence, not part of the slide theme.
 
 > Implementation note: explicitly set Alibaba PuHuiTi 3.0 in slide masters and generated text objects. Do not depend only on the PowerPoint theme-font metadata or system fallback.
@@ -71,21 +75,24 @@ Do **not** mix in another Chinese UI font for native content. Imported website s
 | Standard slide title | 115 Black | **36 pt** | Near-black (`≈#262626`), left aligned |
 | Standard body | 55 Regular | **22 pt** | Black |
 | Strong content label | 115 Black | **24 pt** | Black / white depending on background |
-| Technical bold body | 85 Bold | **22 pt** | Black |
+| Technical bold body | 85 Bold; 115 Black if 85 Bold does not resolve | **22 pt** | Black |
 | Spotlight / thesis overlay | 115 Black | **32–36 pt** | White on dark translucent panel |
 | Dense diagram / timeline text | 85 Bold or 55 Regular | **14 pt** | Black; use sparingly |
-| Source / URL / micro-note | 55 Regular | **12–14 pt** | Gray or black |
+| Nonessential source / micro-note | 55 Regular | **12–14 pt** | Gray or black; never the only text students must read |
 
 ### 3.3 Master text behavior
 
 **Standard slide title**
 
+- one-line box: `x=0.665`, `y=0.665`, `w≈12.0`, `h≈0.77 in`
 - 36 pt, 115 Black
 - left aligned
 - 100% line spacing
 - slightly expanded character spacing (reference master uses approximately **+3 pt**)
 - no bullet
 - color is slightly softened from pure black (`≈#262626`)
+
+If the title does not fit on one line, first shorten the wording without changing the teaching question. If two lines remain necessary, use a **two-line title variant**: keep `x=0.665`, `y=0.665`, `w≈12.0`, and 36 pt Black; set title-box height to `1.35 in` and start the main content at `y=2.25 in`. Set the line break deliberately. Keep that break, title box, and shifted content geometry identical across the question/answer pair. If the two-line variant still does not fit, split the teaching focus across slides. Never use auto-fit or a smaller title merely to force it into the box. Apply the approximate +3 pt character spacing only when the title still fits at 36 pt.
 
 **Standard body text**
 
@@ -126,7 +133,8 @@ Use emphasis selectively:
 |---|---|---|
 | **Frame Violet** | `#6251B1` | Top and bottom master rails only; stable deck identity |
 | **Teaching Accent Violet** | `#8C64E1` | Key terms, active concepts, arrows, outlined bits/boxes, highlighted headings |
-| **Technical Cyan** | `#00B0F0` | Secondary category, alternate bit/encoding distinction |
+| **Technical Cyan** | `#00B0F0` | Secondary category in outlines, arrows, and large highlights |
+| **Readable Cyan Text** | `#007C9B` | Essential cyan text on white; same semantic category, darker for projection |
 | **Focus Red** | `#FF0000` | Temporary focus rectangle, selected region, current timeline stage; never decorative |
 | **Title near-black** | `≈#262626` | Standard titles |
 | **Body black** | `#000000` | Main explanatory copy |
@@ -151,6 +159,7 @@ On a white background this appears visually around dark charcoal (`#2D2D2D–#45
 
 - **Violet = concept / relationship / retained knowledge**
 - **Cyan = second technical dimension / alternate representation**
+- On white, `#00B0F0` has about **2.48:1** contrast. Use `#007C9B` (about **4.82:1**) for cyan words or values students must read; keep bright cyan for outlines, arrows, or large nonessential marks.
 - **Red = current attention target only**
 - If red appears everywhere, the focus system stops working.
 - Yellow/orange/green from screenshots or imported diagrams are **not** theme colors unless the lesson itself requires them.
@@ -205,9 +214,10 @@ Avoid a generic corporate “six equal cards” layout; it is not part of this v
 The **top and bottom violet rails are non-negotiable** for normal slides.
 
 - Color: `#6251B1`
-- Width: 8 pt
-- Top rail: almost flush to top edge
-- Bottom rail: almost flush to bottom edge
+- Thickness: 8 pt (approximately `0.1111 in`)
+- Top rail: filled rectangle at `x=0`, `y=0`, `w=13.333`, `h=8 pt`
+- Bottom rail: filled rectangle at `x=0`, `y=7.5 in − 8 pt`, `w=13.333`, `h=8 pt`
+- Both rails meet the canvas edge and stay within the canvas; do not use an off-canvas line stroke to simulate bleed
 - No additional colored sidebar, logo banner, or footer bar
 - No visible slide number/footer in the reference visual style
 
@@ -552,7 +562,7 @@ The deck's technical diagrams use **outline-first** styling:
 
 - title explains what the evidence proves
 - large screenshot, often full width or dominant
-- URL small and unobtrusive unless the URL is itself a learning resource
+- Source URL small and unobtrusive unless students must use it; follow §17 for student-action links
 - next slide can place a dark overlay or red focus box over the relevant region
 
 ### K. Sparse pause / debate slide
@@ -747,8 +757,8 @@ Use follow-up questions to:
 ## 17. Source and citation behavior
 
 - Put research/source URLs primarily in **speaker notes** when they are for instructor reference.
-- Put URLs visibly on the slide only when students are expected to visit the tool/site or when the webpage itself is evidence in the lesson.
-- Visible URLs should be 12–14 pt and visually secondary.
+- If students must visit a site, show a short URL or QR code with a human-readable address at **22 pt or larger**. Keep the full URL in Speaker Notes.
+- If a webpage screenshot is evidence, a visible source address may be **12–14 pt** as provenance only; students should not have to read or type that small text to complete the task.
 
 ---
 
@@ -806,28 +816,33 @@ Use this block as a compact generation contract:
 CANVAS
 - 16:9, 13.333 x 7.5 in
 - background #FFFFFF
-- top rail #6251B1, 8 pt, full bleed at y≈0.05 in
-- bottom rail #6251B1, 8 pt, full bleed at y≈7.45 in
+- top rail: filled #6251B1 rectangle x=0, y=0, w=13.333, h=8 pt
+- bottom rail: filled #6251B1 rectangle x=0, y=7.5 in - 8 pt, w=13.333, h=8 pt
+- rails meet the edges without extending outside the canvas
 
 FONT
 - Alibaba PuHuiTi 3.0 only for native deck text
+- check the rendered font, not only the PPTX font name
+- if 85 Bold is substituted, use 115 Black for emphasis or 55 Regular for ordinary text and rerender
 - cover: 115 Black 60 pt; subtitle 55 Regular 37 pt gray
 - slide title: 115 Black 36 pt, near-black #262626, left
 - body: 55 Regular 22 pt, black, 1.3 line spacing
 - strong label: 115 Black 24 pt
 - spotlight: 115 Black 32–36 pt white
-- micro/timeline/source: 12–14 pt
+- nonessential micro/timeline/source: 12–14 pt; student-action URL: 22 pt minimum
 
 GRID
 - standard left margin 0.665 in
-- standard title top 0.665 in
-- main content starts y≈1.63 in
-- keep most content inside x=0.665..12.665 and y=1.63..6.84
+- one-line title: x=0.665, y=0.665, w≈12.0, h≈0.77 in; content starts y≈1.63 in
+- two-line title: same x/y/w and 36 pt, h=1.35 in; content starts y=2.25 in
+- keep the chosen title variant and line break fixed across a question/answer pair
+- keep most content inside x=0.665..12.665 and y=1.63..6.84 for one-line titles
+- for two-line titles, keep most content inside x=0.665..12.665 and y=2.25..6.84
 
 COLORS
 - frame violet #6251B1
 - teaching violet #8C64E1
-- technical cyan #00B0F0
+- technical cyan #00B0F0 for outlines/arrows; readable cyan text #007C9B on white
 - focus red #FF0000
 - title #262626
 - body #000000
@@ -865,12 +880,13 @@ For every production PPTX:
 3. generate a full-deck montage;
 4. inspect the montage for consistency;
 5. inspect dense, diagram-heavy, question/answer, and overlay slides individually at full resolution;
-6. run programmatic checks for objects outside the slide canvas where possible;
+6. run programmatic checks for objects outside the slide canvas, including the rail rectangles;
 7. verify that all native text objects explicitly use the required Alibaba PuHuiTi 3.0 variant;
-8. verify that question/answer pairs preserve their base geometry;
-9. verify Speaker Notes;
-10. open the final deck in **WPS Presentation whenever practical** and check the actual classroom rendering;
-11. fix all visible defects before delivery.
+8. check the **rendered font** on Chinese, Latin, numeric, and symbol text; inspect the font list in a PDF export where available and check representative slides in WPS / PowerPoint. If a variant is substituted, apply the approved fallback in §3.1 and render again;
+9. verify that question/answer pairs preserve their base geometry, including the chosen one-line or two-line title variant;
+10. verify Speaker Notes;
+11. open the final deck in **WPS Presentation whenever practical** and check the actual classroom rendering;
+12. fix all visible defects before delivery.
 
 ### 21.2 Reject these defects
 
@@ -882,7 +898,7 @@ A production deck is not classroom-ready if it contains:
 - unexpected Chinese wrapping;
 - content outside its intended text box;
 - content entering the violet rails or unsafe margins;
-- font substitution that changes line breaks or hierarchy;
+- unintended font substitution, especially one that changes line breaks or hierarchy;
 - stretched screenshots;
 - inconsistent title positions;
 - question/answer geometry drift;
@@ -912,12 +928,13 @@ Successful rendering is not the definition of done. **Classroom usability is.**
 
 Before accepting a generated slide, verify:
 
-- [ ] Violet top and bottom rails are present and identical to the master.
-- [ ] All native text uses Alibaba PuHuiTi 3.0.
-- [ ] Title is 36 pt Black and aligned to the common title baseline.
+- [ ] Violet top and bottom rail rectangles meet the canvas edges and do not extend outside it.
+- [ ] All native text explicitly uses Alibaba PuHuiTi 3.0, and the rendered font has been checked for substitution.
+- [ ] Title is 36 pt Black and uses the specified one-line or two-line geometry without auto-fit.
 - [ ] Normal body text is not below 22 pt unless it is legitimately timeline/source/micro text.
 - [ ] One clear visual focus exists.
 - [ ] Violet, cyan, and red are being used semantically, not decoratively.
+- [ ] Essential cyan text on white uses the darker readable cyan; bright cyan is limited to outlines, arrows, or large highlights.
 - [ ] Red appears only on the item students should inspect now.
 - [ ] Images are evidence and are not placed in decorative cards.
 - [ ] There are no unnecessary gradients, drop shadows, glows, or rounded UI panels.
@@ -929,6 +946,7 @@ Before accepting a generated slide, verify:
 - [ ] Question/answer slide pairs keep the question typography and geometry fixed.
 - [ ] Internal Q labels and follow-up questions are teacher-facing unless students genuinely need them.
 - [ ] Every teaching slide has a usable Speaker Notes transcript beginning with the full question/page purpose.
+- [ ] A URL students must visit is readable from the classroom; full research URLs remain in Speaker Notes.
 - [ ] Dense or wrapping-prone text has enough vertical headroom for WPS / PowerPoint.
 - [ ] The full deck has been rendered, montaged, and visually inspected before delivery.
 
