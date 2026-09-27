@@ -1,0 +1,217 @@
+---
+title: "1-2-3 字符编码：课堂执行指南"
+subtitle: "Baseline: 1-2-3-character-encoding-v6-2.pptx"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    toc-title: "课堂导航"
+---
+
+# 0. 使用基线
+
+本指南假定正式课堂课件为：
+
+\`\`\`text
+1-2-3-character-encoding-v6-2.pptx
+\`\`\`
+
+课堂展示以 WPS / PowerPoint 为主，JupyterLab 与 WinHex 用于提供可操作证据。
+
+核心模型：
+
+\`\`\`text
+输入并显示：
+键盘输入 → 输入码 / IME → 字符 / code point → 字体映射 → glyph → pixels
+
+保存、传输并读取：
+字符 / code point → encode → bytes → decode → 字符 / code point
+→ 字体映射 → glyph → pixels
+\`\`\`
+
+## v6-2 兼容说明
+
+\`v6-2\` 中“中文编码标准为什么不断扩展？”位于 Unicode / UTF 之前。当前
+\`course-design.qmd\` 把 Unicode / UTF 放在中文编码标准扩展之前。**本指南按 v6-2
+的实际页序上课**，不在课堂中临时重排。
+
+另一个差异是：v6-2 的 Unicode 页面以“中 / U+4E2D”为主要视觉样本，而当前课程设计以
+“你 / U+4F60”为主要锚点。Notebook 同时保留“中”和“你”：先用“中”衔接 PPT，再用“你”
+作为迁移验证。
+
+---
+
+# 1. 课前准备
+
+1. 用 WPS 打开 \`1-2-3-character-encoding-v6-2.pptx\`，检查字体、换行和 Speaker Notes。
+2. 打开 JupyterLab：
+   - \`demo-lab-teacher.ipynb\`
+   - \`demo-lab-student.ipynb\`
+3. 运行：
+
+\`\`\`bash
+python 1-2-encoding/1-2-3-character-encoding/demos/create_lab_files.py
+python 1-2-encoding/1-2-3-character-encoding/demos/check_classroom_package.py
+\`\`\`
+
+4. 用 WinHex 分别打开：
+   - \`assets/gb2312-lab.txt\`
+   - \`assets/utf8-lab.txt\`
+5. 清除 Notebook 已运行输出，避免提前泄露后续答案。
+
+---
+
+# 2. 课堂切换地图
+
+| PPT 页 | 问题 / 环节 | 建议工具 | 教师动作 |
+|---|---|---|---|
+| 2–3 | Q0 乱码悬念 | PPT；Notebook Q0 可选 | 先猜故障位置，不解释 bytes |
+| 4–8 | Q1-A 私人编码表 | PPT + 纸笔活动 | 只交换 bit 串，不交换映射表 |
+| 9–13 | Q1-B 字符集容量 | PPT | 先确定字符集，再谈映射 |
+| 14–17 | Q2 ASCII 查表 | PPT | 让学生真正查表 |
+| 18–19 | Q3 7 bit 与 1 byte | Notebook Q3 | 先看 7-bit，再看 8-bit 存储 |
+| 20–21 | Q4 ASCII 规律 | PPT | 用差值和区间形成规律 |
+| 22–24 | Q5 设计汉字编码 | PPT | 迁移“字符集 + 映射”思想 |
+| 25–26 | Q6 文件中的汉字 | WinHex / Notebook Q6 | 观察真实 bytes |
+| 27–28 | Q7 国标码与机内码 | WinHex / Notebook Q6–Q7 | 比较 \`56 50\` 与 \`D6 D0\` |
+| 29–30 | Q8 汉字总是 2 bytes 吗 | Notebook Q8 | 对比 GB2312 与 UTF-8 |
+| 31–32 | Q9 输入到显示 | PPT / Notebook Q9 可选 | 强调 IME 在字符确定之前 |
+| 33–34 | 中文标准扩展 | PPT | 只讲标准扩展逻辑 |
+| 35–36 | Unicode 字符身份 | Notebook Q10 | 先用“中”接 PPT，再用“你”迁移 |
+| 37–38 | 码位与 bytes | Notebook Q11-A | 同一码位，不同 UTF 表示 |
+| 39–40 | UTF-8/16/32 | Notebook Q11-B / \`demo_unicode_utf.py\` | **补足 code unit 概念** |
+| 41–42 | 乱码揭秘 | Notebook Q13 | 同一批 bytes，不同 decode |
+| 43–44 | 重建两条路径 | worksheet | 学生先独立填 |
+| 45 | 三句话解释字符编码 | PPT + worksheet | 出口检查 |
+
+---
+
+# 3. 关键演示
+
+## ASCII
+
+\`A\`：
+
+\`\`\`text
+7-bit: 1000001
+1 byte: 01000001
+\`\`\`
+
+结论：字符值没有变化，只是在一个 byte 中保存时左侧补 0。
+
+## WinHex / GB2312
+
+样本文字：
+
+\`\`\`text
+A中B国C文
+\`\`\`
+
+预期 bytes：
+
+\`\`\`text
+GB2312: 41 D6 D0 42 B9 FA 43 CE C4
+UTF-8 : 41 E4 B8 AD 42 E5 9B BD 43 E6 96 87
+\`\`\`
+
+Q7：
+
+\`\`\`text
+“中”国标码：56 50
+传统机内码：D6 D0
+\`\`\`
+
+只在传统 GB2312 双字节机内码模型下解释“每个 byte + 0x80”。
+
+## 输入 / IME
+
+\`\`\`text
+n、i → 输入码 ni → IME 选“你” → 字符确定 → glyph → pixels
+\`\`\`
+
+不要把文件 \`encode → decode\` 强行塞进即时键盘显示路径。
+
+## Unicode
+
+先衔接 v6-2：
+
+\`\`\`text
+中 → U+4E2D
+\`\`\`
+
+再迁移：
+
+\`\`\`text
+你 → U+4F60
+\`\`\`
+
+code point 回答“这是哪个字符”，不是固定的文件 bytes。
+
+## UTF-8 / UTF-16 / UTF-32
+
+Q11-B 必须补足：
+
+\`\`\`text
+UTF-8  → 8-bit code unit
+UTF-16 → 16-bit code unit
+UTF-32 → 32-bit code unit
+\`\`\`
+
+再用 \`U+1F600\` 反驳“UTF-16 每个字符永远 2 bytes”。
+
+## 乱码
+
+\`\`\`text
+E4 BD A0 E5 A5 BD
+
+UTF-8 decode → 你好
+GBK decode   → 浣犲ソ
+\`\`\`
+
+核心追问：**bytes 有没有变？**
+
+---
+
+# 4. Q14 学生任务
+
+发放：
+
+\`\`\`text
+worksheets/character-encoding-exit-ticket.pdf
+\`\`\`
+
+学生先独立重建：
+
+\`\`\`text
+输入并显示：
+键盘输入 → 输入码 / IME → 字符 / code point
+→ 字体映射 → glyph → pixels
+
+保存并读取：
+字符 / code point → encode → bytes → decode
+→ 字符 / code point → 字体映射 → glyph → pixels
+\`\`\`
+
+不要先投影完整答案。
+
+---
+
+# 5. 故障替代
+
+## WinHex 不可用
+
+切换 \`demo-lab-student.ipynb → Q6–Q7\`。
+
+## JupyterLab 不可用
+
+直接使用 PPT 已准备的固定证据，不临时下载工具。
+
+## 时间不足
+
+优先保留：
+
+\`\`\`text
+Q0 → Q1 → Q3 → Q6/Q7 → Q8 → Q9 → Unicode/UTF → 乱码 → Q14
+\`\`\`
+
+ASCII 规律与标准时间线可以压缩，但不要删掉 Unicode/UTF、乱码诊断与最终重建。
