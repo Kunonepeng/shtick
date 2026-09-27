@@ -1,4 +1,4 @@
-name: Unpack character-encoding classroom package
+name: Build character-encoding classroom package
 
 on:
   push:
@@ -9,33 +9,45 @@ permissions:
   contents: write
 
 jobs:
-  unpack:
+  build:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
+
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Unpack staged classroom package
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install package-build dependencies
+        run: python -m pip install --quiet nbformat nbconvert jupyter-client ipykernel reportlab
+
+      - name: Generate classroom package
+        run: python tools/build_character_encoding_classroom_package.py
+
+      - name: Verify controlled bytes and package
         run: |
-          ZIP=".tmp/character-encoding-classroom-package.zip"
-          if [ ! -f "$ZIP" ]; then
-            echo "No staged package; nothing to do."
-            exit 0
-          fi
+          python 1-2-encoding/1-2-3-character-encoding/demos/check_classroom_package.py
+          python 1-2-encoding/1-2-3-character-encoding/demos/demo_unicode_utf.py
 
-          unzip -o "$ZIP" -d .
-          rm -f "$ZIP"
-          rmdir .tmp 2>/dev/null || true
+      - name: Execute teacher and student notebooks
+        run: |
+          python -m nbconvert --to notebook --execute             1-2-encoding/1-2-3-character-encoding/demo-lab-teacher.ipynb             --output /tmp/demo-lab-teacher-executed.ipynb             --ExecutePreprocessor.timeout=120
+          python -m nbconvert --to notebook --execute             1-2-encoding/1-2-3-character-encoding/demo-lab-student.ipynb             --output /tmp/demo-lab-student-executed.ipynb             --ExecutePreprocessor.timeout=120
 
+      - name: Commit generated classroom artifacts
+        run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A
+          git add             1-2-encoding/1-2-3-character-encoding/CLASSROOM-PACKAGE.md             1-2-encoding/1-2-3-character-encoding/teacher-guide.qmd             1-2-encoding/1-2-3-character-encoding/demo-lab-teacher.ipynb             1-2-encoding/1-2-3-character-encoding/demo-lab-student.ipynb             1-2-encoding/1-2-3-character-encoding/assets/README.md             1-2-encoding/1-2-3-character-encoding/assets/gb2312-lab.txt             1-2-encoding/1-2-3-character-encoding/assets/utf8-lab.txt             1-2-encoding/1-2-3-character-encoding/assets/generated/image-prompts.md             1-2-encoding/1-2-3-character-encoding/demos/create_lab_files.py             1-2-encoding/1-2-3-character-encoding/demos/check_classroom_package.py             1-2-encoding/1-2-3-character-encoding/demos/demo_unicode_utf.py             1-2-encoding/1-2-3-character-encoding/worksheets/character-encoding-exit-ticket.qmd             1-2-encoding/1-2-3-character-encoding/worksheets/character-encoding-exit-ticket.pdf
 
           if git diff --cached --quiet; then
-            echo "No generated changes."
+            echo "Package is already up to date."
             exit 0
           fi
 
-          git commit -m "lesson: add character-encoding classroom package"
+          git commit -m "lesson: complete character-encoding classroom package"
           git push
