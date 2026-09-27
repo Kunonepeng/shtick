@@ -19,11 +19,13 @@ Companion artifacts:
 - \`worksheets/character-encoding-exit-ticket.qmd\`
 - \`worksheets/character-encoding-exit-ticket.pdf\`
 
-Before class:
+The two role-specific notebooks and raw lab files are **generated artifacts** and are intentionally ignored by Git.
+
+Before class, from the repository root run:
 
 \`\`\`bash
-python 1-2-encoding/1-2-3-character-encoding/demos/create_lab_files.py
+python tools/build_character_encoding_classroom_package.py
 python 1-2-encoding/1-2-3-character-encoding/demos/check_classroom_package.py
 \`\`\`
 
-Then open the production PPTX and the two role-specific notebooks.
+This generates the notebooks, raw GB2312 / UTF-8 lab files, and refreshes the printable worksheet. Then open the production PPTX and the two role-specific notebooks.
