@@ -1,7 +1,7 @@
 ---
 title: "1-2-3 图像编码"
 subtitle: "Image Encoding：从连续图像到像素、颜色与二进制"
-version: "v1.4.4"
+version: "v1.4.5"
 format:
   html:
     toc: true
@@ -576,10 +576,6 @@ Q3 已经让学生看到：**颜色种数减少会改变画面；我们尚未检
 > **给 16 种允许的颜色各分配一个不同的、固定长度的二进制标签。最少需要几 bit？**
 
 这一段不再播放更多量化图片，直接让学生预测：
-
-- 2 bit 够不够？
-- 3 bit 够不够？
-- 4 bit 为什么刚好够？
 
 - 2 bit 够不够？
 - 3 bit 够不够？
@@ -1454,7 +1450,8 @@ print("created:", path)
 
 Python 演示是促成理解的手段，不应该成为 Q1 / Q3 能否继续的单点故障。
 
-因此在进入“可直接上课”状态前，教师应**课前预跑并保存静态结果**，至少准备：
+因此 fallback 图片**不要手工截图，也不要另写一套处理代码**。  
+应由教师 notebook 在课前预跑时，直接把**同一批课堂展示对象**导出到：
 
 ```text
 assets/fallback/
@@ -1468,17 +1465,109 @@ assets/fallback/
 └─ quant-2.png
 ```
 
-其中：
+这样 PPTX、现场 live demo 和故障备用图使用的是**同一批证据**。
 
-- Demo A 的 256 / 64 / 32 / 16 / 8 五张图用于 Q1 的 sampling 比较；
-- Demo B 的 original / 16-color / 2-color 三张图用于 Q3；
-- **Q3 主课要用的三张量化图必须同时放进 PPTX**，不能只存在 notebook 中；
-- 教师另保存一条预跑记录，至少包含：
+### 教师 notebook：统一导出 fallback 图片
+
+这段代码放在 Demo A / Demo B 已运行之后。它直接复用：
+
+- Demo A 的 `sampling_outputs`；
+- Demo B 的 `src` 与 `outputs`。
+
+```python
+from pathlib import Path
+from PIL import Image
+
+fallback_dir = Path("assets/fallback")
+fallback_dir.mkdir(parents=True, exist_ok=True)
+
+# Demo A：保存课堂实际展示的五张 512×512 图
+for n in [256, 64, 32, 16, 8]:
+    img = sampling_outputs[n]
+    assert img.mode == "RGB"
+    assert img.size == (512, 512)
+
+    path = fallback_dir / f"sampling-{n}.png"
+    img.save(path)
+
+# Demo B：保存主课三张量化证据图
+quant_images = {
+    "original": src,
+    "16": outputs[16],
+    "2": outputs[2],
+}
+
+for label, img in quant_images.items():
+    assert img.mode == "RGB"
+    assert img.size == (256, 256)
+
+    path = fallback_dir / f"quant-{label}.png"
+    img.save(path)
+
+print("fallback images exported to:", fallback_dir)
+```
+
+这里故意规定：
 
 ```text
+Demo A fallback → 512×512
+Demo B fallback → 256×256
+```
+
+Demo A 保存的是**已经放大后、课堂真正拿来比较的版本**；Demo B 保存原始 256×256 图，因为 Q3 比较的是颜色量化而不是显示放大。
+
+### 导出后必须自动检查
+
+不要只看到“文件存在”就结束。教师 notebook 紧接着检查：
+
+```python
+from PIL import Image
+
+# 1) Demo A：五张图都应是 512×512 RGB
+for n in [256, 64, 32, 16, 8]:
+    path = fallback_dir / f"sampling-{n}.png"
+    with Image.open(path) as img:
+        assert img.mode == "RGB"
+        assert img.size == (512, 512)
+
+# 2) Demo B：三张图都应是 256×256 RGB
+for label in ["original", "16", "2"]:
+    path = fallback_dir / f"quant-{label}.png"
+    with Image.open(path) as img:
+        assert img.mode == "RGB"
+        assert img.size == (256, 256)
+
+# 3) 红绿接缝：用“刚导出的文件”再检查一次
+seam_left = (72, 40)
+seam_right = (73, 40)
+
+with Image.open(fallback_dir / "quant-16.png").convert("RGB") as q16:
+    assert q16.getpixel(seam_left) != q16.getpixel(seam_right)
+
+with Image.open(fallback_dir / "quant-2.png").convert("RGB") as q2:
+    assert q2.getpixel(seam_left) == q2.getpixel(seam_right)
+
+print("fallback verification passed")
+```
+
+因此课前得到的不只是八个文件，还得到一条可复现的验证链：
+
+```text
+sampling fallback：5 files × 512×512 RGB
+
+quant fallback：
+original / 16 / 2 → 256×256 RGB
+
 16 colors → seam (72,40) != (73,40)
  2 colors → seam (72,40) == (73,40)
 ```
+
+其中：
+
+- Demo A 的五张图用于 Q1 的 sampling 比较；
+- Demo B 的 original / 16-color / 2-color 三张图用于 Q3；
+- **Q3 主课要用的三张量化图必须直接取自这些导出文件并放进 PPTX**，不能在制作 PPTX 时重新处理一遍；
+- seam comparison 记录来自同一批导出文件，而不是另一轮临时计算。
 
 ### 课堂故障时怎么继续？
 
@@ -1498,7 +1587,7 @@ assets/fallback/
 
 ## 课堂可用状态
 
-截至 v1.4.4，本文件已经把 demo 的输入、路径、算法和检查条件写清楚，但仓库里仍未建立教师版 / 学生版 notebook，也尚未提交上述 fallback 图片。
+截至 v1.4.5，本文件已经把 demo 的输入、路径、算法和检查条件写清楚，但仓库里仍未建立教师版 / 学生版 notebook，也尚未提交上述 fallback 图片。
 
 因此本阶段应标记为：
 
@@ -1510,8 +1599,8 @@ assets/fallback/
 2. 建立学生版 notebook：隐藏关键结论，保留预测、观察和必要代码单元；
 3. 在 Windows 10 + conda `pt` + 本课目录作为 working directory 的条件下完整运行一次；
 4. 确认 `assets/test-image.png`、`assets/q7-3x2-24bit.bmp` 均能被相对路径找到；
-5. 导出并核对 Demo A 的五张 sampling fallback 图，以及 Demo B 的 original / 16-color / 2-color 三张 fallback 图；
-6. 把 Q3 主课三张量化图嵌入 PPTX，并保留一份 seam 数值预跑记录，确保 notebook 失败时仍能完成同一问题链。
+5. 由教师 notebook **直接导出并核对** Demo A 的五张 512×512 sampling fallback 图，以及 Demo B 的 original / 16-color / 2-color 三张 256×256 fallback 图；
+6. 用刚导出的 `quant-original.png`、`quant-16.png`、`quant-2.png` 制作 PPTX 中 Q3 的三张主课图，并保留对同一批文件做出的 seam 数值检查记录，确保 notebook 失败时仍能完成同一问题链。
 
 正式实现时优先使用现有环境中已经安装的库；若需要 Pillow，应先确认环境是否已有，不在课堂临时加入复杂安装流程。
 
@@ -1569,6 +1658,10 @@ assert source_path.is_file(), (
 src = Image.open(source_path).convert("RGB")
 sizes = [256, 64, 32, 16, 8]
 
+# 保存“课堂实际展示”的 512×512 版本，
+# fallback 导出时直接复用这些对象，避免重新生成另一套证据。
+sampling_outputs = {}
+
 for n in sizes:
     sampled = src.resize(
         (n, n),
@@ -1581,6 +1674,9 @@ for n in sizes:
 
     assert sampled.mode == "RGB"
     assert enlarged.mode == "RGB"
+    assert enlarged.size == (512, 512)
+
+    sampling_outputs[n] = enlarged
 
     print(f"{n} × {n}")
     display(enlarged)
@@ -2085,9 +2181,9 @@ $$
 
 ***
 
-# C9 V1.4.4 设计取舍
+# C9 V1.4.5 设计取舍
 
-本版本继续控制在一节 45 分钟课可以完成的范围内，并进一步保证“即使 live demo 失败，学习证据仍然成立”：为 Demo A / B 增加课前导出的 fallback 图片与 seam 记录；同时收紧 Q4 开头，不再把 Q3 的视觉演示误写成已经验证过文件存储。
+本版本继续控制在一节 45 分钟课可以完成的范围内，并进一步保证“PPTX、live demo、fallback 使用同一批证据”：教师 notebook 直接导出 Demo A / B 的静态图片并自动复核尺寸与红绿接缝；同时删除 Q4 重复预测题。
 
 ## 主课必须掌握
 
@@ -2118,8 +2214,10 @@ $$
 - Demo B 使用 MEDIANCUT + no dithering，把“整幅图最多 N colors”和“每通道 N levels”明确区分；
 - Q3 约 4 分钟，只展示原图、16-color、2-color；256-color / 4-color 留作教师追问；
 - Q4 约 5 分钟，开头明确“Q3 只看到了画面变化，尚未检查文件怎样保存”，然后集中完成 16 states → 4 bits → $2^b$；
-- Demo A / B 的主课证据必须有静态 fallback：sampling 五张图、quantization 三张图，以及 seam different / same 的预跑记录；
-- Q3 的 original / 16-color / 2-color 三张量化图必须嵌入 PPTX，避免 notebook 成为单点故障；
+- Demo A / B 的静态 fallback 由教师 notebook **直接导出**，不手工截图、不另写一套处理流程；
+- Demo A 导出 5 张课堂实际展示的 512×512 图；Demo B 导出 original / 16-color / 2-color 三张 256×256 图；
+- 导出后重新打开文件检查 mode / size，并对 `quant-16.png` 与 `quant-2.png` 再做一次 `(72,40)` / `(73,40)` seam 验证；
+- Q3 的 PPTX 三张量化图必须直接使用这三个导出文件，避免 PPTX 与 notebook 证据漂移；
 - Demo B 坚持“先看图、后揭示数值”：学生版不提前打印接缝 RGB，教师版在下一格用 `(72,40)` / `(73,40)` 验证；
 - Demo A 明确是对已有 256×256 数字图像的重采样模拟；放大到相同显示尺寸只为比较，不能恢复丢失细节；
 - Demo B 主实验只证明 RGB mode / pixel dimensions / whole-image color count；磁盘 24-bit BMP 作为教师可选验证，不与内存对象混为一谈；
