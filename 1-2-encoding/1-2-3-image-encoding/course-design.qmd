@@ -1,7 +1,7 @@
 ---
 title: "1-2-3 图像编码"
 subtitle: "Image Encoding：从连续图像到像素、颜色与二进制"
-version: "v1.4.1"
+version: "v1.4.2"
 format:
   html:
     toc: true
@@ -495,28 +495,36 @@ $$
 
 ## 学生先预测
 
-先问两个问题：
+先问两个问题，但**不要在问题里说出原因**：
 
 > 像素数完全一样，图像会不会看起来一样？  
-> 如果两块原来不同的颜色被量化成同一个颜色，它们之间的**视觉边界会不会消失**？
+> 测试图中红色块和绿色块紧贴在一起。颜色数量越来越少时，它们之间的**红绿接缝还会一直看得见吗？为什么？**
 
-第二问很重要，因为它迫使学生区分：
+先让学生表态并说明理由，不公布答案。
 
-```text
-pixel positions 没变
-≠
-视觉边界一定还在
-```
+## 先看图，再找证据
 
-## 观察重点
-
-学生应逐步发现：
+第一轮只看量化后的图像，不先展示接缝两侧的 RGB 数值。让学生观察：
 
 - **pixel positions 和 pixel count 完全不变**；
 - 平滑渐变会出现明显 banding；
-- 原来不同的颜色可能被映射到同一个离散颜色；
-- 因此某些**由颜色差异形成的视觉边界可能变弱，甚至消失**；
-- 这不是因为 Sampling 删除了像素位置，而是因为 Quantization 合并了这些位置上的颜色值。
+- 红绿接缝在不同颜色数量下是否仍可见；
+- 其他由颜色差异形成的视觉边界是否变弱。
+
+学生先用视觉现象提出解释后，教师再揭示接缝两侧两个 pixel 的 RGB 值作为证据。
+
+在本课固定测试图与固定 MEDIANCUT / no-dither 设置下，教师预跑结果是：
+
+```text
+16 colors：接缝两侧 RGB 不同 → 红绿边界仍有颜色差异
+ 2 colors：接缝两侧 RGB 相同 → 红绿边界的颜色差异消失
+```
+
+此时再收束：
+
+> **pixel positions 没有减少，但 Quantization 可能把相邻区域映射到同一个颜色值，因此视觉边界也可能消失。**
+
+这与 Sampling 的“空间位置变少”是不同机制。
 
 ## 概念形成
 
@@ -1347,7 +1355,7 @@ print("assets directory:", assets_dir)
 为了避免 Sampling 与 Quantization 各自换一张图，本课统一使用同一个 256×256 测试图。它必须同时包含：
 
 - **连续渐变**：观察 quantization banding；
-- **三个大块 RGB 纯色区域**：观察颜色合并与边界消失；
+- **相接的红、绿纯色块 + 一个蓝色色块**：直接观察共同边界是否因量化而消失；
 - **足够大的圆形轮廓**：观察降低 sampling 后曲线怎样变成粗糙阶梯；
 - **足够粗的斜线**：保证 16×16 及以上版本还能清楚观察 staircase；
 - **细小短线**：故意作为低 resolution 下最先消失的细节。
@@ -1373,9 +1381,10 @@ for y in range(h):
 
 draw = ImageDraw.Draw(img)
 
-# 2) 三个大块 RGB 纯色区域：观察颜色合并与视觉边界
+# 2) 红、绿两个色块直接相接：接缝位于 x=72 / 73
+#    蓝色色块保留为第三个颜色参照
 draw.rectangle((12, 12, 72, 72), fill=(255, 0, 0))
-draw.rectangle((98, 12, 158, 72), fill=(0, 255, 0))
+draw.rectangle((73, 12, 133, 72), fill=(0, 255, 0))
 draw.rectangle((184, 12, 244, 72), fill=(0, 0, 255))
 
 # 3) 下半部设置浅灰背景，使几何轮廓更容易比较
@@ -1418,9 +1427,9 @@ print("created:", path)
 因此课堂不要要求学生在 8×8 上一定指出“圆的边缘”或“斜线的阶梯”。  
 **8×8 的教学价值恰恰是：sampling 少到一定程度以后，不只是边缘变粗糙，某些结构本身都可能失去可辨识性。**
 
-## 课堂可用状态## 课堂可用状态
+## 课堂可用状态
 
-截至 v1.4.1，本文件已经把 demo 的输入、路径、算法和检查条件写清楚，但仓库里仍未建立教师版 / 学生版 notebook。
+截至 v1.4.2，本文件已经把 demo 的输入、路径、算法和检查条件写清楚，但仓库里仍未建立教师版 / 学生版 notebook。
 
 因此本阶段应标记为：
 
@@ -1512,7 +1521,7 @@ Pillow 对普通 RGB 图像调用 `resize()` 而不显式指定 `resample` 时�
 - **32×32**：圆的边缘明显方格化，斜线 staircase 很容易看见；
 - **16×16**：圆明显失真，斜线阶梯很粗，细节条纹大量丢失；
 - **8×8**：细节基本消失，圆和斜线可能已经难以作为原来的几何形状辨认；
-- 三个大 RGB 色块在很低 resolution 下仍较容易辨认，因此可与“细节最先丢失”形成对照。
+- 顶部的大色块在很低 resolution 下仍较容易辨认，因此可与“细节最先丢失”形成对照。
 
 教师追问应从“哪里变粗糙”继续推进到：
 
@@ -1570,27 +1579,18 @@ for n in targets:
     assert q.mode == "RGB"
     assert color_count <= n
 
-    # 记录三个色块中心像素，用来观察“颜色边界是否会消失”
-    block_samples = {
-        "red block": q.getpixel((40, 40)),
-        "green block": q.getpixel((120, 40)),
-        "blue block": q.getpixel((210, 40)),
-    }
-
     outputs[n] = q
-    print(
-        f"max={n:3d} colors | "
-        f"actual colors={color_count:3d} | "
-        f"size={q.size} | mode={q.mode}"
-    )
-    print("  block samples:", block_samples)
 
+# 第一格：只展示图像，不先打印接缝两侧的 RGB 答案
+print("original")
 display(src)
+
 for n in targets:
+    print(f"max {n} colors")
     display(outputs[n])
 ```
 
-这里的检查故意同时验证三个变量：
+代码在后台检查三个变量，但第一格不把接缝 RGB 数值打印出来：
 
 ```text
 pixel dimensions    → 不变
@@ -1605,17 +1605,64 @@ in-memory image mode → RGB
 
 > **本实验主动改变的是整幅图允许使用的离散颜色集合；pixel dimensions 不变，输出图像对象仍是 RGB mode。主实验不比较磁盘文件大小，也不据此断言文件一定是 24-bit。**
 
-### 学生观察：把“边界会不会消失”作为重点
+### 学生观察：先看红绿接缝，不先看 RGB 数值
 
-- pixel positions / dimensions 不变；
-- 平滑渐变会越来越容易出现 banding；
-- 某些原来不同的颜色会被映射到同一个离散颜色；
-- 在本课固定测试图与固定 MEDIANCUT / no-dither 参数下，限制到 **2 colors** 时，三个 RGB 色块中心会映射到同一个 RGB tuple，因此它们之间依靠颜色差异形成的视觉边界会消失；
-- 这说明 Quantization 虽然没有删除 pixel positions，却仍然可能让视觉结构发生明显变化。
+先停在图像结果，让学生回答：
 
-教师不要再概括成“物体边缘位置基本不变”。更准确的说法是：
+> **pixel count 没有变，红色块和绿色块的接缝还在吗？16 colors 和 2 colors 有什么不同？**
 
-> **空间位置没变；但如果相邻区域的颜色被量化成同一个值，视觉边界可以消失。**
+学生先描述自己看到的现象并尝试解释。此时不要先公布接缝两侧的数值。
+
+### 下一格再揭示证据：接缝两侧两个 pixel
+
+红色块最后一列是 $x=72$，绿色块第一列是 $x=73$。固定取：
+
+```text
+left  = (72, 40)
+right = (73, 40)
+```
+
+教师版下一格运行：
+
+```python
+seam_left = (72, 40)
+seam_right = (73, 40)
+
+for n in [16, 2]:
+    left_rgb = outputs[n].getpixel(seam_left)
+    right_rgb = outputs[n].getpixel(seam_right)
+
+    print(
+        f"{n:2d} colors | "
+        f"left={left_rgb} | right={right_rgb} | "
+        f"same={left_rgb == right_rgb}"
+    )
+```
+
+教师预跑应验证：
+
+```text
+16 colors → left != right
+ 2 colors → left == right
+```
+
+不必让学生记住具体 RGB tuple，证据重点是 **different / same**。
+
+这样学生先从图像形成解释，再用 pixel values 验证：
+
+> **空间位置没有变；但如果接缝两侧被量化成同一个颜色值，依靠颜色差异形成的视觉边界就会消失。**
+
+### 教师版 / 学生版揭示顺序
+
+```text
+学生版：
+预测 → 看图 → 说现象 → 解释 → 教师揭示 RGB evidence
+
+教师版：
+保留同样顺序；
+数值检查单元放在图像展示单元之后，
+用于验证与收束，不用于提前公布答案。
+```
 
 ### 教师追问
 
@@ -1809,7 +1856,7 @@ pixel value data
 | $W \times H$ 就是“采样密度” | 固定同一场景范围再比较 | 没有指定物理/场景范围时，“每单位范围”是什么？ |
 | Sampling 就是把颜色变少 | 固定颜色，只改变 resolution | 本轮颜色规则有没有变？ |
 | Quantization 就是降低分辨率 | 固定 resolution，只改变颜色等级 | 像素位置有没有减少？ |
-| Quantization 不改变 pixel positions，所以视觉边界一定还在 | 用 2-color 结果比较三个 RGB 色块 | 如果两个相邻区域被映射到同一个颜色，边界还能看见吗？ |
+| Quantization 不改变 pixel positions，所以视觉边界一定还在 | 比较红绿共同接缝两侧 `(72,40)` 与 `(73,40)`：先看图，后揭示 RGB | pixel positions 没变时，为什么红绿接缝仍可能消失？ |
 | 颜色等级变少，文件一定变小 | Demo B 主实验只证明输出对象仍是 RGB mode，不比较磁盘文件大小；若要验证文件层，再保存为 BMP 检查 header | 内存中的 RGB mode 能不能直接推出磁盘文件的 bits per pixel？ |
 | 8-bit = 8 种状态 | 要学生列出 1 bit、2 bit 的状态 | 规律是 $b$ 还是 $2^b$？ |
 | 24-bit color = 24 种颜色 | 从三个 8-bit 通道推导 | $256 \times 256 \times 256$ 是多少？ |
@@ -1942,9 +1989,9 @@ $$
 
 ***
 
-# C9 V1.4.1 设计取舍
+# C9 V1.4.2 设计取舍
 
-本版本继续控制在一节 45 分钟课可以完成的范围内，并进一步校准“演示实际看到什么”和“代码真正证明什么”：Demo A 的观察按 8/16/32/64 分辨率分别表述；Demo B 把“颜色边界可能消失”纳入推断，并严格区分 in-memory RGB mode 与磁盘文件格式。
+本版本继续控制在一节 45 分钟课可以完成的范围内，并进一步校准“预测—观察—证据”的顺序：测试图让红绿区域拥有真实共同边界；Demo B 先展示图像、让学生解释，再揭示接缝两侧的 RGB evidence；同时继续严格区分 in-memory RGB mode 与磁盘文件格式。
 
 ## 主课必须掌握
 
@@ -1971,7 +2018,9 @@ $$
 - 使用 Q7 同一个 3×2 BMP 在 Q11 中建立 72-byte 预测，并解释 row padding 后的 78-byte 实际文件大小；
 - Q1 / Q3 / Demo A / Demo B 共用确定性生成的 `assets/test-image.png`；
 - 固定测试图增加大圆与加粗斜线；Demo A 的 8 / 16 / 32 / 64 观察结论按实际预跑结果分别书写；
+- 测试图中红、绿区域直接相接，接缝位于 x=72 / 73；16-color 时接缝两侧保持不同，2-color 时合并为相同颜色；
 - Demo B 使用 MEDIANCUT + no dithering，把“整幅图最多 N colors”和“每通道 N levels”明确区分；
+- Demo B 坚持“先看图、后揭示数值”：学生版不提前打印接缝 RGB，教师版在下一格用 `(72,40)` / `(73,40)` 验证；
 - Demo B 主实验只证明 RGB mode / pixel dimensions / whole-image color count；磁盘 24-bit BMP 作为教师可选验证，不与内存对象混为一谈；
 - Demo A / Demo D 都规定 Jupyter 从本课目录启动，素材统一放在 `assets/`；代码先检查文件是否存在；
 - Demo D 读取同一个 3×2 BMP，输出 18-byte color values、12-byte stored row、24-byte pixel array、78-byte file；
