@@ -1,61 +1,63 @@
 ---
-title: "字符编码 · 教师演示实验"
-subtitle: "Teacher-facing Demo Lab"
+title: "字符编码演示"
+subtitle: "Demo Lab"
 jupyter: python3
 format:
   html:
     toc: true
     toc-depth: 2
-    toc-title: "Teacher Demo 导航"
+    toc-title: "导航"
 execute:
   echo: true
   warning: false
 ---
 
-# 使用方式
+# Q0 乱码是怎么产生的 {#q0-demo}
 
-这是教师版 Notebook。它可以包含答案、预期输出、教学提示和技术注解。学生课堂使用 `demo-lab-student.ipynb`。
+```{python}
+def save_to_computer(text):
+    return text.encode("utf-8")
 
-生成：
+def read(text):
+    return text.decode("gb18030")
 
-```bash
-quarto convert 1-2-encoding/1-2-3-character-encoding/demo-lab-teacher.qmd
+def show_hex(text):
+    # return " ".join(f"{ord(c):02x}" for c in text.hex())
+    return text.hex(" ").upper()
 ```
-
----
-
-# Q0 乱码悬念 {#q0-demo}
-
-## 教师操作
-
-学生先只看输出，不看机制。
 
 ```{python}
 text = "你好"
-print("原文：", text)
+print(text)
 ```
 
 ```{python}
-raw = text.encode("utf-8")
-wrong = raw.decode("gbk")
-print("乱码：", wrong)
+stored_text = save_to_computer(text)
+print(stored_text)
 ```
 
-## 教师提示
+```{python}
+# beauty print
+print(show_hex(stored_text))
+```
 
-此时不要解释 `encode`、`decode` 和 bytes。只追问：
-
-> 错误发生在输入、字符身份、bytes，还是显示环节？
-
-完整解释放到 Q13。
-
----
+```{python}
+fetched_text = read(stored_text)
+print(fetched_text)
+```
 
 # Q3 ASCII：7 bit 与 1 byte {#q3-demo}
 
 ```{python}
 ch = "A"
+print(ch)
+```
+```{python}
+# ord() returns the integer Unicode code point of a single character
 code = ord(ch)
+print(code)
+```
+```{python}
 ascii_byte = ch.encode("ascii")[0]
 
 print(f"Character        : {ch}")
@@ -66,50 +68,56 @@ print(f"Stored in 1 byte : {ascii_byte:08b}")
 print(f"MSB              : {(ascii_byte >> 7) & 1}")
 ```
 
-教师追问：
 
-> ASCII 只需要 7 bit，为什么保存时看到 8 bit？
-
-结论：左侧补 0，MSB=0。
-
----
-
-# Q6–Q7 Plan B：GB2312 机内码 {#q6-demo}
-
-只有在 WinHex 不稳定，或需要快速复核时使用。
+# Q6–Q7 Plan B：GB18030 机内码 {#q6-demo}
 
 ```{python}
-text = "A中B国C文"
-
 def bits(byte):
     return f"{byte:08b}"
 
 def msb(byte):
     return (byte >> 7) & 1
-
+```
+```{python}
+text = "中"
+print(text.encode("gb18030").hex(" ").upper())
+```
+```{python}
+text = "A"
+print(text.encode("gb18030").hex(" ").upper())
+```
+```{python}
+text = "B"
+print(text.encode("gb18030").hex(" ").upper())
+```
+```{python}
+text = "C"
+print(text.encode("gb18030").hex(" ").upper())
+```
+```{python}
+text = "A中B国C文"
+print(text.encode("gb18030").hex(" ").upper())
+```
+```{python}
 print("Text:", text)
-print("GB2312 bytes:", text.encode("gb2312").hex(" ").upper())
+print("GB18030 bytes:", text.encode("gb18030").hex(" ").upper())
 print()
 print(f"{'字符':<4}{'Hex':<10}{'Bytes':<8}{'Binary':<22}{'MSB'}")
 print("-" * 60)
 
 for ch in text:
-    raw = ch.encode("gb2312")
+    raw = ch.encode("gb18030")
     hex_bytes = " ".join(f"{b:02X}" for b in raw)
     binary = " ".join(bits(b) for b in raw)
     msbs = " ".join(str(msb(b)) for b in raw)
-    print(f"{ch:<4}{hex_bytes:<10}{len(raw):<8}{binary:<22}{msbs}")
+    print(f"{ch:<5}{hex_bytes:<13}{len(raw):<8}{binary:<22}{msbs}")
 ```
 
-教学结论只限定在 GB2312 机内码模型。
-
-Q7 追问：GB2312 字符表中“中”的国标码是 `56 50`，实验文件为何是 `D6 D0`？两个 byte 分别加了 `0x80`。这里的“机内码”指传统 GB2312 双字节表示；不要说成所有计算机内部的通用存储形式。学生版保留两组数值，让学生先算差值。
-
-来源：<https://www.unicode.org/iuc/iuc15/tb1/slides.pdf>，第 7 页列出“中”在 ISO-2022-CN 的 `56 50` 与 EUC-CN 的 `D6 D0`。
+结论只限定在 GB2312 机内码模型。
 
 ---
 
-# Q8 同一个汉字：GB2312 vs UTF-8 {#q8-demo}
+# Q8 同一个汉字：GB18030 vs UTF-8 {#q8-demo}
 
 ```{python}
 ch = "中"
@@ -130,8 +138,6 @@ for encoding in ["gb2312", "utf-8"]:
 ---
 
 # Q9 英文输入与中文输入 {#q9-demo}
-
-这里故意不显示 `U+0041` / `U+4F60`，避免提前泄露 Q10。
 
 ```{python}
 from IPython.display import display, HTML

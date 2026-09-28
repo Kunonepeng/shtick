@@ -358,6 +358,7 @@ Do not add stock imagery merely to make a slide “more visual.”
 - Avoid drop shadows, glossy frames, thick rounded borders, and decorative photo masks.
 - White space around images is preferable to decorative containers.
 - If a source screenshot already has a strong visual frame, let it stand on its own.
+- Check screenshots at actual slide size. If students must read values that are too small, recreate the relevant excerpt as a native table or diagram and put the source in Speaker Notes.
 
 ### 9.3 Multi-image comparison
 
@@ -904,24 +905,60 @@ A generated deck is **not finished** merely because the PPTX file was created su
 
 Production acceptance requires visual inspection.
 
-### 21.1 Required workflow
+### 21.1 Slide plan before production
+
+Make a one-row-per-slide plan from `course-design.qmd` before building the PPTX. Use the plan to check the teaching sequence, not to duplicate the full course design.
+
+| Slide / build ID | Q ID and stage | Student sees now | Hold for later / Speaker Notes | Evidence, source, and focus target |
+|---|---|---|---|---|
+| `Q2-question` | Q2 · question | ASCII 表局部、寻找 `A` 的任务 | `A` 的码值与计算过程 | `A` 所在行列 |
+| `Q2-answer` | Q2 · answer | 同一表格，加上 `A` 的行列合成 | Q3 的 7 bit / 8 bit 解释 | `A` 所在行列与新计算式 |
+
+Use `question`, `evidence`, `focus`, `answer`, or `transition` for teaching stages. For a cover or exit slide, use `opening` or `exit` and record its page purpose in place of a Q ID. Before building, check that:
+
+- every major Q has a question-only slide before its answer;
+- each question slide contains the givens needed to attempt it, with no answer, effective hint, or teacher prompt;
+- each reveal adds one current teaching focus while keeping the question and base geometry fixed;
+- every significant item has an explicit student-facing or teacher-facing destination;
+- each screenshot, table, and red focus mark has a stated teaching purpose and a readable target;
+- technical claims, dates, and process diagrams match `course-design.qmd`; sources are available for claims that need them.
+
+### 21.2 Required workflow
 
 For every production PPTX:
 
-1. generate the PPTX;
-2. render **every slide** to an image;
-3. generate a full-deck montage;
-4. inspect the montage for consistency;
-5. inspect dense, diagram-heavy, question/answer, and overlay slides individually at full resolution;
-6. run programmatic checks for objects outside the slide canvas, including the rail rectangles;
-7. verify that all native text objects explicitly use the required Alibaba PuHuiTi 3.0 variant;
-8. check the **rendered font** on Chinese, Latin, numeric, and symbol text; inspect the font list in a PDF export where available and check representative slides in WPS / PowerPoint. If a variant is substituted, apply the approved fallback in §3.1 and render again;
-9. verify that question/answer pairs preserve their base geometry, including the chosen one-line or two-line title variant;
-10. verify Speaker Notes;
-11. open the final deck in **WPS Presentation whenever practical** and check the actual classroom rendering;
-12. fix all visible defects before delivery.
+1. build the deck from the slide plan;
+2. compare the finished slide order and reveal stages with the slide plan and `course-design.qmd`;
+3. render **every slide** to an image;
+4. generate a full-deck montage;
+5. inspect the montage for consistency;
+6. inspect dense, diagram-heavy, question/answer, and overlay slides individually at full resolution; check that each red focus mark encloses the intended evidence;
+7. run programmatic checks for out-of-canvas objects, rail geometry, font assignments, Speaker Notes presence, and stable question/answer coordinates where possible;
+8. verify that all native text objects explicitly use the required Alibaba PuHuiTi 3.0 variant;
+9. check the **rendered font** on Chinese, Latin, numeric, and symbol text; inspect the font list in a PDF export where available and check representative slides in WPS / PowerPoint. If a variant is substituted, apply the approved fallback in §3.1 and render again;
+10. verify that question/answer pairs preserve their base geometry, including the chosen one-line or two-line title variant;
+11. review student-visible text for premature answers and teacher-only instructions; verify that every teaching slide has usable Speaker Notes;
+12. compare technical claims, dates, and process diagrams with the source design and cited references;
+13. open the final deck in **WPS Presentation whenever practical** and check the actual classroom rendering;
+14. fix all visible defects before delivery.
 
-### 21.2 Reject these defects
+### 21.3 Deck acceptance record
+
+Copy this compact record into the delivery note. Mark each row `pass`, `fail`, or `unverified`, with the evidence or reason. Resolve failures before calling the deck classroom-ready.
+
+| Check | Result / evidence |
+|---|---|
+| Slide order, Q IDs, and reveal stages match the plan and `course-design.qmd` | |
+| Question slides contain no premature answer or teacher-only text | |
+| Evidence is readable and each red focus mark identifies its intended target | |
+| Every slide was rendered; montage and dense slides were inspected | |
+| Geometry, rails, fonts, and question/answer stability passed structural checks | |
+| Speaker Notes, technical claims, dates, and sources were checked | |
+| Final PPTX was inspected in WPS / PowerPoint | |
+
+If the WPS / PowerPoint check was not practical, mark that row `unverified` and say why; a PDF or other renderer does not establish how the classroom app will display the file.
+
+### 21.4 Reject these defects
 
 A production deck is not classroom-ready if it contains:
 
@@ -938,7 +975,7 @@ A production deck is not classroom-ready if it contains:
 - auto-fit shrinking important text;
 - dark overlays with insufficient height for the statement.
 
-### 21.3 Text-box rule
+### 21.5 Text-box rule
 
 Do not assume a text box fits because the source string fits programmatically.
 
