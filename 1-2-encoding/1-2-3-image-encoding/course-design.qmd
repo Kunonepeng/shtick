@@ -1,7 +1,7 @@
 ---
 title: "1-2-3 图像编码"
 subtitle: "Image Encoding：从连续图像到像素、颜色与二进制"
-version: "v1.4.6"
+version: "v1.4.7"
 format:
   html:
     toc: true
@@ -350,6 +350,7 @@ Q7 主课只建立这个区别；Q11 再用同一个真实 BMP 文件观察 row 
 **课堂执行原则：**
 
 - Q8 是本节最重要的计算任务，至少保留 8 分钟；
+- Q1 主课默认使用 PPTX 两张证据页完成比较：`256 / 64 / 32` → `32 / 16 / 8`；不要先完整运行 Demo A 再重复看 PPTX。只有学生提出新尺寸时才切到 notebook 做即时验证；
 - Q3 控制在约 4 分钟：主课只投影**原图、16-color、2-color**。256-color 与 4-color 保留在教师 notebook，需要追问时再调出；
 - Q4 保留约 5 分钟：重点不是继续比较图片，而是让学生从 16 个状态逐步推出最少 4 bit，并概括 $2^b$；
 - Q7 主课只保留两个可见证据：`BM` 和已经解码好的 pixel-data offset = 54；不在主课解释 little-endian、BGR、row order 或 padding；
@@ -405,25 +406,48 @@ Q7 主课只建立这个区别；Q11 再用同一个真实 BMP 文件观察 row 
 - 为什么显示大小相同，看起来却不同？
 - $8 \times 8$ 到底表示什么？
 
-## PPTX 证据页：问题页之后直接放五张 sampling 图
+## PPTX 证据页：固定两页完成主课比较
 
-Q1 的 PPTX 不只放问题页。问题页之后必须紧跟一页（或连续两页）**证据页**，直接使用教师 notebook 导出的同一批：
+Q1 的主课**默认在 PPTX 内完成比较**，不先完整运行 Demo A。问题页之后紧跟两张证据页，直接使用教师 notebook 导出的同一批图片。
+
+### 证据页 A：256 / 64 / 32
 
 ```text
-assets/fallback/sampling-256.png
-assets/fallback/sampling-64.png
-assets/fallback/sampling-32.png
-assets/fallback/sampling-16.png
-assets/fallback/sampling-8.png
+sampling-256.png
+sampling-64.png
+sampling-32.png
 ```
 
-排版时让五张图的**显示尺寸一致**，并清楚标注各自的 pixel dimensions。
+### 证据页 B：32 / 16 / 8
 
-课堂正常时，可以先运行 Demo A，再切到这页做归纳；如果 notebook 现场失败，则不需要离开 PPTX 或临时打开 PNG，直接从问题页切到证据页继续：
+```text
+sampling-32.png
+sampling-16.png
+sampling-8.png
+```
 
-> **预测 → 比较五张图 → 解释哪些细节消失 → 引入 Sampling / Resolution**
+其中 **32×32 在两页重复出现**，作为视觉衔接点，让学生能连续追踪“细节怎样逐步丢失”，而不是在翻页后重新建立比较基准。
 
-因此 Q1 的 live demo 与 PPTX fallback 不是两套材料，而是**同一批图像证据的两种呈现方式**。
+两页都遵循多图比较布局：
+
+- 每页只放 3 张图；
+- 三图保持**相同显示尺寸**，不按 pixel dimensions 改变画面大小；
+- 顶边、底边对齐；
+- 每张图下方放简短居中的 `256×256`、`64×64`、`32×32` 等标签；
+- 不给每张图额外加背景卡片，保留足够留白。
+
+这样既符合本项目 style guide 的 multi-image comparison 原则，也避免五张方图挤在一页后过小。
+
+主课固定流程：
+
+> **预测 → PPTX 证据页 A → PPTX 证据页 B → 比较与解释 → 引入 Sampling / Resolution**
+
+教师 notebook 的 Demo A 保留，但**不作为 Q1 的默认完整展示流程**。只有当学生提出新的可检验问题，例如：
+
+> “那 24×24 会怎样？”  
+> “如果不是 8、16、32 这种尺寸呢？”
+
+教师才切到 notebook，现场生成学生提出的新尺寸，把 notebook 用作**进一步验证预测的工具**，而不是重复播放 PPTX 已经完整展示过的五个固定版本。
 
 ## 观察与解释
 
@@ -1584,7 +1608,7 @@ original / 16 / 2 → 256×256 RGB
 
 其中：
 
-- Demo A 的五张图用于 Q1 的 sampling 比较，并且**必须直接取自这些导出文件放进 PPTX 的 Q1 证据页**；
+- Demo A 的五张图用于 Q1；PPTX 固定制作成两张三图证据页：`256 / 64 / 32` 与 `32 / 16 / 8`，其中 32×32 重复作为衔接；
 - Demo B 的 original / 16-color / 2-color 三张图用于 Q3；
 - **Q1 与 Q3 的 PPTX 图像都必须直接使用 notebook 导出的 fallback 文件**，不能在制作 PPTX 时重新处理一遍；
 - seam comparison 记录来自同一批导出文件，而不是另一轮临时计算。
@@ -1593,7 +1617,7 @@ original / 16 / 2 → 256×256 RGB
 
 如果 Pillow、Jupyter、路径或投影环境现场出问题：
 
-1. Q1：留在 PPTX 中，从问题页直接切到用五张 `sampling-*.png` 制作的证据页，仍按“先预测 → 比较 → 解释”推进；
+1. Q1：按主课默认流程留在 PPTX 中，从问题页依次切到 `256 / 64 / 32`、`32 / 16 / 8` 两张证据页，仍按“先预测 → 比较 → 解释”推进；
 2. Q3：继续在 PPTX 中展示 original / 16-color / 2-color 三张图；
 3. 学生先判断红绿接缝是否还在，并解释原因；
 4. 教师再展示课前保存的 seam comparison 记录作为数值证据；
@@ -1607,7 +1631,7 @@ original / 16 / 2 → 256×256 RGB
 
 ## 课堂可用状态
 
-截至 v1.4.6，本文件已经把 demo 的输入、路径、算法和检查条件写清楚，但仓库里仍未建立教师版 / 学生版 notebook，也尚未提交上述 fallback 图片。
+截至 v1.4.7，本文件已经把 demo 的输入、路径、算法和检查条件写清楚，但仓库里仍未建立教师版 / 学生版 notebook，也尚未提交上述 fallback 图片。
 
 因此本阶段应标记为：
 
@@ -1620,12 +1644,21 @@ original / 16 / 2 → 256×256 RGB
 3. 在 Windows 10 + conda `pt` + 本课目录作为 working directory 的条件下完整运行一次；
 4. 确认 `assets/test-image.png`、`assets/q7-3x2-24bit.bmp` 均能被相对路径找到；
 5. 由教师 notebook **直接导出并核对** Demo A 的五张 512×512 sampling fallback 图，以及 Demo B 的 original / 16-color / 2-color 三张 256×256 fallback 图；
-6. 用刚导出的五张 `sampling-*.png` 制作 PPTX 中紧跟 Q1 问题页的证据页；
+6. 用刚导出的五张 `sampling-*.png` 制作 PPTX 中紧跟 Q1 问题页的两张三图证据页：`256 / 64 / 32` 与 `32 / 16 / 8`；两页中的 32×32 必须来自同一个导出文件；
 7. 用刚导出的 `quant-original.png`、`quant-16.png`、`quant-2.png` 制作 PPTX 中 Q3 的三张主课图，并保留对同一批文件做出的 seam 数值检查记录，确保 notebook 失败时仍能完成同一问题链。
 
 正式实现时优先使用现有环境中已经安装的库；若需要 Pillow，应先确认环境是否已有，不在课堂临时加入复杂安装流程。
 
 ## Demo A：Sampling
+
+### 在主课中的角色
+
+Q1 的固定证据已经放进 PPTX，因此 Demo A 在课堂上有两个角色：
+
+1. 课前生成并校验 `sampling-*.png`；
+2. 课堂上只在学生提出**新的 sampling 尺寸**时，用来即时验证预测。
+
+不要在 Q1 先完整运行 256 / 64 / 32 / 16 / 8，再到 PPTX 把同样五个结果重复展示一遍。
 
 ### 学生先预测
 
@@ -2206,9 +2239,9 @@ $$
 
 ***
 
-# C9 V1.4.6 设计取舍
+# C9 V1.4.7 设计取舍
 
-本版本继续控制在一节 45 分钟课可以完成的范围内，并进一步保证“PPTX、live demo、fallback 使用同一批证据”：Q1 也把 notebook 导出的五张 sampling 图直接做成 PPTX 证据页；Demo B 的颜色计数改用 `getcolors()`，避免 Pillow 新版本的 `getdata()` 弃用警告。
+本版本继续控制在一节 45 分钟课可以完成的范围内，并进一步收紧 Q1 的投影节奏：五张 sampling 图不再挤在一页，也不再“先完整跑 Demo A、再重复看 PPTX”；主课固定使用 `256 / 64 / 32` 与 `32 / 16 / 8` 两张三图证据页，32×32 作为跨页衔接。
 
 ## 主课必须掌握
 
@@ -2242,7 +2275,9 @@ $$
 - Demo A / B 的静态 fallback 由教师 notebook **直接导出**，不手工截图、不另写一套处理流程；
 - Demo A 导出 5 张课堂实际展示的 512×512 图；Demo B 导出 original / 16-color / 2-color 三张 256×256 图；
 - 导出后重新打开文件检查 mode / size，并对 `quant-16.png` 与 `quant-2.png` 再做一次 `(72,40)` / `(73,40)` seam 验证；
-- Q1 的 PPTX 在问题页后直接放五张导出的 `sampling-*.png` 作为证据页；现场 notebook 失败时无需离开 PPTX；
+- Q1 的 PPTX 在问题页后固定放两张三图证据页：`256 / 64 / 32` 与 `32 / 16 / 8`；32×32 重复作为视觉衔接；
+- 两页遵循 style guide 的 multi-image comparison：三图等大、上下对齐、短标签居中、不加逐图背景卡；
+- Q1 主课默认在 PPTX 完成；Demo A 只在学生提出新尺寸时切出做即时验证，避免八分钟内重复展示同一批结果；
 - Q3 的 PPTX 三张量化图必须直接使用三个导出文件，避免 PPTX 与 notebook 证据漂移；
 - Demo B 用 `q.getcolors(maxcolors=n + 1)` 统计实际颜色数，并检查结果不是 `None`，不再依赖已出现弃用警告的 `q.getdata()`；
 - Demo B 坚持“先看图、后揭示数值”：学生版不提前打印接缝 RGB，教师版在下一格用 `(72,40)` / `(73,40)` 验证；
