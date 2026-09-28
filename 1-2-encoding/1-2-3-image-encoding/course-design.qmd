@@ -48,21 +48,21 @@ BMP 等图像文件
 
 课程最后先用 **bit 数**建立最稳固的统一公式：
 
-$
+$$
 \boxed{
-\text{未压缩像素值数据量（bits)}
+\text{未压缩像素值数据量（bits）}
 =
 W \times H \times \text{bits per pixel}
 }
-$
+$$
 
 再换算成 byte-equivalent：
 
-$
+$$
 \text{byte-equivalent}
 =
 \frac{W \times H \times \text{bits per pixel}}{8}
-$
+$$
 
 其中：
 
@@ -112,34 +112,34 @@ $$
 
 对于未压缩、每个像素固定使用 $b$ bit 的图像，像素值本身的 bit 数为：
 
-$
-\text{pixel value data（bits)}=W \times H \times b
-$
+$$
+\text{pixel value data（bits）}=W \times H \times b
+$$
 
 除以 8 得到的是 **byte-equivalent 数据量**：
 
-$
+$$
 \text{byte-equivalent}
 =
 W \times H \times \frac{b}{8}
-$
+$$
 
 如果这个结果不是整数，例如 6 个 1-bit pixel 只有 6 bits：
 
-$
+$$
 \frac{6}{8}=0.75\text{ byte-equivalent}
-$
+$$
 
 但 byte stream 不能只存“0.75 个 byte”。若按连续 bit stream 紧密打包，至少需要：
 
-$
+$$
 \boxed{
 \left\lceil
 \frac{W \times H \times b}{8}
 \right\rceil
 \text{ whole bytes}
 }
-$
+$$
 
 具体图像文件格式还可能增加每行对齐、header、palette 等额外空间。
 
@@ -290,41 +290,41 @@ BMP 还可能涉及 palette、不同 DIB header、bottom-up rows、row padding �
 
 最稳妥的第一步是先算像素值本身的 bit 数：
 
-$
-\text{pixel value data（bits)}
+$$
+\text{pixel value data（bits）}
 =
 W \times H \times b
-$
+$$
 
 除以 8 得到 byte-equivalent：
 
-$
+$$
 \frac{W \times H \times b}{8}
-$
+$$
 
 若结果不是整数，连续 bit stream 至少需要：
 
-$
+$$
 \left\lceil
 \frac{W \times H \times b}{8}
 \right\rceil
-$
+$$
 
 个完整 byte 才能容纳这些 bits。
 
 对本课 24-bit RGB，$b=24$，每个 pixel 恰好占 3 bytes，所以常用计算可以直接写成：
 
-$
+$$
 W \times H \times 3\text{ bytes}
-$
+$$
 
 但实际 BMP 文件还包含格式信息，并且 scanline 还可能按 4-byte 边界对齐，因此：
 
-$
+$$
 \text{实际 BMP 文件大小}
 \neq
 \text{简单像素值数据量}
-$
+$$
 
 Q7 主课只建立这个区别；Q11 再用同一个真实 BMP 文件观察 row padding 如何产生额外 bytes。
 
@@ -384,7 +384,6 @@ Q7 主课只建立这个区别；Q11 再用同一个真实 BMP 文件观察 row 
 
 ***
 
-# Q1 ***
 
 # Q1 如果显示尺寸一样，为什么这些图片看起来不一样？
 
@@ -759,7 +758,7 @@ $$
 0x36=54
 $$
 
-也就是说，真正的 pixel array 从文件第 54 byte 之后开始。
+也就是说，真正的 pixel array 从文件起始处偏移 54 bytes 的位置开始（offset = 54）。
 
 **课堂中暂时遮住 file-size 字段，不显示整个文件长度。**
 
@@ -829,7 +828,6 @@ Q7 使用真实文件 `assets/q7-3x2-24bit.bmp`，但主课投影的 hex view �
 
 ***
 
-# Q8 ***
 # Q8 一张 1920×1080、24-bit RGB 图片，不压缩需要多大？
 
 这是本课最重要的计算问题。
@@ -903,13 +901,13 @@ $$
 
 因为 24-bit RGB 每个 pixel 正好是 3 bytes：
 
-$
+$$
 \boxed{
 \text{pixel value data}
 =
 W \times H \times 3\text{ bytes}
 }
-$
+$$
 
 更一般地，先算 $W \times H \times b$ bits，再除以 8 得到 byte-equivalent；若不是整数 byte，需要向上取整到完整 byte，具体文件格式还可能继续增加额外开销。
 
@@ -1123,7 +1121,6 @@ $$
 
 ***
 
-# Q12 ***
 
 # Q12 回看：Sampling、Quantization、Encoding 分别解决什么问题？
 
@@ -1486,19 +1483,19 @@ $$
 
 以及：
 
-$
+$$
 \boxed{
-\text{pixel value data（bits)}
+\text{pixel value data（bits）}
 =
 W \times H \times b
 }
-$
+$$
 
 换算为 byte-equivalent：
 
-$
+$$
 \frac{W \times H \times b}{8}
-$
+$$
 
 > 若结果不是整数，紧密打包的 byte stream 至少需要 $\left\lceil W \times H \times b/8 \right\rceil$ 个完整 byte；具体 BMP 还可能有 row padding、header、palette 等额外空间。本课 24-bit RGB 每个 pixel 恰好是 3 bytes。
 
