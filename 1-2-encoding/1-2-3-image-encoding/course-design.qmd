@@ -1,7 +1,7 @@
 ---
 title: "1-2-3 图像编码"
 subtitle: "Image Encoding：从连续图像到像素、颜色与二进制"
-version: "v1"
+version: "v1.1"
 format:
   html:
     toc: true
@@ -25,41 +25,41 @@ format:
 
 全课学习路径：
 
-```text
+\`\`\`text
 现实/连续图像
     ↓
 Sampling（采样）
-在哪里取值？
+在哪里取值？取多少个位置？
     ↓
 Pixels / Resolution
     ↓
 Quantization（量化）
-每个像素允许哪些离散值？
+每个位置允许哪些离散值？
     ↓
-Color Depth / RGB
+Color values / RGB
     ↓
 Encoding（编码）
-这些数值怎样组织成 bits / bytes？
+这些数值怎样表示并组织成 bits / bytes？
     ↓
 BMP 等图像文件
     ↓
 存储空间
-```
+\`\`\`
 
 课程最后用一个统一公式收束：
 
-[
-oxed{
-	ext{未压缩像素数据量（bytes）}
+$$
+\boxed{
+\text{未压缩像素数据量（bytes)}
 =
-W	imes H	imesrac{	ext{bits per pixel}}{8}
+W \times H \times \frac{\text{bits per pixel}}{8}
 }
-]
+$$
 
 其中：
 
-- (W	imes H)：像素数量，主要对应空间采样；
-- (	ext{bits per pixel})：每个像素的表示位数，与颜色量化和颜色表示方式有关。
+- $W \times H$：图像的像素总数；
+- $\text{bits per pixel}$：实际分配给每个像素的存储位数。
 
 ---
 
@@ -68,11 +68,11 @@ W	imes H	imesrac{	ext{bits per pixel}}{8}
 完成本课后，学生应该能够：
 
 1. **解释图像数字化的基本过程**：区分 sampling、quantization、encoding 三个环节，并说明它们分别解决什么问题。
-2. **理解采样与分辨率**：用“宽 × 高的像素数量”解释本课语境中的图像分辨率，说明在其他条件相同时，提高空间采样通常能保留更多细节。
-3. **理解量化与颜色深度**：用 (2^b) 解释 bit depth 与可表示状态数之间的关系，并说明颜色深度不足会导致颜色层次丢失。
+2. **理解采样与分辨率**：用“宽 × 高的像素尺寸”解释本课语境中的图像分辨率；在表示同一场景、同一空间范围且其他条件相同时，说明更多空间采样通常能保留更多细节。
+3. **理解量化与颜色深度**：解释“可用离散值的数量”和“实际分配的 bits per pixel”之间的关系与区别；在明确采用 $b$ bit 表示一个量化值时，使用 $2^b$ 计算可表示状态数。
 4. **理解 RGB 颜色模型**：知道常见 24-bit RGB 通常由 R、G、B 三个 8-bit 通道组成。
-5. **理解编码的意义**：知道像素的数值还需要按照约定规则组织成 bits / bytes；以 BMP 为例认识 bitmap 文件的基本结构。
-6. **熟练计算未压缩图像大小**：能够根据宽、高、bit depth 计算像素数据量，并正确进行 bit、byte、KB/MB（或 KiB/MiB）换算。
+5. **理解编码的意义**：知道像素数值还需要按照约定规则组织成 bits / bytes；以 BMP 为例认识 bitmap 文件的基本结构。
+6. **熟练计算未压缩图像大小**：能够根据宽、高、bits per pixel 计算像素数据量，并正确进行 bit、byte、MB/MiB 换算。
 7. **区分理论像素数据量与实际文件大小**：知道 BMP 文件还可能包含 header、palette、row padding 等额外信息，因此实际文件大小不一定等于简单公式的结果。
 
 ---
@@ -83,40 +83,62 @@ W	imes H	imesrac{	ext{bits per pixel}}{8}
 
 本课最重要的不是记住若干定义，而是建立下面三个问题之间的区别：
 
-```text
+\`\`\`text
 Sampling     → 在哪里取值？取多少个位置？
 Quantization → 每个位置允许哪些离散值？
-Encoding     → 这些值怎样写成和组织成 bits / bytes？
-```
+Encoding     → 这些值怎样表示并组织成 bits / bytes？
+\`\`\`
 
-进一步形成两个关键关系：
+进一步形成两个关键关系。
 
-[
-	ext{可表示状态数}=2^b
-]
+当一个量化值**确实使用 $b$ bit 编码**时：
 
-[
-	ext{像素数据量}=W	imes H	imes b
-]
+$$
+\text{可表示状态数}=2^b
+$$
 
-若要得到 byte：
+对于未压缩、每个像素固定使用 $b$ bit 的图像：
 
-[
-	ext{像素数据量（bytes）}
+$$
+\text{像素数据量（bits)}=W \times H \times b
+$$
+
+若要换算成 byte：
+
+$$
+\text{像素数据量（bytes)}
 =
-W	imes H	imes rac{b}{8}
-]
+W \times H \times \frac{b}{8}
+$$
+
+## 一个必须明确的区别：颜色数量 ≠ 存储位数
+
+“把一幅 24-bit RGB 图像量化成只出现 16 种颜色”并不自动意味着文件已经变成 4 bits/pixel。
+
+例如，一幅图即使只实际使用 16 种颜色，也仍然可以用 24 bits/pixel 保存这些 RGB 值。
+
+因此本课区分：
+
+\`\`\`text
+Quantization levels
+= 允许/使用多少种离散颜色值
+
+Storage bit depth
+= 文件格式实际为每个像素分配多少 bit
+\`\`\`
+
+二者通常有关联，但不是同一个概念。
 
 ## 判断学生真正理解的证据
 
 学生不仅要能说出定义，还应能完成以下迁移：
 
-- 固定 color depth，只改变 resolution，预测图像细节和数据量怎样变化；
-- 固定 resolution，只改变 color depth，预测颜色层次和数据量怎样变化；
+- 固定存储 bit depth，只改变 spatial sampling，预测图像细节和像素数量怎样变化；
+- 固定 resolution，只改变量化等级，预测颜色层次怎样变化，并知道文件大小未必随之改变；
 - 判断“分辨率越高，图像一定越清晰”是否严谨，并说明条件；
 - 解释为什么 24-bit color 不是“24 种颜色”；
-- 从 (1920	imes1080)、24-bit 推导未压缩像素数据量；
-- 解释为什么某些 BMP 文件大小比公式算出的像素数据量稍大。
+- 从 $1920 \times 1080$、24-bit 推导未压缩像素数据量；
+- 解释为什么某些 BMP 文件大小比简单像素数据公式算出的结果更大。
 
 ---
 
@@ -124,19 +146,23 @@ W	imes H	imes rac{b}{8}
 
 ## Resolution
 
-本课讨论“图像编码”时，**resolution 主要指图像像素尺寸**，例如：
+本课讨论“图像编码”时，**resolution 主要指图像像素尺寸（pixel dimensions）**，例如：
 
-```text
+\`\`\`text
 1920 × 1080 pixels
-```
+\`\`\`
 
 即横向 1920 个像素、纵向 1080 个像素，共：
 
-[
-1920	imes1080=2,073,600
-]
+$$
+1920 \times 1080 = 2{,}073{,}600
+$$
 
 个像素。
+
+这里的 $1920 \times 1080$ 给出的是**像素尺寸和像素总数**，不是“每单位物理长度的采样密度”。
+
+如果要讨论 sampling density，需要先指定一个固定的物理区域或场景范围。本课 Q1 的不同版本必须满足：**表示同一场景、覆盖同一空间范围，只改变采样点数量**。
 
 PPI / DPI 涉及单位物理长度内的 pixel / dot 数量，更适合显示与打印情境。本课只做简短区分，不展开。
 
@@ -146,7 +172,7 @@ PPI / DPI 涉及单位物理长度内的 pixel / dot 数量，更适合显示与
 
 更准确的表述是：
 
-> **在其他条件相同时，更高的空间采样通常可以保留更多空间细节。**
+> **在表示同一场景、同一空间范围且其他条件相同时，更多空间采样通常可以保留更多空间细节。**
 
 图像质量还可能受原始信号、镜头、对焦、噪声、量化、压缩等因素影响。
 
@@ -156,43 +182,51 @@ PPI / DPI 涉及单位物理长度内的 pixel / dot 数量，更适合显示与
 
 本课区分：
 
-- Sampling：决定取哪些空间位置；
-- Quantization：决定每个位置的连续值映射到哪些有限的离散值。
+- Sampling：决定取哪些空间位置、取多少个位置；
+- Quantization：决定每个位置的连续亮度/颜色值映射到哪些有限的离散值。
 
-如果在同样的 resolution 下减少颜色等级，像素位置没有减少，但颜色会出现明显分层、banding 或颜色失真。
+如果在同样的 resolution 下减少可用颜色等级，像素位置没有减少，但颜色会出现明显分层、banding 或颜色失真。
 
-## Color depth
+需要同时强调：
 
-若一个量化值使用 (b) bit 表示，则最多有：
+> **减少图像实际使用的颜色等级，不等于已经减少文件的 bits per pixel。**
 
-[
+只有当表示方式也改变，例如由 24-bit RGB 改为真正的 8-bit indexed representation，理论每像素存储量才随之改变。
+
+## Color depth / bits per pixel
+
+若一个量化值实际使用 $b$ bit 编码，则最多有：
+
+$$
 2^b
-]
+$$
 
 种状态。
 
-对于简单灰度或索引颜色模型，可直接把这些状态理解为可选亮度/颜色等级。
+对于简单灰度图，可以直接把这些状态理解为灰度等级。
 
-对于 RGB 彩色图像，需要明确 bit depth 的含义。例如常见的 24-bit RGB：
+对于索引颜色图，像素值通常是 palette（颜色表）的索引，而不是直接保存完整 RGB；因此 8-bit indexed BMP 还需要一个 color table / palette。
 
-```text
+对于 RGB 彩色图像，需要明确 bits per pixel 的含义。例如常见的 24-bit RGB：
+
+\`\`\`text
 R: 8 bits
 G: 8 bits
 B: 8 bits
 Total: 24 bits / pixel
-```
+\`\`\`
 
 因此每个通道有：
 
-[
+$$
 2^8=256
-]
+$$
 
 种取值，RGB 组合数为：
 
-[
-256^3=2^{24}=16,777,216
-]
+$$
+256^3=2^{24}=16{,}777{,}216
+$$
 
 ## BMP
 
@@ -204,7 +238,7 @@ BMP 在本课中只承担一个教学角色：
 
 课堂只保留简化模型：
 
-```text
+\`\`\`text
 ┌──────────────────┐
 │ BMP File Header  │
 ├──────────────────┤
@@ -212,9 +246,9 @@ BMP 在本课中只承担一个教学角色：
 ├──────────────────┤
 │ Pixel Data       │
 └──────────────────┘
-```
+\`\`\`
 
-常见 24-bit BMP 的像素数据通常按 **B, G, R** byte 顺序存放，而不是课堂概念表示时常写的 RGB。这个差异用于说明：
+常见 24-bit BMP 的像素 byte 顺序通常按 **B, G, R** 存放，而不是课堂概念表示时常写的 RGB。这个差异用于说明：
 
 > **颜色模型与文件格式是两个不同层次的约定。**
 
@@ -222,37 +256,46 @@ BMP 还可能涉及 palette、不同 DIB header、bottom-up rows、row padding �
 
 ## “未压缩图像大小”与“实际 BMP 文件大小”
 
-主公式计算的是像素数据量：
+主公式计算的是未压缩像素值本身的理论数据量：
 
-[
-oxed{
-W	imes H	imesrac{b}{8}
+$$
+\boxed{
+W \times H \times \frac{b}{8}
 }
-]
+$$
 
-实际 BMP 文件还包含格式信息，并可能对每一行做对齐填充，因此：
+实际 BMP 文件还包含格式信息，并且 scanline 常需要按 4-byte 边界对齐，因此：
 
-[
-	ext{实际文件大小}
+$$
+\text{实际 BMP 文件大小}
+\neq
+\text{简单像素值数据量}
+$$
 
-eq
-	ext{像素数据量}
-]
-
-在某些图像尺寸下，两者会非常接近；在另一些尺寸下会出现可观察差异。
+在某些图像尺寸下，两者会很接近；在另一些尺寸下，row padding 会造成清楚可见的差异。
 
 ---
 
 # C4 45 分钟课堂节奏
 
-| 时间 | 学习阶段 | 核心问题 | 学生活动 |
+主课只保留 Q0–Q9 与 Q12。Q10、Q11 作为**教师拓展 / 课后挑战**，不计入 45 分钟主流程。
+
+| 时间 | 学习阶段 | 对应问题 | 学生活动 |
 |---|---|---|---|
-| 0–5 min | 入口：图片里面是什么？ | 一张图片保存到电脑后，到底保存了什么？ | 预测、投票、说明理由 |
-| 5–14 min | Sampling | 连续图像怎样变成一个个像素？ | 比较不同 resolution、解释差异 |
-| 14–24 min | Quantization + RGB | 像素数没变，为什么图像还能变差？ | 比较颜色等级、推导 (2^b)、预测 RGB |
-| 24–32 min | Encoding + BMP | RGB 数字怎样真正写进文件？ | 将一个像素转成 bits/bytes，观察 BMP 简化结构 |
-| 32–40 min | Uncompressed image size | 一张普通图片为什么会占这么多空间？ | 估算、推导公式、计算 |
-| 40–45 min | 综合迁移 | 如何从规格预测质量与大小？ | 综合题 + 回看最初模型 |
+| 0–4 min | 入口：图片里面是什么？ | Q0 | 预测、投票、说明理由 |
+| 4–12 min | Sampling + Resolution | Q1–Q2 | 比较同一场景不同像素尺寸、解释差异 |
+| 12–21 min | Quantization + bit states | Q3–Q4 | 比较颜色等级、推导 $2^b$ |
+| 21–27 min | RGB 表示 | Q5 | 预测 RGB tuples、推导 24-bit |
+| 27–32 min | Encoding + BMP | Q6–Q7 | 一个像素转 bits；认识文件组织规则 |
+| 32–40 min | Uncompressed image size | Q8 | 估算、推导公式、完整计算 |
+| 40–43 min | 快速迁移 | Q9 | 宽高同时翻倍：先预测，再计算 |
+| 43–45 min | 回看模型 | Q12 | 用自己的语言区分 sampling / quantization / encoding |
+
+**课堂执行原则：**
+
+- Q8 是本节最重要的计算任务，至少保留 8 分钟；
+- 若前面讨论超时，Q7 的 BGR 与 padding 细节只说结论，不展开；
+- Q10、Q11 不挤进主课，以免最后 5 分钟变成连续计算与格式细节。
 
 ---
 
@@ -275,9 +318,9 @@ eq
 - **追问**：如果最终一定是 0 和 1，那么一张现实中的图像怎样才能一步步走到 0 和 1？
 - **暂不解释**：保留下面三个空格：
 
-```text
+\`\`\`text
 现实图像 → ? → ? → ? → 010101...
-```
+\`\`\`
 
 - **转入 Q1**：先解决第一个问题——连续的图像怎样变成计算机可以逐点处理的数据？
 
@@ -285,11 +328,11 @@ eq
 
 # Q1 如果显示尺寸一样，为什么这些图片看起来不一样？
 
-展示同一图像的不同像素版本，例如：
+展示**同一场景、同一空间范围**的不同像素版本，例如：
 
-```text
+\`\`\`text
 8×8 → 16×16 → 32×32 → 64×64 → 256×256
-```
+\`\`\`
 
 显示时让它们在屏幕上的物理尺寸尽量相同。
 
@@ -297,31 +340,33 @@ eq
 
 - 哪一张能保留最多细节？
 - 为什么显示大小相同，看起来却不同？
-- (8	imes8) 到底表示什么？
+- $8 \times 8$ 到底表示什么？
 
 ## 观察与解释
 
 学生应逐步发现：
 
-[
-8	imes8=64
-]
+$$
+8 \times 8=64
+$$
 
 表示整幅图只由 64 个像素位置描述。
 
-[
-256	imes256=65,536
-]
+$$
+256 \times 256=65{,}536
+$$
 
-表示使用了更多空间位置来描述图像。
+表示使用了更多空间位置来描述同一场景。
 
 此时才引入术语：
 
-> **Sampling（采样）**：在空间中的若干位置取得图像信息。
+> **Sampling（采样）**：在一个空间范围中的若干位置取得图像信息。
 
 以及：
 
-> **Resolution（本课语境）**：用图像宽 × 高的像素数量描述空间采样的密度。
+> **Resolution（本课语境）**：用图像宽 × 高的像素尺寸来描述图像由多少像素位置组成。
+
+不要把 $W \times H$ 直接称作“采样密度”；只有在指定了相同物理/场景范围时，才能进一步比较单位范围内的采样多少。
 
 ## 教师追问
 
@@ -352,7 +397,7 @@ eq
 - **认知冲突**：高 pixel count 不等于所有意义上的“高质量”。
 - **正式表述**：
 
-> 在其他条件相同时，提高空间采样通常能保留更多细节。
+> 在表示同一场景、同一空间范围且其他条件相同时，更多空间采样通常能保留更多细节。
 
 - **常见误解**：把 resolution 当成图像质量的唯一决定因素。
 - **转入 Q3**：如果像素数量完全不变，图像质量还会不会变化？
@@ -363,15 +408,15 @@ eq
 
 固定 resolution，例如：
 
-```text
+\`\`\`text
 256 × 256 pixels
-```
+\`\`\`
 
-只改变颜色等级：
+只改变颜色量化等级：
 
-```text
+\`\`\`text
 2 colors → 4 colors → 16 colors → 256 colors → more colors
-```
+\`\`\`
 
 最好使用同时包含：
 
@@ -399,46 +444,54 @@ eq
 
 核心对比：
 
-```text
-Sampling     → 有多少个位置？
-Quantization → 每个位置有多少种可能值？
-```
+\`\`\`text
+Sampling     → 有多少个空间位置？
+Quantization → 每个位置允许哪些离散值？
+\`\`\`
+
+## 此处必须补一句
+
+> **本演示只证明“可用颜色值减少会影响视觉效果”，还没有证明文件占用的 bits per pixel 一定减少。**
+
+例如，一幅 24-bit RGB 图像即使被处理得只剩 16 种颜色，也仍然可以继续按 24 bits/pixel 存储。
+
+这句话为 Q4 的 $2^b$ 和后面的存储计算建立边界。
 
 ---
 
-# Q4 1 bit 到底能表示多少种颜色状态？
+# Q4 1 bit 到底能表示多少种状态？
 
 不要直接给公式，先让学生列举。
 
 ## 1 bit
 
-```text
+\`\`\`text
 0
 1
-```
+\`\`\`
 
 所以：
 
-[
+$$
 2^1=2
-]
+$$
 
 种状态。
 
 ## 2 bits
 
-```text
+\`\`\`text
 00
 01
 10
 11
-```
+\`\`\`
 
 所以：
 
-[
+$$
 2^2=4
-]
+$$
 
 种状态。
 
@@ -449,73 +502,78 @@ Quantization → 每个位置有多少种可能值？
 
 最终让学生概括：
 
-[
-oxed{
-	ext{可表示状态数}=2^b
+$$
+\boxed{
+\text{可表示状态数}=2^b
 }
-]
+$$
 
-其中 (b) 是 bit 数。
+其中 $b$ 是**实际用于表示这个值的 bit 数**。
 
 ## 教师设计
 
 - **常见误解 1**：“8 bit = 8 种颜色”。
-- **常见误解 2**：把 bit 数与颜色数量直接做乘法关系。
-- **追问与转入 Q5**：如果 8 bit 只有 256 个状态，彩色照片为什么能表现远多于 256 种颜色？
+- **常见误解 2**：把 bit 数与状态数量直接做乘法关系。
+- **边界提醒**：Q3 的“16 种颜色”只有在采用相应的编码方式时，才可能对应更小的 bits per pixel；单纯把颜色处理少，不自动改变文件格式。
+- **追问与转入 Q5**：如果一个 RGB 像素由多个数值一起描述，24 bit 又意味着什么？
 
 ---
 
-# Q5 彩色图像为什么常用 RGB？
+# Q5 24-bit RGB 怎样用三个通道表示彩色像素？
 
 先给若干像素值，让学生预测颜色：
 
-```text
+\`\`\`text
 (255,   0,   0)
 (  0, 255,   0)
 (  0,   0, 255)
 (255, 255,   0)
 (255, 255, 255)
 (  0,   0,   0)
-```
+\`\`\`
 
 再建立 RGB 模型：
 
-```text
+\`\`\`text
 一个像素
 ├─ R: 8 bits → 0..255
 ├─ G: 8 bits → 0..255
 └─ B: 8 bits → 0..255
-```
+\`\`\`
 
 因此：
 
-[
-8+8+8=24	ext{ bits/pixel}
-]
+$$
+8+8+8=24\text{ bits/pixel}
+$$
 
 每个通道：
 
-[
+$$
 2^8=256
-]
+$$
 
 RGB 总组合数：
 
-[
-256^3=2^{24}=16,777,216
-]
+$$
+256^3=2^{24}=16{,}777{,}216
+$$
 
 ## 关键认知冲突
 
 > **24-bit color 是 24 种颜色吗？**
 
-答案不是直接给出，而由学生从 (2^{24}) 推导。
+答案不是直接给出，而由学生从 $2^{24}$ 推导。
 
 ## 教师提示
 
-本课的核心不是讲完整颜色科学，而是让学生理解：
+本课的问题是“RGB 如何编码一个彩色像素”，而不是展开“为什么人类显示系统采用 RGB”的完整颜色科学。
 
-> 一个 pixel 可以用多个数值共同描述；在常见 RGB 模型中，这些数值是 R、G、B 三个通道。
+如果教师希望补一句背景，可简要说明：
+
+> 显示器通过红、绿、蓝三种光的不同强度进行加色混合，因此 RGB 很适合描述显示设备中的颜色。
+
+但这不是本课必须掌握的重点。
 
 ---
 
@@ -523,29 +581,29 @@ RGB 总组合数：
 
 选一个像素：
 
-[
+$$
 RGB=(255,128,0)
-]
+$$
 
 让学生把三个十进制数转换为二进制：
 
-[
+$$
 255=11111111
-]
+$$
 
-[
+$$
 128=10000000
-]
+$$
 
-[
+$$
 0=00000000
-]
+$$
 
 所以概念上的 RGB 表示可以写成：
 
-```text
+\`\`\`text
 11111111 10000000 00000000
-```
+\`\`\`
 
 ## 概念形成
 
@@ -553,13 +611,13 @@ RGB=(255,128,0)
 
 此时回到开头：
 
-```text
+\`\`\`text
 现实图像
 → Sampling
 → Quantization
 → Encoding
 → bits / bytes
-```
+\`\`\`
 
 ## 教师追问
 
@@ -574,50 +632,86 @@ RGB=(255,128,0)
 
 使用一个非常小的 3×2 像素图：
 
-```text
+\`\`\`text
 RED      GREEN     BLUE
 WHITE    BLACK     YELLOW
-```
+\`\`\`
 
-若使用 24-bit RGB，每个像素理论上需要：
+若使用 24-bit RGB，每个像素的**颜色值本身**需要：
 
-[
-24	ext{ bits}=3	ext{ bytes}
-]
+$$
+24\text{ bits}=3\text{ bytes}
+$$
 
-6 个像素的像素数据量：
+6 个像素的颜色值合计：
 
-[
-6	imes3=18	ext{ bytes}
-]
+$$
+6 \times 3=18\text{ bytes}
+$$
+
+## 这里必须区分：18 bytes 不是这个 BMP 的 stored pixel array 大小
+
+一行有 3 个像素，因此颜色值本身占：
+
+$$
+3 \times 3 = 9\text{ bytes/row}
+$$
+
+常见 BMP scanline 按 4-byte 边界对齐，因此 9 bytes 需要补到 12 bytes：
+
+$$
+12\text{ bytes/row}
+$$
+
+两行的 stored pixel array 因而是：
+
+$$
+12 \times 2 = 24\text{ bytes}
+$$
+
+所以这个例子中：
+
+\`\`\`text
+六个像素的颜色值本身   = 18 bytes
+BMP 中存储的 pixel array = 24 bytes  （包含 row padding）
+\`\`\`
+
+若随后真的生成一个常见的 24-bit BMP，并使用 14-byte file header + 40-byte BITMAPINFOHEADER，则总文件大小常见为：
+
+$$
+54+24=78\text{ bytes}
+$$
+
+这里的 54 bytes 只是常见具体格式，不是所有 BMP 的固定规律。
 
 然后展示简化 BMP：
 
-```text
+\`\`\`text
 ┌──────────────────┐
-│ BMP File Header  │  文件是什么？
+│ BMP File Header  │
 ├──────────────────┤
-│ Image Info       │  宽、高、bit depth……
+│ DIB / Image Info │
 ├──────────────────┤
-│ Pixel Data       │  一个个像素的数据
+│ Pixel Array      │  像素值 + 可能的 row padding
 └──────────────────┘
-```
+\`\`\`
 
 ## 教师设计
 
-- 不在此处讲完整 BMP 规范。
-- 重点让学生理解：
-  - pixel values 是内容；
+- 主课只要求学生理解：
+  - pixel values 是图像内容；
   - file format 还必须告诉软件如何解释这些 values；
+  - 实际文件组织可能加入 header 和 padding；
   - 编码不仅是“变成 0/1”，还包括“按照约定组织”。
+- 若时间紧，只需说明“18 bytes 是颜色值本身，BMP 实际存储会更大”，不要求学生在此处计算 padding。
 
 ## 可选挑战
 
 常见 24-bit BMP 的像素 byte 顺序通常是：
 
-```text
+\`\`\`text
 B G R   B G R   B G R ...
-```
+\`\`\`
 
 而概念讲解常写 RGB。
 
@@ -644,93 +738,101 @@ B G R   B G R   B G R ...
 
 ## 第一步：多少个像素？
 
-[
-1920	imes1080
+$$
+1920 \times 1080
 =
-2,073,600
-]
+2{,}073{,}600
+$$
 
 ## 第二步：每个像素多少 bit？
 
 24-bit RGB：
 
-[
-24	ext{ bits/pixel}
-]
+$$
+24\text{ bits/pixel}
+$$
 
 所以总 bit 数：
 
-[
-1920	imes1080	imes24
-]
+$$
+1920 \times 1080 \times 24
+$$
 
 ## 第三步：bit 转 byte
 
-[
-8	ext{ bits}=1	ext{ byte}
-]
+$$
+8\text{ bits}=1\text{ byte}
+$$
 
 因此：
 
-[
-rac{1920	imes1080	imes24}{8}
+$$
+\frac{1920 \times 1080 \times 24}{8}
 =
-6,220,800	ext{ bytes}
-]
+6{,}220{,}800\text{ bytes}
+$$
 
-即：
+按 $1\text{ MB}=1{,}000{,}000\text{ bytes}$ 估算：
 
-[
-approx 6.22	ext{ MB}
-]
+$$
+6{,}220{,}800\text{ bytes}
+\approx
+6.22\text{ MB}
+$$
 
 若使用：
 
-[
-1	ext{ MiB}=1024^2	ext{ bytes}
-]
+$$
+1\text{ MiB}=1024^2\text{ bytes}
+$$
 
 则：
 
-[
-approx 5.93	ext{ MiB}
-]
+$$
+6{,}220{,}800\text{ bytes}
+\approx
+5.93\text{ MiB}
+$$
 
 ## 最终公式
 
-[
-oxed{
-	ext{Uncompressed pixel data size (bytes)}
+$$
+\boxed{
+\text{Uncompressed pixel data size (bytes)}
 =
-W	imes H	imesrac{	ext{bit depth}}8
+W \times H \times \frac{\text{bits per pixel}}{8}
 }
-]
+$$
 
 ## 教师强调
 
 计算时始终先问三个问题：
 
-```text
+\`\`\`text
 1. 有多少 pixels？
-2. 每个 pixel 有多少 bits？
+2. 每个 pixel 实际分配多少 bits？
 3. 最后要换算成什么单位？
-```
+\`\`\`
+
+这里计算的是**理论未压缩像素数据量**，不是任意图像文件的磁盘大小。
 
 ---
 
 # Q9 宽和高都变成 2 倍，图像数据量变成几倍？
 
+这是 40–43 分钟的快速迁移题。
+
 原图：
 
-[
-800	imes600
-]
+$$
+800 \times 600
+$$
 
 新图：
 
-[
-1600	imes1200
-]
+$$
+1600 \times 1200
+$$
 
 让学生先预测：
 
@@ -738,15 +840,15 @@ W	imes H	imesrac{	ext{bit depth}}8
 
 像素数之比：
 
-[
-rac{1600	imes1200}{800	imes600}=4
-]
+$$
+\frac{1600 \times 1200}{800 \times 600}=4
+$$
 
-如果 bit depth 不变：
+如果 bits per pixel 不变：
 
-[
-oxed{	ext{数据量也变成 4 倍}}
-]
+$$
+\boxed{\text{未压缩像素数据量也变成 4 倍}}
+$$
 
 ## 教学价值
 
@@ -756,106 +858,117 @@ W	imes H	imesrac{	ext{bit depth}}8
 
 理解成二维空间中的像素总量，而不是只盯着一个方向的数字变化。
 
+完成后立即进入 Q12，不再增加新的主课计算。
+
 ---
 
-# Q10 Color depth 从 24 bit 降到 8 bit，会发生什么？
+# Q10 【拓展】如果存储位深从 24 bit/pixel 改为 8 bit/pixel，会发生什么？
 
-固定 width 和 height。
+**本题不纳入 45 分钟主流程。**
 
-例如：
+固定 width 和 height，例如：
 
-[
-800	imes600
-]
+$$
+800 \times 600
+$$
 
-比较：
+若表示方式真的从 24 bits/pixel 改为 8 bits/pixel，则像素值理论数据量分别为：
 
-```text
-24 bits/pixel
-8 bits/pixel
-```
-
-像素数据量分别为：
-
-[
-800	imes600	imesrac{24}{8}
+$$
+800 \times 600 \times \frac{24}{8}
 =
-1,440,000	ext{ bytes}
-]
+1{,}440{,}000\text{ bytes}
+$$
 
-[
-800	imes600	imesrac{8}{8}
+$$
+800 \times 600 \times \frac{8}{8}
 =
-480,000	ext{ bytes}
-]
+480{,}000\text{ bytes}
+$$
 
 所以理论像素数据量变成：
 
-[
-rac13
-]
+$$
+\frac{1}{3}
+$$
+
+## 关键边界
+
+这与 Q3 的“减少实际使用颜色数量”不是一回事。
+
+\`\`\`text
+24-bit RGB 图像只使用 16 种颜色
+≠
+文件已经变成 4 bits/pixel
+\`\`\`
+
+如果这里采用 **8-bit indexed BMP** 作为例子，那么：
+
+- 每个 pixel 存储的是 8-bit palette index；
+- 文件还需要 color table / palette；
+- 所以“像素数组缩小到三分之一”不代表“整个 BMP 文件严格缩小到三分之一”。
 
 ## 教师追问
 
-> 数据量变小的同时，什么信息可能被牺牲？
+> 数据量下降的同时，表示方式发生了什么变化？代价可能是什么？
 
-学生应回到 Quantization / Color Depth：
-
-> 每个像素可表示的颜色状态减少。
-
-这一步用于把“质量”和“大小”重新联系起来，但不把两者简单等同。
+目标：让学生把“视觉量化”和“实际存储位深”联系起来，但不混为一谈。
 
 ---
 
-# Q11 我们算出的像素数据量，为什么可能不等于 BMP 文件大小？
+# Q11 【拓展】我们算出的像素数据量，为什么可能不等于 BMP 文件大小？
+
+**本题与 Demo D 均为教师拓展 / 课后挑战，不占 45 分钟主流程。**
 
 先问：
 
-> 按公式算出来的大小，是不是一定等于磁盘上 BMP 文件显示的大小？
-
-让学生先预测“是”。
+> 按简单公式算出来的大小，是不是一定等于磁盘上 BMP 文件显示的大小？
 
 然后用一个会触发 row padding 的例子。
 
 例如：
 
-[
-101	imes100,quad 24	ext{-bit}
-]
+$$
+101 \times 100,\quad 24\text{-bit}
+$$
 
-简单公式得到：
+简单公式得到像素颜色值本身：
 
-[
-101	imes100	imes3
+$$
+101 \times 100 \times 3
 =
-30,300	ext{ bytes}
-]
+30{,}300\text{ bytes}
+$$
 
-但常见 BMP 每一行的像素数据会按 4-byte 边界对齐。
+但常见 BMP 每一行的像素数据按 4-byte 边界对齐。
 
 每行原始数据：
 
-[
-101	imes3=303	ext{ bytes}
-]
+$$
+101 \times 3=303\text{ bytes}
+$$
 
 对齐后：
 
-[
-304	ext{ bytes/row}
-]
+$$
+304\text{ bytes/row}
+$$
 
-100 行：
+100 行的 stored pixel array：
 
-[
-30,400	ext{ bytes}
-]
+$$
+304 \times 100
+=
+30{,}400\text{ bytes}
+$$
 
-再加常见的 54-byte header 情形：
+若再采用常见的 54-byte header 情形：
 
-[
-30,454	ext{ bytes}
-]
+$$
+30{,}400+54
+=
+30{,}454\text{ bytes}
+$$
 
 ## 认知冲突
 
@@ -863,7 +976,22 @@ W	imes H	imesrac{	ext{bit depth}}8
 
 收束：
 
-> **没有。公式计算的是未压缩像素数据量。实际文件大小还取决于文件格式如何组织这些数据。**
+> **没有。公式计算的是未压缩像素值本身的理论数据量。实际文件大小还取决于文件格式如何组织这些数据。**
+
+## 可选公式
+
+对常见未压缩 BMP，可用下面的 row-size 关系理解 4-byte 对齐：
+
+$$
+\text{row bytes}
+=
+4 \times
+\left\lceil
+\frac{W \times b}{32}
+\right\rceil
+$$
+
+其中 $W$ 是宽度，$b$ 是 bits per pixel。
 
 ## 技术边界
 
@@ -873,26 +1001,28 @@ W	imes H	imesrac{	ext{bit depth}}8
 
 # Q12 回看：Sampling、Quantization、Encoding 分别解决什么问题？
 
+这是 43–45 分钟的课堂收束，不再加入新的技术细节。
+
 回到开课时的三个空格：
 
-```text
+\`\`\`text
 现实图像
    ↓
 Sampling
-在哪里取值？
+在哪里取值？取多少个位置？
    ↓
 Pixels / Resolution
    ↓
 Quantization
 每个位置允许哪些离散值？
    ↓
-Color Depth / RGB
+Color values / RGB
    ↓
 Encoding
 这些值怎样表示并组织为 bits / bytes？
    ↓
 BMP / other formats
-```
+\`\`\`
 
 让学生用自己的语言解释三者区别。
 
@@ -906,7 +1036,16 @@ BMP / other formats
 
 更好的回答应该接近：
 
-> 采样决定“有多少位置”；量化决定“每个位置能取哪些值”；编码决定“这些值怎样写成并组织成计算机能存储的 bits / bytes”。
+> 采样决定“有多少空间位置”；量化决定“每个位置能取哪些离散值”；编码决定“这些值怎样表示并组织成计算机能存储的 bits / bytes”。
+
+最后追问一句：
+
+> **那图像大小公式中的 $W \times H$ 和 bits per pixel，分别更接近这条链中的哪些环节？**
+
+期待学生把：
+
+- $W \times H$ 与 sampling / resolution 联系起来；
+- bits per pixel 与具体 representation / encoding 联系起来。
 
 ---
 
@@ -921,12 +1060,12 @@ Python 演示的原则：
 
 教室环境：
 
-```text
+\`\`\`text
 Windows 10 Professional
 Miniconda
 Conda environment: pt
 Working directory: D:\dt
-```
+\`\`\`
 
 正式实现时优先使用现有环境中已经安装的库；若需要 Pillow，应先确认环境是否已有，不在课堂临时加入复杂安装流程。
 
@@ -934,19 +1073,19 @@ Working directory: D:\dt
 
 ### 学生先预测
 
-> 同一幅图显示成一样大，降低 pixel resolution 后，哪里最先出现变化？
+> 同一场景、同一空间范围、显示成一样大，降低 pixel dimensions 后，哪里最先出现变化？
 
 ### 演示
 
 将同一张测试图缩小到：
 
-```text
+\`\`\`text
 8×8
 16×16
 32×32
 64×64
 256×256
-```
+\`\`\`
 
 再以 nearest-neighbor 放大到相同显示尺寸。
 
@@ -967,11 +1106,17 @@ Working directory: D:\dt
 
 ### 学生先预测
 
-> 如果 pixel count 完全不变，只减少可用颜色等级，会发生什么？
+> 如果 pixel count 完全不变，只减少可用的颜色/亮度等级，会发生什么？
 
 ### 演示
 
-固定图像 resolution，只把像素颜色映射到不同数量的等级。
+固定图像 resolution 和输出文件的 24-bit RGB 表示，只把像素值映射到越来越少的离散等级。
+
+例如可以让图像视觉上只出现：
+
+\`\`\`text
+many levels → 256 levels → 16 levels → 4 levels → 2 levels
+\`\`\`
 
 ### 学生观察
 
@@ -985,47 +1130,70 @@ Working directory: D:\dt
 
 目标：形成 Quantization。
 
+### 必须明确的技术结论
+
+本 Demo **故意保持 24-bit RGB 存储表示不变**，因此：
+
+> **颜色等级减少了，但 bits per pixel 并没有因此自动减少。**
+
+这正好为学生建立“Quantization levels”和“Storage bit depth”之间的区别。
+
+如果后续真的演示 8-bit indexed BMP，需要明确说明：
+
+- pixel 保存的是 palette index；
+- 还会额外出现 color table / palette；
+- 这已经是“表示方式改变”，不是单纯的颜色处理。
+
 ## Demo C：一个像素的 RGB → bits
 
 选择单个像素：
 
-```text
+\`\`\`text
 RGB = (255, 128, 0)
-```
+\`\`\`
 
 显示三个 8-bit binary：
 
-```text
+\`\`\`text
 R 255 → 11111111
 G 128 → 10000000
 B   0 → 00000000
-```
+\`\`\`
 
 目标：把“颜色”转换为“数字”，再转换为“bits”。
 
-## Demo D：预测 BMP 文件大小，再检查
+## Demo D：【拓展】预测 BMP 文件大小，再检查
+
+本 Demo 不纳入 45 分钟主流程。
 
 生成一个很小的 24-bit BMP，例如：
 
-```text
+\`\`\`text
 101 × 100
-```
+\`\`\`
 
-学生先按简单公式计算 pixel data：
+学生先按简单公式计算 pixel values：
 
-[
-101	imes100	imes3
-]
+$$
+101 \times 100 \times 3
+$$
 
-再由 Python 输出实际文件大小。
+再由 Python 输出：
 
-观察二者差异后再解释 header 与 row padding。
+- 理论像素值数据量；
+- BMP row stride；
+- stored pixel array size；
+- 实际文件大小。
+
+观察差异后再解释 header 与 row padding。
 
 目标：形成：
 
-```text
-pixel data size ≠ necessarily file size
-```
+\`\`\`text
+pixel value data
+≠ stored BMP pixel array
+≠ whole BMP file size
+\`\`\`
 
 ---
 
@@ -1035,69 +1203,87 @@ pixel data size ≠ necessarily file size
 |---|---|---|
 | 图片在电脑里就是“一堆小方块” | 先追问这些方块怎样用数字表示 | 每个方块至少还需要什么信息？ |
 | 分辨率越高一定越清晰 | 给高分辨率失焦图做反例 | 除了 pixel count，还有什么会影响质量？ |
+| $W \times H$ 就是“采样密度” | 固定同一场景范围再比较 | 没有指定物理/场景范围时，“每单位范围”是什么？ |
 | Sampling 就是把颜色变少 | 固定颜色，只改变 resolution | 本轮颜色规则有没有变？ |
 | Quantization 就是降低分辨率 | 固定 resolution，只改变颜色等级 | 像素位置有没有减少？ |
-| 8-bit = 8 种颜色 | 要学生列出 1 bit、2 bit 的状态 | 规律是 (b) 还是 (2^b)？ |
-| 24-bit color = 24 种颜色 | 从三个 8-bit 通道推导 | 256×256×256 是多少？ |
+| 颜色等级变少，文件一定变小 | 保持 24-bit RGB 存储格式不变做 Demo B | 实际每个 pixel 仍然用了多少 bit？ |
+| 8-bit = 8 种状态 | 要学生列出 1 bit、2 bit 的状态 | 规律是 $b$ 还是 $2^b$？ |
+| 24-bit color = 24 种颜色 | 从三个 8-bit 通道推导 | $256 \times 256 \times 256$ 是多少？ |
 | RGB 文件一定按 R、G、B byte 顺序保存 | 用 BMP 的 BGR 做反例 | 颜色模型与文件格式是不是同一件事？ |
-| 公式算出的就是文件大小 | 用 101×100 BMP 检验 | 文件里除了 pixel data 还需要什么？ |
+| 6 个 24-bit 像素一定在 BMP 中占 18 bytes | 用 3×2 例子观察 row padding | 每一行为什么会从 9 bytes 变成 12 bytes？ |
+| 公式算出的就是文件大小 | 用 101×100 BMP 拓展检验 | 文件里除了 pixel values 还需要什么？ |
 | 宽和高都翻倍，大小只翻倍 | 让学生画 2×2 → 4×4 | 二维空间里像素数增长多少？ |
 
 ---
 
-# C7 课堂收束任务
+# C7 课堂收束与练习
+
+## 课堂版：3 分钟以内
+
+主课不再安排一整套 6 问计算。Q8 完成完整公式推导后，40–43 分钟只做 Q9：
+
+> $800 \times 600$ 变为 $1600 \times 1200$，bits per pixel 不变。  
+> **未压缩像素数据量变成几倍？为什么？**
+
+43–45 分钟完成 Q12：
+
+> 用一句话分别解释 Sampling、Quantization、Encoding。
+
+这样可以保证最后真的发生“迁移 + 概念收束”，而不是赶题。
+
+## 课后 / 下一课开场练习
 
 给出：
 
 > 一张未经压缩的彩色图像：  
 > **800 × 600 pixels，24-bit RGB**
 
-要求学生独立回答：
+要求学生回答：
 
 1. 一共有多少个 pixels？
 2. 一个 pixel 占多少 bytes？
-3. 未压缩 pixel data 需要多少 bytes？
+3. 未压缩 pixel value data 需要多少 bytes？
 4. 如果宽和高都提高为原来的 2 倍，数据量变成多少倍？
-5. 如果 resolution 不变，color depth 从 24 bit 降到 8 bit，像素数据量变成原来的几分之几？
-6. 哪一项变化属于 Sampling 维度？哪一项属于 Quantization / Color Depth 维度？
+5. 如果表示方式真的从 24 bits/pixel 改为 8 bits/pixel，像素值理论数据量变成原来的几分之几？
+6. “只把颜色量化到 16 种”和“用 4 bits/pixel 存储”为什么不是同一句话？
 
 ## 参考推导
 
 像素数：
 
-[
-800	imes600=480,000
-]
+$$
+800 \times 600=480{,}000
+$$
 
 每像素：
 
-[
-24/8=3	ext{ bytes}
-]
+$$
+24/8=3\text{ bytes}
+$$
 
 数据量：
 
-[
-800	imes600	imes3
+$$
+800 \times 600 \times 3
 =
-1,440,000	ext{ bytes}
-]
+1{,}440{,}000\text{ bytes}
+$$
 
 宽、高同时变成 2 倍：
 
-[
-2	imes2=4
-]
+$$
+2 \times 2=4
+$$
 
 所以 pixel count 和未压缩像素数据量都变成 4 倍。
 
-24 bit 降到 8 bit：
+如果实际存储表示从 24 bits/pixel 改为 8 bits/pixel：
 
-[
-rac{8}{24}=rac13
-]
+$$
+\frac{8}{24}=\frac{1}{3}
+$$
 
-所以在 resolution 不变时，理论像素数据量变为原来的三分之一。
+理论像素值数据量变为原来的三分之一；若采用 indexed format，还需另外考虑 palette 等文件结构开销。
 
 ---
 
@@ -1105,7 +1291,7 @@ pixel data size ≠ necessarily file size
 
 整节课结束时只保留一张模型：
 
-```text
+\`\`\`text
 现实图像
    ↓
 Sampling
@@ -1116,27 +1302,33 @@ Pixels / Resolution
 Quantization
 每个像素允许多少种离散值？
    ↓
-Color Depth / RGB
+Color values / RGB
    ↓
 Encoding
 这些数值怎样表示并组织成 bits / bytes？
    ↓
 BMP / other formats
-```
+\`\`\`
 
 右侧保留两条关系：
 
-[
-oxed{	ext{levels}=2^b}
-]
+$$
+\boxed{\text{levels}=2^b}
+$$
 
-[
-oxed{
-	ext{uncompressed pixel data size}
+> 仅在“一个量化值实际用 $b$ bit 表示”的前提下使用。
+
+以及：
+
+$$
+\boxed{
+\text{uncompressed pixel data size}
 =
-W	imes H	imesrac{b}{8}
+W \times H \times \frac{b}{8}
 }
-]
+$$
+
+> 这里的 $b$ 是实际 bits per pixel；该公式计算 pixel value data，不自动等于具体文件大小。
 
 最终结论：
 
@@ -1144,27 +1336,35 @@ W	imes H	imesrac{b}{8}
 
 ---
 
-# C9 V1 设计取舍
+# C9 V1.1 设计取舍
 
-本版本刻意控制在一节 45 分钟课可以完成的范围内。
+本版本继续控制在一节 45 分钟课可以完成的范围内，并根据 V1 review 做了以下收束：
 
-## 必须掌握
+## 主课必须掌握
 
-- Sampling 与 resolution；
-- Quantization 与 color depth；
-- (2^b)；
-- RGB 24-bit 基本模型；
+- Sampling 与 pixel dimensions / resolution；
+- Resolution 与图像质量的条件性关系；
+- Quantization 与颜色层次；
+- “可用颜色等级”与“实际 bits per pixel”的区别；
+- $2^b$ 的含义；
+- 24-bit RGB 基本模型；
 - Encoding 的作用；
 - BMP 作为 bitmap 文件格式示例；
 - 未压缩像素数据量计算。
 
-## 作为挑战 / 拓展
+## 主课只点到为止
 
-- BMP 的 BGR byte order；
+- BMP BGR byte order；
+- 3×2 BMP 中 18-byte pixel values 与 24-byte stored pixel array 的区别；
+- header / padding 是“文件格式额外开销”。
+
+## 教师拓展 / 课后挑战
+
+- 8-bit indexed BMP 与 palette；
 - BMP bottom-up rows；
-- row padding；
+- row padding 的一般计算；
 - 常见 54-byte header 情形；
-- palette；
-- 不同 BMP header variants。
+- 不同 BMP header variants；
+- 实际 BMP 文件大小与理论像素数据量的精确比较。
 
 这些内容服务于“文件格式是编码规则的一部分”的理解，但不应抢走本课的主线。
