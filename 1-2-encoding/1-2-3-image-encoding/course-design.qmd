@@ -1,7 +1,7 @@
 ---
 title: "1-2-3 图像编码"
 subtitle: "Image Encoding：从连续图像到像素、颜色与二进制"
-version: "v1.3.1"
+version: "v1.3.2"
 format:
   html:
     toc: true
@@ -758,13 +758,21 @@ Q7 的任务很单一：
 
 ### 证据 2：像素数据从 offset 54 开始
 
-教师直接提供已经解码后的结果：
+为了让学生看到“54 不是凭空出现的”，教师准备一个很小的标注框：
 
 ```text
+header bytes at 0x0A:
+36 00 00 00
+
+↓ 教师已事先解码
+
 pixel-data offset = 54 bytes
 ```
 
-**主课不要求学生现场解释 little-endian，也不展示 file-size 字段。**
+学生在本课只使用**已经解码好的 54**。
+
+**主课不要求学生现场解释 little-endian，也不展示 file-size 字段。**  
+这里的目的只是让学生知道：offset 54 来自真实 BMP header 中的一段 bytes，而不是教师随意给出的数字。
 
 把文件画成：
 
@@ -1250,8 +1258,44 @@ Python 演示的原则：
 Windows 10 Professional
 Miniconda
 Conda environment: pt
-Working directory: D:\dt
+Base working directory: D:\dt
 ```
+
+## Notebook 运行位置：必须在本课目录
+
+本课中的相对路径统一按“**Jupyter 从本课目录启动**”设计，而不是从 `D:\dt` 根目录直接运行。
+
+若课程仓库完整复制到 `D:\dt`，推荐课堂目录为：
+
+```text
+D:\dt\1-2-encoding\1-2-3-image-encoding
+│
+├─ course-design.qmd
+├─ ... notebook / demo files ...
+└─ assets
+   ├─ q7-3x2-24bit.bmp
+   └─ test-image.png
+```
+
+也就是说，打开 notebook 后：
+
+```python
+from pathlib import Path
+
+lesson_dir = Path.cwd()
+assets_dir = lesson_dir / "assets"
+
+assert assets_dir.is_dir(), (
+    "当前 Jupyter working directory 不是本课目录："
+    f"{lesson_dir}\n"
+    "请从 1-2-encoding/1-2-3-image-encoding 目录启动 notebook。"
+)
+
+print("lesson directory:", lesson_dir)
+print("assets directory:", assets_dir)
+```
+
+这段检查建议作为 demo notebook 的**第一格**。后面的 Demo A、Demo D 才可以稳定使用 `assets/...` 相对路径。
 
 正式实现时优先使用现有环境中已经安装的库；若需要 Pillow，应先确认环境是否已有，不在课堂临时加入复杂安装流程。
 
@@ -1262,6 +1306,12 @@ Working directory: D:\dt
 > 同一场景、同一空间范围、显示成一样大，降低 pixel dimensions 后，哪里最先出现变化？
 
 ### 演示控制条件
+
+教师课前把测试图固定放在：
+
+`assets/test-image.png`
+
+这样 Demo A 与 Demo D 都从同一个 `assets/` 目录取材料，避免 notebook 因启动位置不同而找不到文件。
 
 为了让这个 Demo 尽量只改变**空间取样位置的数量**，不要依赖 Pillow 的默认缩放滤镜。
 
@@ -1275,10 +1325,18 @@ Working directory: D:\dt
 示意代码：
 
 ```python
+from pathlib import Path
 from PIL import Image
 from IPython.display import display
 
-src = Image.open("test-image.png").convert("RGB")
+source_path = Path("assets/test-image.png")
+
+assert source_path.is_file(), (
+    f"找不到 {source_path}。"
+    "请确认 Jupyter 从本课目录启动，并把测试图放在 assets/test-image.png。"
+)
+
+src = Image.open(source_path).convert("RGB")
 
 small = src.resize((32, 32), resample=Image.Resampling.NEAREST)
 enlarged = small.resize((512, 512), resample=Image.Resampling.NEAREST)
@@ -1393,11 +1451,23 @@ whole BMP file         = 78 bytes
 
 ### Python 演示
 
+这段代码假设 notebook 的 current working directory 就是本课目录，且：
+
+`assets/q7-3x2-24bit.bmp`
+
+与 notebook 同属该课目录下的 `assets/` 文件夹。第一步先用 `path.is_file()` 检查这一前提。
+
 ```python
 from pathlib import Path
 import struct
 
 path = Path("assets/q7-3x2-24bit.bmp")
+
+assert path.is_file(), (
+    f"找不到 {path}。"
+    "请确认 Jupyter 从 1-2-encoding/1-2-3-image-encoding 目录启动。"
+)
+
 data = path.read_bytes()
 
 pixel_offset = struct.unpack_from("<I", data, 10)[0]
@@ -1604,7 +1674,7 @@ $$
 
 ***
 
-# C9 V1.3.1 设计取舍
+# C9 V1.3.2 设计取舍
 
 本版本继续控制在一节 45 分钟课可以完成的范围内，并进一步压缩 Q6–Q7 的主课负担：真实 BMP 在主课只用于证明“pixel data 前还有格式信息”，其余 byte-order / row-padding 细节全部后移。
 
@@ -1631,6 +1701,7 @@ $$
 - 8-bit indexed BMP 与 palette；
 - BMP bottom-up rows；
 - 使用 Q7 同一个 3×2 BMP 在 Q11 中建立 72-byte 预测，并解释 row padding 后的 78-byte 实际文件大小；
+- Demo A / Demo D 都规定 Jupyter 从本课目录启动，素材统一放在 `assets/`；代码先检查文件是否存在；
 - Demo D 读取同一个 3×2 BMP，输出 18-byte color values、12-byte stored row、24-byte pixel array、78-byte file；
 - $101\times100$ 只作为 row-padding 迁移题；
 - row padding 的一般计算；
@@ -1646,11 +1717,17 @@ $$
 
 本节仅供教师备课核查，不要求学生阅读。
 
-1. **课程标准（本项目主依据）**  
-   源文件是本项目上传资料：`普通高中信息科技课程标准（2017年版2025年修.pdf`。该 PDF **目前不在 Git 仓库 checkout 中**，因此不要写成仓库相对路径。为便于核查，记录精确定位与文件指纹：  
-   - “内容要求 1.1”位置：**PDF 第 15 页 / 正文页码 12**，必修模块 1“数据与计算” → “内容要求”；其中包含“通过案例分析，理解计算机中数据编码的基本方式”。  
+1. **课程标准：权威来源与本地工作副本**  
+   本课程设计的**权威依据仍以 ChatGPT 项目中上传的课程标准 PDF 为准**，因为本项目的课程设计规则明确指定该上传资料为主要课程依据。当前可核查的项目源文件为：  
+   - 项目文件名：`普通高中信息科技课程标准（2017年版2025年修.pdf`；  
+   - SHA-256：`be85fae87b2b204a054061bfbb454b7d6588b834a1da11c45e5b81d5a840d3f5`；  
+   - “内容要求 1.1”位置：**PDF 第 15 页 / 正文页码 12**，必修模块 1“数据与计算” → “内容要求”；其中包含“通过案例分析，理解计算机中数据编码的基本方式”；  
    - 对应“学业要求”位置：**PDF 第 17 页 / 正文页码 14**，其中再次要求学生通过案例分析理解计算机中数据编码的基本方式。  
-   - SHA-256：`be85fae87b2b204a054061bfbb454b7d6588b834a1da11c45e5b81d5a840d3f5`。  
+
+   教师当前 macOS 工作区另有一个**未纳入 Git 跟踪的本地工作副本**：  
+   `/Users/chran/repo/shtick/普通高中信息科技课程标准2017年版2025年修.pdf`。  
+   本轮 review 报告其 SHA-256 为 `317703ba…e968e2`（review 中提供的是缩写指纹），并确认其 PDF 第 15 页和第 17 页同样支持上述两条课程要求。由于它与项目上传文件**并非 byte-identical**，且目前尚未纳入版本控制，本设计不把该本地副本的缩写 hash 当作 source-of-record。若之后决定以该本地文件替换项目源，应同时记录**完整 SHA-256**并更新本节，而不是只改文件名。  
+
    公开背景资料可参见：[教育部课程教材研究所：普通高中课程标准日常修订版（2017年版2025年修订）解读专栏](https://www.ictr.edu.cn/periodicals/jing/p/10.html)。
 
 2. **课堂 BMP 实证文件**  
@@ -1660,7 +1737,7 @@ $$
    - stored row size = **12 bytes/row**，pixel array = **24 bytes**；
    - 该文件的 scanline 为 bottom-up，**第一个 stored pixel 属于图像底行**；
    - 图像顶行 RED pixel 位于 **file offset 66（0x42）**，offsets 66–68 为 `00 00 FF`。  
-   Q7 主课只使用 `BM` 与 decoded offset = 54；后面这些 byte-level 细节用于教师复现与 Q11 / Demo D 拓展。
+   Q7 主课只使用 `BM`，并展示 `header bytes at 0x0A: 36 00 00 00 → decoded offset: 54` 的教师预解码框；后面这些 byte-level 细节用于教师复现与 Q11 / Demo D 拓展。
 
 3. **BMP / DIB：bits per pixel、color table、stride**  
    Microsoft Learn, [BITMAPINFOHEADER structure (wingdi.h)](https://learn.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-bitmapinfoheader)。该文档说明 `biBitCount`、8 bpp 及以下 BI_RGB 的 color table，并给出未压缩 RGB bitmap 的 stride 按 DWORD 对齐以及 image size 的计算方法。
