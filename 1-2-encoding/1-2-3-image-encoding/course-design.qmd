@@ -1,7 +1,7 @@
 ---
 title: "1-2-3 图像编码"
 subtitle: "Image Encoding：从连续图像到像素、颜色与二进制"
-version: "v1.4.2"
+version: "v1.4.3"
 format:
   html:
     toc: true
@@ -338,7 +338,8 @@ Q7 主课只建立这个区别；Q11 再用同一个真实 BMP 文件观察 row 
 |---|---|---|---|
 | 0–4 min | 入口：四种说法分别在哪一层？ | Q0 | 排序、解释初步理由，保留待修正答案 |
 | 4–12 min | Sampling + Resolution | Q1–Q2 | 比较同一场景不同像素尺寸、解释差异 |
-| 12–21 min | Quantization + bit states | Q3–Q4 | 比较颜色等级、推导 $2^b$ |
+| 12–16 min | Quantization | Q3 | 预测红绿接缝；主课只看原图、16-color、2-color；观察后再揭示接缝 RGB |
+| 16–21 min | Bit states | Q4 | 从 16 个离散颜色状态推导最少 4 bit，并概括 $2^b$ |
 | 21–27 min | RGB 表示 | Q5 | 预测 RGB tuples、推导 24-bit |
 | 27–29 min | Encoding | Q6 | 看一个 RGB pixel 如何写成 24 bits |
 | 29–32 min | BMP 实证 | Q7 | 看真实 BMP：`BM` + decoded pixel-data offset = 54；推断像素前面的 bytes 用来做什么 |
@@ -349,6 +350,8 @@ Q7 主课只建立这个区别；Q11 再用同一个真实 BMP 文件观察 row 
 **课堂执行原则：**
 
 - Q8 是本节最重要的计算任务，至少保留 8 分钟；
+- Q3 控制在约 4 分钟：主课只投影**原图、16-color、2-color**。256-color 与 4-color 保留在教师 notebook，需要追问时再调出；
+- Q4 保留约 5 分钟：重点不是继续比较图片，而是让学生从 16 个状态逐步推出最少 4 bit，并概括 $2^b$；
 - Q7 主课只保留两个可见证据：`BM` 和已经解码好的 pixel-data offset = 54；不在主课解释 little-endian、BGR、row order 或 padding；
 - Q10、Q11 不挤进主课，以免最后 5 分钟变成连续计算与格式细节。
 
@@ -493,6 +496,21 @@ $$
 
 的测试图。
 
+## 主课时间控制：约 4 分钟
+
+主课只使用三张图：
+
+```text
+原图 → 16 colors → 2 colors
+```
+
+这样已经足够形成两个关键证据：
+
+- 16-color：颜色层次减少，但红绿接缝仍有颜色差异；
+- 2-color：接缝两侧可能被映射为同一 RGB，视觉边界消失。
+
+**256-color 与 4-color 不进入主课固定流程**，只保留在教师 notebook。若学生追问“变化是不是逐级发生”，再临时调出。
+
 ## 学生先预测
 
 先问两个问题，但**不要在问题里说出原因**：
@@ -549,7 +567,15 @@ Quantization → 每个位置允许哪些离散值？
 
 # Q4 如果只允许 16 种颜色，至少需要几 bit 才能给它们编号？
 
+**主课时间：约 5 分钟。**
+
 Q3 已经让学生看到：颜色等级可以减少，但文件不一定因此减少 bits per pixel。
+
+这一段不再继续播放更多量化图片，而是把课堂注意力从“看起来怎样”切换到：
+
+> **16 个离散状态，至少需要多少个不同的二进制标签？**
+
+
 
 现在换一个问题：
 
@@ -1429,7 +1455,7 @@ print("created:", path)
 
 ## 课堂可用状态
 
-截至 v1.4.2，本文件已经把 demo 的输入、路径、算法和检查条件写清楚，但仓库里仍未建立教师版 / 学生版 notebook。
+截至 v1.4.3，本文件已经把 demo 的输入、路径、算法和检查条件写清楚，但仓库里仍未建立教师版 / 学生版 notebook。
 
 因此本阶段应标记为：
 
@@ -1459,6 +1485,20 @@ print("created:", path)
 Q1、Q3、Demo A、Demo B 全部复用这一张图，避免更换素材成为额外变量。
 
 为了让这个 Demo 尽量只改变**空间取样位置的数量**，不要依赖 Pillow 的默认缩放滤镜。
+
+## 教师备注：这个 Demo 在模拟什么？
+
+这里是从**已经数字化的 256×256 图像进行重采样**，用它来模拟“空间取样位置减少”后会看到什么。
+
+因此课堂表述应保持边界：
+
+> **这是对 sampling 数量变化的数字模拟，不是从连续光信号重新采集一幅图像。**
+
+另外，把低分辨率版本再放大到 512×512，目的只是让不同版本在屏幕上以相同显示尺寸比较。
+
+> **放大不会恢复已经因低采样而丢失的细节。**
+
+这两点只需教师掌握，主课不必展开连续信号采集、传感器或插值理论。
 
 统一采用下面的处理：
 
@@ -1550,8 +1590,10 @@ Pillow 对普通 RGB 图像调用 `resize()` 而不显式指定 `resample` 时�
 
 - `Image.Quantize.MEDIANCUT`；
 - `Image.Dither.NONE`；
-- 分别限制整幅图最多为 256 / 16 / 4 / 2 colors；
-- quantize 后再 `.convert("RGB")`，让所有展示结果仍然是 RGB mode。
+- 教师 notebook 预先生成 256 / 16 / 4 / 2-color 四个版本；
+- **主课固定只展示原图、16-color、2-color**；
+- 256-color 与 4-color 只作为教师追问备用；
+- quantize 后再 `.convert("RGB")`，让所有结果仍然是 RGB mode。
 
 ```python
 from pathlib import Path
@@ -1562,7 +1604,12 @@ source_path = Path("assets/test-image.png")
 assert source_path.is_file()
 
 src = Image.open(source_path).convert("RGB")
+
+# 教师 notebook 保留全部版本，便于追问
 targets = [256, 16, 4, 2]
+
+# 45 分钟主课固定只展示 16 / 2；原图单独展示
+main_targets = [16, 2]
 
 outputs = {}
 
@@ -1585,9 +1632,13 @@ for n in targets:
 print("original")
 display(src)
 
-for n in targets:
+# 主课默认只展示 16-color 与 2-color
+for n in main_targets:
     print(f"max {n} colors")
     display(outputs[n])
+
+# 256-color / 4-color 已保存在 outputs 中，
+# 仅在教师需要追问时再 display(outputs[256]) / display(outputs[4])
 ```
 
 代码在后台检查三个变量，但第一格不把接缝 RGB 数值打印出来：
@@ -1989,9 +2040,9 @@ $$
 
 ***
 
-# C9 V1.4.2 设计取舍
+# C9 V1.4.3 设计取舍
 
-本版本继续控制在一节 45 分钟课可以完成的范围内，并进一步校准“预测—观察—证据”的顺序：测试图让红绿区域拥有真实共同边界；Demo B 先展示图像、让学生解释，再揭示接缝两侧的 RGB evidence；同时继续严格区分 in-memory RGB mode 与磁盘文件格式。
+本版本继续控制在一节 45 分钟课可以完成的范围内，并进一步压实时间与演示边界：Q3 / Q4 明确拆成约 4 + 5 分钟；Q3 主课只展示原图、16-color、2-color；Demo A 明确只是从已有数字图像重采样来模拟 sampling 数量减少，放大仅用于同尺寸比较，不能恢复细节。
 
 ## 主课必须掌握
 
@@ -2020,7 +2071,10 @@ $$
 - 固定测试图增加大圆与加粗斜线；Demo A 的 8 / 16 / 32 / 64 观察结论按实际预跑结果分别书写；
 - 测试图中红、绿区域直接相接，接缝位于 x=72 / 73；16-color 时接缝两侧保持不同，2-color 时合并为相同颜色；
 - Demo B 使用 MEDIANCUT + no dithering，把“整幅图最多 N colors”和“每通道 N levels”明确区分；
+- Q3 约 4 分钟，只展示原图、16-color、2-color；256-color / 4-color 留作教师追问；
+- Q4 约 5 分钟，停止继续比较图片，集中完成 16 states → 4 bits → $2^b$；
 - Demo B 坚持“先看图、后揭示数值”：学生版不提前打印接缝 RGB，教师版在下一格用 `(72,40)` / `(73,40)` 验证；
+- Demo A 明确是对已有 256×256 数字图像的重采样模拟；放大到相同显示尺寸只为比较，不能恢复丢失细节；
 - Demo B 主实验只证明 RGB mode / pixel dimensions / whole-image color count；磁盘 24-bit BMP 作为教师可选验证，不与内存对象混为一谈；
 - Demo A / Demo D 都规定 Jupyter 从本课目录启动，素材统一放在 `assets/`；代码先检查文件是否存在；
 - Demo D 读取同一个 3×2 BMP，输出 18-byte color values、12-byte stored row、24-byte pixel array、78-byte file；
