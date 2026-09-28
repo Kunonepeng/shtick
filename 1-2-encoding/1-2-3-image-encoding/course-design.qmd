@@ -1,7 +1,7 @@
 ---
 title: "1-2-3 图像编码"
 subtitle: "Image Encoding：从连续图像到像素、颜色与二进制"
-version: "v1.1"
+version: "v1.2"
 format:
   html:
     toc: true
@@ -25,7 +25,7 @@ format:
 
 全课学习路径：
 
-\`\`\`text
+```text
 现实/连续图像
     ↓
 Sampling（采样）
@@ -44,7 +44,7 @@ Encoding（编码）
 BMP 等图像文件
     ↓
 存储空间
-\`\`\`
+```
 
 课程最后用一个统一公式收束：
 
@@ -83,11 +83,11 @@ $$
 
 本课最重要的不是记住若干定义，而是建立下面三个问题之间的区别：
 
-\`\`\`text
+```text
 Sampling     → 在哪里取值？取多少个位置？
 Quantization → 每个位置允许哪些离散值？
 Encoding     → 这些值怎样表示并组织成 bits / bytes？
-\`\`\`
+```
 
 进一步形成两个关键关系。
 
@@ -119,13 +119,13 @@ $$
 
 因此本课区分：
 
-\`\`\`text
+```text
 Quantization levels
 = 允许/使用多少种离散颜色值
 
 Storage bit depth
 = 文件格式实际为每个像素分配多少 bit
-\`\`\`
+```
 
 二者通常有关联，但不是同一个概念。
 
@@ -148,9 +148,9 @@ Storage bit depth
 
 本课讨论“图像编码”时，**resolution 主要指图像像素尺寸（pixel dimensions）**，例如：
 
-\`\`\`text
+```text
 1920 × 1080 pixels
-\`\`\`
+```
 
 即横向 1920 个像素、纵向 1080 个像素，共：
 
@@ -209,12 +209,12 @@ $$
 
 对于 RGB 彩色图像，需要明确 bits per pixel 的含义。例如常见的 24-bit RGB：
 
-\`\`\`text
+```text
 R: 8 bits
 G: 8 bits
 B: 8 bits
 Total: 24 bits / pixel
-\`\`\`
+```
 
 因此每个通道有：
 
@@ -238,7 +238,7 @@ BMP 在本课中只承担一个教学角色：
 
 课堂只保留简化模型：
 
-\`\`\`text
+```text
 ┌──────────────────┐
 │ BMP File Header  │
 ├──────────────────┤
@@ -246,7 +246,7 @@ BMP 在本课中只承担一个教学角色：
 ├──────────────────┤
 │ Pixel Data       │
 └──────────────────┘
-\`\`\`
+```
 
 常见 24-bit BMP 的像素 byte 顺序通常按 **B, G, R** 存放，而不是课堂概念表示时常写的 RGB。这个差异用于说明：
 
@@ -318,9 +318,9 @@ $$
 - **追问**：如果最终一定是 0 和 1，那么一张现实中的图像怎样才能一步步走到 0 和 1？
 - **暂不解释**：保留下面三个空格：
 
-\`\`\`text
+```text
 现实图像 → ? → ? → ? → 010101...
-\`\`\`
+```
 
 - **转入 Q1**：先解决第一个问题——连续的图像怎样变成计算机可以逐点处理的数据？
 
@@ -330,9 +330,9 @@ $$
 
 展示**同一场景、同一空间范围**的不同像素版本，例如：
 
-\`\`\`text
+```text
 8×8 → 16×16 → 32×32 → 64×64 → 256×256
-\`\`\`
+```
 
 显示时让它们在屏幕上的物理尺寸尽量相同。
 
@@ -408,15 +408,15 @@ $$
 
 固定 resolution，例如：
 
-\`\`\`text
+```text
 256 × 256 pixels
-\`\`\`
+```
 
 只改变颜色量化等级：
 
-\`\`\`text
+```text
 2 colors → 4 colors → 16 colors → 256 colors → more colors
-\`\`\`
+```
 
 最好使用同时包含：
 
@@ -444,10 +444,10 @@ $$
 
 核心对比：
 
-\`\`\`text
+```text
 Sampling     → 有多少个空间位置？
 Quantization → 每个位置允许哪些离散值？
-\`\`\`
+```
 
 ## 此处必须补一句
 
@@ -459,16 +459,29 @@ Quantization → 每个位置允许哪些离散值？
 
 ---
 
-# Q4 1 bit 到底能表示多少种状态？
+# Q4 如果只允许 16 种颜色，至少需要几 bit 才能给它们编号？
 
-不要直接给公式，先让学生列举。
+Q3 已经让学生看到：颜色等级可以减少，但文件不一定因此减少 bits per pixel。
 
-## 1 bit
+现在换一个问题：
 
-\`\`\`text
+> 假设我们**自己设计一种固定长度的编号规则**，只需要给 16 种允许的颜色分别贴上不同标签。  
+> 最短需要几 bit？
+
+先让学生预测：
+
+- 2 bit 够不够？
+- 3 bit 够不够？
+- 4 bit 为什么刚好够？
+
+## 从状态数量推回 bit 数
+
+1 bit：
+
+```text
 0
 1
-\`\`\`
+```
 
 所以：
 
@@ -476,16 +489,14 @@ $$
 2^1=2
 $$
 
-种状态。
+2 bits：
 
-## 2 bits
-
-\`\`\`text
+```text
 00
 01
 10
 11
-\`\`\`
+```
 
 所以：
 
@@ -493,12 +504,21 @@ $$
 2^2=4
 $$
 
-种状态。
+继续：
 
-继续追问：
+$$
+2^3=8
+$$
 
-- 3 bits？
-- 8 bits？
+仍然不够标记 16 种颜色。
+
+而：
+
+$$
+2^4=16
+$$
+
+所以如果采用**固定长度、直接编号**的方式，16 个不同状态至少需要 4 bit。
 
 最终让学生概括：
 
@@ -508,38 +528,42 @@ $$
 }
 $$
 
-其中 $b$ 是**实际用于表示这个值的 bit 数**。
+反过来，如果要给 $N$ 个状态设计固定长度二进制标签，需要选择足够大的 $b$，使：
+
+$$
+2^b \ge N
+$$
 
 ## 教师设计
 
-- **常见误解 1**：“8 bit = 8 种颜色”。
-- **常见误解 2**：把 bit 数与状态数量直接做乘法关系。
-- **边界提醒**：Q3 的“16 种颜色”只有在采用相应的编码方式时，才可能对应更小的 bits per pixel；单纯把颜色处理少，不自动改变文件格式。
-- **追问与转入 Q5**：如果一个 RGB 像素由多个数值一起描述，24 bit 又意味着什么？
+- **学习需要来自 Q3**：既然已经把颜色限制为有限种，怎样给这些离散颜色设计不重复的数字标签？
+- **常见误解 1**：“16 种颜色 = 16 bit”。让学生实际枚举 1、2、3、4 bit 的状态数量。
+- **常见误解 2**：推导出 4 bit 后，立即认为这幅图“实际就是 4 bits/pixel”。
+- **边界提醒**：这里证明的是“16 个状态**可以**用 4-bit 固定长度标签表示”。真实文件是否真的使用 4 bits/pixel，还取决于文件格式和编码约定。Q3 中那幅只剩 16 种颜色的 24-bit RGB 图，依然可以继续按 24 bits/pixel 存储。
+- **追问与转入 Q5**：如果一个像素不是从 16 个标签里选，而是由 R、G、B 三个数值共同描述，常见的 24-bit RGB 又是怎样组织的？
 
 ---
-
 # Q5 24-bit RGB 怎样用三个通道表示彩色像素？
 
 先给若干像素值，让学生预测颜色：
 
-\`\`\`text
+```text
 (255,   0,   0)
 (  0, 255,   0)
 (  0,   0, 255)
 (255, 255,   0)
 (255, 255, 255)
 (  0,   0,   0)
-\`\`\`
+```
 
 再建立 RGB 模型：
 
-\`\`\`text
+```text
 一个像素
 ├─ R: 8 bits → 0..255
 ├─ G: 8 bits → 0..255
 └─ B: 8 bits → 0..255
-\`\`\`
+```
 
 因此：
 
@@ -601,9 +625,9 @@ $$
 
 所以概念上的 RGB 表示可以写成：
 
-\`\`\`text
+```text
 11111111 10000000 00000000
-\`\`\`
+```
 
 ## 概念形成
 
@@ -611,13 +635,13 @@ $$
 
 此时回到开头：
 
-\`\`\`text
+```text
 现实图像
 → Sampling
 → Quantization
 → Encoding
 → bits / bytes
-\`\`\`
+```
 
 ## 教师追问
 
@@ -632,10 +656,10 @@ $$
 
 使用一个非常小的 3×2 像素图：
 
-\`\`\`text
+```text
 RED      GREEN     BLUE
 WHITE    BLACK     YELLOW
-\`\`\`
+```
 
 若使用 24-bit RGB，每个像素的**颜色值本身**需要：
 
@@ -649,82 +673,60 @@ $$
 6 \times 3=18\text{ bytes}
 $$
 
-## 这里必须区分：18 bytes 不是这个 BMP 的 stored pixel array 大小
+先停在这里，不计算真实 BMP 的完整文件大小。
 
-一行有 3 个像素，因此颜色值本身占：
+接着展示简化结构：
 
-$$
-3 \times 3 = 9\text{ bytes/row}
-$$
-
-常见 BMP scanline 按 4-byte 边界对齐，因此 9 bytes 需要补到 12 bytes：
-
-$$
-12\text{ bytes/row}
-$$
-
-两行的 stored pixel array 因而是：
-
-$$
-12 \times 2 = 24\text{ bytes}
-$$
-
-所以这个例子中：
-
-\`\`\`text
-六个像素的颜色值本身   = 18 bytes
-BMP 中存储的 pixel array = 24 bytes  （包含 row padding）
-\`\`\`
-
-若随后真的生成一个常见的 24-bit BMP，并使用 14-byte file header + 40-byte BITMAPINFOHEADER，则总文件大小常见为：
-
-$$
-54+24=78\text{ bytes}
-$$
-
-这里的 54 bytes 只是常见具体格式，不是所有 BMP 的固定规律。
-
-然后展示简化 BMP：
-
-\`\`\`text
+```text
 ┌──────────────────┐
 │ BMP File Header  │
 ├──────────────────┤
 │ DIB / Image Info │
 ├──────────────────┤
-│ Pixel Array      │  像素值 + 可能的 row padding
+│ Pixel Array      │
 └──────────────────┘
-\`\`\`
+```
+
+## 主课只形成一个判断
+
+> **18 bytes 只是 6 个像素颜色值本身的理论数据量，不等于整个 BMP 文件大小。**
+
+原因暂时只说到两个层次：
+
+- 文件需要 header / image info 等结构信息；
+- 文件格式还可能对 pixel array 的组织方式提出额外要求。
+
+这里**不在主课计算 row padding，也不揭示 3×2 BMP 的最终 byte 数**。把“究竟多了多少、为什么”保留给 Q11 拓展任务。
+
+这样 Q7 的任务是建立：
+
+```text
+pixel values
+≠
+whole image file
+```
+
+而 Q11 再进一步研究：
+
+```text
+pixel value data
+→ stored pixel array
+→ whole BMP file
+```
 
 ## 教师设计
 
-- 主课只要求学生理解：
-  - pixel values 是图像内容；
-  - file format 还必须告诉软件如何解释这些 values；
-  - 实际文件组织可能加入 header 和 padding；
-  - 编码不仅是“变成 0/1”，还包括“按照约定组织”。
-- 若时间紧，只需说明“18 bytes 是颜色值本身，BMP 实际存储会更大”，不要求学生在此处计算 padding。
+- 重点让学生理解：pixel values 是图像内容；file format 还规定这些 values 怎样被组织。
+- 不要求主课记忆 BMP header 大小、row stride 或 bottom-up rows。
+- 如果学生主动追问“18 bytes 之外到底多了多少”，先记下预测，告诉他们这正是 Q11 的拓展问题。
 
-## 可选挑战
+## 可选一句背景
 
-常见 24-bit BMP 的像素 byte 顺序通常是：
-
-\`\`\`text
-B G R   B G R   B G R ...
-\`\`\`
-
-而概念讲解常写 RGB。
-
-追问：
-
-> 为什么颜色模型叫 RGB，BMP 文件里却可能按 BGR 保存？
-
-收束：
+常见 24-bit BMP 的像素 byte 顺序通常按 **B, G, R** 存放，而课堂概念表示常写 RGB。这里只用于说明：
 
 > **RGB 是颜色模型；BMP 是文件格式。两者解决的问题不同。**
 
 ---
-
 # Q8 一张 1920×1080、24-bit RGB 图片，不压缩需要多大？
 
 这是本课最重要的计算问题。
@@ -808,11 +810,11 @@ $$
 
 计算时始终先问三个问题：
 
-\`\`\`text
+```text
 1. 有多少 pixels？
 2. 每个 pixel 实际分配多少 bits？
 3. 最后要换算成什么单位？
-\`\`\`
+```
 
 这里计算的是**理论未压缩像素数据量**，不是任意图像文件的磁盘大小。
 
@@ -896,11 +898,11 @@ $$
 
 这与 Q3 的“减少实际使用颜色数量”不是一回事。
 
-\`\`\`text
+```text
 24-bit RGB 图像只使用 16 种颜色
 ≠
 文件已经变成 4 bits/pixel
-\`\`\`
+```
 
 如果这里采用 **8-bit indexed BMP** 作为例子，那么：
 
@@ -1005,7 +1007,7 @@ $$
 
 回到开课时的三个空格：
 
-\`\`\`text
+```text
 现实图像
    ↓
 Sampling
@@ -1022,7 +1024,7 @@ Encoding
 这些值怎样表示并组织为 bits / bytes？
    ↓
 BMP / other formats
-\`\`\`
+```
 
 让学生用自己的语言解释三者区别。
 
@@ -1060,12 +1062,12 @@ Python 演示的原则：
 
 教室环境：
 
-\`\`\`text
+```text
 Windows 10 Professional
 Miniconda
 Conda environment: pt
 Working directory: D:\dt
-\`\`\`
+```
 
 正式实现时优先使用现有环境中已经安装的库；若需要 Pillow，应先确认环境是否已有，不在课堂临时加入复杂安装流程。
 
@@ -1075,19 +1077,43 @@ Working directory: D:\dt
 
 > 同一场景、同一空间范围、显示成一样大，降低 pixel dimensions 后，哪里最先出现变化？
 
-### 演示
+### 演示控制条件
 
-将同一张测试图缩小到：
+为了让这个 Demo 尽量只改变**空间取样位置的数量**，不要依赖 Pillow 的默认缩放滤镜。
 
-\`\`\`text
-8×8
-16×16
-32×32
-64×64
-256×256
-\`\`\`
+统一采用下面的处理：
 
-再以 nearest-neighbor 放大到相同显示尺寸。
+1. 源图先显式转换为 `RGB`；
+2. **缩小**到 8×8、16×16、32×32、64×64、256×256 时，显式使用 `Image.Resampling.NEAREST`；
+3. 为了让学生在屏幕上比较，再把各版本**放大到同样显示尺寸**，仍显式使用 `Image.Resampling.NEAREST`；
+4. 检查缩小后与展示用图像的 `mode` 都仍为 `RGB`。
+
+示意代码：
+
+```python
+from PIL import Image
+
+src = Image.open("test-image.png").convert("RGB")
+
+small = src.resize((32, 32), resample=Image.Resampling.NEAREST)
+display = small.resize((512, 512), resample=Image.Resampling.NEAREST)
+
+assert src.mode == "RGB"
+assert small.mode == "RGB"
+assert display.mode == "RGB"
+```
+
+### 为什么这里不用默认 resize？
+
+Pillow 对普通 RGB 图像调用 `resize()` 而不显式指定 `resample` 时，默认会使用 BICUBIC。插值会根据邻域计算新的像素值，容易把“空间采样变化”和“像素值被重新计算”混在一起。
+
+本 Demo 使用 NEAREST 的目的不是宣称它是高质量图像缩放的最佳方法，而是为了教学控制变量：**缩小时从原有像素中选择值，不通过插值生成新的混合颜色；表示方式始终保持 RGB。**
+
+仍需注意：采样位置变少以后，一些原图颜色可能因为对应像素没有被选中而从结果中消失。因此更严谨的课堂表述是：
+
+> **我们没有主动改变颜色量化规则或存储表示；本轮主要操纵的是空间采样。**
+
+不要说“所有颜色都完全没变”。
 
 ### 学生观察
 
@@ -1098,10 +1124,9 @@ Working directory: D:\dt
 
 ### 教师追问
 
-> 这些变化来自颜色种类减少了吗？
+> 本轮有没有主动减少每个通道允许的数值范围？有没有把 RGB 改成 indexed color？
 
-目标：明确“不是”，本轮只改变 spatial sampling。
-
+目标：把变化归因于 spatial sampling，而不是 Quantization / storage bit depth。
 ## Demo B：Quantization
 
 ### 学生先预测
@@ -1114,9 +1139,9 @@ Working directory: D:\dt
 
 例如可以让图像视觉上只出现：
 
-\`\`\`text
+```text
 many levels → 256 levels → 16 levels → 4 levels → 2 levels
-\`\`\`
+```
 
 ### 学生观察
 
@@ -1148,17 +1173,17 @@ many levels → 256 levels → 16 levels → 4 levels → 2 levels
 
 选择单个像素：
 
-\`\`\`text
+```text
 RGB = (255, 128, 0)
-\`\`\`
+```
 
 显示三个 8-bit binary：
 
-\`\`\`text
+```text
 R 255 → 11111111
 G 128 → 10000000
 B   0 → 00000000
-\`\`\`
+```
 
 目标：把“颜色”转换为“数字”，再转换为“bits”。
 
@@ -1168,9 +1193,9 @@ B   0 → 00000000
 
 生成一个很小的 24-bit BMP，例如：
 
-\`\`\`text
+```text
 101 × 100
-\`\`\`
+```
 
 学生先按简单公式计算 pixel values：
 
@@ -1189,11 +1214,11 @@ $$
 
 目标：形成：
 
-\`\`\`text
+```text
 pixel value data
 ≠ stored BMP pixel array
 ≠ whole BMP file size
-\`\`\`
+```
 
 ---
 
@@ -1291,7 +1316,7 @@ $$
 
 整节课结束时只保留一张模型：
 
-\`\`\`text
+```text
 现实图像
    ↓
 Sampling
@@ -1308,7 +1333,7 @@ Encoding
 这些数值怎样表示并组织成 bits / bytes？
    ↓
 BMP / other formats
-\`\`\`
+```
 
 右侧保留两条关系：
 
@@ -1336,9 +1361,9 @@ $$
 
 ---
 
-# C9 V1.1 设计取舍
+# C9 V1.2 设计取舍
 
-本版本继续控制在一节 45 分钟课可以完成的范围内，并根据 V1 review 做了以下收束：
+本版本继续控制在一节 45 分钟课可以完成的范围内，并根据后续 review 进一步收束课堂主线与技术表述：
 
 ## 主课必须掌握
 
@@ -1355,16 +1380,36 @@ $$
 ## 主课只点到为止
 
 - BMP BGR byte order；
-- 3×2 BMP 中 18-byte pixel values 与 24-byte stored pixel array 的区别；
-- header / padding 是“文件格式额外开销”。
+- 3×2、24-bit 示例只计算 18-byte pixel values；
+- 只说明“pixel values ≠ whole BMP file”，不在主课提前计算 padding。
 
 ## 教师拓展 / 课后挑战
 
 - 8-bit indexed BMP 与 palette；
 - BMP bottom-up rows；
+- 3×2 BMP 的 row padding 与最终文件大小；
 - row padding 的一般计算；
 - 常见 54-byte header 情形；
 - 不同 BMP header variants；
 - 实际 BMP 文件大小与理论像素数据量的精确比较。
 
 这些内容服务于“文件格式是编码规则的一部分”的理解，但不应抢走本课的主线。
+
+---
+
+# C10 教师参考资料与技术来源
+
+本节仅供教师备课核查，不要求学生阅读。
+
+1. **课程标准（本项目主依据）**  
+   《普通高中信息科技课程标准（2017年版2025年修订）》：必修模块 1“数据与计算”的“内容要求 1.1”提出“通过案例分析，理解计算机中数据编码的基本方式”；对应“学业要求”再次要求学生通过案例分析理解计算机中数据编码的基本方式。项目中的课程标准 PDF 是本课目标设计的第一依据。  
+   公开背景资料可参见：[教育部课程教材研究所：普通高中课程标准日常修订版（2017年版2025年修订）解读专栏](https://www.ictr.edu.cn/periodicals/jing/p/10.html)。
+
+2. **BMP / DIB：bits per pixel、color table、stride**  
+   Microsoft Learn, [BITMAPINFOHEADER structure (wingdi.h)](https://learn.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-bitmapinfoheader)。该文档说明 `biBitCount`、8 bpp 及以下 BI_RGB 的 color table，并给出未压缩 RGB bitmap 的 stride 按 DWORD 对齐以及 image size 的计算方法。
+
+3. **Pillow resize 的 resampling 行为**  
+   Pillow Documentation, [Image.resize](https://pillow.readthedocs.io/en/latest/reference/Image.html#PIL.Image.Image.resize)。普通 RGB 图像若不显式指定 `resample`，默认使用 BICUBIC；因此 Demo A 明确指定 `Image.Resampling.NEAREST`，避免插值成为额外变量。
+
+4. **Quarto 数学与 Markdown 语法**  
+   Quarto Documentation, [Markdown Basics](https://quarto.org/docs/authoring/markdown-basics.html)。本文件使用 `$...$` / `$$...$$` 编写数学公式，并使用标准 fenced code blocks 保存流程图和 byte 序列。
