@@ -1,7 +1,7 @@
 ---
 title: "1-2-3 图像编码"
 subtitle: "Image Encoding：从连续图像到像素、颜色与二进制"
-version: "v1.3"
+version: "v1.3.1"
 format:
   html:
     toc: true
@@ -340,7 +340,8 @@ Q7 主课只建立这个区别；Q11 再用同一个真实 BMP 文件观察 row 
 | 4–12 min | Sampling + Resolution | Q1–Q2 | 比较同一场景不同像素尺寸、解释差异 |
 | 12–21 min | Quantization + bit states | Q3–Q4 | 比较颜色等级、推导 $2^b$ |
 | 21–27 min | RGB 表示 | Q5 | 预测 RGB tuples、推导 24-bit |
-| 27–32 min | Encoding + BMP | Q6–Q7 | 一个像素转 bits；认识文件组织规则 |
+| 27–29 min | Encoding | Q6 | 看一个 RGB pixel 如何写成 24 bits |
+| 29–32 min | BMP 实证 | Q7 | 看真实 BMP：`BM` + decoded pixel-data offset = 54；推断像素前面的 bytes 用来做什么 |
 | 32–40 min | Uncompressed image size | Q8 | 估算、推导公式、完整计算 |
 | 40–43 min | 快速迁移 | Q9 | 宽高同时翻倍：先预测，再计算 |
 | 43–45 min | 回看模型 | Q12 | 用自己的语言区分 sampling / quantization / encoding |
@@ -348,7 +349,7 @@ Q7 主课只建立这个区别；Q11 再用同一个真实 BMP 文件观察 row 
 **课堂执行原则：**
 
 - Q8 是本节最重要的计算任务，至少保留 8 分钟；
-- 若前面讨论超时，Q7 只展示真实 BMP 的三个证据：文件标识、pixel-data offset、一个像素的 stored bytes；
+- Q7 主课只保留两个可见证据：`BM` 和已经解码好的 pixel-data offset = 54；不在主课解释 little-endian、BGR、row order 或 padding；
 - Q10、Q11 不挤进主课，以免最后 5 分钟变成连续计算与格式细节。
 
 ***
@@ -702,6 +703,20 @@ $$
 → bits / bytes
 ```
 
+## 时间控制
+
+Q6 只有约 2 分钟。这里的目标是看到“RGB 数值 → bits”的表示关系，而不是重新教学十进制转二进制。
+
+如果学生对转换还不熟，可直接给出：
+
+```text
+255 → 11111111
+128 → 10000000
+0   → 00000000
+```
+
+再追问“为什么三个通道合起来正好是 24 bits？”
+
 ## 教师追问
 
 > 现在我们已经得到 RGB 数字和二进制了。  
@@ -711,120 +726,121 @@ $$
 
 ***
 
-# Q7 一个真实 BMP 文件能告诉我们什么？
+# Q7 一个真实 BMP 文件中，像素数据之前有什么？
 
-本课准备并复用一个真实文件：
+本课继续使用真实文件：
 
 `assets/q7-3x2-24bit.bmp`
 
-它是一幅 **3×2、24-bit、未压缩 BMP**，画面内容固定为：
+它是一幅 **3×2、24-bit、未压缩 BMP**。
+
+Q7 的任务很单一：
+
+> **不用理解整个 BMP 规范，只从文件中找证据：pixel data 之前为什么还有一段 bytes？**
+
+## 主课只展示两个证据
+
+### 证据 1：这是 BMP
+
+文件开头只展示：
 
 ```text
-RED      GREEN     BLUE
-WHITE    BLACK     YELLOW
-```
-
-6 个像素的颜色值本身仍然是：
-
-$$
-6 \times 3=18\text{ bytes}
-$$
-
-但 Q7 不再只看示意图，而是从这个真实文件中展示三个可观察证据。
-
-## 证据 1：文件标识
-
-文件开头：
-
-```text
-offset 0x00:
 42 4D
 ```
 
-ASCII 中 `42 4D` 对应 `BM`，说明这个 byte stream 按 BMP 规则组织。
-
-## 证据 2：Pixel Data 从哪里开始？
-
-只展示 header 中的 pixel-data offset 字段：
+告诉学生：
 
 ```text
-offset 0x0A:
-36 00 00 00
+42 4D  →  "BM"
 ```
 
-按 little-endian 解释：
+因此这不是一串没有规则的 bytes，而是按 BMP 文件格式组织的数据。
+
+### 证据 2：像素数据从 offset 54 开始
+
+教师直接提供已经解码后的结果：
+
+```text
+pixel-data offset = 54 bytes
+```
+
+**主课不要求学生现场解释 little-endian，也不展示 file-size 字段。**
+
+把文件画成：
+
+```text
+byte 0                              byte 54
+│                                     │
+├──────────── 前面的 54 bytes ─────────┤ pixel data ...
+│                                     │
+```
+
+然后只问一个问题：
+
+> **如果真正的像素数据要到 offset 54 才开始，那么前面的 54 bytes 是干什么的？**
+
+## 学生推断
+
+希望学生说出类似：
+
+- 要告诉软件“这是什么文件”；
+- 要记录图像的宽、高；
+- 要记录每个像素用多少 bit；
+- 要告诉软件 pixel data 从哪里开始。
+
+此时再给简化结构：
+
+```text
+┌──────────────────┐
+│ BMP File Header  │
+├──────────────────┤
+│ DIB / Image Info │
+├──────────────────┤  ← offset 54
+│ Pixel Array      │
+└──────────────────┘
+```
+
+## 主课收束
+
+> **像素值是图像内容，但文件还需要格式信息，告诉软件应该怎样解释这些数据。**
+
+Q7 到这里结束。
+
+**不在主课中：**
+
+- 计算 18-byte pixel values；
+- 做 $54+18=72$ 的文件大小预测；
+- 解释 BGR byte order；
+- 解释 bottom-up row order；
+- 解释 row padding；
+- 揭示文件总大小。
+
+这些全部留到 Q11 / 教师拓展，避免在 3 分钟里引入过多新规则。
+
+## 教师备注：用于备课复现，不投影
+
+如果教师需要在 hex editor 中定位同一个文件：
+
+- pixel array 从 **file offset 54（0x36）** 开始；
+- 这个 BMP 的 height 为正，因此该文件中的 scanline 按 bottom-up 顺序存放；**第一个 stored pixel 属于图像的底行**；
+- 每个 scanline 实际占 12 bytes；
+- 图像顶行的 RED pixel 因而位于第二个 scanline 开头：
 
 $$
-0x36=54
+54+12=66
 $$
 
-也就是说，真正的 pixel array 从文件起始处偏移 54 bytes 的位置开始（offset = 54）。
+即 **file offset 66（0x42）**；
 
-**课堂中暂时遮住 file-size 字段，不显示整个文件长度。**
-
-学生此时已经获得一个重要证据：
-
-> 文件开头并不是 pixel values；BMP 还保存了让软件理解图像的结构信息。
-
-## 证据 3：一个红色像素在文件里怎样存？
-
-概念上的红色像素：
-
-$$
-RGB=(255,0,0)
-$$
-
-从同一个 BMP 中取出该红色 pixel 的三个颜色 bytes，只展示：
+- offsets 66–68 的三个 bytes 是：
 
 ```text
 00 00 FF
 ```
 
-解释为：
+按 24-bit BMP 常见的 BGR byte order，可解释为 RED。
 
-```text
-B = 00
-G = 00
-R = FF
-```
-
-因此常见 24-bit BMP 的 pixel bytes 使用 BGR 顺序。这提供了一个直接证据：
-
-> **RGB 是颜色模型；BMP 还规定这些数值在文件里怎样排列。**
-
-## Q7 到这里故意停住
-
-现在学生知道：
-
-- 6 个 pixel values 理论上是 18 bytes；
-- pixel array 从 offset 54 开始；
-- BMP 有 header / image info；
-- 一个 pixel 的 stored bytes 有具体顺序。
-
-但**不显示这个文件的总长度，也不计算 row padding**。
-
-可以让学生留下一个预测：
-
-> 如果 header 到 byte 54，pixel values 一共 18 bytes，那么这个文件会不会正好是 $54+18=72$ bytes？
-
-不要揭晓。把这个预测留给 Q11，用**同一个文件**再检查。
-
-## 教师展示要求
-
-Q7 使用真实文件 `assets/q7-3x2-24bit.bmp`，但主课投影的 hex view 只标注：
-
-- `BM` signature；
-- pixel-data offset；
-- width / height / 24 bits per pixel（可选）；
-- 一个红色 pixel 的 `00 00 FF`。
-
-必须遮住：
-
-- file-size 字段；
-- row padding；
-- 文件末尾总长度。
-
-这样 Q7 有真实证据，又不会提前破坏 Q11 的认知冲突。
+这组信息是教师核查真实文件时使用的证据，不作为 Q7 主课记忆内容。
 
 ***
 
@@ -1031,18 +1047,44 @@ $$
 
 `assets/q7-3x2-24bit.bmp`
 
-Q7 已经知道：
+Q7 只告诉了学生一件与大小有关的事实：
 
-- pixel-data offset = 54；
-- 6 个 24-bit pixels 的颜色值本身 = 18 bytes。
+```text
+pixel-data offset = 54 bytes
+```
 
-因此很多学生会自然预测：
+现在才开始计算 pixel values。
+
+3×2 一共有：
+
+$$
+3 \times 2=6\text{ pixels}
+$$
+
+24-bit RGB 每个 pixel 是：
+
+$$
+24/8=3\text{ bytes}
+$$
+
+所以 6 个 pixel 的颜色值本身为：
+
+$$
+6 \times 3=18\text{ bytes}
+$$
+
+## 先预测，再检查
+
+让学生先预测：
+
+> Pixel data 从 offset 54 开始，又只有 18 bytes 的颜色值。  
+> 那整个文件是不是应该正好：
 
 $$
 54+18=72\text{ bytes}
 $$
 
-现在才查看真实文件长度：
+现在才查看**同一个真实文件**的长度：
 
 $$
 78\text{ bytes}
@@ -1088,12 +1130,13 @@ $$
 54+24=78\text{ bytes}
 $$
 
-这正好与实际文件长度一致。
+这与真实文件长度一致。
 
 ## 重新解释三个“大小”
 
 ```text
 pixel value data       = 18 bytes
+stored row size        = 12 bytes/row
 stored BMP pixel array = 24 bytes
 whole BMP file         = 78 bytes
 ```
@@ -1101,6 +1144,16 @@ whole BMP file         = 78 bytes
 收束：
 
 > **简单公式没有错；它回答的是像素值本身需要多少数据。文件格式还会增加组织这些数据所需的空间。**
+
+## 迁移问题：不要再换一个演示文件
+
+完成同一个 3×2 文件的解释后，再把 $101\times100$、24-bit BMP 作为**纸笔迁移题**：
+
+> 每行的颜色值是 $101\times3=303$ bytes。  
+> 按 4-byte 边界对齐后，每行应该是多少 bytes？  
+> 100 行的 stored pixel array 又是多少？
+
+这样 101×100 用来检查学生能否迁移 row-padding 规则，而不是另起一个 Demo。
 
 ## 一般化（教师可选）
 
@@ -1117,10 +1170,7 @@ $$
 
 理解 4-byte 对齐，其中 $W$ 是宽度，$b$ 是 bits per pixel。
 
-若希望再做迁移，可让学生预测 $101 \times 100$、24-bit BMP 的 row stride，但不必再把完整计算塞回主课。
-
 ***
-
 
 # Q12 回看：Sampling、Quantization、Encoding 分别解决什么问题？
 
@@ -1324,32 +1374,86 @@ B   0 → 00000000
 
 目标：把“颜色”转换为“数字”，再转换为“bits”。
 
-## Demo D：【拓展】预测 BMP 文件大小，再检查
+## Demo D：【拓展】用同一个 BMP 验证 Q11
 
-本 Demo 不纳入 45 分钟主流程。
+本 Demo 不纳入 45 分钟主流程，并且**不再生成 101×100 的第二个 BMP**。
 
-生成一个很小的 24-bit BMP，例如：
+直接读取 Q7 / Q11 已经使用过的：
+
+`assets/q7-3x2-24bit.bmp`
+
+目标是让同一个文件连续回答四个问题：
 
 ```text
-101 × 100
+color values           = 18 bytes
+stored row size        = 12 bytes/row
+stored pixel array     = 24 bytes
+whole BMP file         = 78 bytes
 ```
 
-学生先按简单公式计算 pixel values：
+### Python 演示
 
-$$
-101 \times 100 \times 3
-$$
+```python
+from pathlib import Path
+import struct
 
-再由 Python 输出：
+path = Path("assets/q7-3x2-24bit.bmp")
+data = path.read_bytes()
 
-- 理论像素值数据量；
-- BMP row stride；
-- stored pixel array size；
-- 实际文件大小。
+pixel_offset = struct.unpack_from("<I", data, 10)[0]
+width = struct.unpack_from("<i", data, 18)[0]
+height = struct.unpack_from("<i", data, 22)[0]
+bits_per_pixel = struct.unpack_from("<H", data, 28)[0]
 
-观察差异后再解释 header 与 row padding。
+rows = abs(height)
 
-目标：形成：
+color_value_bytes = width * rows * bits_per_pixel // 8
+row_value_bytes = width * bits_per_pixel // 8
+stored_row_bytes = ((width * bits_per_pixel + 31) // 32) * 4
+pixel_array_bytes = stored_row_bytes * rows
+file_bytes = len(data)
+
+print("pixel-data offset :", pixel_offset, "bytes")
+print("color values      :", color_value_bytes, "bytes")
+print("raw row values    :", row_value_bytes, "bytes/row")
+print("stored row size   :", stored_row_bytes, "bytes/row")
+print("pixel array       :", pixel_array_bytes, "bytes")
+print("whole file        :", file_bytes, "bytes")
+```
+
+期望输出：
+
+```text
+pixel-data offset : 54 bytes
+color values      : 18 bytes
+raw row values    : 9 bytes/row
+stored row size   : 12 bytes/row
+pixel array       : 24 bytes
+whole file        : 78 bytes
+```
+
+### 学生先预测什么
+
+运行之前先让学生填：
+
+```text
+18 → ? → ? → 78
+     ↑
+为什么不是直接 18？
+```
+
+然后运行程序，把 Q11 的纸笔推导与真实文件证据对应起来。
+
+### 迁移而不是换文件
+
+Demo 结束后再问 $101\times100$、24-bit：
+
+> 每行 303 bytes，按 4-byte 对齐以后是多少？  
+> 100 行的 stored pixel array 是多少？
+
+这道题只作为迁移，不再生成第二个 BMP。
+
+目标始终保持：
 
 ```text
 pixel value data
@@ -1452,7 +1556,7 @@ $$
 
 # C8 最终板书 / 学习模型
 
-整节课结束时只保留一张模型：
+整节课结束时，学生看到的最终板书保持简单，只保留主课真正使用过的模型。
 
 ```text
 现实图像
@@ -1463,7 +1567,7 @@ Sampling
 Pixels / Resolution
    ↓
 Quantization
-每个像素允许多少种离散值？
+每个像素允许哪些离散值？
    ↓
 Color values / RGB
    ↓
@@ -1473,31 +1577,26 @@ Encoding
 BMP / other formats
 ```
 
-右侧保留两条关系：
+右侧只保留核心关系：
 
 $$
-\boxed{\text{levels}=2^b}
+\boxed{\text{可表示状态数}=2^b}
 $$
 
-> 仅在“一个量化值实际用 $b$ bit 表示”的前提下使用。
+以及三行计算模型：
 
-以及：
+```text
+像素数 = W × H
 
-$$
-\boxed{
-\text{pixel value data（bits）}
-=
-W \times H \times b
-}
-$$
+像素值数据量 = W × H × b bits
 
-换算为 byte-equivalent：
+本课 24-bit RGB：
+像素值数据量 = W × H × 3 bytes
+```
 
-$$
-\frac{W \times H \times b}{8}
-$$
+这里不在最后 2 分钟重新引入 byte-equivalent、向上取整或 BMP row padding。
 
-> 若结果不是整数，紧密打包的 byte stream 至少需要 $\left\lceil W \times H \times b/8 \right\rceil$ 个完整 byte；具体 BMP 还可能有 row padding、header、palette 等额外空间。本课 24-bit RGB 每个 pixel 恰好是 3 bytes。
+这些技术边界已经放在 C3 和 Q11 中供教师解释；课堂收束只要求学生能把“像素数量”“每像素 bit 数”和“数据量”联系起来。
 
 最终结论：
 
@@ -1505,9 +1604,9 @@ $$
 
 ***
 
-# C9 V1.3 设计取舍
+# C9 V1.3.1 设计取舍
 
-本版本继续控制在一节 45 分钟课可以完成的范围内，并根据后续 review 进一步收束课堂主线与技术表述：
+本版本继续控制在一节 45 分钟课可以完成的范围内，并进一步压缩 Q6–Q7 的主课负担：真实 BMP 在主课只用于证明“pixel data 前还有格式信息”，其余 byte-order / row-padding 细节全部后移。
 
 ## 主课必须掌握
 
@@ -1523,16 +1622,17 @@ $$
 
 ## 主课只点到为止
 
-- BMP BGR byte order；
-- Q7 使用真实的 `assets/q7-3x2-24bit.bmp` 提供 header / pixel bytes 证据；
-- 3×2、24-bit 示例在主课只计算 18-byte pixel values，并保留“72 bytes？”预测；
-- 不在主课提前计算 row padding。
+- Q7 使用真实的 `assets/q7-3x2-24bit.bmp`，主课只展示 `BM` 与 decoded pixel-data offset = 54；
+- 主课只要求学生据此推断“pixel data 之前还有 header / image info”；
+- BGR、bottom-up、row padding、72-byte 预测与 78-byte 验证均不放进 Q7 主课。
 
 ## 教师拓展 / 课后挑战
 
 - 8-bit indexed BMP 与 palette；
 - BMP bottom-up rows；
-- 使用 Q7 同一个 3×2 BMP 验证 72-byte 预测，并解释 row padding 后的 78-byte 实际文件大小；
+- 使用 Q7 同一个 3×2 BMP 在 Q11 中建立 72-byte 预测，并解释 row padding 后的 78-byte 实际文件大小；
+- Demo D 读取同一个 3×2 BMP，输出 18-byte color values、12-byte stored row、24-byte pixel array、78-byte file；
+- $101	imes100$ 只作为 row-padding 迁移题；
 - row padding 的一般计算；
 - 常见 54-byte header 情形；
 - 不同 BMP header variants；
@@ -1554,7 +1654,13 @@ $$
    公开背景资料可参见：[教育部课程教材研究所：普通高中课程标准日常修订版（2017年版2025年修订）解读专栏](https://www.ictr.edu.cn/periodicals/jing/p/10.html)。
 
 2. **课堂 BMP 实证文件**  
-   仓库文件：[`assets/q7-3x2-24bit.bmp`](assets/q7-3x2-24bit.bmp)。这是本课 Q7 与 Q11 共用的 3×2、24-bit、未压缩 BMP；Q7 只展示 selected header fields 与一个 pixel 的 stored bytes，Q11 再揭示完整 78-byte 文件长度并解释 row padding。
+   仓库文件：[`assets/q7-3x2-24bit.bmp`](assets/q7-3x2-24bit.bmp)。这是本课 Q7、Q11 与 Demo D 共用的 3×2、24-bit、未压缩 BMP。  
+   - pixel-data offset = **54（0x36）**；
+   - 文件总大小 = **78 bytes**；
+   - stored row size = **12 bytes/row**，pixel array = **24 bytes**；
+   - 该文件的 scanline 为 bottom-up，**第一个 stored pixel 属于图像底行**；
+   - 图像顶行 RED pixel 位于 **file offset 66（0x42）**，offsets 66–68 为 `00 00 FF`。  
+   Q7 主课只使用 `BM` 与 decoded offset = 54；后面这些 byte-level 细节用于教师复现与 Q11 / Demo D 拓展。
 
 3. **BMP / DIB：bits per pixel、color table、stride**  
    Microsoft Learn, [BITMAPINFOHEADER structure (wingdi.h)](https://learn.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-bitmapinfoheader)。该文档说明 `biBitCount`、8 bpp 及以下 BI_RGB 的 color table，并给出未压缩 RGB bitmap 的 stride 按 DWORD 对齐以及 image size 的计算方法。
