@@ -1,7 +1,7 @@
 ---
 title: "1-2-3 图像编码"
 subtitle: "Image Encoding：从连续图像到像素、颜色与二进制"
-version: "v1.3.2"
+version: "v1.4"
 format:
   html:
     toc: true
@@ -472,11 +472,18 @@ $$
 256 × 256 pixels
 ```
 
-只改变颜色量化等级：
+只改变**整幅图最多允许出现的颜色总数**，而不是“每个 R/G/B 通道各有多少级”：
 
 ```text
-2 colors → 4 colors → 16 colors → 256 colors → more colors
+最多 2 种颜色
+→ 最多 4 种颜色
+→ 最多 16 种颜色
+→ 最多 256 种颜色
+→ 原始 RGB 图像
 ```
+
+这里的 “16 种颜色” 指**整幅图所有 pixel 合起来最多只出现 16 个不同 RGB tuples**。  
+它不是 “R、G、B 每个通道各 16 级”；后者理论上可以组合出 $16^3=4096$ 种颜色，属于另一个实验。
 
 最好使用同时包含：
 
@@ -603,9 +610,24 @@ $$
 - **追问与转入 Q5**：如果一个像素不是从 16 个标签里选，而是由 R、G、B 三个数值共同描述，常见的 24-bit RGB 又是怎样组织的？
 
 ***
-# Q5 24-bit RGB 怎样用三个通道表示彩色像素？
+# Q5 24-bit RGB 到底是 24 种颜色，还是更多？
 
-先给若干像素值，让学生预测颜色：
+先只给术语，不给计算：
+
+> **“24-bit color” 最多能表示多少种颜色？**
+>
+> A. 24 种  
+> B. 256 种  
+> C. $2^{24}$ 种  
+> D. 现在还不能确定
+
+要求学生**先判断并说明理由**。此时不要展示 $2^{24}$，也不要公布答案。
+
+可以追问：
+
+> “24”描述的是颜色数量，还是描述一个像素用了多少个 bit？
+
+保留分歧以后，再给若干 RGB tuples，让学生预测颜色：
 
 ```text
 (255,   0,   0)
@@ -616,7 +638,9 @@ $$
 (  0,   0,   0)
 ```
 
-再建立 RGB 模型：
+## 揭示三个通道
+
+现在才建立 RGB 模型：
 
 ```text
 一个像素
@@ -631,23 +655,31 @@ $$
 8+8+8=24\text{ bits/pixel}
 $$
 
-每个通道：
+每个通道可表示：
 
 $$
 2^8=256
 $$
 
-RGB 总组合数：
+种状态。
+
+三个通道共同组合：
 
 $$
 256^3=2^{24}=16{,}777{,}216
 $$
 
-## 关键认知冲突
+## 回看最初预测
 
-> **24-bit color 是 24 种颜色吗？**
+再次问：
 
-答案不是直接给出，而由学生从 $2^{24}$ 推导。
+> **所以 “24-bit color” 是 24 种颜色吗？你最初的理由哪里需要修改？**
+
+学生应能解释：
+
+> 24 bit 描述的是一个 pixel 的表示位数；在常见 8+8+8 RGB 中，它对应 $2^{24}$ 种可能的 RGB 组合，而不是 24 种颜色。
+
+这样“预测 → 证据 → 推导 → 修正”发生在同一个问题中，而不是先看到答案再回答。
 
 ## 教师提示
 
@@ -1297,6 +1329,72 @@ print("assets directory:", assets_dir)
 
 这段检查建议作为 demo notebook 的**第一格**。后面的 Demo A、Demo D 才可以稳定使用 `assets/...` 相对路径。
 
+## 固定测试图：Q1、Q3、Demo A、Demo B 共用
+
+为了避免 Sampling 与 Quantization 各自换一张图，本课统一使用同一个 256×256 测试图。它必须同时包含：
+
+- **连续渐变**：观察 quantization banding；
+- **高对比斜边**：观察 sampling 降低后的 staircase / aliasing；
+- **大块纯色区域**：观察颜色映射是否发生改变；
+- **少量细线 / 小细节**：观察低 spatial sampling 首先丢失什么。
+
+当前仓库尚未提交 `assets/test-image.png`，因此在 demo notebook 中先用下面的**确定性生成单元**生成它；生成算法固定，不使用随机数，每次结果一致。
+
+```python
+from pathlib import Path
+from PIL import Image, ImageDraw
+
+path = Path("assets/test-image.png")
+path.parent.mkdir(parents=True, exist_ok=True)
+
+w = h = 256
+img = Image.new("RGB", (w, h))
+px = img.load()
+
+# 水平灰度渐变：用于观察 banding
+for y in range(h):
+    for x in range(w):
+        v = round(255 * x / (w - 1))
+        px[x, y] = (v, v, v)
+
+draw = ImageDraw.Draw(img)
+
+# 固定 RGB 色块
+draw.rectangle((16, 16, 79, 79), fill=(255, 0, 0))
+draw.rectangle((96, 16, 159, 79), fill=(0, 255, 0))
+draw.rectangle((176, 16, 239, 79), fill=(0, 0, 255))
+
+# 高对比斜线 + 小细节
+draw.line((16, 232, 240, 96), fill=(0, 0, 0), width=3)
+for x in range(24, 104, 8):
+    draw.line((x, 200, x, 216), fill=(255, 255, 255), width=1)
+
+img.save(path)
+
+assert img.size == (256, 256)
+assert img.mode == "RGB"
+assert path.is_file()
+
+print("created:", path)
+```
+
+> 这张图是**教学控制变量的一部分**。Q1 / Demo A 改 spatial sampling；Q3 / Demo B 保持 pixel dimensions 不变，只改“整幅图允许出现的颜色总数”。
+
+## 课堂可用状态
+
+截至 v1.4，本文件已经把 demo 的输入、路径、算法和检查条件写清楚，但仓库里仍未建立教师版 / 学生版 notebook。
+
+因此本阶段应标记为：
+
+> **课程设计就绪；demo classroom package 尚未完成，不应仅凭 course-design.qmd 宣称“可直接上课”。**
+
+进入“课堂可用”状态前至少完成：
+
+1. 建立教师版 notebook：含生成测试图、Demo A / B / C / D、预期输出与教师提示；
+2. 建立学生版 notebook：隐藏关键结论，保留预测、观察和必要代码单元；
+3. 在 Windows 10 + conda `pt` + 本课目录作为 working directory 的条件下完整运行一次；
+4. 确认 `assets/test-image.png`、`assets/q7-3x2-24bit.bmp` 均能被相对路径找到。
+
 正式实现时优先使用现有环境中已经安装的库；若需要 Pillow，应先确认环境是否已有，不在课堂临时加入复杂安装流程。
 
 ## Demo A：Sampling
@@ -1307,11 +1405,11 @@ print("assets directory:", assets_dir)
 
 ### 演示控制条件
 
-教师课前把测试图固定放在：
+使用前面“固定测试图”单元生成的：
 
 `assets/test-image.png`
 
-这样 Demo A 与 Demo D 都从同一个 `assets/` 目录取材料，避免 notebook 因启动位置不同而找不到文件。
+Q1、Q3、Demo A、Demo B 全部复用这一张图，避免更换素材成为额外变量。
 
 为了让这个 Demo 尽量只改变**空间取样位置的数量**，不要依赖 Pillow 的默认缩放滤镜。
 
@@ -1376,43 +1474,100 @@ Pillow 对普通 RGB 图像调用 `resize()` 而不显式指定 `resample` 时�
 
 ### 学生先预测
 
-> 如果 pixel count 完全不变，只减少可用的颜色/亮度等级，会发生什么？
+> 如果 pixel count 完全不变，只把**整幅图最多允许出现的颜色总数**限制为 256、16、4、2 种，会发生什么？
 
-### 演示
+注意这里不是“每个通道 N 级”。例如“16 colors”表示输出整幅图中最多只有 16 个不同 RGB tuples。
 
-固定图像 resolution 和输出文件的 24-bit RGB 表示，只把像素值映射到越来越少的离散等级。
+### 演示：固定算法、关闭 dithering、输出仍转回 RGB
 
-例如可以让图像视觉上只出现：
+统一读取：
+
+`assets/test-image.png`
+
+并采用固定的 Pillow quantization 方法：
+
+- `Image.Quantize.MEDIANCUT`；
+- `Image.Dither.NONE`；
+- 分别限制整幅图最多为 256 / 16 / 4 / 2 colors；
+- quantize 后再 `.convert("RGB")`，让所有展示结果仍然是 RGB mode。
+
+```python
+from pathlib import Path
+from PIL import Image
+from IPython.display import display
+
+source_path = Path("assets/test-image.png")
+assert source_path.is_file()
+
+src = Image.open(source_path).convert("RGB")
+targets = [256, 16, 4, 2]
+
+outputs = {}
+
+for n in targets:
+    q = src.quantize(
+        colors=n,
+        method=Image.Quantize.MEDIANCUT,
+        dither=Image.Dither.NONE,
+    ).convert("RGB")
+
+    color_count = len(set(q.getdata()))
+
+    assert q.size == src.size
+    assert q.mode == "RGB"
+    assert color_count <= n
+
+    outputs[n] = q
+    print(
+        f"max={n:3d} colors | "
+        f"actual colors={color_count:3d} | "
+        f"size={q.size} | mode={q.mode}"
+    )
+
+display(src)
+for n in targets:
+    display(outputs[n])
+```
+
+这里的检查故意同时验证三个变量：
 
 ```text
-many levels → 256 levels → 16 levels → 4 levels → 2 levels
+pixel dimensions    → 不变
+whole-image colors  → ≤ N
+representation mode → RGB
 ```
+
+因此课堂可以准确地说：
+
+> **这次实验主动改变的是整幅图允许使用的离散颜色集合；没有把图像改成 N-level-per-channel，也没有因为颜色变少就自动改成更低 bits/pixel 的文件格式。**
 
 ### 学生观察
 
-- 边缘位置大体不变；
-- 平滑渐变出现明显 banding；
-- 颜色细节减少。
+- pixel positions / dimensions 不变；
+- 平滑渐变会越来越容易出现 banding；
+- 某些原来不同的颜色会被映射到同一个离散颜色；
+- 斜边的位置仍在，但颜色与层次可能改变。
 
 ### 教师追问
 
-> Sampling 没变，变化的是哪个维度？
+> Sampling 没变，那么变化的是“有多少个位置”，还是“每个位置允许取哪些离散颜色”？
 
 目标：形成 Quantization。
 
-### 必须明确的技术结论
+### 与 Q4 的衔接
 
-本 Demo **故意保持 24-bit RGB 存储表示不变**，因此：
+如果输出整幅图最多 16 colors，可以追问：
 
-> **颜色等级减少了，但 bits per pixel 并没有因此自动减少。**
+> 这 16 个颜色状态**理论上**至少需要几 bit 的固定长度标签？
 
-这正好为学生建立“Quantization levels”和“Storage bit depth”之间的区别。
+由此进入 Q4 的 $2^b$。
 
-如果后续真的演示 8-bit indexed BMP，需要明确说明：
+但要继续强调：
 
-- pixel 保存的是 palette index；
-- 还会额外出现 color table / palette；
-- 这已经是“表示方式改变”，不是单纯的颜色处理。
+> **“最多 16 colors”只说明离散状态数量；当前演示输出仍是 RGB mode，不等于文件已经采用 4 bits/pixel。**
+
+如果后续真的演示 indexed BMP，才需要另外说明 palette index、color table 和实际 bits per pixel。
+
 
 ## Demo C：一个像素的 RGB → bits
 
@@ -1674,9 +1829,9 @@ $$
 
 ***
 
-# C9 V1.3.2 设计取舍
+# C9 V1.4 设计取舍
 
-本版本继续控制在一节 45 分钟课可以完成的范围内，并进一步压缩 Q6–Q7 的主课负担：真实 BMP 在主课只用于证明“pixel data 前还有格式信息”，其余 byte-order / row-padding 细节全部后移。
+本版本继续控制在一节 45 分钟课可以完成的范围内，并进一步收紧三个边界：Q5 必须先预测再计算；Demo B 的 “N colors” 明确指整幅图最多 N 个 RGB colors；课程设计与“课堂 demo package 已完成”分开判断。
 
 ## 主课必须掌握
 
@@ -1685,7 +1840,7 @@ $$
 - Quantization 与颜色层次；
 - “可用颜色等级”与“实际 bits per pixel”的区别；
 - $2^b$ 的含义；
-- 24-bit RGB 基本模型；
+- 24-bit RGB 基本模型，并通过“24-bit color 是 24 种颜色吗？”先预测、后推导；
 - Encoding 的作用；
 - BMP 作为 bitmap 文件格式示例；
 - 未压缩像素数据量计算。
@@ -1701,6 +1856,8 @@ $$
 - 8-bit indexed BMP 与 palette；
 - BMP bottom-up rows；
 - 使用 Q7 同一个 3×2 BMP 在 Q11 中建立 72-byte 预测，并解释 row padding 后的 78-byte 实际文件大小；
+- Q1 / Q3 / Demo A / Demo B 共用确定性生成的 `assets/test-image.png`；
+- Demo B 使用 MEDIANCUT + no dithering，把“整幅图最多 N colors”和“每通道 N levels”明确区分；
 - Demo A / Demo D 都规定 Jupyter 从本课目录启动，素材统一放在 `assets/`；代码先检查文件是否存在；
 - Demo D 读取同一个 3×2 BMP，输出 18-byte color values、12-byte stored row、24-byte pixel array、78-byte file；
 - $101\times100$ 只作为 row-padding 迁移题；
@@ -1711,22 +1868,26 @@ $$
 
 这些内容服务于“文件格式是编码规则的一部分”的理解，但不应抢走本课的主线。
 
+## 课堂可用性门槛
+
+course-design.qmd 本身不等于完整课堂包。教师版 / 学生版 notebook 尚未建立和运行验证之前，本课只标记为“设计就绪”，不标记为“可直接上课”。
+
 ***
 
 # C10 教师参考资料与技术来源
 
 本节仅供教师备课核查，不要求学生阅读。
 
-1. **课程标准：权威来源与本地工作副本**  
-   本课程设计的**权威依据仍以 ChatGPT 项目中上传的课程标准 PDF 为准**，因为本项目的课程设计规则明确指定该上传资料为主要课程依据。当前可核查的项目源文件为：  
-   - 项目文件名：`普通高中信息科技课程标准（2017年版2025年修.pdf`；  
-   - SHA-256：`be85fae87b2b204a054061bfbb454b7d6588b834a1da11c45e5b81d5a840d3f5`；  
-   - “内容要求 1.1”位置：**PDF 第 15 页 / 正文页码 12**，必修模块 1“数据与计算” → “内容要求”；其中包含“通过案例分析，理解计算机中数据编码的基本方式”；  
-   - 对应“学业要求”位置：**PDF 第 17 页 / 正文页码 14**，其中再次要求学生通过案例分析理解计算机中数据编码的基本方式。  
+1. **课程标准：仓库可复现来源与项目上传副本的关系**  
+   本仓库现在已经跟踪课程标准 PDF，因此本文件中的页码与课程标准引用优先指向这个**仓库可复现副本**：  
+   - 仓库相对路径：[`../../普通高中信息科技课程标准2017年版2025年修.pdf`](../../普通高中信息科技课程标准2017年版2025年修.pdf)；
+   - SHA-256：`317703ba00f8a5797bd2023b4debe153bebfc15fb7c57d87d2cf3a4aa5e968e2`；
+   - “内容要求 1.1”：**PDF 第 15 页 / 正文页码 12**，必修模块 1“数据与计算” → “内容要求”；其中包含“通过案例分析，理解计算机中数据编码的基本方式”；
+   - 对应“学业要求”：**PDF 第 17 页 / 正文页码 14**，其中再次要求学生通过案例分析理解计算机中数据编码的基本方式。
 
-   教师当前 macOS 工作区另有一个**未纳入 Git 跟踪的本地工作副本**：  
-   `/Users/chran/repo/shtick/普通高中信息科技课程标准2017年版2025年修.pdf`。  
-   本轮 review 报告其 SHA-256 为 `317703ba…e968e2`（review 中提供的是缩写指纹），并确认其 PDF 第 15 页和第 17 页同样支持上述两条课程要求。由于它与项目上传文件**并非 byte-identical**，且目前尚未纳入版本控制，本设计不把该本地副本的缩写 hash 当作 source-of-record。若之后决定以该本地文件替换项目源，应同时记录**完整 SHA-256**并更新本节，而不是只改文件名。  
+   项目中还存在此前上传给课程设计环境的另一份 PDF：`普通高中信息科技课程标准（2017年版2025年修.pdf`，其 byte fingerprint 与仓库副本不同。两份文件至少在本课所引用的第 15 页和第 17 页内容上都支持上述课程要求，因此**课程依据并未发生变化**；区别只在于文件副本本身不是 byte-identical。  
+
+   为保证 Git checkout 后任何教师都能复核，本课程设计从 v1.4 起把**仓库中受版本控制的 PDF**作为本仓库 source-of-record；项目上传副本仍可作为项目上下文参考，但不再把它的 hash 写成仓库文件指纹。
 
    公开背景资料可参见：[教育部课程教材研究所：普通高中课程标准日常修订版（2017年版2025年修订）解读专栏](https://www.ictr.edu.cn/periodicals/jing/p/10.html)。
 
