@@ -1632,7 +1632,7 @@ $$
 - BMP bottom-up rows；
 - 使用 Q7 同一个 3×2 BMP 在 Q11 中建立 72-byte 预测，并解释 row padding 后的 78-byte 实际文件大小；
 - Demo D 读取同一个 3×2 BMP，输出 18-byte color values、12-byte stored row、24-byte pixel array、78-byte file；
-- $101	imes100$ 只作为 row-padding 迁移题；
+- $101\times100$ 只作为 row-padding 迁移题；
 - row padding 的一般计算；
 - 常见 54-byte header 情形；
 - 不同 BMP header variants；
