@@ -7,6 +7,7 @@ project:
     - 1-2-encoding/1-2-3-character-encoding/demo-lab-teacher.qmd
     - 1-2-encoding/1-2-3-character-encoding/demo-lab-student.qmd
     - 1-2-encoding/1-2-3-character-encoding/slides.qmd
+    - 1-2-encoding/1-2-3-image-encoding/course-design.qmd
 
 website:
   title: "shtick"
@@ -22,6 +23,8 @@ website:
         text: Teacher Demo
       - href: 1-2-encoding/1-2-3-character-encoding/demo-lab-student.qmd
         text: Student Demo
+      - href: 1-2-encoding/1-2-3-image-encoding/course-design.qmd
+        text: 图像编码
 
 format:
   html:
