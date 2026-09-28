@@ -1,7 +1,7 @@
 ---
 title: "1-2-3 图像编码"
 subtitle: "Image Encoding：从连续图像到像素、颜色与二进制"
-version: "v1.4"
+version: "v1.4.1"
 format:
   html:
     toc: true
@@ -495,15 +495,28 @@ $$
 
 ## 学生先预测
 
-> 像素数一样，图像应该一样清晰吗？
+先问两个问题：
+
+> 像素数完全一样，图像会不会看起来一样？  
+> 如果两块原来不同的颜色被量化成同一个颜色，它们之间的**视觉边界会不会消失**？
+
+第二问很重要，因为它迫使学生区分：
+
+```text
+pixel positions 没变
+≠
+视觉边界一定还在
+```
 
 ## 观察重点
 
-学生会发现：
+学生应逐步发现：
 
-- 物体边缘的位置没有明显改变；
-- 颜色层次却可能出现断层；
-- 平滑渐变会变成一条条明显色带。
+- **pixel positions 和 pixel count 完全不变**；
+- 平滑渐变会出现明显 banding；
+- 原来不同的颜色可能被映射到同一个离散颜色；
+- 因此某些**由颜色差异形成的视觉边界可能变弱，甚至消失**；
+- 这不是因为 Sampling 删除了像素位置，而是因为 Quantization 合并了这些位置上的颜色值。
 
 ## 概念形成
 
@@ -1334,9 +1347,10 @@ print("assets directory:", assets_dir)
 为了避免 Sampling 与 Quantization 各自换一张图，本课统一使用同一个 256×256 测试图。它必须同时包含：
 
 - **连续渐变**：观察 quantization banding；
-- **高对比斜边**：观察 sampling 降低后的 staircase / aliasing；
-- **大块纯色区域**：观察颜色映射是否发生改变；
-- **少量细线 / 小细节**：观察低 spatial sampling 首先丢失什么。
+- **三个大块 RGB 纯色区域**：观察颜色合并与边界消失；
+- **足够大的圆形轮廓**：观察降低 sampling 后曲线怎样变成粗糙阶梯；
+- **足够粗的斜线**：保证 16×16 及以上版本还能清楚观察 staircase；
+- **细小短线**：故意作为低 resolution 下最先消失的细节。
 
 当前仓库尚未提交 `assets/test-image.png`，因此在 demo notebook 中先用下面的**确定性生成单元**生成它；生成算法固定，不使用随机数，每次结果一致。
 
@@ -1351,7 +1365,7 @@ w = h = 256
 img = Image.new("RGB", (w, h))
 px = img.load()
 
-# 水平灰度渐变：用于观察 banding
+# 1) 水平灰度渐变：观察 quantization banding
 for y in range(h):
     for x in range(w):
         v = round(255 * x / (w - 1))
@@ -1359,15 +1373,24 @@ for y in range(h):
 
 draw = ImageDraw.Draw(img)
 
-# 固定 RGB 色块
-draw.rectangle((16, 16, 79, 79), fill=(255, 0, 0))
-draw.rectangle((96, 16, 159, 79), fill=(0, 255, 0))
-draw.rectangle((176, 16, 239, 79), fill=(0, 0, 255))
+# 2) 三个大块 RGB 纯色区域：观察颜色合并与视觉边界
+draw.rectangle((12, 12, 72, 72), fill=(255, 0, 0))
+draw.rectangle((98, 12, 158, 72), fill=(0, 255, 0))
+draw.rectangle((184, 12, 244, 72), fill=(0, 0, 255))
 
-# 高对比斜线 + 小细节
-draw.line((16, 232, 240, 96), fill=(0, 0, 0), width=3)
-for x in range(24, 104, 8):
-    draw.line((x, 200, x, 216), fill=(255, 255, 255), width=1)
+# 3) 下半部设置浅灰背景，使几何轮廓更容易比较
+draw.rectangle((0, 104, 128, 255), fill=(224, 224, 224))
+draw.rectangle((136, 104, 255, 255), fill=(224, 224, 224))
+
+# 4) 大圆：位置和线宽刻意对齐低分辨率采样网格
+draw.ellipse((0, 112, 128, 240), outline=(0, 0, 0), width=28)
+
+# 5) 粗斜线：16×16 仍清楚，8×8 时会严重退化
+draw.line((144, 240, 240, 144), fill=(0, 0, 0), width=28)
+
+# 6) 细节条纹：作为低 resolution 下最先消失的细节
+for x in [152, 160, 168, 176, 184, 192]:
+    draw.line((x, 224, x, 244), fill=(255, 255, 255), width=2)
 
 img.save(path)
 
@@ -1380,9 +1403,24 @@ print("created:", path)
 
 > 这张图是**教学控制变量的一部分**。Q1 / Demo A 改 spatial sampling；Q3 / Demo B 保持 pixel dimensions 不变，只改“整幅图允许出现的颜色总数”。
 
-## 课堂可用状态
+### 教师预跑后的实际观察基线
 
-截至 v1.4，本文件已经把 demo 的输入、路径、算法和检查条件写清楚，但仓库里仍未建立教师版 / 学生版 notebook。
+按本文件规定使用 `Image.Resampling.NEAREST`，并把各版本放大到同样显示尺寸后，预期观察应写成下面这样，而不是笼统地说“所有版本都能看到同样的现象”：
+
+| 版本 | 实际适合观察什么 |
+|---|---|
+| 256×256 | 原始圆、斜线、细节条纹都完整；作为比较基准 |
+| 64×64 | 圆和斜线仍清楚，边缘已有轻微方格感；较多细节仍可见 |
+| 32×32 | 圆仍可识别，但轮廓明显粗糙；斜线的 staircase 很清楚；部分细节减少 |
+| 16×16 | 圆变得很粗糙，斜线呈明显阶梯；细节条纹大幅丢失 |
+| 8×8 | 只剩非常粗的形状与色块；圆 / 斜线的“物体身份”可能已经难以辨认，细小条纹基本消失 |
+
+因此课堂不要要求学生在 8×8 上一定指出“圆的边缘”或“斜线的阶梯”。  
+**8×8 的教学价值恰恰是：sampling 少到一定程度以后，不只是边缘变粗糙，某些结构本身都可能失去可辨识性。**
+
+## 课堂可用状态## 课堂可用状态
+
+截至 v1.4.1，本文件已经把 demo 的输入、路径、算法和检查条件写清楚，但仓库里仍未建立教师版 / 学生版 notebook。
 
 因此本阶段应标记为：
 
@@ -1431,19 +1469,27 @@ source_path = Path("assets/test-image.png")
 
 assert source_path.is_file(), (
     f"找不到 {source_path}。"
-    "请确认 Jupyter 从本课目录启动，并把测试图放在 assets/test-image.png。"
+    "请确认 Jupyter 从本课目录启动，并先运行固定测试图生成单元。"
 )
 
 src = Image.open(source_path).convert("RGB")
+sizes = [256, 64, 32, 16, 8]
 
-small = src.resize((32, 32), resample=Image.Resampling.NEAREST)
-enlarged = small.resize((512, 512), resample=Image.Resampling.NEAREST)
+for n in sizes:
+    sampled = src.resize(
+        (n, n),
+        resample=Image.Resampling.NEAREST,
+    )
+    enlarged = sampled.resize(
+        (512, 512),
+        resample=Image.Resampling.NEAREST,
+    )
 
-assert src.mode == "RGB"
-assert small.mode == "RGB"
-assert enlarged.mode == "RGB"
+    assert sampled.mode == "RGB"
+    assert enlarged.mode == "RGB"
 
-display(enlarged)
+    print(f"{n} × {n}")
+    display(enlarged)
 ```
 
 ### 为什么这里不用默认 resize？
@@ -1460,10 +1506,17 @@ Pillow 对普通 RGB 图像调用 `resize()` 而不显式指定 `resample` 时�
 
 ### 学生观察
 
-- 斜线出现台阶；
-- 圆的边缘变粗糙；
-- 小细节消失；
-- 大色块可能仍能辨认。
+不要给所有版本套同一句话，而是按分辨率比较：
+
+- **64×64**：整体结构完整，圆和斜线仍清楚；
+- **32×32**：圆的边缘明显方格化，斜线 staircase 很容易看见；
+- **16×16**：圆明显失真，斜线阶梯很粗，细节条纹大量丢失；
+- **8×8**：细节基本消失，圆和斜线可能已经难以作为原来的几何形状辨认；
+- 三个大 RGB 色块在很低 resolution 下仍较容易辨认，因此可与“细节最先丢失”形成对照。
+
+教师追问应从“哪里变粗糙”继续推进到：
+
+> **为什么 8×8 时有些结构不是‘更粗糙’，而是几乎认不出来了？**
 
 ### 教师追问
 
@@ -1517,12 +1570,20 @@ for n in targets:
     assert q.mode == "RGB"
     assert color_count <= n
 
+    # 记录三个色块中心像素，用来观察“颜色边界是否会消失”
+    block_samples = {
+        "red block": q.getpixel((40, 40)),
+        "green block": q.getpixel((120, 40)),
+        "blue block": q.getpixel((210, 40)),
+    }
+
     outputs[n] = q
     print(
         f"max={n:3d} colors | "
         f"actual colors={color_count:3d} | "
         f"size={q.size} | mode={q.mode}"
     )
+    print("  block samples:", block_samples)
 
 display(src)
 for n in targets:
@@ -1534,19 +1595,27 @@ for n in targets:
 ```text
 pixel dimensions    → 不变
 whole-image colors  → ≤ N
-representation mode → RGB
+in-memory image mode → RGB
 ```
+
+这里的 `RGB mode` 只说明 **Pillow 内存中的图像对象**仍按 RGB tuples 表示。  
+它**不能单独证明磁盘上的文件位深或文件大小没有变化**，因为这段主演示还没有保存文件。
 
 因此课堂可以准确地说：
 
-> **这次实验主动改变的是整幅图允许使用的离散颜色集合；没有把图像改成 N-level-per-channel，也没有因为颜色变少就自动改成更低 bits/pixel 的文件格式。**
+> **本实验主动改变的是整幅图允许使用的离散颜色集合；pixel dimensions 不变，输出图像对象仍是 RGB mode。主实验不比较磁盘文件大小，也不据此断言文件一定是 24-bit。**
 
-### 学生观察
+### 学生观察：把“边界会不会消失”作为重点
 
 - pixel positions / dimensions 不变；
 - 平滑渐变会越来越容易出现 banding；
 - 某些原来不同的颜色会被映射到同一个离散颜色；
-- 斜边的位置仍在，但颜色与层次可能改变。
+- 在本课固定测试图与固定 MEDIANCUT / no-dither 参数下，限制到 **2 colors** 时，三个 RGB 色块中心会映射到同一个 RGB tuple，因此它们之间依靠颜色差异形成的视觉边界会消失；
+- 这说明 Quantization 虽然没有删除 pixel positions，却仍然可能让视觉结构发生明显变化。
+
+教师不要再概括成“物体边缘位置基本不变”。更准确的说法是：
+
+> **空间位置没变；但如果相邻区域的颜色被量化成同一个值，视觉边界可以消失。**
 
 ### 教师追问
 
@@ -1567,6 +1636,49 @@ representation mode → RGB
 > **“最多 16 colors”只说明离散状态数量；当前演示输出仍是 RGB mode，不等于文件已经采用 4 bits/pixel。**
 
 如果后续真的演示 indexed BMP，才需要另外说明 palette index、color table 和实际 bits per pixel。
+
+### 【教师可选】真的要验证“磁盘文件仍是 24-bit”怎么办？
+
+如果教师希望把“内存中的 RGB mode”进一步验证到**磁盘文件格式**，不要只看 `q.mode`。  
+可以把各版本显式保存为 BMP，再检查 BMP header 的 `biBitCount` 和文件大小：
+
+```python
+from pathlib import Path
+import struct
+
+out_dir = Path("demo-output/quantization-bmp")
+out_dir.mkdir(parents=True, exist_ok=True)
+
+for n, q in outputs.items():
+    bmp_path = out_dir / f"max-{n}-colors.bmp"
+
+    # q 已经 convert("RGB")
+    q.save(bmp_path, format="BMP")
+
+    data = bmp_path.read_bytes()
+    bits_per_pixel = struct.unpack_from("<H", data, 28)[0]
+
+    print(
+        bmp_path.name,
+        "| bpp =", bits_per_pixel,
+        "| file bytes =", len(data),
+    )
+```
+
+对本课固定的 256×256 RGB 测试图，教师预跑应看到：
+
+```text
+bpp = 24
+file bytes = 196662
+```
+
+并且 256 / 16 / 4 / 2-color 四个版本的 BMP 文件大小相同。
+
+这时才可以形成更强的文件层证据：
+
+> **颜色种数变少，并不自动让 24-bit BMP 变小；是否变小取决于实际文件表示方式是否改变。**
+
+这段属于教师拓展，不挤入 45 分钟主流程。
 
 
 ## Demo C：一个像素的 RGB → bits
@@ -1697,7 +1809,8 @@ pixel value data
 | $W \times H$ 就是“采样密度” | 固定同一场景范围再比较 | 没有指定物理/场景范围时，“每单位范围”是什么？ |
 | Sampling 就是把颜色变少 | 固定颜色，只改变 resolution | 本轮颜色规则有没有变？ |
 | Quantization 就是降低分辨率 | 固定 resolution，只改变颜色等级 | 像素位置有没有减少？ |
-| 颜色等级变少，文件一定变小 | 保持 24-bit RGB 存储格式不变做 Demo B | 实际每个 pixel 仍然用了多少 bit？ |
+| Quantization 不改变 pixel positions，所以视觉边界一定还在 | 用 2-color 结果比较三个 RGB 色块 | 如果两个相邻区域被映射到同一个颜色，边界还能看见吗？ |
+| 颜色等级变少，文件一定变小 | Demo B 主实验只证明输出对象仍是 RGB mode，不比较磁盘文件大小；若要验证文件层，再保存为 BMP 检查 header | 内存中的 RGB mode 能不能直接推出磁盘文件的 bits per pixel？ |
 | 8-bit = 8 种状态 | 要学生列出 1 bit、2 bit 的状态 | 规律是 $b$ 还是 $2^b$？ |
 | 24-bit color = 24 种颜色 | 从三个 8-bit 通道推导 | $256 \times 256 \times 256$ 是多少？ |
 | RGB 文件一定按 R、G、B byte 顺序保存 | 用 BMP 的 BGR 做反例 | 颜色模型与文件格式是不是同一件事？ |
@@ -1829,9 +1942,9 @@ $$
 
 ***
 
-# C9 V1.4 设计取舍
+# C9 V1.4.1 设计取舍
 
-本版本继续控制在一节 45 分钟课可以完成的范围内，并进一步收紧三个边界：Q5 必须先预测再计算；Demo B 的 “N colors” 明确指整幅图最多 N 个 RGB colors；课程设计与“课堂 demo package 已完成”分开判断。
+本版本继续控制在一节 45 分钟课可以完成的范围内，并进一步校准“演示实际看到什么”和“代码真正证明什么”：Demo A 的观察按 8/16/32/64 分辨率分别表述；Demo B 把“颜色边界可能消失”纳入推断，并严格区分 in-memory RGB mode 与磁盘文件格式。
 
 ## 主课必须掌握
 
@@ -1857,7 +1970,9 @@ $$
 - BMP bottom-up rows；
 - 使用 Q7 同一个 3×2 BMP 在 Q11 中建立 72-byte 预测，并解释 row padding 后的 78-byte 实际文件大小；
 - Q1 / Q3 / Demo A / Demo B 共用确定性生成的 `assets/test-image.png`；
+- 固定测试图增加大圆与加粗斜线；Demo A 的 8 / 16 / 32 / 64 观察结论按实际预跑结果分别书写；
 - Demo B 使用 MEDIANCUT + no dithering，把“整幅图最多 N colors”和“每通道 N levels”明确区分；
+- Demo B 主实验只证明 RGB mode / pixel dimensions / whole-image color count；磁盘 24-bit BMP 作为教师可选验证，不与内存对象混为一谈；
 - Demo A / Demo D 都规定 Jupyter 从本课目录启动，素材统一放在 `assets/`；代码先检查文件是否存在；
 - Demo D 读取同一个 3×2 BMP，输出 18-byte color values、12-byte stored row、24-byte pixel array、78-byte file；
 - $101\times100$ 只作为 row-padding 迁移题；
