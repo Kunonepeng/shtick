@@ -1,7 +1,7 @@
 ---
 title: "1-2-3 图像编码"
 subtitle: "Image Encoding：从连续图像到像素、颜色与二进制"
-version: "v1.4.5"
+version: "v1.4.6"
 format:
   html:
     toc: true
@@ -404,6 +404,26 @@ Q7 主课只建立这个区别；Q11 再用同一个真实 BMP 文件观察 row 
 - 哪一张能保留最多细节？
 - 为什么显示大小相同，看起来却不同？
 - $8 \times 8$ 到底表示什么？
+
+## PPTX 证据页：问题页之后直接放五张 sampling 图
+
+Q1 的 PPTX 不只放问题页。问题页之后必须紧跟一页（或连续两页）**证据页**，直接使用教师 notebook 导出的同一批：
+
+```text
+assets/fallback/sampling-256.png
+assets/fallback/sampling-64.png
+assets/fallback/sampling-32.png
+assets/fallback/sampling-16.png
+assets/fallback/sampling-8.png
+```
+
+排版时让五张图的**显示尺寸一致**，并清楚标注各自的 pixel dimensions。
+
+课堂正常时，可以先运行 Demo A，再切到这页做归纳；如果 notebook 现场失败，则不需要离开 PPTX 或临时打开 PNG，直接从问题页切到证据页继续：
+
+> **预测 → 比较五张图 → 解释哪些细节消失 → 引入 Sampling / Resolution**
+
+因此 Q1 的 live demo 与 PPTX fallback 不是两套材料，而是**同一批图像证据的两种呈现方式**。
 
 ## 观察与解释
 
@@ -1564,17 +1584,17 @@ original / 16 / 2 → 256×256 RGB
 
 其中：
 
-- Demo A 的五张图用于 Q1 的 sampling 比较；
+- Demo A 的五张图用于 Q1 的 sampling 比较，并且**必须直接取自这些导出文件放进 PPTX 的 Q1 证据页**；
 - Demo B 的 original / 16-color / 2-color 三张图用于 Q3；
-- **Q3 主课要用的三张量化图必须直接取自这些导出文件并放进 PPTX**，不能在制作 PPTX 时重新处理一遍；
+- **Q1 与 Q3 的 PPTX 图像都必须直接使用 notebook 导出的 fallback 文件**，不能在制作 PPTX 时重新处理一遍；
 - seam comparison 记录来自同一批导出文件，而不是另一轮临时计算。
 
 ### 课堂故障时怎么继续？
 
 如果 Pillow、Jupyter、路径或投影环境现场出问题：
 
-1. Q1：直接切到预先保存的五张 sampling 图，仍按“先预测 → 比较 → 解释”推进；
-2. Q3：直接展示 PPTX 中的 original / 16-color / 2-color 三张图；
+1. Q1：留在 PPTX 中，从问题页直接切到用五张 `sampling-*.png` 制作的证据页，仍按“先预测 → 比较 → 解释”推进；
+2. Q3：继续在 PPTX 中展示 original / 16-color / 2-color 三张图；
 3. 学生先判断红绿接缝是否还在，并解释原因；
 4. 教师再展示课前保存的 seam comparison 记录作为数值证据；
 5. 正常进入 Q4，不把课堂时间消耗在修环境上。
@@ -1587,7 +1607,7 @@ original / 16 / 2 → 256×256 RGB
 
 ## 课堂可用状态
 
-截至 v1.4.5，本文件已经把 demo 的输入、路径、算法和检查条件写清楚，但仓库里仍未建立教师版 / 学生版 notebook，也尚未提交上述 fallback 图片。
+截至 v1.4.6，本文件已经把 demo 的输入、路径、算法和检查条件写清楚，但仓库里仍未建立教师版 / 学生版 notebook，也尚未提交上述 fallback 图片。
 
 因此本阶段应标记为：
 
@@ -1600,7 +1620,8 @@ original / 16 / 2 → 256×256 RGB
 3. 在 Windows 10 + conda `pt` + 本课目录作为 working directory 的条件下完整运行一次；
 4. 确认 `assets/test-image.png`、`assets/q7-3x2-24bit.bmp` 均能被相对路径找到；
 5. 由教师 notebook **直接导出并核对** Demo A 的五张 512×512 sampling fallback 图，以及 Demo B 的 original / 16-color / 2-color 三张 256×256 fallback 图；
-6. 用刚导出的 `quant-original.png`、`quant-16.png`、`quant-2.png` 制作 PPTX 中 Q3 的三张主课图，并保留对同一批文件做出的 seam 数值检查记录，确保 notebook 失败时仍能完成同一问题链。
+6. 用刚导出的五张 `sampling-*.png` 制作 PPTX 中紧跟 Q1 问题页的证据页；
+7. 用刚导出的 `quant-original.png`、`quant-16.png`、`quant-2.png` 制作 PPTX 中 Q3 的三张主课图，并保留对同一批文件做出的 seam 数值检查记录，确保 notebook 失败时仍能完成同一问题链。
 
 正式实现时优先使用现有环境中已经安装的库；若需要 Pillow，应先确认环境是否已有，不在课堂临时加入复杂安装流程。
 
@@ -1734,7 +1755,8 @@ Pillow 对普通 RGB 图像调用 `resize()` 而不显式指定 `resample` 时�
 - 教师 notebook 预先生成 256 / 16 / 4 / 2-color 四个版本；
 - **主课固定只展示原图、16-color、2-color**；
 - 256-color 与 4-color 只作为教师追问备用；
-- quantize 后再 `.convert("RGB")`，让所有结果仍然是 RGB mode。
+- quantize 后再 `.convert("RGB")`，让所有结果仍然是 RGB mode；
+- 颜色数量使用 `q.getcolors(maxcolors=n + 1)` 检查，不再使用 `q.getdata()` 做集合计数，避免新版本 Pillow 的弃用警告。
 
 ```python
 from pathlib import Path
@@ -1761,7 +1783,10 @@ for n in targets:
         dither=Image.Dither.NONE,
     ).convert("RGB")
 
-    color_count = len(set(q.getdata()))
+    colors = q.getcolors(maxcolors=n + 1)
+    assert colors is not None
+
+    color_count = len(colors)
 
     assert q.size == src.size
     assert q.mode == "RGB"
@@ -2181,9 +2206,9 @@ $$
 
 ***
 
-# C9 V1.4.5 设计取舍
+# C9 V1.4.6 设计取舍
 
-本版本继续控制在一节 45 分钟课可以完成的范围内，并进一步保证“PPTX、live demo、fallback 使用同一批证据”：教师 notebook 直接导出 Demo A / B 的静态图片并自动复核尺寸与红绿接缝；同时删除 Q4 重复预测题。
+本版本继续控制在一节 45 分钟课可以完成的范围内，并进一步保证“PPTX、live demo、fallback 使用同一批证据”：Q1 也把 notebook 导出的五张 sampling 图直接做成 PPTX 证据页；Demo B 的颜色计数改用 `getcolors()`，避免 Pillow 新版本的 `getdata()` 弃用警告。
 
 ## 主课必须掌握
 
@@ -2217,7 +2242,9 @@ $$
 - Demo A / B 的静态 fallback 由教师 notebook **直接导出**，不手工截图、不另写一套处理流程；
 - Demo A 导出 5 张课堂实际展示的 512×512 图；Demo B 导出 original / 16-color / 2-color 三张 256×256 图；
 - 导出后重新打开文件检查 mode / size，并对 `quant-16.png` 与 `quant-2.png` 再做一次 `(72,40)` / `(73,40)` seam 验证；
-- Q3 的 PPTX 三张量化图必须直接使用这三个导出文件，避免 PPTX 与 notebook 证据漂移；
+- Q1 的 PPTX 在问题页后直接放五张导出的 `sampling-*.png` 作为证据页；现场 notebook 失败时无需离开 PPTX；
+- Q3 的 PPTX 三张量化图必须直接使用三个导出文件，避免 PPTX 与 notebook 证据漂移；
+- Demo B 用 `q.getcolors(maxcolors=n + 1)` 统计实际颜色数，并检查结果不是 `None`，不再依赖已出现弃用警告的 `q.getdata()`；
 - Demo B 坚持“先看图、后揭示数值”：学生版不提前打印接缝 RGB，教师版在下一格用 `(72,40)` / `(73,40)` 验证；
 - Demo A 明确是对已有 256×256 数字图像的重采样模拟；放大到相同显示尺寸只为比较，不能恢复丢失细节；
 - Demo B 主实验只证明 RGB mode / pixel dimensions / whole-image color count；磁盘 24-bit BMP 作为教师可选验证，不与内存对象混为一谈；
