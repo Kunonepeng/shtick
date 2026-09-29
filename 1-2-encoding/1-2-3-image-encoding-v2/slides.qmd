@@ -1,6 +1,5 @@
 ---
-title: "图像编码"
-subtitle: "Image Encoding 101 · 原生重建版（前段）"
+pagetitle: "图像编码"
 lang: zh-CN
 format:
   revealjs:
@@ -11,11 +10,6 @@ format:
     height: 900
     css: styles/rebuild.css
 ---
-
-<!--
-This is the presentable native reconstruction draft.
-The screenshot baseline is preserved in slides-source-replica.qmd.
--->
 
 ## {.rebuild}
 
@@ -30,7 +24,31 @@ The screenshot baseline is preserved in slides-source-replica.qmd.
 
 ## 拍下一朵花，计算机保存了什么？ {.rebuild}
 
-::: {.two-col wide-right}
+::: {.two-col .wide-right}
+<div>
+<div class="big-question">手机拍下的是<span class="accent">一朵花</span>，还是一堆数据？</div>
+<div class="thesis">先从一个人人都有经验的动作开始：拍照。</div>
+</div>
+
+<div>
+<div class="phone">
+<img src="https://upload.wikimedia.org/wikipedia/commons/3/39/Sunflower_Helianthus_1_edited.png" alt="向日葵照片">
+</div>
+<div class="caption">拍下眼前的花朵</div>
+</div>
+:::
+
+::: {.notes}
+[问题] 拍下一朵花，计算机保存了什么？请学生先说自己的判断：手机里是一朵花、一张画，还是某种数据？这里只让他们预测，暂不显示结论。
+
+图片来源：Wikimedia Commons, “Sunflower Helianthus 1 edited.png”, https://upload.wikimedia.org/wikipedia/commons/3/39/Sunflower_Helianthus_1_edited.png。
+:::
+
+---
+
+## 拍下一朵花，计算机保存了什么？ {.rebuild}
+
+::: {.two-col .wide-right}
 <div>
 <div class="big-question">手机拍下的是<span class="accent">一朵花</span>，还是一堆数据？</div>
 <div class="thesis">先从一个人人都有经验的动作开始：拍照。</div>
@@ -45,14 +63,14 @@ The screenshot baseline is preserved in slides-source-replica.qmd.
 <div class="phone">
 <img src="https://upload.wikimedia.org/wikipedia/commons/3/39/Sunflower_Helianthus_1_edited.png" alt="向日葵照片">
 </div>
-<div class="caption">同一张花朵图将贯穿前半节课</div>
+<div class="caption">拍下眼前的花朵</div>
 </div>
 :::
 
-<div class="source-note">Image source: Wikimedia Commons, “Sunflower Helianthus 1 edited.png”.</div>
-
 ::: {.notes}
 这里复刻原课的生活情境：先让学生进入“拍照”的熟悉经验。可以问：你觉得手机保存照片时，是把一朵花真的装进去了，还是保存了一些数字？这只是引入，不展开文件格式。
+
+图片来源：Wikimedia Commons, “Sunflower Helianthus 1 edited.png”, https://upload.wikimedia.org/wikipedia/commons/3/39/Sunflower_Helianthus_1_edited.png。
 :::
 
 ---
@@ -60,10 +78,10 @@ The screenshot baseline is preserved in slides-source-replica.qmd.
 ## 照片放大后，为什么会糊？ {.rebuild}
 
 <div class="center-box">
-  <div>
-    <div class="big-question">照片不断放大，为什么最后会看到<span class="accent">一个个小方块</span>？</div>
-    <div class="thesis">先预测，再观察：这些小方块是从哪里来的？</div>
-  </div>
+<div>
+<div class="big-question">照片不断放大，会发生什么？</div>
+<div class="thesis">先预测，再观察。</div>
+</div>
 </div>
 
 ::: {.notes}
@@ -74,22 +92,22 @@ The screenshot baseline is preserved in slides-source-replica.qmd.
 
 ## 先看一张真实照片 {.rebuild}
 
-::: {.two-col wide-left}
+::: {.two-col .wide-left}
 <div>
 <img class="photo" src="https://upload.wikimedia.org/wikipedia/commons/3/39/Sunflower_Helianthus_1_edited.png" alt="向日葵照片">
 <div class="caption">真实照片：颜色连续、细节丰富</div>
 </div>
 
-<div class="callout">
+<div class="slide-callout">
 我们看到的是一幅完整的图像。<br><br>
 但计算机不能直接保存“花”这个整体，它必须把图像拆成可以表示的数据。
 </div>
 :::
 
-<div class="source-note">Image source: Wikimedia Commons, “Sunflower Helianthus 1 edited.png”.</div>
-
 ::: {.notes}
 对应原课展示原图。讲述时可以先让学生只观察：花瓣、花盘、背景、颜色变化。下一页再展示放大后的像素化结果。
+
+图片来源：Wikimedia Commons, “Sunflower Helianthus 1 edited.png”, https://upload.wikimedia.org/wikipedia/commons/3/39/Sunflower_Helianthus_1_edited.png。
 :::
 
 ---
@@ -126,7 +144,7 @@ The screenshot baseline is preserved in slides-source-replica.qmd.
 ::: {.two-col}
 <div>
 <div class="big-question">照片里看到的是现实世界。<br>计算机怎样把它变成数据？</div>
-<div class="thesis">从这里开始，原课切换到一朵卡通红花做编码实验。</div>
+<div class="thesis">观察花的形状，再想怎样记录它。</div>
 </div>
 
 <div class="flower-wrap">
@@ -167,7 +185,7 @@ The screenshot baseline is preserved in slides-source-replica.qmd.
   <circle cx="210" cy="220" r="72" fill="#F4D13D" stroke="#D9B425" stroke-width="8"/>
 </svg>
 </div>
-<div class="matrix-label">原课思想实验对象：卡通红花</div>
+<div class="matrix-label">用这朵花做思想实验</div>
 </div>
 
 <div>
@@ -177,7 +195,7 @@ The screenshot baseline is preserved in slides-source-replica.qmd.
 <span class="c0">0</span><span class="c1">1</span><span class="c0">0</span>
 <span class="c0">0</span><span class="c3">3</span><span class="c0">0</span>
 </div>
-<div class="matrix-label">Snip 9 可核对矩阵：010 / 121 / 010 / 030</div>
+<div class="matrix-label">每个格子对应一个颜色编号</div>
 </div>
 :::
 
@@ -191,7 +209,33 @@ The screenshot baseline is preserved in slides-source-replica.qmd.
 
 ## 四种颜色，需要几个二进制位？ {.rebuild}
 
-::: {.two-col wide-left}
+::: {.two-col .wide-left}
+<div>
+<table class="map-table">
+<thead><tr><th>颜色</th><th>数值</th><th>二进制编码</th></tr></thead>
+<tbody>
+<tr><td><span class="color-chip c0"></span>白色</td><td>0</td><td></td></tr>
+<tr><td><span class="color-chip c1"></span>红色</td><td>1</td><td></td></tr>
+<tr><td><span class="color-chip c2"></span>黄色</td><td>2</td><td></td></tr>
+<tr><td><span class="color-chip c3"></span>绿色</td><td>3</td><td></td></tr>
+</tbody>
+</table>
+</div>
+
+<div>
+<div class="big-question">编码的是 <span class="accent">12 个格子</span>，还是 <span class="accent">4 种颜色状态</span>？</div>
+</div>
+:::
+
+::: {.notes}
+[问题] 四种颜色，需要几个二进制位？先只看白、红、黄、绿四种颜色，不要急着填右边的表。有人会想到 12 个格子；我问的是每个格子里的颜色需要区分多少种状态。先各自判断需要几位，再请几位同学说理由。暂时不公布编码表。
+:::
+
+---
+
+## 四种颜色，需要几个二进制位？ {.rebuild}
+
+::: {.two-col .wide-left}
 <div>
 <table class="map-table">
 <thead><tr><th>颜色</th><th>数值</th><th>二进制编码</th></tr></thead>
@@ -211,7 +255,7 @@ The screenshot baseline is preserved in slides-source-replica.qmd.
 :::
 
 ::: {.notes}
-原课堂真实困难：学生曾把“12 个采样点”和“4 种待区分颜色”混淆。学生实际参与的是判断需要多少 bit，并回答追问。逐格把整幅图替换成 2-bit 编码并不是原课堂的学生任务；教师在约 00:13:35 处明确表示后续由自己说明。
+[问题] 四种颜色，需要几个二进制位？刚才有人按 12 个格子来想，但现在要给每个格子的颜色编码。四种颜色需要 2 bit，因为 00、01、10、11 正好是四种不同状态。对照表格看每种颜色怎样表示。原课堂学生参与了位数判断和追问；逐格替换整幅矩阵由教师说明，并非学生任务。
 :::
 
 ---
@@ -227,7 +271,30 @@ The screenshot baseline is preserved in slides-source-replica.qmd.
 <span class="c0"></span><span class="c1"></span><span class="c0"></span>
 <span class="c0"></span><span class="c3"></span><span class="c0"></span>
 </div>
-<div class="caption">原课 Round 1</div>
+<div class="caption">3×4 的数字花</div>
+</div>
+
+<div></div>
+:::
+
+::: {.notes}
+[问题] 怎样让花形更接近原图？这幅 3×4 的数字花能认出来，但花瓣和叶子的边缘很粗。先让学生提出办法，不展示下一轮结果。若有人提出增加颜色，先记下；这一轮只改变采样点的数量，稍后再单独比较颜色数。
+:::
+
+---
+
+## 怎样让花形更接近原图？ {.rebuild}
+
+::: {.compare-two}
+<div>
+<h3>3×4，4 色，2 bit</h3>
+<div class="pixel-grid g3x4">
+<span class="c0"></span><span class="c1"></span><span class="c0"></span>
+<span class="c1"></span><span class="c2"></span><span class="c1"></span>
+<span class="c0"></span><span class="c1"></span><span class="c0"></span>
+<span class="c0"></span><span class="c3"></span><span class="c0"></span>
+</div>
+<div class="caption">3×4 的数字花</div>
 </div>
 
 <div>
@@ -249,7 +316,22 @@ The screenshot baseline is preserved in slides-source-replica.qmd.
 <div class="thesis">这一轮只改变分辨率：3×4 → 6×8；颜色数和位深度不变。</div>
 
 ::: {.notes}
-按原课控制变量推进。学生先比较哪一幅更接近卡通花，再归因到采样点增加。教师侧限定：这里的“更清晰”只在同一对象、其他条件基本不变、增加真实空间采样的语境下解释；不能推广成“把已有低分辨率图片插值放大就获得新真实细节”。
+[问题] 怎样让花形更接近原图？现在看右边：横向从 3 个位置增加到 6 个，纵向从 4 个增加到 8 个。让学生比较花瓣和叶子的边缘，并指出本轮只改变了采样点数量。教师侧限定：这里的“更清晰”只在同一对象、其他条件基本不变、增加真实空间采样的语境下解释；不能推广成“把已有低分辨率图片插值放大就获得新真实细节”。
+:::
+
+---
+
+## 位图放大，和矢量图放大，有什么不同？ {.rebuild}
+
+<div class="center-box">
+<div>
+<div class="big-question">位图和矢量图放大后，边缘会一样吗？</div>
+<div class="thesis">先预测两种图的变化，再看放大结果。</div>
+</div>
+</div>
+
+::: {.notes}
+[问题] 位图放大，和矢量图放大，有什么不同？先让学生根据刚才看见的像素格预测：如果把两类图都继续放大，边缘会怎样？请他们各说一个可观察的现象，再揭示比较图。
 :::
 
 ---
@@ -271,12 +353,38 @@ The screenshot baseline is preserved in slides-source-replica.qmd.
 <div>
 <h3>矢量图</h3>
 <div class="vector-box"><div class="vector-shape"></div></div>
-<div class="caption">原课强调：放大缩小后仍保持清晰边界</div>
+<div class="caption">放大缩小后仍保持清晰边界</div>
 </div>
 :::
 
 ::: {.notes}
 原课在提高分辨率之后插入位图 / 矢量图比较。课堂逐字稿主要强调“位图放大会看到像素、矢量图放大缩小仍清晰”；“用数学方式描述图形”来自 PDF 自动总结，不把它伪装成教师现场原话。
+:::
+
+---
+
+## 除了分辨率，还能改什么？ {.rebuild}
+
+::: {.compare-two}
+<div>
+<h3>6×8，4 色，2 bit</h3>
+<div class="pixel-grid g6x8">
+<span class="c0"></span><span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c0"></span><span class="c0"></span>
+<span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c1"></span><span class="c1"></span><span class="c0"></span>
+<span class="c1"></span><span class="c1"></span><span class="c2"></span><span class="c2"></span><span class="c1"></span><span class="c1"></span>
+<span class="c1"></span><span class="c1"></span><span class="c2"></span><span class="c2"></span><span class="c1"></span><span class="c1"></span>
+<span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c1"></span><span class="c1"></span><span class="c0"></span>
+<span class="c0"></span><span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c0"></span><span class="c0"></span>
+<span class="c0"></span><span class="c3"></span><span class="c3"></span><span class="c3"></span><span class="c3"></span><span class="c0"></span>
+<span class="c0"></span><span class="c0"></span><span class="c0"></span><span class="c3"></span><span class="c0"></span><span class="c0"></span>
+</div>
+</div>
+
+<div></div>
+:::
+
+::: {.notes}
+[问题] 除了分辨率，还能改什么？现在已经有 6×8 个位置，花形比第一轮清楚，但颜色仍只有白、红、黄、绿。先请学生想怎样让颜色更接近原花，不展示新的色块或位深度。等他们提出增加颜色后，再保持 6×8 不变做第三轮比较。
 :::
 
 ---
@@ -310,14 +418,13 @@ The screenshot baseline is preserved in slides-source-replica.qmd.
 <span class="c0"></span><span class="c3"></span><span class="c3"></span><span class="c3"></span><span class="c3"></span><span class="c0"></span>
 <span class="c0"></span><span class="c0"></span><span class="c0"></span><span class="c3"></span><span class="c0"></span><span class="c0"></span>
 </div>
-<div class="source-caution">六色版按现有截图视觉重建；两档红色的逐格分配待原始 PPT 验证。</div>
 </div>
 :::
 
 <div class="thesis">6 种颜色至少需要 3 bit，因为 2² &lt; 6 ≤ 2³。</div>
 
 ::: {.notes}
-这里保持分辨率 6×8，只增加颜色等级。教师侧限定：在同一量化任务、其他条件相同时，更多颜色通常能更细地近似原图；不能把“位深度越大越逼真”当作无条件规律。六色矩阵中两档红色的精确逐格分配无法由现有截图可靠判定，所以 deck 明确标注为视觉重建，不冒充原课精确数值矩阵。
+[问题] 除了分辨率，还能改什么？右图仍是 6×8，但把可用颜色从四种增加到六种。请学生指出这次改变的是每个位置可以选的颜色数，再算六种颜色至少需要几位：2 bit 不够，3 bit 可以表示八种状态。教师侧限定：更多颜色只在同一量化任务、其他条件相同时通常能更细地近似原图。六色矩阵中两档红色的精确逐格分配无法由现有截图可靠判定；此图是视觉重建，不作为原课精确数值矩阵。
 :::
 
 ---

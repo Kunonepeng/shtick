@@ -146,7 +146,7 @@
   margin-top: 0.08in;
 }
 
-.callout {
+.slide-callout {
   border-left: 0.08in solid var(--violet);
   padding: 0.12in 0.18in;
   font-size: 0.78em;
@@ -180,6 +180,7 @@
   background: var(--grid);
   padding: 0.025in;
 }
+.pixel-grid > p { display: contents; }
 
 .pixel-grid.g3x4 { grid-template-columns: repeat(3, 0.58in); }
 .pixel-grid.g6x8 { grid-template-columns: repeat(6, 0.31in); }
@@ -210,6 +211,7 @@
   width: 100%;
   font-size: 0.58em;
 }
+.map-table { table-layout: fixed; }
 .map-table th, .map-table td, .formula-table th, .formula-table td {
   border: 1.6px solid #D7D4EA;
   padding: 0.11in 0.14in;
@@ -316,8 +318,8 @@
   margin-top: 0.08in;
 }
 .fill-list {
-  font-size: 0.70em;
-  line-height: 1.8;
+  font-size: 0.88em;
+  line-height: 1.65;
   margin-top: 0.16in;
 }
 .blank {
@@ -336,11 +338,6 @@
   grid-template-columns: 1fr 1fr;
   gap: 0.7in;
   align-items: start;
-}
-.source-caution {
-  font-size: 0.42em;
-  color: var(--muted);
-  margin-top: 0.10in;
 }
 .vector-box {
   width: 2.6in;
