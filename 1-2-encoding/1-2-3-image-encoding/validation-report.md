@@ -1,44 +1,50 @@
 # Image Encoding Materials Validation Report
 
-Generated locally in this environment after executing the teacher and student notebooks and rendering the PPTX. Windows 10 + conda `pt` classroom validation is still required.
+Updated materials were generated and checked in the current container after the PPTX reveal-order review.
 
-## Generated files
+## Asset checks
 
-- `assets/test-image.png` — 256×256 RGB
-- `assets/fallback/sampling-256.png`, `sampling-64.png`, `sampling-32.png`, `sampling-16.png`, `sampling-8.png` — all 512×512 RGB
-- `assets/fallback/quant-original.png`, `quant-16.png`, `quant-2.png` — all 256×256 RGB
-- `assets/q7-3x2-24bit.bmp` — 3×2, 24-bit BMP, 78 bytes
-- `notebooks/image-encoding-teacher.ipynb`
-- `notebooks/image-encoding-student.ipynb`
+- `assets/test-image.png`: 256×256 RGB.
+- Sampling fallback: `sampling-256/64/32/16/8.png`, all 512×512 RGB.
+- Quantization fallback: `quant-original/16/2.png`, all 256×256 RGB.
+- Seam check on exported fallback files:
+  - `quant-16.png`: `(72,40) != (73,40)`.
+  - `quant-2.png`: `(72,40) == (73,40)`.
+- Q2 files generated from the same synthetic scene:
+  - `q2-high-pixels-blur.png`: 1920×1080, intentionally blurred.
+  - `q2-low-pixels-sharp.png`: 800×600, sharp.
+- BMP file: `q7-3x2-24bit.bmp` has pixel-data offset 54, 18 bytes color values, 12 bytes/row, 24 bytes pixel array, and 78 bytes whole file.
 
-## Verified conditions
+## Notebook checks
 
-- Sampling fallback images: 5 files × 512×512 RGB
-- Quantization fallback images: original / 16 / 2 → 256×256 RGB
-- Seam evidence:
-  - 16 colors → seam (72,40) != (73,40): (255, 0, 0) != (0, 255, 0)
-  - 2 colors → seam (72,40) == (73,40): (71, 42, 71) == (71, 42, 71)
-- BMP evidence:
-  - pixel-data offset = 54 bytes
-  - color values = 18 bytes
-  - stored row size = 12 bytes/row
-  - pixel array = 24 bytes
-  - whole file = 78 bytes
-  - top-row red pixel bytes at offset 66 = `00 00 FF`
+Teacher and student notebooks should use Q-numbered headings. The teacher version should contain:
 
-## Remaining validation
+- Q1 · Demo A fixed fallback generation and `show_sampling(n)` for student-requested new sizes.
+- Q2 image-size verification.
+- Q3 · Demo B image-first reveal, then seam RGB evidence.
+- Fallback export and verification cells.
+- Q7/Q11 BMP verification.
 
-- Run teacher and student notebooks on classroom Windows 10 + conda `pt` from the lesson directory.
-- Open the PPTX in WPS / PowerPoint and confirm Alibaba PuHuiTi 3.0 font resolution.
+The student version should keep the prediction/observation order and avoid revealing seam RGB values before students have interpreted the images.
 
-## PPTX validation
+## Slide checks
 
-- `image-encoding-v1.pptx` generated with 18 slides and 18 speaker-notes slides.
-- Converted successfully to PDF with LibreOffice in this environment.
-- Rendered to PNG montage for visual inspection.
+The regenerated PPTX uses independent question pages before evidence/answer pages:
 
-## Notebook execution
+- Q0 begins with scrambled cards; the target order is revisited at Q12.
+- Q4, Q6, Q8, and Q9 have neutral question pages before derivation/answer pages.
+- Q8 answer highlight appears only after calculation.
+- Q2 evidence uses actual 1920×1080 and 800×600 files.
+- Q3 seam evidence uses actual RGB tuples from `(72,40)` and `(73,40)`.
+- Speaker notes were expanded with page purpose, spoken script, pauses, expected answers, and transitions.
 
-- `notebooks/image-encoding-teacher.ipynb` executed successfully in this environment from the lesson directory.
-- `notebooks/image-encoding-student.ipynb` executed successfully in this environment from the lesson directory.
-- Demo B file-level optional BMP check reported `24 bpp` and `196662 bytes` for 256 / 16 / 4 / 2-color outputs.
+## Reveal.js reference
+
+`slides.qmd` has been added as a lightweight Reveal.js reference version aligned with the PPTX question chain. It is not a replacement for the styled classroom PPTX.
+
+## Still pending
+
+- Commit/update of binary classroom artifacts in GitHub must be verified after upload: PPTX and regenerated PNG assets are binary files.
+- Windows 10 + conda `pt` classroom-machine run.
+- WPS-specific font and layout validation.
+- Final teacher approval of PPTX narration pacing.
