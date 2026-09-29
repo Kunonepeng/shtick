@@ -366,3 +366,22 @@
 }
 .vector-shape::before { width: 0.08in; height: 2.0in; left: 0.81in; top: -0.15in; }
 .vector-shape::after { height: 0.08in; width: 2.0in; top: 0.81in; left: -0.15in; }
+
+
+.mini-rounds {
+  display: flex;
+  flex-direction: column;
+  gap: 0.12in;
+  align-items: center;
+  justify-content: center;
+}
+.pixel-grid.mini-grid.g3x4 { grid-template-columns: repeat(3, 0.22in); }
+.pixel-grid.mini-grid.g6x8 { grid-template-columns: repeat(6, 0.12in); }
+.pixel-grid.mini-grid span { height: 0.22in; font-size: 0; }
+.pixel-grid.mini-grid.g6x8 span { height: 0.12in; }
+.conclusion-layout {
+  display: grid;
+  grid-template-columns: 1.8in 1fr;
+  gap: 0.38in;
+  align-items: center;
+}
