@@ -1,436 +1,310 @@
 ---
 title: "图像编码"
-subtitle: "2026-09-29 原课截图复刻基线"
+subtitle: "Image Encoding 101 · 原生重建版（前 11 页草稿）"
 lang: zh-CN
 format:
   revealjs:
     transition: fade
-    center: true
+    center: false
     slide-number: false
     width: 1600
     height: 900
-    css: source-replica.css
+    css: styles/rebuild.css
 ---
 
 <!--
-Before rendering for the first time:
-
-python scripts/prepare-source-images.py
-
-This deck intentionally uses the original classroom screenshots as the visual baseline.
-It is not yet the native Quarto reconstruction.
+This is the presentable native reconstruction draft.
+The screenshot baseline is preserved in slides-source-replica.qmd.
 -->
 
-## 原课截图 1 {.source-slide}
+## {.rebuild}
 
-<div class="source-shot">
-
-![](assets/original-screenshots/Snip20260929_1.png){fig-alt="原课截图 1：图像编码标题页"}
-
-</div>
-
-<div class="source-label">Snip20260929_1.png</div>
+<div class="cover-title">图像<span class="accent">编码</span></div>
+<div class="cover-subtitle">从真实照片，到像素、颜色与二进制</div>
 
 ::: {.notes}
-课程开场。承接之前的字符编码学习，转入图像这一类数据。
+本页承接上一课字符编码。开场时不用急着讲采样、量化、编码，只说明今天换一种数据：图像。核心问题是：我们眼睛看到的真实画面，计算机究竟怎样保存？
 :::
 
 ---
 
-## 原课截图 2 {.source-slide}
+## 拍下一朵花，计算机保存了什么？ {.rebuild}
 
-<div class="source-shot">
-
-![](assets/original-screenshots/Snip20260929_2.png){fig-alt="原课截图 2：拍摄花朵的生活情境"}
-
+::: {.two-col wide-right}
+<div>
+<div class="big-question">手机拍下的是<span class="accent">一朵花</span>，还是一堆数据？</div>
+<div class="thesis">先从一个人人都有经验的动作开始：拍照。</div>
+<ul class="small-list">
+<li>我们看到的是花。</li>
+<li>手机保存的是图片文件。</li>
+<li>计算机内部最终只能处理数字。</li>
+</ul>
 </div>
 
-<div class="source-label">Snip20260929_2.png</div>
+<div>
+<div class="phone">
+<img src="https://upload.wikimedia.org/wikipedia/commons/3/39/Sunflower_Helianthus_1_edited.png" alt="向日葵照片">
+</div>
+<div class="caption">同一张花朵图将贯穿前半节课</div>
+</div>
+:::
+
+<div class="source-note">Image source: Wikimedia Commons, “Sunflower Helianthus 1 edited.png”.</div>
 
 ::: {.notes}
-约 00:00:43。用日常拍照情境进入问题：照片拍下来以后，如果不断放大会怎样？
+这里复刻原课的生活情境：先让学生进入“拍照”的熟悉经验。可以问：你觉得手机保存照片时，是把一朵花真的装进去了，还是保存了一些数字？这只是引入，不展开文件格式。
 :::
 
 ---
 
-## 原课截图 3 {.source-slide}
+## 照片放大后，为什么会糊？ {.rebuild}
 
-<div class="source-shot">
-
-![](assets/original-screenshots/Snip20260929_3.png){fig-alt="原课截图 3：照片放大后会模糊怎么办"}
-
+<div class="center-box">
+  <div>
+    <div class="big-question">照片不断放大，为什么最后会看到<span class="accent">一个个小方块</span>？</div>
+    <div class="thesis">先预测，再观察：这些小方块是从哪里来的？</div>
+  </div>
 </div>
 
-<div class="source-label">Snip20260929_3.png</div>
-
 ::: {.notes}
-提出本课最初问题：照片放大以后变模糊，怎么办？先让学生基于生活经验回答。
+对应原课问题页。让学生先预测：放大会变清晰、变模糊，还是看到更多细节？学生通常会提到“像素”。暂时只记录，不急着定义。
 :::
 
 ---
 
-## 原课截图 4 {.source-slide}
+## 先看一张真实照片 {.rebuild}
 
-<div class="source-shot">
-
-![](assets/original-screenshots/Snip20260929_4.png){fig-alt="原课截图 4：向日葵原始照片"}
-
+::: {.two-col wide-left}
+<div>
+<img class="photo" src="https://upload.wikimedia.org/wikipedia/commons/3/39/Sunflower_Helianthus_1_edited.png" alt="向日葵照片">
+<div class="caption">真实照片：颜色连续、细节丰富</div>
 </div>
 
-<div class="source-label">Snip20260929_4.png</div>
+<div class="callout">
+我们看到的是一幅完整的图像。<br><br>
+但计算机不能直接保存“花”这个整体，它必须把图像拆成可以表示的数据。
+</div>
+:::
+
+<div class="source-note">Image source: Wikimedia Commons, “Sunflower Helianthus 1 edited.png”.</div>
 
 ::: {.notes}
-约 00:01:20。教师现场打开照片，开始连续放大。
+对应原课展示原图。讲述时可以先让学生只观察：花瓣、花盘、背景、颜色变化。下一页再展示放大后的像素化结果。
 :::
 
 ---
 
-## 原课截图 5 {.source-slide}
+## 放大到最后，看见了什么？ {.rebuild}
 
-<div class="source-shot">
-
-![](assets/original-screenshots/Snip20260929_5.png){fig-alt="原课截图 5：高倍放大后看到像素色块"}
-
+::: {.two-col}
+<div>
+<img class="photo" src="https://upload.wikimedia.org/wikipedia/commons/3/39/Sunflower_Helianthus_1_edited.png" alt="向日葵照片局部">
+<div class="caption">从远处看：仍然像完整照片</div>
 </div>
 
-<div class="source-label">Snip20260929_5.png</div>
+<div>
+<div class="pixel-grid zoom">
+<span class="c2"></span><span class="c2"></span><span class="c2"></span><span class="c2"></span><span class="c4"></span><span class="c4"></span><span class="c1"></span><span class="c1"></span>
+<span class="c2"></span><span class="c2"></span><span class="c4"></span><span class="c4"></span><span class="c1"></span><span class="c1"></span><span class="c1"></span><span class="c3"></span>
+<span class="c2"></span><span class="c4"></span><span class="c4"></span><span class="c1"></span><span class="c1"></span><span class="c3"></span><span class="c3"></span><span class="c3"></span>
+<span class="c4"></span><span class="c4"></span><span class="c1"></span><span class="c1"></span><span class="c3"></span><span class="c3"></span><span class="c3"></span><span class="c0"></span>
+<span class="c4"></span><span class="c1"></span><span class="c1"></span><span class="c3"></span><span class="c3"></span><span class="c3"></span><span class="c0"></span><span class="c0"></span>
+<span class="c1"></span><span class="c1"></span><span class="c3"></span><span class="c3"></span><span class="c0"></span><span class="c0"></span><span class="c0"></span><span class="c0"></span>
+</div>
+<div class="caption">放大到足够大：看到有限的像素格</div>
+</div>
+:::
 
 ::: {.notes}
-放大到能够看见一个个纯色小方块。追问这些小方块是什么，引出“像素”。
+这里不用真实截图，而用一个清晰的像素格示意替代原课放大截图。追问：这些格子是不是现实花朵本身就有的？学生会意识到：这和计算机表示图像的方法有关。
 :::
 
 ---
 
-## 原课截图 6 {.source-slide}
+## 思维实验：怎样把一朵花放进计算机？ {.rebuild}
 
-<div class="source-shot">
+<div class="big-question">如果计算机只能保存数字，怎样表示这朵花？</div>
 
-![](assets/original-screenshots/Snip20260929_6.png){fig-alt="原课截图 6：思维实验 图像编码的过程"}
-
+<div class="process">
+<div class="step"><h3>1. 采样</h3><p>在哪些位置取信息？</p></div>
+<div class="step"><h3>2. 量化</h3><p>每个位置用哪些有限值描述？</p></div>
+<div class="step"><h3>3. 编码</h3><p>这些值怎样变成 0 和 1？</p></div>
+<div class="step"><h3>4. 存储</h3><p>二进制数据按规则组成图像文件。</p></div>
 </div>
 
-<div class="source-label">Snip20260929_6.png</div>
+<div class="thesis">接下来只用一台“很差的相机”做思想实验。</div>
 
 ::: {.notes}
-约 00:02:48。进入思想实验：像素是怎么来的？以自然界中的一朵花为对象。
+对应原课“思维实验：图像编码的过程”。这页是过渡页。不要把定义讲死，只预告接下来要一步步做。
 :::
 
 ---
 
-## 原课截图 7 {.source-slide}
+## 相机只能采 3×4 个位置，会怎样？ {.rebuild}
 
-<div class="source-shot">
-
-![](assets/original-screenshots/Snip20260929_7.png){fig-alt="原课截图 7：花朵与 3×4 网格"}
-
+::: {.two-col}
+<div>
+<div class="grid-overlay">
+<img src="https://upload.wikimedia.org/wikipedia/commons/3/39/Sunflower_Helianthus_1_edited.png" alt="向日葵照片覆盖 3×4 网格">
+<div class="overlay">
+<span></span><span></span><span></span>
+<span></span><span></span><span></span>
+<span></span><span></span><span></span>
+<span></span><span></span><span></span>
+</div>
+</div>
+<div class="caption">横向 3 个位置，纵向 4 个位置</div>
 </div>
 
-<div class="source-label">Snip20260929_7.png</div>
+<div>
+<div class="callout">
+这台相机只有 <span class="accent">3×4</span> 个采样位置。<br><br>
+它最多只能记录 <span class="accent">12</span> 个位置的信息。
+</div>
+<div class="math-line">分辨率：3 × 4</div>
+</div>
+:::
 
 ::: {.notes}
-从光的反射与相机光敏元件讲起。设定横向 3 个、纵向 4 个采样位置，共 12 个样本点。
+复刻原课 3×4 光敏元件模型。问：一共有多少个采样点？学生回答 12。强调此处写成 3×4，而不是只写 12，因为横向和纵向位置关系也很重要。
 :::
 
 ---
 
-## 原课截图 8 {.source-slide}
+## 第一步：采样 {.rebuild}
 
-<div class="source-shot">
-
-![](assets/original-screenshots/Snip20260929_8.png){fig-alt="原课截图 8：step1 采样与 3×4 四色像素图"}
-
+::: {.two-col}
+<div>
+<h3>从连续图像中取有限位置</h3>
+<div class="pixel-grid g3x4">
+<span class="c0"></span><span class="c2"></span><span class="c0"></span>
+<span class="c1"></span><span class="c1"></span><span class="c3"></span>
+<span class="c0"></span><span class="c2"></span><span class="c3"></span>
+<span class="c0"></span><span class="c3"></span><span class="c0"></span>
+</div>
+<div class="caption">3×4：只保留 12 个位置的代表颜色</div>
 </div>
 
-<div class="source-label">Snip20260929_8.png</div>
+<div>
+<div class="callout">
+<span class="accent">采样</span>：从原来的连续图像中，选取有限数量的位置。<br><br>
+采样位置越少，图像越粗糙。
+</div>
+</div>
+:::
 
 ::: {.notes}
-约 00:06:12 起。命名“采样”，引入 3×4 分辨率；随后用四种颜色近似各网格。
+对应原课 step1。这里先让学生看到 3×4 的粗糙像素花，再给动作命名为“采样”。可以提醒：这不是现实花朵变成了格子，而是我们记录图像时只记录了有限位置。
 :::
 
 ---
 
-## 原课截图 9 {.source-slide}
+## 第二步：量化 {.rebuild}
 
-<div class="source-shot">
-
-![](assets/original-screenshots/Snip20260929_9.png){fig-alt="原课截图 9：四种颜色编号 0 1 2 3"}
-
+::: {.two-col wide-left}
+<div>
+<table class="map-table">
+<thead><tr><th>颜色</th><th>编号</th></tr></thead>
+<tbody>
+<tr><td><span class="color-chip c0"></span>白色</td><td>0</td></tr>
+<tr><td><span class="color-chip c1"></span>红色</td><td>1</td></tr>
+<tr><td><span class="color-chip c2"></span>黄色</td><td>2</td></tr>
+<tr><td><span class="color-chip c3"></span>绿色</td><td>3</td></tr>
+</tbody>
+</table>
 </div>
 
-<div class="source-label">Snip20260929_9.png</div>
+<div>
+<div class="pixel-grid g3x4">
+<span class="c0">0</span><span class="c2">2</span><span class="c0">0</span>
+<span class="c1">1</span><span class="c1">1</span><span class="c3">3</span>
+<span class="c0">0</span><span class="c2">2</span><span class="c3">3</span>
+<span class="c0">0</span><span class="c3">3</span><span class="c0">0</span>
+</div>
+<div class="caption">颜色变成有限的整数值</div>
+</div>
+:::
 
 ::: {.notes}
-约 00:07:51。把白、红、黄、绿分别编号 0、1、2、3，用有限整数描述样本，命名为“量化”。
+对应原课颜色编号。用有限整数值描述样本，这一步叫量化。强调“颜色”被限制在四种选择中：白、红、黄、绿。
 :::
 
 ---
 
-## 原课截图 10 {.source-slide}
+## 第三步：编码 {.rebuild}
 
-<div class="source-shot">
-
-![](assets/original-screenshots/Snip20260929_10.png){fig-alt="原课截图 10：采样与量化组合页"}
-
+::: {.two-col wide-left}
+<div>
+<table class="map-table">
+<thead><tr><th>颜色</th><th>数值</th><th>二进制编码</th></tr></thead>
+<tbody>
+<tr><td><span class="color-chip c0"></span>白色</td><td>0</td><td><div class="bit-row"><span class="bit">0</span><span class="bit">0</span></div></td></tr>
+<tr><td><span class="color-chip c1"></span>红色</td><td>1</td><td><div class="bit-row"><span class="bit">0</span><span class="bit">1</span></div></td></tr>
+<tr><td><span class="color-chip c2"></span>黄色</td><td>2</td><td><div class="bit-row"><span class="bit">1</span><span class="bit">0</span></div></td></tr>
+<tr><td><span class="color-chip c3"></span>绿色</td><td>3</td><td><div class="bit-row"><span class="bit">1</span><span class="bit">1</span></div></td></tr>
+</tbody>
+</table>
 </div>
 
-<div class="source-label">Snip20260929_10.png</div>
+<div>
+<div class="big-question">四种颜色，为什么只需要 <span class="accent">2 bit</span>？</div>
+<div class="thesis">2 bit 可以表示 4 种状态：00、01、10、11。</div>
+</div>
+:::
 
 ::: {.notes}
-过渡到二进制编码。核心追问：四种颜色需要几个二进制位？注意学生曾把 12 个采样点与 4 种颜色状态混淆。
+复刻原课中的真实困难：有学生会把 12 个采样点和 4 种颜色状态混淆。这里要追问：现在编码的是“几个格子”，还是“几种颜色”？最后形成位深度概念：描述一个像素颜色所用的 bit 数。
 :::
 
 ---
 
-## 原课截图 11 {.source-slide}
+## 怎样让它更像原图？ {.rebuild}
 
-<div class="source-shot">
-
-![](assets/original-screenshots/Snip20260929_11.png){fig-alt="原课截图 11：三轮花朵思想实验比较"}
-
+<div class="compare-grid">
+<div class="compare-item">
+<h3>3×4，4 色</h3>
+<div class="pixel-grid g3x4">
+<span class="c0"></span><span class="c2"></span><span class="c0"></span>
+<span class="c1"></span><span class="c1"></span><span class="c3"></span>
+<span class="c0"></span><span class="c2"></span><span class="c3"></span>
+<span class="c0"></span><span class="c3"></span><span class="c0"></span>
+</div>
+<div class="caption">粗糙：采样点少</div>
 </div>
 
-<div class="source-label">Snip20260929_11.png</div>
-
-::: {.notes}
-覆盖约 00:14:46–00:20:35 的三轮比较：3×4→6×8 提高分辨率；再保持分辨率、增加颜色数，使位深度由 2 变 3。
-:::
-
----
-
-## 原课截图 13 {.source-slide}
-
-<div class="source-shot">
-
-![](assets/original-screenshots/Snip20260929_13.png){fig-alt="原课截图 13：实验结论"}
-
+<div class="compare-item">
+<h3>6×8，4 色</h3>
+<div class="pixel-grid g6x8">
+<span class="c0"></span><span class="c0"></span><span class="c2"></span><span class="c2"></span><span class="c0"></span><span class="c0"></span>
+<span class="c0"></span><span class="c2"></span><span class="c2"></span><span class="c2"></span><span class="c0"></span><span class="c0"></span>
+<span class="c1"></span><span class="c1"></span><span class="c2"></span><span class="c2"></span><span class="c3"></span><span class="c0"></span>
+<span class="c1"></span><span class="c1"></span><span class="c1"></span><span class="c3"></span><span class="c3"></span><span class="c0"></span>
+<span class="c0"></span><span class="c1"></span><span class="c2"></span><span class="c3"></span><span class="c3"></span><span class="c0"></span>
+<span class="c0"></span><span class="c0"></span><span class="c2"></span><span class="c3"></span><span class="c3"></span><span class="c0"></span>
+<span class="c0"></span><span class="c0"></span><span class="c3"></span><span class="c3"></span><span class="c0"></span><span class="c0"></span>
+<span class="c0"></span><span class="c0"></span><span class="c0"></span><span class="c3"></span><span class="c0"></span><span class="c0"></span>
+</div>
+<div class="caption">提高分辨率：形状更细</div>
 </div>
 
-<div class="source-label">Snip20260929_13.png（源文件无编号 12）</div>
-
-::: {.notes}
-约 00:20:37。学生拿出学案，跟随教师填写四条核心结论：采样—量化—编码；分辨率；颜色数与位深度；2^n。
-:::
-
----
-
-## 原课截图 14 {.source-slide}
-
-<div class="source-shot">
-
-![](assets/original-screenshots/Snip20260929_14.png){fig-alt="原课截图 14：三幅实验图与图像数据量表格"}
-
+<div class="compare-item">
+<h3>6×8，6 色</h3>
+<div class="pixel-grid g6x8">
+<span class="c0"></span><span class="c0"></span><span class="c2"></span><span class="c4"></span><span class="c0"></span><span class="c0"></span>
+<span class="c0"></span><span class="c2"></span><span class="c4"></span><span class="c2"></span><span class="c0"></span><span class="c0"></span>
+<span class="c1"></span><span class="c4"></span><span class="c2"></span><span class="c2"></span><span class="c5"></span><span class="c0"></span>
+<span class="c1"></span><span class="c1"></span><span class="c4"></span><span class="c5"></span><span class="c3"></span><span class="c0"></span>
+<span class="c0"></span><span class="c1"></span><span class="c4"></span><span class="c5"></span><span class="c3"></span><span class="c0"></span>
+<span class="c0"></span><span class="c0"></span><span class="c2"></span><span class="c5"></span><span class="c3"></span><span class="c0"></span>
+<span class="c0"></span><span class="c0"></span><span class="c5"></span><span class="c3"></span><span class="c0"></span><span class="c0"></span>
+<span class="c0"></span><span class="c0"></span><span class="c0"></span><span class="c3"></span><span class="c0"></span><span class="c0"></span>
+</div>
+<div class="caption">增加颜色数：色彩更丰富</div>
+</div>
 </div>
 
-<div class="source-label">Snip20260929_14.png</div>
+<div class="thesis">提高分辨率改变“取多少位置”；提高位深度改变“每个位置能表示多少颜色”。</div>
 
 ::: {.notes}
-约 00:22:29。转入存储量问题：为什么同一场景的照片可能从几百 KB 到几 MB？开始比较三幅实验图。
-:::
-
----
-
-## 原课截图 15 {.source-slide}
-
-<div class="source-shot">
-
-![](assets/original-screenshots/Snip20260929_15.png){fig-alt="原课截图 15：图像数据量逐步推导"}
-
-</div>
-
-<div class="source-label">Snip20260929_15.png</div>
-
-::: {.notes}
-逐项得到 3×4×2、6×8×2、6×8×3，总结“像素总数 × 每像素位数”。
-:::
-
----
-
-## 原课截图 16 {.source-slide}
-
-<div class="source-shot">
-
-![](assets/original-screenshots/Snip20260929_16.png){fig-alt="原课截图 16：未压缩位图数据量公式"}
-
-</div>
-
-<div class="source-label">Snip20260929_16.png</div>
-
-::: {.notes}
-约 00:25:14。由 bit 转 Byte，需要再除以 8；随后补充 KB、MB 的 1024 换算。
-:::
-
----
-
-## 原课截图 17 {.source-slide}
-
-<div class="source-shot">
-
-![](assets/original-screenshots/Snip20260929_17.png){fig-alt="原课截图 17：黑白 16色 256色 24位讨论归纳表"}
-
-</div>
-
-<div class="source-label">Snip20260929_17.png</div>
-
-::: {.notes}
-约 00:26:28。进入举一反三：根据颜色数推位深度，再代入数据量公式。
-:::
-
----
-
-## 原课截图 18 {.source-slide}
-
-<div class="source-shot">
-
-![](assets/original-screenshots/Snip20260929_18.png){fig-alt="原课截图 18：讨论归纳表答案与真彩色"}
-
-</div>
-
-<div class="source-label">Snip20260929_18.png</div>
-
-::: {.notes}
-完成黑白、16 色、256 色，并过渡到 24 位真彩色。
-:::
-
----
-
-## 原课截图 19 {.source-slide}
-
-<div class="source-shot">
-
-![](assets/original-screenshots/Snip20260929_19.png){fig-alt="原课截图 19：RGB 图像模式与三个 8-bit 通道"}
-
-</div>
-
-<div class="source-label">Snip20260929_19.png</div>
-
-::: {.notes}
-约 00:28:25。RGB 分别是红、绿、蓝；每个通道 8 bit，共 24 bit，可组合出 2^24 种颜色。
-:::
-
----
-
-## 原课截图 20 {.source-slide}
-
-<div class="source-shot">
-
-![](assets/original-screenshots/Snip20260929_20.png){fig-alt="原课截图 20：单个像素的 RGB 数值"}
-
-</div>
-
-<div class="source-label">Snip20260929_20.png</div>
-
-::: {.notes}
-约 00:30:06。通过图像软件观察单个像素的 RGB 十进制值，再说明计算机内部以二进制保存三个通道数据。
-:::
-
----
-
-## 原课截图 21 {.source-slide}
-
-<div class="source-shot">
-
-![](assets/original-screenshots/Snip20260929_21.png){fig-alt="原课截图 21：提高相机分辨率让图片放大后更清晰"}
-
-</div>
-
-<div class="source-label">Snip20260929_21.png</div>
-
-::: {.notes}
-约 00:33:09。回到开头的问题：位图由有限像素组成，放大不会凭空产生原始细节；原教师建议拍摄时提高分辨率。
-:::
-
----
-
-## 原课截图 22 {.source-slide}
-
-<div class="source-shot">
-
-![](assets/original-screenshots/Snip20260929_22.png){fig-alt="原课截图 22：破损照片"}
-
-</div>
-
-<div class="source-label">Snip20260929_22.png</div>
-
-::: {.notes}
-约 00:33:39。展示破损照片，询问能否修复，学生提出 AI 修复。
-:::
-
----
-
-## 原课截图 23 {.source-slide}
-
-<div class="source-shot">
-
-![](assets/original-screenshots/Snip20260929_23.png){fig-alt="原课截图 23：AI 修图引导"}
-
-</div>
-
-<div class="source-label">Snip20260929_23.png</div>
-
-::: {.notes}
-让学生猜测 AI 怎样修复。保留学生根据周围内容、变化规律进行推测的课堂过程。
-:::
-
----
-
-## 原课截图 24 {.source-slide}
-
-<div class="source-shot">
-
-![](assets/original-screenshots/Snip20260929_24.png){fig-alt="原课截图 24：AI 修图四步解释"}
-
-</div>
-
-<div class="source-label">Snip20260929_24.png</div>
-
-::: {.notes}
-原课简化模型：扫描识别 → 规律匹配 → 重新采样 → 重新量化、编码。此处只做原课复刻，不作为最终技术定义。
-:::
-
----
-
-## 原课截图 25 {.source-slide}
-
-<div class="source-shot">
-
-![](assets/original-screenshots/Snip20260929_25.png){fig-alt="原课截图 25：破损照片与 AI 修复结果"}
-
-</div>
-
-<div class="source-label">Snip20260929_25.png</div>
-
-::: {.notes}
-约 00:36:20。展示修复后的结果，教师再次把修复过程连接回本节的图像编码模型。
-:::
-
----
-
-## 原课截图 26 {.source-slide}
-
-<div class="source-shot">
-
-![](assets/original-screenshots/Snip20260929_26.png){fig-alt="原课截图 26：模拟量与连续变化"}
-
-</div>
-
-<div class="source-label">Snip20260929_26.png</div>
-
-::: {.notes}
-约 00:37:19。进入模拟量：温度、声音、压力、光照等作为连续变化例子，强调“连续”。
-:::
-
----
-
-## 原课截图 27 {.source-slide}
-
-<div class="source-shot">
-
-![](assets/original-screenshots/Snip20260929_27.png){fig-alt="原课截图 27：数字量与 0 1 离散表示"}
-
-</div>
-
-<div class="source-label">Snip20260929_27.png</div>
-
-::: {.notes}
-约 00:41:41。进入数字量：用 0/1 离散表示示意。最终收束：图像编码把自然界信息转成计算机可表示的数字量，即信息数字化。
+对应原课第 11 张截图。先让学生判断哪一张更接近原图，再分别追问原因。第二列只提高分辨率，颜色数不变；第三列保持分辨率，增加颜色数，由此引出位深度增加。
 :::
