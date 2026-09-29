@@ -197,12 +197,13 @@
 .pixel-grid.g6x8 span { height: 0.31in; font-size: 0.25em; }
 .pixel-grid.zoom span { height: 0.33in; }
 
-.c0 { background: var(--cream); }
+.c0 { background: #FFFFFF; color: #111 !important; }
 .c1 { background: var(--redflower); color: white !important; }
 .c2 { background: var(--yellow); }
 .c3 { background: var(--green); color: white !important; }
 .c4 { background: var(--orange); color: white !important; }
 .c5 { background: #7DB75F; color: white !important; }
+.c6 { background: #B8323E; color: white !important; }
 
 .map-table, .formula-table {
   border-collapse: collapse;
@@ -293,3 +294,75 @@
   text-align: center;
   margin-top: 0.16in;
 }
+
+
+.cartoon-flower-svg {
+  width: 4.0in;
+  height: 4.6in;
+  display: block;
+  margin: 0 auto;
+}
+.flower-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 4.6in;
+}
+.matrix-label {
+  font-size: 0.54em;
+  font-weight: 800;
+  text-align: center;
+  color: var(--muted);
+  margin-top: 0.08in;
+}
+.fill-list {
+  font-size: 0.70em;
+  line-height: 1.8;
+  margin-top: 0.16in;
+}
+.blank {
+  display: inline-block;
+  min-width: 1.05in;
+  border-bottom: 0.04in solid #666;
+  margin: 0 0.08in;
+  transform: translateY(-0.03in);
+}
+.answer {
+  color: var(--red);
+  font-weight: 900;
+}
+.compare-two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.7in;
+  align-items: start;
+}
+.source-caution {
+  font-size: 0.42em;
+  color: var(--muted);
+  margin-top: 0.10in;
+}
+.vector-box {
+  width: 2.6in;
+  height: 2.6in;
+  margin: 0 auto;
+  border: 0.04in solid var(--violet);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.vector-shape {
+  width: 1.7in;
+  height: 1.7in;
+  border: 0.08in solid var(--violet);
+  border-radius: 50%;
+  position: relative;
+}
+.vector-shape::before,
+.vector-shape::after {
+  content: "";
+  position: absolute;
+  background: var(--violet);
+}
+.vector-shape::before { width: 0.08in; height: 2.0in; left: 0.81in; top: -0.15in; }
+.vector-shape::after { height: 0.08in; width: 2.0in; top: 0.81in; left: -0.15in; }
