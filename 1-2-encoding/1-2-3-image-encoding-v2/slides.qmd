@@ -322,50 +322,96 @@ The screenshot baseline is preserved in slides-source-replica.qmd.
 
 ---
 
-## 实验结论：先别看答案 {.rebuild}
+## 实验结论：先填空 {.rebuild}
 
-::: {.two-col wide-left}
-<div>
-<div class="fill-list">
-1. 位图图像编码步骤是 <span class="blank"></span>、<span class="blank"></span> 和 <span class="blank"></span>。<br>
-2. 图像分辨率（采样量）越 <span class="blank"></span>，像素越小，采样精细度越 <span class="blank"></span>。<br>
-3. 颜色种类（量化等级）越 <span class="blank"></span>，位深度越 <span class="blank"></span>，色彩越 <span class="blank"></span>。<br>
-4. 若位深度为 n，最多表示 <span class="blank"></span> 种颜色。
-</div>
-</div>
-
-<div>
-<div class="pixel-grid g3x4" style="margin-bottom:.18in">
+<div class="conclusion-layout">
+<div class="mini-rounds">
+<div class="pixel-grid mini-grid g3x4">
 <span class="c0"></span><span class="c1"></span><span class="c0"></span>
 <span class="c1"></span><span class="c2"></span><span class="c1"></span>
 <span class="c0"></span><span class="c1"></span><span class="c0"></span>
 <span class="c0"></span><span class="c3"></span><span class="c0"></span>
 </div>
-<div class="caption">先让学生说 / 填，再揭示答案</div>
+<div class="pixel-grid mini-grid g6x8">
+<span class="c0"></span><span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c0"></span><span class="c0"></span>
+<span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c1"></span><span class="c1"></span><span class="c0"></span>
+<span class="c1"></span><span class="c1"></span><span class="c2"></span><span class="c2"></span><span class="c1"></span><span class="c1"></span>
+<span class="c1"></span><span class="c1"></span><span class="c2"></span><span class="c2"></span><span class="c1"></span><span class="c1"></span>
+<span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c1"></span><span class="c1"></span><span class="c0"></span>
+<span class="c0"></span><span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c0"></span><span class="c0"></span>
+<span class="c0"></span><span class="c3"></span><span class="c3"></span><span class="c3"></span><span class="c3"></span><span class="c0"></span>
+<span class="c0"></span><span class="c0"></span><span class="c0"></span><span class="c3"></span><span class="c0"></span><span class="c0"></span>
 </div>
-:::
+<div class="pixel-grid mini-grid g6x8">
+<span class="c0"></span><span class="c0"></span><span class="c6"></span><span class="c1"></span><span class="c0"></span><span class="c0"></span>
+<span class="c0"></span><span class="c6"></span><span class="c1"></span><span class="c1"></span><span class="c6"></span><span class="c0"></span>
+<span class="c1"></span><span class="c6"></span><span class="c2"></span><span class="c4"></span><span class="c1"></span><span class="c1"></span>
+<span class="c1"></span><span class="c1"></span><span class="c4"></span><span class="c4"></span><span class="c6"></span><span class="c1"></span>
+<span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c6"></span><span class="c1"></span><span class="c0"></span>
+<span class="c0"></span><span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c0"></span><span class="c0"></span>
+<span class="c0"></span><span class="c3"></span><span class="c3"></span><span class="c3"></span><span class="c3"></span><span class="c0"></span>
+<span class="c0"></span><span class="c0"></span><span class="c0"></span><span class="c3"></span><span class="c0"></span><span class="c0"></span>
+</div>
+</div>
+
+<div class="fill-list">
+1. 位图图像编码步骤是 <span class="answer">采样</span>、<span class="blank"></span> 和 <span class="blank"></span>。<br>
+2. 图像分辨率（采样量）越 <span class="blank"></span>，像素越小，采样精细度越 <span class="blank"></span>，图像越清晰细腻。<br>
+3. 颜色种类（量化等级）越 <span class="answer">多</span>，位深度越 <span class="blank"></span>，色彩越 <span class="blank"></span>，图像越逼真；若位深度为 n，则表示的颜色种类最多不超过 <span class="blank"></span>。
+</div>
+</div>
 
 ::: {.notes}
-这页对应 Snip 11。Snip 11 不是“三轮实验对比结论已经给出”的页面，而是留空的实验结论页。这里必须停下来，让学生先填写或口头回答。不要提前显示红色答案。
+对应 Snip 11 的可见状态：左侧保留三轮实验结果；文字不是“全空”，而是已经给出“采样”和“多”，其余位置留空。此页必须停顿，让学生先说或填写剩余答案。
+
+Snip 12 缺失。现有材料不能证明下一步到底揭示了哪些局部答案，因此不人为复制一个所谓“Snip 12 状态”。
 :::
 
 ---
 
 ## 实验结论：核对答案 {.rebuild}
 
-<div class="fill-list">
-1. 位图图像编码步骤是 <span class="answer">采样</span>、<span class="answer">量化</span> 和 <span class="answer">编码</span>。<br>
-2. 图像分辨率（采样量）越 <span class="answer">高</span>，像素越小，采样精细度越 <span class="answer">高</span>。<br>
-3. 颜色种类（量化等级）越 <span class="answer">多</span>，位深度越 <span class="answer">大</span>，色彩越 <span class="answer">丰富</span>。<br>
-4. 若位深度为 n，最多表示 <span class="answer">2<sup>n</sup></span> 种颜色。
+<div class="conclusion-layout">
+<div class="mini-rounds">
+<div class="pixel-grid mini-grid g3x4">
+<span class="c0"></span><span class="c1"></span><span class="c0"></span>
+<span class="c1"></span><span class="c2"></span><span class="c1"></span>
+<span class="c0"></span><span class="c1"></span><span class="c0"></span>
+<span class="c0"></span><span class="c3"></span><span class="c0"></span>
+</div>
+<div class="pixel-grid mini-grid g6x8">
+<span class="c0"></span><span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c0"></span><span class="c0"></span>
+<span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c1"></span><span class="c1"></span><span class="c0"></span>
+<span class="c1"></span><span class="c1"></span><span class="c2"></span><span class="c2"></span><span class="c1"></span><span class="c1"></span>
+<span class="c1"></span><span class="c1"></span><span class="c2"></span><span class="c2"></span><span class="c1"></span><span class="c1"></span>
+<span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c1"></span><span class="c1"></span><span class="c0"></span>
+<span class="c0"></span><span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c0"></span><span class="c0"></span>
+<span class="c0"></span><span class="c3"></span><span class="c3"></span><span class="c3"></span><span class="c3"></span><span class="c0"></span>
+<span class="c0"></span><span class="c0"></span><span class="c0"></span><span class="c3"></span><span class="c0"></span><span class="c0"></span>
+</div>
+<div class="pixel-grid mini-grid g6x8">
+<span class="c0"></span><span class="c0"></span><span class="c6"></span><span class="c1"></span><span class="c0"></span><span class="c0"></span>
+<span class="c0"></span><span class="c6"></span><span class="c1"></span><span class="c1"></span><span class="c6"></span><span class="c0"></span>
+<span class="c1"></span><span class="c6"></span><span class="c2"></span><span class="c4"></span><span class="c1"></span><span class="c1"></span>
+<span class="c1"></span><span class="c1"></span><span class="c4"></span><span class="c4"></span><span class="c6"></span><span class="c1"></span>
+<span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c6"></span><span class="c1"></span><span class="c0"></span>
+<span class="c0"></span><span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c0"></span><span class="c0"></span>
+<span class="c0"></span><span class="c3"></span><span class="c3"></span><span class="c3"></span><span class="c3"></span><span class="c0"></span>
+<span class="c0"></span><span class="c0"></span><span class="c0"></span><span class="c3"></span><span class="c0"></span><span class="c0"></span>
+</div>
 </div>
 
-<div class="thesis">这是原课的课堂结论表述；适用条件与技术限定放在教师 notes 中。</div>
+<div class="fill-list">
+1. 位图图像编码步骤是 <span class="answer">采样</span>、<span class="answer">量化</span> 和 <span class="answer">编码</span>。<br>
+2. 图像分辨率（采样量）越 <span class="answer">高</span>，像素越小，采样精细度越 <span class="answer">高</span>，图像越清晰细腻。<br>
+3. 颜色种类（量化等级）越 <span class="answer">多</span>，位深度越 <span class="answer">大</span>，色彩越 <span class="answer">丰富</span>，图像越逼真；若位深度为 n，则表示的颜色种类最多不超过 <span class="answer">2<sup>n</sup></span>。
+</div>
+</div>
 
 ::: {.notes}
-对应 Snip 13 的答案揭示。Snip 12 在源压缩包中缺失；现有材料不足以确定它是局部 reveal、动画 build 还是其他状态，因此正式重建不宣称知道 Snip 12 的具体内容。
+对应 Snip 13：答案完整揭示。
 
 教师侧限定：
-- “分辨率越高越清晰”按本课控制变量实验理解，不等于已有图片插值放大就获得新的真实细节。
-- “颜色越多越逼真”按同一原图、同一量化任务、其他条件相同理解，不是无条件规律。
+- “分辨率越高越清晰”只按本课同一对象、其他条件相近、增加真实空间采样的控制变量实验理解；已有低分辨率位图插值放大不等于重新获得真实细节。
+- “颜色越多越逼真”只按同一量化任务、其他条件相同理解为颜色近似可以更细，不是无条件规律。
 :::
