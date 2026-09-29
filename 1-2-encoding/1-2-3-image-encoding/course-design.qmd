@@ -1,7 +1,7 @@
 ---
 title: "1-2-3 图像编码"
 subtitle: "Image Encoding：从连续图像到像素、颜色与二进制"
-version: "v1.4.7"
+version: "v1.4.8"
 format:
   html:
     toc: true
@@ -490,14 +490,16 @@ $$
 
 先让学生判断：
 
-> **1920×1080 的图片一定比 800×600 更清晰。**
+> **1600×1200 的图片一定比 800×600 更清晰。**
 
 不少学生会倾向“是”。
 
 然后对比：
 
-- 一张严重失焦的 1920×1080 图像；
+- 一张严重失焦的 1600×1200 图像；
 - 一张清晰的 800×600 图像。
+
+两张图应保持同一 4:3 aspect ratio 与同场景 framing；本课素材使用 GaussianBlur(radius=10) 制作高像素数模糊图，避免把形状拉伸当成额外变量。
 
 ## 教师设计
 
@@ -1631,17 +1633,19 @@ original / 16 / 2 → 256×256 RGB
 
 ## 课堂可用状态
 
-截至 v1.4.7，本文件已经把 demo 的输入、路径、算法和检查条件写清楚，但仓库里仍未建立教师版 / 学生版 notebook，也尚未提交上述 fallback 图片。
+截至 v1.4.8，教师版 notebook、学生版 notebook、fallback PNG、PPTX 与 slides.qmd 已经生成并在本地副本中运行/渲染验证。当前状态应标记为：
+
+> **本地材料已生成并通过基础验证；仍待 Windows 10 + conda `pt` 教室机器运行验证，以及 WPS 字体与版式验证。**
 
 因此本阶段应标记为：
 
-> **课程设计就绪；demo classroom package 尚未完成，不应仅凭 course-design.qmd 宣称“可直接上课”。**
+> **尚不能仅凭本地验证标记为“可直接上课”；需完成教室 Windows/WPS 环境复验后再定稿。**
 
-进入“课堂可用”状态前至少完成：
+进入“课堂可用”状态前仍需完成：
 
-1. 建立教师版 notebook：含生成测试图、Demo A / B / C / D、预期输出与教师提示；
-2. 建立学生版 notebook：隐藏关键结论，保留预测、观察和必要代码单元；
-3. 在 Windows 10 + conda `pt` + 本课目录作为 working directory 的条件下完整运行一次；
+1. 在 Windows 10 + conda `pt` + 本课目录作为 working directory 的条件下完整运行教师版 / 学生版 notebook；
+2. 在 WPS 中检查 PPTX 字体、版式、Speaker Notes 与图片显示；
+3. 根据课堂设备实际显示效果微调 PPTX；
 4. 确认 `assets/test-image.png`、`assets/q7-3x2-24bit.bmp` 均能被相对路径找到；
 5. 由教师 notebook **直接导出并核对** Demo A 的五张 512×512 sampling fallback 图，以及 Demo B 的 original / 16-color / 2-color 三张 256×256 fallback 图；
 6. 用刚导出的五张 `sampling-*.png` 制作 PPTX 中紧跟 Q1 问题页的两张三图证据页：`256 / 64 / 32` 与 `32 / 16 / 8`；两页中的 32×32 必须来自同一个导出文件；
@@ -2239,7 +2243,7 @@ $$
 
 ***
 
-# C9 V1.4.7 设计取舍
+# C9 V1.4.8 设计取舍
 
 本版本继续控制在一节 45 分钟课可以完成的范围内，并进一步收紧 Q1 的投影节奏：五张 sampling 图不再挤在一页，也不再“先完整跑 Demo A、再重复看 PPTX”；主课固定使用 `256 / 64 / 32` 与 `32 / 16 / 8` 两张三图证据页，32×32 作为跨页衔接。
 
@@ -2333,3 +2337,33 @@ course-design.qmd 本身不等于完整课堂包。教师版 / 学生版 noteboo
 
 5. **Quarto 数学与 Markdown 语法**  
    Quarto Documentation, [Markdown Basics](https://quarto.org/docs/authoring/markdown-basics.html)。本文件使用 `$...$` / `$$...$$` 编写数学公式，并使用标准 fenced code blocks 保存流程图和 byte 序列。正文中的章节分隔统一使用 `***`，避免独立一行的三个连字符被 Pandoc 识别为额外的 YAML metadata block。
+
+
+***
+
+# 当前材料包与设计对齐说明
+
+截至 v1.4.8，当前材料包已经补齐以下实现：
+
+- 教师版 notebook 含 Q1 Demo A 的 `show_sampling(n)`，用于学生提出新尺寸时即时验证；
+- 教师版 notebook 含 Q2 1600×1200 blurred / 800×600 sharp 的生成与尺寸复核；
+- 教师版 notebook 含 Q6 Demo C：`RGB=(255,128,0)` → 8-bit binary；
+- 教师版 notebook 含 Demo B 可选 BMP `biBitCount` 与文件大小检查；
+- PPTX、slides.qmd 与 fallback PNG 均采用同一批导出图片。
+
+仍待完成：Windows 10 + conda `pt` 教室机器验证、WPS 字体与版式验证、教师最终节奏确认。
+
+
+***
+
+# 当前材料包与设计对齐说明
+
+截至 v1.4.8，当前材料包已经补齐以下实现：
+
+- 教师版 notebook 含 Q1 Demo A 的 `show_sampling(n)`，用于学生提出新尺寸时即时验证；
+- 教师版 notebook 含 Q2 1600×1200 blurred / 800×600 sharp 的生成与尺寸复核；
+- 教师版 notebook 含 Q6 Demo C：`RGB=(255,128,0)` → 8-bit binary；
+- 教师版 notebook 含 Demo B 可选 BMP `biBitCount` 与文件大小检查；
+- PPTX、slides.qmd 与 fallback PNG 均采用同一批导出图片。
+
+仍待完成：Windows 10 + conda `pt` 教室机器验证、WPS 字体与版式验证、教师最终节奏确认。

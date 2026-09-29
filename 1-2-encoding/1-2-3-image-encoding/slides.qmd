@@ -44,7 +44,9 @@ execute:
 
 ---
 
-## Q1 证据页 A：256 / 64 / 32
+## Q1 如果显示尺寸一样，为什么这些图片看起来不同？
+
+**证据 A：256 / 64 / 32**
 
 ::: columns
 ::: {.column width="33%"}
@@ -66,7 +68,9 @@ execute:
 
 ---
 
-## Q1 证据页 B：32 / 16 / 8
+## Q1 如果显示尺寸一样，为什么这些图片看起来不同？
+
+**证据 B：32 / 16 / 8**
 
 ::: columns
 ::: {.column width="33%"}
@@ -90,17 +94,17 @@ execute:
 
 ## Q2 分辨率越高，图像一定越清晰吗？
 
-先判断：1920×1080 的图片一定比 800×600 更清晰吗？
+先判断：1600×1200 的图片一定比 800×600 更清晰吗？
 
 ---
 
-## Q2 反例
+## Q2 分辨率越高，图像一定越清晰吗？
 
 ::: columns
 ::: {.column width="50%"}
 ![](assets/fallback/q2-high-pixels-blur.png){width=100%}
 
-1920×1080，高像素数但模糊
+1600×1200，高像素数但模糊
 :::
 ::: {.column width="50%"}
 ![](assets/fallback/q2-low-pixels-sharp.png){width=100%}
@@ -117,7 +121,7 @@ execute:
 
 ---
 
-## Q3 先看图
+## Q3 像素数量完全一样，红绿接缝还会一直看得见吗？
 
 ::: columns
 ::: {.column width="33%"}
@@ -139,7 +143,7 @@ execute:
 
 ---
 
-## Q3 再看证据
+## Q3 像素数量完全一样，红绿接缝还会一直看得见吗？
 
 | 版本 | left (72,40) | right (73,40) | 是否相同 |
 |---|---:|---:|---|
@@ -152,13 +156,11 @@ execute:
 
 ## Q4 如果只允许 16 种颜色，最少需要几 bit？
 
-给 16 种颜色各分配一个不同的、固定长度的二进制标签。
-
-2 bit 够不够？3 bit 呢？4 bit 为什么刚好够？
+2 bit、3 bit 够吗？怎样判断？
 
 ---
 
-## Q4 状态数量
+## Q4 如果只允许 16 种颜色，最少需要几 bit？
 
 | bit 数 | 可表示状态数 |
 |---:|---:|
@@ -167,7 +169,7 @@ execute:
 | 3 | 8 |
 | 4 | 16 |
 
-$$\text{可表示状态数}=2^b$$
+$$	ext{可表示状态数}=2^b$$
 
 ---
 
@@ -177,13 +179,13 @@ $$\text{可表示状态数}=2^b$$
 
 ---
 
-## Q5 RGB
+## Q5 “24-bit color” 是 24 种颜色吗？
 
 R: 8 bits → 0..255  
 G: 8 bits → 0..255  
 B: 8 bits → 0..255
 
-$$8+8+8=24\text{ bits/pixel}$$
+$$8+8+8=24	ext{ bits/pixel}$$
 
 $$256^3=2^{24}=16{,}777{,}216$$
 
@@ -195,7 +197,7 @@ RGB = (255, 128, 0)
 
 ---
 
-## Q6 证据
+## Q6 一个 RGB 像素怎样变成 0 和 1？
 
 | 通道 | 十进制 | 8-bit binary |
 |---|---:|---|
@@ -215,7 +217,7 @@ Encoding：把量化后的数值按约定表示并组织成 bits / bytes。
 
 ---
 
-## Q7 证据
+## Q7 真实 BMP 文件中，像素数据之前有什么？
 
 ```text
 42 4D  →  "BM"
@@ -239,13 +241,13 @@ D. 约 48 MB
 
 ---
 
-## Q8 计算
+## Q8 1920×1080、24-bit RGB，不压缩需要多大？
 
-$$1920\times1080=2{,}073{,}600\text{ pixels}$$
+$$1920	imes1080=2{,}073{,}600	ext{ pixels}$$
 
-$$24\text{ bits/pixel}=3\text{ bytes/pixel}$$
+$$24	ext{ bits/pixel}=3	ext{ bytes/pixel}$$
 
-$$2{,}073{,}600\times3=6{,}220{,}800\text{ bytes}\approx6.22\text{ MB}$$
+$$2{,}073{,}600	imes3=6{,}220{,}800	ext{ bytes}pprox6.22	ext{ MB}$$
 
 答案：B. 约 6 MB
 
@@ -259,30 +261,41 @@ bits per pixel 不变
 
 ---
 
-## Q9 答案
+## Q9 宽和高都变成 2 倍，数据量变成几倍？
 
-$$\frac{1600\times1200}{800\times600}=4$$
+$$rac{1600	imes1200}{800	imes600}=4$$
 
 宽 ×2，高 ×2，所以像素总数 ×4。
 
 ---
 
-## Q12 回看 Q0
+## Q12 回看 Q0：四种说法现在怎样排序？
+
+::: columns
+::: {.column width="25%"}
+**很多 0 和 1**
+:::
+::: {.column width="25%"}
+**很多像素 / 小方格**
+:::
+::: {.column width="25%"}
+**很多数字**
+:::
+::: {.column width="25%"}
+**很多颜色值**
+:::
+:::
+
+---
+
+## Q12 回看 Q0：四种说法现在怎样排序？
 
 像素位置 → 颜色值 → 数字表示 → bits / bytes
 
 Sampling → Quantization → Encoding
 
----
-
-## 最终模型
-
-Sampling：在哪里取值？取多少位置？  
-Quantization：每个位置允许哪些离散值？  
-Encoding：这些值怎样表示并组织成 bits / bytes？
-
-$$\text{像素值数据量}=W\times H\times b\text{ bits}$$
+$$	ext{像素值数据量}=W	imes H	imes b	ext{ bits}$$
 
 本课 24-bit RGB：
 
-$$W\times H\times3\text{ bytes}$$
+$$W	imes H	imes3	ext{ bytes}$$
