@@ -143,14 +143,15 @@ format:
      $$
      种状态 / 颜色
 
-4. **未压缩位图数据量**
-   $$
+4. **原课称“未压缩位图数据量”的课堂公式**
+   $
    \boxed{
-   \text{图像数据量(B)}
+   \text{像素数据量(B)}
    =
    \frac{\text{分辨率}\times\text{位深度}}{8}
    }
-   $$
+   $
+   - **教师侧限定**：本式首先计算理想连续排列的像素有效载荷，不等同于 BMP 等具体文件格式的完整文件大小。
 
 5. **24 位真彩色**
    - R：8 bit
@@ -790,7 +791,7 @@ $$
 
 ---
 
-# Q12 数据量的单位如果要求 B、KB、MB 怎么办？
+# Q12 像素数据量的单位如果要求 B、KB、MB 怎么办？
 
 ## 时间
 
@@ -822,7 +823,7 @@ $$
 
 $$
 \boxed{
-\text{图像数据量(B)}
+\text{像素数据量(B)}
 =
 \frac{\text{分辨率}\times\text{位深度}}{8}
 }
@@ -1561,14 +1562,18 @@ G = 95
 B = 15
 ```
 
-## Demo 4：500×333 图像文件大小
+## Demo 4：500×333 像素数据量与原课文件大小对照
 
-用于验证：
+课堂公式得到：
 
-$$
-\frac{500\times333\times24}{8\times1024}
-\approx 487KB
-$$
+$
+\frac{500\times333\times24}{8}
+=
+499{,}500\ \text{B}
+\approx 487.79\ \text{KiB}
+$
+
+整数近似约为 **488 KiB**。原课堂另展示了界面中约 **487 KB** 的 BMP 文件；正式复刻保留这一历史对照，但教师 notes 明确说明：像素有效载荷与 BMP 完整文件大小不是同一个量。
 
 ## Demo 5：AI 修复前后
 
@@ -1625,15 +1630,17 @@ $$
 2^n\text{ 种颜色}
 $$
 
-## 图像数据量
+## 像素数据量（课堂公式）
 
-$$
+$
 \boxed{
-\text{数据量(B)}
+\text{像素数据量(B)}
 =
 \frac{\text{横向像素数}\times\text{纵向像素数}\times\text{位深度}}{8}
 }
-$$
+$
+
+> 教师注解：这是像素有效载荷的课堂计算式；具体 BMP 文件还可能包含 header、palette、row padding 等格式开销。
 
 单位换算：
 
@@ -1758,3 +1765,17 @@ $$
 - 时间为根据截图内容与逐字稿发生位置进行的**大致对照**；如果后续取得原始 PPT 或视频时间轴，应以原始文件进一步校准。
 - 一张截图可能对应一个讲授环节中的某个“build”状态，而不一定等于原 PPT 中唯一的一张逻辑页面。
 - 后续制作 `slides.qmd` 时，应优先遵守截图的视觉顺序，并用逐字稿决定 presenter notes 的讲述内容。
+
+
+---
+
+# C13 技术参考（教师侧）
+
+这些资料用于给复刻版增加技术限定，不改变原课历史记录：
+
+- Microsoft Learn, **Bitmap Storage**：BMP 文件由文件头、信息头、颜色表（适用时）和实际 bitmap data 等部分组成。  
+  https://learn.microsoft.com/en-us/windows/win32/gdi/bitmap-storage
+- Microsoft Learn, **BITMAPINFOHEADER** / DIB 说明：图像缓冲区可能包含 stride / padding。  
+  https://learn.microsoft.com/windows/win32/api/wingdi/ns-wingdi-bitmapinfoheader
+- OpenCV, **Image Inpainting**：把图像修复描述为对选定缺损区域进行重建，而不是重新采集原场景。  
+  https://docs.opencv.org/5.0/main_modules/photo_inpaint.html
