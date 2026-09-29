@@ -13,6 +13,8 @@ execute:
 
 ## 图像编码
 
+Sampling · Quantization · Encoding
+
 从一张图片到 pixels、colors、bits 和 bytes
 
 ---
@@ -46,7 +48,7 @@ execute:
 
 ## Q1 如果显示尺寸一样，为什么这些图片看起来不同？
 
-**证据 A：256 / 64 / 32**
+证据页 A：256 / 64 / 32
 
 ::: columns
 ::: {.column width="33%"}
@@ -70,7 +72,7 @@ execute:
 
 ## Q1 如果显示尺寸一样，为什么这些图片看起来不同？
 
-**证据 B：32 / 16 / 8**
+证据页 B：32 / 16 / 8
 
 ::: columns
 ::: {.column width="33%"}
@@ -92,6 +94,14 @@ execute:
 
 ---
 
+## Q1 如果显示尺寸一样，为什么这些图片看起来不同？
+
+Sampling：在哪里取样？取多少个位置？
+
+Resolution：本课中指宽 × 高的像素尺寸。
+
+---
+
 ## Q2 分辨率越高，图像一定越清晰吗？
 
 先判断：1600×1200 的图片一定比 800×600 更清晰吗？
@@ -104,14 +114,24 @@ execute:
 ::: {.column width="50%"}
 ![](assets/fallback/q2-high-pixels-blur.png){width=100%}
 
-1600×1200，高像素数但模糊
+1600×1200，Gaussian blur simulation
 :::
 ::: {.column width="50%"}
 ![](assets/fallback/q2-low-pixels-sharp.png){width=100%}
 
-800×600，较低像素数但清晰
+800×600，同场景，清晰
 :::
 :::
+
+先观察：哪张更容易看清边缘和细节？
+
+---
+
+## Q2 分辨率越高，图像一定越清晰吗？
+
+高 pixel count 不自动等于高质量。
+
+在同一场景、同一范围、其他条件相同时，更多采样通常保留更多细节。
 
 ---
 
@@ -122,6 +142,8 @@ execute:
 ---
 
 ## Q3 像素数量完全一样，红绿接缝还会一直看得见吗？
+
+先看图，不先公布 RGB 数值。
 
 ::: columns
 ::: {.column width="33%"}
@@ -156,6 +178,8 @@ execute:
 
 ## Q4 如果只允许 16 种颜色，最少需要几 bit？
 
+给 16 种颜色各分配一个不同的、固定长度的二进制标签。
+
 2 bit、3 bit 够吗？怎样判断？
 
 ---
@@ -169,7 +193,7 @@ execute:
 | 3 | 8 |
 | 4 | 16 |
 
-$$	ext{可表示状态数}=2^b$$
+$$\text{可表示状态数}=2^b$$
 
 ---
 
@@ -185,7 +209,7 @@ R: 8 bits → 0..255
 G: 8 bits → 0..255  
 B: 8 bits → 0..255
 
-$$8+8+8=24	ext{ bits/pixel}$$
+$$8+8+8=24\text{ bits/pixel}$$
 
 $$256^3=2^{24}=16{,}777{,}216$$
 
@@ -194,6 +218,8 @@ $$256^3=2^{24}=16{,}777{,}216$$
 ## Q6 一个 RGB 像素怎样变成 0 和 1？
 
 RGB = (255, 128, 0)
+
+先预测：255、128、0 的 8-bit binary 分别是什么？
 
 ---
 
@@ -243,11 +269,11 @@ D. 约 48 MB
 
 ## Q8 1920×1080、24-bit RGB，不压缩需要多大？
 
-$$1920	imes1080=2{,}073{,}600	ext{ pixels}$$
+$$1920\times1080=2{,}073{,}600\text{ pixels}$$
 
-$$24	ext{ bits/pixel}=3	ext{ bytes/pixel}$$
+$$24\text{ bits/pixel}=3\text{ bytes/pixel}$$
 
-$$2{,}073{,}600	imes3=6{,}220{,}800	ext{ bytes}pprox6.22	ext{ MB}$$
+$$2{,}073{,}600\times3=6{,}220{,}800\text{ bytes}\approx6.22\text{ MB}$$
 
 答案：B. 约 6 MB
 
@@ -263,13 +289,13 @@ bits per pixel 不变
 
 ## Q9 宽和高都变成 2 倍，数据量变成几倍？
 
-$$rac{1600	imes1200}{800	imes600}=4$$
+$$\frac{1600\times1200}{800\times600}=4$$
 
 宽 ×2，高 ×2，所以像素总数 ×4。
 
 ---
 
-## Q12 回看 Q0：四种说法现在怎样排序？
+## Q12 回看 Q0：这四种说法现在怎样排序？
 
 ::: columns
 ::: {.column width="25%"}
@@ -288,14 +314,14 @@ $$rac{1600	imes1200}{800	imes600}=4$$
 
 ---
 
-## Q12 回看 Q0：四种说法现在怎样排序？
+## Q12 回看 Q0：这四种说法现在怎样排序？
 
 像素位置 → 颜色值 → 数字表示 → bits / bytes
 
 Sampling → Quantization → Encoding
 
-$$	ext{像素值数据量}=W	imes H	imes b	ext{ bits}$$
+$$\text{像素值数据量}=W\times H\times b\text{ bits}$$
 
 本课 24-bit RGB：
 
-$$W	imes H	imes3	ext{ bytes}$$
+$$W\times H\times3\text{ bytes}$$
