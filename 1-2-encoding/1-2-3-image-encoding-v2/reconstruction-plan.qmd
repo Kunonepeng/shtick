@@ -68,7 +68,7 @@ https://upload.wikimedia.org/wikipedia/commons/3/39/Sunflower_Helianthus_1_edite
 | 13 | Snip 13 | 实验结论：答案揭示 | 收束 | 用红色/强调色显示答案 |
 | 14 起 | Snip 14–16 | 图像数据量 | 进入数据量推导 | 再进入三组数据表 |
 
-# 前 11 页讲述节奏
+# 前段讲述节奏
 
 ## 1–3：问题进入
 
@@ -102,7 +102,7 @@ https://upload.wikimedia.org/wikipedia/commons/3/39/Sunflower_Helianthus_1_edite
 # 当前完成情况
 
 - `slides-source-replica.qmd`：保留原课截图基线。
-- `slides.qmd`：已改为正式版前 11 页原生重建草稿。
+- `slides.qmd`：已按原课前段顺序重建到“实验结论”答案揭示，并修正 Snip 11 / 13 的揭示关系。
 - `styles/rebuild.css`：正式版样式文件。
 
 # 后续任务
