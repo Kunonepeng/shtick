@@ -8,6 +8,8 @@ project:
     - 1-2-encoding/1-2-3-character-encoding/demo-lab-student.qmd
     - 1-2-encoding/1-2-3-character-encoding/slides.qmd
     - 1-2-encoding/1-2-3-image-encoding/course-design.qmd
+    - 1-2-encoding/1-2-3-image-encoding-v2/course-design.qmd
+    - 1-2-encoding/1-2-3-image-encoding-v2/slides.qmd
 
 website:
   title: "shtick"
