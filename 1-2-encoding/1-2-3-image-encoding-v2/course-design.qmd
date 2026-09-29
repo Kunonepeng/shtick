@@ -15,11 +15,11 @@ format:
 
 本版课程设计依据：
 
-1. `图像编码入门课程讲解-2026年09月29日-来自【得到大脑】.pdf`
+1. `sources/图像编码入门课程讲解-2026年09月29日-来自【得到大脑】.pdf`
    - 44 分钟课堂总结
    - 时间轴
    - 课堂逐字稿
-2. `pics-of-deck-image-encoding.zip`
+2. `sources/pics-of-deck-image-encoding.zip`
    - 26 张有效课堂课件截图
    - 有效文件编号为 `Snip20260929_1.png` ～ `Snip20260929_11.png`、`Snip20260929_13.png` ～ `Snip20260929_27.png`
    - `Snip20260929_12.png` 不在压缩包中；`__MACOSX/` 下的 `._*` 文件属于 macOS 元数据，不计为有效截图
@@ -1606,19 +1606,21 @@ $$
 └── 1-2-3-image-encoding-v2/
     ├── course-design.qmd
     ├── slides.qmd
+    ├── source-replica.css
+    ├── sources/
+    │   ├── pics-of-deck-image-encoding.zip
+    │   └── 图像编码入门课程讲解-2026年09月29日-来自【得到大脑】.pdf
+    ├── scripts/
+    │   └── prepare-source-images.py
     ├── assets/
-    │   ├── original-screenshots/
-    │   ├── flower-experiment/
-    │   ├── bitmap-zoom/
-    │   ├── rgb/
-    │   ├── ai-repair/
-    │   └── analog-digital/
+    │   └── original-screenshots/   # 由 sources 中的 zip 生成
     └── notes/
 ```
 
 其中：
 
-- `original-screenshots/` 保留 27 张原课堂截图；
+- `sources/` 是原始资料的唯一归档位置；
+- `assets/original-screenshots/` 由 `scripts/prepare-source-images.py` 从 source zip 解压生成，不再手工维护第二份源文件；
 - `slides.qmd` 优先按照截图顺序重建，不先做教学优化；
 - 课堂中的教师讲解内容后续进入 Speaker Notes / presenter notes；
 - 等“原课复刻版”完成并验证后，再从该基线建立 Image Encoding 101 的改进版。
