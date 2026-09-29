@@ -1,0 +1,436 @@
+---
+title: "图像编码"
+subtitle: "2026-09-29 原课截图复刻基线"
+lang: zh-CN
+format:
+  revealjs:
+    transition: fade
+    center: true
+    slide-number: false
+    width: 1600
+    height: 900
+    css: source-replica.css
+---
+
+<!--
+Run before previewing this reference deck:
+
+python scripts/prepare-source-images.py
+
+This deck intentionally keeps the original classroom screenshots as an internal visual baseline.
+It is not the final presentable deck.
+-->
+
+## 原课截图 1 {.source-slide}
+
+<div class="source-shot">
+
+![](assets/original-screenshots/Snip20260929_1.png){fig-alt="原课截图 1"}
+
+</div>
+
+<div class="source-label">Snip20260929_1.png</div>
+
+::: {.notes}
+课程开场。承接之前的字符编码学习，转入图像这一类数据。
+:::
+
+---
+
+## 原课截图 2 {.source-slide}
+
+<div class="source-shot">
+
+![](assets/original-screenshots/Snip20260929_2.png){fig-alt="原课截图 2"}
+
+</div>
+
+<div class="source-label">Snip20260929_2.png</div>
+
+::: {.notes}
+约 00:00:43。用日常拍照情境进入问题。
+:::
+
+---
+
+## 原课截图 3 {.source-slide}
+
+<div class="source-shot">
+
+![](assets/original-screenshots/Snip20260929_3.png){fig-alt="原课截图 3"}
+
+</div>
+
+<div class="source-label">Snip20260929_3.png</div>
+
+::: {.notes}
+提出问题：照片放大以后变模糊，怎么办？
+:::
+
+---
+
+## 原课截图 4 {.source-slide}
+
+<div class="source-shot">
+
+![](assets/original-screenshots/Snip20260929_4.png){fig-alt="原课截图 4"}
+
+</div>
+
+<div class="source-label">Snip20260929_4.png</div>
+
+::: {.notes}
+教师现场打开照片，开始连续放大。
+:::
+
+---
+
+## 原课截图 5 {.source-slide}
+
+<div class="source-shot">
+
+![](assets/original-screenshots/Snip20260929_5.png){fig-alt="原课截图 5"}
+
+</div>
+
+<div class="source-label">Snip20260929_5.png</div>
+
+::: {.notes}
+放大到能够看见像素小方块。
+:::
+
+---
+
+## 原课截图 6 {.source-slide}
+
+<div class="source-shot">
+
+![](assets/original-screenshots/Snip20260929_6.png){fig-alt="原课截图 6"}
+
+</div>
+
+<div class="source-label">Snip20260929_6.png</div>
+
+::: {.notes}
+进入思维实验：图像编码的过程。
+:::
+
+---
+
+## 原课截图 7 {.source-slide}
+
+<div class="source-shot">
+
+![](assets/original-screenshots/Snip20260929_7.png){fig-alt="原课截图 7"}
+
+</div>
+
+<div class="source-label">Snip20260929_7.png</div>
+
+::: {.notes}
+花朵与 3×4 网格，建立光敏元件 / 采样模型。
+:::
+
+---
+
+## 原课截图 8 {.source-slide}
+
+<div class="source-shot">
+
+![](assets/original-screenshots/Snip20260929_8.png){fig-alt="原课截图 8"}
+
+</div>
+
+<div class="source-label">Snip20260929_8.png</div>
+
+::: {.notes}
+采样与 3×4 四色像素图。
+:::
+
+---
+
+## 原课截图 9 {.source-slide}
+
+<div class="source-shot">
+
+![](assets/original-screenshots/Snip20260929_9.png){fig-alt="原课截图 9"}
+
+</div>
+
+<div class="source-label">Snip20260929_9.png</div>
+
+::: {.notes}
+四种颜色编号 0、1、2、3，进入量化。
+:::
+
+---
+
+## 原课截图 10 {.source-slide}
+
+<div class="source-shot">
+
+![](assets/original-screenshots/Snip20260929_10.png){fig-alt="原课截图 10"}
+
+</div>
+
+<div class="source-label">Snip20260929_10.png</div>
+
+::: {.notes}
+从量化过渡到编码。
+:::
+
+---
+
+## 原课截图 11 {.source-slide}
+
+<div class="source-shot">
+
+![](assets/original-screenshots/Snip20260929_11.png){fig-alt="原课截图 11"}
+
+</div>
+
+<div class="source-label">Snip20260929_11.png</div>
+
+::: {.notes}
+三轮花朵思想实验比较。
+:::
+
+---
+
+## 原课截图 13 {.source-slide}
+
+<div class="source-shot">
+
+![](assets/original-screenshots/Snip20260929_13.png){fig-alt="原课截图 13"}
+
+</div>
+
+<div class="source-label">Snip20260929_13.png（源文件无编号 12）</div>
+
+::: {.notes}
+实验结论总结。
+:::
+
+---
+
+## 原课截图 14 {.source-slide}
+
+<div class="source-shot">
+
+![](assets/original-screenshots/Snip20260929_14.png){fig-alt="原课截图 14"}
+
+</div>
+
+<div class="source-label">Snip20260929_14.png</div>
+
+::: {.notes}
+三幅实验图与图像数据量表格。
+:::
+
+---
+
+## 原课截图 15 {.source-slide}
+
+<div class="source-shot">
+
+![](assets/original-screenshots/Snip20260929_15.png){fig-alt="原课截图 15"}
+
+</div>
+
+<div class="source-label">Snip20260929_15.png</div>
+
+::: {.notes}
+图像数据量逐步推导。
+:::
+
+---
+
+## 原课截图 16 {.source-slide}
+
+<div class="source-shot">
+
+![](assets/original-screenshots/Snip20260929_16.png){fig-alt="原课截图 16"}
+
+</div>
+
+<div class="source-label">Snip20260929_16.png</div>
+
+::: {.notes}
+未压缩位图数据量公式。
+:::
+
+---
+
+## 原课截图 17 {.source-slide}
+
+<div class="source-shot">
+
+![](assets/original-screenshots/Snip20260929_17.png){fig-alt="原课截图 17"}
+
+</div>
+
+<div class="source-label">Snip20260929_17.png</div>
+
+::: {.notes}
+黑白、16 色、256 色、24 位讨论归纳表。
+:::
+
+---
+
+## 原课截图 18 {.source-slide}
+
+<div class="source-shot">
+
+![](assets/original-screenshots/Snip20260929_18.png){fig-alt="原课截图 18"}
+
+</div>
+
+<div class="source-label">Snip20260929_18.png</div>
+
+::: {.notes}
+讨论归纳表答案与真彩色过渡。
+:::
+
+---
+
+## 原课截图 19 {.source-slide}
+
+<div class="source-shot">
+
+![](assets/original-screenshots/Snip20260929_19.png){fig-alt="原课截图 19"}
+
+</div>
+
+<div class="source-label">Snip20260929_19.png</div>
+
+::: {.notes}
+RGB 图像模式与三个 8-bit 通道。
+:::
+
+---
+
+## 原课截图 20 {.source-slide}
+
+<div class="source-shot">
+
+![](assets/original-screenshots/Snip20260929_20.png){fig-alt="原课截图 20"}
+
+</div>
+
+<div class="source-label">Snip20260929_20.png</div>
+
+::: {.notes}
+单个像素的 RGB 数值。
+:::
+
+---
+
+## 原课截图 21 {.source-slide}
+
+<div class="source-shot">
+
+![](assets/original-screenshots/Snip20260929_21.png){fig-alt="原课截图 21"}
+
+</div>
+
+<div class="source-label">Snip20260929_21.png</div>
+
+::: {.notes}
+回到“放大后变清晰”的开头问题。
+:::
+
+---
+
+## 原课截图 22 {.source-slide}
+
+<div class="source-shot">
+
+![](assets/original-screenshots/Snip20260929_22.png){fig-alt="原课截图 22"}
+
+</div>
+
+<div class="source-label">Snip20260929_22.png</div>
+
+::: {.notes}
+破损照片。
+:::
+
+---
+
+## 原课截图 23 {.source-slide}
+
+<div class="source-shot">
+
+![](assets/original-screenshots/Snip20260929_23.png){fig-alt="原课截图 23"}
+
+</div>
+
+<div class="source-label">Snip20260929_23.png</div>
+
+::: {.notes}
+AI 修图引导。
+:::
+
+---
+
+## 原课截图 24 {.source-slide}
+
+<div class="source-shot">
+
+![](assets/original-screenshots/Snip20260929_24.png){fig-alt="原课截图 24"}
+
+</div>
+
+<div class="source-label">Snip20260929_24.png</div>
+
+::: {.notes}
+AI 修图四步解释。
+:::
+
+---
+
+## 原课截图 25 {.source-slide}
+
+<div class="source-shot">
+
+![](assets/original-screenshots/Snip20260929_25.png){fig-alt="原课截图 25"}
+
+</div>
+
+<div class="source-label">Snip20260929_25.png</div>
+
+::: {.notes}
+破损照片与 AI 修复结果。
+:::
+
+---
+
+## 原课截图 26 {.source-slide}
+
+<div class="source-shot">
+
+![](assets/original-screenshots/Snip20260929_26.png){fig-alt="原课截图 26"}
+
+</div>
+
+<div class="source-label">Snip20260929_26.png</div>
+
+::: {.notes}
+模拟量与连续变化。
+:::
+
+---
+
+## 原课截图 27 {.source-slide}
+
+<div class="source-shot">
+
+![](assets/original-screenshots/Snip20260929_27.png){fig-alt="原课截图 27"}
+
+</div>
+
+<div class="source-label">Snip20260929_27.png</div>
+
+::: {.notes}
+数字量与 0/1 离散表示。
+:::
