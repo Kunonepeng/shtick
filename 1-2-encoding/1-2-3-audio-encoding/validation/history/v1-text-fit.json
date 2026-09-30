@@ -1,7 +1,7 @@
 {
-  "lines": 241,
+  "lines": 237,
   "issues": [],
   "passed": true,
-  "pptx_sha256": "7496ddc267c55b5f9b194082d3e8c748b6496f2865653cdd1cd9736b7b6c39b4",
+  "pptx_sha256": "902f1291b25ad7976458d8977a3530dca38cf82ce959f42700e9c14cf7890ac3",
   "scope": "Horizontal glyph metrics only; no native WPS layout acceptance."
 }

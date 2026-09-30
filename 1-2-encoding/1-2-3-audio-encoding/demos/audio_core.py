@@ -70,6 +70,33 @@ def show_audio(name):
     from IPython.display import Audio, display
     display(Audio(filename=str(ROOT / 'assets' / 'audio' / name)))
 
+def show_pcm_evidence(stage='size'):
+    """D4: reveal one evidence table at a time, using actual WAV measurements."""
+    from IPython.display import HTML, display
+    evidence = [
+        ('2秒样例', 'size-check-8000-2s-16-mono.wav'),
+        ('开场A', 'music-44100-16-mono.wav'),
+        ('开场B', 'music-8000-16-mono.wav')
+    ]
+    if stage not in ['size', 'opening']:
+        raise ValueError('stage must be size or opening')
+    selected = evidence[:1] if stage == 'size' else evidence[1:]
+    records = [(label, pcm_info(ROOT / 'assets/audio' / name)) for label, name in selected]
+    style = 'border-collapse:collapse;font-size:24px;line-height:1.6;color:#262626;'
+    cell = 'padding:8px 14px;border-bottom:1px solid #ddd;text-align:right;'
+    def table(rows):
+        headers = ['文件', '采样率Hz', '时长s', '存储bit', '声道数', '样本数据B', '完整文件B']
+        markup = f'<table style="{style}"><thead><tr>'
+        markup += ''.join(f'<th style="{cell}">{h}</th>' for h in headers) + '</tr></thead><tbody>'
+        for label, info in rows:
+            values = [label, f"{info['sample_rate']:,}", f"{info['duration']:g}",
+                      info['stored_bits'], info['channels'], f"{info['payload_bytes']:,}", f"{info['file_bytes']:,}"]
+            markup += '<tr>' + ''.join(f'<td style="{cell}">{v}</td>' for v in values) + '</tr>'
+        return markup + '</tbody></table>'
+    heading = '核对2秒样例：样本数据与完整文件' if stage == 'size' else '回看开场：A、B的哪个记录参数不同？'
+    display(HTML(f'<h3>{heading}</h3>' + table(records)))
+    return {label: info for label, info in records}
+
 def plot_sampling(fs=12, reveal=False):
     import matplotlib.pyplot as plt
     t = np.linspace(0, 1, 1001)

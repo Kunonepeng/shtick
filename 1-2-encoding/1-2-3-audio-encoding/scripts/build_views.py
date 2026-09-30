@@ -16,16 +16,16 @@ if not (ROOT / 'demos' / 'audio_core.py').exists():
     if (ROOT.parent / 'demos' / 'audio_core.py').exists(): ROOT = ROOT.parent
     else: raise RuntimeError('请从1-2-3-audio-encoding课程目录打开Notebook')
 sys.path.insert(0, str(ROOT / 'demos'))
-from audio_core import plot_sampling, plot_quantization, show_audio, pcm_info, quantize, codes
+from audio_core import plot_sampling, plot_quantization, show_audio, pcm_info, show_pcm_evidence, quantize, codes
 from IPython.display import display, IFrame
 """
 demos={
  '3':('D1','plot_sampling(12, False)','plot_sampling(12, True)\nplot_sampling(24, True)'),
  '8':('D2',"show_audio('music-44100-16-mono.wav')\nshow_audio('music-8000-16-mono.wav')", "show_audio('tone-6000-at24000.wav')\nshow_audio('tone-lowpass-at8000.wav')"),
  '10':('D3','plot_quantization(2, False)',"plot_quantization(2, True)\nplot_quantization(4, True)\nshow_audio('music-22050-effective4-stored16-mono.wav')\nshow_audio('music-22050-16-mono.wav')"),
- '17':('D4',"# 先预测公式结果与完整文件大小是否相同。", "info = pcm_info(ROOT / 'assets/audio/size-check-8000-2s-16-mono.wav')\ndisplay(info)")}
+ '17':('D4',"# 先预测公式结果与完整文件大小是否相同。", "info = pcm_info(ROOT / 'assets/audio/size-check-8000-2s-16-mono.wav')\nevidence = show_pcm_evidence('size')")}
 for role in ['teacher','student']:
-    cells=[nb.v4.new_markdown_cell('# 音频数字化\n\n'+('教师演示与备课视图。课堂只投影题目／输出，先清空旧输出，折叠教师说明和代码。' if role=='teacher' else '课堂观察／课后阅读视图；不要求现场运行。先在纸上预测，再由教师揭示证据。')),
+    cells=[nb.v4.new_markdown_cell('# 音频数字化\n\n'+('教师备课与试跑视图，含教师说明；课堂优先投影学生观察版。hide-input标签不保证JupyterLab自动隐藏代码，请课前实际检查。' if role=='teacher' else '课堂观察／课后阅读视图，由教师操作。先清空旧输出、折叠代码；先在纸上预测，再运行当前证据。')),
            nb.v4.new_code_cell(setup,metadata={'tags':['setup','hide-input']})]
     for n,title,body in questions:
         cells.append(nb.v4.new_markdown_cell(f'## Q{n} {title}\n\n'+section(body,'投影提问')+'\n\n预测：________\n\n观察后解释：________'))
@@ -40,10 +40,16 @@ for role in ['teacher','student']:
             cells.append(nb.v4.new_code_cell(before,metadata={'tags':[did,'before-reveal']}))
             cells.append(nb.v4.new_markdown_cell('**等待讨论。下面单元只在完成预测后运行。**'))
             cells.append(nb.v4.new_code_cell(after,metadata={'tags':[did,'after-prediction']}))
+            if n == '17':
+                cells.append(nb.v4.new_markdown_cell('先解释公式结果与完整文件的差额，再运行下面单元核对开场猜测。'))
+                cells.append(nb.v4.new_code_cell("opening_evidence = show_pcm_evidence('opening')",metadata={'tags':['D4','opening-revisit','after-prediction']}))
     if role=='teacher':
         cells += [nb.v4.new_markdown_cell('## 离线实验台备用\n需要逐个读点动画时使用；嵌入加载失败则用PPTX静态图与预制WAV。'),nb.v4.new_code_cell("display(IFrame(src='demos/audio-lab.html', width='100%', height=720))",metadata={'tags':['fallback']})]
     cells.append(nb.v4.new_markdown_cell('## 课后练习\n\n1. 22.05kHz、16bit、单声道10秒，样本数据量是多少B？\n2. 4bit变成8bit，等级数变成几倍？\n3. 把8kHz录音转换成48kHz，能恢复未记录的6kHz吗？'))
     if role=='teacher':cells.append(nb.v4.new_markdown_cell('教师答案：441,000B；16倍；不能恢复未记录或已丢失的信息。'))
+    for cell in cells:
+        if cell.cell_type == 'code':
+            cell.metadata['jupyter'] = {'source_hidden': True}
     notebook=nb.v4.new_notebook(cells=cells,metadata={'kernelspec':{'display_name':'Python 3','language':'python','name':'python3'},'language_info':{'name':'python','version':'3.11'}})
     nb.write(notebook,ROOT/f'demo-lab-{role}.ipynb')
     qmd=['---',f'title: "音频数字化：{ "教师演示" if role=="teacher" else "学生观察" }"','lang: zh-CN','jupyter: python3','execute:','  enabled: false','format: html','---','']
@@ -65,6 +71,18 @@ for n in ['3','5','6','7','16','18','19']:
     _,title,body=next(q for q in questions if q[0]==n)
     activity.extend([f'## Q{n} {title}',section(body,'投影提问').replace('\n','\n\n'),''])
     if n == '3': activity.append('![](assets/fallback/Q3-question.png){width=95%}\n')
+    if n == '5':
+        activity.extend(['|样本值|我的近似值|Q6码字：学到编码后再填|','|---|---|---|',
+                         '|−0.62|________|________|','|−0.10|________|________|',
+                         '|0.38|________|________|','|0.84|________|________|',
+                         '\n同桌互读码字，查回的是原样本值，还是近似值？________\n'])
+    if n == '6': activity.append('填写上一表的码字栏，再向同桌读回代表值。\n')
+    if n == '16':
+        activity.append('采样率：________Hz；时长：________s；存储位数：________bit；声道数：________。\n')
+    if n == '18':
+        activity.extend(['|候选采样率|频率条件是否满足，为什么|样本数据量B|容量是否满足|',
+                         '|---|---|---|---|', '|8kHz|________|________|________|',
+                         '|16kHz|________|________|________|','|24kHz|________|________|________|'])
     activity.extend(['我的记录／算式：','\n____________________________','\n____________________________','\n我的解释：____________________________',''])
 (ROOT/'student-activities.qmd').write_text('\n'.join(activity)+'\n')
 print(json.dumps({'questions':len(questions),'notebooks':2,'reveal':'slides.qmd','worksheet':'student-activities.qmd'}))

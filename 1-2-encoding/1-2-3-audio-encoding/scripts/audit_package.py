@@ -13,6 +13,17 @@ checks=[]
 def check(name,ok,detail=''):
     checks.append(dict(name=name,passed=bool(ok),detail=detail))
 md=(ROOT/'course-design.qmd').read_text()
+q_bodies={int(n):body for n,body in re.findall(r'^## Q(\d+) .+\n([\s\S]*?)(?=^## Q\d+ |^# C6)',md,re.M)}
+def design_section(body,name):
+    m=re.search(r'^### '+name+r'\n([\s\S]*?)(?=^### |\Z)',body,re.M)
+    return m.group(1).strip() if m else ''
+timing=re.findall(r'^\|Q[^|]+\|[^|]+\|(\d+)\|第(\d+)分钟\|',md,re.M)
+check('45-minute budget and checkpoints',len(timing)==8 and sum(int(t) for t,_ in timing)==45 and list(np.cumsum([int(t) for t,_ in timing]))==[int(end) for _,end in timing])
+opening=design_section(q_bodies[1],'投影提问')
+for label,name in [('A','music-44100-16-mono.wav'),('B','music-8000-16-mono.wav')]:
+    actual=(ROOT/'assets/audio'/name).stat().st_size
+    check('opening actual file size '+label,f'{label}：{actual:,}B' in opening)
+check('opening hides parameter answer',not re.search(r'44\.1k|8kHz|16bit|采样率',opening))
 for html in [ROOT/'demos/audio-lab.html', ROOT/'exports/reference/slides.html']:
     check('offline HTML exists '+html.name,html.exists())
     if html.exists():
@@ -49,13 +60,14 @@ for role in ['teacher','student']:
     headings=[int(m.group(1)) for c in n.cells for m in re.finditer(r'^## Q(\d+) ',c.source,re.M)]
     check(role+' notebook Q roster',headings==list(range(1,20)))
     check(role+' notebook has no saved outputs',all(not c.get('outputs') for c in n.cells if c.cell_type=='code'))
+    check(role+' notebook source-hidden metadata',all(c.metadata.get('jupyter',{}).get('source_hidden') is True for c in n.cells if c.cell_type=='code'))
     check(role+' notebook Demo IDs',all(any(did in c.metadata.get('tags',[]) for c in n.cells if c.cell_type=='code') for did in ['D1','D2','D3','D4']))
     if role=='student':check('student no teacher notes/answers',all('教师逐字稿' not in c.source and '教师答案' not in c.source and '技术结论：' not in c.source for c in n.cells))
 q_titles=re.findall(r'^## Q\d+ (.+)',md,re.M)
 check('source 19 questions',len(q_titles)==19)
 check('student-visible sampling condition', '带限信号：采样率须高于最高频率的2倍。' in md)
 ns={'p':'http://schemas.openxmlformats.org/presentationml/2006/main','a':'http://schemas.openxmlformats.org/drawingml/2006/main'}
-pptx=ROOT/'exports/1-2-3-audio-encoding-v1.pptx'
+pptx=ROOT/'exports/1-2-3-audio-encoding-v2.pptx'
 if pptx.exists():
  with ZipFile(pptx) as z:
     slides=[E.fromstring(z.read(f'ppt/slides/slide{i}.xml')) for i in range(1,41)]
@@ -75,6 +87,9 @@ if pptx.exists():
         note=E.fromstring(z.read(f'ppt/notesSlides/notesSlide{i}.xml'))
         note_text='\n'.join(t.text or '' for t in note.findall('.//a:t',ns))
         check('speaker transcript slide '+str(i),'[教师逐字稿]' in note_text and ('[问题]' in note_text or '[页面目的]' in note_text) and len(note_text)>120)
+        if 2<=i<=39:
+            number=i//2
+            check('current design transcript slide '+str(i),design_section(q_bodies[number],'教师逐字稿') in note_text)
     # Native 48-sample quantization dots must equal the independent NumPy model.
     qs=slides[20];dots=[sp for sp in qs.findall('p:cSld/p:spTree/p:sp',ns) if (sp.find('p:nvSpPr/p:cNvPr',ns) is not None and sp.find('p:nvSpPr/p:cNvPr',ns).get('name')=='sample')]
     match=len(dots)==96
@@ -97,6 +112,7 @@ if pptx.exists():
         check('pair fixed geometry/text Q'+str(n),stable and len(ash)>=len(qsh))
         texts=[t.text or '' for t in q.findall('.//a:t',ns)]
         check('question title Q'+str(n),q_titles[n-1] in texts)
+        check('all current givens Q'+str(n),all(line in texts for line in design_section(q_bodies[n],'投影提问').splitlines() if line))
         # No answer accents are painted on the initial question.
         colors=[x.get('val') for x in q.findall('.//a:srgbClr',ns)]
         check('question no answer/focus color Q'+str(n),'E65050' not in colors and '15B5CE' not in colors)

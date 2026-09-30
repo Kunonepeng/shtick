@@ -1,5 +1,7 @@
 # 音频数字化课堂包：复审与验证
 
+历史版本：v1。当前设计与v2复审见`course-design-review-2026-10-01.md`。通用蒙太奇已按当前版本更新；历史文字结论不得当作当前验收。
+
 审查日期：2026-09-30。范围：本课目录内的教学设计、40页PPTX、两版Notebook、音频证据、离线实验台、Reveal参考版、活动单及入口说明。
 
 完成制作后进行了内容复审、演示实测、跨版本核对及版面复查。**本地审查范围内，无未解决的P0／P1问题。**这不替代Windows／WPS及教室环境验收。
@@ -42,12 +44,12 @@
 
 |检查|结果|证据|
 |---|---|---|
-|独立计算、音频参数／哈希、离线依赖、课程对齐、Notes、边界及Q/A稳定性|1,747项检查，0失败|`package-checks.json`、`scripts/audit_package.py`|
+|独立计算、音频参数／哈希、离线依赖、课程对齐、Notes、边界及Q/A稳定性|1,747项检查，0失败|`history/v1-package-checks.json`、`scripts/audit_package.py`|
 |最终PPTX包结构、字体声明、标题尺寸|通过；0 findings|`native-finalization-delivery.json`|
-|全页渲染|40／40页；实际字体为普惠体115 Black及55 Regular|`render-checks.json`、`montage-1.png`至`montage-4.png`|
-|文字宽度辅助检查|237行，无超出文本框的宽度记录|`text-fit.json`；只作辅助，未代替人工版面检查|
+|全页渲染|40／40页；实际字体为普惠体115 Black及55 Regular|`history/v1-render-checks.json`、`montage-1.png`至`montage-4.png`|
+|文字宽度辅助检查|237行，无超出文本框的宽度记录|`history/v1-text-fit.json`；只作辅助，未代替人工版面检查|
 |人工版面检查|四张最终蒙太奇；波形、码字、声道、频率条件、量化、公式及容量页全尺寸复查；最终48点量化页再次复查|`preview-quantization.png`及导出的PDF|
-|19组Q/A|原生duplicate；题目文本、字形设置及原有对象几何逐组核对一致|`deck-map.json`、`package-checks.json`|
+|19组Q/A|原生duplicate；题目文本、字形设置及原有对象几何逐组核对一致|`deck-map.json`、`history/v1-package-checks.json`|
 |40页Speaker Notes|均包含完整问题／页面目的及教师逐字稿；不是只读屏幕文字|PPTX Notes及脚本检查|
 |教师Notebook真实内核|11个代码单元完整执行，无报错|`notebook-execution.txt`|
 |学生Notebook真实内核|10个代码单元完整执行，无报错；交付版无保存输出|`notebook-execution.txt`|

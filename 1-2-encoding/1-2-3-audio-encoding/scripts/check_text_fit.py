@@ -8,7 +8,7 @@ import json
 import re
 
 ROOT = Path(__file__).resolve().parents[1]
-PPTX = ROOT / 'exports/1-2-3-audio-encoding-v1.pptx'
+PPTX = ROOT / 'exports/1-2-3-audio-encoding-v2.pptx'
 FONT_DIR = Path.home() / 'Library/Fonts'
 fonts = {
     'Alibaba PuHuiTi 3.0 115 Black': TTFont(FONT_DIR / 'AlibabaPuHuiTi-3-115-Black.ttf'),

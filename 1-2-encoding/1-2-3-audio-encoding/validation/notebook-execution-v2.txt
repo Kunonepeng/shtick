@@ -1,0 +1,2 @@
+teacher kernel execution passed 12 code cells
+student kernel execution passed 11 code cells

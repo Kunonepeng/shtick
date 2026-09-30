@@ -7,7 +7,7 @@ from PIL import Image, ImageDraw
 from pypdf import PdfReader
 
 ROOT = Path(__file__).resolve().parents[1]
-PDF = ROOT / '.build/render-final/1-2-3-audio-encoding-v1.pdf'
+PDF = ROOT / '.build/render-final/1-2-3-audio-encoding-v2.pdf'
 reader = PdfReader(PDF)
 fonts = set()
 for page in reader.pages:
@@ -37,7 +37,7 @@ shutil.copyfile(pngs[20], ROOT / 'validation/preview-quantization.png')
 result = {
     'pages': len(reader.pages), 'rendered_images': len(pngs),
     'embedded_fonts': sorted(fonts), 'all_pages_have_text': True,
-    'pptx_sha256': hashlib.sha256((ROOT / 'exports/1-2-3-audio-encoding-v1.pptx').read_bytes()).hexdigest(),
+    'pptx_sha256': hashlib.sha256((ROOT / 'exports/1-2-3-audio-encoding-v2.pptx').read_bytes()).hexdigest(),
     'pdf_sha256': hashlib.sha256(PDF.read_bytes()).hexdigest(),
     'passed': True,
     'scope': 'Local LibreOffice rendering; Windows WPS/PowerPoint acceptance is separate.'

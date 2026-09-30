@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "checks": [
+    "teacher size: one table, measured values correct",
+    "teacher opening: one table, measured values correct",
+    "student size: one table, measured values correct",
+    "student opening: one table, measured values correct"
+  ],
+  "scope": "Real local kernel outputs, not Windows JupyterLab GUI acceptance.",
+  "design_sha256": "e5c95c07d80a9cbc7ad6496a5ecb3602a96ff310e8bfef0f56c0eee5cf1b268c"
+}

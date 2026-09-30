@@ -9,7 +9,7 @@ format: html
 
 # 音频数字化
 
-课堂观察／课后阅读视图；不要求现场运行。先在纸上预测，再由教师揭示证据。
+课堂观察／课后阅读视图，由教师操作。先清空旧输出、折叠代码；先在纸上预测，再运行当前证据。
 
 ```{python}
 from pathlib import Path
@@ -20,15 +20,16 @@ if not (ROOT / 'demos' / 'audio_core.py').exists():
     if (ROOT.parent / 'demos' / 'audio_core.py').exists(): ROOT = ROOT.parent
     else: raise RuntimeError('请从1-2-3-audio-encoding课程目录打开Notebook')
 sys.path.insert(0, str(ROOT / 'demos'))
-from audio_core import plot_sampling, plot_quantization, show_audio, pcm_info, quantize, codes
+from audio_core import plot_sampling, plot_quantization, show_audio, pcm_info, show_pcm_evidence, quantize, codes
 from IPython.display import display, IFrame
 
 ```
 
 ## Q1 同一段音乐，为什么大小不同？
 
-同一段6秒音乐：A、B。
-先试听，再猜测：保存的哪些信息可能不同？
+同一段6秒音乐，两个文件均未做音频压缩。
+A：529,244B；B：96,044B。
+先试听，再猜测：为什么大小不同？
 
 预测：________
 
@@ -218,7 +219,8 @@ show_audio('music-22050-16-mono.wav')
 ## Q16 一分钟双声道PCM有多大？
 
 44.1kHz、16bit、双声道，录音1分钟。
-求未压缩PCM样本数据量，以B和MiB表示。
+求样本数据量（B）；换算MiB列式即可。
+1 MiB = 1,048,576 B。
 
 预测：________
 
@@ -243,14 +245,20 @@ show_audio('music-22050-16-mono.wav')
 
 ```{python}
 info = pcm_info(ROOT / 'assets/audio/size-check-8000-2s-16-mono.wav')
-display(info)
+evidence = show_pcm_evidence('size')
+```
+
+先解释公式结果与完整文件的差额，再运行下面单元核对开场猜测。
+
+```{python}
+opening_evidence = show_pcm_evidence('opening')
 ```
 
 ## Q18 只有64KiB，哪种方案满足要求？
 
-记录2秒；至少保留6kHz；存储16bit；单声道。
-样本数据上限64KiB。候选：8k、16k、24kHz。
-每种方案都满足两个条件吗？
+带限信号最高频率6kHz；记录2秒。
+16bit、单声道；上限64KiB = 65,536B（仅样本数据）。
+候选采样率：8k、16k、24kHz。逐项检查两个条件。
 
 预测：________
 

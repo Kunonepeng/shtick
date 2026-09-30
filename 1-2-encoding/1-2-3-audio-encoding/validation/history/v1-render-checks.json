@@ -15,8 +15,8 @@
     "/LAAAAA+AlibabaPuHuiTi_3_55_Regular"
   ],
   "all_pages_have_text": true,
-  "pptx_sha256": "7496ddc267c55b5f9b194082d3e8c748b6496f2865653cdd1cd9736b7b6c39b4",
-  "pdf_sha256": "8bd4bf91babdd291a6f6928be4958ae9aea747f23520bd2b8e59b047313f8416",
+  "pptx_sha256": "902f1291b25ad7976458d8977a3530dca38cf82ce959f42700e9c14cf7890ac3",
+  "pdf_sha256": "ab025043b008cdcb8d882dc820f380b120f6e506c684e5866e2629ace5d24113",
   "passed": true,
   "scope": "Local LibreOffice rendering; Windows WPS/PowerPoint acceptance is separate."
 }
