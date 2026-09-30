@@ -1,0 +1,30 @@
+{
+  "environment": "Local Codex in-app browser; not Windows classroom acceptance",
+  "date": "2026-09-30",
+  "sampling": [
+    "initial samples hidden",
+    "show/reset controls",
+    "24 samples animated sequentially to completion"
+  ],
+  "quantization": [
+    "initial quantized points hidden",
+    "2 bit reveals 4 levels and step 0.5",
+    "4 bit reveals 16 levels and step 0.125",
+    "final 48-sample amplitude 0.68 graph visually checked"
+  ],
+  "audio_controls": {
+    "loaded": 6,
+    "durations_seconds": [
+      6,
+      6,
+      3,
+      3,
+      6,
+      6
+    ],
+    "media_errors": 0,
+    "previous_playback_stops_when_next_starts": true
+  },
+  "reveal": "Q8 answer slide screenshot: complete readable content including sampling frequency condition",
+  "scope": "Control/asset loading and visual checks; audible classroom speaker assessment pending."
+}

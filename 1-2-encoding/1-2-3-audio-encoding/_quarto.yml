@@ -1,0 +1,14 @@
+project:
+  type: default
+  output-dir: exports/reference
+  render:
+    - course-design.qmd
+    - demo-lab-teacher.qmd
+    - demo-lab-student.qmd
+    - student-activities.qmd
+    - slides.qmd
+format:
+  html:
+    embed-resources: true
+execute:
+  enabled: false

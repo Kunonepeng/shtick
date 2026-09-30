@@ -1,0 +1,22 @@
+{
+  "pages": 40,
+  "rendered_images": 40,
+  "embedded_fonts": [
+    "/BAAAAA+AlibabaPuHuiTi_3_115_Black",
+    "/CAAAAA+AlibabaPuHuiTi_3_115_Black",
+    "/DAAAAA+AlibabaPuHuiTi_3_55_Regular",
+    "/EAAAAA+AlibabaPuHuiTi_3_115_Black",
+    "/FAAAAA+AlibabaPuHuiTi_3_55_Regular",
+    "/GAAAAA+AlibabaPuHuiTi_3_115_Black",
+    "/HAAAAA+AlibabaPuHuiTi_3_115_Black",
+    "/IAAAAA+AlibabaPuHuiTi_3_55_Regular",
+    "/JAAAAA+AlibabaPuHuiTi_3_115_Black",
+    "/KAAAAA+AlibabaPuHuiTi_3_55_Regular",
+    "/LAAAAA+AlibabaPuHuiTi_3_55_Regular"
+  ],
+  "all_pages_have_text": true,
+  "pptx_sha256": "902f1291b25ad7976458d8977a3530dca38cf82ce959f42700e9c14cf7890ac3",
+  "pdf_sha256": "ab025043b008cdcb8d882dc820f380b120f6e506c684e5866e2629ace5d24113",
+  "passed": true,
+  "scope": "Local LibreOffice rendering; Windows WPS/PowerPoint acceptance is separate."
+}
