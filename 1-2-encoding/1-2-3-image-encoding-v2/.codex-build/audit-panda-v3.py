@@ -33,8 +33,9 @@ def read_grid(slide,x,y,w,h,z=40):
 values1=read_grid(prs.slides[50],210,440,4,2);values2=read_grid(prs.slides[50],840,440,2,4);values3=read_grid(prs.slides[51],990,310,4,2)
 checks['actual_native_grids_round_trip']=values1==values2==values3==[3,3,1,0,0,1,3,0]
 codes=' '.join(format(x,'02b') for x in values1);checks['actual_grid_codes_in_design']=codes in sections[18]
-archive=root/'references/course-design-v2.5-source-record.qmd';prior=subprocess.check_output(['git','show','HEAD:1-2-encoding/1-2-3-image-encoding-v2/course-design.qmd'],cwd=root)
-checks['full_previous_design_preserved']=archive.read_bytes()==prior
+archive=root/'references/course-design-v2.5-source-record.qmd';prior=archive.read_bytes()
+expected_archive_sha256='5d76ec1e5dc593863ebf62dc92a6a273d86488ef3fff828baf5a005048bbbd35'
+checks['full_previous_design_preserved']=hashlib.sha256(prior).hexdigest()==expected_archive_sha256
 with zipfile.ZipFile(b/'candidate-panda-v3.pptx') as z:
  media={hashlib.sha256(z.read(p)).hexdigest() for p in z.namelist() if p.startswith('ppt/media/')}
 checks['only_panda_image_embedded']=media=={hashlib.sha256((root/'assets/pandas.jpg').read_bytes()).hexdigest()}

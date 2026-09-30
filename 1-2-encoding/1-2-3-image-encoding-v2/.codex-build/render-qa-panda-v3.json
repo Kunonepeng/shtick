@@ -1,0 +1,26 @@
+{
+  "candidate_sha256": "eb85809ebd683e8539624e6873b74cfb376c63d3b37593204757c47eda1cf7f2",
+  "bytes": 939546,
+  "slides": 63,
+  "source_rgb_and_all_matrices_recomputed": true,
+  "prior_deck_and_source_unchanged": true,
+  "notes_complete": true,
+  "rendered_slides": 63,
+  "render_resolution": "1600x900",
+  "pdf_fonts": [
+    "AlibabaPuHuiTi_3_115_Black",
+    "AlibabaPuHuiTi_3_55_Regular"
+  ],
+  "rendered_text_in_bounds": true,
+  "embedded_media_count": 8,
+  "unique_source_images": 1,
+  "changed_rendered_pages_vs_v2": [
+    50,
+    51,
+    52,
+    63
+  ],
+  "visual_inspection": "All 63 slides checked in six full-deck montages; pages 50, 51, 52 and 63 inspected at full resolution. The other 59 renders are pixel-identical to the previously inspected v2. No visible clipping or unintended overlap found.",
+  "native_application_check": "WPS / PowerPoint not performed",
+  "final_sha256": "eb85809ebd683e8539624e6873b74cfb376c63d3b37593204757c47eda1cf7f2"
+}

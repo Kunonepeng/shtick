@@ -1,0 +1,37 @@
+[
+  {
+    "objectID": "1-2-encoding/1-2-3-image-encoding-v2/course-design-panda-v3-preview.html",
+    "href": "1-2-encoding/1-2-3-image-encoding-v2/course-design-panda-v3-preview.html",
+    "title": "图像编码：熊猫版课堂设计",
+    "section": "",
+    "text": "本文件是当前课堂教学的依据，对应exports/1-2-3-image-encoding-panda-v3.pptx，共63页。沿用原课Q0–Q22的主要知识顺序，采用用户提供的熊猫图，将Q18改为“解码挑战”。当前学习目标、题目、参数、讲稿与转场以本文件为准。\n原课逐字稿、课堂反应、花朵矩阵、26张截图映射和旧实施稿完整保存在原课复刻记录。该附录为历史记录，其中“本次”“当前”指归档时的旧版，不作为新课堂操作指令。原始PDF和ZIP仍保存在sources/，未修改。原课AI修复仅保留在历史记录中，本版不安排该教学环节。\n来源优先级：课堂逐字稿与实际照片用于确认原课堂内容；PDF智能总结只作辅助；本文件明确标出的熊猫实验与解码任务为改编。Q编号便于教师导航，不出现在学生投影正文。\n本版全程可离线放映。像素、码字、表格及示意图采用原生可编辑对象；不依赖现场Notebook。不再维护slides.qmd，它保留为历史草稿。"
+  },
+  {
+    "objectID": "1-2-encoding/1-2-3-image-encoding-v2/course-design-panda-v3-preview.html#四色",
+    "href": "1-2-encoding/1-2-3-image-encoding-v2/course-design-panda-v3-preview.html#四色",
+    "title": "图像编码：熊猫版课堂设计",
+    "section": "8×8四色",
+    "text": "8×8四色\n33333330\n31233331\n33311211\n33201211\n12322111\n01222110\n00012110\n00000000"
+  },
+  {
+    "objectID": "1-2-encoding/1-2-3-image-encoding-v2/course-design-panda-v3-preview.html#四色-1",
+    "href": "1-2-encoding/1-2-3-image-encoding-v2/course-design-panda-v3-preview.html#四色-1",
+    "title": "图像编码：熊猫版课堂设计",
+    "section": "16×16四色",
+    "text": "16×16四色\n3333333333333200\n3333333333333310\n3320133333223320\n3321233333333320\n3333333112311320\n3333331001300120\n3333310111311020\n2233310112321020\n1123331122232020\n1022332222000220\n0012222221111210\n0000121222111210\n0000011222221100\n0000000111111000\n0000000000000000\n0000000000000000"
+  },
+  {
+    "objectID": "1-2-encoding/1-2-3-image-encoding-v2/course-design-panda-v3-preview.html#六色",
+    "href": "1-2-encoding/1-2-3-image-encoding-v2/course-design-panda-v3-preview.html#六色",
+    "title": "图像编码：熊猫版课堂设计",
+    "section": "16×16六色",
+    "text": "16×16六色\n3333333333333200\n3333333333333310\n3324133333253320\n3324233333333320\n3333333142314550\n3333334001340150\n3533310111341420\n5253310442321020\n1155351125252420\n4422555222004220\n0042222221141210\n0004121225111240\n0000011222221100\n0000000111111400\n0000000004440000\n0000000000000000\nQ6聚焦8×8第四行33201211，对应11 11 10 00 01 10 01 01。Q7与Q18复用另一段16×16图像中的8个像素，二者不可混称同一行。"
+  },
+  {
+    "objectID": "1-2-encoding/1-2-3-image-encoding-v2/course-design-panda-v3-preview.html#技术参考教师侧",
+    "href": "1-2-encoding/1-2-3-image-encoding-v2/course-design-panda-v3-preview.html#技术参考教师侧",
+    "title": "图像编码：熊猫版课堂设计",
+    "section": "技术参考（教师侧）",
+    "text": "技术参考（教师侧）\n\nMicrosoft Bitmap Storage：像素数据、颜色表与文件结构的区别。\nMicrosoft BITMAPINFOHEADER：尺寸、位数和扫描方向；用于限定Q18模型，学生不需记字段名。\nPillow Concepts：RGB与调色板模式、像素坐标。\nNIST Binary Prefixes：KiB、MiB的二进制前缀。\n\n本课模型经源图计算与码字双向还原检验。PPTX本机渲染检查不代替WPS／PowerPoint实机、投影色差与真实班级节奏验收；具体结果以本次审查报告为准。"
+  }
+]
