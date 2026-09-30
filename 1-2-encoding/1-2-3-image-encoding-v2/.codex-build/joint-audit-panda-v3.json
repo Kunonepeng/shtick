@@ -1,0 +1,30 @@
+{
+  "checks": {
+    "question_ids_0_to_22": true,
+    "slide_count_and_pairs": true,
+    "no_ai_repair_in_deck": true,
+    "neutral_decode_question": true,
+    "decode_givens": true,
+    "main_question_transcripts_and_pages_aligned": true,
+    "actual_native_grids_round_trip": true,
+    "actual_grid_codes_in_design": true,
+    "full_previous_design_preserved": true,
+    "only_panda_image_embedded": true,
+    "timing_total_45": true
+  },
+  "issues": [],
+  "archive_sha256": "5d76ec1e5dc593863ebf62dc92a6a273d86488ef3fff828baf5a005048bbbd35",
+  "course_sha256": "92e293015726b2325b98deb374cdf4cebe98c0c46841966acc916f1d6ca1fc71",
+  "decoded_indices": [
+    3,
+    3,
+    1,
+    0,
+    0,
+    1,
+    3,
+    0
+  ],
+  "codes": "11 11 01 00 00 01 11 00",
+  "claim_boundary": "Content, native shape values, notes and structural alignment; excludes actual classroom and WPS acceptance."
+}
