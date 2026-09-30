@@ -1,0 +1,11 @@
+project:
+  type: default
+  output-dir: exports/reference
+  render:
+    - course-design.qmd
+format:
+  html:
+    toc: true
+    code-copy: true
+execute:
+  enabled: false

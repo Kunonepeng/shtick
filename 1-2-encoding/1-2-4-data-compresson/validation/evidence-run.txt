@@ -1,0 +1,1 @@
+{"status": "passed", "D1_bytes": [4096, 38], "D3_bits_bytes": [22, 3], "D4_bits_bytes": [48, 6], "D5_png_bytes": 4441, "D5_jpeg": [{"quality": 80, "bytes": 10766, "changed_pixels": 28917}, {"quality": 20, "bytes": 6752, "changed_pixels": 66885}]}

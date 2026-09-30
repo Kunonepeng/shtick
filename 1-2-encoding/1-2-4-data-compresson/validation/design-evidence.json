@@ -1,0 +1,221 @@
+{
+  "status": "passed",
+  "scope": "design numerical and codec prototypes; not notebook, WPS or classroom acceptance",
+  "environment": {
+    "python": "3.12.9",
+    "pillow": "12.2.0",
+    "zlib": "1.2.13",
+    "jpeg": "6.2"
+  },
+  "D1": {
+    "input": {
+      "path": "validation/fixtures/opening-colors.raw",
+      "bytes": 4096,
+      "sha256": "f006265f7218500be57f449f9453d561fb5e76773184b4905d7f432ebdd33779"
+    },
+    "compressed": {
+      "path": "validation/fixtures/opening-colors.zlib",
+      "bytes": 38,
+      "sha256": "f8fa2dc9c87187dc6aeabbe455c69a0b9823a41c68518372a6ddd76624ea2595"
+    },
+    "restored_bytes": 4096,
+    "bytes_equal": true
+  },
+  "D2": {
+    "raw_bytes": 16,
+    "rle_bytes": 6,
+    "pairs": [
+      [
+        1,
+        8
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "reduction_percent": 62.5,
+    "alternating_raw_bytes": 16,
+    "alternating_rle_bytes": 32,
+    "roundtrip_equal": true,
+    "count256_encoded_bytes": 4,
+    "private_activity_cards": [
+      [
+        3,
+        3,
+        3,
+        3,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        3,
+        3,
+        3,
+        3,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    ],
+    "homework_rle_bytes": [
+      4,
+      32
+    ]
+  },
+  "D3": {
+    "source": [
+      120,
+      121,
+      122,
+      121,
+      120,
+      120,
+      121,
+      122
+    ],
+    "deltas": [
+      1,
+      1,
+      -1,
+      -1,
+      0,
+      1,
+      1
+    ],
+    "valid_bits": 22,
+    "packed_bytes": 3,
+    "padding_bits": 2,
+    "roundtrip_equal": true,
+    "rejects_large_delta": true
+  },
+  "D4": {
+    "levels": [
+      30,
+      30,
+      31,
+      30,
+      30,
+      30,
+      30,
+      31
+    ],
+    "valid_bits": 48,
+    "packed_bytes": 6,
+    "reconstructed": [
+      120,
+      120,
+      124,
+      120,
+      120,
+      120,
+      120,
+      124
+    ],
+    "collision_inputs": [
+      120,
+      121
+    ],
+    "collision_output": 120
+  },
+  "D5": {
+    "source": {
+      "path": "validation/fixtures/test-source.png",
+      "bytes": 4441,
+      "sha256": "7b5bb1ece2dfa77e3efad6b915d61cecc17a0871b8cd5df90995be5e9bc8f974"
+    },
+    "size": [
+      384,
+      216
+    ],
+    "uncompressed_rgb_bytes": 248832,
+    "png_pixel_equal": true,
+    "jpeg": [
+      {
+        "path": "validation/fixtures/test-quality80.jpg",
+        "bytes": 10766,
+        "sha256": "e6106b2abaa1f154c6478bece7a4880f6e2937c0f9eab27a6f86b5b4f17bdaa4",
+        "quality": 80,
+        "subsampling": 0,
+        "size": [
+          384,
+          216
+        ],
+        "changed_pixels": 28917,
+        "pixel_equal": false
+      },
+      {
+        "path": "validation/fixtures/test-quality20.jpg",
+        "bytes": 6752,
+        "sha256": "e0266d2f79094edc29de9e76b0860e9dfb49b6d79cd2aca28c268e6bbcfb611a",
+        "quality": 20,
+        "subsampling": 0,
+        "size": [
+          384,
+          216
+        ],
+        "changed_pixels": 66885,
+        "pixel_equal": false
+      }
+    ],
+    "crop_xywh": [
+      260,
+      150,
+      96,
+      48
+    ],
+    "fixture_type": "synthetic exact test chart"
+  },
+  "D6": {
+    "status": "specification_only",
+    "pcm_payload_bytes": 705600,
+    "mp3_encode_or_listen_test": false
+  },
+  "Q10": {
+    "given_scenario_not_measured_files": true,
+    "source_program_eligible_A_B": [
+      true,
+      false
+    ],
+    "photo_eligible_A_B": [
+      false,
+      true
+    ],
+    "transfer_payload_seconds_original_compressed": [
+      12,
+      8
+    ]
+  },
+  "Q3": {
+    "faulty_length_equal": true,
+    "first_difference_one_based": 9
+  },
+  "time_budget_minutes": {
+    "core": 45,
+    "optional_second_period": 45
+  },
+  "design_sha256": "127bdfaff13f51d71c061c3e2a9e9fad997f186502ca1a006e76b5385df38f56"
+}

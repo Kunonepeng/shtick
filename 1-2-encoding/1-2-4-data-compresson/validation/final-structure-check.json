@@ -1,0 +1,53 @@
+{
+  "status": "passed",
+  "design_sha256": "127bdfaff13f51d71c061c3e2a9e9fad997f186502ca1a006e76b5385df38f56",
+  "questions": [
+    {
+      "id": 1,
+      "title": "文件变小，是不是删掉了内容？"
+    },
+    {
+      "id": 2,
+      "title": "连续重复的颜色，怎样少写一些？"
+    },
+    {
+      "id": 3,
+      "title": "少写以后，怎样证明一个也没丢？"
+    },
+    {
+      "id": 4,
+      "title": "同一规则，为什么有时反而变大？"
+    },
+    {
+      "id": 5,
+      "title": "相邻值不相同，还能利用它们的关系吗？"
+    },
+    {
+      "id": 6,
+      "title": "只留近似值，还能找回原数吗？"
+    },
+    {
+      "id": 7,
+      "title": "看起来差不多，能否叫无损？"
+    },
+    {
+      "id": 8,
+      "title": "同一种误差，哪些任务能接受？"
+    },
+    {
+      "id": 9,
+      "title": "看扩展名，就能判定压缩方式吗？"
+    },
+    {
+      "id": 10,
+      "title": "怎样在大小限制和信息要求之间选方案？"
+    }
+  ],
+  "html": "exports/reference/course-design.html",
+  "html_image_count": 4,
+  "html_missing_local_links": [],
+  "mermaid_source_blocks": 2,
+  "core_budget_minutes": 45,
+  "Q10_budget_seconds": 300,
+  "scope": "source and HTML structure; images inspected separately; browser visual preview not verified"
+}

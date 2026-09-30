@@ -1,0 +1,28 @@
+pandoc 
+  to: html
+  output-file: course-design.html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  toc: true
+  toc-depth: 2
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: zh-CN
+  code-copy: true
+  title: 数据压缩入门：文件变小，信息去哪了？
+  subtitle: 从颜色传话到无损、有损与压缩方案选择
+  version: compression-design-v1.0-reviewed
+  date: '2026-10-01'
+  toc-title: 课程导航
+  
+[WARNING] Could not load translations for zh-CN
+  translations/zh.yaml: 
+[WARNING] The term Abstract has no translation defined.
+Output created: exports/reference/course-design.html
+
