@@ -1,0 +1,4 @@
+Real local Jupyter kernel execution passed.
+{'teacher': 15, 'student': 14}
+Delivered code equals executed code; outputs remain only in .build.
+Windows JupyterLab UI remains unverified.

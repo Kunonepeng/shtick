@@ -16,13 +16,13 @@ if not (ROOT / 'demos' / 'audio_core.py').exists():
     if (ROOT.parent / 'demos' / 'audio_core.py').exists(): ROOT = ROOT.parent
     else: raise RuntimeError('请从1-2-3-audio-encoding课程目录打开Notebook')
 sys.path.insert(0, str(ROOT / 'demos'))
-from audio_core import plot_sampling, plot_quantization, show_audio, pcm_info, show_pcm_evidence, quantize, codes
+from audio_core import plot_sampling, plot_quantization, plot_quantization_compare, show_quantization_evidence, show_audio, pcm_info, show_pcm_evidence, quantize, codes
 from IPython.display import display, IFrame
 """
 demos={
- '3':('D1','plot_sampling(12, False)','plot_sampling(12, True)\nplot_sampling(24, True)'),
- '8':('D2',"show_audio('music-44100-16-mono.wav')\nshow_audio('music-8000-16-mono.wav')", "show_audio('tone-6000-at24000.wav')\nshow_audio('tone-lowpass-at8000.wav')"),
- '10':('D3','plot_quantization(2, False)',"plot_quantization(2, True)\nplot_quantization(4, True)\nshow_audio('music-22050-effective4-stored16-mono.wav')\nshow_audio('music-22050-16-mono.wav')"),
+ '3':('D1','plot_sampling(12, False)','plot_sampling(12, True)'),
+ '8':('D2',"show_audio('tone-6000-at24000.wav', label='6kHz纯音：24kHz采样基准')", "show_audio('tone-lowpass-at8000.wav', label='同一纯音：先低通，再降为8kHz')"),
+ '10':('D3','plot_quantization(2, False)',"plot_quantization_compare()"),
  '17':('D4',"# 先预测公式结果与完整文件大小是否相同。", "info = pcm_info(ROOT / 'assets/audio/size-check-8000-2s-16-mono.wav')\nevidence = show_pcm_evidence('size')")}
 for role in ['teacher','student']:
     cells=[nb.v4.new_markdown_cell('# 音频数字化\n\n'+('教师备课与试跑视图，含教师说明；课堂优先投影学生观察版。hide-input标签不保证JupyterLab自动隐藏代码，请课前实际检查。' if role=='teacher' else '课堂观察／课后阅读视图，由教师操作。先清空旧输出、折叠代码；先在纸上预测，再运行当前证据。')),
@@ -30,7 +30,7 @@ for role in ['teacher','student']:
     for n,title,body in questions:
         cells.append(nb.v4.new_markdown_cell(f'## Q{n} {title}\n\n'+section(body,'投影提问')+'\n\n预测：________\n\n观察后解释：________'))
         if role=='teacher':
-            cells.append(nb.v4.new_markdown_cell('**教师说明（不投影）**\n\n'+section(body,'教师逐字稿')+'\n\n追问：'+section(body,'追问')+'\n\n技术结论：'+section(body,'形成结论'),metadata={'tags':['teacher-only']}))
+            cells.append(nb.v4.new_markdown_cell('**教师说明（不投影）**\n\n提问阶段：'+section(body,'提问逐字稿')+'\n\n作答后揭示：'+section(body,'教师逐字稿')+'\n\n追问：'+section(body,'追问')+'\n\n技术结论：'+section(body,'形成结论'),metadata={'tags':['teacher-only']}))
         if n == '1':
             cells.append(nb.v4.new_markdown_cell('### 开场试听：A、B；先听，暂不揭示参数。'))
             cells.append(nb.v4.new_code_cell("from IPython.display import HTML\ndisplay(HTML('<p>A</p>'))\nshow_audio('music-44100-16-mono.wav')\ndisplay(HTML('<p>B</p>'))\nshow_audio('music-8000-16-mono.wav')",metadata={'tags':['opening','hide-input']}))
@@ -40,6 +40,14 @@ for role in ['teacher','student']:
             cells.append(nb.v4.new_code_cell(before,metadata={'tags':[did,'before-reveal']}))
             cells.append(nb.v4.new_markdown_cell('**等待讨论。下面单元只在完成预测后运行。**'))
             cells.append(nb.v4.new_code_cell(after,metadata={'tags':[did,'after-prediction']}))
+            if n == '3':
+                cells.append(nb.v4.new_markdown_cell('可选对照：时间允许才运行24点图。'))
+                cells.append(nb.v4.new_code_cell('plot_sampling(24, True)', metadata={'tags':['D1','optional']}))
+            if n == '10':
+                cells.append(nb.v4.new_markdown_cell('先指出误差线，再核对Q5同一个样本的误差。'))
+                cells.append(nb.v4.new_code_cell('quantization_evidence = show_quantization_evidence()', metadata={'tags':['D3','error-measurement']}))
+                cells.append(nb.v4.new_markdown_cell('图比较2bit／4bit；下面试听比较4bit有效模型／16bit基准。两份试听均为22.05kHz、单声道、16bit存储。'))
+                cells.append(nb.v4.new_code_cell("show_audio('music-22050-effective4-stored16-mono.wav', label='4bit有效量化模型；存储16bit')\nshow_audio('music-22050-16-mono.wav', label='16bit基准；存储16bit')", metadata={'tags':['D3','audio-comparison']}))
             if n == '17':
                 cells.append(nb.v4.new_markdown_cell('先解释公式结果与完整文件的差额，再运行下面单元核对开场猜测。'))
                 cells.append(nb.v4.new_code_cell("opening_evidence = show_pcm_evidence('opening')",metadata={'tags':['D4','opening-revisit','after-prediction']}))
@@ -52,7 +60,7 @@ for role in ['teacher','student']:
             cell.metadata['jupyter'] = {'source_hidden': True}
     notebook=nb.v4.new_notebook(cells=cells,metadata={'kernelspec':{'display_name':'Python 3','language':'python','name':'python3'},'language_info':{'name':'python','version':'3.11'}})
     nb.write(notebook,ROOT/f'demo-lab-{role}.ipynb')
-    qmd=['---',f'title: "音频数字化：{ "教师演示" if role=="teacher" else "学生观察" }"','lang: zh-CN','jupyter: python3','execute:','  enabled: false','format: html','---','']
+    qmd=['---',f'title: "音频数字化：{ "教师演示" if role=="teacher" else "学生观察" }"','lang: zh-CN','jupyter: python3','execute:','  enabled: false','format:','  html:','    code-fold: true','---','']
     for cell in cells:
         if cell.cell_type=='markdown':qmd.append(cell.source+'\n')
         else:qmd.append('```{python}\n'+cell.source+'\n```\n')
@@ -69,7 +77,7 @@ slides.extend(['## 课后练习','22.05kHz、16bit、单声道10秒，样本数�
 activity=['---','title: "音频数字化课堂活动单"','lang: zh-CN','format:','  html:','    toc: false','    embed-resources: true','---','','姓名：________　班级：________','']
 for n in ['3','5','6','7','16','18','19']:
     _,title,body=next(q for q in questions if q[0]==n)
-    activity.extend([f'## Q{n} {title}',section(body,'投影提问').replace('\n','\n\n'),''])
+    activity.extend([f'## Q{n} {title}'+('（课后拓展，课堂不填）' if n=='7' else ''),section(body,'投影提问').replace('\n','\n\n'),''])
     if n == '3': activity.append('![](assets/fallback/Q3-question.png){width=95%}\n')
     if n == '5':
         activity.extend(['|样本值|我的近似值|Q6码字：学到编码后再填|','|---|---|---|',
@@ -80,6 +88,7 @@ for n in ['3','5','6','7','16','18','19']:
     if n == '16':
         activity.append('采样率：________Hz；时长：________s；存储位数：________bit；声道数：________。\n')
     if n == '18':
+        activity.append('靠窗同学先查8kHz，另一位先查24kHz，再共同查16kHz；每个方案都检查两项条件。\n')
         activity.extend(['|候选采样率|频率条件是否满足，为什么|样本数据量B|容量是否满足|',
                          '|---|---|---|---|', '|8kHz|________|________|________|',
                          '|16kHz|________|________|________|','|24kHz|________|________|________|'])

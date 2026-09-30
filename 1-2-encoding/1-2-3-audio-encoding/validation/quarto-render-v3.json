@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "outputs": {
+    "course-design": {
+      "path": "exports/reference/course-design.html",
+      "sha256": "e55ccf659543e742df6cc1d880cef0d488ad047731a7517a92b6aa59a6ad1b45"
+    },
+    "demo-lab-teacher": {
+      "path": "exports/reference/demo-lab-teacher.html",
+      "sha256": "3f59c773d9c46ac48200b1eeac84959fba66724e63a5bf1837971282b104ce89"
+    },
+    "demo-lab-student": {
+      "path": "exports/reference/demo-lab-student.html",
+      "sha256": "7c6bb10ff51dbaf98614f02713d19cd21b8c629fc3018f5383a87c951d848890"
+    },
+    "student-activities": {
+      "path": "exports/reference/student-activities.html",
+      "sha256": "aea81fa256595a042bc76fd56122960495beb1e077b9208fa2df6644974d05a9"
+    },
+    "slides": {
+      "path": "exports/reference/slides.html",
+      "sha256": "73af523260efe7d4e457e7d3c3bdd248db92690b68e79415f7c93e514ab45666"
+    }
+  },
+  "note": "All five Quarto renders completed. zh-CN translation warnings are harmless; Reveal Sass cache permission was resolved by approved local execution."
+}

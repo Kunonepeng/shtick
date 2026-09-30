@@ -7,7 +7,7 @@ const ROOT=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const require=createRequire(path.join(ROOT,'.build','package.json'));
 const {Presentation,PresentationFile}=await import(pathToFileURL(require.resolve('@oai/artifact-tool')).href);
 const W=1280,H=720;
-const C={rail:'#6251B1',v:'#8C64E1',c:'#15B5CE',r:'#E65050',ink:'#262626',grey:'#737373',grid:'#D8D8DF'};
+const C={rail:'#6251B1',v:'#8C64E1',c:'#007C9B',r:'#FF0000',ink:'#262626',grey:'#737373',grid:'#D8D8DF'};
 const F={body:'Alibaba PuHuiTi 3.0 55 Regular',title:'Alibaba PuHuiTi 3.0 115 Black'};
 const p=Presentation.create({slideSize:{width:W,height:H}});
 const md=await fs.readFile(path.join(ROOT,'course-design.qmd'),'utf8');
@@ -61,7 +61,7 @@ for(const part of parts){
  if(n===6){[0,1,2,3].forEach((v,i)=>{text(q,String(v),240+i*220,296,130,48,40,C.ink,true,'level-'+i);});}
  if(n===7){[0,1,2,3].forEach((v,i)=>rect(q,260+i*185,308,132,52,'none',C.grid,1,'code-box'));['00','01','10','11'].forEach((v,i)=>text(q,v,275+i*185,314,115,43,32));}
  if(n===13){text(q,'L',125,350,50,48,32);text(q,'R',125,430,50,48,32);[0,1,2].forEach(i=>{rect(q,240+i*260,352,150,48,'none',C.grid,1);rect(q,240+i*260,432,150,48,'none',C.grid,1);text(q,`时刻${i+1}`,240+i*260,295,210,45,29.333);});}
- q.speakerNotes.textFrame.setText(`[问题] ${title}\n[内部编号] Q${n} 提问页\n[课堂当前动作] 先保持提问页，等待预测／讨论，不提前翻到答案。\n[教师逐字稿] ${section(body,'教师逐字稿')}\n[认知起点] ${section(body,'认知起点')}\n[认知困惑] ${section(body,'认知困惑')}\n[学生任务] ${section(body,'学生任务')}\n[预期学生反应] ${section(body,'预期回答')}\n[追问问题] ${section(body,'追问')}\n[Demo操作] ${section(body,'Demo 操作')||'无需现场运行。'}\n[显隐] 学生作答前不展示揭示内容。技术边界与来源不投影。`);
+ q.speakerNotes.textFrame.setText(`[问题] ${title}\n[内部编号] Q${n} 提问页\n[课堂当前动作] 先保持提问页，等待预测／讨论，不提前翻到答案。\n[教师逐字稿] ${section(body,'提问逐字稿')}\n[认知起点] ${section(body,'认知起点')}\n[认知困惑] ${section(body,'认知困惑')}\n[学生任务] ${section(body,'学生任务')}\n[预期学生反应] ${section(body,'预期回答')}\n[追问问题] ${section(body,'追问')}\n[Demo操作] ${section(body,'Demo 操作')||'无需现场运行。'}\n[显隐] 学生作答前不展示揭示内容。技术边界与来源不投影。`);
  const a=q.duplicate(); // Actual duplication preserves every pre-existing object and title.
  let y=385;
  if(n===2)y=560;
@@ -82,9 +82,9 @@ for(const part of parts){
    const pts=Array.from({length:241},(_,i)=>[x0a+w*i/240,cy-.68*Math.sin(4*Math.PI*i/240+.3)*scale]);pathCurve(a,pts,C.grey,2,'reference-wave');
    for(let k=0;k<48;k++){const z=.68*Math.sin(4*Math.PI*k/48+.3),ind=Math.floor((z+1)*2**bits/2),r=-1+(ind+.5)*2/2**bits,xx=x0a+w*k/48;line(a,xx,cy-z*scale,xx,cy-r*scale,C.r,2,'quantization-error');dot(a,xx,cy-r*scale,color,8);}
   }
-  text(a,'同一时刻、同一幅度范围；红色线段表示近似误差',64,494,1152,45,29.333,C.ink);y=566;
+  text(a,'红线：误差。−0.10样本：0.15（2bit）→0.0375（4bit）',64,494,1152,45,29.333,C.ink);y=566;
  }
- if(n===2){text(a,'声压变化 → 麦克风 → 电信号',64,y,1152,47,32,C.v,true);text(a,'横轴：时间；纵轴：信号幅度',64,y+60,1152,47,29.333);}
+ if(n===2){text(a,'声压变化 → 麦克风 → 连续电信号',64,y,1152,47,32,C.v,true);text(a,'横轴：时间；纵轴：信号幅度',64,y+60,1152,47,29.333);}
  else if(n===3){text(a,answers[0],64,y,1152,45,29.333,C.v,true);text(a,answers[1],64,y+54,1152,45,29.333);}
  else if(n===13){text(a,answers[1],64,y,1152,47,29.333);text(a,answers[2],64,y+59,1152,47,29.333,C.v,true);}
  else if(n===5){text(a,answers[1],64,y,1152,45,29.333,C.v,true);text(a,answers[2],64,y+58,1152,45,29.333);}

@@ -67,7 +67,7 @@ q_titles=re.findall(r'^## Q\d+ (.+)',md,re.M)
 check('source 19 questions',len(q_titles)==19)
 check('student-visible sampling condition', '带限信号：采样率须高于最高频率的2倍。' in md)
 ns={'p':'http://schemas.openxmlformats.org/presentationml/2006/main','a':'http://schemas.openxmlformats.org/drawingml/2006/main'}
-pptx=ROOT/'exports/1-2-3-audio-encoding-v2.pptx'
+pptx=ROOT/'exports/1-2-3-audio-encoding-v3-final.pptx'
 if pptx.exists():
  with ZipFile(pptx) as z:
     slides=[E.fromstring(z.read(f'ppt/slides/slide{i}.xml')) for i in range(1,41)]
@@ -89,7 +89,11 @@ if pptx.exists():
         check('speaker transcript slide '+str(i),'[教师逐字稿]' in note_text and ('[问题]' in note_text or '[页面目的]' in note_text) and len(note_text)>120)
         if 2<=i<=39:
             number=i//2
-            check('current design transcript slide '+str(i),design_section(q_bodies[number],'教师逐字稿') in note_text)
+            expected_script=design_section(q_bodies[number],'提问逐字稿' if i % 2 == 0 else '教师逐字稿')
+            actual_script=note_text.split('[教师逐字稿] ',1)[1].split('\n[',1)[0]
+            check('current phase transcript slide '+str(i),expected_script==actual_script)
+            if i % 2 == 0:
+                check('question and reveal scripts differ Q'+str(number),expected_script!=design_section(q_bodies[number],'教师逐字稿'))
     # Native 48-sample quantization dots must equal the independent NumPy model.
     qs=slides[20];dots=[sp for sp in qs.findall('p:cSld/p:spTree/p:sp',ns) if (sp.find('p:nvSpPr/p:cNvPr',ns) is not None and sp.find('p:nvSpPr/p:cNvPr',ns).get('name')=='sample')]
     match=len(dots)==96
@@ -115,7 +119,7 @@ if pptx.exists():
         check('all current givens Q'+str(n),all(line in texts for line in design_section(q_bodies[n],'投影提问').splitlines() if line))
         # No answer accents are painted on the initial question.
         colors=[x.get('val') for x in q.findall('.//a:srgbClr',ns)]
-        check('question no answer/focus color Q'+str(n),'E65050' not in colors and '15B5CE' not in colors)
+        check('question no answer/focus color Q'+str(n),all(c not in colors for c in ['FF0000','007C9B','00B0F0']))
 else:check('final PPTX exists',False)
 failed=[c for c in checks if not c['passed']]
 result=dict(check_count=len(checks),failures=failed,passed=not failed,source_sha256=manifest['source_sha256'],pptx_sha256=hashlib.sha256(pptx.read_bytes()).hexdigest() if pptx.exists() else None)

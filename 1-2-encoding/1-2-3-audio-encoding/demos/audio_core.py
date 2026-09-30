@@ -66,8 +66,11 @@ def pcm_info(path):
 def payload_size(fs, seconds, bits, channels):
     return fs * seconds * bits * channels / 8
 
-def show_audio(name):
-    from IPython.display import Audio, display
+def show_audio(name, label=None):
+    from IPython.display import Audio, HTML, display
+    from html import escape
+    if label:
+        display(HTML(f'<p style="font-size:24px;margin:8px 0">{escape(label)}</p>'))
     display(Audio(filename=str(ROOT / 'assets' / 'audio' / name)))
 
 def show_pcm_evidence(stage='size'):
@@ -119,3 +122,37 @@ def plot_quantization(bits=2, reveal=False):
         ax.vlines(t, x, q, color='#E65050', linewidth=1)
     ax.set(xlabel='Time (s)', ylabel='Normalized amplitude', ylim=(-1.1,1.1))
     ax.legend(); ax.grid(alpha=.15); plt.show()
+
+def plot_quantization_compare():
+    """D3: one output, identical sample times, scales and ticks on both sides."""
+    import matplotlib.pyplot as plt
+    t = np.arange(48) / 48
+    x = .68 * np.sin(2*np.pi*2*t + .3)
+    fig, axes = plt.subplots(1, 2, figsize=(12, 3.7), sharex=True, sharey=True)
+    for ax, bits, color in zip(axes, [2, 4], ['#8C64E1', '#007C9B']):
+        _, q = quantize(x, bits)
+        ax.plot(t, x, color='#737373', linewidth=2, label='Reference samples')
+        ax.plot(t, q, 'o', color=color, markersize=5, label=f'{bits} bit: {2**bits} levels')
+        ax.vlines(t, x, q, color='#E65050', linewidth=1)
+        ax.set(xlabel='Time (s)', xlim=(0, 1), ylim=(-1.1, 1.1), title=f'{bits}-bit quantization')
+        ax.set_yticks([-.75, -.25, .25, .75]); ax.grid(alpha=.15)
+        ax.legend(loc='lower left', fontsize=9)
+    axes[0].set_ylabel('Normalized amplitude')
+    fig.tight_layout(); plt.show()
+
+def show_quantization_evidence():
+    """Revisit Q5's -0.10 without changing the input between quantizers."""
+    from IPython.display import HTML, display
+    rows = []
+    result = {}
+    for bits in [2, 4]:
+        _, q = quantize([-.10], bits)
+        error = abs(float(q[0]) + .10)
+        result[bits] = dict(input=-.10, representative=float(q[0]), error=error)
+        rows.append(f'<tr><td>{bits}bit</td><td>−0.10</td><td>{q[0]:g}</td><td>{error:g}</td></tr>')
+    display(HTML('<div style="font-size:24px;line-height:1.6">沿用Q5的一个样本：'
+                 '<table style="border-collapse:collapse;text-align:center">'
+                 '<thead><tr><th>量化位数</th><th>同一输入</th><th>近似值</th><th>绝对误差</th></tr></thead>'
+                 '<tbody>'+''.join(rows)+'</tbody></table></div>'
+                 '<style>th,td{padding:8px 20px}</style>'))
+    return result

@@ -4,7 +4,9 @@ lang: zh-CN
 jupyter: python3
 execute:
   enabled: false
-format: html
+format:
+  html:
+    code-fold: true
 ---
 
 # 音频数字化
@@ -20,7 +22,7 @@ if not (ROOT / 'demos' / 'audio_core.py').exists():
     if (ROOT.parent / 'demos' / 'audio_core.py').exists(): ROOT = ROOT.parent
     else: raise RuntimeError('请从1-2-3-audio-encoding课程目录打开Notebook')
 sys.path.insert(0, str(ROOT / 'demos'))
-from audio_core import plot_sampling, plot_quantization, show_audio, pcm_info, show_pcm_evidence, quantize, codes
+from audio_core import plot_sampling, plot_quantization, plot_quantization_compare, show_quantization_evidence, show_audio, pcm_info, show_pcm_evidence, quantize, codes
 from IPython.display import display, IFrame
 
 ```
@@ -73,6 +75,11 @@ plot_sampling(12, False)
 
 ```{python}
 plot_sampling(12, True)
+```
+
+可选对照：时间允许才运行24点图。
+
+```{python}
 plot_sampling(24, True)
 ```
 
@@ -106,8 +113,8 @@ plot_sampling(24, True)
 
 ## Q7 只有码字，就能按原速播放吗？
 
-00 01 10 11；同一张四等级码表。
-4个样本，能确定这段声音的时长吗？
+单声道：00 01 10 11；同一张四等级码表。
+共4个样本，能确定这段声音的时长吗？
 
 预测：________
 
@@ -126,15 +133,13 @@ plot_sampling(24, True)
 ### D2 先预测，后运行
 
 ```{python}
-show_audio('music-44100-16-mono.wav')
-show_audio('music-8000-16-mono.wav')
+show_audio('tone-6000-at24000.wav', label='6kHz纯音：24kHz采样基准')
 ```
 
 **等待讨论。下面单元只在完成预测后运行。**
 
 ```{python}
-show_audio('tone-6000-at24000.wav')
-show_audio('tone-lowpass-at8000.wav')
+show_audio('tone-lowpass-at8000.wav', label='同一纯音：先低通，再降为8kHz')
 ```
 
 ## Q9 采样率越高，听起来一定越好吗？
@@ -164,10 +169,20 @@ plot_quantization(2, False)
 **等待讨论。下面单元只在完成预测后运行。**
 
 ```{python}
-plot_quantization(2, True)
-plot_quantization(4, True)
-show_audio('music-22050-effective4-stored16-mono.wav')
-show_audio('music-22050-16-mono.wav')
+plot_quantization_compare()
+```
+
+先指出误差线，再核对Q5同一个样本的误差。
+
+```{python}
+quantization_evidence = show_quantization_evidence()
+```
+
+图比较2bit／4bit；下面试听比较4bit有效模型／16bit基准。两份试听均为22.05kHz、单声道、16bit存储。
+
+```{python}
+show_audio('music-22050-effective4-stored16-mono.wav', label='4bit有效量化模型；存储16bit')
+show_audio('music-22050-16-mono.wav', label='16bit基准；存储16bit')
 ```
 
 ## Q11 量化位数加倍，等级也只加倍吗？

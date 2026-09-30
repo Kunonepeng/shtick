@@ -2230,7 +2230,9 @@ vertical-align: -.125em;
 <section id="音频数字化" class="level1">
 <h1>音频数字化</h1>
 <p>课堂观察／课后阅读视图，由教师操作。先清空旧输出、折叠代码；先在纸上预测，再运行当前证据。</p>
-<div id="dc03f05f" class="cell">
+<div id="5dad263e" class="cell">
+<details class="code-fold">
+<summary>代码</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 从课程目录或其demos目录启动均可；不使用当前用户的绝对路径。</span></span>
@@ -2239,8 +2241,9 @@ vertical-align: -.125em;
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (ROOT.parent <span class="op">/</span> <span class="st">&#39;demos&#39;</span> <span class="op">/</span> <span class="st">&#39;audio_core.py&#39;</span>).exists(): ROOT <span class="op">=</span> ROOT.parent</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>: <span class="cf">raise</span> <span class="pp">RuntimeError</span>(<span class="st">&#39;请从1-2-3-audio-encoding课程目录打开Notebook&#39;</span>)</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>sys.path.insert(<span class="dv">0</span>, <span class="bu">str</span>(ROOT <span class="op">/</span> <span class="st">&#39;demos&#39;</span>))</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> audio_core <span class="im">import</span> plot_sampling, plot_quantization, show_audio, pcm_info, show_pcm_evidence, quantize, codes</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> audio_core <span class="im">import</span> plot_sampling, plot_quantization, plot_quantization_compare, show_quantization_evidence, show_audio, pcm_info, show_pcm_evidence, quantize, codes</span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> display, IFrame</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 </div>
 <section id="q1-同一段音乐为什么大小不同" class="level2">
 <h2 class="anchored" data-anchor-id="q1-同一段音乐为什么大小不同">Q1 同一段音乐，为什么大小不同？</h2>
@@ -2249,12 +2252,15 @@ vertical-align: -.125em;
 <p>观察后解释：________</p>
 <section id="开场试听ab先听暂不揭示参数" class="level3">
 <h3 class="anchored" data-anchor-id="开场试听ab先听暂不揭示参数">开场试听：A、B；先听，暂不揭示参数。</h3>
-<div id="234b3e12" class="cell">
+<div id="cbf8cbe9" class="cell">
+<details class="code-fold">
+<summary>代码</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> HTML</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>display(HTML(<span class="st">&#39;&lt;p&gt;A&lt;/p&gt;&#39;</span>))</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>show_audio(<span class="st">&#39;music-44100-16-mono.wav&#39;</span>)</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>display(HTML(<span class="st">&#39;&lt;p&gt;B&lt;/p&gt;&#39;</span>))</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>show_audio(<span class="st">&#39;music-8000-16-mono.wav&#39;</span>)</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 </div>
 </section>
 </section>
@@ -2271,13 +2277,25 @@ vertical-align: -.125em;
 <p>观察后解释：________</p>
 <section id="d1-先预测后运行" class="level3">
 <h3 class="anchored" data-anchor-id="d1-先预测后运行">D1 先预测，后运行</h3>
-<div id="e2a2554b" class="cell">
+<div id="1646a992" class="cell">
+<details class="code-fold">
+<summary>代码</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>plot_sampling(<span class="dv">12</span>, <span class="va">False</span>)</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 </div>
 <p><strong>等待讨论。下面单元只在完成预测后运行。</strong></p>
-<div id="916612dd" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>plot_sampling(<span class="dv">12</span>, <span class="va">True</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>plot_sampling(<span class="dv">24</span>, <span class="va">True</span>)</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="b8a48562" class="cell">
+<details class="code-fold">
+<summary>代码</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>plot_sampling(<span class="dv">12</span>, <span class="va">True</span>)</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>可选对照：时间允许才运行24点图。</p>
+<div id="c9813ff7" class="cell">
+<details class="code-fold">
+<summary>代码</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>plot_sampling(<span class="dv">24</span>, <span class="va">True</span>)</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 </div>
 </section>
 </section>
@@ -2301,7 +2319,7 @@ vertical-align: -.125em;
 </section>
 <section id="q7-只有码字就能按原速播放吗" class="level2">
 <h2 class="anchored" data-anchor-id="q7-只有码字就能按原速播放吗">Q7 只有码字，就能按原速播放吗？</h2>
-<p>00 01 10 11；同一张四等级码表。 4个样本，能确定这段声音的时长吗？</p>
+<p>单声道：00 01 10 11；同一张四等级码表。 共4个样本，能确定这段声音的时长吗？</p>
 <p>预测：________</p>
 <p>观察后解释：________</p>
 </section>
@@ -2312,14 +2330,18 @@ vertical-align: -.125em;
 <p>观察后解释：________</p>
 <section id="d2-先预测后运行" class="level3">
 <h3 class="anchored" data-anchor-id="d2-先预测后运行">D2 先预测，后运行</h3>
-<div id="eb8e2901" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>show_audio(<span class="st">&#39;music-44100-16-mono.wav&#39;</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>show_audio(<span class="st">&#39;music-8000-16-mono.wav&#39;</span>)</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="51b3f177" class="cell">
+<details class="code-fold">
+<summary>代码</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>show_audio(<span class="st">&#39;tone-6000-at24000.wav&#39;</span>, label<span class="op">=</span><span class="st">&#39;6kHz纯音：24kHz采样基准&#39;</span>)</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 </div>
 <p><strong>等待讨论。下面单元只在完成预测后运行。</strong></p>
-<div id="a7689aa4" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>show_audio(<span class="st">&#39;tone-6000-at24000.wav&#39;</span>)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>show_audio(<span class="st">&#39;tone-lowpass-at8000.wav&#39;</span>)</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="0f3adcda" class="cell">
+<details class="code-fold">
+<summary>代码</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>show_audio(<span class="st">&#39;tone-lowpass-at8000.wav&#39;</span>, label<span class="op">=</span><span class="st">&#39;同一纯音：先低通，再降为8kHz&#39;</span>)</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 </div>
 </section>
 </section>
@@ -2336,15 +2358,33 @@ vertical-align: -.125em;
 <p>观察后解释：________</p>
 <section id="d3-先预测后运行" class="level3">
 <h3 class="anchored" data-anchor-id="d3-先预测后运行">D3 先预测，后运行</h3>
-<div id="70f83f20" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>plot_quantization(<span class="dv">2</span>, <span class="va">False</span>)</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="6cb92cd6" class="cell">
+<details class="code-fold">
+<summary>代码</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>plot_quantization(<span class="dv">2</span>, <span class="va">False</span>)</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 </div>
 <p><strong>等待讨论。下面单元只在完成预测后运行。</strong></p>
-<div id="da911191" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>plot_quantization(<span class="dv">2</span>, <span class="va">True</span>)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>plot_quantization(<span class="dv">4</span>, <span class="va">True</span>)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>show_audio(<span class="st">&#39;music-22050-effective4-stored16-mono.wav&#39;</span>)</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>show_audio(<span class="st">&#39;music-22050-16-mono.wav&#39;</span>)</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="ae48be06" class="cell">
+<details class="code-fold">
+<summary>代码</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>plot_quantization_compare()</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>先指出误差线，再核对Q5同一个样本的误差。</p>
+<div id="69a6d786" class="cell">
+<details class="code-fold">
+<summary>代码</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>quantization_evidence <span class="op">=</span> show_quantization_evidence()</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>图比较2bit／4bit；下面试听比较4bit有效模型／16bit基准。两份试听均为22.05kHz、单声道、16bit存储。</p>
+<div id="ddccf239" class="cell">
+<details class="code-fold">
+<summary>代码</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>show_audio(<span class="st">&#39;music-22050-effective4-stored16-mono.wav&#39;</span>, label<span class="op">=</span><span class="st">&#39;4bit有效量化模型；存储16bit&#39;</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>show_audio(<span class="st">&#39;music-22050-16-mono.wav&#39;</span>, label<span class="op">=</span><span class="st">&#39;16bit基准；存储16bit&#39;</span>)</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 </div>
 </section>
 </section>
@@ -2391,17 +2431,26 @@ vertical-align: -.125em;
 <p>观察后解释：________</p>
 <section id="d4-先预测后运行" class="level3">
 <h3 class="anchored" data-anchor-id="d4-先预测后运行">D4 先预测，后运行</h3>
-<div id="48e9d1a0" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 先预测公式结果与完整文件大小是否相同。</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="37a058de" class="cell">
+<details class="code-fold">
+<summary>代码</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 先预测公式结果与完整文件大小是否相同。</span></span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 </div>
 <p><strong>等待讨论。下面单元只在完成预测后运行。</strong></p>
-<div id="a3ec39e7" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>info <span class="op">=</span> pcm_info(ROOT <span class="op">/</span> <span class="st">&#39;assets/audio/size-check-8000-2s-16-mono.wav&#39;</span>)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>evidence <span class="op">=</span> show_pcm_evidence(<span class="st">&#39;size&#39;</span>)</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="cb1b3a01" class="cell">
+<details class="code-fold">
+<summary>代码</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>info <span class="op">=</span> pcm_info(ROOT <span class="op">/</span> <span class="st">&#39;assets/audio/size-check-8000-2s-16-mono.wav&#39;</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>evidence <span class="op">=</span> show_pcm_evidence(<span class="st">&#39;size&#39;</span>)</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 </div>
 <p>先解释公式结果与完整文件的差额，再运行下面单元核对开场猜测。</p>
-<div id="90a05477" class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>opening_evidence <span class="op">=</span> show_pcm_evidence(<span class="st">&#39;opening&#39;</span>)</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="79360173" class="cell">
+<details class="code-fold">
+<summary>代码</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>opening_evidence <span class="op">=</span> show_pcm_evidence(<span class="st">&#39;opening&#39;</span>)</span></code></pre></div><button title="复制到剪贴板" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 </div>
 </section>
 </section>

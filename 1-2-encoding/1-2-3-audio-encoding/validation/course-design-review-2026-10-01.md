@@ -1,5 +1,7 @@
 # course-design.qmd 教学设计复审
 
+历史版本：v2。本轮最新修订见`course-design-review-round3-2026-10-01.md`。本报告保留当时的结论；通用检查文件与蒙太奇现对应v3。
+
 日期：2026-10-01。主审对象：`course-design.qmd`。同时核对当前PPTX、Notebook、活动单和演示函数，确认设计里承诺的证据确实存在。v1与2026-09-30的制作审计保留为历史记录；本轮不把结构检查通过当作教学设计已完善。
 
 ## 第一轮：问题与改进机会
@@ -57,11 +59,11 @@
 |本地检查|结果|证据|
 |---|---|---|
 |真实Notebook内核执行|教师12个代码单元、学生11个，完整执行通过；交付版保留空输出。|`notebook-execution-v2.txt`|
-|D4两阶段实际输出|每阶段恰好一表；值与独立WAV读取一致；交付代码与执行副本一致。|`review-evidence.json`、`scripts/check_review_evidence.py`|
-|计算、音频、课程对齐、字体与Notes|1,830项检查，0失败；包括19问所有必要条件、38页逐字稿与当前设计一致。|`package-checks.json`|
-|全页渲染与字体|40／40页；实际嵌入普惠体115 Black及55 Regular。|`render-checks.json`|
-|人工版面复查|四张整套课件蒙太奇；改动的Q1、Q16、Q18题目／揭示页全尺寸复查，无新增溢出或覆盖。|`montage-1.png`至`montage-4.png`、v2预览PDF|
-|辅助字宽检查|241行记录，无缺字或宽度溢出；不替代人工检查。|`text-fit.json`|
+|D4两阶段实际输出|每阶段恰好一表；值与独立WAV读取一致；交付代码与执行副本一致。|`history/v2/review-evidence.json`、`scripts/check_review_evidence.py`|
+|计算、音频、课程对齐、字体与Notes|1,830项检查，0失败；包括19问所有必要条件、38页逐字稿与当前设计一致。|`history/v2/package-checks.json`|
+|全页渲染与字体|40／40页；实际嵌入普惠体115 Black及55 Regular。|`history/v2/render-checks.json`|
+|人工版面复查|四张整套课件蒙太奇；改动的Q1、Q16、Q18题目／揭示页全尺寸复查，无新增溢出或覆盖。|当时的四张蒙太奇；可按保留的v2预览PDF重查|
+|辅助字宽检查|241行记录，无缺字或宽度溢出；不替代人工检查。|`history/v2/text-fit.json`|
 |PPTX结构与原生对象检查|40页、19对原生复制、字体与标题尺寸检查通过；Notes使用完整课堂问题。|`native-finalization-v2-review-final.json`|
 |Quarto|5个源文件渲染完成；仅保留zh-CN翻译提示，不影响本课中文正文。|`quarto-render-v2.txt`|
 
