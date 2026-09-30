@@ -1,0 +1,19 @@
+{
+  "final_sha256": "8f62d688c46823b3c8c186f019d6cef7d070e1a9525727d340bd3212a228d52d",
+  "bytes": 2673833,
+  "slides": 63,
+  "source_rgb_and_all_matrices_recomputed": true,
+  "prior_deck_and_source_unchanged": true,
+  "notes_complete": true,
+  "rendered_slides": 63,
+  "render_resolution": "1600x900",
+  "pdf_fonts": [
+    "AlibabaPuHuiTi_3_115_Black",
+    "AlibabaPuHuiTi_3_55_Regular"
+  ],
+  "rendered_text_in_bounds": true,
+  "embedded_media_count": 10,
+  "unique_source_images": 3,
+  "visual_inspection": "All 63 slides inspected individually; complete montage inspected. No visible clipping or unintended overlap found.",
+  "native_application_check": "WPS / PowerPoint not performed"
+}

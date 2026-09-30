@@ -1,0 +1,27 @@
+{
+  "slides": 63,
+  "question_answer_pairs": 28,
+  "fonts": [
+    "Alibaba PuHuiTi 3.0 115 Black",
+    "Alibaba PuHuiTi 3.0 55 Regular"
+  ],
+  "notes_min_chars": 194,
+  "out_of_bounds": [],
+  "errors": [],
+  "native_table_slides": [
+    11,
+    12,
+    30,
+    31,
+    34,
+    35,
+    36,
+    37,
+    42,
+    43,
+    53,
+    54,
+    61,
+    62
+  ]
+}
