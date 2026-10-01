@@ -1,0 +1,11 @@
+project:
+  type: default
+  output-dir: .codex-build/panda-v4/quarto-html
+  render:
+    - course-design.qmd
+    - slides.qmd
+    - activities/panda-v4-student-a.md
+    - activities/panda-v4-student-b.md
+    - activities/panda-v4-student-exit.md
+execute:
+  enabled: false

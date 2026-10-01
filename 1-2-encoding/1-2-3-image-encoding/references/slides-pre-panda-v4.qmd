@@ -1,0 +1,524 @@
+---
+pagetitle: "图像编码"
+lang: zh-CN
+format:
+  revealjs:
+    transition: fade
+    center: false
+    slide-number: false
+    width: 1600
+    height: 900
+    css: styles/rebuild.css
+---
+
+## {.rebuild}
+
+<div class="cover-title">图像<span class="accent">编码</span></div>
+<div class="cover-subtitle">从真实照片，到像素、颜色与二进制</div>
+
+::: {.notes}
+本页承接上一课字符编码。开场时不用急着讲采样、量化、编码，只说明今天换一种数据：图像。核心问题是：我们眼睛看到的真实画面，计算机究竟怎样保存？
+:::
+
+---
+
+## 拍下一朵花，计算机保存了什么？ {.rebuild}
+
+::: {.two-col .wide-right}
+<div>
+<div class="big-question">手机拍下的是<span class="accent">一朵花</span>，还是一堆数据？</div>
+<div class="thesis">先从一个人人都有经验的动作开始：拍照。</div>
+</div>
+
+<div>
+<div class="phone">
+<img src="https://upload.wikimedia.org/wikipedia/commons/3/39/Sunflower_Helianthus_1_edited.png" alt="向日葵照片">
+</div>
+<div class="caption">拍下眼前的花朵</div>
+</div>
+:::
+
+::: {.notes}
+[问题] 拍下一朵花，计算机保存了什么？请学生先说自己的判断：手机里是一朵花、一张画，还是某种数据？这里只让他们预测，暂不显示结论。
+
+图片来源：Wikimedia Commons, “Sunflower Helianthus 1 edited.png”, https://upload.wikimedia.org/wikipedia/commons/3/39/Sunflower_Helianthus_1_edited.png。
+:::
+
+---
+
+## 拍下一朵花，计算机保存了什么？ {.rebuild}
+
+::: {.two-col .wide-right}
+<div>
+<div class="big-question">手机拍下的是<span class="accent">一朵花</span>，还是一堆数据？</div>
+<div class="thesis">先从一个人人都有经验的动作开始：拍照。</div>
+<ul class="small-list">
+<li>我们看到的是花。</li>
+<li>手机保存的是图片文件。</li>
+<li>计算机内部最终只能处理数字。</li>
+</ul>
+</div>
+
+<div>
+<div class="phone">
+<img src="https://upload.wikimedia.org/wikipedia/commons/3/39/Sunflower_Helianthus_1_edited.png" alt="向日葵照片">
+</div>
+<div class="caption">拍下眼前的花朵</div>
+</div>
+:::
+
+::: {.notes}
+这里复刻原课的生活情境：先让学生进入“拍照”的熟悉经验。可以问：你觉得手机保存照片时，是把一朵花真的装进去了，还是保存了一些数字？这只是引入，不展开文件格式。
+
+图片来源：Wikimedia Commons, “Sunflower Helianthus 1 edited.png”, https://upload.wikimedia.org/wikipedia/commons/3/39/Sunflower_Helianthus_1_edited.png。
+:::
+
+---
+
+## 照片放大后，为什么会糊？ {.rebuild}
+
+<div class="center-box">
+<div>
+<div class="big-question">照片不断放大，会发生什么？</div>
+<div class="thesis">先预测，再观察。</div>
+</div>
+</div>
+
+::: {.notes}
+对应原课问题页。让学生先预测：放大会变清晰、变模糊，还是看到更多细节？学生通常会提到“像素”。暂时只记录，不急着定义。
+:::
+
+---
+
+## 先看一张真实照片 {.rebuild}
+
+::: {.two-col .wide-left}
+<div>
+<img class="photo" src="https://upload.wikimedia.org/wikipedia/commons/3/39/Sunflower_Helianthus_1_edited.png" alt="向日葵照片">
+<div class="caption">真实照片：颜色连续、细节丰富</div>
+</div>
+
+<div class="slide-callout">
+我们看到的是一幅完整的图像。<br><br>
+但计算机不能直接保存“花”这个整体，它必须把图像拆成可以表示的数据。
+</div>
+:::
+
+::: {.notes}
+对应原课展示原图。讲述时可以先让学生只观察：花瓣、花盘、背景、颜色变化。下一页再展示放大后的像素化结果。
+
+图片来源：Wikimedia Commons, “Sunflower Helianthus 1 edited.png”, https://upload.wikimedia.org/wikipedia/commons/3/39/Sunflower_Helianthus_1_edited.png。
+:::
+
+---
+
+## 放大到最后，看见了什么？ {.rebuild}
+
+::: {.two-col}
+<div>
+<img class="photo" src="https://upload.wikimedia.org/wikipedia/commons/3/39/Sunflower_Helianthus_1_edited.png" alt="向日葵照片局部">
+<div class="caption">从远处看：仍然像完整照片</div>
+</div>
+
+<div>
+<div class="pixel-grid zoom">
+<span class="c2"></span><span class="c2"></span><span class="c2"></span><span class="c2"></span><span class="c4"></span><span class="c4"></span><span class="c1"></span><span class="c1"></span>
+<span class="c2"></span><span class="c2"></span><span class="c4"></span><span class="c4"></span><span class="c1"></span><span class="c1"></span><span class="c1"></span><span class="c3"></span>
+<span class="c2"></span><span class="c4"></span><span class="c4"></span><span class="c1"></span><span class="c1"></span><span class="c3"></span><span class="c3"></span><span class="c3"></span>
+<span class="c4"></span><span class="c4"></span><span class="c1"></span><span class="c1"></span><span class="c3"></span><span class="c3"></span><span class="c3"></span><span class="c0"></span>
+<span class="c4"></span><span class="c1"></span><span class="c1"></span><span class="c3"></span><span class="c3"></span><span class="c3"></span><span class="c0"></span><span class="c0"></span>
+<span class="c1"></span><span class="c1"></span><span class="c3"></span><span class="c3"></span><span class="c0"></span><span class="c0"></span><span class="c0"></span><span class="c0"></span>
+</div>
+<div class="caption">放大到足够大：看到有限的像素格</div>
+</div>
+:::
+
+::: {.notes}
+这里不用真实截图，而用一个清晰的像素格示意替代原课放大截图。追问：这些格子是不是现实花朵本身就有的？学生会意识到：这和计算机表示图像的方法有关。
+:::
+
+---
+
+## 思维实验：图像编码的过程 {.rebuild}
+
+::: {.two-col}
+<div>
+<div class="big-question">照片里看到的是现实世界。<br>计算机怎样把它变成数据？</div>
+<div class="thesis">观察花的形状，再想怎样记录它。</div>
+</div>
+
+<div class="flower-wrap">
+<svg class="cartoon-flower-svg" viewBox="0 0 420 500" role="img" aria-label="卡通红花">
+  <rect x="198" y="285" width="24" height="150" rx="12" fill="#45A04A"/>
+  <ellipse cx="145" cy="385" rx="72" ry="28" transform="rotate(-18 145 385)" fill="#55B85B"/>
+  <ellipse cx="275" cy="380" rx="72" ry="28" transform="rotate(18 275 380)" fill="#55B85B"/>
+  <ellipse cx="210" cy="115" rx="70" ry="95" fill="#E44343"/>
+  <ellipse cx="125" cy="165" rx="70" ry="95" transform="rotate(-48 125 165)" fill="#E44343"/>
+  <ellipse cx="295" cy="165" rx="70" ry="95" transform="rotate(48 295 165)" fill="#E44343"/>
+  <ellipse cx="135" cy="265" rx="70" ry="95" transform="rotate(42 135 265)" fill="#E44343"/>
+  <ellipse cx="285" cy="265" rx="70" ry="95" transform="rotate(-42 285 265)" fill="#E44343"/>
+  <circle cx="210" cy="220" r="72" fill="#F4D13D" stroke="#D9B425" stroke-width="8"/>
+</svg>
+</div>
+:::
+
+::: {.notes}
+这是一个重要的素材切换：前面的真实向日葵只用于“放大观察像素”；从原课 Snip 6 起，编码思想实验改用卡通红花。这里不要继续拿向日葵做 3×4 / 6×8 实验。
+:::
+
+---
+
+## 3×4：先采样，再量化 {.rebuild}
+
+::: {.two-col}
+<div>
+<div class="flower-wrap">
+<svg class="cartoon-flower-svg" viewBox="0 0 420 500" role="img" aria-label="卡通红花">
+  <rect x="198" y="285" width="24" height="150" rx="12" fill="#45A04A"/>
+  <ellipse cx="145" cy="385" rx="72" ry="28" transform="rotate(-18 145 385)" fill="#55B85B"/>
+  <ellipse cx="275" cy="380" rx="72" ry="28" transform="rotate(18 275 380)" fill="#55B85B"/>
+  <ellipse cx="210" cy="115" rx="70" ry="95" fill="#E44343"/>
+  <ellipse cx="125" cy="165" rx="70" ry="95" transform="rotate(-48 125 165)" fill="#E44343"/>
+  <ellipse cx="295" cy="165" rx="70" ry="95" transform="rotate(48 295 165)" fill="#E44343"/>
+  <ellipse cx="135" cy="265" rx="70" ry="95" transform="rotate(42 135 265)" fill="#E44343"/>
+  <ellipse cx="285" cy="265" rx="70" ry="95" transform="rotate(-42 285 265)" fill="#E44343"/>
+  <circle cx="210" cy="220" r="72" fill="#F4D13D" stroke="#D9B425" stroke-width="8"/>
+</svg>
+</div>
+<div class="matrix-label">用这朵花做思想实验</div>
+</div>
+
+<div>
+<div class="pixel-grid g3x4">
+<span class="c0">0</span><span class="c1">1</span><span class="c0">0</span>
+<span class="c1">1</span><span class="c2">2</span><span class="c1">1</span>
+<span class="c0">0</span><span class="c1">1</span><span class="c0">0</span>
+<span class="c0">0</span><span class="c3">3</span><span class="c0">0</span>
+</div>
+<div class="matrix-label">每个格子对应一个颜色编号</div>
+</div>
+:::
+
+<div class="thesis">分辨率：3×4　　颜色：白 0 · 红 1 · 黄 2 · 绿 3</div>
+
+::: {.notes}
+这页采用原课可核对数据，不再使用自拟矩阵。先问 3×4 一共有多少采样位置，再让学生观察每个位置被归入四种颜色之一。颜色与数值的对应是：白0、红1、黄2、绿3。
+:::
+
+---
+
+## 四种颜色，需要几个二进制位？ {.rebuild}
+
+::: {.two-col .wide-left}
+<div>
+<table class="map-table">
+<thead><tr><th>颜色</th><th>数值</th><th>二进制编码</th></tr></thead>
+<tbody>
+<tr><td><span class="color-chip c0"></span>白色</td><td>0</td><td></td></tr>
+<tr><td><span class="color-chip c1"></span>红色</td><td>1</td><td></td></tr>
+<tr><td><span class="color-chip c2"></span>黄色</td><td>2</td><td></td></tr>
+<tr><td><span class="color-chip c3"></span>绿色</td><td>3</td><td></td></tr>
+</tbody>
+</table>
+</div>
+
+<div>
+<div class="big-question">编码的是 <span class="accent">12 个格子</span>，还是 <span class="accent">4 种颜色状态</span>？</div>
+</div>
+:::
+
+::: {.notes}
+[问题] 四种颜色，需要几个二进制位？先只看白、红、黄、绿四种颜色，不要急着填右边的表。有人会想到 12 个格子；我问的是每个格子里的颜色需要区分多少种状态。先各自判断需要几位，再请几位同学说理由。暂时不公布编码表。
+:::
+
+---
+
+## 四种颜色，需要几个二进制位？ {.rebuild}
+
+::: {.two-col .wide-left}
+<div>
+<table class="map-table">
+<thead><tr><th>颜色</th><th>数值</th><th>二进制编码</th></tr></thead>
+<tbody>
+<tr><td><span class="color-chip c0"></span>白色</td><td>0</td><td>00</td></tr>
+<tr><td><span class="color-chip c1"></span>红色</td><td>1</td><td>01</td></tr>
+<tr><td><span class="color-chip c2"></span>黄色</td><td>2</td><td>10</td></tr>
+<tr><td><span class="color-chip c3"></span>绿色</td><td>3</td><td>11</td></tr>
+</tbody>
+</table>
+</div>
+
+<div>
+<div class="big-question">编码的是 <span class="accent">12 个格子</span>，还是 <span class="accent">4 种颜色状态</span>？</div>
+<div class="thesis">2 bit → 00、01、10、11 → 4 种状态</div>
+</div>
+:::
+
+::: {.notes}
+[问题] 四种颜色，需要几个二进制位？刚才有人按 12 个格子来想，但现在要给每个格子的颜色编码。四种颜色需要 2 bit，因为 00、01、10、11 正好是四种不同状态。对照表格看每种颜色怎样表示。原课堂学生参与了位数判断和追问；逐格替换整幅矩阵由教师说明，并非学生任务。
+:::
+
+---
+
+## 怎样让花形更接近原图？ {.rebuild}
+
+::: {.compare-two}
+<div>
+<h3>3×4，4 色，2 bit</h3>
+<div class="pixel-grid g3x4">
+<span class="c0"></span><span class="c1"></span><span class="c0"></span>
+<span class="c1"></span><span class="c2"></span><span class="c1"></span>
+<span class="c0"></span><span class="c1"></span><span class="c0"></span>
+<span class="c0"></span><span class="c3"></span><span class="c0"></span>
+</div>
+<div class="caption">3×4 的数字花</div>
+</div>
+
+<div></div>
+:::
+
+::: {.notes}
+[问题] 怎样让花形更接近原图？这幅 3×4 的数字花能认出来，但花瓣和叶子的边缘很粗。先让学生提出办法，不展示下一轮结果。若有人提出增加颜色，先记下；这一轮只改变采样点的数量，稍后再单独比较颜色数。
+:::
+
+---
+
+## 怎样让花形更接近原图？ {.rebuild}
+
+::: {.compare-two}
+<div>
+<h3>3×4，4 色，2 bit</h3>
+<div class="pixel-grid g3x4">
+<span class="c0"></span><span class="c1"></span><span class="c0"></span>
+<span class="c1"></span><span class="c2"></span><span class="c1"></span>
+<span class="c0"></span><span class="c1"></span><span class="c0"></span>
+<span class="c0"></span><span class="c3"></span><span class="c0"></span>
+</div>
+<div class="caption">3×4 的数字花</div>
+</div>
+
+<div>
+<h3>6×8，仍为 4 色，仍为 2 bit</h3>
+<div class="pixel-grid g6x8">
+<span class="c0"></span><span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c0"></span><span class="c0"></span>
+<span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c1"></span><span class="c1"></span><span class="c0"></span>
+<span class="c1"></span><span class="c1"></span><span class="c2"></span><span class="c2"></span><span class="c1"></span><span class="c1"></span>
+<span class="c1"></span><span class="c1"></span><span class="c2"></span><span class="c2"></span><span class="c1"></span><span class="c1"></span>
+<span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c1"></span><span class="c1"></span><span class="c0"></span>
+<span class="c0"></span><span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c0"></span><span class="c0"></span>
+<span class="c0"></span><span class="c3"></span><span class="c3"></span><span class="c3"></span><span class="c3"></span><span class="c0"></span>
+<span class="c0"></span><span class="c0"></span><span class="c0"></span><span class="c3"></span><span class="c0"></span><span class="c0"></span>
+</div>
+<div class="caption">只提高空间采样密度</div>
+</div>
+:::
+
+<div class="thesis">这一轮只改变分辨率：3×4 → 6×8；颜色数和位深度不变。</div>
+
+::: {.notes}
+[问题] 怎样让花形更接近原图？现在看右边：横向从 3 个位置增加到 6 个，纵向从 4 个增加到 8 个。让学生比较花瓣和叶子的边缘，并指出本轮只改变了采样点数量。教师侧限定：这里的“更清晰”只在同一对象、其他条件基本不变、增加真实空间采样的语境下解释；不能推广成“把已有低分辨率图片插值放大就获得新真实细节”。
+:::
+
+---
+
+## 位图放大，和矢量图放大，有什么不同？ {.rebuild}
+
+<div class="center-box">
+<div>
+<div class="big-question">位图和矢量图放大后，边缘会一样吗？</div>
+<div class="thesis">先预测两种图的变化，再看放大结果。</div>
+</div>
+</div>
+
+::: {.notes}
+[问题] 位图放大，和矢量图放大，有什么不同？先让学生根据刚才看见的像素格预测：如果把两类图都继续放大，边缘会怎样？请他们各说一个可观察的现象，再揭示比较图。
+:::
+
+---
+
+## 位图放大，和矢量图放大，有什么不同？ {.rebuild}
+
+::: {.compare-two}
+<div>
+<h3>位图</h3>
+<div class="pixel-grid zoom">
+<span class="c1"></span><span class="c1"></span><span class="c2"></span><span class="c2"></span><span class="c1"></span><span class="c1"></span><span class="c0"></span><span class="c0"></span>
+<span class="c1"></span><span class="c2"></span><span class="c2"></span><span class="c2"></span><span class="c1"></span><span class="c0"></span><span class="c0"></span><span class="c0"></span>
+<span class="c1"></span><span class="c1"></span><span class="c2"></span><span class="c1"></span><span class="c1"></span><span class="c0"></span><span class="c0"></span><span class="c0"></span>
+<span class="c0"></span><span class="c3"></span><span class="c3"></span><span class="c3"></span><span class="c0"></span><span class="c0"></span><span class="c0"></span><span class="c0"></span>
+</div>
+<div class="caption">放大后能看到像素格</div>
+</div>
+
+<div>
+<h3>矢量图</h3>
+<div class="vector-box"><div class="vector-shape"></div></div>
+<div class="caption">放大缩小后仍保持清晰边界</div>
+</div>
+:::
+
+::: {.notes}
+原课在提高分辨率之后插入位图 / 矢量图比较。课堂逐字稿主要强调“位图放大会看到像素、矢量图放大缩小仍清晰”；“用数学方式描述图形”来自 PDF 自动总结，不把它伪装成教师现场原话。
+:::
+
+---
+
+## 除了分辨率，还能改什么？ {.rebuild}
+
+::: {.compare-two}
+<div>
+<h3>6×8，4 色，2 bit</h3>
+<div class="pixel-grid g6x8">
+<span class="c0"></span><span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c0"></span><span class="c0"></span>
+<span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c1"></span><span class="c1"></span><span class="c0"></span>
+<span class="c1"></span><span class="c1"></span><span class="c2"></span><span class="c2"></span><span class="c1"></span><span class="c1"></span>
+<span class="c1"></span><span class="c1"></span><span class="c2"></span><span class="c2"></span><span class="c1"></span><span class="c1"></span>
+<span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c1"></span><span class="c1"></span><span class="c0"></span>
+<span class="c0"></span><span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c0"></span><span class="c0"></span>
+<span class="c0"></span><span class="c3"></span><span class="c3"></span><span class="c3"></span><span class="c3"></span><span class="c0"></span>
+<span class="c0"></span><span class="c0"></span><span class="c0"></span><span class="c3"></span><span class="c0"></span><span class="c0"></span>
+</div>
+</div>
+
+<div></div>
+:::
+
+::: {.notes}
+[问题] 除了分辨率，还能改什么？现在已经有 6×8 个位置，花形比第一轮清楚，但颜色仍只有白、红、黄、绿。先请学生想怎样让颜色更接近原花，不展示新的色块或位深度。等他们提出增加颜色后，再保持 6×8 不变做第三轮比较。
+:::
+
+---
+
+## 除了分辨率，还能改什么？ {.rebuild}
+
+::: {.compare-two}
+<div>
+<h3>6×8，4 色，2 bit</h3>
+<div class="pixel-grid g6x8">
+<span class="c0"></span><span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c0"></span><span class="c0"></span>
+<span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c1"></span><span class="c1"></span><span class="c0"></span>
+<span class="c1"></span><span class="c1"></span><span class="c2"></span><span class="c2"></span><span class="c1"></span><span class="c1"></span>
+<span class="c1"></span><span class="c1"></span><span class="c2"></span><span class="c2"></span><span class="c1"></span><span class="c1"></span>
+<span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c1"></span><span class="c1"></span><span class="c0"></span>
+<span class="c0"></span><span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c0"></span><span class="c0"></span>
+<span class="c0"></span><span class="c3"></span><span class="c3"></span><span class="c3"></span><span class="c3"></span><span class="c0"></span>
+<span class="c0"></span><span class="c0"></span><span class="c0"></span><span class="c3"></span><span class="c0"></span><span class="c0"></span>
+</div>
+</div>
+
+<div>
+<h3>6×8，6 色，3 bit</h3>
+<div class="pixel-grid g6x8">
+<span class="c0"></span><span class="c0"></span><span class="c6"></span><span class="c1"></span><span class="c0"></span><span class="c0"></span>
+<span class="c0"></span><span class="c6"></span><span class="c1"></span><span class="c1"></span><span class="c6"></span><span class="c0"></span>
+<span class="c1"></span><span class="c6"></span><span class="c2"></span><span class="c4"></span><span class="c1"></span><span class="c1"></span>
+<span class="c1"></span><span class="c1"></span><span class="c4"></span><span class="c4"></span><span class="c6"></span><span class="c1"></span>
+<span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c6"></span><span class="c1"></span><span class="c0"></span>
+<span class="c0"></span><span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c0"></span><span class="c0"></span>
+<span class="c0"></span><span class="c3"></span><span class="c3"></span><span class="c3"></span><span class="c3"></span><span class="c0"></span>
+<span class="c0"></span><span class="c0"></span><span class="c0"></span><span class="c3"></span><span class="c0"></span><span class="c0"></span>
+</div>
+</div>
+:::
+
+<div class="thesis">6 种颜色至少需要 3 bit，因为 2² &lt; 6 ≤ 2³。</div>
+
+::: {.notes}
+[问题] 除了分辨率，还能改什么？右图仍是 6×8，但把可用颜色从四种增加到六种。请学生指出这次改变的是每个位置可以选的颜色数，再算六种颜色至少需要几位：2 bit 不够，3 bit 可以表示八种状态。教师侧限定：更多颜色只在同一量化任务、其他条件相同时通常能更细地近似原图。六色矩阵中两档红色的精确逐格分配无法由现有截图可靠判定；此图是视觉重建，不作为原课精确数值矩阵。
+:::
+
+---
+
+## 实验结论：先填空 {.rebuild}
+
+<div class="conclusion-layout">
+<div class="mini-rounds">
+<div class="pixel-grid mini-grid g3x4">
+<span class="c0"></span><span class="c1"></span><span class="c0"></span>
+<span class="c1"></span><span class="c2"></span><span class="c1"></span>
+<span class="c0"></span><span class="c1"></span><span class="c0"></span>
+<span class="c0"></span><span class="c3"></span><span class="c0"></span>
+</div>
+<div class="pixel-grid mini-grid g6x8">
+<span class="c0"></span><span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c0"></span><span class="c0"></span>
+<span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c1"></span><span class="c1"></span><span class="c0"></span>
+<span class="c1"></span><span class="c1"></span><span class="c2"></span><span class="c2"></span><span class="c1"></span><span class="c1"></span>
+<span class="c1"></span><span class="c1"></span><span class="c2"></span><span class="c2"></span><span class="c1"></span><span class="c1"></span>
+<span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c1"></span><span class="c1"></span><span class="c0"></span>
+<span class="c0"></span><span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c0"></span><span class="c0"></span>
+<span class="c0"></span><span class="c3"></span><span class="c3"></span><span class="c3"></span><span class="c3"></span><span class="c0"></span>
+<span class="c0"></span><span class="c0"></span><span class="c0"></span><span class="c3"></span><span class="c0"></span><span class="c0"></span>
+</div>
+<div class="pixel-grid mini-grid g6x8">
+<span class="c0"></span><span class="c0"></span><span class="c6"></span><span class="c1"></span><span class="c0"></span><span class="c0"></span>
+<span class="c0"></span><span class="c6"></span><span class="c1"></span><span class="c1"></span><span class="c6"></span><span class="c0"></span>
+<span class="c1"></span><span class="c6"></span><span class="c2"></span><span class="c4"></span><span class="c1"></span><span class="c1"></span>
+<span class="c1"></span><span class="c1"></span><span class="c4"></span><span class="c4"></span><span class="c6"></span><span class="c1"></span>
+<span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c6"></span><span class="c1"></span><span class="c0"></span>
+<span class="c0"></span><span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c0"></span><span class="c0"></span>
+<span class="c0"></span><span class="c3"></span><span class="c3"></span><span class="c3"></span><span class="c3"></span><span class="c0"></span>
+<span class="c0"></span><span class="c0"></span><span class="c0"></span><span class="c3"></span><span class="c0"></span><span class="c0"></span>
+</div>
+</div>
+
+<div class="fill-list">
+1. 位图图像编码步骤是 <span class="answer">采样</span>、<span class="blank"></span> 和 <span class="blank"></span>。<br>
+2. 图像分辨率（采样量）越 <span class="blank"></span>，像素越小，采样精细度越 <span class="blank"></span>，图像越清晰细腻。<br>
+3. 颜色种类（量化等级）越 <span class="answer">多</span>，位深度越 <span class="blank"></span>，色彩越 <span class="blank"></span>，图像越逼真；若位深度为 n，则表示的颜色种类最多不超过 <span class="blank"></span>。
+</div>
+</div>
+
+::: {.notes}
+对应 Snip 11 的可见状态：左侧保留三轮实验结果；文字不是“全空”，而是已经给出“采样”和“多”，其余位置留空。此页必须停顿，让学生先说或填写剩余答案。
+
+Snip 12 缺失。现有材料不能证明下一步到底揭示了哪些局部答案，因此不人为复制一个所谓“Snip 12 状态”。
+:::
+
+---
+
+## 实验结论：核对答案 {.rebuild}
+
+<div class="conclusion-layout">
+<div class="mini-rounds">
+<div class="pixel-grid mini-grid g3x4">
+<span class="c0"></span><span class="c1"></span><span class="c0"></span>
+<span class="c1"></span><span class="c2"></span><span class="c1"></span>
+<span class="c0"></span><span class="c1"></span><span class="c0"></span>
+<span class="c0"></span><span class="c3"></span><span class="c0"></span>
+</div>
+<div class="pixel-grid mini-grid g6x8">
+<span class="c0"></span><span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c0"></span><span class="c0"></span>
+<span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c1"></span><span class="c1"></span><span class="c0"></span>
+<span class="c1"></span><span class="c1"></span><span class="c2"></span><span class="c2"></span><span class="c1"></span><span class="c1"></span>
+<span class="c1"></span><span class="c1"></span><span class="c2"></span><span class="c2"></span><span class="c1"></span><span class="c1"></span>
+<span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c1"></span><span class="c1"></span><span class="c0"></span>
+<span class="c0"></span><span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c0"></span><span class="c0"></span>
+<span class="c0"></span><span class="c3"></span><span class="c3"></span><span class="c3"></span><span class="c3"></span><span class="c0"></span>
+<span class="c0"></span><span class="c0"></span><span class="c0"></span><span class="c3"></span><span class="c0"></span><span class="c0"></span>
+</div>
+<div class="pixel-grid mini-grid g6x8">
+<span class="c0"></span><span class="c0"></span><span class="c6"></span><span class="c1"></span><span class="c0"></span><span class="c0"></span>
+<span class="c0"></span><span class="c6"></span><span class="c1"></span><span class="c1"></span><span class="c6"></span><span class="c0"></span>
+<span class="c1"></span><span class="c6"></span><span class="c2"></span><span class="c4"></span><span class="c1"></span><span class="c1"></span>
+<span class="c1"></span><span class="c1"></span><span class="c4"></span><span class="c4"></span><span class="c6"></span><span class="c1"></span>
+<span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c6"></span><span class="c1"></span><span class="c0"></span>
+<span class="c0"></span><span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c0"></span><span class="c0"></span>
+<span class="c0"></span><span class="c3"></span><span class="c3"></span><span class="c3"></span><span class="c3"></span><span class="c0"></span>
+<span class="c0"></span><span class="c0"></span><span class="c0"></span><span class="c3"></span><span class="c0"></span><span class="c0"></span>
+</div>
+</div>
+
+<div class="fill-list">
+1. 位图图像编码步骤是 <span class="answer">采样</span>、<span class="answer">量化</span> 和 <span class="answer">编码</span>。<br>
+2. 图像分辨率（采样量）越 <span class="answer">高</span>，像素越小，采样精细度越 <span class="answer">高</span>，图像越清晰细腻。<br>
+3. 颜色种类（量化等级）越 <span class="answer">多</span>，位深度越 <span class="answer">大</span>，色彩越 <span class="answer">丰富</span>，图像越逼真；若位深度为 n，则表示的颜色种类最多不超过 <span class="answer">2<sup>n</sup></span>。
+</div>
+</div>
+
+::: {.notes}
+对应 Snip 13：答案完整揭示。
+
+教师侧限定：
+- “分辨率越高越清晰”只按本课同一对象、其他条件相近、增加真实空间采样的控制变量实验理解；已有低分辨率位图插值放大不等于重新获得真实细节。
+- “颜色越多越逼真”只按同一量化任务、其他条件相同理解为颜色近似可以更细，不是无条件规律。
+:::

@@ -1,0 +1,75 @@
+{
+  "status": "pass",
+  "artifact": "exports/1-2-3-image-encoding-panda-v4.pptx",
+  "artifact_sha256": "c88c4e3666873045085a0f23748a1cb39cd666cd6c1b8506198acb0c531c1237",
+  "candidate_parts_equal_delivered": true,
+  "candidate_sha256": "c1a95e4aa4a20ed3e994bbd3e687ea3ccde094639ba01d8395c869228962c7e2",
+  "slides": 77,
+  "pairs": 37,
+  "fonts": [
+    "Alibaba PuHuiTi 3.0 115 Black",
+    "Alibaba PuHuiTi 3.0 55 Regular"
+  ],
+  "normal_body_minimum_pt": 22,
+  "small_caption_exceptions": [
+    {
+      "slide": 64,
+      "text": "概念示意",
+      "pt": 16.5,
+      "role": "Nonessential concept-diagram caption"
+    },
+    {
+      "slide": 65,
+      "text": "概念示意",
+      "pt": 16.5,
+      "role": "Nonessential concept-diagram caption"
+    }
+  ],
+  "unchanged_seed_visible_parts": 63,
+  "tree_connector_counts": {
+    "15": 0,
+    "16": 1,
+    "17": 2,
+    "18": 3,
+    "38": 3,
+    "39": 4,
+    "59": 4,
+    "60": 5,
+    "61": 6,
+    "72": 6,
+    "73": 7
+  },
+  "independent_method": "Pillow RGB decode plus integer channel sums per block; independently inspect native pixel fills and geometry",
+  "rgb": [
+    138,
+    179,
+    111
+  ],
+  "payload_B": [
+    16,
+    64,
+    96
+  ],
+  "Q16_B": 499500,
+  "Q16_KiB": 487.79,
+  "exit_B": 45,
+  "demo_states_checked": 4,
+  "native_decoding_roundtrips": [
+    "11 11 01 00 00 01 11 00",
+    "11 11 01 00 00 01 11 00",
+    "11 11 01 00 00 01 11 00"
+  ],
+  "rounded_fixture_differences": {
+    "8x8/4": 0,
+    "16x16/4": 0,
+    "16x16/6": 0
+  },
+  "Q9_RGB_MSE": {
+    "4": 281.1663164626121,
+    "6": 192.27091715705652
+  },
+  "Q9_MSE_reduction_percent": 31.62,
+  "kernel_check": "not applicable: current lesson uses native PPTX and optional Tk, no Jupyter",
+  "classroom_apps": "unverified",
+  "projection_and_pacing": "unverified"
+}

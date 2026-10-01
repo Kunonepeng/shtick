@@ -1,12 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""熊猫图像数字化课堂演示：采样 → 量化 → 编码
+"""Demonstrate spatial sampling, palette quantization, and fixed-length encoding.
 
-运行时只使用 Python 标准库。数据来自本课熊猫素材的同一裁切区域，
-已预计算为 8×8 与 16×16 的平均 RGB 样本。
-
-课堂路径：
-8×8 / 4色 → 16×16 / 4色 → 16×16 / 6色
+Use Python's standard library and unrounded precomputed RGB means.
+The optional teaching route is 8x8/4 colors, 16x16/4 colors, then 16x16/6 colors.
+Chinese string literals are student-facing interface labels.
 """
 
 from __future__ import annotations
@@ -40,7 +38,7 @@ def bits_for_levels(levels: int) -> int:
     return max(1, math.ceil(math.log2(levels)))
 
 
-def nearest_palette(rgb: list[int], palette: list[list[int]]) -> tuple[int, list[int], int]:
+def nearest_palette(rgb: list[float], palette: list[list[int]]) -> tuple[int, list[int], float]:
     """Return (index, palette_rgb, squared_rgb_distance)."""
     best_i = 0
     best_d = None
@@ -48,7 +46,7 @@ def nearest_palette(rgb: list[int], palette: list[list[int]]) -> tuple[int, list
         d = sum((rgb[k] - p[k]) ** 2 for k in range(3))
         if best_d is None or d < best_d:
             best_i, best_d = i, d
-    return best_i, palette[best_i], int(best_d or 0)
+    return best_i, palette[best_i], float(best_d or 0)
 
 
 def codeword(index: int, levels: int) -> str:
@@ -56,7 +54,7 @@ def codeword(index: int, levels: int) -> str:
 
 
 def self_test() -> None:
-    assert DATA_PATH.exists(), "缺少 panda_samples.json"
+    assert DATA_PATH.exists(), "Missing panda_samples.json"
     data = json.loads(DATA_PATH.read_text(encoding="utf-8"))
     assert tuple(data["supported_grids"]) == SUPPORTED_GRIDS
     assert tuple(data["supported_levels"]) == SUPPORTED_LEVELS
@@ -68,7 +66,7 @@ def self_test() -> None:
         for row in rows:
             for rgb in row:
                 assert len(rgb) == 3
-                assert all(isinstance(v, int) and 0 <= v <= 255 for v in rgb)
+                assert all(isinstance(v, (int, float)) and 0 <= v <= 255 for v in rgb)
 
     assert bits_for_levels(4) == 2
     assert bits_for_levels(6) == 3
@@ -327,7 +325,7 @@ class Demo:
         return self.data["palette_rgb"][: self.levels]
 
     @staticmethod
-    def _hex(rgb: list[int]) -> str:
+    def _hex(rgb: list[float]) -> str:
         vals = [max(0, min(255, int(round(v)))) for v in rgb]
         return "#{:02x}{:02x}{:02x}".format(*vals)
 
@@ -394,7 +392,7 @@ class Demo:
             text=f"选中：第 {self.selected_row + 1} 行，第 {self.selected_col + 1} 列"
         )
         self.sample_label.configure(
-            text=f"采样值 RGB = ({rgb[0]}, {rgb[1]}, {rgb[2]})"
+            text="采样均值 RGB ≈ ({:.2f}, {:.2f}, {:.2f})".format(*rgb)
         )
         self.quant_label.configure(
             text=f"量化：→ 颜色编号 {idx}  RGB = ({q[0]}, {q[1]}, {q[2]})"
@@ -426,7 +424,7 @@ def main() -> None:
         self_test()
         return
     if not DATA_PATH.exists():
-        raise SystemExit("缺少 panda_samples.json")
+        raise SystemExit("Missing panda_samples.json")
     root = tk.Tk()
     Demo(root)
     root.mainloop()

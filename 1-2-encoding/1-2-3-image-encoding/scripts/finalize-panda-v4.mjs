@@ -1,0 +1,16 @@
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import {fileURLToPath,pathToFileURL} from 'node:url';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+const skill=process.env.PRESENTATIONS_SKILL;
+const python=process.env.BUILD_PYTHON ?? 'python3';
+if(!skill || !path.isAbsolute(skill))throw new Error('Set PRESENTATIONS_SKILL to the installed presentations skill');
+const {finalizePresentation}=await import(pathToFileURL(path.join(skill,'container_tools/artifact_tool_utils.mjs')).href);
+process.env.RUNTIME_NODE_MODULES ??= process.env.ARTIFACT_MODULES ?? path.join(root,'.codex-build/node_modules');
+process.env.RUNTIME_NODE ??= process.execPath;
+const out=path.join(root,'.codex-build/panda-v4');
+const plan=JSON.parse(await fs.readFile(path.join(out,'slide-plan.json'),'utf8'));
+const oldTables=new Set([11,12,30,31,34,35,36,37,42,43,53,54,61,62]);
+const tableOwners=plan.slides.filter(e=>oldTables.has(e.base_slide)).map(e=>e.slide);
+const result=await finalizePresentation({workspaceDir:root,candidatePath:path.join(out,'candidate.pptx'),finalPath:path.join(root,'exports/1-2-3-image-encoding-panda-v4.pptx'),pythonExecutable:python,integrityValidatorPath:path.join(skill,'container_tools/inspect_presentation_package_integrity.py'),layoutValidatorPath:path.join(skill,'container_tools/inspect_presentation_layout_geometry.py'),layoutArgs:['--expected-slide-size-emu','12192000,6858000','--validate-heading-fit',...tableOwners.flatMap(n=>['--require-native-table-slide',String(n)])],explicitTotalSlideCount:77,fontPolicy:{basis:'user_request',families:['Alibaba PuHuiTi 3.0 115 Black','Alibaba PuHuiTi 3.0 55 Regular']},requiredNativeTableOwnerSlides:tableOwners,verifyArtifactToolImport:true,receiptPath:path.join(out,'validation.json')});
+console.log(JSON.stringify(result));

@@ -1,0 +1,7 @@
+body { font-family: "Alibaba PuHuiTi 3.0 55 Regular", sans-serif; font-size: 15px; line-height: 1.5; color: #262626; }
+h1 { font-size: 24px; } p { margin: 9px 0; } code { font-family: inherit; font-size: inherit; }
+@page { size: A4; margin: 14mm; }
+@media print { header { margin-bottom: 10px; } #quarto-content { display: block; padding: 0; } main { max-width: none; margin: 0; padding: 0; } .quarto-title-meta,.anchorjs-link { display: none; } p { break-inside: avoid; } }
+
+.drawing-spaces { display: flex; gap: 10mm; margin: 3mm 0; break-inside: avoid; }
+.drawing-spaces > div { width: 70mm; height: 16mm; border: 1px solid #777; }

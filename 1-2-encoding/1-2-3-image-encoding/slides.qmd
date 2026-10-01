@@ -1,524 +1,1326 @@
 ---
-pagetitle: "图像编码"
+pagetitle: "图像编码：熊猫v4参考"
 lang: zh-CN
 format:
   revealjs:
-    transition: fade
-    center: false
-    slide-number: false
-    width: 1600
-    height: 900
-    css: styles/rebuild.css
+    width: 1280
+    height: 720
+    transition: none
+    slide-number: true
+    embed-resources: true
+    margin: 0
+    background-color: "#FFFFFF"
 ---
 
-## {.rebuild}
+## {background-image=".codex-build/panda-v4/render/slide-01.png" background-size="contain"}
 
-<div class="cover-title">图像<span class="accent">编码</span></div>
-<div class="cover-subtitle">从真实照片，到像素、颜色与二进制</div>
+<!-- page=1 q=Q0 stage=opening -->
 
-::: {.notes}
-本页承接上一课字符编码。开场时不用急着讲采样、量化、编码，只说明今天换一种数据：图像。核心问题是：我们眼睛看到的真实画面，计算机究竟怎样保存？
+::: notes
+[问题 / 页面目的] 从字符编码转入图像编码
+[内部编号] Q0 / opening
+[教师逐字稿] 前面讨论过字符怎样保存。今天换成图像：这只熊猫看起来有轮廓、颜色和明暗，计算机记录的是什么？先别急着说二进制，下一页从放大眼睛开始观察。
+[来源与改编] 沿用course-design.qmd Q0的衔接逻辑。熊猫图来自用户提供的assets/pandas.jpg，属于数字角色插图；本版未生成替代图片。
 :::
 
----
+## {background-image=".codex-build/panda-v4/render/slide-02.png" background-size="contain"}
 
-## 拍下一朵花，计算机保存了什么？ {.rebuild}
+<!-- page=2 q=Q1 stage=question -->
 
-::: {.two-col .wide-right}
-<div>
-<div class="big-question">手机拍下的是<span class="accent">一朵花</span>，还是一堆数据？</div>
-<div class="thesis">先从一个人人都有经验的动作开始：拍照。</div>
-</div>
-
-<div>
-<div class="phone">
-<img src="https://upload.wikimedia.org/wikipedia/commons/3/39/Sunflower_Helianthus_1_edited.png" alt="向日葵照片">
-</div>
-<div class="caption">拍下眼前的花朵</div>
-</div>
+::: notes
+[问题 / 页面目的] 熊猫图不断放大，会看到什么？
+[内部编号] Q1 / question
+[教学意图] 预测，观察原图真实像素的放大结果。
+[教师逐字稿] 先看这张熊猫图。不断放大它，会看到更多细节，还是会出现别的现象？红框圈出了眼睛里很小的一块。先说预测，再看这一块的放大结果。
+[预期学生反应] 可能预测“更清楚”，也可能说“看到小格”。让学生指认一个像素。
+[追问问题] 看到更多格子，就等于得到更多原始细节吗？
+[下一问] 如果把熊猫图印在纸上，相机怎样把它记录下来？
+[课堂操作] 短问停留15–25秒；先听理由，再翻页。 所有证据均嵌入，可离线讲授。
+[来源与改编] course-design.qmd Q1；00:00:43–00:02:48；Snip 3–5。本版采用course-design.qmd当前课堂实施方案，熊猫数据与新增活动的来源分别注明。
+[熊猫数据] 原图assets/pandas.jpg；实验固定区域(x=280,y=100,w=288,h=288)，坐标零起始。8×8/16×16均从这一区域计算，码表固定。完整数据与算法见course-design.qmd的C4和.codex-build/panda-v4/data.json；本次审查修订见panda-v4-audit.md。
+[技术注解] 本页按原始像素作最近邻式放大；一般查看器也可能插值，本课不把像素格大小当成物体真实尺寸。
 :::
 
-::: {.notes}
-[问题] 拍下一朵花，计算机保存了什么？请学生先说自己的判断：手机里是一朵花、一张画，还是某种数据？这里只让他们预测，暂不显示结论。
+## {background-image=".codex-build/panda-v4/render/slide-03.png" background-size="contain"}
 
-图片来源：Wikimedia Commons, “Sunflower Helianthus 1 edited.png”, https://upload.wikimedia.org/wikipedia/commons/3/39/Sunflower_Helianthus_1_edited.png。
+<!-- page=3 q=Q1 stage=answer -->
+
+::: notes
+[问题 / 页面目的] 熊猫图不断放大，会看到什么？
+[内部编号] Q1 / answer
+[教学意图] 预测，观察原图真实像素的放大结果。
+[教师逐字稿] 右边放大的是红框中的16×16个原始像素，直接把每个像素画成一个色块。现在能找到绿色眼睛的边界吗？这些小格就是位图的图像单元，叫像素。没有在格子之间补颜色，也没有生成新的细节。先记住这个观察，后面用它解释放大的限制。
+[预期学生反应] 可能预测“更清楚”，也可能说“看到小格”。让学生指认一个像素。
+[追问问题] 看到更多格子，就等于得到更多原始细节吗？
+[下一问] 如果把熊猫图印在纸上，相机怎样把它记录下来？
+[课堂操作] 指向新增证据；请学生说明理由再继续。 所有证据均嵌入，可离线讲授。
+[来源与改编] course-design.qmd Q1；00:00:43–00:02:48；Snip 3–5。本版采用course-design.qmd当前课堂实施方案，熊猫数据与新增活动的来源分别注明。
+[熊猫数据] 原图assets/pandas.jpg；实验固定区域(x=280,y=100,w=288,h=288)，坐标零起始。8×8/16×16均从这一区域计算，码表固定。完整数据与算法见course-design.qmd的C4和.codex-build/panda-v4/data.json；本次审查修订见panda-v4-audit.md。
+[技术注解] 本页按原始像素作最近邻式放大；一般查看器也可能插值，本课不把像素格大小当成物体真实尺寸。
 :::
 
----
+## {background-image=".codex-build/panda-v4/render/slide-04.png" background-size="contain"}
 
-## 拍下一朵花，计算机保存了什么？ {.rebuild}
+<!-- page=4 q=Q2 stage=question -->
 
-::: {.two-col .wide-right}
-<div>
-<div class="big-question">手机拍下的是<span class="accent">一朵花</span>，还是一堆数据？</div>
-<div class="thesis">先从一个人人都有经验的动作开始：拍照。</div>
-<ul class="small-list">
-<li>我们看到的是花。</li>
-<li>手机保存的是图片文件。</li>
-<li>计算机内部最终只能处理数字。</li>
-</ul>
-</div>
-
-<div>
-<div class="phone">
-<img src="https://upload.wikimedia.org/wikipedia/commons/3/39/Sunflower_Helianthus_1_edited.png" alt="向日葵照片">
-</div>
-<div class="caption">拍下眼前的花朵</div>
-</div>
+::: notes
+[问题 / 页面目的] 相机怎样记录纸上的熊猫图？
+[内部编号] Q2 / question
+[教学意图] 从纸面反射光过渡到传感器采样。
+[教师逐字稿] 设想把这张熊猫图印在纸上，再用相机拍下来。眼睛为什么能看见纸上的图案？进入相机的又是什么？先说光走过的路径。
+[预期学生反应] 学生会说纸上的图案、颜色或光进入相机。追问镜头与传感器分别做什么。
+[追问问题] 镜头主要负责成像，哪个部件感光？
+[下一问] 把取样位置排成8×8的网格。
+[课堂操作] 短问停留15–25秒；先听理由，再翻页。 所有证据均嵌入，可离线讲授。
+[来源与改编] course-design.qmd Q2；00:02:48–00:06:12；Snip 6–7。本版采用course-design.qmd当前课堂实施方案，熊猫数据与新增活动的来源分别注明。
+[熊猫数据] 原图assets/pandas.jpg；实验固定区域(x=280,y=100,w=288,h=288)，坐标零起始。8×8/16×16均从这一区域计算，码表固定。完整数据与算法见course-design.qmd的C4和.codex-build/panda-v4/data.json；本次审查修订见panda-v4-audit.md。
+[技术注解] 原素材为数字角色插图。本页是“打印后再拍摄”的思想实验，不把这张JPEG冒充实拍照片。后续对已解码图片做区域平均与量化，以演示采样和量化的不同作用。
 :::
 
-::: {.notes}
-这里复刻原课的生活情境：先让学生进入“拍照”的熟悉经验。可以问：你觉得手机保存照片时，是把一朵花真的装进去了，还是保存了一些数字？这只是引入，不展开文件格式。
+## {background-image=".codex-build/panda-v4/render/slide-05.png" background-size="contain"}
 
-图片来源：Wikimedia Commons, “Sunflower Helianthus 1 edited.png”, https://upload.wikimedia.org/wikipedia/commons/3/39/Sunflower_Helianthus_1_edited.png。
+<!-- page=5 q=Q2 stage=answer -->
+
+::: notes
+[问题 / 页面目的] 相机怎样记录纸上的熊猫图？
+[内部编号] Q2 / answer
+[教学意图] 从纸面反射光过渡到传感器采样。
+[教师逐字稿] 光照到纸面，反射光经镜头进入相机，在图像传感器上成像。相机记录的是光的信息。我们接下来用一个很简化的模型：在有限位置采集信息，每处留下一个局部样本。先留一个问题：采样位置是不是越多越好？算完数据量再回来回答。
+[预期学生反应] 学生会说纸上的图案、颜色或光进入相机。追问镜头与传感器分别做什么。
+[追问问题] 镜头主要负责成像，哪个部件感光？
+[下一问] 把取样位置排成8×8的网格。
+[课堂操作] 指向新增证据；请学生说明理由再继续。 所有证据均嵌入，可离线讲授。
+[来源与改编] course-design.qmd Q2；00:02:48–00:06:12；Snip 6–7。本版采用course-design.qmd当前课堂实施方案，熊猫数据与新增活动的来源分别注明。
+[熊猫数据] 原图assets/pandas.jpg；实验固定区域(x=280,y=100,w=288,h=288)，坐标零起始。8×8/16×16均从这一区域计算，码表固定。完整数据与算法见course-design.qmd的C4和.codex-build/panda-v4/data.json；本次审查修订见panda-v4-audit.md。
+[技术注解] 原素材为数字角色插图。本页是“打印后再拍摄”的思想实验，不把这张JPEG冒充实拍照片。后续对已解码图片做区域平均与量化，以演示采样和量化的不同作用。
 :::
 
----
+## {background-image=".codex-build/panda-v4/render/slide-06.png" background-size="contain"}
 
-## 照片放大后，为什么会糊？ {.rebuild}
+<!-- page=6 q=Q3 stage=question -->
 
-<div class="center-box">
-<div>
-<div class="big-question">照片不断放大，会发生什么？</div>
-<div class="thesis">先预测，再观察。</div>
-</div>
-</div>
-
-::: {.notes}
-对应原课问题页。让学生先预测：放大会变清晰、变模糊，还是看到更多细节？学生通常会提到“像素”。暂时只记录，不急着定义。
+::: notes
+[问题 / 页面目的] 为什么写 8×8，而不只写 64？
+[内部编号] Q3 / question
+[教学意图] 数采样位置，比较总数与二维排列。
+[教师逐字稿] 网格横向8个位置，纵向8个位置。总数是多少？只写64，能知道横向和纵向各有几个吗？想一想，4×16也有64个位置。
+[预期学生反应] 总数64；只写64还不能知道二维形状。
+[追问问题] 8×8与4×16的像素总数相同，形状也相同吗？
+[下一问] 位置已经确定，每处的颜色怎样表示？
+[课堂操作] 短问停留15–25秒；先听理由，再翻页。 所有证据均嵌入，可离线讲授。
+[来源与改编] course-design.qmd Q3；00:06:12–00:06:45；Snip 7–8。本版采用course-design.qmd当前课堂实施方案，熊猫数据与新增活动的来源分别注明。
+[熊猫数据] 原图assets/pandas.jpg；实验固定区域(x=280,y=100,w=288,h=288)，坐标零起始。8×8/16×16均从这一区域计算，码表固定。完整数据与算法见course-design.qmd的C4和.codex-build/panda-v4/data.json；本次审查修订见panda-v4-audit.md。
+[技术注解] 本课图像分辨率指横向像素数×纵向像素数；不要与显示器PPI或打印DPI混用。
 :::
 
----
+## {background-image=".codex-build/panda-v4/render/slide-07.png" background-size="contain"}
 
-## 先看一张真实照片 {.rebuild}
+<!-- page=7 q=Q3 stage=answer -->
 
-::: {.two-col .wide-left}
-<div>
-<img class="photo" src="https://upload.wikimedia.org/wikipedia/commons/3/39/Sunflower_Helianthus_1_edited.png" alt="向日葵照片">
-<div class="caption">真实照片：颜色连续、细节丰富</div>
-</div>
-
-<div class="slide-callout">
-我们看到的是一幅完整的图像。<br><br>
-但计算机不能直接保存“花”这个整体，它必须把图像拆成可以表示的数据。
-</div>
+::: notes
+[问题 / 页面目的] 为什么写 8×8，而不只写 64？
+[内部编号] Q3 / answer
+[教学意图] 数采样位置，比较总数与二维排列。
+[教师逐字稿] 8×8告诉我们两个方向的数量，也保留了排列形状。8乘8一共64个位置。按一定的空间位置取得样本，叫采样；本课用横向像素数乘纵向像素数表示图像分辨率。后续每格只保留一个代表值。
+[预期学生反应] 总数64；只写64还不能知道二维形状。
+[追问问题] 8×8与4×16的像素总数相同，形状也相同吗？
+[下一问] 位置已经确定，每处的颜色怎样表示？
+[课堂操作] 指向新增证据；请学生说明理由再继续。 所有证据均嵌入，可离线讲授。
+[来源与改编] course-design.qmd Q3；00:06:12–00:06:45；Snip 7–8。本版采用course-design.qmd当前课堂实施方案，熊猫数据与新增活动的来源分别注明。
+[熊猫数据] 原图assets/pandas.jpg；实验固定区域(x=280,y=100,w=288,h=288)，坐标零起始。8×8/16×16均从这一区域计算，码表固定。完整数据与算法见course-design.qmd的C4和.codex-build/panda-v4/data.json；本次审查修订见panda-v4-audit.md。
+[技术注解] 本课图像分辨率指横向像素数×纵向像素数；不要与显示器PPI或打印DPI混用。
 :::
 
-::: {.notes}
-对应原课展示原图。讲述时可以先让学生只观察：花瓣、花盘、背景、颜色变化。下一页再展示放大后的像素化结果。
+## {background-image=".codex-build/panda-v4/render/slide-08.png" background-size="contain"}
 
-图片来源：Wikimedia Commons, “Sunflower Helianthus 1 edited.png”, https://upload.wikimedia.org/wikipedia/commons/3/39/Sunflower_Helianthus_1_edited.png。
+<!-- page=8 q=Q4 stage=question -->
+
+::: notes
+[问题 / 页面目的] 采样后，每格的颜色怎样记录？
+[内部编号] Q4 / question
+[教学意图] 用一个真实区域的平均色作中间证据，再观察有限颜色的映射。
+[教师逐字稿] 先只看红框这一格。我们把这块区域的颜色取平均，得到右边的样本色。现在规定只能从下方四种颜色里选一种，你会选哪一个？先比较，再说理由。
+[预期学生反应] 会选接近的浅色，也可能认为平均色必须原样保存。
+[追问问题] 如果平均色不在四种颜色里，这个实验允许直接保存它吗？
+[下一问] 先问区分四种状态至少需要几bit，再把颜色编号换成码字。
+[课堂操作] 短问停留15–25秒；先听理由，再翻页。 所有证据均嵌入，可离线讲授。
+[来源与改编] course-design.qmd Q4；00:06:45–00:09:00；Snip 8–9。本版采用course-design.qmd当前课堂实施方案，熊猫数据与新增活动的来源分别注明。
+[熊猫数据] 原图assets/pandas.jpg；实验固定区域(x=280,y=100,w=288,h=288)，坐标零起始。8×8/16×16均从这一区域计算，码表固定。完整数据与算法见course-design.qmd的C4和.codex-build/panda-v4/data.json；本次审查修订见panda-v4-audit.md。
+[技术注解] 本实验先在原JPEG解码RGB值上计算区域算术平均，再按RGB欧氏距离选最近调色板颜色。它是可复算的课堂模型，不等同于真实相机的滤色、曝光、去马赛克和色彩管理。
 :::
 
----
+## {background-image=".codex-build/panda-v4/render/slide-09.png" background-size="contain"}
 
-## 放大到最后，看见了什么？ {.rebuild}
+<!-- page=9 q=Q4 stage=answer -->
 
-::: {.two-col}
-<div>
-<img class="photo" src="https://upload.wikimedia.org/wikipedia/commons/3/39/Sunflower_Helianthus_1_edited.png" alt="向日葵照片局部">
-<div class="caption">从远处看：仍然像完整照片</div>
-</div>
-
-<div>
-<div class="pixel-grid zoom">
-<span class="c2"></span><span class="c2"></span><span class="c2"></span><span class="c2"></span><span class="c4"></span><span class="c4"></span><span class="c1"></span><span class="c1"></span>
-<span class="c2"></span><span class="c2"></span><span class="c4"></span><span class="c4"></span><span class="c1"></span><span class="c1"></span><span class="c1"></span><span class="c3"></span>
-<span class="c2"></span><span class="c4"></span><span class="c4"></span><span class="c1"></span><span class="c1"></span><span class="c3"></span><span class="c3"></span><span class="c3"></span>
-<span class="c4"></span><span class="c4"></span><span class="c1"></span><span class="c1"></span><span class="c3"></span><span class="c3"></span><span class="c3"></span><span class="c0"></span>
-<span class="c4"></span><span class="c1"></span><span class="c1"></span><span class="c3"></span><span class="c3"></span><span class="c3"></span><span class="c0"></span><span class="c0"></span>
-<span class="c1"></span><span class="c1"></span><span class="c3"></span><span class="c3"></span><span class="c0"></span><span class="c0"></span><span class="c0"></span><span class="c0"></span>
-</div>
-<div class="caption">放大到足够大：看到有限的像素格</div>
-</div>
+::: notes
+[问题 / 页面目的] 采样后，每格的颜色怎样记录？
+[内部编号] Q4 / answer
+[教学意图] 用一个真实区域的平均色作中间证据，再观察有限颜色的映射。
+[教师逐字稿] 这一格在第2行第3列，平均色更接近第三种可选色。把取得的样本映射到规定的有限等级，叫量化。请注意：取了哪些位置的样本，与最后允许用哪些颜色，是两个决定。下一页把同一规则用到全部64个位置。
+[预期学生反应] 会选接近的浅色，也可能认为平均色必须原样保存。
+[追问问题] 如果平均色不在四种颜色里，这个实验允许直接保存它吗？
+[下一问] 先问区分四种状态至少需要几bit，再把颜色编号换成码字。
+[课堂操作] 指向新增证据；请学生说明理由再继续。 所有证据均嵌入，可离线讲授。
+[来源与改编] course-design.qmd Q4；00:06:45–00:09:00；Snip 8–9。本版采用course-design.qmd当前课堂实施方案，熊猫数据与新增活动的来源分别注明。
+[熊猫数据] 原图assets/pandas.jpg；实验固定区域(x=280,y=100,w=288,h=288)，坐标零起始。8×8/16×16均从这一区域计算，码表固定。完整数据与算法见course-design.qmd的C4和.codex-build/panda-v4/data.json；本次审查修订见panda-v4-audit.md。
+[技术注解] 本实验先在原JPEG解码RGB值上计算区域算术平均，再按RGB欧氏距离选最近调色板颜色。它是可复算的课堂模型，不等同于真实相机的滤色、曝光、去马赛克和色彩管理。
 :::
 
-::: {.notes}
-这里不用真实截图，而用一个清晰的像素格示意替代原课放大截图。追问：这些格子是不是现实花朵本身就有的？学生会意识到：这和计算机表示图像的方法有关。
+## {background-image=".codex-build/panda-v4/render/slide-10.png" background-size="contain"}
+
+<!-- page=10 q=Q4 stage=evidence -->
+
+::: notes
+[问题 / 页面目的] 把同一规则应用到64个样本
+[内部编号] Q4 / evidence
+[教学意图] 用一个真实区域的平均色作中间证据，再观察有限颜色的映射。
+[教师逐字稿] 从左到右看：先确定8×8个位置，取得每个区域的样本，这里用区域平均色表示；再把每一个平均色映射到四种可选颜色。中间图还没有限制成四种颜色。我们在已存在的数字图片上演示这两种作用，真实相机的采集过程更复杂。现在取得了有限颜色，下一步才讨论每种颜色至少用几位来编码。
+[预期学生反应] 会选接近的浅色，也可能认为平均色必须原样保存。
+[追问问题] 如果平均色不在四种颜色里，这个实验允许直接保存它吗？
+[下一问] 先问区分四种状态至少需要几bit，再把颜色编号换成码字。
+[课堂操作] 指向新增证据；请学生说明理由再继续。 所有证据均嵌入，可离线讲授。
+[来源与改编] course-design.qmd Q4；00:06:45–00:09:00；Snip 8–9。本版采用course-design.qmd当前课堂实施方案，熊猫数据与新增活动的来源分别注明。
+[熊猫数据] 原图assets/pandas.jpg；实验固定区域(x=280,y=100,w=288,h=288)，坐标零起始。8×8/16×16均从这一区域计算，码表固定。完整数据与算法见course-design.qmd的C4和.codex-build/panda-v4/data.json；本次审查修订见panda-v4-audit.md。
+[技术注解] 本实验先在原JPEG解码RGB值上计算区域算术平均，再按RGB欧氏距离选最近调色板颜色。它是可复算的课堂模型，不等同于真实相机的滤色、曝光、去马赛克和色彩管理。 RGB与坐标规则：https://pillow.readthedocs.io/en/stable/handbook/concepts.html
 :::
 
----
+## {background-image=".codex-build/panda-v4/render/slide-11.png" background-size="contain"}
 
-## 思维实验：图像编码的过程 {.rebuild}
+<!-- page=11 q=Q5 stage=question -->
 
-::: {.two-col}
-<div>
-<div class="big-question">照片里看到的是现实世界。<br>计算机怎样把它变成数据？</div>
-<div class="thesis">观察花的形状，再想怎样记录它。</div>
-</div>
-
-<div class="flower-wrap">
-<svg class="cartoon-flower-svg" viewBox="0 0 420 500" role="img" aria-label="卡通红花">
-  <rect x="198" y="285" width="24" height="150" rx="12" fill="#45A04A"/>
-  <ellipse cx="145" cy="385" rx="72" ry="28" transform="rotate(-18 145 385)" fill="#55B85B"/>
-  <ellipse cx="275" cy="380" rx="72" ry="28" transform="rotate(18 275 380)" fill="#55B85B"/>
-  <ellipse cx="210" cy="115" rx="70" ry="95" fill="#E44343"/>
-  <ellipse cx="125" cy="165" rx="70" ry="95" transform="rotate(-48 125 165)" fill="#E44343"/>
-  <ellipse cx="295" cy="165" rx="70" ry="95" transform="rotate(48 295 165)" fill="#E44343"/>
-  <ellipse cx="135" cy="265" rx="70" ry="95" transform="rotate(42 135 265)" fill="#E44343"/>
-  <ellipse cx="285" cy="265" rx="70" ry="95" transform="rotate(-42 285 265)" fill="#E44343"/>
-  <circle cx="210" cy="220" r="72" fill="#F4D13D" stroke="#D9B425" stroke-width="8"/>
-</svg>
-</div>
+::: notes
+[问题 / 页面目的] 四种颜色，至少需要几个 bit？
+[内部编号] Q5 / question
+[教学意图] 判断颜色状态数，建立四色码表。
+[教师逐字稿] 现在要给一个像素的颜色编码。该数的是整幅图的64个位置，还是这个像素可能取的四种颜色？先试一位够不够，再给出最少位数。
+[预期学生反应] 可能把64个位置当状态数；也可能把4种颜色直接当4bit。
+[追问问题] 一个像素需要区分几种颜色状态？
+[下一问] 按同一张码表替换每个颜色编号。
+[课堂操作] 短问停留15–25秒；先听理由，再翻页。 所有证据均嵌入，可离线讲授。
+[来源与改编] course-design.qmd Q5；00:09:00–00:13:35；Snip 9–10。本版采用course-design.qmd当前课堂实施方案，熊猫数据与新增活动的来源分别注明。
+[熊猫数据] 原图assets/pandas.jpg；实验固定区域(x=280,y=100,w=288,h=288)，坐标零起始。8×8/16×16均从这一区域计算，码表固定。完整数据与算法见course-design.qmd的C4和.codex-build/panda-v4/data.json；本次审查修订见panda-v4-audit.md。
+[技术注解] 最少位数基于已知四色表与固定长度像素码字；调色板自身的存储成本另计。
 :::
 
-::: {.notes}
-这是一个重要的素材切换：前面的真实向日葵只用于“放大观察像素”；从原课 Snip 6 起，编码思想实验改用卡通红花。这里不要继续拿向日葵做 3×4 / 6×8 实验。
+## {background-image=".codex-build/panda-v4/render/slide-12.png" background-size="contain"}
+
+<!-- page=12 q=Q5 stage=answer -->
+
+::: notes
+[问题 / 页面目的] 四种颜色，至少需要几个 bit？
+[内部编号] Q5 / answer
+[教学意图] 判断颜色状态数，建立四色码表。
+[教师逐字稿] 1bit只有两种码字，不够区分四种颜色。2bit有00、01、10、11，刚好够。我们按图中从深到浅的顺序编号0、1、2、3，再对应这四个码字。这里的对应关系是全班约定的，编码与解码时要一致。
+[预期学生反应] 可能把64个位置当状态数；也可能把4种颜色直接当4bit。
+[追问问题] 一个像素需要区分几种颜色状态？
+[下一问] 按同一张码表替换每个颜色编号。
+[课堂操作] 指向新增证据；请学生说明理由再继续。 所有证据均嵌入，可离线讲授。
+[来源与改编] course-design.qmd Q5；00:09:00–00:13:35；Snip 9–10。本版采用course-design.qmd当前课堂实施方案，熊猫数据与新增活动的来源分别注明。
+[熊猫数据] 原图assets/pandas.jpg；实验固定区域(x=280,y=100,w=288,h=288)，坐标零起始。8×8/16×16均从这一区域计算，码表固定。完整数据与算法见course-design.qmd的C4和.codex-build/panda-v4/data.json；本次审查修订见panda-v4-audit.md。
+[技术注解] 最少位数基于已知四色表与固定长度像素码字；调色板自身的存储成本另计。
 :::
 
----
+## {background-image=".codex-build/panda-v4/render/slide-13.png" background-size="contain"}
 
-## 3×4：先采样，再量化 {.rebuild}
+<!-- page=13 q=Q6 stage=question -->
 
-::: {.two-col}
-<div>
-<div class="flower-wrap">
-<svg class="cartoon-flower-svg" viewBox="0 0 420 500" role="img" aria-label="卡通红花">
-  <rect x="198" y="285" width="24" height="150" rx="12" fill="#45A04A"/>
-  <ellipse cx="145" cy="385" rx="72" ry="28" transform="rotate(-18 145 385)" fill="#55B85B"/>
-  <ellipse cx="275" cy="380" rx="72" ry="28" transform="rotate(18 275 380)" fill="#55B85B"/>
-  <ellipse cx="210" cy="115" rx="70" ry="95" fill="#E44343"/>
-  <ellipse cx="125" cy="165" rx="70" ry="95" transform="rotate(-48 125 165)" fill="#E44343"/>
-  <ellipse cx="295" cy="165" rx="70" ry="95" transform="rotate(48 295 165)" fill="#E44343"/>
-  <ellipse cx="135" cy="265" rx="70" ry="95" transform="rotate(42 135 265)" fill="#E44343"/>
-  <ellipse cx="285" cy="265" rx="70" ry="95" transform="rotate(-42 285 265)" fill="#E44343"/>
-  <circle cx="210" cy="220" r="72" fill="#F4D13D" stroke="#D9B425" stroke-width="8"/>
-</svg>
-</div>
-<div class="matrix-label">用这朵花做思想实验</div>
-</div>
-
-<div>
-<div class="pixel-grid g3x4">
-<span class="c0">0</span><span class="c1">1</span><span class="c0">0</span>
-<span class="c1">1</span><span class="c2">2</span><span class="c1">1</span>
-<span class="c0">0</span><span class="c1">1</span><span class="c0">0</span>
-<span class="c0">0</span><span class="c3">3</span><span class="c0">0</span>
-</div>
-<div class="matrix-label">每个格子对应一个颜色编号</div>
-</div>
+::: notes
+[问题 / 页面目的] 怎样编码？位深度又是多少？
+[内部编号] Q6 / question
+[教学意图] 聚焦第四行，核对编号与二进制码字，不要求一次读完整幅矩阵。
+[教师逐字稿] 先只看红框中的第四行，其他行暂时不读。把颜色编号换成码字，每个像素都要保留几位？试着把0、1、2、3各找一个出来。
+[预期学生反应] 能对应四种码字；可能混淆每像素位数与全图总位数。
+[追问问题] 编号3写成11后，颜色改变了吗？
+[下一问] 表示方法清楚了，再改进熊猫的轮廓。
+[课堂操作] 短问停留15–25秒；先听理由，再翻页。 所有证据均嵌入，可离线讲授。
+[来源与改编] course-design.qmd Q6；00:13:35–00:14:46；Snip 10。本版采用course-design.qmd当前课堂实施方案，熊猫数据与新增活动的来源分别注明。
+[熊猫数据] 原图assets/pandas.jpg；实验固定区域(x=280,y=100,w=288,h=288)，坐标零起始。8×8/16×16均从这一区域计算，码表固定。完整数据与算法见course-design.qmd的C4和.codex-build/panda-v4/data.json；本次审查修订见panda-v4-audit.md。
+[技术注解] 位深度表示每像素位数；编号转成码字不改变已确定的代表色，整图位数还需乘像素数。
 :::
 
-<div class="thesis">分辨率：3×4　　颜色：白 0 · 红 1 · 黄 2 · 绿 3</div>
+## {background-image=".codex-build/panda-v4/render/slide-14.png" background-size="contain"}
 
-::: {.notes}
-这页采用原课可核对数据，不再使用自拟矩阵。先问 3×4 一共有多少采样位置，再让学生观察每个位置被归入四种颜色之一。颜色与数值的对应是：白0、红1、黄2、绿3。
+<!-- page=14 q=Q6 stage=answer -->
+
+::: notes
+[问题 / 页面目的] 怎样编码？位深度又是多少？
+[内部编号] Q6 / answer
+[教学意图] 聚焦第四行，核对编号与二进制码字，不要求一次读完整幅矩阵。
+[教师逐字稿] 第四行的3、3、2、0、1、2、1、1，分别换成11、11、10、00、01、10、01、01。下面各行照同一规则处理。编号换成二进制码字叫编码；每个像素使用2bit，这个位数叫位深度。整幅图的总位数还要乘像素个数。
+[预期学生反应] 能对应四种码字；可能混淆每像素位数与全图总位数。
+[追问问题] 编号3写成11后，颜色改变了吗？
+[下一问] 表示方法清楚了，再改进熊猫的轮廓。
+[课堂操作] 指向新增证据；请学生说明理由再继续。 所有证据均嵌入，可离线讲授。
+[来源与改编] course-design.qmd Q6；00:13:35–00:14:46；Snip 10。本版采用course-design.qmd当前课堂实施方案，熊猫数据与新增活动的来源分别注明。
+[熊猫数据] 原图assets/pandas.jpg；实验固定区域(x=280,y=100,w=288,h=288)，坐标零起始。8×8/16×16均从这一区域计算，码表固定。完整数据与算法见course-design.qmd的C4和.codex-build/panda-v4/data.json；本次审查修订见panda-v4-audit.md。
+[技术注解] 位深度表示每像素位数；编号转成码字不改变已确定的代表色，整图位数还需乘像素数。
+[下一步] 进入T1，先收集学生总结和证据，再逐枝更新知识树。
 :::
 
----
+## {background-image=".codex-build/panda-v4/render/slide-15.png" background-size="contain"}
 
-## 四种颜色，需要几个二进制位？ {.rebuild}
+<!-- page=15 q=T1 stage=question -->
 
-::: {.two-col .wide-left}
-<div>
-<table class="map-table">
-<thead><tr><th>颜色</th><th>数值</th><th>二进制编码</th></tr></thead>
-<tbody>
-<tr><td><span class="color-chip c0"></span>白色</td><td>0</td><td></td></tr>
-<tr><td><span class="color-chip c1"></span>红色</td><td>1</td><td></td></tr>
-<tr><td><span class="color-chip c2"></span>黄色</td><td>2</td><td></td></tr>
-<tr><td><span class="color-chip c3"></span>绿色</td><td>3</td><td></td></tr>
-</tbody>
-</table>
-</div>
-
-<div>
-<div class="big-question">编码的是 <span class="accent">12 个格子</span>，还是 <span class="accent">4 种颜色状态</span>？</div>
-</div>
+::: notes
+[问题 / 页面目的] 我们已能解释图像的哪些问题？
+[内部编号] T1
+[阶段] question
+[教师逐字稿] 我们怎样把熊猫图变成码字？用刚才的网格、色块和码表作证据。 先自己想20秒，再请两位同学各说一条结论和依据。若只有术语没有依据，追问是哪张网格、色块、码表或算式支持它。教师归纳准确后才依次揭示。本检查点含总结与更新约90秒。
+[课堂操作] 先收集学生独立总结和证据，再翻页。
+[来源] course-design.qmd C4a／T1；熊猫实验数据与技术边界见C4。
 :::
 
-::: {.notes}
-[问题] 四种颜色，需要几个二进制位？先只看白、红、黄、绿四种颜色，不要急着填右边的表。有人会想到 12 个格子；我问的是每个格子里的颜色需要区分多少种状态。先各自判断需要几位，再请几位同学说理由。暂时不公布编码表。
+## {background-image=".codex-build/panda-v4/render/slide-16.png" background-size="contain"}
+
+<!-- page=16 q=T1 stage=answer -->
+
+::: notes
+[问题 / 页面目的] 我们已能解释图像的哪些问题？
+[内部编号] T1
+[阶段] answer
+[教师逐字稿] 先让学生指着8×8网格说出取了哪些位置，再加上采样这一枝。分辨率写两个方向的数量，64只告诉我们总数。树的连线表示本课图像编码涉及的概念，不表示这些词可以任意交换次序。
+[课堂操作] 只说明当前新增焦点，先前内容保持可见。
+[来源] course-design.qmd C4a／T1；熊猫实验数据与技术边界见C4。
 :::
 
----
+## {background-image=".codex-build/panda-v4/render/slide-17.png" background-size="contain"}
 
-## 四种颜色，需要几个二进制位？ {.rebuild}
+<!-- page=17 q=T1 stage=answer -->
 
-::: {.two-col .wide-left}
-<div>
-<table class="map-table">
-<thead><tr><th>颜色</th><th>数值</th><th>二进制编码</th></tr></thead>
-<tbody>
-<tr><td><span class="color-chip c0"></span>白色</td><td>0</td><td>00</td></tr>
-<tr><td><span class="color-chip c1"></span>红色</td><td>1</td><td>01</td></tr>
-<tr><td><span class="color-chip c2"></span>黄色</td><td>2</td><td>10</td></tr>
-<tr><td><span class="color-chip c3"></span>绿色</td><td>3</td><td>11</td></tr>
-</tbody>
-</table>
-</div>
-
-<div>
-<div class="big-question">编码的是 <span class="accent">12 个格子</span>，还是 <span class="accent">4 种颜色状态</span>？</div>
-<div class="thesis">2 bit → 00、01、10、11 → 4 种状态</div>
-</div>
+::: notes
+[问题 / 页面目的] 我们已能解释图像的哪些问题？
+[内部编号] T1
+[阶段] answer
+[教师逐字稿] 请学生指出平均色与代表色的差别，再加量化这一枝。取样位置与可选颜色是两个决定；原来的采样枝仍留在相同位置。
+[课堂操作] 只说明当前新增焦点，先前内容保持可见。
+[来源] course-design.qmd C4a／T1；熊猫实验数据与技术边界见C4。
 :::
 
-::: {.notes}
-[问题] 四种颜色，需要几个二进制位？刚才有人按 12 个格子来想，但现在要给每个格子的颜色编码。四种颜色需要 2 bit，因为 00、01、10、11 正好是四种不同状态。对照表格看每种颜色怎样表示。原课堂学生参与了位数判断和追问；逐格替换整幅矩阵由教师说明，并非学生任务。
+## {background-image=".codex-build/panda-v4/render/slide-18.png" background-size="contain"}
+
+<!-- page=18 q=T1 stage=answer -->
+
+::: notes
+[问题 / 页面目的] 我们已能解释图像的哪些问题？
+[内部编号] T1
+[阶段] answer
+[教师逐字稿] 请学生用编号0到码字00说明编码。加入编码枝，强调本课三个动作的顺序为采样、量化、编码。2ⁿ表示n位的状态容量；需要L种颜色时应满足2ⁿ≥L。
+[课堂操作] 只说明当前新增焦点，先前内容保持可见。
+[来源] course-design.qmd C4a／T1；熊猫实验数据与技术边界见C4。
 :::
 
----
+## {background-image=".codex-build/panda-v4/render/slide-19.png" background-size="contain"}
 
-## 怎样让花形更接近原图？ {.rebuild}
+<!-- page=19 q=Q7 stage=question -->
 
-::: {.compare-two}
-<div>
-<h3>3×4，4 色，2 bit</h3>
-<div class="pixel-grid g3x4">
-<span class="c0"></span><span class="c1"></span><span class="c0"></span>
-<span class="c1"></span><span class="c2"></span><span class="c1"></span>
-<span class="c0"></span><span class="c1"></span><span class="c0"></span>
-<span class="c0"></span><span class="c3"></span><span class="c0"></span>
-</div>
-<div class="caption">3×4 的数字花</div>
-</div>
-
-<div></div>
+::: notes
+[问题 / 页面目的] 怎样让数字熊猫更接近原图？
+[内部编号] Q7 / question
+[教学意图] 控制取样范围、显示大小、调色板，只增加空间采样。
+[教师逐字稿] 先看8×8的熊猫，眼睛和嘴部有些难辨认。你会怎么改？若有人提出增加颜色，先记下来。这一轮保持四种颜色不变，只改变取样位置的数量。
+[预期学生反应] 增加格子；位深度不变。
+[追问问题] 横、纵都扩大2倍，总像素数变成几倍？
+[下一问] 从新矩阵选一段，让学生按码表读码。
+[课堂操作] 短问停留15–25秒；先听理由，再翻页。 所有证据均嵌入，可离线讲授。
+[来源与改编] course-design.qmd Q7；00:14:46–00:17:43；Snip 11 缩略图。本版采用course-design.qmd当前课堂实施方案，熊猫数据与新增活动的来源分别注明。
+[熊猫数据] 原图assets/pandas.jpg；实验固定区域(x=280,y=100,w=288,h=288)，坐标零起始。8×8/16×16均从这一区域计算，码表固定。完整数据与算法见course-design.qmd的C4和.codex-build/panda-v4/data.json；本次审查修订见panda-v4-audit.md。
+[技术注解] 增加真实空间采样通常保留更多细节；插值放大不会凭空恢复原始信息。
 :::
 
-::: {.notes}
-[问题] 怎样让花形更接近原图？这幅 3×4 的数字花能认出来，但花瓣和叶子的边缘很粗。先让学生提出办法，不展示下一轮结果。若有人提出增加颜色，先记下；这一轮只改变采样点的数量，稍后再单独比较颜色数。
+## {background-image=".codex-build/panda-v4/render/slide-20.png" background-size="contain"}
+
+<!-- page=20 q=Q7 stage=answer -->
+
+::: notes
+[问题 / 页面目的] 怎样让数字熊猫更接近原图？
+[内部编号] Q7 / answer
+[教学意图] 控制取样范围、显示大小、调色板，只增加空间采样。
+[教师逐字稿] 两幅图取的是同一个头部范围，显示大小也相同。横、纵都从8增到16，格子变小，轮廓和五官能表示得更细。颜色仍是同一组四种，因此每格仍然是2bit。右图从原图重新计算16×16个样本，没有把左边的64个格子直接放大。
+[预期学生反应] 增加格子；位深度不变。
+[追问问题] 横、纵都扩大2倍，总像素数变成几倍？
+[下一问] 从新矩阵选一段，让学生按码表读码。
+[课堂操作] 指向新增证据；请学生说明理由再继续。 所有证据均嵌入，可离线讲授。
+[来源与改编] course-design.qmd Q7；00:14:46–00:17:43；Snip 11 缩略图。本版采用course-design.qmd当前课堂实施方案，熊猫数据与新增活动的来源分别注明。
+[熊猫数据] 原图assets/pandas.jpg；实验固定区域(x=280,y=100,w=288,h=288)，坐标零起始。8×8/16×16均从这一区域计算，码表固定。完整数据与算法见course-design.qmd的C4和.codex-build/panda-v4/data.json；本次审查修订见panda-v4-audit.md。
+[技术注解] 增加真实空间采样通常保留更多细节；插值放大不会凭空恢复原始信息。
 :::
 
----
+## {background-image=".codex-build/panda-v4/render/slide-21.png" background-size="contain"}
 
-## 怎样让花形更接近原图？ {.rebuild}
+<!-- page=21 q=Q7 stage=question -->
 
-::: {.compare-two}
-<div>
-<h3>3×4，4 色，2 bit</h3>
-<div class="pixel-grid g3x4">
-<span class="c0"></span><span class="c1"></span><span class="c0"></span>
-<span class="c1"></span><span class="c2"></span><span class="c1"></span>
-<span class="c0"></span><span class="c1"></span><span class="c0"></span>
-<span class="c0"></span><span class="c3"></span><span class="c0"></span>
-</div>
-<div class="caption">3×4 的数字花</div>
-</div>
-
-<div>
-<h3>6×8，仍为 4 色，仍为 2 bit</h3>
-<div class="pixel-grid g6x8">
-<span class="c0"></span><span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c0"></span><span class="c0"></span>
-<span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c1"></span><span class="c1"></span><span class="c0"></span>
-<span class="c1"></span><span class="c1"></span><span class="c2"></span><span class="c2"></span><span class="c1"></span><span class="c1"></span>
-<span class="c1"></span><span class="c1"></span><span class="c2"></span><span class="c2"></span><span class="c1"></span><span class="c1"></span>
-<span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c1"></span><span class="c1"></span><span class="c0"></span>
-<span class="c0"></span><span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c0"></span><span class="c0"></span>
-<span class="c0"></span><span class="c3"></span><span class="c3"></span><span class="c3"></span><span class="c3"></span><span class="c0"></span>
-<span class="c0"></span><span class="c0"></span><span class="c0"></span><span class="c3"></span><span class="c0"></span><span class="c0"></span>
-</div>
-<div class="caption">只提高空间采样密度</div>
-</div>
+::: notes
+[问题 / 页面目的] 红框里的8个像素，怎样编码？
+[内部编号] Q7-read / question
+[教学意图] 从16×16矩阵读取确定的8格，建立可核对的编码练习。
+[教师逐字稿] 这次只读红框中的一段：从上往下第6行，从左往右第5到12列，共8格。先读颜色编号，再按右上方的码表换成二进制。
+[预期学生反应] 可能选错行列或遗漏前导0。
+[追问问题] 红框里的8个像素一共多少bit？
+[下一问] 从新矩阵选一段，让学生按码表读码。
+[课堂操作] 短问停留15–25秒；先听理由，再翻页。 所有证据均嵌入，可离线讲授。
+[来源与改编] course-design.qmd Q7；00:14:46–00:17:43；Snip 11 缩略图。本版采用course-design.qmd当前课堂实施方案，熊猫数据与新增活动的来源分别注明。
+[熊猫数据] 原图assets/pandas.jpg；实验固定区域(x=280,y=100,w=288,h=288)，坐标零起始。8×8/16×16均从这一区域计算，码表固定。完整数据与算法见course-design.qmd的C4和.codex-build/panda-v4/data.json；本次审查修订见panda-v4-audit.md。
+[技术注解] 增加真实空间采样通常保留更多细节；插值放大不会凭空恢复原始信息。
 :::
 
-<div class="thesis">这一轮只改变分辨率：3×4 → 6×8；颜色数和位深度不变。</div>
+## {background-image=".codex-build/panda-v4/render/slide-22.png" background-size="contain"}
 
-::: {.notes}
-[问题] 怎样让花形更接近原图？现在看右边：横向从 3 个位置增加到 6 个，纵向从 4 个增加到 8 个。让学生比较花瓣和叶子的边缘，并指出本轮只改变了采样点数量。教师侧限定：这里的“更清晰”只在同一对象、其他条件基本不变、增加真实空间采样的语境下解释；不能推广成“把已有低分辨率图片插值放大就获得新真实细节”。
+<!-- page=22 q=Q7 stage=answer -->
+
+::: notes
+[问题 / 页面目的] 红框里的8个像素，怎样编码？
+[内部编号] Q7-read / answer
+[教学意图] 从16×16矩阵读取确定的8格，建立可核对的编码练习。
+[教师逐字稿] 8个编号依次是3、3、1、0、0、1、3、0。对应码字是11、11、01、00、00、01、11、00。每像素2bit，8个像素共16bit，也就是2B。红框只是这一行的一段，整幅图仍然有16×16个像素。
+[预期学生反应] 可能选错行列或遗漏前导0。
+[追问问题] 红框里的8个像素一共多少bit？
+[下一问] 从新矩阵选一段，让学生按码表读码。
+[课堂操作] 指向新增证据；请学生说明理由再继续。 所有证据均嵌入，可离线讲授。
+[来源与改编] course-design.qmd Q7；00:14:46–00:17:43；Snip 11 缩略图。本版采用course-design.qmd当前课堂实施方案，熊猫数据与新增活动的来源分别注明。
+[熊猫数据] 原图assets/pandas.jpg；实验固定区域(x=280,y=100,w=288,h=288)，坐标零起始。8×8/16×16均从这一区域计算，码表固定。完整数据与算法见course-design.qmd的C4和.codex-build/panda-v4/data.json；本次审查修订见panda-v4-audit.md。
+[技术注解] 增加真实空间采样通常保留更多细节；插值放大不会凭空恢复原始信息。
 :::
 
----
+## {background-image=".codex-build/panda-v4/render/slide-23.png" background-size="contain"}
 
-## 位图放大，和矢量图放大，有什么不同？ {.rebuild}
+<!-- page=23 q=Q8 stage=question -->
 
-<div class="center-box">
-<div>
-<div class="big-question">位图和矢量图放大后，边缘会一样吗？</div>
-<div class="thesis">先预测两种图的变化，再看放大结果。</div>
-</div>
-</div>
-
-::: {.notes}
-[问题] 位图放大，和矢量图放大，有什么不同？先让学生根据刚才看见的像素格预测：如果把两类图都继续放大，边缘会怎样？请他们各说一个可观察的现象，再揭示比较图。
+::: notes
+[问题 / 页面目的] 位图和矢量图放大后有什么不同？
+[内部编号] Q8 / question
+[教学意图] 比较两类图形的放大边缘；把讨论收回位图。
+[教师逐字稿] 刚才的熊猫用像素格表示。继续放大位图，边缘会怎样？再想一条用图形描述保存的矢量线：改变显示尺寸时，边界怎样画出来？
+[预期学生反应] 位图边缘出现格子；矢量边界可随显示大小重新绘制。
+[追问问题] 本课随后计算的对象是哪一类图？
+[下一问] 回到16×16熊猫图，保持位置不变再改变颜色。
+[课堂操作] 短问停留15–25秒；先听理由，再翻页。 所有证据均嵌入，可离线讲授。
+[来源与改编] course-design.qmd Q8；00:17:43–00:18:51；逐字稿。本版采用course-design.qmd当前课堂实施方案，熊猫数据与新增活动的来源分别注明。
+[熊猫数据] 原图assets/pandas.jpg；实验固定区域(x=280,y=100,w=288,h=288)，坐标零起始。8×8/16×16均从这一区域计算，码表固定。完整数据与算法见course-design.qmd的C4和.codex-build/panda-v4/data.json；本次审查修订见panda-v4-audit.md。
+[技术注解] 矢量描述可以按目标尺寸重新栅格化；最终屏幕仍由像素显示。
+[45分钟路径] 可选页，默认跳过本问及其揭示；加课时才保留思考和反馈。
 :::
 
----
+## {background-image=".codex-build/panda-v4/render/slide-24.png" background-size="contain"}
 
-## 位图放大，和矢量图放大，有什么不同？ {.rebuild}
+<!-- page=24 q=Q8 stage=answer -->
 
-::: {.compare-two}
-<div>
-<h3>位图</h3>
-<div class="pixel-grid zoom">
-<span class="c1"></span><span class="c1"></span><span class="c2"></span><span class="c2"></span><span class="c1"></span><span class="c1"></span><span class="c0"></span><span class="c0"></span>
-<span class="c1"></span><span class="c2"></span><span class="c2"></span><span class="c2"></span><span class="c1"></span><span class="c0"></span><span class="c0"></span><span class="c0"></span>
-<span class="c1"></span><span class="c1"></span><span class="c2"></span><span class="c1"></span><span class="c1"></span><span class="c0"></span><span class="c0"></span><span class="c0"></span>
-<span class="c0"></span><span class="c3"></span><span class="c3"></span><span class="c3"></span><span class="c0"></span><span class="c0"></span><span class="c0"></span><span class="c0"></span>
-</div>
-<div class="caption">放大后能看到像素格</div>
-</div>
-
-<div>
-<h3>矢量图</h3>
-<div class="vector-box"><div class="vector-shape"></div></div>
-<div class="caption">放大缩小后仍保持清晰边界</div>
-</div>
+::: notes
+[问题 / 页面目的] 位图和矢量图放大后有什么不同？
+[内部编号] Q8 / answer
+[教学意图] 比较两类图形的放大边缘；把讨论收回位图。
+[教师逐字稿] 左边用像素点阵表示边缘，放大后格子也被放大；右边保留的是可重新绘制的图形描述，可以按新的显示尺寸绘出边界。我们接下来继续讨论位图的数据。矢量图最终在屏幕上显示时也会被栅格化，并不是屏幕没有像素。
+[预期学生反应] 位图边缘出现格子；矢量边界可随显示大小重新绘制。
+[追问问题] 本课随后计算的对象是哪一类图？
+[下一问] 回到16×16熊猫图，保持位置不变再改变颜色。
+[课堂操作] 指向新增证据；请学生说明理由再继续。 所有证据均嵌入，可离线讲授。
+[来源与改编] course-design.qmd Q8；00:17:43–00:18:51；逐字稿。本版采用course-design.qmd当前课堂实施方案，熊猫数据与新增活动的来源分别注明。
+[熊猫数据] 原图assets/pandas.jpg；实验固定区域(x=280,y=100,w=288,h=288)，坐标零起始。8×8/16×16均从这一区域计算，码表固定。完整数据与算法见course-design.qmd的C4和.codex-build/panda-v4/data.json；本次审查修订见panda-v4-audit.md。
+[技术注解] 矢量描述可以按目标尺寸重新栅格化；最终屏幕仍由像素显示。
+[45分钟路径] 可选页，默认跳过本问及其揭示；加课时才保留思考和反馈。
 :::
 
-::: {.notes}
-原课在提高分辨率之后插入位图 / 矢量图比较。课堂逐字稿主要强调“位图放大会看到像素、矢量图放大缩小仍清晰”；“用数学方式描述图形”来自 PDF 自动总结，不把它伪装成教师现场原话。
+## {background-image=".codex-build/panda-v4/render/slide-25.png" background-size="contain"}
+
+<!-- page=25 q=Q9 stage=question -->
+
+::: notes
+[问题 / 页面目的] 格子不变，颜色还能怎样改进？
+[内部编号] Q9 / question
+[教学意图] 控制16×16采样值不变，比较四、六色量化。
+[教师逐字稿] 现在两幅图必须都保持16×16个格子。四种颜色有些生硬，还能改什么？先看眼睛周围和脸颊，想一想给量化增加哪些选择。
+[预期学生反应] 增加颜色等级；不能把增加颜色说成增加像素。
+[追问问题] 这次改变的是格子数量，还是每格可以选择的颜色？
+[下一问] 六种状态引出最少3bit。
+[课堂操作] 短问停留15–25秒；先听理由，再翻页。 所有证据均嵌入，可离线讲授。
+[来源与改编] course-design.qmd Q9；00:18:51–00:20:37；Snip 11 缩略图。本版采用course-design.qmd当前课堂实施方案，熊猫数据与新增活动的来源分别注明。
+[熊猫数据] 原图assets/pandas.jpg；实验固定区域(x=280,y=100,w=288,h=288)，坐标零起始。8×8/16×16均从这一区域计算，码表固定。完整数据与算法见course-design.qmd的C4和.codex-build/panda-v4/data.json；本次审查修订见panda-v4-audit.md。
+[技术注解] 六色调色板包含原四色，因此按同一距离规则寻找最近颜色时，量化误差不会增大。本例RGB均方误差由281.17降至192.27，约下降31.62%；该数值不是视觉质量或相机性能评分。
 :::
 
----
+## {background-image=".codex-build/panda-v4/render/slide-26.png" background-size="contain"}
 
-## 除了分辨率，还能改什么？ {.rebuild}
+<!-- page=26 q=Q9 stage=answer -->
 
-::: {.compare-two}
-<div>
-<h3>6×8，4 色，2 bit</h3>
-<div class="pixel-grid g6x8">
-<span class="c0"></span><span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c0"></span><span class="c0"></span>
-<span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c1"></span><span class="c1"></span><span class="c0"></span>
-<span class="c1"></span><span class="c1"></span><span class="c2"></span><span class="c2"></span><span class="c1"></span><span class="c1"></span>
-<span class="c1"></span><span class="c1"></span><span class="c2"></span><span class="c2"></span><span class="c1"></span><span class="c1"></span>
-<span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c1"></span><span class="c1"></span><span class="c0"></span>
-<span class="c0"></span><span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c0"></span><span class="c0"></span>
-<span class="c0"></span><span class="c3"></span><span class="c3"></span><span class="c3"></span><span class="c3"></span><span class="c0"></span>
-<span class="c0"></span><span class="c0"></span><span class="c0"></span><span class="c3"></span><span class="c0"></span><span class="c0"></span>
-</div>
-</div>
-
-<div></div>
+::: notes
+[问题 / 页面目的] 格子不变，颜色还能怎样改进？
+[内部编号] Q9 / answer
+[教学意图] 控制16×16采样值不变，比较四、六色量化。
+[教师逐字稿] 右边保留原有四种颜色，又增加两种中间色。位置和每格的样本都没变，只是可选颜色更多了。一些明暗过渡因此能表达得更接近原图。接下来判断：一个像素若可能取六种颜色，原来的2bit够不够？
+[预期学生反应] 增加颜色等级；不能把增加颜色说成增加像素。
+[追问问题] 这次改变的是格子数量，还是每格可以选择的颜色？
+[下一问] 六种状态引出最少3bit。
+[课堂操作] 指向新增证据；请学生说明理由再继续。 所有证据均嵌入，可离线讲授。
+[来源与改编] course-design.qmd Q9；00:18:51–00:20:37；Snip 11 缩略图。本版采用course-design.qmd当前课堂实施方案，熊猫数据与新增活动的来源分别注明。
+[熊猫数据] 原图assets/pandas.jpg；实验固定区域(x=280,y=100,w=288,h=288)，坐标零起始。8×8/16×16均从这一区域计算，码表固定。完整数据与算法见course-design.qmd的C4和.codex-build/panda-v4/data.json；本次审查修订见panda-v4-audit.md。
+[技术注解] 六色调色板包含原四色，因此按同一距离规则寻找最近颜色时，量化误差不会增大。本例RGB均方误差由281.17降至192.27，约下降31.62%；该数值不是视觉质量或相机性能评分。
 :::
 
-::: {.notes}
-[问题] 除了分辨率，还能改什么？现在已经有 6×8 个位置，花形比第一轮清楚，但颜色仍只有白、红、黄、绿。先请学生想怎样让颜色更接近原花，不展示新的色块或位深度。等他们提出增加颜色后，再保持 6×8 不变做第三轮比较。
+## {background-image=".codex-build/panda-v4/render/slide-27.png" background-size="contain"}
+
+<!-- page=27 q=Q9 stage=evidence -->
+
+::: notes
+[问题 / 页面目的] 同一个样本，增加两种近似选择
+[内部编号] Q9 / evidence
+[教学意图] 控制16×16采样值不变，比较四、六色量化。
+[教师逐字稿] 红框指向第10行第13列。把它的样本平均色单独放大。四色时，最近的是原调色板编号0；增加两种中间色后，编号4更接近这个样本。样本没有重算，取样位置也没有变。即使投影颜色不容易分清，也能用这个规则解释：原来的选择都保留，多两个选择不会让最近距离更大。这里不要求学生计算颜色距离。
+[预期学生反应] 增加颜色等级；不能把增加颜色说成增加像素。
+[追问问题] 这次改变的是格子数量，还是每格可以选择的颜色？
+[下一问] 六种状态引出最少3bit。
+[课堂操作] 指向新增证据；请学生说明理由再继续。 所有证据均嵌入，可离线讲授。
+[来源与改编] course-design.qmd Q9；00:18:51–00:20:37；Snip 11 缩略图。本版采用course-design.qmd当前课堂实施方案，熊猫数据与新增活动的来源分别注明。
+[熊猫数据] 原图assets/pandas.jpg；实验固定区域(x=280,y=100,w=288,h=288)，坐标零起始。8×8/16×16均从这一区域计算，码表固定。完整数据与算法见course-design.qmd的C4和.codex-build/panda-v4/data.json；本次审查修订见panda-v4-audit.md。
+[技术注解] 六色调色板包含原四色，因此按同一距离规则寻找最近颜色时，量化误差不会增大。本例RGB均方误差由281.17降至192.27，约下降31.62%；该数值不是视觉质量或相机性能评分。
 :::
 
----
+## {background-image=".codex-build/panda-v4/render/slide-28.png" background-size="contain"}
 
-## 除了分辨率，还能改什么？ {.rebuild}
+<!-- page=28 q=Q9 stage=question -->
 
-::: {.compare-two}
-<div>
-<h3>6×8，4 色，2 bit</h3>
-<div class="pixel-grid g6x8">
-<span class="c0"></span><span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c0"></span><span class="c0"></span>
-<span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c1"></span><span class="c1"></span><span class="c0"></span>
-<span class="c1"></span><span class="c1"></span><span class="c2"></span><span class="c2"></span><span class="c1"></span><span class="c1"></span>
-<span class="c1"></span><span class="c1"></span><span class="c2"></span><span class="c2"></span><span class="c1"></span><span class="c1"></span>
-<span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c1"></span><span class="c1"></span><span class="c0"></span>
-<span class="c0"></span><span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c0"></span><span class="c0"></span>
-<span class="c0"></span><span class="c3"></span><span class="c3"></span><span class="c3"></span><span class="c3"></span><span class="c0"></span>
-<span class="c0"></span><span class="c0"></span><span class="c0"></span><span class="c3"></span><span class="c0"></span><span class="c0"></span>
-</div>
-</div>
-
-<div>
-<h3>6×8，6 色，3 bit</h3>
-<div class="pixel-grid g6x8">
-<span class="c0"></span><span class="c0"></span><span class="c6"></span><span class="c1"></span><span class="c0"></span><span class="c0"></span>
-<span class="c0"></span><span class="c6"></span><span class="c1"></span><span class="c1"></span><span class="c6"></span><span class="c0"></span>
-<span class="c1"></span><span class="c6"></span><span class="c2"></span><span class="c4"></span><span class="c1"></span><span class="c1"></span>
-<span class="c1"></span><span class="c1"></span><span class="c4"></span><span class="c4"></span><span class="c6"></span><span class="c1"></span>
-<span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c6"></span><span class="c1"></span><span class="c0"></span>
-<span class="c0"></span><span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c0"></span><span class="c0"></span>
-<span class="c0"></span><span class="c3"></span><span class="c3"></span><span class="c3"></span><span class="c3"></span><span class="c0"></span>
-<span class="c0"></span><span class="c0"></span><span class="c0"></span><span class="c3"></span><span class="c0"></span><span class="c0"></span>
-</div>
-</div>
+::: notes
+[问题 / 页面目的] 六种颜色，至少需要几个 bit？
+[内部编号] Q9-capacity / question
+[教学意图] 控制16×16采样值不变，比较四、六色量化。
+[教师逐字稿] 现在只看一个格子：它有六种可能的颜色。两位够吗？三位有几种码字？找出最少而且够用的位数。
+[预期学生反应] 增加颜色等级；不能把增加颜色说成增加像素。
+[追问问题] 这次改变的是格子数量，还是每格可以选择的颜色？
+[下一问] 六种状态引出最少3bit。
+[课堂操作] 短问停留15–25秒；先听理由，再翻页。 所有证据均嵌入，可离线讲授。
+[来源与改编] course-design.qmd Q9；00:18:51–00:20:37；Snip 11 缩略图。本版采用course-design.qmd当前课堂实施方案，熊猫数据与新增活动的来源分别注明。
+[熊猫数据] 原图assets/pandas.jpg；实验固定区域(x=280,y=100,w=288,h=288)，坐标零起始。8×8/16×16均从这一区域计算，码表固定。完整数据与算法见course-design.qmd的C4和.codex-build/panda-v4/data.json；本次审查修订见panda-v4-audit.md。
+[技术注解] 六色调色板包含原四色，因此按同一距离规则寻找最近颜色时，量化误差不会增大。本例RGB均方误差由281.17降至192.27，约下降31.62%；该数值不是视觉质量或相机性能评分。
 :::
 
-<div class="thesis">6 种颜色至少需要 3 bit，因为 2² &lt; 6 ≤ 2³。</div>
+## {background-image=".codex-build/panda-v4/render/slide-29.png" background-size="contain"}
 
-::: {.notes}
-[问题] 除了分辨率，还能改什么？右图仍是 6×8，但把可用颜色从四种增加到六种。请学生指出这次改变的是每个位置可以选的颜色数，再算六种颜色至少需要几位：2 bit 不够，3 bit 可以表示八种状态。教师侧限定：更多颜色只在同一量化任务、其他条件相同时通常能更细地近似原图。六色矩阵中两档红色的精确逐格分配无法由现有截图可靠判定；此图是视觉重建，不作为原课精确数值矩阵。
+<!-- page=29 q=Q9 stage=answer -->
+
+::: notes
+[问题 / 页面目的] 六种颜色，至少需要几个 bit？
+[内部编号] Q9-capacity / answer
+[教学意图] 控制16×16采样值不变，比较四、六色量化。
+[教师逐字稿] 2的2次方是4，小于6，不够。2的3次方是8，足够容纳六种颜色，所以最少3bit。可以给编号0到5分别使用000到101，110和111暂时不用。
+[预期学生反应] 增加颜色等级；不能把增加颜色说成增加像素。
+[追问问题] 这次改变的是格子数量，还是每格可以选择的颜色？
+[下一问] 六种状态引出最少3bit。
+[课堂操作] 指向新增证据；请学生说明理由再继续。 所有证据均嵌入，可离线讲授。
+[来源与改编] course-design.qmd Q9；00:18:51–00:20:37；Snip 11 缩略图。本版采用course-design.qmd当前课堂实施方案，熊猫数据与新增活动的来源分别注明。
+[熊猫数据] 原图assets/pandas.jpg；实验固定区域(x=280,y=100,w=288,h=288)，坐标零起始。8×8/16×16均从这一区域计算，码表固定。完整数据与算法见course-design.qmd的C4和.codex-build/panda-v4/data.json；本次审查修订见panda-v4-audit.md。
+[技术注解] 六色调色板包含原四色，因此按同一距离规则寻找最近颜色时，量化误差不会增大。本例RGB均方误差由281.17降至192.27，约下降31.62%；该数值不是视觉质量或相机性能评分。
 :::
 
----
+## {background-image=".codex-build/panda-v4/render/slide-30.png" background-size="contain"}
 
-## 实验结论：先填空 {.rebuild}
+<!-- page=30 q=Q10 stage=question -->
 
-<div class="conclusion-layout">
-<div class="mini-rounds">
-<div class="pixel-grid mini-grid g3x4">
-<span class="c0"></span><span class="c1"></span><span class="c0"></span>
-<span class="c1"></span><span class="c2"></span><span class="c1"></span>
-<span class="c0"></span><span class="c1"></span><span class="c0"></span>
-<span class="c0"></span><span class="c3"></span><span class="c0"></span>
-</div>
-<div class="pixel-grid mini-grid g6x8">
-<span class="c0"></span><span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c0"></span><span class="c0"></span>
-<span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c1"></span><span class="c1"></span><span class="c0"></span>
-<span class="c1"></span><span class="c1"></span><span class="c2"></span><span class="c2"></span><span class="c1"></span><span class="c1"></span>
-<span class="c1"></span><span class="c1"></span><span class="c2"></span><span class="c2"></span><span class="c1"></span><span class="c1"></span>
-<span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c1"></span><span class="c1"></span><span class="c0"></span>
-<span class="c0"></span><span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c0"></span><span class="c0"></span>
-<span class="c0"></span><span class="c3"></span><span class="c3"></span><span class="c3"></span><span class="c3"></span><span class="c0"></span>
-<span class="c0"></span><span class="c0"></span><span class="c0"></span><span class="c3"></span><span class="c0"></span><span class="c0"></span>
-</div>
-<div class="pixel-grid mini-grid g6x8">
-<span class="c0"></span><span class="c0"></span><span class="c6"></span><span class="c1"></span><span class="c0"></span><span class="c0"></span>
-<span class="c0"></span><span class="c6"></span><span class="c1"></span><span class="c1"></span><span class="c6"></span><span class="c0"></span>
-<span class="c1"></span><span class="c6"></span><span class="c2"></span><span class="c4"></span><span class="c1"></span><span class="c1"></span>
-<span class="c1"></span><span class="c1"></span><span class="c4"></span><span class="c4"></span><span class="c6"></span><span class="c1"></span>
-<span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c6"></span><span class="c1"></span><span class="c0"></span>
-<span class="c0"></span><span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c0"></span><span class="c0"></span>
-<span class="c0"></span><span class="c3"></span><span class="c3"></span><span class="c3"></span><span class="c3"></span><span class="c0"></span>
-<span class="c0"></span><span class="c0"></span><span class="c0"></span><span class="c3"></span><span class="c0"></span><span class="c0"></span>
-</div>
-</div>
-
-<div class="fill-list">
-1. 位图图像编码步骤是 <span class="answer">采样</span>、<span class="blank"></span> 和 <span class="blank"></span>。<br>
-2. 图像分辨率（采样量）越 <span class="blank"></span>，像素越小，采样精细度越 <span class="blank"></span>，图像越清晰细腻。<br>
-3. 颜色种类（量化等级）越 <span class="answer">多</span>，位深度越 <span class="blank"></span>，色彩越 <span class="blank"></span>，图像越逼真；若位深度为 n，则表示的颜色种类最多不超过 <span class="blank"></span>。
-</div>
-</div>
-
-::: {.notes}
-对应 Snip 11 的可见状态：左侧保留三轮实验结果；文字不是“全空”，而是已经给出“采样”和“多”，其余位置留空。此页必须停顿，让学生先说或填写剩余答案。
-
-Snip 12 缺失。现有材料不能证明下一步到底揭示了哪些局部答案，因此不人为复制一个所谓“Snip 12 状态”。
+::: notes
+[问题 / 页面目的] 三轮熊猫实验说明了什么？
+[内部编号] Q10 / question
+[教学意图] 回顾三轮实验的变量、步骤与结果。
+[教师逐字稿] 先回忆三轮实验。第一轮是怎样把图变成码字的？第二轮改了什么，第三轮又改了什么？先在纸上填出三个步骤，再说分辨率提高后格子怎样变化。
+[预期学生反应] 采样、量化、编码；分辨率提高；颜色等级增加；n位最多2^n种。
+[追问问题] 第二轮变了哪个量？第三轮又保持了什么？
+[下一问] 更细、更丰富都要付出存储代价，回收“像素能否盲目增加”的悬问。
+[课堂操作] 短问停留15–25秒；先听理由，再翻页。 所有证据均嵌入，可离线讲授。
+[来源与改编] course-design.qmd Q10；00:20:37–00:22:29；Snip 11、13。本版采用course-design.qmd当前课堂实施方案，熊猫数据与新增活动的来源分别注明。
+[熊猫数据] 原图assets/pandas.jpg；实验固定区域(x=280,y=100,w=288,h=288)，坐标零起始。8×8/16×16均从这一区域计算，码表固定。完整数据与算法见course-design.qmd的C4和.codex-build/panda-v4/data.json；本次审查修订见panda-v4-audit.md。
+[技术注解] 分辨率与位深度分别作用于本课的取样位置和可表示颜色；2ⁿ是上限，并非每幅图必须用满。
 :::
 
----
+## {background-image=".codex-build/panda-v4/render/slide-31.png" background-size="contain"}
 
-## 实验结论：核对答案 {.rebuild}
+<!-- page=31 q=Q10 stage=answer -->
 
-<div class="conclusion-layout">
-<div class="mini-rounds">
-<div class="pixel-grid mini-grid g3x4">
-<span class="c0"></span><span class="c1"></span><span class="c0"></span>
-<span class="c1"></span><span class="c2"></span><span class="c1"></span>
-<span class="c0"></span><span class="c1"></span><span class="c0"></span>
-<span class="c0"></span><span class="c3"></span><span class="c0"></span>
-</div>
-<div class="pixel-grid mini-grid g6x8">
-<span class="c0"></span><span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c0"></span><span class="c0"></span>
-<span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c1"></span><span class="c1"></span><span class="c0"></span>
-<span class="c1"></span><span class="c1"></span><span class="c2"></span><span class="c2"></span><span class="c1"></span><span class="c1"></span>
-<span class="c1"></span><span class="c1"></span><span class="c2"></span><span class="c2"></span><span class="c1"></span><span class="c1"></span>
-<span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c1"></span><span class="c1"></span><span class="c0"></span>
-<span class="c0"></span><span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c0"></span><span class="c0"></span>
-<span class="c0"></span><span class="c3"></span><span class="c3"></span><span class="c3"></span><span class="c3"></span><span class="c0"></span>
-<span class="c0"></span><span class="c0"></span><span class="c0"></span><span class="c3"></span><span class="c0"></span><span class="c0"></span>
-</div>
-<div class="pixel-grid mini-grid g6x8">
-<span class="c0"></span><span class="c0"></span><span class="c6"></span><span class="c1"></span><span class="c0"></span><span class="c0"></span>
-<span class="c0"></span><span class="c6"></span><span class="c1"></span><span class="c1"></span><span class="c6"></span><span class="c0"></span>
-<span class="c1"></span><span class="c6"></span><span class="c2"></span><span class="c4"></span><span class="c1"></span><span class="c1"></span>
-<span class="c1"></span><span class="c1"></span><span class="c4"></span><span class="c4"></span><span class="c6"></span><span class="c1"></span>
-<span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c6"></span><span class="c1"></span><span class="c0"></span>
-<span class="c0"></span><span class="c0"></span><span class="c1"></span><span class="c1"></span><span class="c0"></span><span class="c0"></span>
-<span class="c0"></span><span class="c3"></span><span class="c3"></span><span class="c3"></span><span class="c3"></span><span class="c0"></span>
-<span class="c0"></span><span class="c0"></span><span class="c0"></span><span class="c3"></span><span class="c0"></span><span class="c0"></span>
-</div>
-</div>
+::: notes
+[问题 / 页面目的] 三轮熊猫实验说明了什么？
+[内部编号] Q10 / answer
+[教学意图] 回顾三轮实验的变量、步骤与结果。
+[教师逐字稿] 第一轮建立采样、量化、编码的模型。第二轮只增加空间采样，格子更小；第三轮保持格子不变，增加可选颜色。请对照自己写的词，说明每个步骤处理的是什么。增加采样要从保有细节的原始对象取得新样本，不能把旧格子插值放大当成重新拍摄。
+[预期学生反应] 采样、量化、编码；分辨率提高；颜色等级增加；n位最多2^n种。
+[追问问题] 第二轮变了哪个量？第三轮又保持了什么？
+[下一问] 更细、更丰富都要付出存储代价，回收“像素能否盲目增加”的悬问。
+[课堂操作] 指向新增证据；请学生说明理由再继续。 所有证据均嵌入，可离线讲授。
+[来源与改编] course-design.qmd Q10；00:20:37–00:22:29；Snip 11、13。本版采用course-design.qmd当前课堂实施方案，熊猫数据与新增活动的来源分别注明。
+[熊猫数据] 原图assets/pandas.jpg；实验固定区域(x=280,y=100,w=288,h=288)，坐标零起始。8×8/16×16均从这一区域计算，码表固定。完整数据与算法见course-design.qmd的C4和.codex-build/panda-v4/data.json；本次审查修订见panda-v4-audit.md。
+[技术注解] 分辨率与位深度分别作用于本课的取样位置和可表示颜色；2ⁿ是上限，并非每幅图必须用满。
+:::
 
-<div class="fill-list">
-1. 位图图像编码步骤是 <span class="answer">采样</span>、<span class="answer">量化</span> 和 <span class="answer">编码</span>。<br>
-2. 图像分辨率（采样量）越 <span class="answer">高</span>，像素越小，采样精细度越 <span class="answer">高</span>，图像越清晰细腻。<br>
-3. 颜色种类（量化等级）越 <span class="answer">多</span>，位深度越 <span class="answer">大</span>，色彩越 <span class="answer">丰富</span>，图像越逼真；若位深度为 n，则表示的颜色种类最多不超过 <span class="answer">2<sup>n</sup></span>。
-</div>
-</div>
+## {background-image=".codex-build/panda-v4/render/slide-32.png" background-size="contain"}
 
-::: {.notes}
-对应 Snip 13：答案完整揭示。
+<!-- page=32 q=Q10 stage=question -->
 
-教师侧限定：
-- “分辨率越高越清晰”只按本课同一对象、其他条件相近、增加真实空间采样的控制变量实验理解；已有低分辨率位图插值放大不等于重新获得真实细节。
-- “颜色越多越逼真”只按同一量化任务、其他条件相同理解为颜色近似可以更细，不是无条件规律。
+::: notes
+[问题 / 页面目的] 颜色种类、位深度怎样联系？
+[内部编号] Q10-capacity / question
+[教学意图] 回顾三轮实验的变量、步骤与结果。
+[教师逐字稿] 继续填写：四种颜色变成六种，最少位数怎样变？推广到n个bit，最多能表示多少种颜色？
+[预期学生反应] 采样、量化、编码；分辨率提高；颜色等级增加；n位最多2^n种。
+[追问问题] 第二轮变了哪个量？第三轮又保持了什么？
+[下一问] 更细、更丰富都要付出存储代价，回收“像素能否盲目增加”的悬问。
+[课堂操作] 短问停留15–25秒；先听理由，再翻页。 所有证据均嵌入，可离线讲授。
+[来源与改编] course-design.qmd Q10；00:20:37–00:22:29；Snip 11、13。本版采用course-design.qmd当前课堂实施方案，熊猫数据与新增活动的来源分别注明。
+[熊猫数据] 原图assets/pandas.jpg；实验固定区域(x=280,y=100,w=288,h=288)，坐标零起始。8×8/16×16均从这一区域计算，码表固定。完整数据与算法见course-design.qmd的C4和.codex-build/panda-v4/data.json；本次审查修订见panda-v4-audit.md。
+[技术注解] 分辨率与位深度分别作用于本课的取样位置和可表示颜色；2ⁿ是上限，并非每幅图必须用满。
+:::
+
+## {background-image=".codex-build/panda-v4/render/slide-33.png" background-size="contain"}
+
+<!-- page=33 q=Q10 stage=answer -->
+
+::: notes
+[问题 / 页面目的] 颜色种类、位深度怎样联系？
+[内部编号] Q10-capacity / answer
+[教学意图] 回顾三轮实验的变量、步骤与结果。
+[教师逐字稿] 本实验从2bit变成3bit。位深度n最多表示2的n次方种颜色。增加颜色种类时，只有超过原有位数的容量，才必须增加位数。
+[预期学生反应] 采样、量化、编码；分辨率提高；颜色等级增加；n位最多2^n种。
+[追问问题] 第二轮变了哪个量？第三轮又保持了什么？
+[下一问] 更细、更丰富都要付出存储代价，回收“像素能否盲目增加”的悬问。
+[课堂操作] 指向新增证据；请学生说明理由再继续。 所有证据均嵌入，可离线讲授。
+[来源与改编] course-design.qmd Q10；00:20:37–00:22:29；Snip 11、13。本版采用course-design.qmd当前课堂实施方案，熊猫数据与新增活动的来源分别注明。
+[熊猫数据] 原图assets/pandas.jpg；实验固定区域(x=280,y=100,w=288,h=288)，坐标零起始。8×8/16×16均从这一区域计算，码表固定。完整数据与算法见course-design.qmd的C4和.codex-build/panda-v4/data.json；本次审查修订见panda-v4-audit.md。
+[技术注解] 分辨率与位深度分别作用于本课的取样位置和可表示颜色；2ⁿ是上限，并非每幅图必须用满。
+:::
+
+## {background-image=".codex-build/panda-v4/render/slide-34.png" background-size="contain"}
+
+<!-- page=34 q=Q11 stage=question -->
+
+::: notes
+[问题 / 页面目的] 三幅图的像素码字，各占几 bit？
+[内部编号] Q11 / question
+[教学意图] 三例计算再归纳总位数公式。
+[教师逐字稿] 这次只统计未压缩的像素码字，不算文件头或调色板。三轮分别有多少个像素，每个像素用了几位？先列出三个乘法。
+[预期学生反应] 学生可能只相加；使用人数乘每人巧克力的原课类比解释相乘。
+[追问问题] 像素数相当于人数，位深度相当于每人份数；结果单位是什么？
+[下一问] 从bit换成B，让公式的单位完整。
+[课堂操作] 短问停留15–25秒；先听理由，再翻页。 所有证据均嵌入，可离线讲授。
+[来源与改编] course-design.qmd Q11；00:22:29–00:25:14；Snip 14–15。本版采用course-design.qmd当前课堂实施方案，熊猫数据与新增活动的来源分别注明。
+[熊猫数据] 原图assets/pandas.jpg；实验固定区域(x=280,y=100,w=288,h=288)，坐标零起始。8×8/16×16均从这一区域计算，码表固定。完整数据与算法见course-design.qmd的C4和.codex-build/panda-v4/data.json；本次审查修订见panda-v4-audit.md。
+[技术注解]  理想像素有效载荷按总bit数除以8；实际按整字节存放时，不足8bit的末尾需补位并向上取整。本课数值计算例均整除8；文件头、调色板、行对齐与压缩另计。
+:::
+
+## {background-image=".codex-build/panda-v4/render/slide-35.png" background-size="contain"}
+
+<!-- page=35 q=Q11 stage=answer -->
+
+::: notes
+[问题 / 页面目的] 三幅图的像素码字，各占几 bit？
+[内部编号] Q11 / answer
+[教学意图] 三例计算再归纳总位数公式。
+[教师逐字稿] 第一幅8×8，共64个像素，每个2bit，得到128bit。第二幅16×16，每个仍是2bit，得到512bit。第三幅还是256个像素，但每个3bit，得到768bit。好比人数乘每人巧克力数，像素总数乘每像素位数，就是总bit。这就是增加分辨率和颜色等级的存储代价。
+[预期学生反应] 学生可能只相加；使用人数乘每人巧克力的原课类比解释相乘。
+[追问问题] 像素数相当于人数，位深度相当于每人份数；结果单位是什么？
+[下一问] 从bit换成B，让公式的单位完整。
+[课堂操作] 指向新增证据；请学生说明理由再继续。 所有证据均嵌入，可离线讲授。
+[来源与改编] course-design.qmd Q11；00:22:29–00:25:14；Snip 14–15。本版采用course-design.qmd当前课堂实施方案，熊猫数据与新增活动的来源分别注明。
+[熊猫数据] 原图assets/pandas.jpg；实验固定区域(x=280,y=100,w=288,h=288)，坐标零起始。8×8/16×16均从这一区域计算，码表固定。完整数据与算法见course-design.qmd的C4和.codex-build/panda-v4/data.json；本次审查修订见panda-v4-audit.md。
+[技术注解]  理想像素有效载荷按总bit数除以8；实际按整字节存放时，不足8bit的末尾需补位并向上取整。本课数值计算例均整除8；文件头、调色板、行对齐与压缩另计。
+:::
+
+## {background-image=".codex-build/panda-v4/render/slide-36.png" background-size="contain"}
+
+<!-- page=36 q=Q12 stage=question -->
+
+::: notes
+[问题 / 页面目的] 要用 B 表示数据量，怎样换算？
+[内部编号] Q12 / question
+[教学意图] 把128、512、768bit换成16、64、96B，再归纳。
+[教师逐字稿] 前一页是128、512和768bit。若题目要求用B作单位，应该乘8还是除8？写出三个结果，再归纳一般式。
+[预期学生反应] 除以8；进一步按1024换算。
+[追问问题] 题目求bit时还要除以8吗？求KiB时还需要哪一步？
+[下一问] 用不同颜色数练习寻找位深度再代公式。
+[课堂操作] 短问停留15–25秒；先听理由，再翻页。 所有证据均嵌入，可离线讲授。
+[来源与改编] course-design.qmd Q12；00:25:14–00:26:28；Snip 15–16。本版采用course-design.qmd当前课堂实施方案，熊猫数据与新增活动的来源分别注明。
+[熊猫数据] 原图assets/pandas.jpg；实验固定区域(x=280,y=100,w=288,h=288)，坐标零起始。8×8/16×16均从这一区域计算，码表固定。完整数据与算法见course-design.qmd的C4和.codex-build/panda-v4/data.json；本次审查修订见panda-v4-audit.md。
+[技术注解] BMP 完整文件还可能有文件头、信息头、调色板和行填充。参见 https://learn.microsoft.com/en-us/windows/win32/gdi/bitmap-storage 理想像素有效载荷按总bit数除以8；实际按整字节存放时，不足8bit的末尾需补位并向上取整。本课数值计算例均整除8；文件头、调色板、行对齐与压缩另计。
+:::
+
+## {background-image=".codex-build/panda-v4/render/slide-37.png" background-size="contain"}
+
+<!-- page=37 q=Q12 stage=answer -->
+
+::: notes
+[问题 / 页面目的] 要用 B 表示数据量，怎样换算？
+[内部编号] Q12 / answer
+[教学意图] 把128、512、768bit换成16、64、96B，再归纳。
+[教师逐字稿] 1B等于8bit，因此分别除8，得到16B、64B和96B。一般式是横向像素数乘纵向像素数乘位深度，再除8。继续除1024可换成KiB。这只算像素码字连续排列的理想数据量，完整文件还需要别的信息。
+[预期学生反应] 除以8；进一步按1024换算。
+[追问问题] 题目求bit时还要除以8吗？求KiB时还需要哪一步？
+[下一问] 用不同颜色数练习寻找位深度再代公式。
+[课堂操作] 指向新增证据；请学生说明理由再继续。 所有证据均嵌入，可离线讲授。
+[来源与改编] course-design.qmd Q12；00:25:14–00:26:28；Snip 15–16。本版采用course-design.qmd当前课堂实施方案，熊猫数据与新增活动的来源分别注明。
+[熊猫数据] 原图assets/pandas.jpg；实验固定区域(x=280,y=100,w=288,h=288)，坐标零起始。8×8/16×16均从这一区域计算，码表固定。完整数据与算法见course-design.qmd的C4和.codex-build/panda-v4/data.json；本次审查修订见panda-v4-audit.md。
+[技术注解] BMP 完整文件还可能有文件头、信息头、调色板和行填充。参见 https://learn.microsoft.com/en-us/windows/win32/gdi/bitmap-storage 理想像素有效载荷按总bit数除以8；实际按整字节存放时，不足8bit的末尾需补位并向上取整。本课数值计算例均整除8；文件头、调色板、行对齐与压缩另计。
+[下一步] 进入T2，先收集学生总结和证据，再逐枝更新知识树。
+:::
+
+## {background-image=".codex-build/panda-v4/render/slide-38.png" background-size="contain"}
+
+<!-- page=38 q=T2 stage=question -->
+
+::: notes
+[问题 / 页面目的] 我们已能解释图像的哪些问题？
+[内部编号] T2
+[阶段] question
+[教师逐字稿] 三轮实验的像素码字为什么占用不同空间？用算式说明。 先自己想20秒，再请两位同学各说一条结论和依据。若只有术语没有依据，追问是哪张网格、色块、码表或算式支持它。教师归纳准确后才依次揭示。本检查点含总结与更新约45秒。
+[课堂操作] 先收集学生独立总结和证据，再翻页。
+[来源] course-design.qmd C4a／T2；熊猫实验数据与技术边界见C4。
+:::
+
+## {background-image=".codex-build/panda-v4/render/slide-39.png" background-size="contain"}
+
+<!-- page=39 q=T2 stage=answer -->
+
+::: notes
+[问题 / 页面目的] 我们已能解释图像的哪些问题？
+[内部编号] T2
+[阶段] answer
+[教师逐字稿] 听学生用三轮实验解释乘法和除8，再把像素数据量接到树上。它结合采样枝的像素数和编码枝的每像素位数。这里只统计理想未压缩像素码字，不能作为完整文件大小。
+[课堂操作] 只说明当前新增焦点，先前内容保持可见。
+[来源] course-design.qmd C4a／T2；熊猫实验数据与技术边界见C4。
+:::
+
+## {background-image=".codex-build/panda-v4/render/slide-40.png" background-size="contain"}
+
+<!-- page=40 q=Q13 stage=question -->
+
+::: notes
+[问题 / 页面目的] 黑白、16 色、256 色各要几 bit？
+[内部编号] Q13 / question
+[教学意图] 填写位深度和B单位算式，不要求约分。
+[教师逐字稿] 先别看答案。黑白只有两种状态，需要几位？16 色和 256 色分别找哪个 2 的幂？
+[预期学生反应] 黑白1bit、16色4bit、256色8bit；M×N是像素数。
+[追问问题] 颜色数与位深度是一回事吗？
+[下一问] 24位真彩色沿用同一公式，但需要解释24的构成。
+[课堂操作] 短问停留15–25秒；先听理由，再翻页。 所有证据均嵌入，可离线讲授。
+[来源与改编] course-design.qmd Q13；00:26:28–00:28:25；Snip 17–18。本版采用course-design.qmd当前课堂实施方案，熊猫数据与新增活动的来源分别注明。
+[熊猫数据] 原图assets/pandas.jpg；实验固定区域(x=280,y=100,w=288,h=288)，坐标零起始。8×8/16×16均从这一区域计算，码表固定。完整数据与算法见course-design.qmd的C4和.codex-build/panda-v4/data.json；本次审查修订见panda-v4-audit.md。
+[技术注解]  理想像素有效载荷按总bit数除以8；实际按整字节存放时，不足8bit的末尾需补位并向上取整。本课数值计算例均整除8；文件头、调色板、行对齐与压缩另计。
+:::
+
+## {background-image=".codex-build/panda-v4/render/slide-41.png" background-size="contain"}
+
+<!-- page=41 q=Q13 stage=answer -->
+
+::: notes
+[问题 / 页面目的] 黑白、16 色、256 色各要几 bit？
+[内部编号] Q13 / answer
+[教学意图] 填写位深度和B单位算式，不要求约分。
+[教师逐字稿] 黑白 1 bit，16 色 4 bit，256 色 8 bit。若分辨率是 M×N，代入前页公式即可得到理想像素数据量。
+[预期学生反应] 黑白1bit、16色4bit、256色8bit；M×N是像素数。
+[追问问题] 颜色数与位深度是一回事吗？
+[下一问] 24位真彩色沿用同一公式，但需要解释24的构成。
+[课堂操作] 指向新增证据；请学生说明理由再继续。 所有证据均嵌入，可离线讲授。
+[来源与改编] course-design.qmd Q13；00:26:28–00:28:25；Snip 17–18。本版采用course-design.qmd当前课堂实施方案，熊猫数据与新增活动的来源分别注明。
+[熊猫数据] 原图assets/pandas.jpg；实验固定区域(x=280,y=100,w=288,h=288)，坐标零起始。8×8/16×16均从这一区域计算，码表固定。完整数据与算法见course-design.qmd的C4和.codex-build/panda-v4/data.json；本次审查修订见panda-v4-audit.md。
+[技术注解]  理想像素有效载荷按总bit数除以8；实际按整字节存放时，不足8bit的末尾需补位并向上取整。本课数值计算例均整除8；文件头、调色板、行对齐与压缩另计。
+:::
+
+## {background-image=".codex-build/panda-v4/render/slide-42.png" background-size="contain"}
+
+<!-- page=42 q=Q14 stage=question -->
+
+::: notes
+[问题 / 页面目的] 24位真彩色，最多有多少种颜色？
+[内部编号] Q14-formula / question
+[教学意图] 先补24位真彩色一列，再解释RGB三个通道和组合。
+[教师逐字稿] 刚才已经算过黑白、16色和256色。现在直接给位深度24，请写出最多颜色数，再列M×N图像的像素数据量。先不用求出颜色数的十进制值。
+[预期学生反应] 24位最多2^24种，数据量M×N×24÷8；RGB各8位、各256级。
+[追问问题] 三个通道各256级，是相加还是相乘？
+[下一问] 回到熊猫的眼睛，读取一个真实像素的RGB值。
+[课堂操作] 短问停留15–25秒；先听理由，再翻页。 所有证据均嵌入，可离线讲授。
+[来源与改编] course-design.qmd Q14；00:28:25–00:31:13；Snip 19。本版采用course-design.qmd当前课堂实施方案，熊猫数据与新增活动的来源分别注明。
+[熊猫数据] 原图assets/pandas.jpg；实验固定区域(x=280,y=100,w=288,h=288)，坐标零起始。8×8/16×16均从这一区域计算，码表固定。完整数据与算法见course-design.qmd的C4和.codex-build/panda-v4/data.json；本次审查修订见panda-v4-audit.md。
+[技术注解] 此处24位RGB为三个8位通道、不含透明通道；调色板编号和RGB通道值采用不同解释规则。
+[45分钟路径] 可选页，默认跳过本问及其揭示；加课时才保留思考和反馈。
+:::
+
+## {background-image=".codex-build/panda-v4/render/slide-43.png" background-size="contain"}
+
+<!-- page=43 q=Q14 stage=answer -->
+
+::: notes
+[问题 / 页面目的] 24位真彩色，最多有多少种颜色？
+[内部编号] Q14-formula / answer
+[教学意图] 先补24位真彩色一列，再解释RGB三个通道和组合。
+[教师逐字稿] 24位最多表示2的24次方种颜色，数据量是M×N×24除8字节。计算方法完全相同。为什么照片常用24位？下一页看红、绿、蓝三个通道怎样组成它。
+[预期学生反应] 24位最多2^24种，数据量M×N×24÷8；RGB各8位、各256级。
+[追问问题] 三个通道各256级，是相加还是相乘？
+[下一问] 回到熊猫的眼睛，读取一个真实像素的RGB值。
+[课堂操作] 指向新增证据；请学生说明理由再继续。 所有证据均嵌入，可离线讲授。
+[来源与改编] course-design.qmd Q14；00:28:25–00:31:13；Snip 19。本版采用course-design.qmd当前课堂实施方案，熊猫数据与新增活动的来源分别注明。
+[熊猫数据] 原图assets/pandas.jpg；实验固定区域(x=280,y=100,w=288,h=288)，坐标零起始。8×8/16×16均从这一区域计算，码表固定。完整数据与算法见course-design.qmd的C4和.codex-build/panda-v4/data.json；本次审查修订见panda-v4-audit.md。
+[技术注解] 此处24位RGB为三个8位通道、不含透明通道；调色板编号和RGB通道值采用不同解释规则。
+[45分钟路径] 可选页，默认跳过本问及其揭示；加课时才保留思考和反馈。
+:::
+
+## {background-image=".codex-build/panda-v4/render/slide-44.png" background-size="contain"}
+
+<!-- page=44 q=Q14 stage=question -->
+
+::: notes
+[问题 / 页面目的] 24 位 RGB 怎样表示丰富的颜色？
+[内部编号] Q14-rgb / question
+[教学意图] 先补24位真彩色一列，再解释RGB三个通道和组合。
+[教师逐字稿] R、G、B各使用8bit，一个通道有多少个等级？三个通道组合，最多有多少种颜色？
+[预期学生反应] 24位最多2^24种，数据量M×N×24÷8；RGB各8位、各256级。
+[追问问题] 三个通道各256级，是相加还是相乘？
+[下一问] 回到熊猫的眼睛，读取一个真实像素的RGB值。
+[课堂操作] 短问停留15–25秒；先听理由，再翻页。 所有证据均嵌入，可离线讲授。
+[来源与改编] course-design.qmd Q14；00:28:25–00:31:13；Snip 19。本版采用course-design.qmd当前课堂实施方案，熊猫数据与新增活动的来源分别注明。
+[熊猫数据] 原图assets/pandas.jpg；实验固定区域(x=280,y=100,w=288,h=288)，坐标零起始。8×8/16×16均从这一区域计算，码表固定。完整数据与算法见course-design.qmd的C4和.codex-build/panda-v4/data.json；本次审查修订见panda-v4-audit.md。
+[技术注解] 此处24位RGB为三个8位通道、不含透明通道；调色板编号和RGB通道值采用不同解释规则。
+:::
+
+## {background-image=".codex-build/panda-v4/render/slide-45.png" background-size="contain"}
+
+<!-- page=45 q=Q14 stage=answer -->
+
+::: notes
+[问题 / 页面目的] 24 位 RGB 怎样表示丰富的颜色？
+[内部编号] Q14-rgb / answer
+[教学意图] 先补24位真彩色一列，再解释RGB三个通道和组合。
+[教师逐字稿] 每个通道8bit，可以取0到255，共256级。三个通道的等级独立组合，所以一共有256×256×256种组合，等于2的24次方。每个像素的总位数是8+8+8=24。这里说的是不带透明通道的24位RGB模型；软件中的“8位/通道”不要误读成整像素只有8位。
+[预期学生反应] 24位最多2^24种，数据量M×N×24÷8；RGB各8位、各256级。
+[追问问题] 三个通道各256级，是相加还是相乘？
+[下一问] 回到熊猫的眼睛，读取一个真实像素的RGB值。
+[课堂操作] 指向新增证据；请学生说明理由再继续。 所有证据均嵌入，可离线讲授。
+[来源与改编] course-design.qmd Q14；00:28:25–00:31:13；Snip 19。本版采用course-design.qmd当前课堂实施方案，熊猫数据与新增活动的来源分别注明。
+[熊猫数据] 原图assets/pandas.jpg；实验固定区域(x=280,y=100,w=288,h=288)，坐标零起始。8×8/16×16均从这一区域计算，码表固定。完整数据与算法见course-design.qmd的C4和.codex-build/panda-v4/data.json；本次审查修订见panda-v4-audit.md。
+[技术注解] 此处24位RGB为三个8位通道、不含透明通道；调色板编号和RGB通道值采用不同解释规则。
+:::
+
+## {background-image=".codex-build/panda-v4/render/slide-46.png" background-size="contain"}
+
+<!-- page=46 q=Q14 stage=question -->
+
+::: notes
+[问题 / 页面目的] 同一种颜色，为什么有2bit和24bit？
+[内部编号] Q14-compare / question
+[教学意图] 比较调色板编号与RGB通道值，衔接两个位深度模型。
+[教师逐字稿] 同一块深色，刚才可以用00表示，现在又能写成三个8位通道。它的颜色没变，为什么位数不同？先想：00本身能告诉别人这是什么颜色吗？
+[预期学生反应] 可能以为所有颜色都只需2bit，或认为同色位数必须相同。
+[追问问题] 如果把同一四色图保存成24位RGB，每像素仍只占2bit吗？
+[下一问] 用眼睛里的真实像素练习RGB通道编码。
+[课堂操作] 短问停留15–25秒；先听理由，再翻页。 所有证据均嵌入，可离线讲授。
+[来源与改编] course-design.qmd Q14；00:28:25–00:31:13；Snip 19。本版采用course-design.qmd当前课堂实施方案，熊猫数据与新增活动的来源分别注明。
+[熊猫数据] 原图assets/pandas.jpg；实验固定区域(x=280,y=100,w=288,h=288)，坐标零起始。8×8/16×16均从这一区域计算，码表固定。完整数据与算法见course-design.qmd的C4和.codex-build/panda-v4/data.json；本次审查修订见panda-v4-audit.md。
+[技术注解] 这里只比较本课理想固定长度模型。调色板自身也需要保存或事先共享，不计入前面的像素码字数据量。
+:::
+
+## {background-image=".codex-build/panda-v4/render/slide-47.png" background-size="contain"}
+
+<!-- page=47 q=Q14 stage=answer -->
+
+::: notes
+[问题 / 页面目的] 同一种颜色，为什么有2bit和24bit？
+[内部编号] Q14-compare / answer
+[教学意图] 比较调色板编号与RGB通道值，衔接两个位深度模型。
+[教师逐字稿] 2bit记录的是四色表里的编号，还必须知道约定的码表才能查到颜色。24位RGB直接记录R、G、B三个通道值。这块颜色是36、33、27，所以是三个8位。两种表示的规则不同；位深度不能脱离表示方案来讨论。
+[预期学生反应] 可能以为所有颜色都只需2bit，或认为同色位数必须相同。
+[追问问题] 如果把同一四色图保存成24位RGB，每像素仍只占2bit吗？
+[下一问] 用眼睛里的真实像素练习RGB通道编码。
+[课堂操作] 指向新增证据；请学生说明理由再继续。 所有证据均嵌入，可离线讲授。
+[来源与改编] course-design.qmd Q14；00:28:25–00:31:13；Snip 19。本版采用course-design.qmd当前课堂实施方案，熊猫数据与新增活动的来源分别注明。
+[熊猫数据] 原图assets/pandas.jpg；实验固定区域(x=280,y=100,w=288,h=288)，坐标零起始。8×8/16×16均从这一区域计算，码表固定。完整数据与算法见course-design.qmd的C4和.codex-build/panda-v4/data.json；本次审查修订见panda-v4-audit.md。
+[技术注解] 这里只比较本课理想固定长度模型。调色板自身也需要保存或事先共享，不计入前面的像素码字数据量。
+:::
+
+## {background-image=".codex-build/panda-v4/render/slide-48.png" background-size="contain"}
+
+<!-- page=48 q=Q15 stage=question -->
+
+::: notes
+[问题 / 页面目的] R=138，怎样写成8位二进制？
+[内部编号] Q15 / question
+[教学意图] 用位权表逐步推导真实R通道的8位表示。
+[教师逐字稿] 红框中心的像素读出R为138、G为179、B为111。先只换算R通道。下表从左到右给出8个位权，哪些位置填1，合起来正好是138？给30秒写在纸上。
+[预期学生反应] 可能遗漏某一位或把十进制数字逐个编码。
+[追问问题] 如果把最左边的1改成0，表示的数少了多少？
+[下一问] 从一个像素的3bytes，推广到整幅图的像素数据量。
+[课堂操作] R通道换算留30秒；其余通道口头核对。 所有证据均嵌入，可离线讲授。
+[来源与改编] course-design.qmd Q15；00:30:06–00:31:13；Snip 20。本版采用course-design.qmd当前课堂实施方案，熊猫数据与新增活动的来源分别注明。
+[熊猫数据] 原图assets/pandas.jpg；实验固定区域(x=280,y=100,w=288,h=288)，坐标零起始。8×8/16×16均从这一区域计算，码表固定。完整数据与算法见course-design.qmd的C4和.codex-build/panda-v4/data.json；本次审查修订见panda-v4-audit.md。
+[技术注解] Pillow将原JPEG解码为RGB，零起始坐标(x,y)=(422,230)。JPEG内部通常采用有损压缩表示；本例的24位RGB是解码后的像素视图。不同解码器的舍入可能产生极小差别。
+:::
+
+## {background-image=".codex-build/panda-v4/render/slide-49.png" background-size="contain"}
+
+<!-- page=49 q=Q15 stage=answer -->
+
+::: notes
+[问题 / 页面目的] R=138，怎样写成8位二进制？
+[内部编号] Q15 / answer
+[教学意图] 用位权表逐步推导真实R通道的8位表示。
+[教师逐字稿] 138等于128加8加2。对应的三个位置填1，其余填0，得到10001010。每个通道固定8位；请用同样方法检查G和B。下一页给出完整的三个通道，尤其留意B通道前面的0。
+[预期学生反应] 可能遗漏某一位或把十进制数字逐个编码。
+[追问问题] 如果把最左边的1改成0，表示的数少了多少？
+[下一问] 从一个像素的3bytes，推广到整幅图的像素数据量。
+[课堂操作] 指向新增证据；请学生说明理由再继续。 所有证据均嵌入，可离线讲授。
+[来源与改编] course-design.qmd Q15；00:30:06–00:31:13；Snip 20。本版采用course-design.qmd当前课堂实施方案，熊猫数据与新增活动的来源分别注明。
+[熊猫数据] 原图assets/pandas.jpg；实验固定区域(x=280,y=100,w=288,h=288)，坐标零起始。8×8/16×16均从这一区域计算，码表固定。完整数据与算法见course-design.qmd的C4和.codex-build/panda-v4/data.json；本次审查修订见panda-v4-audit.md。
+[技术注解] Pillow将原JPEG解码为RGB，零起始坐标(x,y)=(422,230)。JPEG内部通常采用有损压缩表示；本例的24位RGB是解码后的像素视图。不同解码器的舍入可能产生极小差别。
+:::
+
+## {background-image=".codex-build/panda-v4/render/slide-50.png" background-size="contain"}
+
+<!-- page=50 q=Q15 stage=evidence -->
+
+::: notes
+[问题 / 页面目的] 一个RGB像素：三个8位通道
+[内部编号] Q15 / evidence
+[教学意图] 用位权表逐步推导真实R通道的8位表示。
+[教师逐字稿] 这是同一个眼睛像素的完整RGB表示。R刚才已经算过，G等于128加32加16加2加1，B等于64加32加8加4加2加1。注意B前面的0也必须写，它让每个通道都保持8位。三个通道总共24bit，也就是3bytes。这里读取的是JPEG解码后的像素，不是说JPEG内部直接按这个顺序存放每像素的三个字节。
+[预期学生反应] 可能遗漏某一位或把十进制数字逐个编码。
+[追问问题] 如果把最左边的1改成0，表示的数少了多少？
+[下一问] 从一个像素的3bytes，推广到整幅图的像素数据量。
+[课堂操作] 指向新增证据；请学生说明理由再继续。 所有证据均嵌入，可离线讲授。
+[来源与改编] course-design.qmd Q15；00:30:06–00:31:13；Snip 20。本版采用course-design.qmd当前课堂实施方案，熊猫数据与新增活动的来源分别注明。
+[熊猫数据] 原图assets/pandas.jpg；实验固定区域(x=280,y=100,w=288,h=288)，坐标零起始。8×8/16×16均从这一区域计算，码表固定。完整数据与算法见course-design.qmd的C4和.codex-build/panda-v4/data.json；本次审查修订见panda-v4-audit.md。
+[技术注解] Pillow将原JPEG解码为RGB，零起始坐标(x,y)=(422,230)。JPEG内部通常采用有损压缩表示；本例的24位RGB是解码后的像素视图。不同解码器的舍入可能产生极小差别。 RGB与坐标规则：https://pillow.readthedocs.io/en/stable/handbook/concepts.html
+:::
+
+## {background-image=".codex-build/panda-v4/render/slide-51.png" background-size="contain"}
+
+<!-- page=51 q=Q16 stage=question -->
+
+::: notes
+[问题 / 页面目的] 500×333 的 24 位图像有多大？
+[内部编号] Q16 / question
+[教学意图] 在明确假定的尺寸下计算未压缩像素数据量。
+[教师逐字稿] 另外给出一幅假定图像：500×333像素，每像素24bit。先列式再算，用B和KiB分别表示。这组尺寸是计算题的条件。
+[预期学生反应] 有人遗漏除8或除1024。正确结果499500B≈487.79KiB。
+[追问问题] 这个公式包含文件头、行填充、压缩等影响吗？
+[下一问] 回到开场，用像素解释放大；存储代价解释像素不应盲目追高。
+[课堂操作] 独立计算60–90秒，听两种解法后翻页。 所有证据均嵌入，可离线讲授。
+[来源与改编] course-design.qmd Q16；00:31:13–00:33:09；Snip 20。本版采用course-design.qmd当前课堂实施方案，熊猫数据与新增活动的来源分别注明。
+[熊猫数据] 原图assets/pandas.jpg；实验固定区域(x=280,y=100,w=288,h=288)，坐标零起始。8×8/16×16均从这一区域计算，码表固定。完整数据与算法见course-design.qmd的C4和.codex-build/panda-v4/data.json；本次审查修订见panda-v4-audit.md。
+[技术注解] 499,500 B 是理想像素有效载荷，不等于 BMP 完整文件大小。BMP 含头部和可能的填充。https://learn.microsoft.com/en-us/windows/win32/gdi/bitmap-storage 理想像素有效载荷按总bit数除以8；实际按整字节存放时，不足8bit的末尾需补位并向上取整。本课数值计算例均整除8；文件头、调色板、行对齐与压缩另计。
+:::
+
+## {background-image=".codex-build/panda-v4/render/slide-52.png" background-size="contain"}
+
+<!-- page=52 q=Q16 stage=answer -->
+
+::: notes
+[问题 / 页面目的] 500×333 的 24 位图像有多大？
+[内部编号] Q16 / answer
+[教学意图] 在明确假定的尺寸下计算未压缩像素数据量。
+[教师逐字稿] 500乘333是像素数，乘24得到bit，除8得到499500B，再除1024约487.79KiB。算的是未压缩像素码字的有效载荷。下一页把它与完整文件大小分开。
+[预期学生反应] 有人遗漏除8或除1024。正确结果499500B≈487.79KiB。
+[追问问题] 这个公式包含文件头、行填充、压缩等影响吗？
+[下一问] 回到开场，用像素解释放大；存储代价解释像素不应盲目追高。
+[课堂操作] 指向新增证据；请学生说明理由再继续。 所有证据均嵌入，可离线讲授。
+[来源与改编] course-design.qmd Q16；00:31:13–00:33:09；Snip 20。本版采用course-design.qmd当前课堂实施方案，熊猫数据与新增活动的来源分别注明。
+[熊猫数据] 原图assets/pandas.jpg；实验固定区域(x=280,y=100,w=288,h=288)，坐标零起始。8×8/16×16均从这一区域计算，码表固定。完整数据与算法见course-design.qmd的C4和.codex-build/panda-v4/data.json；本次审查修订见panda-v4-audit.md。
+[技术注解] 499,500 B 是理想像素有效载荷，不等于 BMP 完整文件大小。BMP 含头部和可能的填充。https://learn.microsoft.com/en-us/windows/win32/gdi/bitmap-storage 理想像素有效载荷按总bit数除以8；实际按整字节存放时，不足8bit的末尾需补位并向上取整。本课数值计算例均整除8；文件头、调色板、行对齐与压缩另计。
+:::
+
+## {background-image=".codex-build/panda-v4/render/slide-53.png" background-size="contain"}
+
+<!-- page=53 q=Q16 stage=evidence -->
+
+::: notes
+[问题 / 页面目的] 公式计算的是像素数据量
+[内部编号] Q16 / evidence
+[教学意图] 在明确假定的尺寸下计算未压缩像素数据量。
+[教师逐字稿] 刚才的公式只统计像素码字连续排列后的理想数据量。文件可能增加头部、调色板和行填充；压缩又会改变数据的保存方式。所以不能直接把磁盘上的JPEG文件大小代入这个公式倒推位深度。500×333是本题假定尺寸，熊猫原JPEG实际是886×1000；原课文件属性截图不再用于熊猫版。
+[预期学生反应] 有人遗漏除8或除1024。正确结果499500B≈487.79KiB。
+[追问问题] 这个公式包含文件头、行填充、压缩等影响吗？
+[下一问] 回到开场，用像素解释放大；存储代价解释像素不应盲目追高。
+[课堂操作] 指向新增证据；请学生说明理由再继续。 所有证据均嵌入，可离线讲授。
+[来源与改编] course-design.qmd Q16；00:31:13–00:33:09；Snip 20。本版采用course-design.qmd当前课堂实施方案，熊猫数据与新增活动的来源分别注明。
+[熊猫数据] 原图assets/pandas.jpg；实验固定区域(x=280,y=100,w=288,h=288)，坐标零起始。8×8/16×16均从这一区域计算，码表固定。完整数据与算法见course-design.qmd的C4和.codex-build/panda-v4/data.json；本次审查修订见panda-v4-audit.md。
+[技术注解] 499,500 B 是理想像素有效载荷，不等于 BMP 完整文件大小。BMP 含头部和可能的填充。https://learn.microsoft.com/en-us/windows/win32/gdi/bitmap-storage 理想像素有效载荷按总bit数除以8；实际按整字节存放时，不足8bit的末尾需补位并向上取整。本课数值计算例均整除8；文件头、调色板、行对齐与压缩另计。
+:::
+
+## {background-image=".codex-build/panda-v4/render/slide-54.png" background-size="contain"}
+
+<!-- page=54 q=Q17 stage=question -->
+
+::: notes
+[问题 / 页面目的] 放大熊猫图，就能看清新细节吗？
+[内部编号] Q17 / question
+[教学意图] 以同一眼部像素区解释显示放大与真实采样的差别。
+[教师逐字稿] 回到开头的眼睛。把图显示得更大，图像文件记录的原始信息增加了吗？如果想得到更多真实拍摄细节，应该在拍摄时做什么？
+[预期学生反应] 把有限像素放大，并未增加采集到的原始细节。
+[追问问题] 拍摄时提高真实采样分辨率，与拍好后放大是同一件事吗？
+[下一问] 已有像素决定了可还原的内容。把像素码字交给别人，他能唯一画出图像吗？
+[课堂操作] 短问停留15–25秒；先听理由，再翻页。 所有证据均嵌入，可离线讲授。
+[来源与改编] course-design.qmd Q17；00:33:09–00:33:39；Snip 21。本版采用course-design.qmd当前课堂实施方案，熊猫数据与新增活动的来源分别注明。
+[熊猫数据] 原图assets/pandas.jpg；实验固定区域(x=280,y=100,w=288,h=288)，坐标零起始。8×8/16×16均从这一区域计算，码表固定。完整数据与算法见course-design.qmd的C4和.codex-build/panda-v4/data.json；本次审查修订见panda-v4-audit.md。
+[技术注解] 显示放大或插值不能重新采集原场景；拍摄质量还受镜头、对焦和光照影响。
+:::
+
+## {background-image=".codex-build/panda-v4/render/slide-55.png" background-size="contain"}
+
+<!-- page=55 q=Q17 stage=answer -->
+
+::: notes
+[问题 / 页面目的] 放大熊猫图，就能看清新细节吗？
+[内部编号] Q17 / answer
+[教学意图] 以同一眼部像素区解释显示放大与真实采样的差别。
+[教师逐字稿] 右边仍是左边红框中已有的16×16个像素，只是显示得更大。软件也可以插入中间值让边缘平滑，但并未重新采集原始细节。拍摄时可以适当提高真实采样分辨率，同时考虑镜头、对焦、光照与存储代价。现有数字插图能放大到多清楚，同样受原始信息限制。
+[预期学生反应] 把有限像素放大，并未增加采集到的原始细节。
+[追问问题] 拍摄时提高真实采样分辨率，与拍好后放大是同一件事吗？
+[下一问] 已有像素决定了可还原的内容。把像素码字交给别人，他能唯一画出图像吗？
+[课堂操作] 指向新增证据；请学生说明理由再继续。 所有证据均嵌入，可离线讲授。
+[来源与改编] course-design.qmd Q17；00:33:09–00:33:39；Snip 21。本版采用course-design.qmd当前课堂实施方案，熊猫数据与新增活动的来源分别注明。
+[熊猫数据] 原图assets/pandas.jpg；实验固定区域(x=280,y=100,w=288,h=288)，坐标零起始。8×8/16×16均从这一区域计算，码表固定。完整数据与算法见course-design.qmd的C4和.codex-build/panda-v4/data.json；本次审查修订见panda-v4-audit.md。
+[技术注解] 显示放大或插值不能重新采集原场景；拍摄质量还受镜头、对焦和光照影响。
+:::
+
+## {background-image=".codex-build/panda-v4/render/slide-56.png" background-size="contain"}
+
+<!-- page=56 q=Q18 stage=question -->
+
+::: notes
+[问题 / 页面目的] 只有这些码字，能唯一画出图像吗？
+[内部编号] Q18 / question
+[教学意图] 把一串像素码字还原成小图，通过两种有效排列发现二维尺寸的作用。
+[教师逐字稿] 现在把这8个像素当成一幅完整小图的数据，不要求沿用前面那一行的摆法。每个像素2bit，颜色对应关系已经给出，读取顺序也约定好了。请画出一种符合条件的图，判断别人是否一定会和你画得一样。先独立画，再和同桌比较。
+[预期学生反应] 可能直接沿用先前的一行8格，也可能画4×2或2×4；误以为16bit本身会告诉我们哪里换行。
+[追问问题] 若约定每行4个像素，8个像素一共有几行？再从图读回码字检验。
+[下一问] 规则解释了怎样读回数字图像；再回到图像的来源，比较自然光的连续变化与数字表示。
+[课堂操作] 独立画图30–45秒，同桌核对后揭示；整个解码环节约3分钟。 所有证据均嵌入，可离线讲授。
+[来源与改编] course-design.qmd Q18；熊猫版v3新增解码挑战；数据取自Q7读码练习；替代原课该时段的扩展活动。。本版采用course-design.qmd当前课堂实施方案，熊猫数据与新增活动的来源分别注明。
+[熊猫数据] 原图assets/pandas.jpg；实验固定区域(x=280,y=100,w=288,h=288)，坐标零起始。8×8/16×16均从这一区域计算，码表固定。完整数据与算法见course-design.qmd的C4和.codex-build/panda-v4/data.json；本次审查修订见panda-v4-audit.md。
+[技术注解] 本例是未压缩调色板像素码字，不是JPEG文件字节。4×2与2×4只是两个反例，1×8和8×1也可满足原题。给定像素总数与有效行宽可推算行数，不要求两个数都必须独立存入文件。具体格式有不同的元数据、扫描顺序和色彩约定；解码需按格式解释，不能把本课扫描顺序说成所有图像文件的固定规则。解码只能还原已记录的量化像素，不能撤销采样与量化损失。 可参照Microsoft BITMAPINFOHEADER中的宽、高、每像素位数和扫描方向说明：https://learn.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-bitmapinfoheader
+:::
+
+## {background-image=".codex-build/panda-v4/render/slide-57.png" background-size="contain"}
+
+<!-- page=57 q=Q18 stage=answer -->
+
+::: notes
+[问题 / 页面目的] 只有这些码字，能唯一画出图像吗？
+[内部编号] Q18 / answer
+[教学意图] 把一串像素码字还原成小图，通过两种有效排列发现二维尺寸的作用。
+[教师逐字稿] 左边每行放4个，共2行；右边每行放2个，共4行。请按每行从左到右、各行从上到下的顺序把两幅图读回去，得到的都是11、11、01、00、00、01、11、00。两种排列都满足题目给出的条件。因此，像素数相同、码字相同，还不能唯一确定二维排列；需要确定横向和纵向的尺寸。
+[预期学生反应] 可能直接沿用先前的一行8格，也可能画4×2或2×4；误以为16bit本身会告诉我们哪里换行。
+[追问问题] 若约定每行4个像素，8个像素一共有几行？再从图读回码字检验。
+[下一问] 规则解释了怎样读回数字图像；再回到图像的来源，比较自然光的连续变化与数字表示。
+[课堂操作] 指向新增证据；请学生说明理由再继续。 所有证据均嵌入，可离线讲授。
+[来源与改编] course-design.qmd Q18；熊猫版v3新增解码挑战；数据取自Q7读码练习；替代原课该时段的扩展活动。。本版采用course-design.qmd当前课堂实施方案，熊猫数据与新增活动的来源分别注明。
+[熊猫数据] 原图assets/pandas.jpg；实验固定区域(x=280,y=100,w=288,h=288)，坐标零起始。8×8/16×16均从这一区域计算，码表固定。完整数据与算法见course-design.qmd的C4和.codex-build/panda-v4/data.json；本次审查修订见panda-v4-audit.md。
+[技术注解] 本例是未压缩调色板像素码字，不是JPEG文件字节。4×2与2×4只是两个反例，1×8和8×1也可满足原题。给定像素总数与有效行宽可推算行数，不要求两个数都必须独立存入文件。具体格式有不同的元数据、扫描顺序和色彩约定；解码需按格式解释，不能把本课扫描顺序说成所有图像文件的固定规则。解码只能还原已记录的量化像素，不能撤销采样与量化损失。 可参照Microsoft BITMAPINFOHEADER中的宽、高、每像素位数和扫描方向说明：https://learn.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-bitmapinfoheader
+:::
+
+## {background-image=".codex-build/panda-v4/render/slide-58.png" background-size="contain"}
+
+<!-- page=58 q=Q18 stage=evidence -->
+
+::: notes
+[问题 / 页面目的] 还原图像，需要数据和解释规则
+[内部编号] Q18 / evidence
+[教学意图] 把一串像素码字还原成小图，通过两种有效排列发现二维尺寸的作用。
+[教师逐字稿] 前面算出的16bit，只是这8个像素的码字。要解释它，还需要知道二维尺寸、每像素几位、颜色怎样对应以及读取顺序。某些信息写在文件中，某些由格式或通信双方约定，不要求都另存一份。本页明确按横4纵2排列，把结果再读回去检查。注意，读回的是已经记录的像素，采样和量化丢掉的信息不会因此回来。下一问回到自然光：在变成这些有限位置、有限等级之前，它怎样变化？
+[预期学生反应] 可能直接沿用先前的一行8格，也可能画4×2或2×4；误以为16bit本身会告诉我们哪里换行。
+[追问问题] 若约定每行4个像素，8个像素一共有几行？再从图读回码字检验。
+[下一问] 规则解释了怎样读回数字图像；再回到图像的来源，比较自然光的连续变化与数字表示。
+[课堂操作] 指向新增证据；请学生说明理由再继续。 所有证据均嵌入，可离线讲授。
+[来源与改编] course-design.qmd Q18；熊猫版v3新增解码挑战；数据取自Q7读码练习；替代原课该时段的扩展活动。。本版采用course-design.qmd当前课堂实施方案，熊猫数据与新增活动的来源分别注明。
+[熊猫数据] 原图assets/pandas.jpg；实验固定区域(x=280,y=100,w=288,h=288)，坐标零起始。8×8/16×16均从这一区域计算，码表固定。完整数据与算法见course-design.qmd的C4和.codex-build/panda-v4/data.json；本次审查修订见panda-v4-audit.md。
+[技术注解] 本例是未压缩调色板像素码字，不是JPEG文件字节。4×2与2×4只是两个反例，1×8和8×1也可满足原题。给定像素总数与有效行宽可推算行数，不要求两个数都必须独立存入文件。具体格式有不同的元数据、扫描顺序和色彩约定；解码需按格式解释，不能把本课扫描顺序说成所有图像文件的固定规则。解码只能还原已记录的量化像素，不能撤销采样与量化损失。 可参照Microsoft BITMAPINFOHEADER中的宽、高、每像素位数和扫描方向说明：https://learn.microsoft.com/en-us/windows/win32/api/wingdi/ns-wingdi-bitmapinfoheader
+[下一步] 进入T3，先收集学生总结和证据，再逐枝更新知识树。
+:::
+
+## {background-image=".codex-build/panda-v4/render/slide-59.png" background-size="contain"}
+
+<!-- page=59 q=T3 stage=question -->
+
+::: notes
+[问题 / 页面目的] 我们已能解释图像的哪些问题？
+[内部编号] T3
+[阶段] question
+[教师逐字稿] 同色为何可以用不同位数？同一码字为何可以画出不同排列？各举一条证据。 先自己想20秒，再请两位同学各说一条结论和依据。若只有术语没有依据，追问是哪张网格、色块、码表或算式支持它。教师归纳准确后才依次揭示。本检查点含总结与更新约75秒。
+[课堂操作] 先收集学生独立总结和证据，再翻页。
+[来源] course-design.qmd C4a／T3；熊猫实验数据与技术边界见C4。
+:::
+
+## {background-image=".codex-build/panda-v4/render/slide-60.png" background-size="contain"}
+
+<!-- page=60 q=T3 stage=answer -->
+
+::: notes
+[问题 / 页面目的] 我们已能解释图像的哪些问题？
+[内部编号] T3
+[阶段] answer
+[教师逐字稿] 先让学生解释为什么同一颜色既能用00也能用三个8位数表示，再加颜色表示这一枝。00依赖码表；24位RGB记录三个通道值，不含alpha。它补充编码枝：位数取决于表示方案。
+[课堂操作] 只说明当前新增焦点，先前内容保持可见。
+[来源] course-design.qmd C4a／T3；熊猫实验数据与技术边界见C4。
+:::
+
+## {background-image=".codex-build/panda-v4/render/slide-61.png" background-size="contain"}
+
+<!-- page=61 q=T3 stage=answer -->
+
+::: notes
+[问题 / 页面目的] 我们已能解释图像的哪些问题？
+[内部编号] T3
+[阶段] answer
+[教师逐字稿] 请两位学生把4×2和2×4都读回同一码字，再添加解码枝。尺寸控制分行，码表控制颜色，位数和顺序控制怎样读。总数与行宽可推出行数；解码不能撤销采样和量化损失。
+[课堂操作] 只说明当前新增焦点，先前内容保持可见。
+[来源] course-design.qmd C4a／T3；熊猫实验数据与技术边界见C4。
+:::
+
+## {background-image=".codex-build/panda-v4/render/slide-62.png" background-size="contain"}
+
+<!-- page=62 q=Q19 stage=question -->
+
+::: notes
+[问题 / 页面目的] 这些例子主要随时间还是空间变化？
+[内部编号] Q19 / question
+[教学意图] 按指定观察情境分类，避免按物理量名称机械分类。
+[教师逐字稿] 刚才已经知道怎样按规则读回数字图像。再回到记录之前的自然现象。看清每一行指定的观察情境：同一地点一天的气温、固定位置不同时刻的声波、水下不同深度的压强、房间不同位置的光照。分别主要看时间变化，还是空间变化？先按给定情境分类。
+[预期学生反应] 能按给定情境分类；可能以为温度只能随时间、光照只能随空间。
+[追问问题] 如果改看同一时刻不同地点的温度，横轴还应该是时间吗？
+[下一问] 采样后的有限位置与量化后的有限等级，引出数字量。
+[课堂操作] 短问停留15–25秒；先听理由，再翻页。 所有证据均嵌入，可离线讲授。
+[来源与改编] course-design.qmd Q19；00:37:19–00:41:41；Snip 26。本版采用course-design.qmd当前课堂实施方案，熊猫数据与新增活动的来源分别注明。
+[熊猫数据] 原图assets/pandas.jpg；实验固定区域(x=280,y=100,w=288,h=288)，坐标零起始。8×8/16×16均从这一区域计算，码表固定。完整数据与算法见course-design.qmd的C4和.codex-build/panda-v4/data.json；本次审查修订见panda-v4-audit.md。
+[技术注解] 在本课连续量模型中讨论温度等物理量；仪表数字读数的跳变不等于实际物理量只能跳变。概念连线不是实测温度曲线。
+[45分钟路径] 可选页，默认跳过本问及其揭示；加课时才保留思考和反馈。
+:::
+
+## {background-image=".codex-build/panda-v4/render/slide-63.png" background-size="contain"}
+
+<!-- page=63 q=Q19 stage=answer -->
+
+::: notes
+[问题 / 页面目的] 这些例子主要随时间还是空间变化？
+[内部编号] Q19 / answer
+[教学意图] 按指定观察情境分类，避免按物理量名称机械分类。
+[教师逐字稿] 前两行在同一位置比较不同时刻，因此主要随时间；后两行在不同位置比较，因此主要随空间。分类取决于这次观察的情境。接下来还要问：这些量只能取几个固定数值吗？连续变化才是建立模拟量概念的关键。
+[预期学生反应] 能按给定情境分类；可能以为温度只能随时间、光照只能随空间。
+[追问问题] 如果改看同一时刻不同地点的温度，横轴还应该是时间吗？
+[下一问] 采样后的有限位置与量化后的有限等级，引出数字量。
+[课堂操作] 指向新增证据；请学生说明理由再继续。 所有证据均嵌入，可离线讲授。
+[来源与改编] course-design.qmd Q19；00:37:19–00:41:41；Snip 26。本版采用course-design.qmd当前课堂实施方案，熊猫数据与新增活动的来源分别注明。
+[熊猫数据] 原图assets/pandas.jpg；实验固定区域(x=280,y=100,w=288,h=288)，坐标零起始。8×8/16×16均从这一区域计算，码表固定。完整数据与算法见course-design.qmd的C4和.codex-build/panda-v4/data.json；本次审查修订见panda-v4-audit.md。
+[技术注解] 在本课连续量模型中讨论温度等物理量；仪表数字读数的跳变不等于实际物理量只能跳变。概念连线不是实测温度曲线。
+[45分钟路径] 可选页，默认跳过本问及其揭示；加课时才保留思考和反馈。
+:::
+
+## {background-image=".codex-build/panda-v4/render/slide-64.png" background-size="contain"}
+
+<!-- page=64 q=Q19 stage=question -->
+
+::: notes
+[问题 / 页面目的] 温度从25到26，只能跳着变化吗？
+[内部编号] Q19-continuous / question
+[教学意图] 从可取中间值的具体问题形成连续量的模型。
+[教师逐字稿] 某处温度在这段时间由25摄氏度变成26摄氏度。中间可能经过25.5吗？还可能经过25.51吗？不要先看温度计显示了几位，要想实际温度的变化。
+[预期学生反应] 学生可能把数字温度计显示的跳变当成实际温度只能跳变。
+[追问问题] 仪表只显示一位小数，能证明实际温度只能取这些数吗？
+[下一问] 回看图像采样和量化，说明哪些选择变得离散。
+[课堂操作] 短问停留15–25秒；先听理由，再翻页。 所有证据均嵌入，可离线讲授。
+[来源与改编] course-design.qmd Q19；00:37:19–00:41:41；Snip 26。本版采用course-design.qmd当前课堂实施方案，熊猫数据与新增活动的来源分别注明。
+[熊猫数据] 原图assets/pandas.jpg；实验固定区域(x=280,y=100,w=288,h=288)，坐标零起始。8×8/16×16均从这一区域计算，码表固定。完整数据与算法见course-design.qmd的C4和.codex-build/panda-v4/data.json；本次审查修订见panda-v4-audit.md。
+[技术注解] 曲线是课堂概念示意，不是测量数据；不以“任意点有值”作为数学连续性的定义。
+:::
+
+## {background-image=".codex-build/panda-v4/render/slide-65.png" background-size="contain"}
+
+<!-- page=65 q=Q19 stage=answer -->
+
+::: notes
+[问题 / 页面目的] 温度从25到26，只能跳着变化吗？
+[内部编号] Q19-continuous / answer
+[教学意图] 从可取中间值的具体问题形成连续量的模型。
+[教师逐字稿] 在本课的连续模型里，温度可以经过这些中间值。仪表只显示整数或一位小数，是读数方式的限制。我们用连续变化的物理量描述温度、声波或光照，称为模拟量。下一页对照图像中的取样位置和有限颜色等级。
+[预期学生反应] 学生可能把数字温度计显示的跳变当成实际温度只能跳变。
+[追问问题] 仪表只显示一位小数，能证明实际温度只能取这些数吗？
+[下一问] 回看图像采样和量化，说明哪些选择变得离散。
+[课堂操作] 指向新增证据；请学生说明理由再继续。 所有证据均嵌入，可离线讲授。
+[来源与改编] course-design.qmd Q19；00:37:19–00:41:41；Snip 26。本版采用course-design.qmd当前课堂实施方案，熊猫数据与新增活动的来源分别注明。
+[熊猫数据] 原图assets/pandas.jpg；实验固定区域(x=280,y=100,w=288,h=288)，坐标零起始。8×8/16×16均从这一区域计算，码表固定。完整数据与算法见course-design.qmd的C4和.codex-build/panda-v4/data.json；本次审查修订见panda-v4-audit.md。
+[技术注解] 曲线是课堂概念示意，不是测量数据；不以“任意点有值”作为数学连续性的定义。
+:::
+
+## {background-image=".codex-build/panda-v4/render/slide-66.png" background-size="contain"}
+
+<!-- page=66 q=Q20 stage=question -->
+
+::: notes
+[问题 / 页面目的] 数字量与模拟量有什么不同？
+[内部编号] Q20 / question
+[教学意图] 比较连续曲线与采样位置、有限等级、二进制码字的关系。
+[教师逐字稿] 回看图像模型：位置按格子取样，颜色只能从有限几种里选。这与刚才的连续变化有什么不同？最后怎样写成可保存的码字？
+[预期学生反应] 数字数据采用离散状态；0/1是编码符号，不表示只能存数值0和1。
+[追问问题] 多个bit组成码字后，能不能表示138？
+[下一问] 回扣熊猫图思想实验，完整说出信息数字化过程。
+[课堂操作] 短问停留15–25秒；先听理由，再翻页。 所有证据均嵌入，可离线讲授。
+[来源与改编] course-design.qmd Q20；00:41:41–00:43:11；Snip 27。本版采用course-design.qmd当前课堂实施方案，熊猫数据与新增活动的来源分别注明。
+[熊猫数据] 原图assets/pandas.jpg；实验固定区域(x=280,y=100,w=288,h=288)，坐标零起始。8×8/16×16均从这一区域计算，码表固定。完整数据与算法见course-design.qmd的C4和.codex-build/panda-v4/data.json；本次审查修订见panda-v4-audit.md。
+[技术注解] 离散的层次与采样方式有关；课堂示意用于区分连续变化与有限状态，不等于所有数字信号只有两个电平。
+:::
+
+## {background-image=".codex-build/panda-v4/render/slide-67.png" background-size="contain"}
+
+<!-- page=67 q=Q20 stage=answer -->
+
+::: notes
+[问题 / 页面目的] 数字量与模拟量有什么不同？
+[内部编号] Q20 / answer
+[教学意图] 比较连续曲线与采样位置、有限等级、二进制码字的关系。
+[教师逐字稿] 采样把空间位置离散化，量化把每个位置的值映射到有限等级，再用码字表示。例如00、01、10、11是四种码字；每一位只有0或1，但多个位能够表示许多不同数值。数字量强调离散表示，不能理解成计算机只能存0和1两个数值。
+[预期学生反应] 数字数据采用离散状态；0/1是编码符号，不表示只能存数值0和1。
+[追问问题] 多个bit组成码字后，能不能表示138？
+[下一问] 回扣熊猫图思想实验，完整说出信息数字化过程。
+[课堂操作] 指向新增证据；请学生说明理由再继续。 所有证据均嵌入，可离线讲授。
+[来源与改编] course-design.qmd Q20；00:41:41–00:43:11；Snip 27。本版采用course-design.qmd当前课堂实施方案，熊猫数据与新增活动的来源分别注明。
+[熊猫数据] 原图assets/pandas.jpg；实验固定区域(x=280,y=100,w=288,h=288)，坐标零起始。8×8/16×16均从这一区域计算，码表固定。完整数据与算法见course-design.qmd的C4和.codex-build/panda-v4/data.json；本次审查修订见panda-v4-audit.md。
+[技术注解] 离散的层次与采样方式有关；课堂示意用于区分连续变化与有限状态，不等于所有数字信号只有两个电平。
+:::
+
+## {background-image=".codex-build/panda-v4/render/slide-68.png" background-size="contain"}
+
+<!-- page=68 q=Q21 stage=question -->
+
+::: notes
+[问题 / 页面目的] 图像怎样从模拟量变成数字量？
+[内部编号] Q21 / question
+[教学意图] 口头补完整条链，再解释每个步骤做了什么。
+[教师逐字稿] 回顾纸上的熊猫图被相机记录的思想实验。反射光怎样一步步变成可保存的数字图像？请依次说出三个动作，再说每一步解决什么问题。
+[预期学生反应] 采样、量化、编码，得到数字图像；称为信息数字化。
+[追问问题] 哪个环节决定采样位置，哪个环节决定有限的颜色等级？
+[下一问] 先用32B预算题检查颜色容量和数据量，完成T4总结与E1独立迁移，再布置课后练习。
+[课堂操作] 综合应用留60秒，要求写条件和单位。 所有证据均嵌入，可离线讲授。
+[来源与改编] course-design.qmd Q21；00:43:11–00:43:32；Snip 27。本版采用course-design.qmd当前课堂实施方案，熊猫数据与新增活动的来源分别注明。
+[熊猫数据] 原图assets/pandas.jpg；实验固定区域(x=280,y=100,w=288,h=288)，坐标零起始。8×8/16×16均从这一区域计算，码表固定。完整数据与算法见course-design.qmd的C4和.codex-build/panda-v4/data.json；本次审查修订见panda-v4-audit.md。
+[技术注解] 先讨论打印图的反射光到数字图像，再以理想未压缩像素数据预算作迁移；不把文件完整大小混入预算。
+:::
+
+## {background-image=".codex-build/panda-v4/render/slide-69.png" background-size="contain"}
+
+<!-- page=69 q=Q21 stage=answer -->
+
+::: notes
+[问题 / 页面目的] 图像怎样从模拟量变成数字量？
+[内部编号] Q21 / answer
+[教学意图] 口头补完整条链，再解释每个步骤做了什么。
+[教师逐字稿] 现在请完整说出这条链：光经过采样、量化、编码，成为可以存储的数字图像。采样解决在哪些位置取样，量化解决怎样用有限等级表示，编码解决怎样写成码字。这就是信息数字化。分辨率和位深度决定本课简化模型里的像素数据量，也分别影响空间细节和颜色表达。
+[预期学生反应] 采样、量化、编码，得到数字图像；称为信息数字化。
+[追问问题] 哪个环节决定采样位置，哪个环节决定有限的颜色等级？
+[下一问] 先用32B预算题检查颜色容量和数据量，完成T4总结与E1独立迁移，再布置课后练习。
+[课堂操作] 指向新增证据；请学生说明理由再继续。 所有证据均嵌入，可离线讲授。
+[来源与改编] course-design.qmd Q21；00:43:11–00:43:32；Snip 27。本版采用course-design.qmd当前课堂实施方案，熊猫数据与新增活动的来源分别注明。
+[熊猫数据] 原图assets/pandas.jpg；实验固定区域(x=280,y=100,w=288,h=288)，坐标零起始。8×8/16×16均从这一区域计算，码表固定。完整数据与算法见course-design.qmd的C4和.codex-build/panda-v4/data.json；本次审查修订见panda-v4-audit.md。
+[技术注解] 先讨论打印图的反射光到数字图像，再以理想未压缩像素数据预算作迁移；不把文件完整大小混入预算。
+:::
+
+## {background-image=".codex-build/panda-v4/render/slide-70.png" background-size="contain"}
+
+<!-- page=70 q=Q21 stage=question -->
+
+::: notes
+[问题 / 页面目的] 只允许32 B，该怎样选择参数？
+[内部编号] Q21-budget / question
+[教学意图] 同时运用颜色容量与像素数据量，诊断不满足条件的方案。
+[教师逐字稿] 离开前完成这一题。仍用四种颜色，采用固定长度编码，只算未压缩像素码字，最多32B。四个方案可以选哪些？写出像素数乘位深度再除8，别只看像素个数。
+[预期学生反应] 容易只算字节数而误选C，或只选恰好32B的B而漏选D。
+[追问问题] 最多32B是否要求一定用满32B？
+[下一问] 课后继续练习并写明单位。
+[课堂操作] 综合应用留60秒，要求写条件和单位。 所有证据均嵌入，可离线讲授。
+[来源与改编] course-design.qmd Q21；00:43:11–00:43:32；Snip 27。本版采用course-design.qmd当前课堂实施方案，熊猫数据与新增活动的来源分别注明。
+[熊猫数据] 原图assets/pandas.jpg；实验固定区域(x=280,y=100,w=288,h=288)，坐标零起始。8×8/16×16均从这一区域计算，码表固定。完整数据与算法见course-design.qmd的C4和.codex-build/panda-v4/data.json；本次审查修订见panda-v4-audit.md。
+[技术注解] 四个方案覆盖同一取景范围，M、N分别为横纵采样数；本题只比较能否满足约束，不宣称B在所有视觉目标上最好。
+:::
+
+## {background-image=".codex-build/panda-v4/render/slide-71.png" background-size="contain"}
+
+<!-- page=71 q=Q21 stage=answer -->
+
+::: notes
+[问题 / 页面目的] 只允许32 B，该怎样选择参数？
+[内部编号] Q21-budget / answer
+[教学意图] 同时运用颜色容量与像素数据量，诊断不满足条件的方案。
+[教师逐字稿] A是16乘16乘2除8，等于64B，超过限制。B是16乘8乘2除8，等于32B，可以。C虽然只有32B，但1bit只能区分两种颜色，达不到四种颜色的要求。D是8乘8乘2除8，等于16B，也可以。B比D保留更多采样位置，但长宽采样数不同。决定之前要同时核对颜色容量和数据量，不能只看字节数。
+[预期学生反应] 容易只算字节数而误选C，或只选恰好32B的B而漏选D。
+[追问问题] 最多32B是否要求一定用满32B？
+[下一问] 课后继续练习并写明单位。
+[课堂操作] 指向新增证据；请学生说明理由再继续。 所有证据均嵌入，可离线讲授。
+[来源与改编] course-design.qmd Q21；00:43:11–00:43:32；Snip 27。本版采用course-design.qmd当前课堂实施方案，熊猫数据与新增活动的来源分别注明。
+[熊猫数据] 原图assets/pandas.jpg；实验固定区域(x=280,y=100,w=288,h=288)，坐标零起始。8×8/16×16均从这一区域计算，码表固定。完整数据与算法见course-design.qmd的C4和.codex-build/panda-v4/data.json；本次审查修订见panda-v4-audit.md。
+[技术注解] 四个方案覆盖同一取景范围，M、N分别为横纵采样数；本题只比较能否满足约束，不宣称B在所有视觉目标上最好。
+[下一步] 进入T4，先收集学生总结和证据，再逐枝更新知识树。
+:::
+
+## {background-image=".codex-build/panda-v4/render/slide-72.png" background-size="contain"}
+
+<!-- page=72 q=T4 stage=question -->
+
+::: notes
+[问题 / 页面目的] 我们已能解释图像的哪些问题？
+[内部编号] T4
+[阶段] question
+[教师逐字稿] 用已经建立的知识解释：记录图像改变了什么，放大和解码又不能补回什么？ 先自己想20秒，再请两位同学各说一条结论和依据。若只有术语没有依据，追问是哪张网格、色块、码表或算式支持它。教师归纳准确后才依次揭示。本检查点含总结与更新约60秒。
+[课堂操作] 先收集学生独立总结和证据，再翻页。
+[来源] course-design.qmd C4a／T4；熊猫实验数据与技术边界见C4。
+:::
+
+## {background-image=".codex-build/panda-v4/render/slide-73.png" background-size="contain"}
+
+<!-- page=73 q=T4 stage=answer -->
+
+::: notes
+[问题 / 页面目的] 我们已能解释图像的哪些问题？
+[内部编号] T4
+[阶段] answer
+[教师逐字稿] 先收集学生对连续光、有限位置和有限等级的完整解释，再加入最后一枝。回指采样、量化、编码的关系，指出放大和解码都不会重新采集原场景。到这里才呈现完整树。
+[课堂操作] 只说明当前新增焦点，先前内容保持可见。
+[来源] course-design.qmd C4a／T4；熊猫实验数据与技术边界见C4。
+:::
+
+## {background-image=".codex-build/panda-v4/render/slide-74.png" background-size="contain"}
+
+<!-- page=74 q=E1 stage=question -->
+
+::: notes
+[问题 / 页面目的] 新图像能满足 50 B 预算吗？
+[内部编号] E1
+[阶段] question
+[教师逐字稿] 换一组没有算过的数据。请独立写最少位数、判断依据、数据量和预算结论，再写一句这个结果能否当作完整PNG文件大小。给60秒；不讨论、不先报答案。教师先收齐或拍下原答，再揭示。
+[课堂操作] 先收集学生独立总结和证据，再翻页。
+[来源] course-design.qmd C4a／E1；熊猫实验数据与技术边界见C4。
+:::
+
+## {background-image=".codex-build/panda-v4/render/slide-75.png" background-size="contain"}
+
+<!-- page=75 q=E1 stage=answer -->
+
+::: notes
+[问题 / 页面目的] 新图像能满足 50 B 预算吗？
+[内部编号] E1
+[阶段] answer
+[教师逐字稿] 两位的四种状态不足以区分五色，三位够用。120个像素各三位，是360bit，换成45B，满足50B预算。先核对前三项，不让学生覆盖原答案。再请一人解释还剩下的文件大小问题。
+[课堂操作] 只说明当前新增焦点，先前内容保持可见。
+[来源] course-design.qmd C4a／E1；熊猫实验数据与技术边界见C4。
+:::
+
+## {background-image=".codex-build/panda-v4/render/slide-76.png" background-size="contain"}
+
+<!-- page=76 q=E1 stage=evidence -->
+
+::: notes
+[问题 / 页面目的] 新图像能满足 50 B 预算吗？
+[内部编号] E1
+[阶段] evidence
+[教师逐字稿] 45B只计理想像素码字。PNG还有格式结构与压缩，不能据此得到完整文件大小。容量、列式单位、预算、文件边界各一项，至少三项且容量正确视为达到本次退出标准。记录实际匿名错误类别；本次文件构建不能填写学生达标人数。
+[课堂操作] 只说明当前新增焦点，先前内容保持可见。
+[来源] course-design.qmd C4a／E1；熊猫实验数据与技术边界见C4。
+:::
+
+## {background-image=".codex-build/panda-v4/render/slide-77.png" background-size="contain"}
+
+<!-- page=77 q=Q22 stage=exit -->
+
+::: notes
+[问题 / 页面目的] 课后检查位深度、像素数据量和放大的边界
+[内部编号] Q22 / exit
+[教师逐字稿] 课后完成这三题。第一题写判断最少固定码长的不等式，第二题列式并写单位，第三题用原始信息解释。这是补充作业；刚才的E1已在课堂独立收答。答案保留在教师材料，学生完成后再核对。
+[参考答案] 1. 3bit，4<6≤8。2. 800×600×24÷8=1440000B。3. 没有；插值增加像素数量，不等于增加真实采集的细节。
+[来源] 原课作业位置00:43:32以后；题目为重建补充，不冒充原题。
 :::

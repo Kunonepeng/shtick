@@ -1,0 +1,16 @@
+{
+  "date": "2026-10-01",
+  "baseline_files": 326,
+  "unchanged_files": 320,
+  "changed_files": [
+    "course-design.qmd",
+    "demos/panda-digitization/AUDIT.md",
+    "demos/panda-digitization/README_课堂使用.md",
+    "demos/panda-digitization/panda_digitization_demo.py",
+    "demos/panda-digitization/panda_samples.json",
+    "slides.qmd"
+  ],
+  "missing_files": [],
+  "archived_sources_byte_identical": true,
+  "history_and_original_assets_preserved": true
+}

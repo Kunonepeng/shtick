@@ -1,0 +1,12 @@
+{
+  "status": "pass",
+  "date": "2026-10-01",
+  "html": "exports/reference-panda-v4/slides.html",
+  "sha256": "4d7b4d3ac3c6ee9d395f01c2241582cb0ad540fe5a3fcc2a35937127f26877e4",
+  "stages": 77,
+  "embedded_images_match_final_render": 77,
+  "notes_match_pptx_plan": 77,
+  "external_runtime_resources": [],
+  "browser_check": "Codex in-app browser: cover, T1 summary, T4 final tree, E1 question; slide counter and navigation checked",
+  "target_classroom_browser": "unverified"
+}

@@ -1,0 +1,156 @@
+[
+  {
+    "extra": 1,
+    "q": "T1",
+    "stage": "question",
+    "title": "我们已能解释图像的哪些问题？",
+    "after": 14,
+    "nodes": 0,
+    "focus": null,
+    "visible": "仅中性根节点和已建立的枝；先学生总结",
+    "withheld": "本检查点新增枝、未来枝及其解释"
+  },
+  {
+    "extra": 2,
+    "q": "T1",
+    "stage": "answer",
+    "title": "我们已能解释图像的哪些问题？",
+    "after": 14,
+    "nodes": 1,
+    "focus": "sampling",
+    "visible": "在已有树上新增采样及对应关系",
+    "withheld": "所有未建立的后续枝"
+  },
+  {
+    "extra": 3,
+    "q": "T1",
+    "stage": "answer",
+    "title": "我们已能解释图像的哪些问题？",
+    "after": 14,
+    "nodes": 2,
+    "focus": "quantization",
+    "visible": "在已有树上新增量化及对应关系",
+    "withheld": "所有未建立的后续枝"
+  },
+  {
+    "extra": 4,
+    "q": "T1",
+    "stage": "answer",
+    "title": "我们已能解释图像的哪些问题？",
+    "after": 14,
+    "nodes": 3,
+    "focus": "encoding",
+    "visible": "在已有树上新增编码及对应关系",
+    "withheld": "所有未建立的后续枝"
+  },
+  {
+    "extra": 5,
+    "q": "T2",
+    "stage": "question",
+    "title": "我们已能解释图像的哪些问题？",
+    "after": 33,
+    "nodes": 3,
+    "focus": null,
+    "visible": "仅中性根节点和已建立的枝；先学生总结",
+    "withheld": "本检查点新增枝、未来枝及其解释"
+  },
+  {
+    "extra": 6,
+    "q": "T2",
+    "stage": "answer",
+    "title": "我们已能解释图像的哪些问题？",
+    "after": 33,
+    "nodes": 4,
+    "focus": "payload",
+    "visible": "在已有树上新增像素数据量及对应关系",
+    "withheld": "所有未建立的后续枝"
+  },
+  {
+    "extra": 7,
+    "q": "T3",
+    "stage": "question",
+    "title": "我们已能解释图像的哪些问题？",
+    "after": 52,
+    "nodes": 4,
+    "focus": null,
+    "visible": "仅中性根节点和已建立的枝；先学生总结",
+    "withheld": "本检查点新增枝、未来枝及其解释"
+  },
+  {
+    "extra": 8,
+    "q": "T3",
+    "stage": "answer",
+    "title": "我们已能解释图像的哪些问题？",
+    "after": 52,
+    "nodes": 5,
+    "focus": "rgb",
+    "visible": "在已有树上新增颜色表示及对应关系",
+    "withheld": "所有未建立的后续枝"
+  },
+  {
+    "extra": 9,
+    "q": "T3",
+    "stage": "answer",
+    "title": "我们已能解释图像的哪些问题？",
+    "after": 52,
+    "nodes": 6,
+    "focus": "decoding",
+    "visible": "在已有树上新增解码及对应关系",
+    "withheld": "所有未建立的后续枝"
+  },
+  {
+    "extra": 10,
+    "q": "T4",
+    "stage": "question",
+    "title": "我们已能解释图像的哪些问题？",
+    "after": 62,
+    "nodes": 6,
+    "focus": null,
+    "visible": "仅中性根节点和已建立的枝；先学生总结",
+    "withheld": "本检查点新增枝、未来枝及其解释"
+  },
+  {
+    "extra": 11,
+    "q": "T4",
+    "stage": "answer",
+    "title": "我们已能解释图像的哪些问题？",
+    "after": 62,
+    "nodes": 7,
+    "focus": "boundary",
+    "visible": "在已有树上新增数字化边界及对应关系",
+    "withheld": "所有未建立的后续枝"
+  },
+  {
+    "extra": 12,
+    "q": "E1",
+    "stage": "question",
+    "title": "新图像能满足 50 B 预算吗？",
+    "after": 62,
+    "nodes": 7,
+    "focus": null,
+    "visible": "新参数和独立任务；无算式或答案",
+    "withheld": "码长、数据量、预算结论和PNG边界答案"
+  },
+  {
+    "extra": 13,
+    "q": "E1",
+    "stage": "answer",
+    "title": "新图像能满足 50 B 预算吗？",
+    "after": 62,
+    "nodes": 7,
+    "focus": "capacity-payload",
+    "visible": "容量与像素数据量的联合判断",
+    "withheld": "PNG完整文件边界答案"
+  },
+  {
+    "extra": 14,
+    "q": "E1",
+    "stage": "evidence",
+    "title": "新图像能满足 50 B 预算吗？",
+    "after": 62,
+    "nodes": 7,
+    "focus": "file-boundary",
+    "visible": "只新增像素有效载荷与完整PNG边界",
+    "withheld": "课后答案"
+  }
+]

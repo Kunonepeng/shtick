@@ -1,0 +1,5 @@
+# Preserve generated Quarto output and copied historical evidence verbatim.
+.codex-build/panda-v4/design-html/** -whitespace
+.codex-build/panda-v4/trial-activity-master.html -whitespace
+exports/activities-panda-v4/**/*.html -whitespace
+exports/reference-panda-v4/*.html -whitespace

@@ -1,0 +1,34 @@
+{
+  "status": "pass",
+  "date": "2026-10-01",
+  "sheets": {
+    "a": {
+      "source": "activities/panda-v4-student-a.md",
+      "html": "exports/activities-panda-v4/activities/panda-v4-student-a.html",
+      "source_sha256": "b36e9fc2901b997d7c5940814d7486b8f812c9f395624246f130a90311ad50d4",
+      "html_sha256": "df1dd1cbcaf62e2fa7c89a7a3fce6232d314aca516d3c85fb87e845203415e8d"
+    },
+    "b": {
+      "source": "activities/panda-v4-student-b.md",
+      "html": "exports/activities-panda-v4/activities/panda-v4-student-b.html",
+      "source_sha256": "54e6a2b747a075ec7aa392b588892fa54c63d01d7e532cfabf2f5e81c31da194",
+      "html_sha256": "5b4bc9881b2e71aa9888d585d7f26bf89e95c185c6c46d3213245e943aad93fb"
+    },
+    "exit": {
+      "source": "activities/panda-v4-student-exit.md",
+      "html": "exports/activities-panda-v4/activities/panda-v4-student-exit.html",
+      "source_sha256": "1f1802b0c8711807941a7c7262639b03f1aeec79772dfd1ecd748ef064348020",
+      "html_sha256": "7fa5f6cae019ec1595a6b99027bcd5f4c9ea989db3e11bffd391283b2adb0cf3"
+    }
+  },
+  "distribution": {
+    "a": "Q6",
+    "b": "Q18",
+    "exit": "E1 page 74"
+  },
+  "no_early_q7_answer_or_exit_data": true,
+  "generated_sources_match_master": true,
+  "external_runtime_resources": [],
+  "browser_layout_evidence": "panda-v4-audit.md: all three views inspected in Codex in-app browser",
+  "physical_printing": "unverified"
+}
