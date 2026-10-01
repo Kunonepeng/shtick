@@ -2,59 +2,50 @@
 
 ## Project: shtick-codex-project
 
-`shtick` is a teaching-content project for Senior High School Information Technology courses.
+`shtick` produces Senior High School Information Technology course designs, PPTX decks, Reveal.js references, Jupyter demos, and student materials. `SHSIC` is easily mistyped as `SHTICK`, an English word suggesting a distinctive teaching approach.
 
-The name comes from a useful spelling accident:
+Produce inspectable, trustworthy, editable classroom materials. **Must** is mandatory; **should/prefer** is recommended; **may** is optional. Apply rules within scope; report unmet obligations.
 
-```text
-SHSIC
-Senior High School Information technology Course
+## 0. Start here
 
-      ↓ easy to mistype / misread as
+### 0.1 Authorities and required reading
 
-SHTICK
-```
+Read this file and applicable lesson-local instructions, then the documents governing the task:
 
-`shtick` is also an English word for a characteristic routine, style, or recognizable way of doing something. The project name therefore preserves the connection to `SHSIC` while also fitting the goal of developing a distinctive, reusable teaching approach.
+| Concern | Authority / required reading |
+|---|---|
+| Project workflow, teaching obligations, code language, acceptance | This `AGENTS.md` |
+| Lesson content, questions, evidence, conclusions, knowledge-tree stages | Lesson-local `course-design.qmd` |
+| PPTX typography, geometry, colors, layouts, visual QA | [Slide Style Guide](slide-style-guide.md), for PPTX creation, revision, or review |
+| Generated-illustration prompts and provenance | [Image Generation Prompts](image-generation-prompts.md), when creating, inserting, or reviewing generated images |
+| Current package, editable sources, generation and validation | Lesson entry document and relevant scripts |
 
-The project produces classroom-ready course designs, PPTX decks, Reveal.js reference decks, Jupyter demonstrations, student materials, and supporting source notes.
+Use the existing lesson `README.md`, `CLASSROOM-PACKAGE.md`, or course-design entry section. Course design governs teaching; the style guide governs visuals. Generators, old decks, compatibility notes, and prior checks cannot override either. Inspect a named reference deck only when expressly requested.
 
-The priority is not merely to generate files. The priority is to produce material that a teacher can inspect, trust, edit, and use directly in class.
+Honor user scope and resolve routine choices from these authorities. Seek clarification only for unresolved conflicts materially affecting the outcome; continue independent work. A new visual language requires an explicit project decision.
 
----
+### 0.2 Task workflow
 
-# 1. Core writing rule: avoid "AI tone"
+1. Inspect status; preserve existing user changes.
+2. Identify lesson, current versions, entry document, and task type.
+3. Locate edit points, generators, writes (including ignored/untracked outputs), and checks.
+4. Edit within scope; check alignment and affected deliverables.
+5. Review the diff; report evidence, limits, and pending work.
 
-All content in this project must avoid recognizable AI-generated writing patterns.
+- **Audit:** inspect the requested package; report evidence, impact, and proposals. Keep files unchanged unless fixes were requested.
+- **Documentation:** check wording, obligations, references, and diff. An `AGENTS.md` edit needs no lesson build.
+- **Design revision:** preserve depth; check outcomes, questions, evidence, tree stages, assessment, and timing. Synchronize within scope; name pending outputs.
+- **Production change:** update sources/outputs and perform alignment/QA. Every delivered PPTX revision requires full-deck rendering and visual inspection.
 
-Write as a careful teacher, textbook editor, or curriculum designer would write.
+A completed narrow task does not establish classroom readiness. Keep cleanup, publication, and unrelated changes within authorization.
 
-Preferred qualities:
+## 1. Writing: natural and precise
 
-- direct;
-- specific;
-- concise;
-- technically precise;
-- classroom-oriented;
-- natural Chinese;
-- clear argumentative structure;
-- appropriate for the students and lesson.
+Write as a careful teacher, textbook editor, or curriculum designer: direct, specific, concise, technically precise, and appropriate to the learners.
+
+Avoid generic motivation, exaggerated claims, repetitive summaries, generation commentary, marketing language, and decorative headings. Avoid formulaic “通过……不仅……而且……” unless needed. Replace “帮助学生更好地理解” with what students actually do or understand.
 
 Avoid:
-
-- generic motivational language;
-- exaggerated claims;
-- repetitive conclusions;
-- unnecessary summaries of obvious points;
-- formulaic phrases such as “通过……不仅……而且……” unless genuinely needed;
-- vague phrases such as “帮助学生更好地理解” without stating what students actually do or understand;
-- meta-commentary about content generation;
-- consultancy / marketing language;
-- decorative headings that do not help the teaching structure.
-
-Prefer concrete classroom language.
-
-For example, avoid:
 
 > 本节课将带领学生深入探索字符编码的奥秘。
 
@@ -62,197 +53,96 @@ Prefer:
 
 > 先让学生观察：同一批字节为什么会显示成不同文字？
 
----
+## 2. Teaching language and code language
 
-# 2. Language and technical precision
+### 2.1 Chinese-first teaching materials
 
-Teaching materials are Chinese-first.
+Teaching prose is Chinese-first. Preserve standard English terms where clearer: ASCII, Unicode, UTF-8, IME, Code Point, byte, bit, glyph, encode / decode. Do not translate mechanically.
 
-Keep established technical terms and abbreviations in English where appropriate, for example:
+Distinguish 字符集 / 字符编码, 输入码 / 键盘扫描码, Unicode 码位 / encoded bytes, 字符身份 / 字形, 国标码 / 机内码, and GB2312-specific / general encoding behavior. State important boundaries of classroom simplifications.
 
-- ASCII
-- Unicode
-- UTF-8
-- IME
-- Code Point
-- byte
-- bit
-- glyph
-- encode / decode
+### 2.2 English code and comments are required
 
-Do not translate technical terms mechanically when the English term is clearer or standard in the curriculum.
+Code and code comments **must use English by default**. Use English for identifiers, comments, docstrings, and developer-facing messages. This covers standalone scripts and code embedded in QMD files, Notebooks, slides, and demonstrations, including generated code.
 
-Explicitly distinguish concepts that students may confuse, including:
+Permit non-English text only for strong teaching/technical reasons: Chinese student-facing labels, encoding examples, original quotations, or exact test data. Preserve necessary Chinese literals/evidence; document non-obvious exceptions in teacher material.
 
-- 字符集 vs 字符编码
-- 输入码 vs 键盘扫描码
-- Unicode 码位 vs 编码后的 bytes
-- 字符身份 vs 字形
-- 国标码 vs 机内码
-- GB2312-specific behavior vs general character-encoding behavior
+Keep Chinese teaching explanations/instructions in prose cells, slide text, or notes. Audience language alone does not justify Chinese implementation comments.
 
-If a classroom simplification has an important technical boundary, state that boundary.
+Review source and generated code, distinguishing justified literals from implementation commentary. Non-ASCII matches alone are not violations. Fix within scope and report remaining work.
 
----
+## 3. Teaching authority, generation, and alignment
 
-# 3. Source-of-truth hierarchy
+### 3.1 Pedagogical authority
 
-For each lesson or module, use this structure:
+`course-design.qmd` defines teaching logic. PPTX, teacher/student demos, activities, knowledge trees, and Reveal.js must agree with it on:
 
-```text
-course-design.qmd
-        ↓
-pedagogical source of truth
-        ↓
-┌───────────────────────────────┐
-│                               │
-PPTX classroom deck        Jupyter demo sources
-│                               │
-WPS / PowerPoint           ├── demo-lab-teacher.qmd
-│                          │       ↓
-│                          │   demo-lab-teacher.ipynb
-│                          │
-│                          └── demo-lab-student.qmd
-│                                  ↓
-│                              demo-lab-student.ipynb
-│
-production presentation    teacher/student demo views
-│
-└───────────────┐
-                ↓
-            slides.qmd
-                ↓
-        Reveal.js reference deck
-```
+- Q IDs/subquestions, sequence, and terminology;
+- givens, examples, evidence, units, and technical boundaries;
+- prediction, observation, explanation, and reveal stages;
+- knowledge-tree nodes, relationships, and checkpoints;
+- conclusions, learning outcomes, and assessment.
 
-`course-design.qmd` defines the teaching logic.
+### 3.2 Actual generation dependencies
 
-The PPTX, Notebook, and Reveal.js versions must remain aligned with its:
+Verify generation paths: QMD → IPYNB and PPTX → Reveal are not universal. Generators may own both QMD and IPYNB, making QMD an output.
 
-- question numbering;
-- teaching sequence;
-- terminology;
-- evidence;
-- conclusions.
+Verify the source/output ownership and build order in the entry document (§15) against scripts. Generator-embedded teaching text must follow the course design.
 
-Do not allow these artifacts to silently diverge.
+### 3.3 Safe regeneration
 
----
+Inspect generator/check writes, including exports and reports. Preserve human edits in tracked, untracked, and ignored outputs before replacement; incorporate them into the correct source. Retain original assets and separate trial writes from accepted evidence.
 
-# 4. course-design.qmd: 认知困惑法 + 问题链
+Prefer source/generator fixes. Record necessary output patches with artifact, reason, change, and regeneration survival; revalidate. Preserve prior reviewed versions' identity/evidence.
 
-`course-design.qmd` must be designed primarily around:
+### 3.4 Alignment and known divergence
 
-1. **认知困惑法**
-2. **问题链**
+In existing lesson records, map each major Q to PPTX pages/builds, Notebook Q/D sections, activities, Reveal sections, and tree checkpoints.
 
-These are not optional decorations added after the content is written. They should shape the lesson from the beginning.
+Compare meaning: givens, example values, evidence, reveal order, conclusions, and stage-specific notes. Matching IDs or counts alone does not prove alignment.
 
-## 4.1 认知困惑法
+Record each difference's versions/locations, teaching impact, compatibility arrangement, and remaining reconciliation. Reconcile against the course design within scope. Compatibility notes do not establish alignment.
 
-Whenever the topic allows it, begin from a phenomenon, contradiction, unexpected result, or limitation that makes the student's current explanation insufficient.
+## 4. Course design: 认知困惑法 + 问题链 + 知识树
 
-A useful cognitive conflict should:
+These methods must shape the lesson from the beginning. The question chain establishes concepts; the progressively revealed knowledge tree consolidates them.
 
-1. be immediately understandable;
-2. allow students to make a plausible prediction;
-3. produce evidence that makes the existing model insufficient;
-4. create a genuine need for the next concept.
+### 4.1 Learners, outcomes, and assessment
+
+State prerequisites, duration, roles, equipment/software, projection/audio/network needs, and preparation; distinguish assumptions from observed conditions.
+
+Map outcomes to Q/activity, observable action, student evidence, and acceptable performance. Include independent transfer/exit assessment and responses to persistent misconceptions; volunteer answers alone are insufficient.
+
+### 4.2 Cognitive conflict
+
+Whenever the topic allows, begin with an understandable phenomenon, contradiction, unexpected result, or limitation. Let students make a plausible prediction; use evidence to expose the limits of their explanation and create a need for the next concept.
 
 Examples:
 
-```text
-ASCII 是 7 bit。
-为什么计算机中常常看到 8 bit？
-```
+- ASCII 是 7 bit。为什么计算机中常常看到 8 bit？
+- 在 GB2312 中，“中”占 2 bytes。为什么换成 UTF-8 后变成 3 bytes？
+- 同一批 bytes 没有改变。为什么解码后却变成乱码？
+- 两个同学都使用 3-bit 编码。为什么对方的 HELLO 仍然解不出来？
 
-```text
-在 GB2312 中，“中”占 2 bytes。
-为什么换成 UTF-8 后变成 3 bytes？
-```
+### 4.3 Questions and identifiers
 
-```text
-同一批 bytes 没有改变。
-为什么解码后却变成乱码？
-```
+A **major question** establishes a concept, relationship, limitation, or transferable method through a student attempt followed by evidence/explanation. Identify major questions in the design and slide plan.
 
-```text
-两个同学都使用 3-bit 编码。
-为什么对方的 HELLO 仍然解不出来？
-```
+A **subquestion** develops that task; a separate inference needing a thinking pause also requires question-only/reveal treatment. Brief follow-ups may stay in notes. Relabeling cannot exempt a major task.
 
-The purpose is not surprise for its own sake. The conflict must create a reason to learn the next idea.
+Use stable Q and corresponding demo/activity IDs; synchronize all affected materials when renumbering. Each major question should follow from the previous result, become progressively more demanding, introduce at most one major new difficulty, use established evidence, and produce something needed next.
 
-## 4.2 问题链
+Prefer observation → comparison → inference → explanation → design → diagnosis → transfer over unrelated definitions.
 
-A lesson should be organized as a connected sequence of questions.
+Weak: “ASCII 是多少位编码？”
 
-Each major question should:
+Better: “ASCII 有 128 个编码位置。至少需要多少 bit？”
 
-- follow naturally from the previous result;
-- be slightly more complex than the previous question;
-- introduce at most one major new difficulty;
-- use evidence or ideas already established;
-- produce something needed by the next question;
-- move students toward the final model.
+Follow-up: “既然 ASCII 只需要 7 bit，为什么计算机中常常看到 8 bit？”
 
-Prefer a progression such as:
+### 4.4 Major-question checklist
 
-```text
-观察
-  ↓
-识别
-  ↓
-比较
-  ↓
-推断
-  ↓
-解释
-  ↓
-设计
-  ↓
-诊断
-  ↓
-迁移
-```
-
-Avoid a lesson that is mainly:
-
-```text
-定义 A
-定义 B
-定义 C
-练习
-```
-
-when the concepts can instead emerge from connected problems.
-
-Questions should ask students to:
-
-- predict;
-- compare;
-- explain a contradiction;
-- infer a rule;
-- design a solution;
-- identify a limitation;
-- diagnose a failure;
-- transfer a principle to a new situation.
-
-Weak:
-
-> ASCII 是多少位编码？
-
-Better:
-
-> ASCII 有 128 个编码位置。至少需要多少 bit？
-
-Stronger follow-up:
-
-> 既然 ASCII 只需要 7 bit，为什么计算机中常常看到 8 bit？
-
-## 4.3 Major-question design checklist
-
-For every major Q, the design should be able to answer:
+For every major Q, the design must answer:
 
 ```text
 Qx 问题是什么？
@@ -266,897 +156,300 @@ Qx 问题是什么？
 为什么自然进入 Qx+1？
 ```
 
-A useful structure is:
-
-```markdown
-## Qx 问题标题
-
-### 认知起点
-### 认知困惑
-### 学生任务
-### 预期回答
-### 追问
-### 证据 / Demo
-### 形成结论
-### 下一问
-```
-
-Not every small question needs all of these headings in the final document, but the design must support them.
-
-Preferred lesson rhythm:
-
-```text
-认知困惑
-   ↓
-提出问题
-   ↓
-学生预测
-   ↓
-活动 / 实验 / 证据
-   ↓
-结果与预测冲突
-   ↓
-追问
-   ↓
-抽象概念
-   ↓
-新的、更复杂的问题
-   ↓
-迁移
-   ↓
-完整模型
-```
+Suggested headings: 认知起点、认知困惑、学生任务、预期回答、追问、证据 / Demo、形成结论、下一问. Smaller questions may omit headings, not the reasoning.
 
-## 4.4 Preserve course-design depth during refactoring
+Use question → prediction → activity/evidence → compare with prediction → follow-up → abstraction → next question → transfer. Insert student summaries and tree reveals at connected-question checkpoints.
 
-Do not shorten `course-design.qmd` merely to make the repository cleaner.
+### 4.5 Mandatory progressively revealed knowledge tree
 
-When reviewing or refactoring, preserve:
+**Every lesson must include a progressively revealed knowledge tree** showing the concepts learned and relationships established through discussion.
 
-- pedagogical rationale;
-- cognitive-conflict design;
-- question-chain logic;
-- expected student responses;
-- activity intent;
-- demo purpose;
-- transition logic;
-- technical caveats;
-- source notes.
+After a connected group of questions:
 
-If the file becomes too long, move secondary teacher-facing detail into `teacher-guide.qmd`, `appendix.qmd`, or a references section rather than deleting it.
+1. Ask students to summarize what they have established and cite evidence.
+2. Use their responses to form a concise, accurate summary.
+3. Reveal the corresponding tree nodes and relationships.
+4. Clearly highlight newly learned knowledge while keeping previously established knowledge visible.
 
-Refactoring may improve structure, naming, and navigation, but it must not reduce the pedagogical information content.
+Reveal only established knowledge. Neutral opening question labels are allowed; future nodes/answers and the completed tree must remain hidden.
 
----
+Define tree structure, node/relationship meanings, Qs, summary prompts, reveal stages, and time in `course-design.qmd`; shared tree data must follow it.
 
-# 5. Student-facing vs teacher-facing information
+Use native editable PPTX text, shapes, and connectors. Duplicate stages with earlier nodes fixed, readable, and visible. Mark new nodes/relationships using existing semantic colors and focus conventions, plus cues beyond color. Reveal one focus per build.
 
-Whenever content is designed, revised, or reviewed, explicitly decide whether each piece of information is:
+Align deck, Reveal.js, and relevant teacher/student materials. Notebook/worksheet summary spaces may replace diagrams while preserving reveal timing. Release the completed tree only after establishing its conclusions.
 
-1. **student-facing**;
-2. **teacher-facing**;
-3. **shared, but revealed at different times**.
+Notes must collect student summaries before each update. Budget checkpoint time and review tree presence, accuracy, reveal order, geometry, and highlighting.
 
-Do not make this decision implicitly.
+### 4.6 Feasible lesson timing
 
-## 5.1 Student-facing information
+Budget thinking, discussion, instructions, activities, demos, observation, application switching, tree summaries, and assessment. Include cumulative checkpoints, optional extensions, and cut points that preserve essential reasoning and independent assessment.
 
-Student-facing information is what students need to see **at that moment** to think, observe, act, compare, or form a conclusion.
+Set a demo-failure threshold/fallback. Preserve thinking pauses when trimming. Planned duration is an estimate; record observed pacing separately.
 
-Typical student-facing content:
+### 4.7 Preserve design depth
 
-- the current question;
-- necessary givens;
-- experiment / activity instructions;
-- evidence needed for reasoning;
-- diagrams and examples;
-- code that students are expected to read or manipulate;
-- the conclusion **after** students have had time to think;
-- concise terminology that students need to retain.
+Do not shorten `course-design.qmd` merely to tidy the repository. Preserve pedagogical rationale, cognitive conflict, question-chain logic, expected responses, activity intent, demo purpose, transitions, tree logic, technical caveats, and sources.
 
-Student-facing material should be concise and projection-readable.
+Move secondary teacher detail to a guide, appendix, or references only within scope, leaving a clear reference. Refactoring must not reduce pedagogical information content.
 
-## 5.2 Teacher-facing information
+## 5. Student-facing and teacher-facing information
 
-Teacher-facing information supports teaching but should not normally occupy student visual space.
+Classify significant content as student-facing, teacher-facing, or shared at different stages; record placement/reveal timing in the design or slide plan.
 
-Typical teacher-facing content:
+Students see current questions, necessary givens, concise instructions, evidence, diagrams, and code they inspect/manipulate. Reveal conclusions and tree additions after reasoning.
 
-- full teaching transcript;
-- teaching intention;
-- expected student responses;
-- likely misconceptions;
-- follow-up questions;
-- timing advice;
-- technical caveats;
-- alternative examples;
-- troubleshooting steps;
-- demo fallback plans;
-- source URLs and research notes;
-- answers or hints that would spoil the current question;
-- implementation details students do not need.
+Keep intent, scripts, expected responses, follow-ups, timing, technical elaboration, troubleshooting, fallbacks, sources, and later answers in notes, the design, teacher Notebooks, or references.
 
-Teacher-facing information belongs primarily in:
+Ask whether students need it now, whether it supports reasoning, and whether it spoils the question. Keep internal IDs/teacher annotations off slides unless needed for student action. Show conditions essential to correct reasoning; keep complementary caveats teacher-facing. Student material must be concise and projection-readable.
 
-- PPTX Speaker Notes;
-- `course-design.qmd`;
-- `demo-lab-teacher.qmd / .ipynb`;
-- teacher reference material.
+## 6. Official classroom deck: PPTX
 
-## 5.3 Review rule
+`.pptx` is the production classroom format, primarily for **WPS Presentation**, with Microsoft PowerPoint as the alternative. Direct generation is acceptable; do not force production through Quarto at the expense of quality or editability.
 
-For every significant piece of information, ask:
+Teaching slides cover questions, evidence, explanations, activities, trees, and assessment. Every delivered slide, including covers/transitions/backups, needs notes for its question/page purpose.
 
-```text
-Does the student need to see this now?
-Does it help the student think, or does it tell them what to think?
-Will it spoil the question?
-Is this mainly guidance for the teacher?
-Can it move to Speaker Notes or the teacher notebook?
-```
+## 7. PPTX production requirements
 
-If information is useful to the teacher but not necessary for students at that moment, keep it teacher-facing.
+### 7.1 Canonical visual specification
 
-If information reveals the answer, clue, conclusion, or key inference before students have attempted the question, it must not appear on the question slide or student notebook at that stage.
+Read and strictly follow [slide-style-guide.md](slide-style-guide.md). Its detailed typography, geometry, palette, density, and QA requirements are mandatory. Preserve:
 
----
+- 16:9 white canvas and violet top/bottom rails;
+- explicit Alibaba PuHuiTi 3.0 variants on all native text;
+- common title baseline and content area;
+- narrative teaching titles, evidence-first layouts, and generous white space;
+- semantic violet / cyan / red, one current teaching focus, and stable builds.
 
-# 6. Official classroom deck: PPTX
+Use the guide's title variants and approved Alibaba-family fallback; verify rendered fonts. Code text follows both native-font rules and §2.2.
 
-The official classroom presentation format is currently `.pptx`.
+### 7.2 Question and reveal stages
 
-Preferred classroom environment:
+Use the style guide §21.1 slide plan: Q/stage, visible/withheld content, notes, evidence, focus, and tree checkpoints.
 
-1. **WPS Presentation**
-2. Microsoft PowerPoint
+Every major Q must first appear on its own **question-only slide** with only necessary givens, neutral evidence, and concise instructions. Exclude answers, effective hints, completed calculations, answer-colored emphasis, revealing diagrams, and teacher annotations. Sparse question slides are encouraged.
 
-The PPTX version is the production-quality classroom artifact.
+Create the next answer/evidence/explanation slide by **duplicating the question slide**. Preserve wording, font family/size/weight, x/y position, box dimensions, alignment, line breaks, and base geometry. Reveal one additional focus per subsequent duplicate.
 
-It is acceptable to generate PPTX directly. Do not force the production deck through Quarto when doing so reduces presentation quality.
+Prefer duplicated slides over complex animation; essential meaning must survive static export. Tree builds retain established nodes and focus attention on newly learned concepts/relationships.
 
----
+### 7.3 Density and deviations
 
-# 7. PPTX visual standard: strict compliance
+If content does not fit, enlarge the area, shorten wording without changing the question, move complementary detail to notes, or split the focus. Do not shrink normal teaching text or use auto-fit to force a fit. Apply title variants consistently across paired slides.
 
-Every production PPTX deck must strictly follow:
+First revise both paired slides together to preserve geometry. Record any necessary deviation's slides, reason, alternatives, and validation. Recording it does not waive requirements; unresolved deviations remain acceptance issues absent an explicit project/user decision.
 
-`slide-style-guide.md`
+### 7.4 Evidence and generated illustrations
 
-This file is a **hard design specification**, not loose inspiration.
+Classify each visual:
 
-At minimum, preserve:
+| Purpose | Approach |
+|---|---|
+| Factual evidence: standards, software, exact output, historical records | Real screenshots, original assets, primary sources, or reproducible experimental evidence |
+| Exact structures, knowledge trees, labels, bytes, tables, calculations | Native editable PPT shapes, tables, text/code, and connectors |
+| Situation, analogy, human context, cognitive conflict | Generated illustration may be appropriate |
 
-- 16:9 canvas;
-- white background;
-- violet top and bottom rails;
-- Alibaba PuHuiTi 3.0 for native text;
-- common title baseline;
-- common content working area;
-- strong narrative teaching titles;
-- evidence-first layouts;
-- semantic violet / cyan / red;
-- generous white space;
-- progressive disclosure through duplicated slides;
-- stable geometry across build sequences.
+**Generated images illustrate; native diagrams and real screenshots prove.** Verify native diagram values and relationships too.
 
-Do not introduce a new visual language unless the project explicitly changes the style guide.
+For every generated image:
 
-## 7.1 Student-facing content only
+1. State its teaching purpose before prompting; specify slide region, composition, and aspect ratio.
+2. Follow [image-generation-prompts.md](image-generation-prompts.md), normally without explanatory text, technical labels, arrows, byte values, or conclusions.
+3. Add precise annotations as native PPT objects. Use clean rectangular visuals without decorative frames, shadows, glow, or cards; check for technical misconceptions.
+4. Preserve the exact production prompt, image ID, slide/Q, purpose, composition/aspect ratio, and post-generation edits.
 
-The slide itself should contain only information students need to see at that moment.
+Store provenance in lesson-local `assets/generated/image-prompts.md` and/or `[图片生成提示词]` notes. Do not reconstruct prompts afterward. Generated tables, software UI, standards pages, code output, or historical documents must not substitute for factual evidence.
 
-Student-facing information includes:
+## 8. Speaker Notes and transcripts
 
-- the current problem / question;
-- essential evidence;
-- diagrams;
-- examples;
-- short experiment instructions;
-- key values;
-- the current conclusion;
-- labels required to understand the visual.
-
-Do not turn the slide into a teacher handout.
-
-Complementary teacher-facing information belongs in Speaker Notes.
-
-## 7.2 One slide, one current teaching focus
-
-Do not put everything that is eventually true onto one slide.
-
-Prefer a sequence:
-
-```text
-Question
-   ↓
-Evidence
-   ↓
-Focus
-   ↓
-Explanation
-   ↓
-Conclusion
-```
-
-If a slide is dense, split it.
-
-Do not solve density by shrinking normal teaching text below the style-guide standard.
-
-## 7.3 Progressive disclosure
-
-Prefer duplicated slides over complicated animation.
-
-Use:
-
-```text
-base slide
-    ↓
-same geometry + current focus
-    ↓
-same geometry + explanation
-    ↓
-move focus to next item
-```
-
-Between consecutive build slides, change only the intended teaching focus.
-
-Typical changes:
-
-- add / move one red focus rectangle;
-- reveal one conclusion;
-- add one dark spotlight overlay;
-- highlight one bit, byte, region, or timeline stage.
-
-Do not recreate a build slide from scratch if it can be duplicated.
-
-## 7.4 Every major question gets a question-only slide
-
-Every major classroom question should first appear on its **own question slide**.
-
-The purpose is to create a clean thinking pause.
-
-The question slide must not expose:
-
-- the answer;
-- hints that effectively reveal the answer;
-- the conclusion;
-- answer-colored emphasis;
-- explanatory diagrams that give away the inference;
-- completed calculations;
-- teacher annotations.
-
-It may include only the information students genuinely need in order to attempt the question:
-
-- the question itself;
-- necessary givens;
-- a neutral evidence image or table, if required;
-- concise task instructions.
-
-Sparse question slides are encouraged.
-
-## 7.5 Question slide → answer slide pairing
-
-The next slide should reveal the answer, explanation, evidence, or worked reasoning.
-
-The answer slide must be created by **duplicating the question slide**, not rebuilding it.
-
-The question itself must remain visually fixed across the transition:
-
-- same font family;
-- same font size;
-- same weight;
-- same x/y position;
-- same text-box width and height;
-- same line breaks where practical;
-- same alignment;
-- same surrounding base geometry.
-
-Then add the answer / explanation without moving the question unless there is a compelling layout reason.
-
-Preferred transition:
-
-```text
-Question-only slide
-        ↓ duplicate
-Same question in exactly the same place
-+ answer / evidence / explanation
-        ↓
-optional additional duplicated slides
-+ one new focus at a time
-```
-
-This is intended to reduce visual noise during slide switching so students perceive the new information, not a shifting layout.
-
-For question/answer pairs, layout stability is more important than squeezing both into a single slide.
-
-## 7.6 Generated teaching images
-
-Use generated images only when they improve the teaching explanation.
-
-Before creating or inserting an image, classify the visual:
-
-```text
-Factual evidence
-    → real screenshot / standard / primary-source image
-
-Exact technical structure
-    → native PPT shapes / table / code / diagram
-
-Conceptual or situational illustration
-    → generated image may be appropriate
-```
-
-Core rule:
-
-> **Generated images illustrate; native diagrams and real screenshots prove.**
-
-Do not use generated images to fabricate or replace evidence such as:
-
-- ASCII / Unicode tables;
-- standards pages;
-- WinHex or software screenshots;
-- exact byte sequences;
-- code output;
-- historical documents;
-- technical diagrams where exact labels, values, geometry, or relationships matter.
-
-Generated images are appropriate for:
-
-- a cognitive-conflict opening scene;
-- a classroom situation;
-- an analogy or metaphor;
-- a human interaction that makes an abstract problem concrete;
-- a hero illustration where factual precision is not the evidence being taught.
-
-### Generated-image workflow
-
-For every generated teaching image:
-
-1. write one sentence stating the **teaching purpose** before writing the prompt;
-2. decide the intended slide region and aspect ratio;
-3. write the prompt using the project prompt structure in `image-generation-prompts.md`;
-4. normally generate the illustration **without explanatory text, technical labels, byte values, arrows, or conclusions**;
-5. add precise labels, arrows, focus rectangles, and technical values later as native PPT objects;
-6. insert the image as a clean rectangular visual with no decorative frame, shadow, glow, or card treatment;
-7. check that the image does not imply technically false details;
-8. preserve the exact generation prompt for reproducibility.
-
-### Prompt provenance
-
-For every generated image used in a production deck, preserve:
-
-```text
-[Image ID]
-[Slide / Q]
-[Teaching purpose]
-[Intended composition / aspect ratio]
-[Exact prompt]
-[Post-generation edits, if any]
-```
-
-Store the exact prompt in at least one durable project location:
-
-- lesson-local `assets/generated/image-prompts.md`; and/or
-- the relevant slide's Speaker Notes under `[图片生成提示词]`.
-
-Reusable prompt patterns live in:
-
-`image-generation-prompts.md`
-
-Do not rely on memory to reconstruct prompts later.
-
----
-
-# 8. Speaker Notes are mandatory
-
-Every teaching slide must contain Speaker Notes.
-
-Every slide must contain a usable **teacher transcript**: what the teacher can actually say when presenting that slide.
-
-The transcript should not merely repeat visible text.
-
-Speaker Notes should begin with the **full classroom question or page purpose**, not only an internal identifier such as `Q3` or `Q9`.
-
-Preferred form:
+Every slide must have a usable transcript beginning with its full question/page purpose, not just a Q ID:
 
 ```text
 [问题] ASCII 是 7 bit，为什么计算机中常常看到 8 bit？
 [内部编号] Q3
-```
-
-The internal Q number is for navigation only. The complete question is the meaningful teaching unit.
-
-Where appropriate, Speaker Notes may contain:
-
-```text
-[问题 / 页面目的]
-[内部编号]
-[教学意图]
+[阶段] 提问
 [教师逐字稿]
-[追问问题]
-[预期学生反应]
-[形成结论]
-[Demo 操作]
-[技术注解]
-[来源]
 ```
 
-Not every slide needs every subsection, but every teaching slide needs a transcript.
+Use relevant sections such as `[教学意图]`, `[预期学生反应]`, `[追问问题]`, `[形成结论]`, `[Demo 操作]`, `[技术注解]`, and `[来源]`; no arbitrary word count is required.
 
-Research URLs, technical caveats, alternative explanations, likely misconceptions, and other non-student-facing information should normally be placed in Speaker Notes rather than on the slide.
+A **usable transcript** uses natural speech, visible evidence, student actions, pauses, likely responses, and transitions. Add value beyond reading the slide; keep a lively, untheatrical rhythm.
 
-## 8.1 Transcript quality
+Match the stage:
 
-The transcript should be written as language a teacher can actually say in class.
+- **Question:** invite prediction, comparison, or explanation; allow thinking; do not speak the answer.
+- **Evidence / reveal:** respond to attempts and explain newly available evidence.
+- **Tree summary:** collect student summaries, then identify new nodes/relationships and their connections.
+- **Assessment / exit:** collect independent responses before revealing answers.
 
-It should:
+Never copy an answer-bearing script unchanged into question notes. Separate spoken text from teacher references held for later. Review wording/timing, not just presence.
 
-- sound natural when spoken aloud;
-- create curiosity before giving an explanation;
-- invite students to predict, compare, vote, argue, observe, or explain;
-- pause for student thinking instead of immediately supplying the answer;
-- refer explicitly to what students can see on the slide or in the demo;
-- use short transitions that connect the current question to the previous one;
-- anticipate common student answers and use them to move the discussion forward;
-- keep technical caveats in teacher-facing language rather than crowding the slide;
-- preserve a lively classroom rhythm without becoming theatrical or exaggerated.
+Follow-ups should explain observations, test premature conclusions, connect evidence, compare, or transfer. Keep source URLs, troubleshooting, alternatives, and complementary caveats teacher-facing.
 
-Avoid transcripts that merely read the slide aloud.
+## 9. PPTX QA and acceptance evidence
 
-Weak:
+### 9.1 Production workflow
 
-> ASCII 是 7 bit。这里显示 8 bit。最高位是 0。
+For every production deck created or revised, follow the style guide §21.2:
 
-Prefer:
+1. Compare the deck with the design/slide plan, including Q order, reveals, and tree checkpoints.
+2. Render **every slide** to images and generate a full-deck montage.
+3. Inspect the montage and every slide; inspect dense, diagram-heavy, paired, overlay, and tree builds individually at full resolution.
+4. Where feasible, check canvas bounds, rails, fonts, notes, and paired/build geometry programmatically. Verify actual rendered fonts across Chinese, Latin, numbers, and symbols.
+5. Review student-visible content, stage-specific transcripts, tree additions, code-language exceptions, technical accuracy, and evidence readability.
+6. Inspect actual WPS rendering and notes whenever practical; identify PowerPoint checks separately when used.
+7. Fix visible defects and recheck the final version. Refresh rendered evidence after deck changes.
 
-> 先别算。ASCII 明明只有 128 个位置，7 bit 已经够了。那为什么文件里我们偏偏看到 8 bit？多出来的这一位到底从哪儿来的？先看 A，谁能指出那一位在哪里？
+Reject overlap, obscured/clipped text, accidental wrapping, unsafe margins, stretched screenshots, unreadable evidence, unstable alignment, and auto-fit shrinking essential text. Text-box dimensions alone do not prove a fit.
 
-## 8.2 Follow-up questions
+### 9.2 Acceptance record
 
-`追问问题` belongs in Speaker Notes unless students must read it directly.
+Use the **Deck acceptance record** in [slide-style-guide.md](slide-style-guide.md), §21.3, in delivery notes. Extend existing lesson records rather than duplicating reports.
 
-Follow-up questions should deepen the current reasoning, not introduce unrelated content.
+Record `pass`, `fail`, or `unverified` with version/path, method, evidence, and limits. Explain inapplicable checks. Separate these layers:
 
-Good follow-up questions help students:
+| Layer | Evidence |
+|---|---|
+| Teaching alignment | Q/content mapping, reveal/tree order, assessment and timing review |
+| Structural checks | Commands and results for relevant package, geometry, font, notes, and path checks |
+| Rendering / human inspection | Renderer/version, full-deck images/montage, full-resolution inspection, defects/rechecks |
+| Notebook execution | Both roles, fresh kernel, environment, working directory, results/executed copies |
+| Classroom applications | Actual WPS/PowerPoint layout/notes and JupyterLab visibility, controls, output layout |
+| Classroom conditions | Projection, audio where used, activity completion, observed pacing |
 
-- explain an observation;
-- challenge a premature conclusion;
-- connect evidence to a concept;
-- compare two cases;
-- transfer the idea to a new example.
+Identify the delivered version/copy, environment/date, and hash where practical. Revalidate changed artifacts.
 
-Do not place teacher prompts, expected answers, follow-up questions, technical caveats, or navigation labels such as `Q1-A` on the student-facing slide unless students genuinely need to see them.
+PDF rendering does not verify WPS; opening a file does not verify layout; Python execution does not verify JupyterLab UI; a timing budget does not verify classroom pace.
 
-The slide shows the learning object.
+Resolve failures before acceptance. Record unavailable checks as `unverified`, with reason/action. Locally validated delivery must state limits; **classroom-ready** requires applicable classroom checks to pass.
 
-The Speaker Notes guide the teaching conversation.
+## 10. Reveal.js / Quarto reference deck
 
----
+Maintain `slides.qmd`/Reveal.js for reference and experiments with typography, geometry, disclosure, code output, interactions, and browser delivery. Changing its production role requires an explicit project decision.
 
-# 9. PPTX layout quality assurance
+Align Q IDs, sequence, terminology, evidence, conclusions, and tree checkpoints with the course design/PPTX. Page counts may differ. Preserve student/teacher separation and reveal timing. Follow the actual generation path when editing.
 
-A deck is not complete because the PPTX file was successfully generated.
+A successful Quarto render does not establish presentation readiness. Inspect output and dependencies for the requested reference-delivery checks.
 
-Every production deck must be visually inspected.
+## 11. Demonstrations and Jupyter workflow
 
-Specifically prevent:
+### 11.1 Demo design
 
-- overlapping text;
-- shapes covering text;
-- clipped text;
-- unexpected Chinese line wrapping;
-- text extending outside its intended area;
-- overlays obscuring key content;
-- inconsistent margins;
-- misaligned duplicated slides;
-- stretched screenshots;
-- auto-fit shrinking key text;
-- content entering the violet rails / unsafe margins;
-- font substitution changing line breaks.
+Prefer JupyterLab when manipulating inputs, comparing encodings, inspecting bytes, or rerunning experiments provides meaningful evidence. Demos should expose misconceptions, create cognitive conflict, or make invisible processes observable.
 
-## 9.1 Required QA workflow
+For each demo, specify Q/D IDs, student prediction, exact observation target, information withheld until running, intended inference, and fallback. Use question → prediction → run → observe → explain → concept.
 
-For every production deck:
+Small deterministic examples may appear in PPTX when no live manipulation is needed. Prefer PPT/WPS ⇄ JupyterLab; use extra applications such as WinHex only for important evidence, with a Notebook/static fallback.
 
-1. generate the PPTX;
-2. render **every slide** to an image;
-3. generate a montage of the complete deck;
-4. inspect the montage for visual consistency;
-5. inspect dense / diagram-heavy / overlay slides individually at full resolution;
-6. run programmatic checks for out-of-canvas objects where possible;
-7. open the final deck in WPS whenever practical;
-8. verify the Speaker Notes;
-9. fix all visible layout defects before delivery.
+### 11.2 Teacher and student versions
 
-A deck with visible overlap, clipping, broken wrapping, or unstable alignment is not classroom-ready.
+Jupyter lessons require teacher/student QMD/IPYNB views following §3.2, with aligned Q/D IDs and computations. Share reusable functions/modules where practical.
 
-## 9.2 Text-box rule
+Teacher views may contain complete code, expected output, answers, scripts, predictions, observation guidance, caveats, troubleshooting, fallbacks, extensions, and sources. Optimize for preparation and teacher control.
 
-Do not assume a text box fits because the source string fits programmatically.
+Student views contain current questions, setup, readable/editable code, prediction/observation prompts, and staged outputs. Exclude premature conclusions and teacher answers. State who operates and who observes.
 
-Chinese wrapping, font substitution, line spacing, WPS rendering, and PowerPoint rendering can change the final layout.
+Apply English-code rules (§2.2) to both versions and shared modules. Put Chinese teaching prompts in prose cells. Include summary opportunities at tree checkpoints without exposing later nodes.
 
-If text wraps incorrectly:
+### 11.3 Execution and clean delivery
 
-- enlarge the text area;
-- shorten the student-facing wording;
-- move complementary information to Speaker Notes;
-- or split the content into another slide.
+1. Document Python/kernel, packages, working directory, relative assets, and classroom dependencies separately from build dependencies.
+2. Use reproducible fixtures and explicit seeds where needed; state tolerances/version dependence.
+3. Inspect writes and preserve human edits before execution/regeneration. Keep trial writes away from accepted evidence.
+4. Execute both versions from **fresh kernels** in the documented directory and sequence, with suitable recorded timeouts. Check observations as well as exceptions. Test an intended completion path separately for incomplete student cells.
+5. Store executed copies/logs as validation evidence. Deliver clean Notebooks with stale outputs/execution counts cleared where they would spoil the lesson; retain only intended initial evidence.
+6. Verify delivered/generated notebooks match their sources and shared computations.
 
-Do not reduce normal teaching text simply to force content into a box.
+If kernel execution is blocked, report the cause. Sequential Python-cell execution validates only Python logic, not kernel, widget, or JupyterLab behavior; keep those checks unverified.
 
----
+### 11.4 Projection and fallback
 
-# 10. Reveal.js / Quarto deck
+Check actual JupyterLab code/parameter visibility, labels, scrolling, controls, comparison scales, and simultaneous evidence display. Hidden-input tags/collapse metadata alone prove nothing about display.
 
-A Reveal.js version should still be maintained.
+Test staged operation as well as full execution. Do not leave later student answers visible from a prior run.
 
-Its current role is:
+Provide essential demos' offline evidence, relative assets, and copying instructions. Verify the same conclusion and state lost capabilities. Use the failure threshold; avoid classroom installs/prolonged troubleshooting.
 
-```text
-reference
-+ experimentation
-+ learning
-+ gradual optimization
-```
+**The deck shows the evidence. The Notebook allows the evidence to be manipulated.**
 
-It is **not currently the official classroom presentation format**.
+## 12. Activities and accessibility
 
-Maintain `slides.qmd` so the project can continue improving:
+Activities must specify student actions, produced evidence, exposed misconception/question, and the next needed concept, plus roles, grouping, materials, response collection, and time. Control student/teacher material distribution. Prefer short activities feeding the next question or tree summary.
 
-- CSS typography;
-- stable slide geometry;
-- progressive disclosure;
-- code-output presentation;
-- interactive demonstrations;
-- reusable classroom layouts;
-- browser-based delivery.
+Essential distinctions, including tree additions, need labels, position, outlines, or relationships beyond color. Check projected readability; enlarge, excerpt, or split dense evidence. Provide visual/textual alternatives to sound and offline alternatives to network/live demos. Unsupported sensory judgments cannot be the sole route to a conclusion.
 
-The Reveal.js deck must stay aligned with the PPTX in:
+## 13. Technical accuracy
 
-- Q numbering;
-- teaching sequence;
-- terminology;
-- evidence;
-- conclusions.
+Verify substantive claims before classroom use. State model boundaries, assumptions, units, input conditions, and conclusion scope.
 
-It does not need the same slide count or identical implementation.
+### 13.1 Character encoding
 
-Do not treat a successful Quarto render as evidence that the deck is presentation-ready.
+- **ASCII:** 7-bit, 128 positions; represented in an 8-bit byte as `0xxxxxxx`. Do not call ASCII itself 8-bit.
+- **GB2312:** “一个汉字占 2 bytes” and “两个 byte 的最高位都是 1” are limited to the traditional GB2312 machine-code model taught here, not UTF-8, GB18030, or all Chinese encodings.
+- **Unicode:** distinguish character, code point, encoding, bytes, glyph, pixels. `你 → U+4F60 → UTF-8 → E4 BD A0`; the code point is not the UTF-8 byte representation.
+- **Input:** 汉字输入码 differs from keyboard scan codes.
+- **Display:** classroom model `character → font mapping → glyph / outline / bitmap → rasterization → pixels`. Visible shape is not stored character identity; add boundaries when needed.
 
-Until its quality is comparable with the PPTX:
+### 13.2 Image, audio, compression, and calculations
 
-```text
-PPTX      = classroom production
-Reveal.js = reference / experimental implementation
-```
+- Identify what is measured: pixels/samples, encoded bytes, payload, or complete file. State included overhead; do not mix counting conventions.
+- Distinguish teaching models and reprocessed digital media from real physical processes/formats. Preserve source history and limitations.
+- Separate visual/auditory similarity from exact recovery. Define and directly test the equality target for losslessness claims.
+- State units, bit/byte conversions, dimensions, sample/channel counts, storage widths, rounding, and formula conditions as applicable.
+- Control comparisons: shared input, changed parameter, fixed conditions, and observation limits. One example does not prove a universal rule.
+- Preserve originals and record transformations. Reproduce calculations and independently check key results; generator/checker agreement may share the same mistaken assumption.
 
-When Reveal.js reaches the required classroom quality, this policy can be revisited.
+## 14. Research and provenance
 
----
+Verify standards, specifications, product behavior, and history using standards bodies, primary specifications, official documentation, reputable institutions, then strong secondary sources. Reject unsourced figures; preserve source disagreements.
 
-# 11. Demonstrations and Jupyter classroom workflow
+Link claims to sources/calculations in existing records: title/version/date, URL/section/page, web retrieval date, supported claim, and qualifications. Calculations need inputs, method/script, units, and result.
 
-Students generally respond well to demonstrations. Whenever a concept is meaningfully improved by seeing it happen, a demo is encouraged.
+For reused media, record origin, attribution, permitted use/permission status, and transformations. Preserve originals; use hashes where practical. Do not invent permission or assume user-supplied assets are cleared for public redistribution.
 
-Do not add demos merely for entertainment. A demo should provide evidence, expose a misconception, create cognitive conflict, or make an invisible process visible.
+Research URLs belong primarily in teacher material. Student-action links follow the style guide §17. Generated-image provenance also follows §7.4.
 
-Good candidates include:
+## 15. Lesson entry document and file roles
 
-- bytes changing under different encodings;
-- the same bytes producing different text under different decoding rules;
-- ASCII / Unicode values;
-- image / sound / text digitization;
-- input → IME → character → glyph workflows;
-- bit-level patterns;
-- visual comparisons that are difficult to understand from static prose.
+Every lesson package must designate one entry document. Prefer its existing README/package guide. Record:
 
-The preferred place for executable demo code is JupyterLab.
+- exact current PPTX/companion paths and historical, draft, and reference roles;
+- editable sources, generated outputs, owning generators, and build order;
+- commands, working directories, expected outputs, overwrite behavior;
+- build/classroom dependencies and supported environments;
+- tracked/ignored deliverables and how to recreate/package them;
+- classroom operation, reveal order, assets to copy, and fallbacks;
+- version-bound validation evidence, known divergence, and pending checks.
 
-## 11.1 Two Notebook versions are required
+Verify this record against actual files. Do not select production solely by filename numbering or modification time, or silently promote a draft/validation copy.
 
-For a class that uses Jupyter demos, maintain two views:
+File roles: `course-design.qmd` is teaching authority; `demo-lab-teacher.qmd / .ipynb` and `demo-lab-student.qmd / .ipynb` are the two demo views; `slides.qmd` is the Reveal.js reference; the designated `.pptx` is the classroom deck. Declare source/output ownership for each view.
 
-```text
-demo-lab-teacher.qmd
-        ↓
-demo-lab-teacher.ipynb
+Use `assets/` for evidence/media, `demos/` for shared code, and `references/` for sources. Build code may live in `scripts/`, `sources/`, or repository `tools/`; keep version-bound results in the existing validation location. Avoid empty folders, competing guides, and machine-specific classroom runtime paths.
 
-demo-lab-student.qmd
-        ↓
-demo-lab-student.ipynb
-```
+## 16. Completion and classroom readiness
 
-Use the same Q identifiers and demo identifiers in both versions.
+### 16.1 Task completion
 
-Where practical, share the underlying computation through small reusable functions / modules so the two notebooks do not drift technically.
+Review scope, preserved work, diff, and references; run relevant checks such as `git diff --check`. Report evidence and pending work. Documentation edits do not claim lesson testing; design edits identify pending synchronization; production changes require §9.2.
 
-### Teacher-facing Notebook
+### 16.2 Lesson acceptance
 
-The teacher version may contain:
+Classroom readiness requires all applicable checks to pass:
 
-- complete runnable code;
-- expected output;
-- answers;
-- teaching transcript / prompts;
-- likely student predictions;
-- explanation of what to observe;
-- technical caveats;
-- troubleshooting notes;
-- fallback code;
-- optional extensions;
-- source references.
-
-It should be optimized for reliable classroom presentation and teacher control.
-
-### Student-facing Notebook
-
-The student version should contain only what students need to participate.
-
-It may contain:
-
-- the question;
-- necessary setup;
-- short readable code;
-- incomplete / editable cells when student manipulation is useful;
-- observation prompts;
-- spaces for predictions or conclusions;
-- outputs that are appropriate to reveal at that stage.
-
-It should not expose teacher-only notes, hidden answers, or conclusions before the intended reveal.
-
-## 11.2 Demo design rule
-
-For every demo, specify:
-
-```text
-What question does this demo answer?
-What should students predict before running it?
-What exactly should students observe?
-What should remain hidden until after the run?
-What conclusion should students infer?
-What is the fallback if the demo fails?
-```
-
-A demo should normally sit inside the same cognitive sequence as the lesson:
-
-```text
-question
-  ↓
-prediction
-  ↓
-run demo
-  ↓
-observe evidence
-  ↓
-explain
-  ↓
-form concept
-```
-
-## 11.3 Classroom switching
-
-Use the same Q identifiers as the course design and deck.
-
-Preferred live classroom switching:
-
-```text
-PPT / WPS
-    ⇄
-JupyterLab
-```
-
-Avoid extra applications unless they provide important evidence.
-
-For example:
-
-```text
-WinHex    = useful real-file evidence
-Notebook  = Plan B / manipulation / fallback
-```
-
-Small, deterministic code examples may also appear directly in the PPTX when the output itself is evidence and no live manipulation is needed.
-
-Use Jupyter when the teacher may need to:
-
-- modify input live;
-- try a student-suggested value;
-- compare encodings;
-- inspect bytes;
-- rerun an experiment;
-- diagnose a result;
-- use a software-independent fallback.
-
-General rule:
-
-> **The deck shows the evidence. The Notebook allows the evidence to be manipulated.**
-
----
-
-# 12. Teaching activities
-
-An activity must have a clear cognitive purpose.
-
-Do not add interaction merely to make the lesson look active.
-
-For each major activity, be able to state:
-
-```text
-What does the student do?
-What evidence do they produce?
-What misconception / question does it expose?
-What concept becomes necessary afterward?
-```
-
-Prefer short activities that feed directly into the next question.
-
----
-
-# 13. Technical accuracy
-
-All substantive technical claims should be checked before becoming classroom material.
-
-Important examples:
-
-## ASCII
-
-ASCII is a 7-bit code with 128 positions.
-
-When represented in an 8-bit byte:
-
-```text
-0xxxxxxx
-```
-
-Do not describe ASCII itself as an 8-bit encoding.
-
-## GB2312
-
-Statements such as:
-
-```text
-一个汉字占 2 bytes
-两个 byte 的最高位都是 1
-```
-
-must be explicitly limited to the traditional GB2312 machine-code model being taught.
-
-Do not generalize this to UTF-8, GB18030, or all Chinese encodings.
-
-## Unicode
-
-Distinguish:
-
-```text
-character
-code point
-encoding
-byte sequence
-glyph
-pixels
-```
-
-Example:
-
-```text
-你
-↓
-U+4F60
-↓
-UTF-8
-↓
-E4 BD A0
-```
-
-`U+4F60` is not the UTF-8 byte representation.
-
-## Input methods
-
-Do not confuse 汉字输入码 with keyboard scan codes.
-
-## Fonts and glyphs
-
-Use this classroom model:
-
-```text
-character
-↓
-font mapping
-↓
-glyph / outline / bitmap
-↓
-rasterization
-↓
-pixels
-```
-
-Do not imply that the visible shape itself is the stored character identity.
-
----
-
-# 14. Research and sources
-
-When factual information depends on a standard, specification, product behavior, or historical fact, verify it.
-
-Prefer:
-
-1. official standards bodies;
-2. primary specifications;
-3. official technical documentation;
-4. reputable institutional sources;
-5. high-quality secondary sources where necessary.
-
-Do not silently copy uncertain figures from unsourced diagrams or web posts.
-
-If sources disagree, preserve the distinction rather than forcing a false single answer.
-
-Research URLs normally belong in Speaker Notes or teacher references unless the website itself is teaching evidence.
-
----
-
-# 15. Typical lesson files
-
-A lesson directory may contain:
-
-```text
-course-design.qmd
-demo-lab-teacher.qmd
-demo-lab-student.qmd
-slides.qmd
-
-assets/
-demos/
-references/
-
-<lesson-name>-V3.pptx
-```
-
-Roles:
-
-```text
-course-design.qmd       → pedagogical source of truth
-demo-lab-teacher.qmd    → teacher-facing executable demonstrations
-demo-lab-student.qmd    → student-facing executable demonstrations
-slides.qmd              → experimental Reveal.js implementation
-*.pptx                  → current production classroom deck
-assets/                 → screenshots, diagrams, evidence
-demos/                  → reusable supporting code
-references/             → supporting source material
-```
-
-Avoid creating multiple files with nearly identical purposes unless there is a clear reason.
-
----
-
-# 16. Definition of done
-
-A lesson is classroom-ready only when:
-
-- the question chain is coherent and progressively challenging;
-- cognitive conflict creates a genuine need for the concepts;
-- technical claims have been checked;
-- student activities have a clear cognitive purpose;
-- suitable concepts use demonstrations where demos provide meaningful evidence;
-- generated images have a stated teaching purpose and are used only where illustration is appropriate;
-- exact prompts for production generated images are preserved in project files or Speaker Notes;
-- generated imagery is not being used as a substitute for factual evidence or exact technical diagrams;
-- teacher-facing and student-facing information have been explicitly separated;
-- teacher and student Jupyter versions are aligned where Jupyter is used;
-- `course-design.qmd` preserves the design rationale and transition logic;
-- the PPTX strictly follows `slide-style-guide.md`;
-- every major question has a question-only slide before its answer / explanation;
-- question/answer slide pairs preserve the question's position, typography, and base geometry;
-- every slide contains only necessary student-facing information;
-- every teaching slide has Speaker Notes with the full question/page purpose and a usable transcript;
-- complementary teacher information is in Speaker Notes;
-- every slide has been rendered and visually inspected;
-- all native deck text explicitly uses the required Alibaba PuHuiTi 3.0 font family/variant;
-- there is no overlap, clipping, accidental wrapping, or broken alignment;
-- the final deck has been checked in WPS / PowerPoint when practical;
-- Notebook demos have been tested;
-- Reveal.js remains aligned as the experimental/reference deck;
-- the writing contains no "AI tone".
-
-Successful rendering is not the definition of done.
-
-**Classroom usability is.**
+- [ ] Prerequisites, equipment, outcomes, student evidence, and independent assessment are defined.
+- [ ] Cognitive conflict, progressive questions, purposeful activities/demos, design rationale, and technical boundaries are preserved.
+- [ ] Every lesson has a correct, progressively revealed knowledge tree after student summaries; new concepts/relationships are highlighted and earlier knowledge stays visible.
+- [ ] Q/D IDs, evidence, conclusions, reveals, and tree checkpoints align; divergence is resolved.
+- [ ] Timing includes thinking, switching, summaries, and assessment, with feasible cut points.
+- [ ] Student/teacher separation prevents premature answers in slides, Notebooks, spoken scripts, and handouts.
+- [ ] PPTX meets the style/font rules, question-only requirement, and duplicated reveals with stable geometry.
+- [ ] Every slide has its full question/purpose and a usable stage-specific transcript in notes.
+- [ ] Every slide is rendered/inspected; dense, paired, overlay, and tree builds receive detailed QA; defects are fixed.
+- [ ] Both Notebooks are aligned, tested from fresh kernels, clean for delivery, and checked in the projected UI.
+- [ ] Code/comments, identifiers, docstrings, and developer messages use English by default; strong exceptions are justified, with non-obvious reasons documented.
+- [ ] Claims, calculations, recovery tests, assumptions, and provenance are checked; generated images illustrate with preserved purposes, exact prompts, and edits.
+- [ ] Color-independent cues and necessary offline/audio/demo alternatives are usable.
+- [ ] Reveal.js, current package/source ownership, and delivered-version validation records are aligned.
+- [ ] Applicable classroom app, projection/audio, and pacing checks pass; unverified checks qualify delivery status.
+- [ ] Writing is natural, precise, and free of AI tone.
