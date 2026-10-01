@@ -3,6 +3,14 @@ project:
   output-dir: exports/reference
   resources:
     - validation/materials-round-*.md
+    - validation/improvement-review.md
+    - validation/improvement-review-2-fixed/*.json
+    - validation/improvement-review-2-fixed/montage.png
+    - validation/improvement-*.json
+    - references/painting-use.md
+    - sources/photo-evidence.json
+    - sources/build_photo_evidence.py
+    - sources/knowledge-tree.json
     - validation/review-3-final/*.json
     - validation/review-3-final/montage.png
     - validation/notebook-execution.json

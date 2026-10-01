@@ -1,0 +1,292 @@
+{
+  "schemaVersion": "presentation-finalization.v1",
+  "finalSha256": "f8347a519933c85cd858e5a2034801a652b8564bb71574e93e5dd79e94356613",
+  "byteCount": 2204161,
+  "packageIntegrity": {
+    "chart_count": 0,
+    "claim_boundary": "Structural package checks only; no slide text, notes, formulas, chart values, or native PowerPoint execution were inspected.",
+    "finding_count": 0,
+    "findings": [],
+    "notes_parts_skipped": 34,
+    "relationship_part_count": 73,
+    "slide_count": 34,
+    "status": "pass",
+    "exitCode": 0,
+    "findingCount": 0,
+    "warnings": []
+  },
+  "presentationLayout": {
+    "finding_count": 0,
+    "findings": [],
+    "font_policy": {
+      "checked_text_script_count": 585,
+      "native_font_rendering_verified": false,
+      "observed_font_families": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ],
+      "observed_font_use_counts": {
+        "Alibaba PuHuiTi 3.0 115 Black": 160,
+        "Alibaba PuHuiTi 3.0 55 Regular": 425
+      },
+      "passed": true,
+      "performed": true
+    },
+    "slide_count": 34,
+    "slide_size_in": [
+      13.3333,
+      7.5
+    ],
+    "warning_count": 12,
+    "warnings": [
+      {
+        "kind": "substantial_text_frame_overlap",
+        "left_object_id": "38",
+        "overlap_height_in": 0.7083,
+        "overlap_width_in": 11.9583,
+        "right_object_id": "42",
+        "slide": 9
+      },
+      {
+        "kind": "substantial_text_frame_overlap",
+        "left_object_id": "40",
+        "overlap_height_in": 0.5,
+        "overlap_width_in": 11.9583,
+        "right_object_id": "42",
+        "slide": 9
+      },
+      {
+        "kind": "substantial_text_frame_overlap",
+        "left_object_id": "8",
+        "overlap_height_in": 0.4479,
+        "overlap_width_in": 11.9792,
+        "right_object_id": "14",
+        "slide": 21
+      },
+      {
+        "kind": "substantial_text_frame_overlap",
+        "left_object_id": "6",
+        "overlap_height_in": 0.3333,
+        "overlap_width_in": 3.1875,
+        "right_object_id": "16",
+        "slide": 22
+      },
+      {
+        "kind": "substantial_text_frame_overlap",
+        "left_object_id": "8",
+        "overlap_height_in": 0.4479,
+        "overlap_width_in": 11.9792,
+        "right_object_id": "14",
+        "slide": 22
+      },
+      {
+        "kind": "substantial_text_frame_overlap",
+        "left_object_id": "8",
+        "overlap_height_in": 0.3646,
+        "overlap_width_in": 11.9792,
+        "right_object_id": "21",
+        "slide": 22
+      },
+      {
+        "kind": "substantial_text_frame_overlap",
+        "left_object_id": "14",
+        "overlap_height_in": 0.3646,
+        "overlap_width_in": 11.9792,
+        "right_object_id": "21",
+        "slide": 22
+      },
+      {
+        "kind": "substantial_text_frame_overlap",
+        "left_object_id": "6",
+        "overlap_height_in": 0.3021,
+        "overlap_width_in": 11.9792,
+        "right_object_id": "7",
+        "slide": 27
+      },
+      {
+        "kind": "substantial_text_frame_overlap",
+        "left_object_id": "6",
+        "overlap_height_in": 0.3021,
+        "overlap_width_in": 11.9792,
+        "right_object_id": "7",
+        "slide": 28
+      },
+      {
+        "kind": "substantial_text_frame_overlap",
+        "left_object_id": "6",
+        "overlap_height_in": 0.3021,
+        "overlap_width_in": 11.9792,
+        "right_object_id": "10",
+        "slide": 28
+      },
+      {
+        "kind": "substantial_text_frame_overlap",
+        "left_object_id": "7",
+        "overlap_height_in": 0.4792,
+        "overlap_width_in": 11.9792,
+        "right_object_id": "10",
+        "slide": 28
+      },
+      {
+        "available_bottom_in": 6.3229,
+        "columns": 3,
+        "declared_bottom_in": 6.3958,
+        "estimated_native_bottom_in": 6.3958,
+        "footer_object_ids": [
+          "7",
+          "10"
+        ],
+        "kind": "native_table_overflow",
+        "overflow_in": 0.0729,
+        "rows": 5,
+        "slide": 28,
+        "table_id": "19"
+      }
+    ],
+    "exitCode": 0,
+    "findingCount": 0,
+    "fontPolicy": {
+      "checked_text_script_count": 585,
+      "native_font_rendering_verified": false,
+      "observed_font_families": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ],
+      "observed_font_use_counts": {
+        "Alibaba PuHuiTi 3.0 115 Black": 160,
+        "Alibaba PuHuiTi 3.0 55 Regular": 425
+      },
+      "passed": true,
+      "performed": true
+    }
+  },
+  "fontSelection": {
+    "basis": "user_request",
+    "approvedFamilies": [
+      "Alibaba PuHuiTi 3.0 55 Regular",
+      "Alibaba PuHuiTi 3.0 115 Black"
+    ],
+    "scriptFonts": {},
+    "referenceSha256": null,
+    "referenceFontsVerifiedInEncodedText": false,
+    "checked_text_script_count": 585,
+    "native_font_rendering_verified": false,
+    "observed_font_families": [
+      "Alibaba PuHuiTi 3.0 115 Black",
+      "Alibaba PuHuiTi 3.0 55 Regular"
+    ],
+    "observed_font_use_counts": {
+      "Alibaba PuHuiTi 3.0 115 Black": 160,
+      "Alibaba PuHuiTi 3.0 55 Regular": 425
+    },
+    "passed": true,
+    "performed": true
+  },
+  "firstPartyImport": {
+    "performed": true,
+    "passed": true,
+    "slideCount": 34,
+    "sha256": "f8347a519933c85cd858e5a2034801a652b8564bb71574e93e5dd79e94356613",
+    "runtimeNodeModules": "/Users/chran/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules",
+    "nodeExecutable": "/Users/chran/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node"
+  },
+  "nativeTableArithmetic": {
+    "performed": true,
+    "checked_column_count": 0,
+    "checks": [],
+    "claim_boundary": "Displayed-value arithmetic with rounding tolerance; not source-data verification.",
+    "eligible_table_count": 0,
+    "finding_count": 0,
+    "findings": [],
+    "native_table_count": 8,
+    "passed": true,
+    "schema_version": "presentation-native-table-arithmetic.v1",
+    "skipped_tables": [
+      {
+        "reason": "no_numeric_amounts",
+        "slide": 24,
+        "table": 1
+      },
+      {
+        "reason": "no_numeric_amounts",
+        "slide": 25,
+        "table": 1
+      },
+      {
+        "reason": "insufficient_rows",
+        "slide": 26,
+        "table": 1
+      },
+      {
+        "reason": "insufficient_rows",
+        "slide": 27,
+        "table": 1
+      },
+      {
+        "reason": "insufficient_rows",
+        "slide": 28,
+        "table": 1
+      },
+      {
+        "reason": "no_numeric_amounts",
+        "slide": 28,
+        "table": 2
+      },
+      {
+        "reason": "no_numeric_amounts",
+        "slide": 30,
+        "table": 1
+      },
+      {
+        "reason": "no_numeric_amounts",
+        "slide": 31,
+        "table": 1
+      }
+    ],
+    "slide_count": 34,
+    "warning_count": 0,
+    "warnings": []
+  },
+  "nativeChartTitles": {
+    "performed": true,
+    "checks": [],
+    "finding_count": 0,
+    "findings": [],
+    "native_chart_count": 0,
+    "native_powerpoint_verified": false,
+    "passed": true,
+    "presentation_sha256": "f8347a519933c85cd858e5a2034801a652b8564bb71574e93e5dd79e94356613",
+    "schema_version": "presentation-native-chart-titles.v1",
+    "slide_count": 34,
+    "source_text_emitted": false,
+    "unresolved_linked_title_count": 0
+  },
+  "sourceDerivedPolicyFlags": [
+    "--expected-slide-size-emu",
+    "12192000,6858000",
+    "--validate-bullet-geometry",
+    "--validate-heading-fit",
+    "--require-native-table-slide",
+    "24",
+    "--require-native-table-slide",
+    "26",
+    "--require-native-table-slide",
+    "28",
+    "--require-native-table-slide",
+    "30",
+    "--cover-role",
+    "none",
+    "--approved-font-family",
+    "Alibaba PuHuiTi 3.0 55 Regular",
+    "--approved-font-family",
+    "Alibaba PuHuiTi 3.0 115 Black"
+  ],
+  "nativeChartValidation": {
+    "detectedOwnerSlides": [],
+    "detectedChartCount": 0,
+    "targetApplication": null,
+    "sourceChartOwnersExplicitlyDeclared": false,
+    "validatorRan": false,
+    "passed": true
+  }
+}

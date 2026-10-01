@@ -1,0 +1,104 @@
+{
+  "pptx": "/Users/chran/repo/shtick/1-2-encoding/1-2-4-data-compresson/exports/data-compression-v2.pptx",
+  "slides": 34,
+  "question_slides": [
+    [
+      3,
+      "Q1"
+    ],
+    [
+      5,
+      "Q2"
+    ],
+    [
+      7,
+      "Q3"
+    ],
+    [
+      10,
+      "Q4"
+    ],
+    [
+      13,
+      "Q5"
+    ],
+    [
+      16,
+      "Q6"
+    ],
+    [
+      19,
+      "Q7"
+    ],
+    [
+      24,
+      "Q8"
+    ],
+    [
+      26,
+      "Q9"
+    ],
+    [
+      30,
+      "Q10"
+    ]
+  ],
+  "native_table_slides": [
+    24,
+    25,
+    26,
+    27,
+    28,
+    30,
+    31
+  ],
+  "fonts": [
+    "Alibaba PuHuiTi 3.0 115 Black",
+    "Alibaba PuHuiTi 3.0 55 Regular"
+  ],
+  "minimum_notes_characters": 313,
+  "D1": {
+    "输入数据B": 4096,
+    "编码数据B": 38,
+    "解压数据B": 4096,
+    "解压结果与原输入逐byte一致": true
+  },
+  "D5": {
+    "未压缩RGB数据B": 248832,
+    "像素总数": 82944,
+    "结果": [
+      {
+        "文件": "test-source.png",
+        "完整文件B": 4441,
+        "尺寸": [
+          384,
+          216
+        ],
+        "变化像素": 0,
+        "回读像素一致": true
+      },
+      {
+        "文件": "test-quality80.jpg",
+        "完整文件B": 10766,
+        "尺寸": [
+          384,
+          216
+        ],
+        "变化像素": 28917,
+        "回读像素一致": false
+      },
+      {
+        "文件": "test-quality20.jpg",
+        "完整文件B": 6752,
+        "尺寸": [
+          384,
+          216
+        ],
+        "变化像素": 66885,
+        "回读像素一致": false
+      }
+    ]
+  },
+  "issues": [],
+  "pass": true
+}

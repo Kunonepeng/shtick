@@ -1,0 +1,29 @@
+{
+  "root": "数据压缩",
+  "branches": [
+    {"id": "purpose", "label": "为何压缩", "y": 184},
+    {"id": "method", "label": "怎样变小", "y": 292},
+    {"id": "recovery", "label": "能否恢复", "y": 419},
+    {"id": "choice", "label": "怎样选择", "y": 559}
+  ],
+  "leaves": [
+    {"id": "space", "branch": "purpose", "y": 166, "stage": 1, "text": "特殊编码，减少存储／传输数据量"},
+    {"id": "limit", "branch": "purpose", "y": 204, "stage": 1, "text": "效果取决于数据、方法与开销"},
+    {"id": "repeat", "branch": "method", "y": 254, "stage": 1, "text": "去除冗余：连续重复写成次数"},
+    {"id": "correlation", "branch": "method", "y": 292, "stage": 2, "text": "利用相关：首值＋完整差值"},
+    {"id": "perception", "branch": "method", "y": 330, "stage": 2, "text": "感知近似：舍弃不敏感的区分"},
+    {"id": "lossless", "branch": "recovery", "y": 400, "stage": 1, "text": "无损：可完全恢复原始数据"},
+    {"id": "lossy", "branch": "recovery", "y": 438, "stage": 2, "text": "有损：不能保证完全恢复"},
+    {"id": "textcode", "branch": "choice", "y": 502, "stage": 3, "text": "文本文档／程序：必须无损"},
+    {"id": "media", "branch": "choice", "y": 540, "stage": 3, "text": "媒体：所需主要信息仍可获取"},
+    {"id": "format", "branch": "choice", "y": 578, "stage": 3, "text": "格式名不足；TIF须查具体编码"},
+    {"id": "both", "branch": "choice", "y": 616, "stage": 4, "text": "大小、信息要求都要满足"}
+  ],
+  "checkpoints": [
+    {"stage": 0, "after": "opening", "title": "这节课要弄清四件事", "summary": "先保留四个问题，学到哪里就补到哪里。", "prompt": "现在只看四条主枝，先预测文件变小会不会丢内容。"},
+    {"stage": 1, "after": "Q4", "title": "重复可以少写；无损必须完整恢复", "summary": "无损不保证每份数据都变小。", "prompt": "先不用术语，说出少写的办法、核对的方法和可能的代价。"},
+    {"stage": 2, "after": "Q7", "title": "利用关系能无损；舍弃区分会有损", "summary": "感知相似，不能证明原值相同。", "prompt": "起点加差值为何可逆？两个原数同归120为何不可逆？"},
+    {"stage": 3, "after": "Q9", "title": "能否接受有损，要看用途与编码", "summary": "媒体可以无损；接受有损需要质量达标。", "prompt": "说出一类必须无损的数据，再给TIF补一条判断条件。"},
+    {"stage": 4, "after": "Q10", "title": "用完整知识树检查压缩方案", "summary": "空间更少，还要符合当前任务的信息要求。", "prompt": "沿知识树说明：程序A、照片B分别通过了哪两项检查？"}
+  ]
+}

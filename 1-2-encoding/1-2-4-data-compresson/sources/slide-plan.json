@@ -9,6 +9,14 @@
   },
   {
     "slide": 2,
+    "q": "收束",
+    "stage": "knowledge-0",
+    "visible": "数据压缩根节点与四条中性问题主枝",
+    "hidden": "未学叶节点不显示；详细边界与组织提问在备注",
+    "evidence": "knowledge-tree.json；opening"
+  },
+  {
+    "slide": 3,
     "q": "Q1",
     "stage": "question",
     "visible": "原图、A/B大小、预测任务",
@@ -16,7 +24,7 @@
     "evidence": "D1课前实测"
   },
   {
-    "slide": 3,
+    "slide": 4,
     "q": "Q1",
     "stage": "evidence",
     "visible": "加入解压还原图；暂不显示相等结果",
@@ -24,7 +32,7 @@
     "evidence": "D1"
   },
   {
-    "slide": 4,
+    "slide": 5,
     "q": "Q2",
     "stage": "question",
     "visible": "原串与顺序/数量约束",
@@ -32,7 +40,7 @@
     "evidence": "A1私有颜色卡"
   },
   {
-    "slide": 5,
+    "slide": 6,
     "q": "Q2",
     "stage": "answer",
     "visible": "揭示红8绿5蓝3与RLE",
@@ -40,7 +48,7 @@
     "evidence": "D2／A1"
   },
   {
-    "slide": 6,
+    "slide": 7,
     "q": "Q3",
     "stage": "question",
     "visible": "原串与待检查串，无错误标记",
@@ -48,7 +56,7 @@
     "evidence": "D1／逐位置检验"
   },
   {
-    "slide": 7,
+    "slide": 8,
     "q": "Q3",
     "stage": "focus",
     "visible": "只标第9处差异",
@@ -56,7 +64,7 @@
     "evidence": "第9位置"
   },
   {
-    "slide": 8,
+    "slide": 9,
     "q": "Q3",
     "stage": "answer",
     "visible": "加入bytes一致与无损定义",
@@ -64,7 +72,7 @@
     "evidence": "D1精确检查"
   },
   {
-    "slide": 9,
+    "slide": 10,
     "q": "Q4",
     "stage": "question",
     "visible": "两串、相同RLE规则",
@@ -72,7 +80,7 @@
     "evidence": "D2反例"
   },
   {
-    "slide": 10,
+    "slide": 11,
     "q": "Q4",
     "stage": "answer",
     "visible": "加入6B/32B反例",
@@ -80,7 +88,15 @@
     "evidence": "D2"
   },
   {
-    "slide": 11,
+    "slide": 12,
+    "q": "收束",
+    "stage": "knowledge-1",
+    "visible": "已学知识树＋红框新节点＋阶段结论",
+    "hidden": "未学叶节点不显示；详细边界与组织提问在备注",
+    "evidence": "knowledge-tree.json；Q4"
+  },
+  {
+    "slide": 13,
     "q": "Q5",
     "stage": "question",
     "visible": "八个灰度格、原值、8bit条件",
@@ -88,7 +104,7 @@
     "evidence": "D3／A2"
   },
   {
-    "slide": 12,
+    "slide": 14,
     "q": "Q5",
     "stage": "answer",
     "visible": "首值与完整差值",
@@ -96,7 +112,7 @@
     "evidence": "D3"
   },
   {
-    "slide": 13,
+    "slide": 15,
     "q": "Q5",
     "stage": "evidence",
     "visible": "22bit/3B计算和规则边界",
@@ -104,7 +120,7 @@
     "evidence": "D3 payload"
   },
   {
-    "slide": 14,
+    "slide": 16,
     "q": "Q6",
     "stage": "question",
     "visible": "规则、116/120/124数轴，无箭头答案",
@@ -112,7 +128,7 @@
     "evidence": "D4／A2"
   },
   {
-    "slide": 15,
+    "slide": 17,
     "q": "Q6",
     "stage": "focus",
     "visible": "合流证据120/121→120",
@@ -120,7 +136,7 @@
     "evidence": "两个输入同一结果"
   },
   {
-    "slide": 16,
+    "slide": 18,
     "q": "Q6",
     "stage": "answer",
     "visible": "48bit/6B与有损结论",
@@ -128,39 +144,47 @@
     "evidence": "D4"
   },
   {
-    "slide": 17,
-    "q": "Q7",
-    "stage": "question",
-    "visible": "中性A/B同尺寸解码图",
-    "hidden": "答案、结论、计算结果与纠错提示留待复制揭示页及备注",
-    "evidence": "D5同源RGB"
-  },
-  {
-    "slide": 18,
-    "q": "Q7",
-    "stage": "answer",
-    "visible": "加入格式与像素差异",
-    "hidden": "两份完整文件来自相同RGB。JPEG固定subsampling=0，直接源图编码。图像检验对象为像素，不保证所有源文件metadata。",
-    "evidence": "D5"
-  },
-  {
     "slide": 19,
     "q": "Q7",
-    "stage": "focus",
-    "visible": "同坐标放大区域对照",
-    "hidden": "替换本页正常图时保留问题不动。照片任务改变必须重新检验。",
-    "evidence": "D5 crop"
+    "stage": "question",
+    "visible": "中性A/B绘画图像；同一输入、同尺寸",
+    "hidden": "答案、结论、计算结果与纠错提示留待复制揭示页及备注",
+    "evidence": "D5用户提供图像；本次解码RGB起点"
   },
   {
     "slide": 20,
     "q": "Q7",
-    "stage": "evidence",
-    "visible": "加入完整文件大小",
-    "hidden": "数字来自随包执行记录。quality20可在Notebook拓展，不增加核心45分钟讲授。MP3有损感知编码不只是删20kHz以上。",
-    "evidence": "D5"
+    "stage": "answer",
+    "visible": "格式、逐像素比较结果",
+    "hidden": "保留原文件不改动；quality80不是80%质量。比较目标是本次输入RGB，不是未知的相机或艺术品数字母版。",
+    "evidence": "photo-evidence.json"
   },
   {
     "slide": 21,
+    "q": "Q7",
+    "stage": "focus",
+    "visible": "同坐标192×128区域放大4倍",
+    "hidden": "裁切(x,y,w,h)=(368,310,192,128)。quality20仅作为可选明显对照，不能强迫学生在q80中看出指定差异。",
+    "evidence": "D5真实图像裁切"
+  },
+  {
+    "slide": 22,
+    "q": "Q7",
+    "stage": "evidence",
+    "visible": "绘画与测试图两组完整文件大小",
+    "hidden": "原提供JPEG为212536B，不与重编码文件混作同一编码起点的未压缩大小；本次RGB4590000B。两组内同尺寸、直接编码、q80/subsampling0。",
+    "evidence": "D5图像两种数据"
+  },
+  {
+    "slide": 23,
+    "q": "收束",
+    "stage": "knowledge-2",
+    "visible": "已学知识树＋红框新节点＋阶段结论",
+    "hidden": "未学叶节点不显示；详细边界与组织提问在备注",
+    "evidence": "knowledge-tree.json；Q7"
+  },
+  {
+    "slide": 24,
     "q": "Q8",
     "stage": "question",
     "visible": "三个用途及给定变化",
@@ -168,7 +192,7 @@
     "evidence": "A3"
   },
   {
-    "slide": 22,
+    "slide": 25,
     "q": "Q8",
     "stage": "answer",
     "visible": "文本/程序必须无损；媒体按用途判断",
@@ -176,7 +200,7 @@
     "evidence": "程序60反例"
   },
   {
-    "slide": 23,
+    "slide": 26,
     "q": "Q9",
     "stage": "question",
     "visible": "错误说法、PNG已知证据、TIFF中性配置卡",
@@ -184,7 +208,7 @@
     "evidence": "Adobe技术文档；非软件截图"
   },
   {
-    "slide": 24,
+    "slide": 27,
     "q": "Q9",
     "stage": "answer",
     "visible": "TIFF需看编码；PNG反例",
@@ -192,7 +216,7 @@
     "evidence": "Q9"
   },
   {
-    "slide": 25,
+    "slide": 28,
     "q": "Q9",
     "stage": "evidence",
     "visible": "格式/用途/边界速查表",
@@ -200,7 +224,15 @@
     "evidence": "Q9常见格式"
   },
   {
-    "slide": 26,
+    "slide": 29,
+    "q": "收束",
+    "stage": "knowledge-3",
+    "visible": "已学知识树＋红框新节点＋阶段结论",
+    "hidden": "未学叶节点不显示；详细边界与组织提问在备注",
+    "evidence": "knowledge-tree.json；Q9"
+  },
+  {
+    "slide": 30,
     "q": "Q10",
     "stage": "question",
     "visible": "100KiB限制与候选结果；不显示选项答案",
@@ -208,7 +240,7 @@
     "evidence": "A3给定案例"
   },
   {
-    "slide": 27,
+    "slide": 31,
     "q": "Q10",
     "stage": "answer",
     "visible": "加入源程序A／照片B的双条件选择",
@@ -216,15 +248,15 @@
     "evidence": "Q10"
   },
   {
-    "slide": 28,
-    "q": "Q10",
-    "stage": "conclusion",
-    "visible": "定义和两类压缩",
-    "hidden": "不再讲新算法；30秒收束",
-    "evidence": "Q2–Q10证据回扣"
+    "slide": 32,
+    "q": "收束",
+    "stage": "knowledge-4",
+    "visible": "已学知识树＋红框新节点＋阶段结论",
+    "hidden": "未学叶节点不显示；详细边界与组织提问在备注",
+    "evidence": "knowledge-tree.json；Q10"
   },
   {
-    "slide": 29,
+    "slide": 33,
     "q": "Q10",
     "stage": "exit",
     "visible": "两句空栏，独立书写",
@@ -232,7 +264,7 @@
     "evidence": "A3出口"
   },
   {
-    "slide": 30,
+    "slide": 34,
     "q": "Q10",
     "stage": "exit-answer",
     "visible": "出口参考答案",

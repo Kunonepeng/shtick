@@ -36,7 +36,6 @@ execute:
   enabled: false
 ---
 
-<!-- Reference rendered from the reviewed PPTX. Do not use as the production deck. -->
 '''
 with ZipFile(PPTX) as z:
     for row in plan:
@@ -47,7 +46,7 @@ with ZipFile(PPTX) as z:
         shutil.copyfile(original,DEST/name)
         xml=ET.fromstring(z.read(f'ppt/notesSlides/notesSlide{i}.xml'))
         notes='\n\n'.join(t.text or '' for t in xml.findall('.//a:t',ns))
-        qmd+=f'\n## {{background-image="assets/reference/{name}" background-size="contain"}}\n\n<!-- {row["q"]} · {row["stage"]}: {row["visible"]} -->\n\n::: notes\n{notes}\n::: \n'
+        qmd+=f'\n## {{background-image="assets/reference/{name}" background-size="contain"}}\n\n<!-- {row["q"]} · {row["stage"]}: {row["visible"]} -->\n\n::: notes\n{notes}\n:::\n'
 (ROOT/'slides.qmd').write_text(qmd,encoding='utf-8')
 md='# PPTX逐页计划（教师侧）\n\n|页|问题与阶段|学生此时看到|留到之后／备注|证据|\n|---|---|---|---|---|\n'
 for row in plan:

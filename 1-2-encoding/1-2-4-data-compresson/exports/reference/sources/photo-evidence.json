@@ -1,0 +1,56 @@
+{
+  "input_file": "assets/0000136308_OG.JPG",
+  "input_sha256": "fd7a921f3ca7181b4d319b61fa5e82d45dfbfae95e0865cf0a6ab495da2f707c",
+  "input_bytes": 212536,
+  "baseline": "supplied JPEG decoded to RGB",
+  "quality": [
+    80,
+    20
+  ],
+  "subsampling": 0,
+  "crop_xywh": [
+    368,
+    310,
+    192,
+    128
+  ],
+  "crop_magnification": 4,
+  "jpeg_library": "6.2",
+  "evidence": {
+    "比较起点": "所提供JPEG本次解码的RGB像素；不证明更早原图无损",
+    "未压缩RGB数据B": 4590000,
+    "像素总数": 1530000,
+    "结果": [
+      {
+        "文件": "painting-source.png",
+        "完整文件B": 1706860,
+        "尺寸": [
+          1020,
+          1500
+        ],
+        "变化像素": 0,
+        "回读像素一致": true
+      },
+      {
+        "文件": "painting-quality80.jpg",
+        "完整文件B": 240848,
+        "尺寸": [
+          1020,
+          1500
+        ],
+        "变化像素": 504742,
+        "回读像素一致": false
+      },
+      {
+        "文件": "painting-quality20.jpg",
+        "完整文件B": 73692,
+        "尺寸": [
+          1020,
+          1500
+        ],
+        "变化像素": 1520212,
+        "回读像素一致": false
+      }
+    ]
+  }
+}

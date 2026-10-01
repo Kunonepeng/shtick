@@ -104,12 +104,41 @@ def image_evidence():
     return {"未压缩RGB数据B": len(raw), "像素总数": source.width*source.height,
             "结果": records}
 
-def show_comparison_pair():
-    """Neutral display: do not leak filename/format before the Q7 prediction."""
-    from IPython.display import display, Image as DisplayImage
-    for label, name in [('A', 'test-source.png'), ('B', 'test-quality80.jpg')]:
-        print(label)
-        display(DisplayImage(filename=str(ROOT/'assets/evidence'/name), width=384))
+def photo_evidence():
+    """Compare against the supplied JPEG's decoded pixels, not an earlier master."""
+    with Image.open(ROOT / "assets/0000136308_OG.JPG") as image:
+        baseline = image.convert("RGB")
+    raw = baseline.tobytes()
+    records = []
+    for name in ("painting-source.png", "painting-quality80.jpg", "painting-quality20.jpg"):
+        path = ROOT / "assets/evidence" / name
+        with Image.open(path) as image:
+            decoded = image.convert("RGB")
+        data = decoded.tobytes()
+        if decoded.size != baseline.size:
+            raise ValueError("对照图尺寸必须与本次输入相同")
+        changed = sum(a != b for a, b in zip(baseline.getdata(), decoded.getdata()))
+        records.append({"文件": name, "完整文件B": path.stat().st_size,
+                        "尺寸": decoded.size, "变化像素": changed,
+                        "回读像素一致": raw == data})
+    return {"比较起点": "所提供JPEG本次解码的RGB像素；不证明更早原图无损",
+            "未压缩RGB数据B": len(raw), "像素总数": baseline.width*baseline.height, "结果": records}
+
+def show_comparison_pair(detail=False, quality=80):
+    """Neutral side-by-side display; no filename/format before the prediction."""
+    import base64
+    from IPython.display import display, HTML
+    if quality not in (80, 20):
+        raise ValueError("随包对照仅有quality80和20")
+    names = ["painting-crop-source.png", f"painting-crop-quality{quality}.png"] if detail else ["painting-source.png", f"painting-quality{quality}.jpg"]
+    width = 430 if detail else 238
+    columns = []
+    for label, name in zip(["A", "B"], names):
+        data = base64.b64encode((ROOT/"assets/evidence"/name).read_bytes()).decode("ascii")
+        mime = "image/jpeg" if name.endswith(".jpg") else "image/png"
+        columns.append(f'<figure style="margin:0;max-width:46%"><figcaption style="font-size:22px">{label}</figcaption>'
+                       f'<img alt="{label}图像" src="data:{mime};base64,{data}" style="width:{width}px;max-width:100%;height:auto"></figure>')
+    display(HTML('<div style="display:flex;gap:40px;align-items:flex-start">' + "".join(columns) + '</div>'))
 
 def save_jpeg_trial(quality=80):
     """Optional live parameter trial. Never overwrite the packaged evidence."""
@@ -118,7 +147,7 @@ def save_jpeg_trial(quality=80):
     folder = ROOT / "demos" / "scratch"
     folder.mkdir(exist_ok=True)
     output = folder / f"trial-quality{quality}.jpg"
-    with Image.open(ROOT / "assets/evidence/test-source.png") as image:
+    with Image.open(ROOT / "assets/evidence/painting-source.png") as image:
         source = image.convert("RGB")
     source.save(output, quality=quality, subsampling=0)
     with Image.open(output) as image:

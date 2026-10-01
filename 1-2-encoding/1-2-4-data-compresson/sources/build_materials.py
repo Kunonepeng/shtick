@@ -31,7 +31,7 @@ if ROOT is None:
 sys.path.insert(0, str(ROOT / "demos"))
 from compression_lab import (COLORS, ALTERNATING, GRAY, rle_encode, rle_decode,
     named_runs, opening, predictive, approximate, image_evidence, save_jpeg_trial,
-    video_changes, show_comparison_pair)
+    video_changes, show_comparison_pair, photo_evidence)
 def show(name, width=384):
     display(Image(filename=str(ROOT / "assets/evidence" / name), width=width))
 print("准备完成。按教师指令逐格运行，先写预测。")'''
@@ -61,11 +61,12 @@ DEMOS = [
     "120与121同归120。8×6=48bit=6B，还原120,120,124,120,120,120,120,124。此模型不是JPEG，不与初次采样量化混同。"),
  (7, "D5", "先比较中性A/B，再写：看不出变化足以证明数据相同吗？", [
     ("只看图，先收判断。", 'show_comparison_pair()'),
-    ("收判断后运行像素与文件大小检验。", 'image_evidence()'),
-    ("同坐标放大比较。", 'print("A：同坐标放大")\nshow("crop-source.png", 768)\nprint("B：同坐标放大")\nshow("crop-quality80.png", 768)'),
-    ("可选低质量对照；核心课赶时间时跳过。", 'show("crop-quality20.png", 768)'),
+    ("收判断后运行本次绘画图像的像素与文件大小检验。", 'photo_evidence()'),
+    ("同坐标放大比较。", 'show_comparison_pair(detail=True)'),
+    ("可选低质量对照；核心课赶时间时跳过。", 'show_comparison_pair(detail=True, quality=20)'),
+    ("换成程序测试图，大小关系是否相同？", 'image_evidence()'),
     ("可选：改quality并实测，只保存到demos/scratch。", 'save_jpeg_trial(quality=80)')],
-    "同一源RGB，384×216。PNG4441B/像素一致；JPEGq80 10766B/28917像素变；q20 6752B/66885像素变。未压缩RGB248832B另列，不是PNG文件大小。quality范围是本库参数，不是通用质量百分比。只认主任务是否仍可获取。"),
+    "绘画图像以所提供JPEG本次解码RGB为起点，1020×1500。PNG1706860B/像素一致；JPEGq80 240848B/504742像素改变；q20 73692B/1520212像素改变。本次RGB4590000B，不证明更早原图无损。裁切192×128、最近邻放大4倍。程序测试图PNG4441B、JPEG10766B，大小关系相反。quality不是质量百分比。"),
 ]
 
 def cell(kind, source):
@@ -73,17 +74,28 @@ def cell(kind, source):
     if kind == "code": result.update(execution_count=None, outputs=[])
     return result
 
+TREE = json.loads((ROOT/"sources/knowledge-tree.json").read_text())
+
+def checkpoint(role, stage):
+    cp = TREE["checkpoints"][stage]
+    prompt = f"### 阶段小结：{cp['after']}之后\n\n{cp['prompt']}\n\n这组问题让我学会：________________\n\n对应主枝：为何压缩／怎样变小／能否恢复／怎样选择（圈选）。"
+    if role == "teacher":
+        prompt += f"\n\n教师控制：先留8秒收学生归纳，再显示已学节点；30秒计入当前Q预算。{cp['summary']}\n\n![此时已学知识树，红框为本轮新增节点。](assets/knowledge/tree-{stage}.png)"
+    return cell("markdown", prompt)
+
 def notebooks():
     for role in ("teacher", "student"):
         title = "教师演示" if role == "teacher" else "学生观察与记录"
         cells = [cell("markdown", f"# 数据压缩入门：{title}\n\n45分钟核心课。先预测，再按教师指令运行当前单元。不要提前运行全部单元。\n\n需求：Python 3.10+、JupyterLab、Pillow；IPython由Jupyter提供。离线可运行，不需要widgets。整个课程目录一起复制。")]
         if role == "teacher": cells.append(cell("markdown", "教师控制：Q1隐藏精确比较，Q3才揭示；A1私有颜色卡只给发送者。Q5先收方案，再给A2。第40分钟进入Q10。失败20秒用PPTX静态页。课前清空全部输出。"))
+        cells.append(cell("markdown", "## 知识导航\n\n数据压缩有四条待回答的主枝：为何压缩、怎样变小、能否恢复、怎样选择。Q4、Q7、Q9之后整理一次，Q10后检查完整知识树。先不要填写尚未得到证据的结论。"))
         cells.append(cell("code", SETUP))
         for q, demo, prompt, steps, note in DEMOS:
             cells.append(cell("markdown", f"## Q{q} {QUESTIONS[q-1]} · {demo}\n\n{prompt}\n\n预测／观察：________________\n\n证据／判断：________________"))
             if role == "teacher": cells.append(cell("markdown", "**教师备课与预期结果**\n\n" + note))
             for instruction, code in steps:
                 cells.extend([cell("markdown", instruction), cell("code", code)])
+            if q in (4,7): cells.append(checkpoint(role, {4:1,7:2}[q]))
         for q in (8,9,10):
             if q == 8: prompt="A3：通知少了日期，程序少了等号（输入60），照片为清楚的浏览副本。逐项判断并写理由。"
             elif q == 9: prompt="依据PNG像素检验与TIFF配置卡，改正‘所有图片压缩都有损’。JPG、TIF、MP3、MPEG分别要补什么条件？"
@@ -93,6 +105,7 @@ def notebooks():
                 8:"教师结论：通知／源程序本体必须无损；照片题给浏览副本可有损，但换读小字或测量要重评。",
                 9:"教师结论：常见JPG照片通常有损；TIF看编码；MP3常见有损音频；MPEG是相关标准组，常见视频编码有损。PNG是图片无损反例。",
                 10:"教师结论：程序选A，照片选B。先收40秒出口，课后核对：解压结果vs原输入；外观相似不证明原值一致。"}[q]))
+            if q in (9,10): cells.append(checkpoint(role, {9:3,10:4}[q]))
         cells.append(cell("markdown", "## 出口检查\n\n无损判断要比较________与________。\n\n照片看不出变化仍可能有损，因为________。"))
         if role == "teacher":
             cells.extend([cell("markdown", "## 第二课时可选：帧间变化\n\n先预测：保存帧一之后，帧二要更新哪些格？一个2×2块右移一格。不是只保存新位置；旧位置还要清除。此模型不是完整MPEG码流。"), cell("code", "video_changes()")])
@@ -269,9 +282,10 @@ def print_pdf():
 def main():
     notebooks()
     (ROOT/'student-activities.qmd').write_text(ACTIVITIES,encoding='utf-8')
-    print_pdf()
-    manifest={"question_count":10,"core_minutes":45,"notebooks":["demo-lab-teacher.ipynb","demo-lab-student.ipynb"],"D1":lab.opening(True),"D3":lab.predictive(lab.GRAY),"D4":lab.approximate(lab.GRAY),"D5":lab.image_evidence()}
+    if "--notebooks-only" not in sys.argv:
+        print_pdf()
+    manifest={"question_count":10,"core_minutes":45,"notebooks":["demo-lab-teacher.ipynb","demo-lab-student.ipynb"],"D1":lab.opening(True),"D3":lab.predictive(lab.GRAY),"D4":lab.approximate(lab.GRAY),"D5":lab.image_evidence(),"D5_photo":lab.photo_evidence(),"knowledge_checkpoints":[c["after"] for c in TREE["checkpoints"]]}
     (ROOT/'sources/evidence-manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2),encoding='utf-8')
-    print('Teacher/student notebooks, worksheet source and printable PDF generated.')
+    print('Teacher/student notebooks, worksheet source and evidence manifest generated.' + (' Existing PDF unchanged.' if "--notebooks-only" in sys.argv else ' Printable PDF generated.'))
 
 if __name__=='__main__': main()

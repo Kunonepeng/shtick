@@ -1,0 +1,34 @@
+{
+  "pass": true,
+  "issues": [],
+  "html": {
+    "course-design.html": {
+      "local_references": 33,
+      "slide_sections": 0
+    },
+    "demo-lab-teacher.html": {
+      "local_references": 15,
+      "slide_sections": 0
+    },
+    "demo-lab-student.html": {
+      "local_references": 11,
+      "slide_sections": 0
+    },
+    "student-activities.html": {
+      "local_references": 11,
+      "slide_sections": 0
+    },
+    "slides.html": {
+      "local_references": 58,
+      "slide_sections": 34
+    }
+  },
+  "pptx_sha256": "f8347a519933c85cd858e5a2034801a652b8564bb71574e93e5dd79e94356613",
+  "quarto_rendered_sources": 5,
+  "reveal_slide_sections": 34,
+  "quarto_warnings": [
+    "zh-CN translations unavailable",
+    "Abstract translation undefined"
+  ],
+  "classroom_ui_checks": "unverified"
+}

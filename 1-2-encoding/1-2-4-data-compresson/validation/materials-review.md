@@ -1,4 +1,6 @@
-# 数据压缩入门：配套材料三轮审查
+# 数据压缩入门：配套材料三轮审查（v1历史记录）
+
+当前图像与知识树改进、34页v2课件及复查结果见[improvement-review.md](improvement-review.md)。本文件保留原30页v1验证记录。
 
 本次审查针对45分钟核心课材料，设计阶段的两轮记录另行保留。审查中的问题、修复与复查按轮保存：
 
@@ -16,7 +18,7 @@
 |版面、字体与原生对象|16:9、白底、8pt紫轨、36pt标题、22pt以上正文；原生表格见21–27页；[结构审查](review-3-final/package-audit.json)无问题|
 |实际渲染字体|PDF字体资源仅Alibaba PuHuiTi 3.0 55 Regular／115 Black；[记录](review-3-final/rendered-fonts.json)|
 |Speaker Notes|所有30页有完整问题／目的、逐字稿、提示、技术边界与来源；不把备注投影给学生|
-|Notebook|两版Q1–Q10及D1–D5一致；真实Jupyter内核执行内存副本通过；交付文件无输出、无执行计数；[记录](notebook-execution.json)|
+|Notebook|两版Q1–Q10及D1–D5一致；真实Jupyter内核执行内存副本通过；交付文件无输出、无执行计数；[记录](review-3-final/legacy-notebook-execution.json)|
 |数值与可逆性|RLE 16B→6B与32B；差值22bit装3B；近似48bit／6B；JPEG像素与完整大小均实测；输入边界检查通过|
 |活动单|四页均渲染并检查；前三页A1–A3与出口，第4页私有颜色卡；预测／答案分开，留有书写空间|
 |离线逐步演示|按钮处理程序经Node DOM测试，验证逐段展开、七步读回、重置和输入边界；无联网依赖；[记录](playground-handlers.json)|
