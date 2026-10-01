@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>数据压缩：逐步演示</title>
+<style>
+:root{font-family:"Alibaba PuHuiTi 3.0 55 Regular","Microsoft YaHei",sans-serif;color:#262626;background:white}
+body{margin:0;border-top:8px solid #6251b1;border-bottom:8px solid #6251b1;min-height:95vh}main{max-width:1180px;margin:40px auto;padding:0 25px}h1{font-size:36px}h2{font-size:30px}p,label,button,select{font-size:24px;line-height:1.5}button,select{padding:8px 16px;background:white;border:2px solid #6251b1;margin:4px;cursor:pointer}button:focus-visible{outline:4px solid #007c9b}.grid{display:grid;grid-template-columns:repeat(16,1fr);gap:4px}.cell{min-height:50px;display:flex;align-items:center;justify-content:center;color:white;font-size:24px}.gray{grid-template-columns:repeat(8,1fr)}.gray .cell{background:#eee;color:black;min-height:70px}output{display:block;min-height:100px;font-size:28px;color:#007c9b;margin:28px 0;line-height:1.5;white-space:pre-line}section[hidden]{display:none}.help{color:#808080;font-size:18px}.actions{margin:20px 0}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
+</style>
+<main><h1>数据压缩：先预测，再逐步看证据</h1>
+<label for="demo">当前演示</label><select id="demo"><option value="rle">D2 连续段</option><option value="delta">D3 相邻变化</option><option value="quant">D4 近似值</option></select>
+<section id="rle"><h2>连续重复的颜色，怎样少写？</h2>
+<label for="pattern">输入</label><select id="pattern"><option value="runs">三段颜色</option><option value="alternate">红绿交替</option></select>
+<div id="colors" class="grid"></div><p>编号1B，连续次数1B。先预测编码大小。</p>
+<div class="actions"><button id="encode">显示编码</button><button id="decode" disabled>逐段还原</button><button id="reset-rle">重置</button></div><output id="rle-out" aria-live="polite"></output><div id="restored" class="grid"></div></section>
+<section id="delta" hidden><h2>完整保存起点和每次变化</h2><div id="gray" class="grid gray"></div><p>首值120。先填写每次变化，再读回末三项。</p>
+<div class="actions"><button id="next">显示下一步</button><button id="reset-delta">重置</button></div><output id="delta-out" aria-live="polite"></output><p class="help">−1=00，0=01，+1=10；仅限本串，规则和长度预先共享。</p></section>
+<section id="quant" hidden><h2>近似值能唯一还原吗？</h2><p>归到最近的4的倍数，中点向上，最高252。</p><label for="value">原灰度</label><input id="value" type="number" value="121" min="0" max="255" style="font-size:28px;width:130px"><button id="map">计算代表值</button><output id="quant-out" aria-live="polite"></output><p>找两个不同的原数，让它们得到同一个代表值。</p><p class="help">课堂位深模型；不是JPEG或MP3算法。</p></section>
+<p class="help">离线演示，无联网资源。教师用按钮控制揭示；不需要自动播放。</p></main>
+<script>
+const $=id=>document.getElementById(id),gray=[120,121,122,121,120,120,121,122],names=['','红','绿','蓝'],colors=['','#D2232D','#14875A','#2355C3'];
+let input=[],runs=[],step=0,deltaStep=0;
+function cells(el,data,isgray=false){el.replaceChildren(...data.map(v=>{const e=document.createElement('div');e.className='cell';e.textContent=isgray?v:names[v];if(!isgray)e.style.background=colors[v];return e}));}
+function resetRle(){input=$('pattern').value==='runs'?[...Array(8).fill(1),...Array(5).fill(2),...Array(3).fill(3)]:Array.from({length:16},(_,i)=>i%2+1);runs=[];step=0;cells($('colors'),input);$('restored').replaceChildren();$('rle-out').textContent='';$('decode').disabled=true;}
+$('pattern').onchange=resetRle;$('reset-rle').onclick=resetRle;
+$('encode').onclick=()=>{runs=[];input.forEach(v=>{if(runs.length&&runs.at(-1)[0]===v)runs.at(-1)[1]++;else runs.push([v,1])});step=0;$('restored').replaceChildren();$('rle-out').textContent=runs.map(([v,n])=>names[v]+n).join('  ')+'\n16 B → '+runs.length*2+' B（仅数据部分）';$('decode').disabled=false};
+$('decode').onclick=()=>{step++;const data=runs.slice(0,step).flatMap(([v,n])=>Array(n).fill(v));cells($('restored'),data);if(step===runs.length){$('rle-out').textContent+='\n逐位置一致：'+(JSON.stringify(data)===JSON.stringify(input));$('decode').disabled=true}};
+function resetDelta(){deltaStep=0;$('delta-out').textContent='';$('next').disabled=false;cells($('gray'),gray,true)}
+$('reset-delta').onclick=resetDelta;$('next').onclick=()=>{deltaStep++;const lines=Array.from({length:Math.min(deltaStep,7)},(_,i)=>{const d=gray[i+1]-gray[i];return `${gray[i]} ${d<0?'−':'+'} ${Math.abs(d)} = ${gray[i+1]}`});$('delta-out').textContent=lines.join('   ／   ');if(deltaStep===7){$('delta-out').textContent+='\n8 + 7 × 2 = 22 bit → 3 B，补2 bit；每次变化都保留。';$('next').disabled=true}};
+$('map').onclick=()=>{const v=Number($('value').value);if(!Number.isInteger(v)||v<0||v>255){$('quant-out').textContent='输入0–255的整数';return}const level=Math.min(63,Math.floor((v+2)/4));$('quant-out').textContent=`${v} → 等级${level} → 代表值${level*4}`};$('value').oninput=()=>{$('quant-out').textContent=''};
+$('demo').onchange=()=>{['rle','delta','quant'].forEach(id=>$(id).hidden=id!==$('demo').value)};resetRle();resetDelta();
+</script></html>

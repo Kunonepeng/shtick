@@ -1,0 +1,14 @@
+[
+  {
+    "role": "teacher",
+    "code_cells": 17,
+    "outputs_in_test_copy": 25,
+    "pass": true
+  },
+  {
+    "role": "student",
+    "code_cells": 16,
+    "outputs_in_test_copy": 24,
+    "pass": true
+  }
+]

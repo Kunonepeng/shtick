@@ -1,0 +1,640 @@
+---
+pagetitle: "数据压缩入门：PPTX参考版"
+lang: zh-CN
+format:
+  revealjs:
+    width: 1280
+    height: 720
+    margin: 0
+    center: false
+    controls: true
+    progress: false
+    slide-number: false
+    transition: none
+    background-transition: none
+    overview: true
+execute:
+  enabled: false
+---
+
+<!-- Reference rendered from the reviewed PPTX. Do not use as the production deck. -->
+
+## {background-image="assets/reference/slide-01.png" background-size="contain"}
+
+<!-- 收束 · opening: 课题与主问题 -->
+
+::: notes
+[问题 / 页面目的] 开场：从文件大小提出问题
+
+[内部编号] 收束 · 开场：从文件大小提出问题
+
+[教学意图] 让学生用本页证据修正判断；等待学生说出理由。
+
+[教师逐字稿] 前面算过数据需要多少空间。今天先看一个反常现象：文件一下小了很多，图却还能还原。请保留你的第一反应，后面我们用数据来检查。先不要背定义。
+
+[教师提示] 
+
+[课堂控制] 本页学生可见内容只限当前阶段。演示失败20秒换本页静态证据。45分钟：Q1 3、Q2 6、Q3 4、Q4 4、Q5 5、Q6 5、Q7 5、Q8 4、Q9 4、Q10 5分钟。
+
+[来源] course-design.qmd；demos/compression_lab.py；本课明确约定的教学模型／题目条件
+::: 
+
+## {background-image="assets/reference/slide-02.png" background-size="contain"}
+
+<!-- Q1 · question: 原图、A/B大小、预测任务 -->
+
+::: notes
+[问题 / 页面目的] 文件变小，是不是删掉了内容？
+
+[内部编号] Q1 · question
+
+[教学意图] 先收预测与方法，再揭示证据。
+
+[教师逐字稿] 同一幅64×64颜色图，A有4096个bytes，B是用A编码得到的，只有38个bytes。先写一个猜测：变小以后，哪些内容可能发生变化？说出你想检查什么。先不给答案。
+
+[教师提示] 
+
+[课堂控制] 本页学生可见内容只限当前阶段。演示失败20秒换本页静态证据。45分钟：Q1 3、Q2 6、Q3 4、Q4 4、Q5 5、Q6 5、Q7 5、Q8 4、Q9 4、Q10 5分钟。
+
+[来源] course-design.qmd；demos/compression_lab.py；本课明确约定的教学模型／题目条件
+::: 
+
+## {background-image="assets/reference/slide-03.png" background-size="contain"}
+
+<!-- Q1 · evidence: 加入解压还原图；暂不显示相等结果 -->
+
+::: notes
+[问题 / 页面目的] 文件变小，是不是删掉了内容？
+
+[内部编号] Q1 · evidence
+
+[教学意图] 让学生用本页证据修正判断；等待学生说出理由。
+
+[教师逐字稿] 现在把B读回图像。你看到少了哪一块吗？看上去一样，还不够证明每一个数都相同。我们先找一种能变短又能画回的规则，第三问再检查所有bytes。
+
+[教师提示] 64×64与码表预先约定；这是颜色编号数据，不冒充PNG。38B是随包记录，现场大小若不同以实际输出为准。
+
+[课堂控制] 本页学生可见内容只限当前阶段。演示失败20秒换本页静态证据。45分钟：Q1 3、Q2 6、Q3 4、Q4 4、Q5 5、Q6 5、Q7 5、Q8 4、Q9 4、Q10 5分钟。
+
+[来源] course-design.qmd；demos/compression_lab.py；本课明确约定的教学模型／题目条件
+::: 
+
+## {background-image="assets/reference/slide-04.png" background-size="contain"}
+
+<!-- Q2 · question: 原串与顺序/数量约束 -->
+
+::: notes
+[问题 / 页面目的] 连续重复的颜色，怎样少写一些？
+
+[内部编号] Q2 · question
+
+[教学意图] 先收预测与方法，再揭示证据。
+
+[教师逐字稿] 这次只看16个颜色。怎样少写一些，又让同桌恢复原来的顺序和数量？发送者看折叠卡，接收者先不看原串。给你们60秒写规则与短消息，30秒画回，再展开卡核对。
+
+[教师提示] 
+
+[课堂控制] 本页学生可见内容只限当前阶段。演示失败20秒换本页静态证据。45分钟：Q1 3、Q2 6、Q3 4、Q4 4、Q5 5、Q6 5、Q7 5、Q8 4、Q9 4、Q10 5分钟。
+
+[来源] course-design.qmd；demos/compression_lab.py；本课明确约定的教学模型／题目条件
+::: 
+
+## {background-image="assets/reference/slide-05.png" background-size="contain"}
+
+<!-- Q2 · answer: 揭示红8绿5蓝3与RLE -->
+
+::: notes
+[问题 / 页面目的] 连续重复的颜色，怎样少写一些？
+
+[内部编号] Q2 · answer
+
+[教学意图] 让学生用本页证据修正判断；等待学生说出理由。
+
+[教师逐字稿] 先听你们的规则。红绿蓝三个字能找回多少个吗？这一种保留了颜色、连续次数和段的顺序。红8代表连续8个红，不是全图所有红的总数。它把重复展开的依据留了下来。
+
+[教师提示] 私有变体只给发送者，接收者先画回再展开原卡。写8红5绿3蓝也可，不因格式不同判错。
+
+[课堂控制] 本页学生可见内容只限当前阶段。演示失败20秒换本页静态证据。45分钟：Q1 3、Q2 6、Q3 4、Q4 4、Q5 5、Q6 5、Q7 5、Q8 4、Q9 4、Q10 5分钟。
+
+[来源] course-design.qmd；demos/compression_lab.py；本课明确约定的教学模型／题目条件
+::: 
+
+## {background-image="assets/reference/slide-06.png" background-size="contain"}
+
+<!-- Q3 · question: 原串与待检查串，无错误标记 -->
+
+::: notes
+[问题 / 页面目的] 少写以后，怎样证明一个也没丢？
+
+[内部编号] Q3 · question
+
+[教学意图] 先收预测与方法，再揭示证据。
+
+[教师逐字稿] 接收者说已经恢复了，你准备怎样检查？先提出方法，再动手对比下面两行。不要只说长度一样。
+
+[教师提示] 
+
+[课堂控制] 本页学生可见内容只限当前阶段。演示失败20秒换本页静态证据。45分钟：Q1 3、Q2 6、Q3 4、Q4 4、Q5 5、Q6 5、Q7 5、Q8 4、Q9 4、Q10 5分钟。
+
+[来源] course-design.qmd；demos/compression_lab.py；https://datatracker.ietf.org/doc/rfc1951/
+::: 
+
+## {background-image="assets/reference/slide-07.png" background-size="contain"}
+
+<!-- Q3 · focus: 只标第9处差异 -->
+
+::: notes
+[问题 / 页面目的] 少写以后，怎样证明一个也没丢？
+
+[内部编号] Q3 · focus
+
+[教学意图] 让学生用本页证据修正判断；等待学生说出理由。
+
+[教师逐字稿] 把两行按位置对齐。第9个位置原来是绿，待查却是蓝。两串都是16格，也可能有一个数不同。现在回到开场，比较的应是解压结果与原输入。
+
+[教师提示] 比较对象：还原与原始输入；不是比较原文件与压缩文件。
+
+[课堂控制] 本页学生可见内容只限当前阶段。演示失败20秒换本页静态证据。45分钟：Q1 3、Q2 6、Q3 4、Q4 4、Q5 5、Q6 5、Q7 5、Q8 4、Q9 4、Q10 5分钟。
+
+[来源] course-design.qmd；demos/compression_lab.py；https://datatracker.ietf.org/doc/rfc1951/
+::: 
+
+## {background-image="assets/reference/slide-08.png" background-size="contain"}
+
+<!-- Q3 · answer: 加入bytes一致与无损定义 -->
+
+::: notes
+[问题 / 页面目的] 少写以后，怎样证明一个也没丢？
+
+[内部编号] Q3 · answer
+
+[教学意图] 让学生用本页证据修正判断；等待学生说出理由。
+
+[教师逐字稿] 先修正待查串的第9格，再逐位置核对，现在这16项一致。回到开场，用程序比较解压所得4096个bytes与原输入，得到True。这两个检验都比较还原结果和输入。原数据能完全恢复，才叫无损；不能仅看图像外观或文件长度。
+
+[教师提示] 上页故障串已修正；本页的True明确属于开场4096B的实测。
+
+[课堂控制] 本页学生可见内容只限当前阶段。演示失败20秒换本页静态证据。45分钟：Q1 3、Q2 6、Q3 4、Q4 4、Q5 5、Q6 5、Q7 5、Q8 4、Q9 4、Q10 5分钟。
+
+[来源] course-design.qmd；demos/compression_lab.py；https://datatracker.ietf.org/doc/rfc1951/
+::: 
+
+## {background-image="assets/reference/slide-09.png" background-size="contain"}
+
+<!-- Q4 · question: 两串、相同RLE规则 -->
+
+::: notes
+[问题 / 页面目的] 同一规则，为什么有时反而变大？
+
+[内部编号] Q4 · question
+
+[教学意图] 先收预测与方法，再揭示证据。
+
+[教师逐字稿] 两串都是16个颜色。按连续段存编号和次数：编号1B、次数1B。先投票，再分工数两串各有几段，算编码后的数据量。不要把红绿交替改写为红8绿8。
+
+[教师提示] 
+
+[课堂控制] 本页学生可见内容只限当前阶段。演示失败20秒换本页静态证据。45分钟：Q1 3、Q2 6、Q3 4、Q4 4、Q5 5、Q6 5、Q7 5、Q8 4、Q9 4、Q10 5分钟。
+
+[来源] course-design.qmd；demos/compression_lab.py；https://datatracker.ietf.org/doc/rfc1951/
+::: 
+
+## {background-image="assets/reference/slide-10.png" background-size="contain"}
+
+<!-- Q4 · answer: 加入6B/32B反例 -->
+
+::: notes
+[问题 / 页面目的] 同一规则，为什么有时反而变大？
+
+[内部编号] Q4 · answer
+
+[教学意图] 让学生用本页证据修正判断；等待学生说出理由。
+
+[教师逐字稿] A有三段，3×2等于6B。B有十六段，每段只有一个颜色，16×2等于32B。它仍能准确恢复，却更大了。无损说的是可恢复，不是保证变小。
+
+[教师提示] 只比payload；双方共享码表。256个相同色需拆255+1，不能让次数溢出。ZIP压JPEG效果需实测。
+
+[课堂控制] 本页学生可见内容只限当前阶段。演示失败20秒换本页静态证据。45分钟：Q1 3、Q2 6、Q3 4、Q4 4、Q5 5、Q6 5、Q7 5、Q8 4、Q9 4、Q10 5分钟。
+
+[来源] course-design.qmd；demos/compression_lab.py；https://datatracker.ietf.org/doc/rfc1951/
+::: 
+
+## {background-image="assets/reference/slide-11.png" background-size="contain"}
+
+<!-- Q5 · question: 八个灰度格、原值、8bit条件 -->
+
+::: notes
+[问题 / 页面目的] 相邻值不相同，还能利用它们的关系吗？
+
+[内部编号] Q5 · question
+
+[教学意图] 先收预测与方法，再揭示证据。
+
+[教师逐字稿] 这一行灰度几乎一样，数却不完全相同。要求完整恢复，除了逐个写8bit，还能怎样记录？先想规则。必要时从第一个120出发，问下一格比它多多少。
+
+[教师提示] 
+
+[课堂控制] 本页学生可见内容只限当前阶段。演示失败20秒换本页静态证据。45分钟：Q1 3、Q2 6、Q3 4、Q4 4、Q5 5、Q6 5、Q7 5、Q8 4、Q9 4、Q10 5分钟。
+
+[来源] course-design.qmd；demos/compression_lab.py；https://www.w3.org/TR/png-3/
+::: 
+
+## {background-image="assets/reference/slide-12.png" background-size="contain"}
+
+<!-- Q5 · answer: 首值与完整差值 -->
+
+::: notes
+[问题 / 页面目的] 相邻值不相同，还能利用它们的关系吗？
+
+[内部编号] Q5 · answer
+
+[教学意图] 让学生用本页证据修正判断；等待学生说出理由。
+
+[教师逐字稿] 给首值120，前三个差值已经列出。请填末四个，再只看首值与差值读回末三个数。负号不能丢，每次加在刚读回的前值上。变化都还在，才能恢复原来每一项。
+
+[教师提示] A2正常版：首值及前三个差值已给，末四个学生填；迟到版仅减少一空。先活动后揭示。
+
+[课堂控制] 本页学生可见内容只限当前阶段。演示失败20秒换本页静态证据。45分钟：Q1 3、Q2 6、Q3 4、Q4 4、Q5 5、Q6 5、Q7 5、Q8 4、Q9 4、Q10 5分钟。
+
+[来源] course-design.qmd；demos/compression_lab.py；https://www.w3.org/TR/png-3/
+::: 
+
+## {background-image="assets/reference/slide-13.png" background-size="contain"}
+
+<!-- Q5 · evidence: 22bit/3B计算和规则边界 -->
+
+::: notes
+[问题 / 页面目的] 相邻值不相同，还能利用它们的关系吗？
+
+[内部编号] Q5 · evidence
+
+[教学意图] 让学生用本页证据修正判断；等待学生说出理由。
+
+[教师逐字稿] 这一串差值只有三种，我们另约定−1为00、0为01、+1为10。首值8bit加七个2bit差值，共22bit，装入完整bytes是3B，末尾补2bit。差值项数没有减少，变短来自更合适的编码。
+
+[教师提示] 长度、模式和码表未计入。一般图像有大差值，不能套三种值码表；PNG可逆滤波仍输出同数量bytes，后续压缩另处理。
+
+[课堂控制] 本页学生可见内容只限当前阶段。演示失败20秒换本页静态证据。45分钟：Q1 3、Q2 6、Q3 4、Q4 4、Q5 5、Q6 5、Q7 5、Q8 4、Q9 4、Q10 5分钟。
+
+[来源] course-design.qmd；demos/compression_lab.py；https://www.w3.org/TR/png-3/
+::: 
+
+## {background-image="assets/reference/slide-14.png" background-size="contain"}
+
+<!-- Q6 · question: 规则、116/120/124数轴，无箭头答案 -->
+
+::: notes
+[问题 / 页面目的] 只留近似值，还能找回原数吗？
+
+[内部编号] Q6 · question
+
+[教学意图] 先收预测与方法，再揭示证据。
+
+[教师逐字稿] 现在换个规则：归到最近的4的倍数，中点向上取，最高只到252。看到120这一档，能确定原数吗？请写至少两个可能原数，再填A2下半表。
+
+[教师提示] 
+
+[课堂控制] 本页学生可见内容只限当前阶段。演示失败20秒换本页静态证据。45分钟：Q1 3、Q2 6、Q3 4、Q4 4、Q5 5、Q6 5、Q7 5、Q8 4、Q9 4、Q10 5分钟。
+
+[来源] course-design.qmd；demos/compression_lab.py；本课明确约定的教学模型／题目条件
+::: 
+
+## {background-image="assets/reference/slide-15.png" background-size="contain"}
+
+<!-- Q6 · focus: 合流证据120/121→120 -->
+
+::: notes
+[问题 / 页面目的] 只留近似值，还能找回原数吗？
+
+[内部编号] Q6 · focus
+
+[教学意图] 让学生用本页证据修正判断；等待学生说出理由。
+
+[教师逐字稿] 120会恢复为120，121也恢复为120。你如果再加1，就会把原来本来是120的情况选错。没有保存区分它们的依据，不能唯一倒回原数。
+
+[教师提示] 119也映射到120。课堂模型不是JPEG，也不是初始数字化过程。
+
+[课堂控制] 本页学生可见内容只限当前阶段。演示失败20秒换本页静态证据。45分钟：Q1 3、Q2 6、Q3 4、Q4 4、Q5 5、Q6 5、Q7 5、Q8 4、Q9 4、Q10 5分钟。
+
+[来源] course-design.qmd；demos/compression_lab.py；本课明确约定的教学模型／题目条件
+::: 
+
+## {background-image="assets/reference/slide-16.png" background-size="contain"}
+
+<!-- Q6 · answer: 48bit/6B与有损结论 -->
+
+::: notes
+[问题 / 页面目的] 只留近似值，还能找回原数吗？
+
+[内部编号] Q6 · answer
+
+[教学意图] 让学生用本页证据修正判断；等待学生说出理由。
+
+[教师逐字稿] 64个等级只需6bit编号。八格64bit变成48bit，即6B；但变小同时丢失了区分。某些值恰好不变，不代表这种规则能保证精确恢复。这是有损的例子。
+
+[教师提示] 还原八项为120,120,124,120,120,120,120,124；不能用明暗看不出代替数字证据。
+
+[课堂控制] 本页学生可见内容只限当前阶段。演示失败20秒换本页静态证据。45分钟：Q1 3、Q2 6、Q3 4、Q4 4、Q5 5、Q6 5、Q7 5、Q8 4、Q9 4、Q10 5分钟。
+
+[来源] course-design.qmd；demos/compression_lab.py；本课明确约定的教学模型／题目条件
+::: 
+
+## {background-image="assets/reference/slide-17.png" background-size="contain"}
+
+<!-- Q7 · question: 中性A/B同尺寸解码图 -->
+
+::: notes
+[问题 / 页面目的] 看起来差不多，能否叫无损？
+
+[内部编号] Q7 · question
+
+[教学意图] 先收预测与方法，再揭示证据。
+
+[教师逐字稿] 两图尺寸相同。先按正常大小观察，你能指出哪里不同？再回答另一个问题：看不出变化，足以证明每个像素都一样吗？先收判断，不显示格式和大小。
+
+[教师提示] 
+
+[课堂控制] 本页学生可见内容只限当前阶段。演示失败20秒换本页静态证据。45分钟：Q1 3、Q2 6、Q3 4、Q4 4、Q5 5、Q6 5、Q7 5、Q8 4、Q9 4、Q10 5分钟。
+
+[来源] course-design.qmd；demos/compression_lab.py；https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html
+
+https://www.w3.org/Graphics/JPEG/itu-t81.pdf
+::: 
+
+## {background-image="assets/reference/slide-18.png" background-size="contain"}
+
+<!-- Q7 · answer: 加入格式与像素差异 -->
+
+::: notes
+[问题 / 页面目的] 看起来差不多，能否叫无损？
+
+[内部编号] Q7 · answer
+
+[教学意图] 让学生用本页证据修正判断；等待学生说出理由。
+
+[教师逐字稿] 揭开格式：A是PNG，B是常见有损JPEG，quality80。逐像素比较，PNG回读与源RGB一致，JPEG有28917个像素不同。有人能看出变化，有人不能，都不影响这个数据检验。
+
+[教师提示] 两份完整文件来自相同RGB。JPEG固定subsampling=0，直接源图编码。图像检验对象为像素，不保证所有源文件metadata。
+
+[课堂控制] 本页学生可见内容只限当前阶段。演示失败20秒换本页静态证据。45分钟：Q1 3、Q2 6、Q3 4、Q4 4、Q5 5、Q6 5、Q7 5、Q8 4、Q9 4、Q10 5分钟。
+
+[来源] course-design.qmd；demos/compression_lab.py；https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html
+
+https://www.w3.org/Graphics/JPEG/itu-t81.pdf
+::: 
+
+## {background-image="assets/reference/slide-19.png" background-size="contain"}
+
+<!-- Q7 · focus: 同坐标放大区域对照 -->
+
+::: notes
+[问题 / 页面目的] 看起来差不多，能否叫无损？
+
+[内部编号] Q7 · focus
+
+[教学意图] 让学生用本页证据修正判断；等待学生说出理由。
+
+[教师逐字稿] 现在只看同一坐标的细节，放大8倍，使用最近邻，不另做锐化。先说差别在哪，再换用途：展示明暗渐变方向，这些近似仍能传达；若要读取原灰度做测量，就不能用外观过关。
+
+[教师提示] 替换本页正常图时保留问题不动。照片任务改变必须重新检验。
+
+[课堂控制] 本页学生可见内容只限当前阶段。演示失败20秒换本页静态证据。45分钟：Q1 3、Q2 6、Q3 4、Q4 4、Q5 5、Q6 5、Q7 5、Q8 4、Q9 4、Q10 5分钟。
+
+[来源] course-design.qmd；demos/compression_lab.py；https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html
+
+https://www.w3.org/Graphics/JPEG/itu-t81.pdf
+::: 
+
+## {background-image="assets/reference/slide-20.png" background-size="contain"}
+
+<!-- Q7 · evidence: 加入完整文件大小 -->
+
+::: notes
+[问题 / 页面目的] 看起来差不多，能否叫无损？
+
+[内部编号] Q7 · evidence
+
+[教学意图] 让学生用本页证据修正判断；等待学生说出理由。
+
+[教师逐字稿] 完整文件大小也要实测。本例PNG4441B，JPEG10766B，PNG反而更小。原RGB数据248832B是像素数据量，不是PNG大小。有损和无损不能替我们排大小；还要看数据和编码。
+
+[教师提示] 数字来自随包执行记录。quality20可在Notebook拓展，不增加核心45分钟讲授。MP3有损感知编码不只是删20kHz以上。
+
+[课堂控制] 本页学生可见内容只限当前阶段。演示失败20秒换本页静态证据。45分钟：Q1 3、Q2 6、Q3 4、Q4 4、Q5 5、Q6 5、Q7 5、Q8 4、Q9 4、Q10 5分钟。
+
+[来源] course-design.qmd；demos/compression_lab.py；https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html
+
+https://www.w3.org/Graphics/JPEG/itu-t81.pdf
+::: 
+
+## {background-image="assets/reference/slide-21.png" background-size="contain"}
+
+<!-- Q8 · question: 三个用途及给定变化 -->
+
+::: notes
+[问题 / 页面目的] 同一种误差，哪些任务能接受？
+
+[内部编号] Q8 · question
+
+[教学意图] 先收预测与方法，再揭示证据。
+
+[教师逐字稿] 先不要报格式名，判断每份材料要保留什么。通知少了一个五，程序少了等号，照片少量像素改变。三件事都能接受吗？同桌写一条理由。程序用60测试。
+
+[教师提示] 
+
+[课堂控制] 本页学生可见内容只限当前阶段。演示失败20秒换本页静态证据。45分钟：Q1 3、Q2 6、Q3 4、Q4 4、Q5 5、Q6 5、Q7 5、Q8 4、Q9 4、Q10 5分钟。
+
+[来源] course-design.qmd；demos/compression_lab.py；本课明确约定的教学模型／题目条件
+::: 
+
+## {background-image="assets/reference/slide-22.png" background-size="contain"}
+
+<!-- Q8 · answer: 文本/程序必须无损；媒体按用途判断 -->
+
+::: notes
+[问题 / 页面目的] 同一种误差，哪些任务能接受？
+
+[内部编号] Q8 · answer
+
+[教学意图] 让学生用本页证据修正判断；等待学生说出理由。
+
+[教师逐字稿] 60大于等于60成立，60大于60不成立。符号很少，功能却变了。通知原文与源程序本体都要求无损。照片作为题中浏览副本，可以在质量达标时用有损方式。若要读角落小字，重新检查。
+
+[教师提示] 不把删改内容称为原文件的合格压缩。测量和编辑母版可能同样要求无损。
+
+[课堂控制] 本页学生可见内容只限当前阶段。演示失败20秒换本页静态证据。45分钟：Q1 3、Q2 6、Q3 4、Q4 4、Q5 5、Q6 5、Q7 5、Q8 4、Q9 4、Q10 5分钟。
+
+[来源] course-design.qmd；demos/compression_lab.py；本课明确约定的教学模型／题目条件
+::: 
+
+## {background-image="assets/reference/slide-23.png" background-size="contain"}
+
+<!-- Q9 · question: 错误说法、PNG已知证据、TIFF中性配置卡 -->
+
+::: notes
+[问题 / 页面目的] 看扩展名，就能判定压缩方式吗？
+
+[内部编号] Q9 · question
+
+[教学意图] 先收预测与方法，再揭示证据。
+
+[教师逐字稿] 同学说这几个名字都是有损，图片不能无损。先找一个反例，再改他的说法。配置卡是依据技术文档做的规则表，软件保存设置可能不同。不能只看后缀。
+
+[教师提示] 
+
+[课堂控制] 本页学生可见内容只限当前阶段。演示失败20秒换本页静态证据。45分钟：Q1 3、Q2 6、Q3 4、Q4 4、Q5 5、Q6 5、Q7 5、Q8 4、Q9 4、Q10 5分钟。
+
+[来源] course-design.qmd；demos/compression_lab.py；https://helpx.adobe.com/photoshop/desktop/save-and-export/export-files-to-different-formats/file-compression-in-photoshop.html
+
+https://www.mpeg.org/standards/MPEG-1/
+
+https://www.iis.fraunhofer.de/content/dam/iis/de/doc/ame/conference/AES-17-Conference_mp3-and-AAC-explained_AES17.pdf
+::: 
+
+## {background-image="assets/reference/slide-24.png" background-size="contain"}
+
+<!-- Q9 · answer: TIFF需看编码；PNG反例 -->
+
+::: notes
+[问题 / 页面目的] 看扩展名，就能判定压缩方式吗？
+
+[内部编号] Q9 · answer
+
+[教学意图] 让学生用本页证据修正判断；等待学生说出理由。
+
+[教师逐字稿] PNG已经推翻图片不能无损。TIFF同一后缀可以采用不同方式，所以需要看保存配置。常见照片JPEG通常有损；不能把一个文件格式名字等同唯一压缩算法。
+
+[教师提示] JPEG标准还包含无损模式，本课不要求学生记标准编号。
+
+[课堂控制] 本页学生可见内容只限当前阶段。演示失败20秒换本页静态证据。45分钟：Q1 3、Q2 6、Q3 4、Q4 4、Q5 5、Q6 5、Q7 5、Q8 4、Q9 4、Q10 5分钟。
+
+[来源] course-design.qmd；demos/compression_lab.py；https://helpx.adobe.com/photoshop/desktop/save-and-export/export-files-to-different-formats/file-compression-in-photoshop.html
+
+https://www.mpeg.org/standards/MPEG-1/
+
+https://www.iis.fraunhofer.de/content/dam/iis/de/doc/ame/conference/AES-17-Conference_mp3-and-AAC-explained_AES17.pdf
+::: 
+
+## {background-image="assets/reference/slide-25.png" background-size="contain"}
+
+<!-- Q9 · evidence: 格式/用途/边界速查表 -->
+
+::: notes
+[问题 / 页面目的] 看扩展名，就能判定压缩方式吗？
+
+[内部编号] Q9 · evidence
+
+[教学意图] 让学生用本页证据修正判断；等待学生说出理由。
+
+[教师逐字稿] 最后给名字放回常见用途：JPG图像通常有损，TIF图像看设置，MP3音频有损，MPEG视频相关标准常见用途采用有损编码。MPEG是一组标准，MP3是Audio Layer III，不是MPEG-3。长技术边界留在教师材料。
+
+[教师提示] 本页替换配置卡区域，不增加新问题。MP4后缀也不能直接等同某一种算法。
+
+[课堂控制] 本页学生可见内容只限当前阶段。演示失败20秒换本页静态证据。45分钟：Q1 3、Q2 6、Q3 4、Q4 4、Q5 5、Q6 5、Q7 5、Q8 4、Q9 4、Q10 5分钟。
+
+[来源] course-design.qmd；demos/compression_lab.py；https://helpx.adobe.com/photoshop/desktop/save-and-export/export-files-to-different-formats/file-compression-in-photoshop.html
+
+https://www.mpeg.org/standards/MPEG-1/
+
+https://www.iis.fraunhofer.de/content/dam/iis/de/doc/ame/conference/AES-17-Conference_mp3-and-AAC-explained_AES17.pdf
+::: 
+
+## {background-image="assets/reference/slide-26.png" background-size="contain"}
+
+<!-- Q10 · question: 100KiB限制与候选结果；不显示选项答案 -->
+
+::: notes
+[问题 / 页面目的] 怎样在大小限制和信息要求之间选方案？
+
+[内部编号] Q10 · question
+
+[教学意图] 先收预测与方法，再揭示证据。
+
+[教师逐字稿] 传送限额100KiB，下面是题目给定的候选结果，不是现场测量。先个人选，再同桌分两列检查：大小是否过关，信息是否过关。请说明另一方案为什么不合格。给90秒。
+
+[教师提示] 
+
+[课堂控制] 本页学生可见内容只限当前阶段。演示失败20秒换本页静态证据。45分钟：Q1 3、Q2 6、Q3 4、Q4 4、Q5 5、Q6 5、Q7 5、Q8 4、Q9 4、Q10 5分钟。
+
+[来源] course-design.qmd；demos/compression_lab.py；本课明确约定的教学模型／题目条件
+::: 
+
+## {background-image="assets/reference/slide-27.png" background-size="contain"}
+
+<!-- Q10 · answer: 加入源程序A／照片B的双条件选择 -->
+
+::: notes
+[问题 / 页面目的] 怎样在大小限制和信息要求之间选方案？
+
+[内部编号] Q10 · answer
+
+[教学意图] 让学生用本页证据修正判断；等待学生说出理由。
+
+[教师逐字稿] 程序A同时满足两关，B虽小但不能交回原bytes。照片B同时满足两关，A虽无损却超限。照片B的合格限于题中浏览用途。回看开场猜测，请把文件变小一定删内容改成更准确的一句。
+
+[教师提示] 300秒：30读题、90判断、60报告、30回扣、30定义、40出口、20收取。下两页收束只用剩余90秒；出口答案页课后显示。
+
+[课堂控制] 本页学生可见内容只限当前阶段。演示失败20秒换本页静态证据。45分钟：Q1 3、Q2 6、Q3 4、Q4 4、Q5 5、Q6 5、Q7 5、Q8 4、Q9 4、Q10 5分钟。
+
+[来源] course-design.qmd；demos/compression_lab.py；本课明确约定的教学模型／题目条件
+::: 
+
+## {background-image="assets/reference/slide-28.png" background-size="contain"}
+
+<!-- Q10 · conclusion: 定义和两类压缩 -->
+
+::: notes
+[问题 / 页面目的] 怎样在大小限制和信息要求之间选方案？
+
+[内部编号] Q10 · 形成概念
+
+[教学意图] 让学生用本页证据修正判断；等待学生说出理由。
+
+[教师逐字稿] 把刚才的三件事连起来：是否变小，是否完整恢复，是否适合当前任务。重复可以写成次数，相关性可以写成起点和变化，感知允许的近似可以舍弃部分区分。没有一种标签替我们完成全部判断。定义说的是存储与传输采用特殊编码，结果还取决于数据与开销。
+
+[教师提示] 
+
+[课堂控制] 本页学生可见内容只限当前阶段。演示失败20秒换本页静态证据。45分钟：Q1 3、Q2 6、Q3 4、Q4 4、Q5 5、Q6 5、Q7 5、Q8 4、Q9 4、Q10 5分钟。
+
+[来源] course-design.qmd；demos/compression_lab.py；本课明确约定的教学模型／题目条件
+::: 
+
+## {background-image="assets/reference/slide-29.png" background-size="contain"}
+
+<!-- Q10 · exit: 两句空栏，独立书写 -->
+
+::: notes
+[问题 / 页面目的] 怎样在大小限制和信息要求之间选方案？
+
+[内部编号] Q10 · 出口检查
+
+[教学意图] 让学生用本页证据修正判断；等待学生说出理由。
+
+[教师逐字稿] 现在自己写两句话，不跟同桌讨论。第一句要写出两个比较对象，第二句要区分人的感受与数据相等。40秒后收取，抽看三份。不要现在翻到参考答案页，避免学生照抄。
+
+[教师提示] 
+
+[课堂控制] 本页学生可见内容只限当前阶段。演示失败20秒换本页静态证据。45分钟：Q1 3、Q2 6、Q3 4、Q4 4、Q5 5、Q6 5、Q7 5、Q8 4、Q9 4、Q10 5分钟。
+
+[来源] course-design.qmd；demos/compression_lab.py；本课明确约定的教学模型／题目条件
+::: 
+
+## {background-image="assets/reference/slide-30.png" background-size="contain"}
+
+<!-- Q10 · exit-answer: 出口参考答案 -->
+
+::: notes
+[问题 / 页面目的] 怎样在大小限制和信息要求之间选方案？
+
+[内部编号] Q10 · exit-answer
+
+[教学意图] 让学生用本页证据修正判断；等待学生说出理由。
+
+[教师逐字稿] 这一页只在收取后或课后核对。比较解压结果与原始输入；没有看出变化只说明感知接近，不能证明原值一致。若学生只写原图与压缩图，回到Q3要求说明还原对象；若仍凭肉眼判无损，回到Q6两个原数映到120。
+
+[教师提示] 收取前不投影。作为课后反馈，可直接结束在上一页。
+
+[课堂控制] 本页学生可见内容只限当前阶段。演示失败20秒换本页静态证据。45分钟：Q1 3、Q2 6、Q3 4、Q4 4、Q5 5、Q6 5、Q7 5、Q8 4、Q9 4、Q10 5分钟。
+
+[来源] course-design.qmd；demos/compression_lab.py；本课明确约定的教学模型／题目条件
+::: 

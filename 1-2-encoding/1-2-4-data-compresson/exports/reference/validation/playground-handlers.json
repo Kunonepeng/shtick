@@ -1,0 +1,12 @@
+{
+  "pass": true,
+  "checks": [
+    "RLE 6B and 32B",
+    "exact restoration",
+    "input clears stale result",
+    "delta seven-step reveal and reset",
+    "quantization many-to-one and input bounds",
+    "no network dependency"
+  ],
+  "scope": "Node DOM handler harness; graphical browser not tested"
+}

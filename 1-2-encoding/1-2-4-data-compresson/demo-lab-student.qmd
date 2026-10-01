@@ -1,0 +1,220 @@
+---
+title: "数据压缩入门：学生观察与记录"
+lang: zh-CN
+format: html
+execute:
+  enabled: false
+---
+
+# 数据压缩入门：学生观察与记录
+
+45分钟核心课。先预测，再按教师指令运行当前单元。不要提前运行全部单元。
+
+需求：Python 3.10+、JupyterLab、Pillow；IPython由Jupyter提供。离线可运行，不需要widgets。整个课程目录一起复制。
+
+```{python}
+from pathlib import Path
+import sys
+from IPython.display import display, Image, HTML
+here = Path.cwd().resolve()
+candidates = [here, here / "1-2-encoding/1-2-4-data-compresson", *here.parents]
+ROOT = next((p for p in candidates if (p / "demos/compression_lab.py").is_file()), None)
+if ROOT is None:
+    raise FileNotFoundError("请将整个课程文件夹复制到本机，并从该文件夹打开Notebook")
+sys.path.insert(0, str(ROOT / "demos"))
+from compression_lab import (COLORS, ALTERNATING, GRAY, rle_encode, rle_decode,
+    named_runs, opening, predictive, approximate, image_evidence, save_jpeg_trial,
+    video_changes, show_comparison_pair)
+def show(name, width=384):
+    display(Image(filename=str(ROOT / "assets/evidence" / name), width=width))
+print("准备完成。按教师指令逐格运行，先写预测。")
+```
+
+## Q1 文件变小，是不是删掉了内容？ · D1
+
+图中有哪些内容可能变化？写下你想检查的对象。
+
+预测／观察：________________
+
+证据／判断：________________
+
+先运行：原图与数据量。
+
+```{python}
+show("opening-original.png", 256)
+opening(reveal=False)
+```
+
+收到预测后：只显示读回图，暂不检验精确相等。
+
+```{python}
+show("opening-restored.png", 256)
+```
+
+## Q2 连续重复的颜色，怎样少写一些？ · D2
+
+发送者看私有颜色卡。记录规则、短消息、接收者还原结果；比较后再运行。
+
+预测／观察：________________
+
+证据／判断：________________
+
+活动后运行编码。
+
+```{python}
+encoded = rle_encode(COLORS)
+print(named_runs(encoded))
+print("编码的bytes：", list(encoded))
+```
+
+先预测还原，再运行。
+
+```{python}
+restored = rle_decode(encoded)
+print("颜色顺序：", [int(v) for v in restored])
+```
+
+## Q3 少写以后，怎样证明一个也没丢？ · D1
+
+提出一个精确检验方法。应比较哪两个对象？
+
+预测／观察：________________
+
+证据／判断：________________
+
+核对方法后运行。
+
+```{python}
+print("RLE读回与输入一致：", rle_decode(rle_encode(COLORS)) == COLORS)
+opening(reveal=True)
+```
+
+## Q4 同一规则，为什么有时反而变大？ · D2
+
+两串都是16B；相同连续段规则，哪串更省？先数段，再运行。
+
+预测／观察：________________
+
+证据／判断：________________
+
+运行两组比较。
+
+```{python}
+for name, data in [("连续段", COLORS), ("红绿交替", ALTERNATING)]:
+    result = rle_encode(data)
+    print(name, "输入", len(data), "B；编码", len(result), "B；读回一致", rle_decode(result) == data)
+```
+
+## Q5 相邻值不相同，还能利用它们的关系吗？ · D3
+
+原值120,121,122,121,120,120,121,122。先提规则，再填A2差值、读回末三项。
+
+预测／观察：________________
+
+证据／判断：________________
+
+完成表后运行。
+
+```{python}
+values = list(GRAY)
+predictive(values)
+```
+
+可选：学生提议出现大差值时，先预测能否使用本码表。
+
+```{python}
+try:
+    print(predictive([120, 150]))
+except ValueError as error:
+    print(error)
+```
+
+## Q6 只留近似值，还能找回原数吗？ · D4
+
+归最近的4的倍数，中点向上、上限252。写两个能恢复为120的原数。
+
+预测／观察：________________
+
+证据／判断：________________
+
+完成A2近似表后运行。
+
+```{python}
+approximate(GRAY)
+```
+
+先将你想到的两个原数填入列表，再检验。
+
+```{python}
+candidate_values = []  # 填你想到的两个原数
+if len(candidate_values) == 2:
+    display(approximate(candidate_values))
+else:
+    print("先填两个原数，再运行检验。")
+```
+
+## Q7 看起来差不多，能否叫无损？ · D5
+
+先比较中性A/B，再写：看不出变化足以证明数据相同吗？
+
+预测／观察：________________
+
+证据／判断：________________
+
+只看图，先收判断。
+
+```{python}
+show_comparison_pair()
+```
+
+收判断后运行像素与文件大小检验。
+
+```{python}
+image_evidence()
+```
+
+同坐标放大比较。
+
+```{python}
+print("A：同坐标放大")
+show("crop-source.png", 768)
+print("B：同坐标放大")
+show("crop-quality80.png", 768)
+```
+
+可选低质量对照；核心课赶时间时跳过。
+
+```{python}
+show("crop-quality20.png", 768)
+```
+
+可选：改quality并实测，只保存到demos/scratch。
+
+```{python}
+save_jpeg_trial(quality=80)
+```
+
+## Q8 同一种误差，哪些任务能接受？
+
+A3：通知少了日期，程序少了等号（输入60），照片为清楚的浏览副本。逐项判断并写理由。
+
+判断与理由：________________
+
+## Q9 看扩展名，就能判定压缩方式吗？
+
+依据PNG像素检验与TIFF配置卡，改正‘所有图片压缩都有损’。JPG、TIF、MP3、MPEG分别要补什么条件？
+
+判断与理由：________________
+
+## Q10 怎样在大小限制和信息要求之间选方案？
+
+A3题目给定结果：限额100KiB；程序A80KiB/完整恢复、B50KiB/删改；照片A110KiB/像素一致、B70KiB/主题清楚。两项任务分别选择，并检查大小与信息要求。
+
+判断与理由：________________
+
+## 出口检查
+
+无损判断要比较________与________。
+
+照片看不出变化仍可能有损，因为________。
+

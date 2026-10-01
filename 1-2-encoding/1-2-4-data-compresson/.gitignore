@@ -1,2 +1,11 @@
+.build/
+sources/node_modules
+__pycache__/
+**/__pycache__/
+demos/scratch/
+.quarto/
+validation/*/slide-*.png
+validation/*/worksheet-*.png
+
 /.quarto/
 **/*.quarto_ipynb

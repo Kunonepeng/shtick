@@ -1,0 +1,40 @@
+{
+  "reveal_slide_count": 30,
+  "title_slide_suppressed": true,
+  "background_assets_present": true,
+  "unchanged_visually_reviewed_slides": [
+    1,
+    2,
+    3,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    21,
+    22,
+    23,
+    24,
+    26,
+    27,
+    28,
+    29,
+    30
+  ],
+  "changed_reinspected_slides": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    17,
+    18,
+    19,
+    20,
+    25
+  ],
+  "final_pptx_sha256": "8a47b4bbedc46bfcd9246c456073252f51fbbecbe4e49b2e03f409f83e0515a6"
+}

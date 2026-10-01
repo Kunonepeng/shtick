@@ -1,0 +1,122 @@
+{
+  "pptx": "/Users/chran/repo/shtick/1-2-encoding/1-2-4-data-compresson/validation/draft-1/data-compression.pptx",
+  "slides": 30,
+  "question_slides": [
+    [
+      2,
+      "Q1"
+    ],
+    [
+      4,
+      "Q2"
+    ],
+    [
+      6,
+      "Q3"
+    ],
+    [
+      9,
+      "Q4"
+    ],
+    [
+      11,
+      "Q5"
+    ],
+    [
+      14,
+      "Q6"
+    ],
+    [
+      17,
+      "Q7"
+    ],
+    [
+      21,
+      "Q8"
+    ],
+    [
+      23,
+      "Q9"
+    ],
+    [
+      26,
+      "Q10"
+    ]
+  ],
+  "native_table_slides": [
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27
+  ],
+  "fonts": [
+    "Alibaba PuHuiTi 3.0 115 Black",
+    "Alibaba PuHuiTi 3.0 55 Regular"
+  ],
+  "minimum_notes_characters": 313,
+  "D1": {
+    "输入数据B": 4096,
+    "编码数据B": 38,
+    "解压数据B": 4096,
+    "解压结果与原输入逐byte一致": true
+  },
+  "D5": {
+    "未压缩RGB数据B": 248832,
+    "像素总数": 82944,
+    "结果": [
+      {
+        "文件": "test-source.png",
+        "完整文件B": 4441,
+        "尺寸": [
+          384,
+          216
+        ],
+        "变化像素": 0,
+        "回读像素一致": true
+      },
+      {
+        "文件": "test-quality80.jpg",
+        "完整文件B": 10766,
+        "尺寸": [
+          384,
+          216
+        ],
+        "变化像素": 28917,
+        "回读像素一致": false
+      },
+      {
+        "文件": "test-quality20.jpg",
+        "完整文件B": 6752,
+        "尺寸": [
+          384,
+          216
+        ],
+        "变化像素": 66885,
+        "回读像素一致": false
+      }
+    ]
+  },
+  "issues": [
+    "Packaged image evidence drift",
+    "Slide 16 below content safe area: lossy-size",
+    "Slide 18 below content safe area: format-a",
+    "Slide 18 below content safe area: format-b",
+    "Slide 19 below content safe area: format-a",
+    "Slide 19 below content safe area: format-b",
+    "Slide 20 below content safe area: format-a",
+    "Slide 20 below content safe area: format-b",
+    "Slide 22 below content safe area: use-answer",
+    "Slide 24 below content safe area: format-fix",
+    "Slide 25 below content safe area: format-fix",
+    "Slide 25 below content safe area: format-overlay",
+    "Slide 25 below content safe area: format-key",
+    "Slide 26 below content safe area: decision-prompt",
+    "Slide 27 below content safe area: decision-prompt",
+    "Slide 27 below content safe area: choice-answer",
+    "Slide 30 below content safe area: exit-answer-two"
+  ],
+  "pass": false
+}

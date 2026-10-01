@@ -171,7 +171,7 @@ ul.task-list li input[type="checkbox"] {
   </ul></li>
   <li><a href="#c6-两课时扩展与教师拓展" id="toc-c6-两课时扩展与教师拓展" class="nav-link" data-scroll-target="#c6-两课时扩展与教师拓展">C6 两课时扩展与教师拓展</a></li>
   <li><a href="#c7-来源与核查范围教师侧" id="toc-c7-来源与核查范围教师侧" class="nav-link" data-scroll-target="#c7-来源与核查范围教师侧">C7 来源与核查范围（教师侧）</a></li>
-  <li><a href="#c8-本阶段状态与证据入口" id="toc-c8-本阶段状态与证据入口" class="nav-link" data-scroll-target="#c8-本阶段状态与证据入口">C8 本阶段状态与证据入口</a></li>
+  <li><a href="#c8-配套材料审查与证据入口" id="toc-c8-配套材料审查与证据入口" class="nav-link" data-scroll-target="#c8-配套材料审查与证据入口">C8 配套材料、审查与证据入口</a></li>
   </ul>
 </nav>
 </div>
@@ -207,9 +207,9 @@ ul.task-list li input[type="checkbox"] {
 <h1>C0 对象、课时与本文件的角色</h1>
 <p>高中信息科技，计划45分钟。学生已学过bit／byte、二进制编码、图像像素和音频样本，知道“数据需要按约定解释”。不要求会写Python，不要求掌握熵、Huffman树、DCT或频域分析。若此前尚未学习图像／音频编码，用灰度格和短声音介绍观察对象，不另讲采样定理。</p>
 <p>默认教师使用Windows、WPS和JupyterLab，学生用纸笔参与。教师在预测后运行演示，学生负责提出方案、核对还原结果和判断用途。课时与设备条件是备课假设，尚未经本班试讲。</p>
-<p>本文件为教学设计依据，回答问题链、活动、演示证据、揭示顺序和技术边界。本阶段完成设计及计算原型核查；PPTX、教师／学生Notebook、动画、活动单和完整媒体包为后续制作内容。本文件不是学生阅读材料，不能整页投影。</p>
-<p>沿用用户指定的目录名<code>1-2-4-data-compresson</code>。所有本课材料放在本目录。后续PPTX依照项目<code>slide-style-guide.md</code>，每个Q先给独立问题页，再复制原页增加证据；问题的文字、字号和位置保持不变。内部Q／D／A编号只用于教师导航。每张教学页备注以完整问题或页面目的开始，并保留该页可说出口的逐字稿。</p>
-<p>学生可见内容分为“投影提问”“运行后证据”“形成结论”。后两项必须在预测／活动后揭示。操作参数、预期回答、纠错追问、源代码实现、研究来源与备用方案均为教师侧。学生版Notebook后续仅保留问题、必要条件、预测空栏和分阶段输出，不放教师答案；旧输出清空后再上课。代码包含答案时需检查实际折叠状态，不能只靠<code>hide-input</code>标签。</p>
+<p>本文件为教学设计依据，回答问题链、活动、演示证据、揭示顺序和技术边界。45分钟核心课的PPTX、教师／学生Notebook、逐步交互演示、活动单与静态证据均已配套；文件入口见C8。D6音频试听属于第二课时规格，未提供完成时延与增益对齐的MP3样本。本文件不是学生阅读材料，不能整页投影。</p>
+<p>沿用用户指定的目录名<code>1-2-4-data-compresson</code>。所有本课材料放在本目录。PPTX依照项目<code>slide-style-guide.md</code>，每个Q先给独立问题页，再复制原页增加证据；问题的文字、字号和位置保持不变。内部Q／D／A编号只用于教师导航。每张教学页备注以完整问题或页面目的开始，并保留该页可说出口的逐字稿。</p>
+<p>学生可见内容分为“投影提问”“运行后证据”“形成结论”。后两项必须在预测／活动后揭示。操作参数、预期回答、纠错追问、源代码实现、研究来源与备用方案均为教师侧。学生版Notebook保留问题、必要条件、预测空栏和分阶段运行单元，不放教师参考答案或预存输出；运行当前单元后才显示相应证据。当前版不依赖折叠代码隐藏答案，具体编解码计算由共享模块完成。</p>
 </section>
 <section id="c1-本课要回答什么" class="level1">
 <h1>C1 本课要回答什么</h1>
@@ -631,7 +631,7 @@ B：红绿红绿红绿红绿红绿红绿红绿红绿</code></pre>
 </section>
 <section id="学生任务预期回答与追问-1" class="level2">
 <h2 class="anchored" data-anchor-id="学生任务预期回答与追问-1">学生任务、预期回答与追问</h2>
-<p>先在正常显示尺寸比较，再查看相同坐标的细线区域放大图。学生先回答能否发现差别，再回答能否由感受证明精确相等。这两个问题分别收答案。若有人一眼看出JPEG变化，承认观察，不要求全班必须“被骗”。</p>
+<p>先在正常显示尺寸比较，再查看相同坐标的文字细节区域放大图。学生先回答能否发现差别，再回答能否由感受证明精确相等。这两个问题分别收答案。若有人一眼看出JPEG变化，承认观察，不要求全班必须“被骗”。</p>
 <p>随后给一个明确使用任务：“这张测试图只用于展示明暗渐变方向，两图还能辨认由黑到白的方向吗？”学生指认，报告所需信息是否仍可获取。再把任务改为“读取每格原灰度用于测量”，让学生说明为什么不能只依据外观选JPEG。前一个任务的合格，不替后一个任务作保证。</p>
 </section>
 <section id="提问与揭示逐字稿教师侧-5" class="level2">
@@ -641,7 +641,7 @@ B：红绿红绿红绿红绿红绿红绿红绿红绿</code></pre>
 </section>
 <section id="d5运行后证据与结论" class="level2">
 <h2 class="anchored" data-anchor-id="d5运行后证据与结论">D5运行后证据与结论</h2>
-<p>先揭示文件格式、尺寸和完整文件大小；再显示JPEG与源RGB的相等结果、变化像素数；最后揭示一个细线区域的原图／JPEG放大对照。PNG回读像素必须与源RGB一致。每次JPEG都直接来自同一个源RGB，不在前一个JPEG上再次保存；保持尺寸、RGB模式与色度子采样参数相同。</p>
+<p>先收A／B图的外观判断；揭示格式和像素相等结果，再看同坐标文字细节放大，最后比较完整文件大小。PPTX按此顺序逐页揭示；Notebook运行像素检验时同时输出文件大小，由教师控制讨论焦点。PNG回读像素必须与源RGB一致。每次JPEG都直接来自同一个源RGB，不在前一个JPEG上再次保存；保持尺寸、RGB模式与色度子采样参数相同。</p>
 <p>无损PNG保留像素，常见有损JPEG用近似表示图像；本例两者都比248,832B的未压缩RGB数据小。但实测PNG为4,441B，JPEG quality80为10,766B：这个有渐变、细线和字符的测试图，PNG反而更小。教师明确说：“有损／无损不能替我们排文件大小；还要看数据结构和具体编码。”这组实际结果作为Q4结论的再次迁移，不另外开一次算法讲授。未压缩像素数据量与完整文件大小分栏，具体记录见C4。无需展开JPEG算法。</p>
 <p>音频类比由教师一句说明：“MP3也利用听觉感知模型分配精度，不是只删掉‘20kHz以上’就完成压缩。”实际试听留到D6拓展；本问不从图像实验推导人耳规律。</p>
 </section>
@@ -830,7 +830,7 @@ B：红绿红绿红绿红绿红绿红绿红绿红绿</code></pre>
 </section>
 <section id="c4-demo实施规格与动画分镜教师侧" class="level1">
 <h1>C4 Demo实施规格与动画分镜（教师侧）</h1>
-<p>下面是后续制作的规格。<strong>现阶段不把设计规格写成已交付动画／Notebook。</strong>每个演示保留静态备用证据；精确数据由原生图形或真实执行输出呈现，不用生成式图片伪造文件、像素值或软件界面。</p>
+<p>下面保留D1–D5的实施依据和D6的拓展规格。D1–D5已落实到两版Notebook、PPTX静态备用页及按钮演示；D6仅保留最低规格，不计为完成的试听材料。精确数据由原生图形或真实执行输出呈现，不用生成式图片伪造文件、像素值或软件界面。</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 16%">
@@ -1000,7 +1000,7 @@ B：红绿红绿红绿红绿红绿红绿红绿红绿</code></pre>
 </section>
 <section id="精确结构分镜参考" class="level3">
 <h3 class="anchored" data-anchor-id="精确结构分镜参考">精确结构分镜参考</h3>
-<p>用途：把“保留变化所以可逆”和“多个原值合流所以不可逆”分开显示。以下为教师可检查的结构图，后续PPTX使用原生数字、箭头和固定位置；学生提问时隐藏已完成箭头。</p>
+<p>用途：把“保留变化所以可逆”和“多个原值合流所以不可逆”分开显示。以下为教师可检查的结构图，PPTX使用原生数字、关系符号和固定位置；学生提问时隐藏已完成映射。按钮演示供逐项读回，PPTX静态页供失败替代。</p>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -1210,11 +1210,12 @@ B：红绿红绿红绿红绿红绿红绿红绿红绿</code></pre>
 <p>RLE颜色、灰度差分、近似映射与约束题为本课自编模型，数值依据公开写明的规则计算，不能当作标准格式编码输出。<code>validation/check_design_evidence.py</code>用于核对D1、D2、D3、D4、D5的计算与编解码，输出保存为<code>validation/design-evidence.json</code>，图像等验证用输入在<code>validation/fixtures/</code>。该脚本含答案和检查结果，仅供教师核查，不是学生Notebook，也不作为已交付课堂Demo的证明。</p>
 <p>设计完成的判断包括：十问衔接、活动产出、揭示时机、技术范围、45分钟预算和静态降级路径。后续材料完成还须分别检查Notebook执行、全部PPTX页渲染与Notes、WPS／PowerPoint实际显示、投影可见性和本班试讲。设计文件可渲染或Python原型通过，不等于课堂成品已验收。</p>
 </section>
-<section id="c8-本阶段状态与证据入口" class="level1">
-<h1>C8 本阶段状态与证据入口</h1>
-<p>当前版本为v1.0。初稿完成后进行了两轮“列问题→修订→复核”，记录为<a href="validation/review-round-1.md">第一轮</a>和<a href="validation/review-round-2.md">第二轮</a>。本阶段交付教学设计、教师可查的编解码原型和HTML阅读预览；PPTX、两版Notebook、课堂活动单与交互动画尚未制作。</p>
-<p>核心45分钟含五个Demo和三组贯穿活动；D6音频与视频纸卡为第二课时扩展。可运行原型含答案，只用于备课与设计证据，运行方法：在本目录执行<code>python validation/check_design_evidence.py</code>，需Python和Pillow，结果见<a href="validation/design-evidence.json">编解码与数值记录</a>。音频仅核对PCM算式，未进行MP3编码或试听。</p>
-<p>下一阶段先按D1–D5的揭示顺序实现两版Notebook和静态备用图，再依本设计制作符合项目风格的PPTX及Notes。试讲与教室环境的验收状态应另行更新，不能由这两轮设计审查替代。</p>
+<section id="c8-配套材料审查与证据入口" class="level1">
+<h1>C8 配套材料、审查与证据入口</h1>
+<p>v1.0设计阶段的两轮“列问题→修订→复核”记录保留为<a href="validation/review-round-1.md">设计第一轮</a>和<a href="validation/review-round-2.md">设计第二轮</a>。v1.1配套45分钟核心课：30页原生可编辑<a href="exports/data-compression-v1.pptx">PPTX</a>、<a href="demo-lab-teacher.ipynb">教师Notebook</a>、<a href="demo-lab-student.ipynb">学生Notebook</a>、<a href="student-activities.qmd">活动单源码</a>、<a href="exports/print/student-activities.pdf">打印版</a>及<a href="demos/compression-playground.html">按钮演示</a>。教师／学生QMD与Notebook逐单元对应；学生文件不预存运行结果。教师须按当前阶段运行，避免提前给出后续答案。</p>
+<p><a href="sources/slide-plan.md">页计划</a>逐页指定学生此时可见的内容、留在备注的内容及证据。PPTX的复制揭示页不移动问题；核心证据同时有静态备用页。<a href="slides.qmd">Reveal.js源码</a>使用已审查PPTX的逐页渲染图和备注，作为参考版本。修改生产PPTX后需重新生成参考版，不能只改其中一份。</p>
+<p><a href="validation/materials-review.md">整包三轮审查</a>与设计审查分开记录，覆盖问题链、技术数值、揭示时机、Notebook执行、打印活动单、PPTX渲染、字体、原生对象、备注和文件间一致性。运行入口及教室准备见<a href="README.md">README</a>。<code>validation/check_design_evidence.py</code>继续保留设计计算原型；课堂运行改用<code>demos/compression_lab.py</code>，两版Notebook共享该模块，不依赖validation文件夹。</p>
+<p>核心45分钟含D1–D5与A1–A3。D6音频及视频活动是第二课时扩展；教师Notebook给出两帧更新的可执行模型，但本包未进行MP3编码或统一增益、时延对齐试听。Windows教室WPS／PowerPoint、JupyterLab界面、投影可见性及本班45分钟试讲需在对应环境验收，不能由本地程序和渲染检查替代。</p>
 </section>
 
 </main>

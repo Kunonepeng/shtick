@@ -1,8 +1,18 @@
 project:
   type: default
   output-dir: exports/reference
+  resources:
+    - validation/materials-round-*.md
+    - validation/review-3-final/*.json
+    - validation/review-3-final/montage.png
+    - validation/notebook-execution.json
+    - validation/playground-handlers.json
   render:
     - course-design.qmd
+    - demo-lab-teacher.qmd
+    - demo-lab-student.qmd
+    - student-activities.qmd
+    - slides.qmd
 format:
   html:
     toc: true
