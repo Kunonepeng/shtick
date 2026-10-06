@@ -1,0 +1,182 @@
+{
+  "version": "v4",
+  "date": "2026-10-01",
+  "passed": true,
+  "pptx_sha256": "eafbf062bad7183479b5904ffc1189b3fc5d75b7bd5eea62302f5fc34207cafd",
+  "copy_directory": "/private/var/folders/kw/9q_9dgsx6xqdngc4nt_skb3h0000gn/T/audio-v4-classroom-7yh2hjcm",
+  "copied_file_count": 103,
+  "checks": [
+    {
+      "file": "demos/audio-lab.html",
+      "link": "../assets/audio/music-44100-16-mono.wav",
+      "exists": true
+    },
+    {
+      "file": "demos/audio-lab.html",
+      "link": "../assets/audio/music-8000-16-mono.wav",
+      "exists": true
+    },
+    {
+      "file": "demos/audio-lab.html",
+      "link": "../assets/audio/tone-6000-at24000.wav",
+      "exists": true
+    },
+    {
+      "file": "demos/audio-lab.html",
+      "link": "../assets/audio/tone-lowpass-at8000.wav",
+      "exists": true
+    },
+    {
+      "file": "demos/audio-lab.html",
+      "link": "../assets/audio/music-22050-effective4-stored16-mono.wav",
+      "exists": true
+    },
+    {
+      "file": "demos/audio-lab.html",
+      "link": "../assets/audio/music-22050-16-mono.wav",
+      "exists": true
+    },
+    {
+      "file": "exports/reference-v4/slides.html",
+      "link": "slides_files/libs/clipboard/clipboard.min.js",
+      "exists": true
+    },
+    {
+      "file": "exports/reference-v4/slides.html",
+      "link": "slides_files/libs/quarto-html/tabby.min.js",
+      "exists": true
+    },
+    {
+      "file": "exports/reference-v4/slides.html",
+      "link": "slides_files/libs/quarto-html/popper.min.js",
+      "exists": true
+    },
+    {
+      "file": "exports/reference-v4/slides.html",
+      "link": "slides_files/libs/quarto-html/tippy.umd.min.js",
+      "exists": true
+    },
+    {
+      "file": "exports/reference-v4/slides.html",
+      "link": "slides_files/libs/quarto-html/tippy.css",
+      "exists": true
+    },
+    {
+      "file": "exports/reference-v4/slides.html",
+      "link": "slides_files/libs/quarto-html/light-border.css",
+      "exists": true
+    },
+    {
+      "file": "exports/reference-v4/slides.html",
+      "link": "slides_files/libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css",
+      "exists": true
+    },
+    {
+      "file": "exports/reference-v4/slides.html",
+      "link": "slides_files/libs/revealjs/dist/reset.css",
+      "exists": true
+    },
+    {
+      "file": "exports/reference-v4/slides.html",
+      "link": "slides_files/libs/revealjs/dist/reveal.css",
+      "exists": true
+    },
+    {
+      "file": "exports/reference-v4/slides.html",
+      "link": "slides_files/libs/revealjs/dist/theme/quarto-0427d8d92a431aa6a6430e53ec02a470.css",
+      "exists": true
+    },
+    {
+      "file": "exports/reference-v4/slides.html",
+      "link": "reveal-v4.css",
+      "exists": true
+    },
+    {
+      "file": "exports/reference-v4/slides.html",
+      "link": "slides_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css",
+      "exists": true
+    },
+    {
+      "file": "exports/reference-v4/slides.html",
+      "link": "slides_files/libs/revealjs/plugin/reveal-menu/menu.css",
+      "exists": true
+    },
+    {
+      "file": "exports/reference-v4/slides.html",
+      "link": "slides_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css",
+      "exists": true
+    },
+    {
+      "file": "exports/reference-v4/slides.html",
+      "link": "slides_files/libs/revealjs/plugin/quarto-support/footer.css",
+      "exists": true
+    },
+    {
+      "file": "exports/reference-v4/slides.html",
+      "link": "slides_files/libs/revealjs/dist/reveal.js",
+      "exists": true
+    },
+    {
+      "file": "exports/reference-v4/slides.html",
+      "link": "slides_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js",
+      "exists": true
+    },
+    {
+      "file": "exports/reference-v4/slides.html",
+      "link": "slides_files/libs/revealjs/plugin/pdf-export/pdfexport.js",
+      "exists": true
+    },
+    {
+      "file": "exports/reference-v4/slides.html",
+      "link": "slides_files/libs/revealjs/plugin/reveal-menu/menu.js",
+      "exists": true
+    },
+    {
+      "file": "exports/reference-v4/slides.html",
+      "link": "slides_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js",
+      "exists": true
+    },
+    {
+      "file": "exports/reference-v4/slides.html",
+      "link": "slides_files/libs/revealjs/plugin/quarto-support/support.js",
+      "exists": true
+    },
+    {
+      "file": "exports/reference-v4/slides.html",
+      "link": "slides_files/libs/revealjs/plugin/notes/notes.js",
+      "exists": true
+    },
+    {
+      "file": "exports/reference-v4/slides.html",
+      "link": "slides_files/libs/revealjs/plugin/search/search.js",
+      "exists": true
+    },
+    {
+      "file": "exports/reference-v4/slides.html",
+      "link": "slides_files/libs/revealjs/plugin/zoom/zoom.js",
+      "exists": true
+    },
+    {
+      "file": "exports/reference-v4/slides.html",
+      "link": "slides_files/libs/revealjs/plugin/math/math.js",
+      "exists": true
+    },
+    {
+      "role": "teacher",
+      "fresh_kernel": true,
+      "shared_module_from_copy": true,
+      "root": "/private/var/folders/kw/9q_9dgsx6xqdngc4nt_skb3h0000gn/T/audio-v4-classroom-7yh2hjcm",
+      "cwd": "/private/var/folders/kw/9q_9dgsx6xqdngc4nt_skb3h0000gn/T/audio-v4-classroom-7yh2hjcm",
+      "module": "/private/var/folders/kw/9q_9dgsx6xqdngc4nt_skb3h0000gn/T/audio-v4-classroom-7yh2hjcm/demos/audio_core.py"
+    },
+    {
+      "role": "student",
+      "fresh_kernel": true,
+      "shared_module_from_copy": true,
+      "root": "/private/var/folders/kw/9q_9dgsx6xqdngc4nt_skb3h0000gn/T/audio-v4-classroom-7yh2hjcm",
+      "cwd": "/private/var/folders/kw/9q_9dgsx6xqdngc4nt_skb3h0000gn/T/audio-v4-classroom-7yh2hjcm",
+      "module": "/private/var/folders/kw/9q_9dgsx6xqdngc4nt_skb3h0000gn/T/audio-v4-classroom-7yh2hjcm/demos/audio_core.py"
+    }
+  ],
+  "scope": "Offline relative dependencies and two fresh kernels in a copied directory. File-protocol browser and Windows classroom applications are separate."
+}

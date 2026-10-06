@@ -1,0 +1,6 @@
+import fs from 'node:fs/promises';import path from 'node:path';import {fileURLToPath,pathToFileURL} from 'node:url';
+const ROOT=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+const SKILL='/Users/chran/.codex/plugins/cache/openai-primary-runtime/presentations/26.921.10847/skills/presentations';
+const {finalizePresentation}=await import(pathToFileURL(path.join(SKILL,'container_tools/artifact_tool_utils.mjs')).href);
+const result=await finalizePresentation({workspaceDir:ROOT,candidatePath:path.join(ROOT,'.build/audio-candidate.pptx'),finalPath:path.join(ROOT,'exports/1-2-3-audio-encoding-v3-final.pptx'),pythonExecutable:'/Users/chran/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3',integrityValidatorPath:path.join(SKILL,'container_tools/inspect_presentation_package_integrity.py'),layoutValidatorPath:path.join(SKILL,'container_tools/inspect_presentation_layout_geometry.py'),layoutArgs:['--expected-slide-size-emu','12192000,6858000','--validate-heading-fit'],explicitTotalSlideCount:40,fontPolicy:{basis:'user_request',families:['Alibaba PuHuiTi 3.0 115 Black','Alibaba PuHuiTi 3.0 55 Regular']},verifyArtifactToolImport:true,receiptPath:path.join(ROOT,'validation/native-finalization-v3-final.json')});
+console.log(JSON.stringify(result));

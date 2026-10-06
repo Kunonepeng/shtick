@@ -1,0 +1,591 @@
+{
+  "version": "audio-v4",
+  "slides": 62,
+  "roster": [
+    {
+      "page": 1,
+      "id": "opening",
+      "q": null,
+      "stage": "opening",
+      "pair": null,
+      "tree_nodes": []
+    },
+    {
+      "page": 2,
+      "id": "Q1-question",
+      "q": 1,
+      "stage": "question",
+      "pair": null,
+      "tree_nodes": []
+    },
+    {
+      "page": 3,
+      "id": "Q1-answer",
+      "q": 1,
+      "stage": "answer",
+      "pair": "Q1-question",
+      "tree_nodes": []
+    },
+    {
+      "page": 4,
+      "id": "Q2-question",
+      "q": 2,
+      "stage": "question",
+      "pair": null,
+      "tree_nodes": []
+    },
+    {
+      "page": 5,
+      "id": "Q2-answer",
+      "q": 2,
+      "stage": "answer",
+      "pair": "Q2-question",
+      "tree_nodes": []
+    },
+    {
+      "page": 6,
+      "id": "Q3-question",
+      "q": 3,
+      "stage": "question",
+      "pair": null,
+      "tree_nodes": []
+    },
+    {
+      "page": 7,
+      "id": "Q3-answer",
+      "q": 3,
+      "stage": "answer",
+      "pair": "Q3-question",
+      "tree_nodes": []
+    },
+    {
+      "page": 8,
+      "id": "Q4-question",
+      "q": 4,
+      "stage": "question",
+      "pair": null,
+      "tree_nodes": []
+    },
+    {
+      "page": 9,
+      "id": "Q4-answer",
+      "q": 4,
+      "stage": "answer",
+      "pair": "Q4-question",
+      "tree_nodes": []
+    },
+    {
+      "page": 10,
+      "id": "Q4-B-question",
+      "q": 4,
+      "stage": "question",
+      "pair": null,
+      "tree_nodes": []
+    },
+    {
+      "page": 11,
+      "id": "Q4-B-answer",
+      "q": 4,
+      "stage": "answer",
+      "pair": "Q4-B-question",
+      "tree_nodes": []
+    },
+    {
+      "page": 12,
+      "id": "Q5-question",
+      "q": 5,
+      "stage": "question",
+      "pair": null,
+      "tree_nodes": []
+    },
+    {
+      "page": 13,
+      "id": "Q5-answer",
+      "q": 5,
+      "stage": "answer",
+      "pair": "Q5-question",
+      "tree_nodes": []
+    },
+    {
+      "page": 14,
+      "id": "Q6-question",
+      "q": 6,
+      "stage": "question",
+      "pair": null,
+      "tree_nodes": []
+    },
+    {
+      "page": 15,
+      "id": "Q6-answer",
+      "q": 6,
+      "stage": "answer",
+      "pair": "Q6-question",
+      "tree_nodes": []
+    },
+    {
+      "page": 16,
+      "id": "Q7-question",
+      "q": 7,
+      "stage": "question",
+      "pair": null,
+      "tree_nodes": []
+    },
+    {
+      "page": 17,
+      "id": "Q7-answer",
+      "q": 7,
+      "stage": "answer",
+      "pair": "Q7-question",
+      "tree_nodes": []
+    },
+    {
+      "page": 18,
+      "id": "T1-summary",
+      "q": 7,
+      "stage": "tree-summary",
+      "pair": null,
+      "tree_nodes": [
+        "root"
+      ]
+    },
+    {
+      "page": 19,
+      "id": "T1-sampling",
+      "q": 7,
+      "stage": "tree-reveal",
+      "pair": "T1-summary",
+      "tree_nodes": [
+        "root",
+        "sampling"
+      ]
+    },
+    {
+      "page": 20,
+      "id": "T1-quantization",
+      "q": 7,
+      "stage": "tree-reveal",
+      "pair": "T1-sampling",
+      "tree_nodes": [
+        "root",
+        "sampling",
+        "quantization"
+      ]
+    },
+    {
+      "page": 21,
+      "id": "T1-encoding",
+      "q": 7,
+      "stage": "tree-reveal",
+      "pair": "T1-quantization",
+      "tree_nodes": [
+        "root",
+        "sampling",
+        "quantization",
+        "encoding"
+      ]
+    },
+    {
+      "page": 22,
+      "id": "T1-parameters",
+      "q": 7,
+      "stage": "tree-reveal",
+      "pair": "T1-encoding",
+      "tree_nodes": [
+        "root",
+        "sampling",
+        "quantization",
+        "encoding",
+        "parameters"
+      ]
+    },
+    {
+      "page": 23,
+      "id": "Q8-question",
+      "q": 8,
+      "stage": "question",
+      "pair": null,
+      "tree_nodes": []
+    },
+    {
+      "page": 24,
+      "id": "Q8-answer",
+      "q": 8,
+      "stage": "answer",
+      "pair": "Q8-question",
+      "tree_nodes": []
+    },
+    {
+      "page": 25,
+      "id": "Q8-B-question",
+      "q": 8,
+      "stage": "question",
+      "pair": null,
+      "tree_nodes": []
+    },
+    {
+      "page": 26,
+      "id": "Q8-B-answer",
+      "q": 8,
+      "stage": "answer",
+      "pair": "Q8-B-question",
+      "tree_nodes": []
+    },
+    {
+      "page": 27,
+      "id": "Q9-question",
+      "q": 9,
+      "stage": "question",
+      "pair": null,
+      "tree_nodes": []
+    },
+    {
+      "page": 28,
+      "id": "Q9-answer",
+      "q": 9,
+      "stage": "answer",
+      "pair": "Q9-question",
+      "tree_nodes": []
+    },
+    {
+      "page": 29,
+      "id": "Q10-question",
+      "q": 10,
+      "stage": "question",
+      "pair": null,
+      "tree_nodes": []
+    },
+    {
+      "page": 30,
+      "id": "Q10-answer",
+      "q": 10,
+      "stage": "answer",
+      "pair": "Q10-question",
+      "tree_nodes": []
+    },
+    {
+      "page": 31,
+      "id": "Q10-B-question",
+      "q": 10,
+      "stage": "question",
+      "pair": null,
+      "tree_nodes": []
+    },
+    {
+      "page": 32,
+      "id": "Q10-B-answer",
+      "q": 10,
+      "stage": "answer",
+      "pair": "Q10-B-question",
+      "tree_nodes": []
+    },
+    {
+      "page": 33,
+      "id": "Q11-question",
+      "q": 11,
+      "stage": "question",
+      "pair": null,
+      "tree_nodes": []
+    },
+    {
+      "page": 34,
+      "id": "Q11-answer",
+      "q": 11,
+      "stage": "answer",
+      "pair": "Q11-question",
+      "tree_nodes": []
+    },
+    {
+      "page": 35,
+      "id": "Q12-question",
+      "q": 12,
+      "stage": "question",
+      "pair": null,
+      "tree_nodes": []
+    },
+    {
+      "page": 36,
+      "id": "Q12-answer",
+      "q": 12,
+      "stage": "answer",
+      "pair": "Q12-question",
+      "tree_nodes": []
+    },
+    {
+      "page": 37,
+      "id": "T2-summary",
+      "q": 12,
+      "stage": "tree-summary",
+      "pair": null,
+      "tree_nodes": [
+        "root",
+        "sampling",
+        "quantization",
+        "encoding",
+        "parameters"
+      ]
+    },
+    {
+      "page": 38,
+      "id": "T2-frequency",
+      "q": 12,
+      "stage": "tree-reveal",
+      "pair": "T2-summary",
+      "tree_nodes": [
+        "root",
+        "sampling",
+        "quantization",
+        "encoding",
+        "parameters",
+        "frequency"
+      ]
+    },
+    {
+      "page": 39,
+      "id": "T2-precision",
+      "q": 12,
+      "stage": "tree-reveal",
+      "pair": "T2-frequency",
+      "tree_nodes": [
+        "root",
+        "sampling",
+        "quantization",
+        "encoding",
+        "parameters",
+        "frequency",
+        "precision"
+      ]
+    },
+    {
+      "page": 40,
+      "id": "Q13-question",
+      "q": 13,
+      "stage": "question",
+      "pair": null,
+      "tree_nodes": []
+    },
+    {
+      "page": 41,
+      "id": "Q13-answer",
+      "q": 13,
+      "stage": "answer",
+      "pair": "Q13-question",
+      "tree_nodes": []
+    },
+    {
+      "page": 42,
+      "id": "Q14-question",
+      "q": 14,
+      "stage": "question",
+      "pair": null,
+      "tree_nodes": []
+    },
+    {
+      "page": 43,
+      "id": "Q14-answer",
+      "q": 14,
+      "stage": "answer",
+      "pair": "Q14-question",
+      "tree_nodes": []
+    },
+    {
+      "page": 44,
+      "id": "Q15-question",
+      "q": 15,
+      "stage": "question",
+      "pair": null,
+      "tree_nodes": []
+    },
+    {
+      "page": 45,
+      "id": "Q15-count",
+      "q": 15,
+      "stage": "evidence",
+      "pair": "Q15-question",
+      "tree_nodes": []
+    },
+    {
+      "page": 46,
+      "id": "Q15-answer",
+      "q": 15,
+      "stage": "answer",
+      "pair": "Q15-count",
+      "tree_nodes": []
+    },
+    {
+      "page": 47,
+      "id": "Q16-question",
+      "q": 16,
+      "stage": "question",
+      "pair": null,
+      "tree_nodes": []
+    },
+    {
+      "page": 48,
+      "id": "Q16-answer",
+      "q": 16,
+      "stage": "answer",
+      "pair": "Q16-question",
+      "tree_nodes": []
+    },
+    {
+      "page": 49,
+      "id": "Q17-question",
+      "q": 17,
+      "stage": "question",
+      "pair": null,
+      "tree_nodes": []
+    },
+    {
+      "page": 50,
+      "id": "Q17-answer",
+      "q": 17,
+      "stage": "answer",
+      "pair": "Q17-question",
+      "tree_nodes": []
+    },
+    {
+      "page": 51,
+      "id": "Q17-B-question",
+      "q": 17,
+      "stage": "question",
+      "pair": null,
+      "tree_nodes": []
+    },
+    {
+      "page": 52,
+      "id": "Q17-B-answer",
+      "q": 17,
+      "stage": "answer",
+      "pair": "Q17-B-question",
+      "tree_nodes": []
+    },
+    {
+      "page": 53,
+      "id": "T3-summary",
+      "q": 17,
+      "stage": "tree-summary",
+      "pair": null,
+      "tree_nodes": [
+        "root",
+        "sampling",
+        "quantization",
+        "encoding",
+        "parameters",
+        "frequency",
+        "precision"
+      ]
+    },
+    {
+      "page": 54,
+      "id": "T3-payload",
+      "q": 17,
+      "stage": "tree-reveal",
+      "pair": "T3-summary",
+      "tree_nodes": [
+        "root",
+        "sampling",
+        "quantization",
+        "encoding",
+        "parameters",
+        "frequency",
+        "precision",
+        "payload"
+      ]
+    },
+    {
+      "page": 55,
+      "id": "T3-container",
+      "q": 17,
+      "stage": "tree-reveal",
+      "pair": "T3-payload",
+      "tree_nodes": [
+        "root",
+        "sampling",
+        "quantization",
+        "encoding",
+        "parameters",
+        "frequency",
+        "precision",
+        "payload",
+        "container"
+      ]
+    },
+    {
+      "page": 56,
+      "id": "Q18-question",
+      "q": 18,
+      "stage": "question",
+      "pair": null,
+      "tree_nodes": []
+    },
+    {
+      "page": 57,
+      "id": "Q18-answer",
+      "q": 18,
+      "stage": "answer",
+      "pair": "Q18-question",
+      "tree_nodes": []
+    },
+    {
+      "page": 58,
+      "id": "T4-summary",
+      "q": 18,
+      "stage": "tree-summary",
+      "pair": null,
+      "tree_nodes": [
+        "root",
+        "sampling",
+        "quantization",
+        "encoding",
+        "parameters",
+        "frequency",
+        "precision",
+        "payload",
+        "container"
+      ]
+    },
+    {
+      "page": 59,
+      "id": "T4-constraints",
+      "q": 18,
+      "stage": "tree-reveal",
+      "pair": "T4-summary",
+      "tree_nodes": [
+        "root",
+        "sampling",
+        "quantization",
+        "encoding",
+        "parameters",
+        "frequency",
+        "precision",
+        "payload",
+        "container",
+        "constraints"
+      ]
+    },
+    {
+      "page": 60,
+      "id": "Q19-question",
+      "q": 19,
+      "stage": "question",
+      "pair": null,
+      "tree_nodes": []
+    },
+    {
+      "page": 61,
+      "id": "Q19-answer",
+      "q": 19,
+      "stage": "answer",
+      "pair": "Q19-question",
+      "tree_nodes": []
+    },
+    {
+      "page": 62,
+      "id": "homework",
+      "q": null,
+      "stage": "homework",
+      "pair": null,
+      "tree_nodes": []
+    }
+  ]
+}

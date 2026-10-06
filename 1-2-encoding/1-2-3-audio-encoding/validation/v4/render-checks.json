@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "pptx_sha256": "eafbf062bad7183479b5904ffc1189b3fc5d75b7bd5eea62302f5fc34207cafd",
+  "pdf_sha256": "3dbd62cb580c3aecf88d507e3e600097d794d5747cd2a6a9ba3a78070ca14f95",
+  "pages": 62,
+  "dimensions": [
+    1601,
+    900
+  ],
+  "actual_fonts": [
+    "/BAAAAA+AlibabaPuHuiTi_3_115_Black",
+    "/CAAAAA+AlibabaPuHuiTi_3_115_Black",
+    "/DAAAAA+AlibabaPuHuiTi_3_55_Regular",
+    "/EAAAAA+AlibabaPuHuiTi_3_115_Black",
+    "/FAAAAA+AlibabaPuHuiTi_3_55_Regular",
+    "/GAAAAA+AlibabaPuHuiTi_3_115_Black",
+    "/HAAAAA+AlibabaPuHuiTi_3_115_Black",
+    "/IAAAAA+AlibabaPuHuiTi_3_55_Regular",
+    "/JAAAAA+AlibabaPuHuiTi_3_115_Black",
+    "/KAAAAA+AlibabaPuHuiTi_3_55_Regular",
+    "/LAAAAA+AlibabaPuHuiTi_3_55_Regular"
+  ],
+  "renderer": "LibreOfficeDev 26.8.0.0.alpha0 2c87e51eeaa2b413ff4ae097b2705eea1995d8e5",
+  "scope": "Local PDF renderer and fonts; WPS, PowerPoint and projector remain separate."
+}

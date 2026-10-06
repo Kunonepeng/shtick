@@ -1,0 +1,620 @@
+{
+  "date": "2026-10-01",
+  "passed": true,
+  "tracked_diff_check_passed": true,
+  "tracked_output": "",
+  "scope_only_this_lesson": true,
+  "new_text_files_scanned": 147,
+  "new_binary_files": 100,
+  "authored_issues": [],
+  "preserved_raw_output_whitespace": [
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/course-design.html",
+      "line": 2211,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/course-design.html",
+      "line": 2258,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/course-design.html",
+      "line": 2259,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/course-design.html",
+      "line": 2260,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/course-design.html",
+      "line": 2262,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/course-design.html",
+      "line": 3109,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/course-design.html",
+      "line": 3129,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/course-design.html",
+      "line": 3130,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/course-design.html",
+      "line": 3133,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/course-design.html",
+      "line": 3210,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/course-design.html",
+      "line": 3285,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/course-design.html",
+      "line": 3313,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/course-design.html",
+      "line": 3337,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/course-design.html",
+      "line": 3377,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/demo-lab-student.html",
+      "line": 2220,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/demo-lab-student.html",
+      "line": 2221,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/demo-lab-student.html",
+      "line": 2222,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/demo-lab-student.html",
+      "line": 2224,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/demo-lab-student.html",
+      "line": 2512,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/demo-lab-student.html",
+      "line": 2532,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/demo-lab-student.html",
+      "line": 2533,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/demo-lab-student.html",
+      "line": 2536,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/demo-lab-student.html",
+      "line": 2613,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/demo-lab-student.html",
+      "line": 2688,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/demo-lab-student.html",
+      "line": 2716,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/demo-lab-student.html",
+      "line": 2740,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/demo-lab-student.html",
+      "line": 2780,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/demo-lab-teacher.html",
+      "line": 2220,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/demo-lab-teacher.html",
+      "line": 2221,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/demo-lab-teacher.html",
+      "line": 2222,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/demo-lab-teacher.html",
+      "line": 2224,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/demo-lab-teacher.html",
+      "line": 2605,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/demo-lab-teacher.html",
+      "line": 2625,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/demo-lab-teacher.html",
+      "line": 2626,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/demo-lab-teacher.html",
+      "line": 2629,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/demo-lab-teacher.html",
+      "line": 2706,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/demo-lab-teacher.html",
+      "line": 2781,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/demo-lab-teacher.html",
+      "line": 2809,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/demo-lab-teacher.html",
+      "line": 2833,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/demo-lab-teacher.html",
+      "line": 2873,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/slides.html",
+      "line": 33,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/slides.html",
+      "line": 68,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/slides.html",
+      "line": 73,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/slides.html",
+      "line": 115,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/slides.html",
+      "line": 121,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/slides.html",
+      "line": 127,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/slides.html",
+      "line": 1206,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/slides.html",
+      "line": 1228,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/slides.html",
+      "line": 1414,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/slides.html",
+      "line": 1434,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/slides.html",
+      "line": 1435,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/slides.html",
+      "line": 1438,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/slides.html",
+      "line": 1517,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/slides.html",
+      "line": 1574,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/slides_files/libs/quarto-html/popper.min.js",
+      "kind": "blank line at EOF"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/slides_files/libs/quarto-html/tippy.umd.min.js",
+      "kind": "blank line at EOF"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/slides_files/libs/revealjs/plugin/pdf-export/pdfexport.js",
+      "line": 54,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/slides_files/libs/revealjs/plugin/quarto-support/support.js",
+      "line": 146,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/slides_files/libs/revealjs/plugin/quarto-support/support.js",
+      "line": 342,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/slides_files/libs/revealjs/plugin/quarto-support/support.js",
+      "line": 369,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/student-activities-a.html",
+      "line": 2189,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/student-activities-a.html",
+      "line": 2190,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/student-activities-a.html",
+      "line": 2191,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/student-activities-a.html",
+      "line": 2193,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/student-activities-a.html",
+      "line": 2274,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/student-activities-a.html",
+      "line": 2294,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/student-activities-a.html",
+      "line": 2295,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/student-activities-a.html",
+      "line": 2298,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/student-activities-a.html",
+      "line": 2375,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/student-activities-a.html",
+      "line": 2450,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/student-activities-a.html",
+      "line": 2478,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/student-activities-a.html",
+      "line": 2502,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/student-activities-a.html",
+      "line": 2542,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/student-activities-b.html",
+      "line": 2189,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/student-activities-b.html",
+      "line": 2190,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/student-activities-b.html",
+      "line": 2191,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/student-activities-b.html",
+      "line": 2193,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/student-activities-b.html",
+      "line": 2247,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/student-activities-b.html",
+      "line": 2267,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/student-activities-b.html",
+      "line": 2268,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/student-activities-b.html",
+      "line": 2271,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/student-activities-b.html",
+      "line": 2348,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/student-activities-b.html",
+      "line": 2423,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/student-activities-b.html",
+      "line": 2451,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/student-activities-b.html",
+      "line": 2475,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/student-activities-b.html",
+      "line": 2515,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/student-activities-exit.html",
+      "line": 2189,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/student-activities-exit.html",
+      "line": 2190,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/student-activities-exit.html",
+      "line": 2191,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/student-activities-exit.html",
+      "line": 2193,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/student-activities-exit.html",
+      "line": 2220,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/student-activities-exit.html",
+      "line": 2240,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/student-activities-exit.html",
+      "line": 2241,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/student-activities-exit.html",
+      "line": 2244,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/student-activities-exit.html",
+      "line": 2321,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/student-activities-exit.html",
+      "line": 2396,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/student-activities-exit.html",
+      "line": 2424,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/student-activities-exit.html",
+      "line": 2448,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/exports/reference-v4/student-activities-exit.html",
+      "line": 2488,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/validation/history/v3-sources/demo-lab-student.qmd",
+      "kind": "blank line at EOF"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/validation/history/v3-sources/demo-lab-teacher.qmd",
+      "kind": "blank line at EOF"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/validation/history/v3-sources/student-activities.qmd",
+      "kind": "blank line at EOF"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/validation/v4/quarto-final-render.txt",
+      "line": 4,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/validation/v4/quarto-final-render.txt",
+      "line": 9,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/validation/v4/quarto-final-render.txt",
+      "line": 14,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/validation/v4/quarto-final-render.txt",
+      "line": 19,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/validation/v4/quarto-final-render.txt",
+      "line": 24,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/validation/v4/quarto-final-render.txt",
+      "line": 29,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/validation/v4/quarto-final-render.txt",
+      "line": 34,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/validation/v4/quarto-final-render.txt",
+      "kind": "blank line at EOF"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/validation/v4/quarto-render.txt",
+      "line": 4,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/validation/v4/quarto-render.txt",
+      "line": 9,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/validation/v4/quarto-render.txt",
+      "line": 14,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/validation/v4/quarto-render.txt",
+      "line": 19,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/validation/v4/quarto-render.txt",
+      "line": 24,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/validation/v4/quarto-render.txt",
+      "line": 29,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/validation/v4/quarto-render.txt",
+      "line": 34,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/validation/v4/quarto-render.txt",
+      "kind": "blank line at EOF"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/validation/v4/quarto-reveal-render.txt",
+      "line": 1,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/validation/v4/quarto-reveal-render.txt",
+      "line": 14,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/validation/v4/quarto-reveal-render.txt",
+      "line": 36,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/validation/v4/quarto-reveal-render.txt",
+      "line": 38,
+      "kind": "trailing whitespace"
+    },
+    {
+      "file": "1-2-encoding/1-2-3-audio-encoding/validation/v4/quarto-reveal-render.txt",
+      "kind": "blank line at EOF"
+    }
+  ],
+  "preservation_rule": "Scan includes new output and historical files. Quarto generated markup/vendor code, original snapshots and raw tool logs retain upstream whitespace; these are recorded observations, not author-source defects."
+}

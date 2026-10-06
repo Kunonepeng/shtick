@@ -28,7 +28,7 @@ def expected(label,name):
         fs=w.getframerate(); frames=w.getnframes(); bits=w.getsampwidth()*8; channels=w.getnchannels()
     return [label,f'{fs:,}',f'{frames/fs:g}',str(bits),str(channels),f'{frames*bits*channels//8:,}',f'{path.stat().st_size:,}']
 for role in ['teacher','student']:
-    executed=nbformat.read(ROOT/f'.build/demo-lab-{role}-executed.ipynb',4)
+    executed=nbformat.read(ROOT/f'validation/v4/executed/demo-lab-{role}.ipynb',4)
     original=nbformat.read(ROOT/f'demo-lab-{role}.ipynb',4)
     assert [c.source for c in executed.cells if c.cell_type=='code']==[c.source for c in original.cells if c.cell_type=='code']
     comparison=next(c for c in executed.cells if c.cell_type=='code' and c.source.strip()=='plot_quantization_compare()')
@@ -59,8 +59,8 @@ for role in ['teacher','student']:
     if role=='student':
         page='<!doctype html><meta charset="utf-8"><title>D4实际内核输出复查</title><style>body{font-family:sans-serif;margin:32px;line-height:1.5}section{margin-bottom:48px}h2{font-size:28px}</style>'
         page+=''.join(f'<section><h2>阶段{i+1}：课堂分别运行</h2>{h}</section>' for i,h in enumerate(parts))
-        (ROOT/'.build/review-round3/d4-evidence.html').write_text(page)
+        (ROOT/'validation/v4/d4-evidence.html').write_text(page)
 result={'passed':True,'checks':passed,'scope':'Real local kernel outputs, not Windows JupyterLab GUI acceptance.',
         'design_sha256':hashlib.sha256((ROOT/'course-design.qmd').read_bytes()).hexdigest()}
-(ROOT/'validation/review-evidence.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
+(ROOT/'validation/v4/review-evidence.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
 print(json.dumps(result,ensure_ascii=False))

@@ -1,0 +1,92 @@
+[
+  {
+    "notebook": "teacher",
+    "executable": "/Users/chran/miniconda3/envs/shtick/bin/python",
+    "python": "3.11.16 (main, Aug 27 2026, 14:37:43) [Clang 20.1.8 ]",
+    "numpy": "2.4.6",
+    "IPython": "9.17.1",
+    "matplotlib": "3.11.2",
+    "cwd": "/Users/chran/repo/shtick/1-2-encoding/1-2-3-audio-encoding"
+  },
+  {
+    "notebook": "student",
+    "executable": "/Users/chran/miniconda3/envs/shtick/bin/python",
+    "python": "3.11.16 (main, Aug 27 2026, 14:37:43) [Clang 20.1.8 ]",
+    "numpy": "2.4.6",
+    "IPython": "9.17.1",
+    "matplotlib": "3.11.2",
+    "cwd": "/Users/chran/repo/shtick/1-2-encoding/1-2-3-audio-encoding"
+  },
+  {
+    "notebook": "D1-student.ipynb",
+    "executable": "/Users/chran/miniconda3/envs/shtick/bin/python",
+    "python": "3.11.16 (main, Aug 27 2026, 14:37:43) [Clang 20.1.8 ]",
+    "numpy": "2.4.6",
+    "IPython": "9.17.1",
+    "matplotlib": "3.11.2",
+    "cwd": "/Users/chran/repo/shtick/1-2-encoding/1-2-3-audio-encoding"
+  },
+  {
+    "notebook": "D2-B-student.ipynb",
+    "executable": "/Users/chran/miniconda3/envs/shtick/bin/python",
+    "python": "3.11.16 (main, Aug 27 2026, 14:37:43) [Clang 20.1.8 ]",
+    "numpy": "2.4.6",
+    "IPython": "9.17.1",
+    "matplotlib": "3.11.2",
+    "cwd": "/Users/chran/repo/shtick/1-2-encoding/1-2-3-audio-encoding"
+  },
+  {
+    "notebook": "D2-student.ipynb",
+    "executable": "/Users/chran/miniconda3/envs/shtick/bin/python",
+    "python": "3.11.16 (main, Aug 27 2026, 14:37:43) [Clang 20.1.8 ]",
+    "numpy": "2.4.6",
+    "IPython": "9.17.1",
+    "matplotlib": "3.11.2",
+    "cwd": "/Users/chran/repo/shtick/1-2-encoding/1-2-3-audio-encoding"
+  },
+  {
+    "notebook": "D3-B-student.ipynb",
+    "executable": "/Users/chran/miniconda3/envs/shtick/bin/python",
+    "python": "3.11.16 (main, Aug 27 2026, 14:37:43) [Clang 20.1.8 ]",
+    "numpy": "2.4.6",
+    "IPython": "9.17.1",
+    "matplotlib": "3.11.2",
+    "cwd": "/Users/chran/repo/shtick/1-2-encoding/1-2-3-audio-encoding"
+  },
+  {
+    "notebook": "D3-student.ipynb",
+    "executable": "/Users/chran/miniconda3/envs/shtick/bin/python",
+    "python": "3.11.16 (main, Aug 27 2026, 14:37:43) [Clang 20.1.8 ]",
+    "numpy": "2.4.6",
+    "IPython": "9.17.1",
+    "matplotlib": "3.11.2",
+    "cwd": "/Users/chran/repo/shtick/1-2-encoding/1-2-3-audio-encoding"
+  },
+  {
+    "notebook": "D4-B-student.ipynb",
+    "executable": "/Users/chran/miniconda3/envs/shtick/bin/python",
+    "python": "3.11.16 (main, Aug 27 2026, 14:37:43) [Clang 20.1.8 ]",
+    "numpy": "2.4.6",
+    "IPython": "9.17.1",
+    "matplotlib": "3.11.2",
+    "cwd": "/Users/chran/repo/shtick/1-2-encoding/1-2-3-audio-encoding"
+  },
+  {
+    "notebook": "D4-student.ipynb",
+    "executable": "/Users/chran/miniconda3/envs/shtick/bin/python",
+    "python": "3.11.16 (main, Aug 27 2026, 14:37:43) [Clang 20.1.8 ]",
+    "numpy": "2.4.6",
+    "IPython": "9.17.1",
+    "matplotlib": "3.11.2",
+    "cwd": "/Users/chran/repo/shtick/1-2-encoding/1-2-3-audio-encoding"
+  },
+  {
+    "notebook": "opening-student.ipynb",
+    "executable": "/Users/chran/miniconda3/envs/shtick/bin/python",
+    "python": "3.11.16 (main, Aug 27 2026, 14:37:43) [Clang 20.1.8 ]",
+    "numpy": "2.4.6",
+    "IPython": "9.17.1",
+    "matplotlib": "3.11.2",
+    "cwd": "/Users/chran/repo/shtick/1-2-encoding/1-2-3-audio-encoding"
+  }
+]

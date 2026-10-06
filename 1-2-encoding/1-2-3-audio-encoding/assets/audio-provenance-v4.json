@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-01",
+  "source": "assets/nizhan-zhangjie.m4a",
+  "source_permission": "User-supplied music; public redistribution permission is unverified.",
+  "source_sha256": "7dc0b09ef6175492528227583e799b7a8db7297fe5b7a03c6bd341f1d1825d84",
+  "decoded_excerpt": "assets/source/excerpt-45-51-decoded-pcm16.wav",
+  "excerpt_sha256": "cd02c2b66be2c3369efa42184cab1443bb3fd5a98c468a096de9106ceac9d3b6",
+  "recorded_pcm_sha256": "444e114785e531c6df9f520183295a0c762287b7e70009d1c67f85cbb0fbc350",
+  "source_interval_seconds": [
+    45,
+    51
+  ],
+  "sample_rate": 44100,
+  "channels": 2,
+  "frames": 264600,
+  "stored_bits": 16,
+  "ownership": "Lossless copy of the pre-existing decoded PCM cache; deterministic input for v4 preparation.",
+  "fresh_decode_limit": "afconvert current local AAC decode has matching frame count and at most 1 integer LSB difference from the old cache; exact cache equality is not claimed. This does not recover pre-AAC information."
+}

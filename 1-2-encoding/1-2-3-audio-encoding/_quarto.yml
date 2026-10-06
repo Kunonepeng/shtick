@@ -1,11 +1,13 @@
 project:
   type: default
-  output-dir: exports/reference
+  output-dir: exports/reference-v4
   render:
     - course-design.qmd
     - demo-lab-teacher.qmd
     - demo-lab-student.qmd
-    - student-activities.qmd
+    - student-activities-a.qmd
+    - student-activities-b.qmd
+    - student-activities-exit.qmd
     - slides.qmd
 format:
   html:

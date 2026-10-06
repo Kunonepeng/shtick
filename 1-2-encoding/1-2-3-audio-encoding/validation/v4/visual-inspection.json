@@ -1,0 +1,544 @@
+{
+  "version": "v4",
+  "date": "2026-10-01",
+  "method": "Human inspection of full-deck montages and individual 1601x900 PNGs; dense evidence, pairs, waveform/error/counting and tree stages inspected at full resolution. Tree height/padding and slide order fixed, then final render refreshed.",
+  "pptx_sha256": "eafbf062bad7183479b5904ffc1189b3fc5d75b7bd5eea62302f5fc34207cafd",
+  "pdf_sha256": "3dbd62cb580c3aecf88d507e3e600097d794d5747cd2a6a9ba3a78070ca14f95",
+  "status": "pass-local-render",
+  "pages": [
+    {
+      "page": 1,
+      "id": "opening",
+      "image_sha256": "a12441b0e255ffeba741bf986286199e8dd997988e4dcd0d1bc059dc3a0d449b",
+      "inspected": true,
+      "full_resolution_evidence_review": false,
+      "finding": "No overlap, clipping, unsafe margin, distorted evidence or premature tree node found in this renderer."
+    },
+    {
+      "page": 2,
+      "id": "Q1-question",
+      "image_sha256": "c087974112a1821da252a7147e120324364bd211f94aef9f75985fd1a2c119bd",
+      "inspected": true,
+      "full_resolution_evidence_review": false,
+      "finding": "No overlap, clipping, unsafe margin, distorted evidence or premature tree node found in this renderer."
+    },
+    {
+      "page": 3,
+      "id": "Q1-answer",
+      "image_sha256": "26d3908a66643b4627021fef5ab2ea980e729c06ef104032def7538949c563e1",
+      "inspected": true,
+      "full_resolution_evidence_review": false,
+      "finding": "No overlap, clipping, unsafe margin, distorted evidence or premature tree node found in this renderer."
+    },
+    {
+      "page": 4,
+      "id": "Q2-question",
+      "image_sha256": "8d57b50c0368a6981e1174cbd3cccabb2e54e45f68f53a94cc78dfff1b5ebcdc",
+      "inspected": true,
+      "full_resolution_evidence_review": false,
+      "finding": "No overlap, clipping, unsafe margin, distorted evidence or premature tree node found in this renderer."
+    },
+    {
+      "page": 5,
+      "id": "Q2-answer",
+      "image_sha256": "9b2f49ff2b7e615f782b9367e3daad336905071df5d00f88d0fea12c6cb59136",
+      "inspected": true,
+      "full_resolution_evidence_review": false,
+      "finding": "No overlap, clipping, unsafe margin, distorted evidence or premature tree node found in this renderer."
+    },
+    {
+      "page": 6,
+      "id": "Q3-question",
+      "image_sha256": "d019ceb1587072881f78aa451b030fd2db4968d23196b5d5950fef1affc6309d",
+      "inspected": true,
+      "full_resolution_evidence_review": true,
+      "finding": "No overlap, clipping, unsafe margin, distorted evidence or premature tree node found in this renderer."
+    },
+    {
+      "page": 7,
+      "id": "Q3-answer",
+      "image_sha256": "46a3a8ff15f2f56ade8201cc260e3596390bd05228579797c8896786741315a0",
+      "inspected": true,
+      "full_resolution_evidence_review": true,
+      "finding": "No overlap, clipping, unsafe margin, distorted evidence or premature tree node found in this renderer."
+    },
+    {
+      "page": 8,
+      "id": "Q4-question",
+      "image_sha256": "e58403b796903f3fa984cd353db394db6284b7a212af16e634195b6c7d9721c7",
+      "inspected": true,
+      "full_resolution_evidence_review": true,
+      "finding": "No overlap, clipping, unsafe margin, distorted evidence or premature tree node found in this renderer."
+    },
+    {
+      "page": 9,
+      "id": "Q4-answer",
+      "image_sha256": "fa731c81dd94ab343b6913b52e1c0bc7b3c9ae5225f0d4fb83492277d40ba3cc",
+      "inspected": true,
+      "full_resolution_evidence_review": true,
+      "finding": "No overlap, clipping, unsafe margin, distorted evidence or premature tree node found in this renderer."
+    },
+    {
+      "page": 10,
+      "id": "Q4-B-question",
+      "image_sha256": "8ad80d62c349eb177793f764afe97687884f9e7828ac0e85eedfe44677230737",
+      "inspected": true,
+      "full_resolution_evidence_review": true,
+      "finding": "No overlap, clipping, unsafe margin, distorted evidence or premature tree node found in this renderer."
+    },
+    {
+      "page": 11,
+      "id": "Q4-B-answer",
+      "image_sha256": "5ad9b9d2cff16fe95c80a76775e74e09f2cfbf9bd0c04181d33de63d6f5e9c80",
+      "inspected": true,
+      "full_resolution_evidence_review": true,
+      "finding": "No overlap, clipping, unsafe margin, distorted evidence or premature tree node found in this renderer."
+    },
+    {
+      "page": 12,
+      "id": "Q5-question",
+      "image_sha256": "9b5ab0d412d2404100eb48ab71a8b04188596566fcad28babf9b53f06d394f16",
+      "inspected": true,
+      "full_resolution_evidence_review": true,
+      "finding": "No overlap, clipping, unsafe margin, distorted evidence or premature tree node found in this renderer."
+    },
+    {
+      "page": 13,
+      "id": "Q5-answer",
+      "image_sha256": "ebc5e28cd22ce6ca75018a5e921f485190f7c126656c9782af8b94e667804b72",
+      "inspected": true,
+      "full_resolution_evidence_review": true,
+      "finding": "No overlap, clipping, unsafe margin, distorted evidence or premature tree node found in this renderer."
+    },
+    {
+      "page": 14,
+      "id": "Q6-question",
+      "image_sha256": "ba5dea807566cfa774bb398d9a58ce14e1ef717eb602d21f4d509c4179d9b8c2",
+      "inspected": true,
+      "full_resolution_evidence_review": true,
+      "finding": "No overlap, clipping, unsafe margin, distorted evidence or premature tree node found in this renderer."
+    },
+    {
+      "page": 15,
+      "id": "Q6-answer",
+      "image_sha256": "1436685acda6df0f2652cf132635c7ca66acfc96690bcbd5bd32db1ea4a6e299",
+      "inspected": true,
+      "full_resolution_evidence_review": true,
+      "finding": "No overlap, clipping, unsafe margin, distorted evidence or premature tree node found in this renderer."
+    },
+    {
+      "page": 16,
+      "id": "Q7-question",
+      "image_sha256": "366d5eba74612dd49fcb728715ffbd1b1295f40576986c3c4702e2e26585cec5",
+      "inspected": true,
+      "full_resolution_evidence_review": true,
+      "finding": "No overlap, clipping, unsafe margin, distorted evidence or premature tree node found in this renderer."
+    },
+    {
+      "page": 17,
+      "id": "Q7-answer",
+      "image_sha256": "02a9d80d6277368d98924da8b03a5c3b8258281145f108f7bde0e3993f459de0",
+      "inspected": true,
+      "full_resolution_evidence_review": true,
+      "finding": "No overlap, clipping, unsafe margin, distorted evidence or premature tree node found in this renderer."
+    },
+    {
+      "page": 18,
+      "id": "T1-summary",
+      "image_sha256": "6758a5fe6355e6df81353e60ff877b717534eebf8574b0993a3fc6f0e1e5ce09",
+      "inspected": true,
+      "full_resolution_evidence_review": true,
+      "finding": "No overlap, clipping, unsafe margin, distorted evidence or premature tree node found in this renderer."
+    },
+    {
+      "page": 19,
+      "id": "T1-sampling",
+      "image_sha256": "da9da5193e1a5d004a0b158e3c5f8ba3b87bffdf8096581d9fe2d0b297411a25",
+      "inspected": true,
+      "full_resolution_evidence_review": true,
+      "finding": "No overlap, clipping, unsafe margin, distorted evidence or premature tree node found in this renderer."
+    },
+    {
+      "page": 20,
+      "id": "T1-quantization",
+      "image_sha256": "366d5256489ad2b199b5d9cbb4d909f70676be03b099d7ca6fb7413db7c5569e",
+      "inspected": true,
+      "full_resolution_evidence_review": true,
+      "finding": "No overlap, clipping, unsafe margin, distorted evidence or premature tree node found in this renderer."
+    },
+    {
+      "page": 21,
+      "id": "T1-encoding",
+      "image_sha256": "2076f591fedd2d6f69e9701daaf4e545bd4ea0636ff051d00747925e798cd3bd",
+      "inspected": true,
+      "full_resolution_evidence_review": true,
+      "finding": "No overlap, clipping, unsafe margin, distorted evidence or premature tree node found in this renderer."
+    },
+    {
+      "page": 22,
+      "id": "T1-parameters",
+      "image_sha256": "e80e0e0252151465fca8578a427a26d07f12a5f9c7fbbcc511a5903c2b7144f8",
+      "inspected": true,
+      "full_resolution_evidence_review": true,
+      "finding": "No overlap, clipping, unsafe margin, distorted evidence or premature tree node found in this renderer."
+    },
+    {
+      "page": 23,
+      "id": "Q8-question",
+      "image_sha256": "96cde18bb915afd6ed7593d053245ec5d877e5bb9697f51a43faff4576617916",
+      "inspected": true,
+      "full_resolution_evidence_review": false,
+      "finding": "No overlap, clipping, unsafe margin, distorted evidence or premature tree node found in this renderer."
+    },
+    {
+      "page": 24,
+      "id": "Q8-answer",
+      "image_sha256": "44cd9df12a1c92b28ef223e3dcf90fa11a50a84c7267de3c08b850d7003625ca",
+      "inspected": true,
+      "full_resolution_evidence_review": false,
+      "finding": "No overlap, clipping, unsafe margin, distorted evidence or premature tree node found in this renderer."
+    },
+    {
+      "page": 25,
+      "id": "Q8-B-question",
+      "image_sha256": "1281f00ada93bacd9a4731e03c3bcb0a381d7e26054e207cd21a0a1c17e278c2",
+      "inspected": true,
+      "full_resolution_evidence_review": true,
+      "finding": "No overlap, clipping, unsafe margin, distorted evidence or premature tree node found in this renderer."
+    },
+    {
+      "page": 26,
+      "id": "Q8-B-answer",
+      "image_sha256": "256640672a09827b0b93d2c95f4ad92fa388f52a675e3ba8999daa0f2b8a9fe9",
+      "inspected": true,
+      "full_resolution_evidence_review": true,
+      "finding": "No overlap, clipping, unsafe margin, distorted evidence or premature tree node found in this renderer."
+    },
+    {
+      "page": 27,
+      "id": "Q9-question",
+      "image_sha256": "d0dda2db468a207af0bb5168fa3806932986f877eb5da49a464e1dab78e48c3a",
+      "inspected": true,
+      "full_resolution_evidence_review": false,
+      "finding": "No overlap, clipping, unsafe margin, distorted evidence or premature tree node found in this renderer."
+    },
+    {
+      "page": 28,
+      "id": "Q9-answer",
+      "image_sha256": "ad8c93c9960de2c2b2f244ed87ccff96ce350a566f34f35c78dcfb5b4989aa6e",
+      "inspected": true,
+      "full_resolution_evidence_review": false,
+      "finding": "No overlap, clipping, unsafe margin, distorted evidence or premature tree node found in this renderer."
+    },
+    {
+      "page": 29,
+      "id": "Q10-question",
+      "image_sha256": "023cb06d272f582f2581b1fa80e50b385132df3d48bd0b6f6cf0226b710b16dc",
+      "inspected": true,
+      "full_resolution_evidence_review": true,
+      "finding": "No overlap, clipping, unsafe margin, distorted evidence or premature tree node found in this renderer."
+    },
+    {
+      "page": 30,
+      "id": "Q10-answer",
+      "image_sha256": "029c0e890ee18723c2cef553f905a7dcbee0ed47007d80d86bce238da2ce16b1",
+      "inspected": true,
+      "full_resolution_evidence_review": true,
+      "finding": "No overlap, clipping, unsafe margin, distorted evidence or premature tree node found in this renderer."
+    },
+    {
+      "page": 31,
+      "id": "Q10-B-question",
+      "image_sha256": "037f9929c1d344e37f92e1b5d46952fe5736c9e22a00f7ce1df57de33953c64a",
+      "inspected": true,
+      "full_resolution_evidence_review": true,
+      "finding": "No overlap, clipping, unsafe margin, distorted evidence or premature tree node found in this renderer."
+    },
+    {
+      "page": 32,
+      "id": "Q10-B-answer",
+      "image_sha256": "649084ead018d4138a4c43dfd167a1b19141d3c4d3b80fef8a0c6546bf3d28e8",
+      "inspected": true,
+      "full_resolution_evidence_review": true,
+      "finding": "No overlap, clipping, unsafe margin, distorted evidence or premature tree node found in this renderer."
+    },
+    {
+      "page": 33,
+      "id": "Q11-question",
+      "image_sha256": "e82c3d09273d04cb9f5e70a0fe47e3f80f3abd7671f166ffad874ab799b5c5c6",
+      "inspected": true,
+      "full_resolution_evidence_review": false,
+      "finding": "No overlap, clipping, unsafe margin, distorted evidence or premature tree node found in this renderer."
+    },
+    {
+      "page": 34,
+      "id": "Q11-answer",
+      "image_sha256": "9ea5d8634ed7da90235fb94d3256045362120493c5d2669f8eb0b94f77fffd47",
+      "inspected": true,
+      "full_resolution_evidence_review": false,
+      "finding": "No overlap, clipping, unsafe margin, distorted evidence or premature tree node found in this renderer."
+    },
+    {
+      "page": 35,
+      "id": "Q12-question",
+      "image_sha256": "73ca530dc2e612cd99e8a6b0f6fc4257ff336c37d72b5ad7deb4ffb90bdfc143",
+      "inspected": true,
+      "full_resolution_evidence_review": false,
+      "finding": "No overlap, clipping, unsafe margin, distorted evidence or premature tree node found in this renderer."
+    },
+    {
+      "page": 36,
+      "id": "Q12-answer",
+      "image_sha256": "8ec33e6a89890c69d749b85e0ab5dbaa6302ee80f271599a869371ca415d0a98",
+      "inspected": true,
+      "full_resolution_evidence_review": false,
+      "finding": "No overlap, clipping, unsafe margin, distorted evidence or premature tree node found in this renderer."
+    },
+    {
+      "page": 37,
+      "id": "T2-summary",
+      "image_sha256": "f87ed63502bddeca5655e4df961772c919309732f960adf857e7f1f345b7cd3f",
+      "inspected": true,
+      "full_resolution_evidence_review": true,
+      "finding": "No overlap, clipping, unsafe margin, distorted evidence or premature tree node found in this renderer."
+    },
+    {
+      "page": 38,
+      "id": "T2-frequency",
+      "image_sha256": "089f59085470a5cc5f9e6c9835bfb43a71a5ed7698011a3c20ab3f5027e7c4e9",
+      "inspected": true,
+      "full_resolution_evidence_review": true,
+      "finding": "No overlap, clipping, unsafe margin, distorted evidence or premature tree node found in this renderer."
+    },
+    {
+      "page": 39,
+      "id": "T2-precision",
+      "image_sha256": "d23a224c3ed4d985663b0daaaa41b240fffc7becab2da8f1ae6b474cd0892004",
+      "inspected": true,
+      "full_resolution_evidence_review": true,
+      "finding": "No overlap, clipping, unsafe margin, distorted evidence or premature tree node found in this renderer."
+    },
+    {
+      "page": 40,
+      "id": "Q13-question",
+      "image_sha256": "e0e18d4a9920742b9d1e30191f9d2cea992d251fce391ddf718e7a874ebae56a",
+      "inspected": true,
+      "full_resolution_evidence_review": true,
+      "finding": "No overlap, clipping, unsafe margin, distorted evidence or premature tree node found in this renderer."
+    },
+    {
+      "page": 41,
+      "id": "Q13-answer",
+      "image_sha256": "470a87c70c42399e151b8c27e3477a3ea2f115f835a521901d89aa5bfa4033f0",
+      "inspected": true,
+      "full_resolution_evidence_review": true,
+      "finding": "No overlap, clipping, unsafe margin, distorted evidence or premature tree node found in this renderer."
+    },
+    {
+      "page": 42,
+      "id": "Q14-question",
+      "image_sha256": "df96ffa62d4b8c6749a027ce4d70e6eb29d34437bf3beda24c612c68a5de31d4",
+      "inspected": true,
+      "full_resolution_evidence_review": true,
+      "finding": "No overlap, clipping, unsafe margin, distorted evidence or premature tree node found in this renderer."
+    },
+    {
+      "page": 43,
+      "id": "Q14-answer",
+      "image_sha256": "8e06b75a80c78fec6f7f59c44020f63e0860defadef81ce4bf5bf71e57e9b8d6",
+      "inspected": true,
+      "full_resolution_evidence_review": true,
+      "finding": "No overlap, clipping, unsafe margin, distorted evidence or premature tree node found in this renderer."
+    },
+    {
+      "page": 44,
+      "id": "Q15-question",
+      "image_sha256": "c474e263bbd628863348a3755b18b79ad307ee676f1160542bb7b79ebf98fa46",
+      "inspected": true,
+      "full_resolution_evidence_review": true,
+      "finding": "No overlap, clipping, unsafe margin, distorted evidence or premature tree node found in this renderer."
+    },
+    {
+      "page": 45,
+      "id": "Q15-count",
+      "image_sha256": "6bcb16c3b3ec6d5fc02e6d907c531e30af13cc03aa45e5f76adce6e041865c8b",
+      "inspected": true,
+      "full_resolution_evidence_review": true,
+      "finding": "No overlap, clipping, unsafe margin, distorted evidence or premature tree node found in this renderer."
+    },
+    {
+      "page": 46,
+      "id": "Q15-answer",
+      "image_sha256": "dea3c36055672d5b6c6c3fe8b93d6e72b437c234b96d5a316aa8c5505a8b067a",
+      "inspected": true,
+      "full_resolution_evidence_review": true,
+      "finding": "No overlap, clipping, unsafe margin, distorted evidence or premature tree node found in this renderer."
+    },
+    {
+      "page": 47,
+      "id": "Q16-question",
+      "image_sha256": "56d0c5fdccf6cd1660deebf5cfffa4f1c3a1862a63079a7c1b6f94bb30c5585a",
+      "inspected": true,
+      "full_resolution_evidence_review": true,
+      "finding": "No overlap, clipping, unsafe margin, distorted evidence or premature tree node found in this renderer."
+    },
+    {
+      "page": 48,
+      "id": "Q16-answer",
+      "image_sha256": "531b85d3cafa953f16cadae93135f8b2c9baf99a50d8ff748c72c65ec2c035f8",
+      "inspected": true,
+      "full_resolution_evidence_review": true,
+      "finding": "No overlap, clipping, unsafe margin, distorted evidence or premature tree node found in this renderer."
+    },
+    {
+      "page": 49,
+      "id": "Q17-question",
+      "image_sha256": "6addd3c9bc1d70ae1706f0334b19391819ec31f43fee420a1c3e9b9314352b29",
+      "inspected": true,
+      "full_resolution_evidence_review": true,
+      "finding": "No overlap, clipping, unsafe margin, distorted evidence or premature tree node found in this renderer."
+    },
+    {
+      "page": 50,
+      "id": "Q17-answer",
+      "image_sha256": "79536b0f6d291429622209b3017f5c94a864a910839acd5a4d3ee108dadfc23d",
+      "inspected": true,
+      "full_resolution_evidence_review": true,
+      "finding": "No overlap, clipping, unsafe margin, distorted evidence or premature tree node found in this renderer."
+    },
+    {
+      "page": 51,
+      "id": "Q17-B-question",
+      "image_sha256": "5a0fbfd97d19a072b05e1607774ea3ff63ebeda9d683f67c08b62c538952428b",
+      "inspected": true,
+      "full_resolution_evidence_review": true,
+      "finding": "No overlap, clipping, unsafe margin, distorted evidence or premature tree node found in this renderer."
+    },
+    {
+      "page": 52,
+      "id": "Q17-B-answer",
+      "image_sha256": "e313f210936d3810b88aef6ffed4954f212e95b6896bdb9540fc8eb4d9d01630",
+      "inspected": true,
+      "full_resolution_evidence_review": true,
+      "finding": "No overlap, clipping, unsafe margin, distorted evidence or premature tree node found in this renderer."
+    },
+    {
+      "page": 53,
+      "id": "T3-summary",
+      "image_sha256": "b2a8ce7956d5f5018b4d1933f56b155933be2d3b8eced4b9c4cf031252106f4a",
+      "inspected": true,
+      "full_resolution_evidence_review": true,
+      "finding": "No overlap, clipping, unsafe margin, distorted evidence or premature tree node found in this renderer."
+    },
+    {
+      "page": 54,
+      "id": "T3-payload",
+      "image_sha256": "11bd60bb2c257d323a3cfe7474f29f102843762ff73d953a50e6e7e44d492db7",
+      "inspected": true,
+      "full_resolution_evidence_review": true,
+      "finding": "No overlap, clipping, unsafe margin, distorted evidence or premature tree node found in this renderer."
+    },
+    {
+      "page": 55,
+      "id": "T3-container",
+      "image_sha256": "b044a40d54aa912c12e4573451058275e086a30232c91813d1277e7f8c303837",
+      "inspected": true,
+      "full_resolution_evidence_review": true,
+      "finding": "No overlap, clipping, unsafe margin, distorted evidence or premature tree node found in this renderer."
+    },
+    {
+      "page": 56,
+      "id": "Q18-question",
+      "image_sha256": "6da8e537d100577a28cf40a5d0c73346af366cb810ef2fa52e9596ae9a652502",
+      "inspected": true,
+      "full_resolution_evidence_review": true,
+      "finding": "No overlap, clipping, unsafe margin, distorted evidence or premature tree node found in this renderer."
+    },
+    {
+      "page": 57,
+      "id": "Q18-answer",
+      "image_sha256": "b4b8fc68b6c5873684f1f7189cdb9acf73b7cfafda8e836285587bb90b0928e1",
+      "inspected": true,
+      "full_resolution_evidence_review": true,
+      "finding": "No overlap, clipping, unsafe margin, distorted evidence or premature tree node found in this renderer."
+    },
+    {
+      "page": 58,
+      "id": "T4-summary",
+      "image_sha256": "9246b45fa24a9e2f2027759f2155fd1c1a6629043a0f471e5105407b41b20f4e",
+      "inspected": true,
+      "full_resolution_evidence_review": true,
+      "finding": "No overlap, clipping, unsafe margin, distorted evidence or premature tree node found in this renderer."
+    },
+    {
+      "page": 59,
+      "id": "T4-constraints",
+      "image_sha256": "549f87ae2757a26083bb063704446bc2a73c53fca4b8c9534f50c6a70d3d21b6",
+      "inspected": true,
+      "full_resolution_evidence_review": true,
+      "finding": "No overlap, clipping, unsafe margin, distorted evidence or premature tree node found in this renderer."
+    },
+    {
+      "page": 60,
+      "id": "Q19-question",
+      "image_sha256": "425b8befeeda92c16e73f956e3dd0d0eb93808e9c5662bb72c22939c308aabe1",
+      "inspected": true,
+      "full_resolution_evidence_review": true,
+      "finding": "No overlap, clipping, unsafe margin, distorted evidence or premature tree node found in this renderer."
+    },
+    {
+      "page": 61,
+      "id": "Q19-answer",
+      "image_sha256": "74bf8983c57e27f703a996d67aa0a61f3786f51bdcea194298453547680098a5",
+      "inspected": true,
+      "full_resolution_evidence_review": true,
+      "finding": "No overlap, clipping, unsafe margin, distorted evidence or premature tree node found in this renderer."
+    },
+    {
+      "page": 62,
+      "id": "homework",
+      "image_sha256": "9e00e5b53e29a006bd789000944f7039d211ed58467885803f7535474d9c68aa",
+      "inspected": true,
+      "full_resolution_evidence_review": false,
+      "finding": "No overlap, clipping, unsafe margin, distorted evidence or premature tree node found in this renderer."
+    }
+  ],
+  "montages": [
+    {
+      "path": "validation/v4/render/montage-1.jpg",
+      "sha256": "437951a0d9a31259098b00ebd89e77fadb7d451d37adf1cdce2421f1b05e4ecc",
+      "inspected": true
+    },
+    {
+      "path": "validation/v4/render/montage-2.jpg",
+      "sha256": "6d68658a384b91cefbdbc5528e53ccf22dc913edced508bed6e1d756c5a478e3",
+      "inspected": true
+    },
+    {
+      "path": "validation/v4/render/montage-3.jpg",
+      "sha256": "9ad233d0f0bdd20f513591383dcf56ef42d259b8b2fd57c4bc96be9ff2b31507",
+      "inspected": true
+    },
+    {
+      "path": "validation/v4/render/montage-4.jpg",
+      "sha256": "77399f86d9d61341e674b14c4bce66ae251ff195a188cd54dd95571c7d700927",
+      "inspected": true
+    },
+    {
+      "path": "validation/v4/render/montage-5.jpg",
+      "sha256": "063bc06fad30f0a98cad54ba3ffcdc0c6f7c31747a4e93495535b12e76d9c1a3",
+      "inspected": true
+    },
+    {
+      "path": "validation/v4/render/montage-6.jpg",
+      "sha256": "8230560887de859a3d6efb709310fdaf4c47d73ba889e6a0febe093753785452",
+      "inspected": true
+    },
+    {
+      "path": "validation/v4/render/montage-7.jpg",
+      "sha256": "ec5025f4c1bd1d7dd7d80e0465982dd4c5f204358338fa694dfcb09763d75d2c",
+      "inspected": true
+    }
+  ],
+  "limits": "Local LibreOffice rendering. WPS/PowerPoint and target projection are unverified."
+}

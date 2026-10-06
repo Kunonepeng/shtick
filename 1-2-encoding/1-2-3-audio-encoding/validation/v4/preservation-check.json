@@ -1,0 +1,123 @@
+{
+  "date": "2026-10-01",
+  "initial_file_count": 460,
+  "lost": [],
+  "changed": [
+    "_quarto.yml",
+    "demo-lab-student.qmd",
+    "slides.qmd",
+    "demo-lab-student.ipynb",
+    "README.md",
+    "demo-lab-teacher.qmd",
+    "student-activities.qmd",
+    "course-design.qmd",
+    "demo-lab-teacher.ipynb",
+    "scripts/build_deck.mjs",
+    "scripts/check_render.py",
+    "scripts/prepare_audio.py",
+    "scripts/patch_font_defaults.py",
+    "scripts/audit_package.py",
+    "scripts/build_views.py",
+    "scripts/finalize_deck.mjs",
+    "scripts/check_text_fit.py",
+    "scripts/check_review_evidence.py",
+    "scripts/check_notebooks.py",
+    "demos/audio-lab.html",
+    "demos/audio_core.py",
+    "demos/__pycache__/audio_core.cpython-311.pyc",
+    "demos/__pycache__/audio_core.cpython-312.pyc",
+    ".quarto/xref/73a18dbc",
+    ".quarto/xref/924b8cce",
+    ".quarto/xref/4255d40a",
+    ".quarto/xref/6f53ffe2",
+    ".quarto/xref/INDEX"
+  ],
+  "source_snapshots": [
+    {
+      "file": "_quarto.yml",
+      "snapshot_matches_initial": true
+    },
+    {
+      "file": "demo-lab-student.qmd",
+      "snapshot_matches_initial": true
+    },
+    {
+      "file": "slides.qmd",
+      "snapshot_matches_initial": true
+    },
+    {
+      "file": "demo-lab-student.ipynb",
+      "snapshot_matches_initial": true
+    },
+    {
+      "file": "README.md",
+      "snapshot_matches_initial": true
+    },
+    {
+      "file": "demo-lab-teacher.qmd",
+      "snapshot_matches_initial": true
+    },
+    {
+      "file": "student-activities.qmd",
+      "snapshot_matches_initial": true
+    },
+    {
+      "file": "course-design.qmd",
+      "snapshot_matches_initial": true
+    },
+    {
+      "file": "demo-lab-teacher.ipynb",
+      "snapshot_matches_initial": true
+    },
+    {
+      "file": "scripts/build_deck.mjs",
+      "snapshot_matches_initial": true
+    },
+    {
+      "file": "scripts/check_render.py",
+      "snapshot_matches_initial": true
+    },
+    {
+      "file": "scripts/prepare_audio.py",
+      "snapshot_matches_initial": true
+    },
+    {
+      "file": "scripts/patch_font_defaults.py",
+      "snapshot_matches_initial": true
+    },
+    {
+      "file": "scripts/audit_package.py",
+      "snapshot_matches_initial": true
+    },
+    {
+      "file": "scripts/build_views.py",
+      "snapshot_matches_initial": true
+    },
+    {
+      "file": "scripts/finalize_deck.mjs",
+      "snapshot_matches_initial": true
+    },
+    {
+      "file": "scripts/check_text_fit.py",
+      "snapshot_matches_initial": true
+    },
+    {
+      "file": "scripts/check_review_evidence.py",
+      "snapshot_matches_initial": true
+    },
+    {
+      "file": "scripts/check_notebooks.py",
+      "snapshot_matches_initial": true
+    },
+    {
+      "file": "demos/audio-lab.html",
+      "snapshot_matches_initial": true
+    },
+    {
+      "file": "demos/audio_core.py",
+      "snapshot_matches_initial": true
+    }
+  ],
+  "original_media_and_deliverables_preserved": true,
+  "boundary": "Current sources and generated caches changed; initial source snapshots verified. Original media, historical decks/reference/reports and original checkpoints retained."
+}

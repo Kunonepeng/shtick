@@ -1,36 +1,43 @@
 <!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>音频数字化实验台</title>
 <style>body{font-family:"Alibaba PuHuiTi 3.0 55 Regular",sans-serif;color:#262626;background:white;margin:0;border-top:8px solid #6251b1;border-bottom:8px solid #6251b1;padding:24px 36px}h1{font-size:32px}h2{font-size:26px;margin-top:36px}p,label,button,select{font-size:22px;line-height:1.5}button,select{background:#fff;border:2px solid #8c64e1;padding:6px 12px;margin:8px 12px 8px 0}canvas{width:100%;height:280px;display:block}audio{display:block;width:min(700px,100%);margin:12px 0}.answer{color:#6251b1}#qresult{min-height:40px}section{border-top:1px solid #ddd;padding:10px 0}small{font-size:18px}</style>
 <h1>音频数字化实验台</h1><p>先预测，再点击显示或播放。所有声音均为本地文件。</p>
-<section><h2>按时刻读取波形</h2><p>这是一秒钟、2Hz的数学模型。按相同时间间隔，怎样留下样本？</p>
+<section data-stage="D1"><h2>按时刻读取波形</h2><p>这是一秒钟、2Hz的数学模型。按相同时间间隔，怎样留下样本？</p>
 <label>每秒样本数：<select id="fs"><option>12</option><option>24</option><option>48</option></select></label>
 <button id="showSamples">显示采样点</button><button id="animate">逐个读取</button><button id="resetSamples">重新预测</button><canvas id="sampling" width="1200" height="280"></canvas>
 <p id="sampleResult" class="answer" hidden></p></section>
-<section><h2>时刻不变，改变可选等级</h2><p>固定48个时刻及幅度范围。增加量化位数，改变什么？</p>
+<section data-stage="D3"><h2>时刻不变，改变可选等级</h2><p>固定48个时刻及幅度范围。增加量化位数，改变什么？</p>
 <label>模型位数：<select id="bits"><option>2</option><option>4</option><option>8</option></select></label>
 <button id="showQuant">显示近似与误差</button><button id="resetQuant">重新预测</button><canvas id="quantization" width="1200" height="280"></canvas><p id="qresult" class="answer" hidden></p></section>
-<section><h2>同源试听：只改变采样率</h2><p>同一6秒片段，单声道、16bit，音量处理相同。降低采样率前先低通。</p>
+<section data-stage="D2"><h2>同源试听：只改变采样率</h2><p>同一6秒片段，单声道、16bit，音量处理相同。正确记录新的采样率，播放时长会怎样？</p>
 <label>44.1kHz</label><audio controls preload="none" src="../assets/audio/music-44100-16-mono.wav"></audio>
 <label>8kHz</label><audio controls preload="none" src="../assets/audio/music-8000-16-mono.wav"></audio>
-<p>6kHz纯音：8kHz采样能保留它吗？</p><label>24kHz采样</label><audio controls preload="none" src="../assets/audio/tone-6000-at24000.wav"></audio>
-<label>低通后降为8kHz</label><audio controls preload="none" src="../assets/audio/tone-lowpass-at8000.wav"></audio></section>
-<section><h2>同源试听：只改变有效量化等级</h2><p>固定22.05kHz、单声道、6秒。为兼容播放器，各文件都以16bit PCM保存。</p>
+</section>
+<section data-stage="D2-B"><h2>频率条件应用</h2><p>6kHz纯音：8kHz采样能保留它吗？先列条件，暂不看结果。</p><label>24kHz采样</label><audio controls preload="none" src="../assets/audio/tone-6000-at24000.wav"></audio>
+<button id="showToneResult">作答后显示转换结果</button><div id="toneResult" hidden><label>低通后降为8kHz</label><audio controls preload="none" src="../assets/audio/tone-lowpass-at8000.wav"></audio></div></section>
+<section data-stage="D3"><button id="showQuantAudio">作答后显示试听对照</button><div id="quantAudio" hidden><h2>同源试听：只改变有效量化等级</h2><p>固定22.05kHz、单声道、6秒。为兼容播放器，各文件都以16bit PCM保存。</p>
 <label>有效4bit模型；存储16bit</label><audio controls preload="none" src="../assets/audio/music-22050-effective4-stored16-mono.wav"></audio>
 <label>16bit基准</label><audio controls preload="none" src="../assets/audio/music-22050-16-mono.wav"></audio>
-<small>音乐来自用户提供的M4A，解码成PCM不会恢复此前压缩损失；图形为计算模型。</small></section>
+<small>音乐来自用户提供的M4A，解码成PCM不会恢复此前压缩损失；图形为计算模型。</small></div></section>
 <script>
 'use strict';
+// Show only the current demo; later evidence is withheld until another stage is opened.
+const requestedStage=new URLSearchParams(location.search).get('stage')||'D1';
+const currentStage=['D1','D2','D2-B','D3'].includes(requestedStage)?requestedStage:'D1';
+for(const section of document.querySelectorAll('section[data-stage]'))section.hidden=section.dataset.stage!==currentStage;
 const $=id=>document.getElementById(id);let points=0,quantVisible=false,animation=0;
 function signal(t){return .8*Math.sin(4*Math.PI*t+.3)}
 function quantSignal(t){return .68*Math.sin(4*Math.PI*t+.3)}
 function quant(x,bits){let levels=2**bits;let index=Math.min(levels-1,Math.max(0,Math.floor((x+1)*levels/2)));return -1+(index+.5)*2/levels}
 function base(id){let c=$(id).getContext('2d'), signalFn=id==='quantization'?quantSignal:signal;c.clearRect(0,0,1200,280);c.font='21px sans-serif';c.strokeStyle='#d8d8df';c.lineWidth=1;c.beginPath();c.moveTo(75,135);c.lineTo(1145,135);c.moveTo(75,20);c.lineTo(75,243);c.stroke();c.fillStyle='#262626';c.fillText('0',65,265);c.fillText('1 s',1110,265);c.fillText('归一化幅度',85,22);c.strokeStyle='#8c64e1';c.lineWidth=3;c.beginPath();for(let i=0;i<=600;i++){let x=75+i/600*1070,y=135-signalFn(i/600)*97;if(i===0)c.moveTo(x,y);else c.lineTo(x,y)}c.stroke();return c}
-function sampling(){let c=base('sampling'),fs=Number($('fs').value);c.fillStyle='#e65050';for(let i=0;i<points;i++){c.beginPath();c.arc(75+i/fs*1070,135-signal(i/fs)*97,6,0,2*Math.PI);c.fill()}$('sampleResult').hidden=points===0;$('sampleResult').textContent=`[0,1)内${points}个样本；当前设置${fs}次/秒/声道。`;}
-function quantization(){let c=base('quantization'),b=Number($('bits').value);if(quantVisible){for(let k=0;k<48;k++){let x=75+k/48*1070,z=quantSignal(k/48),q=quant(z,b);c.strokeStyle='#e65050';c.lineWidth=2;c.beginPath();c.moveTo(x,135-z*97);c.lineTo(x,135-q*97);c.stroke();c.fillStyle='#15b5ce';c.beginPath();c.arc(x,135-q*97,4,0,2*Math.PI);c.fill()}}$('qresult').hidden=!quantVisible;$('qresult').textContent=`${b}bit模型：${2**b}级，步长${2/2**b}；红线是样本与代表值的差。`;}
+function sampling(){let c=base('sampling'),fs=Number($('fs').value);c.fillStyle='#FF0000';for(let i=0;i<points;i++){c.beginPath();c.arc(75+i/fs*1070,135-signal(i/fs)*97,6,0,2*Math.PI);c.fill()}$('sampleResult').hidden=points===0;$('sampleResult').textContent=`[0,1)内${points}个样本；当前设置${fs}次/秒/声道。`;}
+function quantization(){let c=base('quantization'),b=Number($('bits').value);if(quantVisible){for(let k=0;k<48;k++){let x=75+k/48*1070,z=quantSignal(k/48),q=quant(z,b);c.strokeStyle='#FF0000';c.lineWidth=2;c.beginPath();c.moveTo(x,135-z*97);c.lineTo(x,135-q*97);c.stroke();c.fillStyle='#007C9B';c.beginPath();c.arc(x,135-q*97,4,0,2*Math.PI);c.fill()}}$('qresult').hidden=!quantVisible;$('qresult').textContent=`${b}bit模型：${2**b}级，步长${2/2**b}；红线是样本与代表值的差。`;}
 $('showSamples').onclick=()=>{cancelAnimationFrame(animation);points=Number($('fs').value);sampling()};
 $('resetSamples').onclick=()=>{cancelAnimationFrame(animation);points=0;sampling()};
 $('fs').onchange=()=>{cancelAnimationFrame(animation);points=0;sampling()};
 $('animate').onclick=()=>{cancelAnimationFrame(animation);points=0;let start=performance.now(),fs=Number($('fs').value);function step(t){points=Math.min(fs,Math.floor((t-start)/1500*fs)+1);sampling();if(points<fs)animation=requestAnimationFrame(step)}animation=requestAnimationFrame(step)};
-$('showQuant').onclick=()=>{quantVisible=true;quantization()};$('resetQuant').onclick=()=>{quantVisible=false;quantization()};$('bits').onchange=()=>{quantization()};
+$('showToneResult').onclick=()=>{$('toneResult').hidden=false};
+$('showQuantAudio').onclick=()=>{$('quantAudio').hidden=false};
+$('showQuant').onclick=()=>{quantVisible=true;quantization()};$('resetQuant').onclick=()=>{quantVisible=false;quantization()};$('bits').onchange=()=>{quantVisible=false;quantization()};
 // Prevent two different versions playing at once; no autoplay or independent normalization.
 for(const a of document.querySelectorAll('audio'))a.addEventListener('play',()=>{for(const other of document.querySelectorAll('audio'))if(other!==a)other.pause()});
 sampling();quantization();

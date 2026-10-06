@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "checks": [
+    "teacher D3: one comparison image",
+    "teacher D3: measured -0.10 errors match independent arithmetic",
+    "teacher D2: audio outputs have visible parameter labels",
+    "teacher audio-comparison: audio outputs have visible parameter labels",
+    "teacher size: one table, measured values correct",
+    "teacher opening: one table, measured values correct",
+    "student D3: one comparison image",
+    "student D3: measured -0.10 errors match independent arithmetic",
+    "student D2: audio outputs have visible parameter labels",
+    "student audio-comparison: audio outputs have visible parameter labels",
+    "student size: one table, measured values correct",
+    "student opening: one table, measured values correct"
+  ],
+  "scope": "Real local kernel outputs, not Windows JupyterLab GUI acceptance.",
+  "design_sha256": "3f1c96ca9a23fc3526201b95ba970ee1a1e64cabfd8b61599801c75f9c582d0e"
+}

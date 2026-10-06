@@ -1,0 +1,228 @@
+{
+  "version": "v4",
+  "date": "2026-10-01",
+  "passed": true,
+  "check_count": 2138,
+  "failures": [],
+  "unverified": [],
+  "pptx_sha256": "eafbf062bad7183479b5904ffc1189b3fc5d75b7bd5eea62302f5fc34207cafd",
+  "design_sha256": "3f1c96ca9a23fc3526201b95ba970ee1a1e64cabfd8b61599801c75f9c582d0e",
+  "media": [
+    {
+      "file": "music-22050-16-mono.wav",
+      "frames": 132300,
+      "sample_rate": 22050,
+      "channels": 1,
+      "storage_bits": 16,
+      "block_align": 2,
+      "payload": 264600,
+      "file_bytes": 264644,
+      "chunks": [
+        "fmt ",
+        "data"
+      ]
+    },
+    {
+      "file": "music-22050-effective2-stored16-mono.wav",
+      "frames": 132300,
+      "sample_rate": 22050,
+      "channels": 1,
+      "storage_bits": 16,
+      "block_align": 2,
+      "payload": 264600,
+      "file_bytes": 264644,
+      "chunks": [
+        "fmt ",
+        "data"
+      ]
+    },
+    {
+      "file": "music-22050-effective4-stored16-mono.wav",
+      "frames": 132300,
+      "sample_rate": 22050,
+      "channels": 1,
+      "storage_bits": 16,
+      "block_align": 2,
+      "payload": 264600,
+      "file_bytes": 264644,
+      "chunks": [
+        "fmt ",
+        "data"
+      ]
+    },
+    {
+      "file": "music-22050-effective8-stored16-mono.wav",
+      "frames": 132300,
+      "sample_rate": 22050,
+      "channels": 1,
+      "storage_bits": 16,
+      "block_align": 2,
+      "payload": 264600,
+      "file_bytes": 264644,
+      "chunks": [
+        "fmt ",
+        "data"
+      ]
+    },
+    {
+      "file": "music-44100-16-mono.wav",
+      "frames": 264600,
+      "sample_rate": 44100,
+      "channels": 1,
+      "storage_bits": 16,
+      "block_align": 2,
+      "payload": 529200,
+      "file_bytes": 529244,
+      "chunks": [
+        "fmt ",
+        "data"
+      ]
+    },
+    {
+      "file": "music-44100-16-stereo.wav",
+      "frames": 264600,
+      "sample_rate": 44100,
+      "channels": 2,
+      "storage_bits": 16,
+      "block_align": 4,
+      "payload": 1058400,
+      "file_bytes": 1058444,
+      "chunks": [
+        "fmt ",
+        "data"
+      ]
+    },
+    {
+      "file": "music-8000-16-mono.wav",
+      "frames": 48000,
+      "sample_rate": 8000,
+      "channels": 1,
+      "storage_bits": 16,
+      "block_align": 2,
+      "payload": 96000,
+      "file_bytes": 96044,
+      "chunks": [
+        "fmt ",
+        "data"
+      ]
+    },
+    {
+      "file": "size-check-8000-2s-16-mono.wav",
+      "frames": 16000,
+      "sample_rate": 8000,
+      "channels": 1,
+      "storage_bits": 16,
+      "block_align": 2,
+      "payload": 32000,
+      "file_bytes": 32044,
+      "chunks": [
+        "fmt ",
+        "data"
+      ]
+    },
+    {
+      "file": "tone-6000-at24000.wav",
+      "frames": 72000,
+      "sample_rate": 24000,
+      "channels": 1,
+      "storage_bits": 16,
+      "block_align": 2,
+      "payload": 144000,
+      "file_bytes": 144044,
+      "chunks": [
+        "fmt ",
+        "data"
+      ]
+    },
+    {
+      "file": "tone-alias-naive-at8000.wav",
+      "frames": 24000,
+      "sample_rate": 8000,
+      "channels": 1,
+      "storage_bits": 16,
+      "block_align": 2,
+      "payload": 48000,
+      "file_bytes": 48044,
+      "chunks": [
+        "fmt ",
+        "data"
+      ]
+    },
+    {
+      "file": "tone-lowpass-at8000.wav",
+      "frames": 24000,
+      "sample_rate": 8000,
+      "channels": 1,
+      "storage_bits": 16,
+      "block_align": 2,
+      "payload": 48000,
+      "file_bytes": 48044,
+      "chunks": [
+        "fmt ",
+        "data"
+      ]
+    }
+  ],
+  "substantive_checks": [
+    {
+      "name": "fresh AAC decode frame counts and bounded variation",
+      "passed": true,
+      "detail": {
+        "frames": 12155821,
+        "channels": 2,
+        "sample_rate": 44100,
+        "pcm_sha256": "f7343ae27f1aefc0967d7ef7a6465656be4d5ebf816e4f0c8e1a22dbbd986218",
+        "maximum_integer_difference": 1,
+        "boundary": "Exact re-decoder equality failed at 1 LSB. Current local afconvert output is checked within that measured bound. Recorded PCM read/write is checked exactly; neither target restores pre-AAC information."
+      }
+    },
+    {
+      "name": "Nyquist equality counterexample",
+      "passed": true,
+      "detail": "A sine at exactly fs/2 with zero phase has zero samples; boundary equality is not a universal guarantee."
+    },
+    {
+      "name": "observed tone frequency tone-6000-at24000.wav",
+      "passed": true,
+      "detail": {
+        "peak_hz": 6000.0
+      }
+    },
+    {
+      "name": "observed tone frequency tone-alias-naive-at8000.wav",
+      "passed": true,
+      "detail": {
+        "peak_hz": 2000.0
+      }
+    },
+    {
+      "name": "filtered result RMS limit",
+      "passed": true,
+      "detail": {
+        "rms": 2.1758269893602943e-06,
+        "not_claimed": "Absolute silence or universal perceptual result"
+      }
+    },
+    {
+      "name": "PCM conversion bytes equal independent struct target",
+      "passed": true,
+      "detail": {
+        "integers": [
+          -32768,
+          -32768,
+          -16384,
+          0,
+          0,
+          2,
+          16384,
+          32767,
+          32767,
+          32767
+        ],
+        "rounding": "ties-to-even; saturated to -32768..32767",
+        "readback": "recorded integer / 32768; not original floats"
+      }
+    }
+  ],
+  "scope": "Independent computations and encoded objects; renderer, notebook kernels, UI and classroom checks are separate."
+}

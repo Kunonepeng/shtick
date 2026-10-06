@@ -1,14 +1,16 @@
-"""音频课共用计算；离线运行，不读麦克风，不需要原始 M4A 解码器。"""
+"""Shared offline audio computations; no microphone or source AAC decoder required."""
 from pathlib import Path
 import json, wave
 import numpy as np
 ROOT = Path(__file__).resolve().parents[1]
 
 def quantize(x, bits):
-    """课堂等间隔中点量化模型；范围[-1,1)，上边界截到最后一档。"""
-    if not 1 <= int(bits) <= 16:
+    """Uniform midpoint quantizer on [-1, 1); clip overload inputs to endpoint bins."""
+    if isinstance(bits, bool) or int(bits) != bits or not 1 <= int(bits) <= 16:
         raise ValueError('bits must be 1..16')
     x = np.asarray(x, dtype=float)
+    if not np.isfinite(x).all():
+        raise ValueError('Quantizer input must be finite')
     levels = 2 ** int(bits)
     indices = np.clip(np.floor((x + 1) * levels / 2), 0, levels - 1).astype(int)
     representatives = -1 + (indices + 0.5) * 2 / levels
@@ -36,7 +38,7 @@ def write_pcm(path, x, fs):
         w.writeframes(pcm.tobytes())
 
 def resample_filtered(x, source_fs, target_fs):
-    """离线课堂重采样：FFT低通(含过渡带)后插值，边缘补零；不是裸丢点。"""
+    """Teaching resampler: zero-padded FFT lowpass with transition band, then interpolation."""
     x = np.asarray(x, dtype=float)
     if x.ndim == 1: x = x[:, None]
     padding = max(source_fs // 2, 1024)
@@ -100,6 +102,14 @@ def show_pcm_evidence(stage='size'):
     display(HTML(f'<h3>{heading}</h3>' + table(records)))
     return {label: info for label, info in records}
 
+def show_waveform():
+    """Display the teaching waveform before discrete recording is discussed."""
+    return plot_sampling(12, False)
+
+def show_recorded_values():
+    """Reveal the recorded values only after the class has proposed a method."""
+    return plot_sampling(12, True)
+
 def plot_sampling(fs=12, reveal=False):
     import matplotlib.pyplot as plt
     t = np.linspace(0, 1, 1001)
@@ -108,6 +118,7 @@ def plot_sampling(fs=12, reveal=False):
     ax.plot(t, .8*np.sin(2*np.pi*2*t+.3), color='#8C64E1', linewidth=3)
     if reveal: ax.plot(s, .8*np.sin(2*np.pi*2*s+.3), 'o', color='#E65050', markersize=9)
     ax.set(xlabel='Time (s)', ylabel='Normalized amplitude', xlim=(0,1), ylim=(-1.1,1.1))
+    ax.tick_params(labelsize=14); ax.xaxis.label.set_size(16); ax.yaxis.label.set_size(16)
     ax.grid(alpha=.15); plt.show()
 
 def plot_quantization(bits=2, reveal=False):
@@ -121,7 +132,8 @@ def plot_quantization(bits=2, reveal=False):
         ax.plot(t, q, 'o', color='#15B5CE', label=f'{bits}-bit model')
         ax.vlines(t, x, q, color='#E65050', linewidth=1)
     ax.set(xlabel='Time (s)', ylabel='Normalized amplitude', ylim=(-1.1,1.1))
-    ax.legend(); ax.grid(alpha=.15); plt.show()
+    ax.legend(); ax.tick_params(labelsize=14); ax.xaxis.label.set_size(16); ax.yaxis.label.set_size(16)
+    ax.grid(alpha=.15); plt.show()
 
 def plot_quantization_compare():
     """D3: one output, identical sample times, scales and ticks on both sides."""
@@ -136,8 +148,9 @@ def plot_quantization_compare():
         ax.vlines(t, x, q, color='#E65050', linewidth=1)
         ax.set(xlabel='Time (s)', xlim=(0, 1), ylim=(-1.1, 1.1), title=f'{bits}-bit quantization')
         ax.set_yticks([-.75, -.25, .25, .75]); ax.grid(alpha=.15)
-        ax.legend(loc='lower left', fontsize=9)
-    axes[0].set_ylabel('Normalized amplitude')
+        ax.tick_params(labelsize=14); ax.xaxis.label.set_size(16); ax.title.set_size(18)
+        ax.legend(loc='lower left', fontsize=14)
+    axes[0].set_ylabel('Normalized amplitude',fontsize=16)
     fig.tight_layout(); plt.show()
 
 def show_quantization_evidence():
@@ -156,3 +169,27 @@ def show_quantization_evidence():
                  '<tbody>'+''.join(rows)+'</tbody></table></div>'
                  '<style>th,td{padding:8px 20px}</style>'))
     return result
+
+
+def show_opening():
+    """Show anonymous opening audio without filenames or parameter labels."""
+    from IPython.display import HTML, display
+    for label, name in [('A', 'music-44100-16-mono.wav'), ('B', 'music-8000-16-mono.wav')]:
+        display(HTML(f'<p style="font-size:24px">{label}</p>'))
+        show_audio(name)
+
+
+def show_frequency_baseline():
+    """Expose baseline playback without revealing the result fixture name."""
+    return show_audio('tone-6000-at24000.wav', label='6kHz纯音：24kHz采样基准')
+
+
+def show_frequency_result():
+    """Display the filtered result only after the independent prediction."""
+    return show_audio('tone-lowpass-at8000.wav', label='同一纯音：先低通，再降为8kHz')
+
+
+def show_quantization_audio():
+    """Display the controlled audio comparison after the error task."""
+    show_audio('music-22050-effective4-stored16-mono.wav', label='4bit有效量化模型；存储16bit')
+    show_audio('music-22050-16-mono.wav', label='16bit基准；存储16bit')

@@ -1,0 +1,41 @@
+pandoc 
+  to: revealjs
+  output-file: slides.html
+  standalone: true
+  wrap: none
+  default-image-extension: png
+  html-math-method:
+    method: mathjax
+    url: >-
+      https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_HTML-full
+  slide-level: 2
+  css:
+    - reveal-v4.css
+  
+metadata
+  link-citations: true
+  width: 1280
+  height: 720
+  margin: 0
+  center: false
+  navigationMode: linear
+  controlsLayout: edges
+  controlsTutorial: false
+  hash: true
+  history: true
+  hashOneBasedIndex: false
+  fragmentInURL: false
+  transition: none
+  backgroundTransition: none
+  pdfSeparateFragments: false
+  lang: zh-CN
+  auto-stretch: true
+  pagetitle: 音频数字化参考
+  theme: simple
+  menu: false
+  
+[WARNING] Could not load translations for zh-CN
+  translations/zh.yaml: 
+[WARNING] The term Abstract has no translation defined.
+Output created: exports/reference-v4/slides.html
+

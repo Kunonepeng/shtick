@@ -1,0 +1,120 @@
+{
+  "version": "v4",
+  "date": "2026-10-01",
+  "pptx_sha256": "eafbf062bad7183479b5904ffc1189b3fc5d75b7bd5eea62302f5fc34207cafd",
+  "shared_module_sha256": "ad3d86b66d117de0f5effa31fc615314a8efc590205627ff14a96446956e218c",
+  "jupyterlab_version": "4.6.3",
+  "D1_gui_kernel_language_info": {
+    "codemirror_mode": {
+      "name": "ipython",
+      "version": 3
+    },
+    "file_extension": ".py",
+    "mimetype": "text/x-python",
+    "name": "python",
+    "nbconvert_exporter": "python",
+    "pygments_lexer": "ipython3",
+    "version": "3.11.16"
+  },
+  "checks": [
+    {
+      "name": "D1 initial neutral code names and no outputs",
+      "status": "pass"
+    },
+    {
+      "name": "D1 actual setup -> waveform only -> 12 recorded values",
+      "status": "pass",
+      "evidence": "ui/D1-student.ipynb and jupyter-D1-*.png"
+    },
+    {
+      "name": "opening anonymous A/B embedded players 6s, no media error",
+      "status": "pass"
+    },
+    {
+      "name": "D3 comparison scales, labels, scrolling and same-screen display",
+      "status": "pass",
+      "evidence": "jupyter-D3-final.png"
+    },
+    {
+      "name": "teacher IFrame loads D1 and show-points button works",
+      "status": "pass",
+      "evidence": "jupyter-iframe-dom.txt"
+    },
+    {
+      "name": "HTML current-stage initial hiding, resets, D1 animation, D3 bit change and manual playback",
+      "status": "pass",
+      "scope": "Local HTTP only"
+    },
+    {
+      "name": "Reveal 62 sections, question-to-reveal browser navigation and geometry",
+      "status": "pass",
+      "scope": "Local HTTP reference only"
+    },
+    {
+      "name": "file protocol double-click behavior",
+      "status": "unverified",
+      "reason": "Browser URL security policy forbids file protocol; no workaround was attempted."
+    },
+    {
+      "name": "all-stage Windows JupyterLab and WPS/PowerPoint",
+      "status": "unverified",
+      "reason": "Target applications/environment unavailable in this validation session."
+    },
+    {
+      "name": "target projector, speaker hearing, activities and observed pacing",
+      "status": "unverified",
+      "reason": "No target classroom session was performed."
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "validation/v4/html-D1.png",
+      "sha256": "f8e550c488c71977ac06fb368184184044711e89669fb5a368648044511ec031"
+    },
+    {
+      "path": "validation/v4/html-D2-B.png",
+      "sha256": "215c4992f37ae80f622b4eab5756ba3b9eff83248bdd1731eb0198d26e0b51f4"
+    },
+    {
+      "path": "validation/v4/html-D3.png",
+      "sha256": "3049642b1f0d27b780a1f1c465db48cb38b732893f1d7f3751e3970459701613"
+    },
+    {
+      "path": "validation/v4/jupyter-D1-initial.png",
+      "sha256": "a31333faa0db29a3db9962e0c802c202bc4699859332b5e6d1e8180dd5983d3b"
+    },
+    {
+      "path": "validation/v4/jupyter-D1-recorded.png",
+      "sha256": "9cd34035a0510dc9e39697b318c49ee23ed64829c27d9ab3d05a23752d505e41"
+    },
+    {
+      "path": "validation/v4/jupyter-D1-waveform.png",
+      "sha256": "8aaab0a4c72d18ac76813044abb89e9620b455ae6247cf1f7cd2a3791c51d250"
+    },
+    {
+      "path": "validation/v4/jupyter-D3-final.png",
+      "sha256": "54c7e4277038249f8e7fbee58ec5b6bd2c080f40d234d39c81c45136e77299da"
+    },
+    {
+      "path": "validation/v4/jupyter-D3.png",
+      "sha256": "699104f75c05164e2c3cfa54f1685b4c32d4dae4e0cba5c867eb77e459836d09"
+    },
+    {
+      "path": "validation/v4/jupyter-iframe.png",
+      "sha256": "b33e055b884f5f661c5d46ffc870cc692cbd9eb4729232595380c77345e6e020"
+    },
+    {
+      "path": "validation/v4/jupyter-opening.png",
+      "sha256": "265468fdadf49569d86e51f5d3f6c5b1c09bd723d9785ee029c9bb6b949baf73"
+    },
+    {
+      "path": "validation/v4/reveal-answer.png",
+      "sha256": "0e4f3ae00f9b6e232ff271d0fb1377a0e754108b5ba32eff0ec033a87f2f543e"
+    },
+    {
+      "path": "validation/v4/reveal-question.png",
+      "sha256": "0253cbdc6debdcc6140b4228d57e4ca04dc23c68e8300ba70c9700741f953a6e"
+    }
+  ],
+  "scope": "Actual local GUI observations for listed behaviors only. Preparing imports off projection and displaying current evidence are part of the operation sequence."
+}

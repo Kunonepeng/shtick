@@ -1,0 +1,416 @@
+{
+  "version": "v4",
+  "date": "2026-10-01",
+  "passed": true,
+  "checks": [
+    {
+      "name": "design-derived plan equals delivered plan",
+      "passed": true
+    },
+    {
+      "name": "teacher QMD/IPYNB code identity",
+      "passed": true
+    },
+    {
+      "name": "teacher QMD/IPYNB prose identity",
+      "passed": true
+    },
+    {
+      "name": "teacher executed cell sources equal clean delivery",
+      "passed": true
+    },
+    {
+      "name": "student QMD/IPYNB code identity",
+      "passed": true
+    },
+    {
+      "name": "student QMD/IPYNB prose identity",
+      "passed": true
+    },
+    {
+      "name": "student executed cell sources equal clean delivery",
+      "passed": true
+    },
+    {
+      "name": "D1-student.ipynb executed source identity",
+      "passed": true
+    },
+    {
+      "name": "D2-B-student.ipynb executed source identity",
+      "passed": true
+    },
+    {
+      "name": "D2-student.ipynb executed source identity",
+      "passed": true
+    },
+    {
+      "name": "D3-B-student.ipynb executed source identity",
+      "passed": true
+    },
+    {
+      "name": "D3-student.ipynb executed source identity",
+      "passed": true
+    },
+    {
+      "name": "D4-B-student.ipynb executed source identity",
+      "passed": true
+    },
+    {
+      "name": "D4-student.ipynb executed source identity",
+      "passed": true
+    },
+    {
+      "name": "opening-student.ipynb executed source identity",
+      "passed": true
+    },
+    {
+      "name": "T4 student prompt is neutral in both student formats",
+      "passed": true
+    },
+    {
+      "name": "T4 teacher solution withheld from student text",
+      "passed": true
+    },
+    {
+      "name": "worksheet Q7 gives no missing-parameter answer",
+      "passed": true
+    },
+    {
+      "name": "Q1 design reasoning sections",
+      "passed": true
+    },
+    {
+      "name": "Q2 design reasoning sections",
+      "passed": true
+    },
+    {
+      "name": "Q3 design reasoning sections",
+      "passed": true
+    },
+    {
+      "name": "Q4 design reasoning sections",
+      "passed": true
+    },
+    {
+      "name": "Q5 design reasoning sections",
+      "passed": true
+    },
+    {
+      "name": "Q6 design reasoning sections",
+      "passed": true
+    },
+    {
+      "name": "Q7 design reasoning sections",
+      "passed": true
+    },
+    {
+      "name": "Q8 design reasoning sections",
+      "passed": true
+    },
+    {
+      "name": "Q9 design reasoning sections",
+      "passed": true
+    },
+    {
+      "name": "Q10 design reasoning sections",
+      "passed": true
+    },
+    {
+      "name": "Q11 design reasoning sections",
+      "passed": true
+    },
+    {
+      "name": "Q12 design reasoning sections",
+      "passed": true
+    },
+    {
+      "name": "Q13 design reasoning sections",
+      "passed": true
+    },
+    {
+      "name": "Q14 design reasoning sections",
+      "passed": true
+    },
+    {
+      "name": "Q15 design reasoning sections",
+      "passed": true
+    },
+    {
+      "name": "Q16 design reasoning sections",
+      "passed": true
+    },
+    {
+      "name": "Q17 design reasoning sections",
+      "passed": true
+    },
+    {
+      "name": "Q18 design reasoning sections",
+      "passed": true
+    },
+    {
+      "name": "Q19 design reasoning sections",
+      "passed": true
+    },
+    {
+      "name": "Reveal has exactly one section per planned stage",
+      "passed": true
+    },
+    {
+      "name": "Reveal stage 1 equals final render",
+      "passed": true
+    },
+    {
+      "name": "Reveal stage 2 equals final render",
+      "passed": true
+    },
+    {
+      "name": "Reveal stage 3 equals final render",
+      "passed": true
+    },
+    {
+      "name": "Reveal stage 4 equals final render",
+      "passed": true
+    },
+    {
+      "name": "Reveal stage 5 equals final render",
+      "passed": true
+    },
+    {
+      "name": "Reveal stage 6 equals final render",
+      "passed": true
+    },
+    {
+      "name": "Reveal stage 7 equals final render",
+      "passed": true
+    },
+    {
+      "name": "Reveal stage 8 equals final render",
+      "passed": true
+    },
+    {
+      "name": "Reveal stage 9 equals final render",
+      "passed": true
+    },
+    {
+      "name": "Reveal stage 10 equals final render",
+      "passed": true
+    },
+    {
+      "name": "Reveal stage 11 equals final render",
+      "passed": true
+    },
+    {
+      "name": "Reveal stage 12 equals final render",
+      "passed": true
+    },
+    {
+      "name": "Reveal stage 13 equals final render",
+      "passed": true
+    },
+    {
+      "name": "Reveal stage 14 equals final render",
+      "passed": true
+    },
+    {
+      "name": "Reveal stage 15 equals final render",
+      "passed": true
+    },
+    {
+      "name": "Reveal stage 16 equals final render",
+      "passed": true
+    },
+    {
+      "name": "Reveal stage 17 equals final render",
+      "passed": true
+    },
+    {
+      "name": "Reveal stage 18 equals final render",
+      "passed": true
+    },
+    {
+      "name": "Reveal stage 19 equals final render",
+      "passed": true
+    },
+    {
+      "name": "Reveal stage 20 equals final render",
+      "passed": true
+    },
+    {
+      "name": "Reveal stage 21 equals final render",
+      "passed": true
+    },
+    {
+      "name": "Reveal stage 22 equals final render",
+      "passed": true
+    },
+    {
+      "name": "Reveal stage 23 equals final render",
+      "passed": true
+    },
+    {
+      "name": "Reveal stage 24 equals final render",
+      "passed": true
+    },
+    {
+      "name": "Reveal stage 25 equals final render",
+      "passed": true
+    },
+    {
+      "name": "Reveal stage 26 equals final render",
+      "passed": true
+    },
+    {
+      "name": "Reveal stage 27 equals final render",
+      "passed": true
+    },
+    {
+      "name": "Reveal stage 28 equals final render",
+      "passed": true
+    },
+    {
+      "name": "Reveal stage 29 equals final render",
+      "passed": true
+    },
+    {
+      "name": "Reveal stage 30 equals final render",
+      "passed": true
+    },
+    {
+      "name": "Reveal stage 31 equals final render",
+      "passed": true
+    },
+    {
+      "name": "Reveal stage 32 equals final render",
+      "passed": true
+    },
+    {
+      "name": "Reveal stage 33 equals final render",
+      "passed": true
+    },
+    {
+      "name": "Reveal stage 34 equals final render",
+      "passed": true
+    },
+    {
+      "name": "Reveal stage 35 equals final render",
+      "passed": true
+    },
+    {
+      "name": "Reveal stage 36 equals final render",
+      "passed": true
+    },
+    {
+      "name": "Reveal stage 37 equals final render",
+      "passed": true
+    },
+    {
+      "name": "Reveal stage 38 equals final render",
+      "passed": true
+    },
+    {
+      "name": "Reveal stage 39 equals final render",
+      "passed": true
+    },
+    {
+      "name": "Reveal stage 40 equals final render",
+      "passed": true
+    },
+    {
+      "name": "Reveal stage 41 equals final render",
+      "passed": true
+    },
+    {
+      "name": "Reveal stage 42 equals final render",
+      "passed": true
+    },
+    {
+      "name": "Reveal stage 43 equals final render",
+      "passed": true
+    },
+    {
+      "name": "Reveal stage 44 equals final render",
+      "passed": true
+    },
+    {
+      "name": "Reveal stage 45 equals final render",
+      "passed": true
+    },
+    {
+      "name": "Reveal stage 46 equals final render",
+      "passed": true
+    },
+    {
+      "name": "Reveal stage 47 equals final render",
+      "passed": true
+    },
+    {
+      "name": "Reveal stage 48 equals final render",
+      "passed": true
+    },
+    {
+      "name": "Reveal stage 49 equals final render",
+      "passed": true
+    },
+    {
+      "name": "Reveal stage 50 equals final render",
+      "passed": true
+    },
+    {
+      "name": "Reveal stage 51 equals final render",
+      "passed": true
+    },
+    {
+      "name": "Reveal stage 52 equals final render",
+      "passed": true
+    },
+    {
+      "name": "Reveal stage 53 equals final render",
+      "passed": true
+    },
+    {
+      "name": "Reveal stage 54 equals final render",
+      "passed": true
+    },
+    {
+      "name": "Reveal stage 55 equals final render",
+      "passed": true
+    },
+    {
+      "name": "Reveal stage 56 equals final render",
+      "passed": true
+    },
+    {
+      "name": "Reveal stage 57 equals final render",
+      "passed": true
+    },
+    {
+      "name": "Reveal stage 58 equals final render",
+      "passed": true
+    },
+    {
+      "name": "Reveal stage 59 equals final render",
+      "passed": true
+    },
+    {
+      "name": "Reveal stage 60 equals final render",
+      "passed": true
+    },
+    {
+      "name": "Reveal stage 61 equals final render",
+      "passed": true
+    },
+    {
+      "name": "Reveal stage 62 equals final render",
+      "passed": true
+    },
+    {
+      "name": "English implementation comments and docstrings",
+      "passed": true
+    }
+  ],
+  "language_findings": [],
+  "design_sha256": "3f1c96ca9a23fc3526201b95ba970ee1a1e64cabfd8b61599801c75f9c582d0e",
+  "pptx_sha256": "eafbf062bad7183479b5904ffc1189b3fc5d75b7bd5eea62302f5fc34207cafd",
+  "language_scope": "Comments and docstrings scanned; identifiers/developer messages manually reviewed. Chinese teaching labels, exact data and generated teaching prose are permitted literals.",
+  "scope": "Source/output identity and basic design completeness; semantic, visual and classroom acceptance are separately recorded."
+}

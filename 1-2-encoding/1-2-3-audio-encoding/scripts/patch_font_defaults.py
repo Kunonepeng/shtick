@@ -4,7 +4,10 @@ from zipfile import ZipFile,ZIP_DEFLATED
 from xml.etree import ElementTree as E
 import os
 ROOT=Path(__file__).resolve().parents[1]
-P=ROOT/'.build/audio-candidate.pptx'
+import argparse
+parser = argparse.ArgumentParser()
+parser.add_argument('candidate', nargs='?', type=Path, default=ROOT/'.build/v4/audio-candidate.pptx')
+P=parser.parse_args().candidate
 A='http://schemas.openxmlformats.org/drawingml/2006/main';PNS='http://schemas.openxmlformats.org/presentationml/2006/main'
 E.register_namespace('a',A);E.register_namespace('p',PNS);E.register_namespace('r','http://schemas.openxmlformats.org/officeDocument/2006/relationships')
 REG='Alibaba PuHuiTi 3.0 55 Regular';BLACK='Alibaba PuHuiTi 3.0 115 Black'

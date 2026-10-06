@@ -1,0 +1,31 @@
+[1/7] course-design.qmd
+[WARNING] Could not load translations for zh-CN
+  translations/zh.yaml: 
+[WARNING] The term Abstract has no translation defined.
+[2/7] demo-lab-teacher.qmd
+[WARNING] Could not load translations for zh-CN
+  translations/zh.yaml: 
+[WARNING] The term Abstract has no translation defined.
+[3/7] demo-lab-student.qmd
+[WARNING] Could not load translations for zh-CN
+  translations/zh.yaml: 
+[WARNING] The term Abstract has no translation defined.
+[4/7] student-activities-a.qmd
+[WARNING] Could not load translations for zh-CN
+  translations/zh.yaml: 
+[WARNING] The term Abstract has no translation defined.
+[5/7] student-activities-b.qmd
+[WARNING] Could not load translations for zh-CN
+  translations/zh.yaml: 
+[WARNING] The term Abstract has no translation defined.
+[6/7] student-activities-exit.qmd
+[WARNING] Could not load translations for zh-CN
+  translations/zh.yaml: 
+[WARNING] The term Abstract has no translation defined.
+[7/7] slides.qmd
+[WARNING] Could not load translations for zh-CN
+  translations/zh.yaml: 
+[WARNING] The term Abstract has no translation defined.
+
+Output created: exports/reference-v4/slides.html
+

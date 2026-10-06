@@ -1,0 +1,595 @@
+- link "Skip to main panel":
+  - /url: "#"
+- banner "Top Bar":
+  - navigation "main menu":
+    - menubar:
+      - menuitem "File":
+        - generic: File
+      - menuitem "Edit":
+        - generic: Edit
+      - menuitem "View":
+        - generic: View
+      - menuitem "Run":
+        - generic: Run
+      - menuitem "Kernel":
+        - generic: Kernel
+      - menuitem "Tabs":
+        - generic: Tabs
+      - menuitem "Settings":
+        - generic: Settings
+      - menuitem "Help":
+        - generic: Help
+  - toolbar "Topbar toolbar"
+- complementary "main sidebar":
+  - tablist "main sidebar":
+    - tab "File Browser (⇧ ⌘ F)" [selected]:
+    - tab "Running Terminals and Kernels":
+    - tab "Table of Contents":
+    - tab "Extension Manager":
+- region "File Browser Section":
+  - toolbar "file browser":
+    - generic "New Launcher (⇧ ⌘ L)":
+      - button "New Launcher (⇧ ⌘ L)":
+    - generic "New Folder":
+      - button "New Folder":
+    - generic "Upload Files":
+      - button "Upload Files":
+    - generic "Refresh the file browser.":
+      - button "Refresh the file browser.":
+    - generic "Toggle File Filter":
+      - button "Toggle File Filter":
+  - region "side panel content":
+    - generic "~/repo/shtick/1-2-encoding/1-2-3-audio-encoding":
+    - text: /validation/v4/executed/
+    - generic: Name
+    - generic: Modified
+    - list:
+      - 'listitem "Name: D1-student.ipynb Size: 89.9 KB Path: validation/v4/executed Created: 10/1/26, 2:35 PM Modified: 10/1/26, 3:04 PM Writable: true"':
+        - button "D1-student.ipynb"
+        - generic "10/1/26, 3:04 PM": 7 sec. ago
+      - 'listitem "Name: D2-B-student.ipynb Size: 66.2 KB Path: validation/v4/executed Created: 10/1/26, 2:59 PM Modified: 10/1/26, 3:04 PM Writable: true"':
+        - generic: D2-B-student.ipynb
+        - generic "10/1/26, 3:04 PM": 6 sec. ago
+      - 'listitem "Name: D2-student.ipynb Size: 191.2 KB Path: validation/v4/executed Created: 10/1/26, 2:35 PM Modified: 10/1/26, 3:04 PM Writable: true"':
+        - generic: D2-student.ipynb
+        - generic "10/1/26, 3:04 PM": 6 sec. ago
+      - 'listitem "Name: D3-B-student.ipynb Size: 695 KB Path: validation/v4/executed Created: 10/1/26, 2:59 PM Modified: 10/1/26, 3:04 PM Writable: true"':
+        - generic: D3-B-student.ipynb
+        - generic "10/1/26, 3:04 PM": 5 sec. ago
+      - 'listitem "Name: D3-student.ipynb Size: 130 KB Path: validation/v4/executed Created: 10/1/26, 2:35 PM Modified: 10/1/26, 3:04 PM Writable: true"':
+        - generic: D3-student.ipynb
+        - generic "10/1/26, 3:04 PM": 4 sec. ago
+      - 'listitem "Name: D4-B-student.ipynb Size: 5.4 KB Path: validation/v4/executed Created: 10/1/26, 2:59 PM Modified: 10/1/26, 3:04 PM Writable: true"':
+        - generic: D4-B-student.ipynb
+        - generic "10/1/26, 3:04 PM": 4 sec. ago
+      - 'listitem "Name: D4-student.ipynb Size: 4.5 KB Path: validation/v4/executed Created: 10/1/26, 2:35 PM Modified: 10/1/26, 3:04 PM Writable: true"':
+        - generic: D4-student.ipynb
+        - generic "10/1/26, 3:04 PM": 3 sec. ago
+      - 'listitem "Name: demo-lab-student.ipynb Size: 1.9 MB Path: validation/v4/executed Created: 10/1/26, 2:35 PM Modified: 10/1/26, 3:04 PM Writable: true"':
+        - generic: demo-lab-student.ipynb
+        - generic "10/1/26, 3:04 PM": 8 sec. ago
+      - 'listitem "Name: demo-lab-teacher.ipynb Size: 2 MB Path: validation/v4/executed Created: 10/1/26, 2:35 PM Modified: 10/1/26, 3:04 PM Writable: true Kernel: Python 3 (ipykernel)"':
+        - text: ●
+        - generic: demo-lab-teacher.ipynb
+        - generic "10/1/26, 3:04 PM": 9 sec. ago
+      - 'listitem "Name: opening-student.ipynb Size: 818.6 KB Path: validation/v4/executed Created: 10/1/26, 2:35 PM Modified: 10/1/26, 3:04 PM Writable: true"':
+        - generic: opening-student.ipynb
+        - generic "10/1/26, 3:04 PM": 3 sec. ago
+- main "Main Content":
+  - tablist:
+    - tab "demo-lab-student.ipynb":
+      - generic: demo-lab-student.ipynb
+      - generic "Close demo-lab-student.ipynb":
+    - tab "demo-lab-teacher.ipynb":
+      - generic: demo-lab-teacher.ipynb
+      - generic "Close demo-lab-teacher.ipynb":
+    - tab "opening-student.ipynb":
+      - generic: opening-student.ipynb
+      - generic "Close opening-student.ipynb":
+    - tab "D3-student.ipynb":
+      - generic: D3-student.ipynb
+      - generic "Close D3-student.ipynb":
+    - tab "demo-lab-teacher.ipynb" [selected]:
+      - generic: demo-lab-teacher.ipynb
+      - generic "Close demo-lab-teacher.ipynb":
+  - button "New Launcher":
+  - tabpanel "demo-lab-teacher.ipynb":
+    - toolbar "main area toolbar":
+      - generic "Save and create checkpoint (⌘ S)":
+        - button "Save and create checkpoint (⌘ S)":
+      - generic "Insert a cell below (B)":
+        - button "Insert a cell below (B)":
+      - generic "Cut this cell (X)":
+        - button "Cut this cell (X)":
+      - generic "Copy this cell (C)":
+        - button "Copy this cell (C)":
+      - generic "Paste this cell from the clipboard (V)":
+        - button "Paste this cell from the clipboard (V)":
+      - generic "Run this cell and advance (⇧ ⏎)":
+        - button "Run this cell and advance (⇧ ⏎)":
+      - generic "Interrupt the kernel":
+        - button "Interrupt the kernel":
+      - generic "Restart the kernel":
+        - button "Restart the kernel":
+      - generic "Restart the kernel and run all cells":
+        - button "Restart the kernel and run all cells":
+      - combobox "Cell type":
+        - option "-"
+        - option "Code"
+        - option "Markdown" [selected]
+        - option "Raw"
+      - generic "Notebook":
+        - button "Notebook":
+          - generic: Notebook
+      - generic "Render the current notebook as Reveal Slideshow (⌥ R)":
+        - button "Render the current notebook as Reveal Slideshow (⌥ R)":
+      - generic "Enable Debugger":
+        - button "Enable Debugger":
+      - generic "Python 3 (ipykernel)":
+        - button "Python 3 (ipykernel)":
+          - generic: Python 3 (ipykernel)
+      - progressbar "Kernel status":
+    - region "main area content":
+      - feed "Cells":
+        - generic "Markdown Cell Content":
+          - heading "音频数字化" [level=1]: 音频数字化
+          - paragraph: 教师备课与试跑；教师说明不投影。
+        - generic "Code Cell Content":
+          - generic: "[1]:"
+          - textbox:
+            - generic: from pathlib import Path
+            - generic: import sys
+            - generic: ROOT = Path.cwd()
+            - generic: "while not (ROOT / 'demos' / 'audio_core.py').exists():"
+            - generic: "if ROOT == ROOT.parent:"
+            - generic: raise RuntimeError('Start the kernel inside the audio lesson directory')
+            - generic: ROOT = ROOT.parent
+            - generic: sys.path.insert(0, str(ROOT / 'demos'))
+            - generic: from audio_core import plot_sampling, plot_quantization, plot_quantization_compare
+            - generic: from audio_core import show_quantization_evidence, show_audio, show_pcm_evidence, show_opening
+            - generic: from audio_core import show_frequency_baseline, show_frequency_result, show_quantization_audio
+        - generic "Markdown Cell Content":
+          - heading "Q1 同一段音乐，为什么大小不同？" [level=2]: Q1 同一段音乐，为什么大小不同？
+          - paragraph: 同一段6秒音乐，两个文件均未做音频压缩。 A：529,244B；B：96,044B。 先试听，再猜测：为什么大小不同？
+          - paragraph: 预测：________
+          - paragraph: 观察后解释：________
+        - generic "Markdown Cell Content":
+          - paragraph: 教师参考（不投影）：
+          - paragraph: 提问稿：先看两份文件的大小，再听A、B。都六秒、都没有做音频压缩，为什么仍然不一样大？先给一个可以核对的猜测；我把两条写在板书角落，暂不判定。
+          - paragraph: 作答后解释稿：刚才大家提出了几种猜测。可以确定的是：同样六秒、同为未压缩，大小仍然不同。我们暂时还不知道记录参数怎样造成这个差别。把板书上的两条猜测保留，先找电脑究竟记录了哪些数，最后读实际文件来核对。
+          - paragraph: 追问：同样是6秒，电脑在这6秒中记录了多少个数？
+        - generic "Markdown Cell Content":
+          - paragraph:
+            - strong: 先写预测或解释，等待讨论；下一单元只在作答后运行。
+        - generic "Code Cell Content with Output":
+          - generic "Click to expand":
+            - generic: show_opening()
+          - paragraph: A
+          - generic: Your browser does not support the audio element.
+          - paragraph: B
+          - generic: Your browser does not support the audio element.
+          - generic "Collapse Output":
+        - generic "Markdown Cell Content":
+          - heading "Q2 声音怎样变成一条波形？" [level=2]: Q2 声音怎样变成一条波形？
+          - paragraph: 看同一位置随时间变化的声音。 波形的横轴、纵轴分别表示什么？
+          - paragraph: 预测：________
+          - paragraph: 观察后解释：________
+        - generic "Markdown Cell Content":
+          - paragraph: 教师参考（不投影）：
+          - paragraph: 提问稿：这一条曲线把原来看不见的变化画了出来。请指横轴和纵轴各表示什么，再找一个零线下方的时刻。纵轴能直接叫“音量”吗？先说你的理解。
+          - paragraph: 作答后解释稿：先看这一条曲线。往右是时间过去，不是声音在教室里走过的距离。麦克风把声压变化转成电信号，上下表示信号相对基准的数值。谁能指一个零线下方的时刻？负值表示低于基准，不是负的音量，也不是物体朝下移动。这里画的是归一化模型，不是原音乐的实测波形。原音乐早已是数字文件，课堂图和重新处理的WAV用于模拟这套记录规则；第一次录音时，采样对象是麦克风输出的连续电信号。
+          - paragraph: 追问：曲线在零线下方时，是否表示“负的音量”？横坐标不同，记录的是不同位置，还是不同时刻？
+        - generic "Markdown Cell Content":
+          - heading "Q3 怎样留下波形随时间的变化？" [level=2]: Q3 怎样留下波形随时间的变化？
+          - paragraph: 这一秒的曲线怎样记录？ 在纸上圈出你准备读取的时刻。
+          - paragraph: 预测：________
+          - paragraph: 观察后解释：________
+        - generic "Markdown Cell Content":
+          - paragraph: 教师参考（不投影）：
+          - paragraph: 提问稿：这一秒里，你准备在哪些时刻读取数值？先在纸上圈几个，让同桌说出你的记录规则。现在不规定取几个，也不先要求等间隔。先比较你们的办法，再看红点。
+          - paragraph: 作答后解释稿：你们刚才挑了不同的时刻。图像课挑位置，声音课先挑时刻。如果每次间隔相同，就不必逐点交代时间，只要约定开始时间和每秒读取次数。再看红点：每个点留下当时的幅度，紫线是比较用的模型。点之间的整条曲线没有逐点存进去；现在先决定什么时候读，不急着决定保留几位数。
+          - paragraph: 追问：随意挑点，除了幅度还要交代什么？等间隔读点时，可否只约定开始时刻和采样率？两个时刻之间的全部变化都直接写进去了吗？
+        - generic "Code Cell Content with Output":
+          - generic "Click to expand":
+            - generic: plot_sampling(12, False)
+          - generic "Collapse Output":
+        - generic "Markdown Cell Content":
+          - paragraph:
+            - strong: 先写预测或解释，等待讨论；下一单元只在作答后运行。
+        - generic "Code Cell Content with Output":
+          - generic "Click to expand":
+            - generic: plot_sampling(12, True)
+          - generic "Collapse Output":
+        - generic "Markdown Cell Content":
+          - heading "Q4 每秒采样8000次，是什么意思？" [level=2]: Q4 每秒采样8000次，是什么意思？
+          - paragraph: 单声道：每秒等间隔读取8000个样本。 采样率应怎样写？
+          - paragraph: 预测：________
+          - paragraph: 观察后解释：________
+        - generic "Markdown Cell Content":
+          - paragraph: 教师参考（不投影）：
+          - paragraph: 提问稿：现在约定单声道每秒等间隔读取八千个样本。采样率应写多少赫兹？请先说明这个数是在数记录动作，还是声音振动。
+          - paragraph: 作答后解释稿：每秒读八千次，这个读数的频率叫采样率。八千赫兹也可以写八千次每秒每声道。声音自身频率数振动，采样率数记录。先建立这个含义，再翻到Q4-B，独立算相邻间隔。
+          - paragraph: 追问：声音本身6000Hz、记录采样率24000Hz，两个数分别数什么？
+        - generic "Markdown Cell Content":
+          - heading "Q4-B 相邻采样时刻间隔多久？" [level=3]: Q4-B 相邻采样时刻间隔多久？
+          - paragraph: 单声道采样率8000 Hz，等间隔记录。
+          - paragraph: 先列式，再把秒换成毫秒。
+          - paragraph: 我的预测／算式：________
+        - generic "Markdown Cell Content":
+          - paragraph:
+            - strong: 先写预测或解释，等待讨论；下一单元只在作答后运行。
+        - generic "Markdown Cell Content":
+          - paragraph: 教师参考（不投影）：核对一秒除以八千。得到0.000125秒，换成毫秒乘一千，是0.125毫秒。分母是记录次数，不能用声音自身频率替代。
+        - generic "Markdown Cell Content":
+          - heading "Q5 样本值不在可选等级上，怎么办？" [level=2]: Q5 样本值不在可选等级上，怎么办？
+          - paragraph: 四个样本：−0.62、−0.10、0.38、0.84。 只能用：−0.75、−0.25、0.25、0.75近似。 分别选哪个？
+          - paragraph: 预测：________
+          - paragraph: 观察后解释：________
+        - generic "Markdown Cell Content":
+          - paragraph: 教师参考（不投影）：
+          - paragraph: 提问稿：测到四个样本，但今天只能从这四个代表值里选。请各自填近似值，暂不填写码字栏。哪一档离原值最近？同桌先比较依据，再看答案。
+          - paragraph: 作答后解释稿：核对刚填的四行：测得值都读到了，可是现在只允许四个等级，只能选择最接近的一档。哪一项完全没有误差？都没有。图像课用有限颜色近似颜色，这里用有限幅度等级近似幅度，叫量化。误差来自这一档的近似，不是时刻有没有选好。
+          - paragraph: 追问：−0.62与−0.75差了多少？把采样时刻加密能直接消除这次近似误差吗？
+        - generic "Markdown Cell Content":
+          - heading "Q6 四个量化等级，怎样写成码字？" [level=2]: Q6 四个量化等级，怎样写成码字？
+          - paragraph: 从低到高编号0、1、2、3；采用等长二进制码。 每个样本至少几bit？写出四个码字。
+          - paragraph: 预测：________
+          - paragraph: 观察后解释：________
+        - generic "Markdown Cell Content":
+          - paragraph: 教师参考（不投影）：
+          - paragraph: 提问稿：沿用你刚填的四档，从低到高编号零至三，采用等长二进制码。每个样本至少几位？把四个码字填完整，再让同桌查回代表值。
+          - paragraph: 作答后解释稿：我们把最低的一档叫零，最高的一档叫三。每个编号固定占几位，才能区分四种状态？两位。请写满两位，不要把零写成一位。写成码字这一步叫编码。这里约定的是课堂等级编号，真实PCM还会约定整数的表示和字节顺序。
+          - paragraph: 追问：把编号3保存为“11”，这个动作有没有再次决定采样时刻？
+        - generic "Markdown Cell Content":
+          - heading "Q7 只有码字，就能按原速播放吗？" [level=2]: Q7 只有码字，就能按原速播放吗？
+          - paragraph: 单声道：00 01 10 11；同一张四等级码表。 共4个样本，能确定这段声音的时长吗？
+          - paragraph: 预测：________
+          - paragraph: 观察后解释：________
+        - generic "Markdown Cell Content":
+          - paragraph: 教师参考（不投影）：
+          - paragraph: 提问稿：这里已给定单声道和同一张码表，共四个样本。仅凭这些条件能知道播放多久吗？如果你认为不能，请指出还缺哪一项，再听另一种意见。
+          - paragraph: 作答后解释稿：码表已经给了，编号也读得懂，可是每隔多久读一个？如果每秒四个，这四个样本对应一秒；每秒八个，就对应半秒。此题码长、码表和单声道都给定了，缺的是每秒读几个；不要把已知条件也当作缺失。一般音频还需位数、声道与排列规则。数据要连着解释规则一起保存。后面正常的采样率对照，会同时正确记录新采样率，播放时长保持六秒，不是给音乐加速。
+          - paragraph: 追问：把低采样率文件正确播放，与把同一批样本用更高的播放采样率播放，一样吗？
+        - generic "Markdown Cell Content":
+          - heading "T1 总结与证据" [level=3]
+          - paragraph: 用Q3圈点、Q5近似、Q6互读或Q7时长举证，再用一句话说清每一步。
+          - paragraph: 我的总结：________
+          - paragraph: 依据：________
+        - generic "Markdown Cell Content":
+          - heading "Q8 只增加采样率，声音会怎样？" [level=2]: Q8 只增加采样率，声音会怎样？
+          - paragraph: 同一段6秒音乐，单声道、16bit。 比较8kHz与44.1kHz，其他条件不变。 改变的是播放速度，还是保留的细节？
+          - paragraph: 预测：________
+          - paragraph: 观察后解释：________
+        - generic "Markdown Cell Content":
+          - paragraph: 教师参考（不投影）：
+          - paragraph: 提问稿：现在揭示开场A、B的采样率，位数、声道和六秒时长相同。你猜改变的是播放速度还是保留的细节？先回忆刚才的听感。随后再听标好的纯音基准和转换结果；听完才给出技术条件。
+          - paragraph: 作答后解释稿：核对刚才的预测：正确记录新采样率，播放仍是六秒。改变的是可保留的频率范围，不能据音乐听感推出所有声音的规律。这里给出带限理想条件：采样率高于最高频率的两倍，实际还要留滤波余量。先建立条件，再翻到Q8-B，让学生自己代入6kHz和8kHz。
+          - paragraph: 追问：8kHz的半数是多少？6kHz与它相比怎样？
+        - generic "Markdown Cell Content":
+          - paragraph:
+            - strong: 先写预测或解释，等待讨论；下一单元只在作答后运行。
+        - generic "Code Cell Content with Output":
+          - generic "Click to expand":
+            - generic: show_frequency_baseline()
+          - paragraph: 6kHz纯音：24kHz采样基准
+          - generic: Your browser does not support the audio element.
+        - generic "Markdown Cell Content":
+          - heading "Q8-B 8kHz采样能保留6kHz纯音吗？" [level=3]: Q8-B 8kHz采样能保留6kHz纯音吗？
+          - paragraph: 带限理想条件：fs > 2fmax。
+          - paragraph: 最高频率6kHz，采样率8kHz。
+          - paragraph: 先用条件判断，再观察转换结果。
+          - paragraph: 我的预测／算式：________
+        - generic "Markdown Cell Content":
+          - paragraph:
+            - strong: 先写预测或解释，等待讨论；下一单元只在作答后运行。
+        - generic "Markdown Cell Content":
+          - paragraph: 教师参考（不投影）：六千的两倍是一万二，八千没有超过它。当前转换先低通，所以高频被滤掉；裸丢点会产生混叠，是另一个备用诊断。一个试听只检验本例，不证明所有声音。
+        - generic "Code Cell Content with Output":
+          - generic "Click to expand":
+            - generic: show_frequency_result()
+          - paragraph: 同一纯音：先低通，再降为8kHz
+          - generic: Your browser does not support the audio element.
+        - generic "Markdown Cell Content":
+          - heading "Q9 采样率越高，听起来一定越好吗？" [level=2]: Q9 采样率越高，听起来一定越好吗？
+          - paragraph: 一段信号只含8kHz以下的频率。 32kHz已满足条件，改成96kHz一定更好听吗？
+          - paragraph: 预测：________
+          - paragraph: 观察后解释：________
+        - generic "Markdown Cell Content":
+          - paragraph: 教师参考（不投影）：
+          - paragraph: 提问稿：题目已经说明，三万二满足这个信号的频率条件。再提高到九万六，“一定更好听”这句话能成立吗？请用题目条件说明，先不凭参数大小投票。
+          - paragraph: 作答后解释稿：这次题目给了一个重要条件：信号只有八千赫兹以下的成分，三万二已经足够。改成九万六会让数更多，但不能保证耳朵觉得更好。我们用的M4A本身已是压缩文件，转成更大的PCM WAV也不能恢复之前损失的信息。参数要和需求一起判断。
+          - paragraph: 追问：源文件已经丢掉的细节，单纯转换成更高采样率会自己回来吗？
+        - generic "Markdown Cell Content":
+          - heading "Q10 采样时刻不变，怎样减小量化误差？" [level=2]: Q10 采样时刻不变，怎样减小量化误差？
+          - paragraph: 同一批样本，幅度范围固定。 2bit与4bit量化，哪一种近似更细？
+          - paragraph: 预测：________
+          - paragraph: 观察后解释：________
+        - generic "Markdown Cell Content":
+          - paragraph: 教师参考（不投影）：
+          - paragraph: 提问稿：这次不增加采样时刻，只改可选幅度等级。你预测两位和四位哪一种近似更细？先看同一批样本，指出你想比较的地方，再运行左右对照图。
+          - paragraph: 作答后解释稿：这次所有取样时刻都不动，只增加可选等级。每个样本与近似值之间的红线表示误差。四位时可以分十六档，误差范围缩小。再听同一段音乐：四位有效模型常能听出粗糙感。没有听出来也先看图。这里播放器装的是十六位WAV；四位说的是我们模拟的量化等级，稍后算文件大小要读真实存储位数。
+          - paragraph: 追问：红线是在横向补时刻，还是纵向修近似？
+        - generic "Code Cell Content with Output":
+          - generic "Click to expand":
+            - generic: plot_quantization(2, False)
+        - generic "Markdown Cell Content":
+          - paragraph:
+            - strong: 先写预测或解释，等待讨论；下一单元只在作答后运行。
+        - generic "Code Cell Content with Output":
+          - generic "Click to expand":
+            - generic: plot_quantization_compare()
+        - generic "Markdown Cell Content":
+          - heading "Q10-B 同一个样本，两种近似误差是多少？" [level=3]: Q10-B 同一个样本，两种近似误差是多少？
+          - paragraph: 原样本−0.10。
+          - paragraph: 2bit代表值−0.25；4bit代表值−0.0625。
+          - paragraph: 分别求与原样本的绝对差。
+          - paragraph: 我的预测／算式：________
+        - generic "Markdown Cell Content":
+          - paragraph:
+            - strong: 先写预测或解释，等待讨论；下一单元只在作答后运行。
+        - generic "Markdown Cell Content":
+          - paragraph: 教师参考（不投影）：两项差分别为0.15和0.0375。这个样本四位误差更小；固定范围、均匀量化的上界规律有条件，不能由此断言每个样本都严格改善。现在按标签试听四位模型与十六位基准，两份都用十六位存储。
+        - generic "Code Cell Content with Output":
+          - generic "Click to expand":
+            - generic: quantization_evidence = show_quantization_evidence()
+          - text: 沿用Q5的一个样本：
+          - table:
+            - rowgroup:
+              - row "量化位数 同一输入 近似值 绝对误差":
+                - columnheader "量化位数"
+                - columnheader "同一输入"
+                - columnheader "近似值"
+                - columnheader "绝对误差"
+            - rowgroup:
+              - row "2bit −0.10 -0.25 0.15":
+                - cell "2bit"
+                - cell "−0.10"
+                - cell "-0.25"
+                - cell "0.15"
+              - row "4bit −0.10 -0.0625 0.0375":
+                - cell "4bit"
+                - cell "−0.10"
+                - cell "-0.0625"
+                - cell "0.0375"
+        - generic "Markdown Cell Content":
+          - paragraph: 图比较2bit／4bit；下面试听比较4bit有效模型／16bit基准。两份均为22.05kHz、单声道、16bit存储。
+        - generic "Code Cell Content with Output":
+          - generic "Click to expand":
+            - generic: show_quantization_audio()
+          - paragraph: 4bit有效量化模型；存储16bit
+          - generic: Your browser does not support the audio element.
+          - paragraph: 16bit基准；存储16bit
+          - generic: Your browser does not support the audio element.
+        - generic "Markdown Cell Content":
+          - heading "Q11 量化位数加倍，等级也只加倍吗？" [level=2]: Q11 量化位数加倍，等级也只加倍吗？
+          - paragraph: 2bit、4bit、8bit各有多少个码字？ 16bit最多能区分多少个等级？
+          - paragraph: 预测：________
+          - paragraph: 观察后解释：________
+        - generic "Markdown Cell Content":
+          - paragraph: 教师参考（不投影）：
+          - paragraph: 提问稿：两位、四位、八位分别能组成多少个等长码字？十六位可以先列指数式。先说算法，再报数字；位数加倍，等级也只加倍吗？
+          - paragraph: 作答后解释稿：两位不是两档，四位也不是四档。每一位有零和一两种状态，组合起来是二的n次方。四位相对两位，位数加倍，档数从四变成十六。把“每样本占几位”与“可选多少等级”分开写。
+          - paragraph: 追问：每增加1bit，码字数怎样变化？
+        - generic "Markdown Cell Content":
+          - heading "Q12 三步分别改变了什么？" [level=2]: Q12 三步分别改变了什么？
+          - paragraph: 采样、量化、编码，分别回答哪一个问题？ 什么时候读？幅度分多细？怎样写码字？
+          - paragraph: 预测：________
+          - paragraph: 观察后解释：________
+        - generic "Markdown Cell Content":
+          - paragraph: 教师参考（不投影）：
+          - paragraph: 提问稿：先用自己做过的动作解释三个词：选择时刻、选择近似等级、按约定写码字，各对应哪一步？第一次录音从什么信号开始？不要只背三个名词。
+          - paragraph: 作答后解释稿：核对你们刚才的配对，用做过的动作解释。挑时刻是采样，挑代表等级是量化，写码字是编码。采样和量化各自限制一种精度。把码字写得再长，也不会凭空出现没记录的频率内容。第一次录音从连续电信号开始；我们手上的M4A早已数字化，课堂是在数学模型和已解码数据上演示这些规则。
+          - paragraph: 追问：增加位数能补回没有记录的快速变化吗？
+        - generic "Markdown Cell Content":
+          - heading "T2 总结与证据" [level=3]
+          - paragraph: 先用D2或D3证据说明采样率与位数各改变什么；补出适用条件。
+          - paragraph: 我的总结：________
+          - paragraph: 依据：________
+        - generic "Markdown Cell Content":
+          - heading "Q13 左右两路声音，怎样记录？" [level=2]: Q13 左右两路声音，怎样记录？
+          - paragraph: 同采样率、同位数、同样6秒。 单声道1路，双声道2路；样本数据量怎样变？
+          - paragraph: 预测：________
+          - paragraph: 观察后解释：________
+        - generic "Markdown Cell Content":
+          - paragraph: 教师参考（不投影）：
+          - paragraph: 提问稿：看三个时刻，每个时刻左、右各记录一个数。请分别数单声道和双声道的样本总数；再回答同参数、同长度的数据量怎样变。
+          - paragraph: 作答后解释稿：这里的声道是一路信号。每个时刻，左边一个数，右边一个数，就有两个样本。我们只是数存储量，不能由两倍数据推出两倍音量或两倍音质。图像RGB通道是颜色分量，音频L、R是声音的两路信号，别把含义混在一起。
+          - paragraph: 追问：把相同的单声道复制到两路，信息内容一定增加了吗？
+        - generic "Markdown Cell Content":
+          - heading "Q14 未压缩PCM WAV保存了什么？" [level=2]: Q14 未压缩PCM WAV保存了什么？
+          - paragraph: 要让别人读懂并播放这些样本， 文件除了样本，还需要记录什么？
+          - paragraph: 预测：________
+          - paragraph: 观察后解释：________
+        - generic "Markdown Cell Content":
+          - paragraph: 教师参考（不投影）：
+          - paragraph: 提问稿：回到那串样本。别人要读懂并播放，文件除样本还要交代哪些参数？先回忆Q7缺什么；“未压缩”是否就保证没有采样、量化误差？先保留判断。
+          - paragraph: 作答后解释稿：采样率告诉我们多久读一个，位数告诉我们怎么分组，声道告诉我们怎样分成各路。WAV把这些格式信息和样本装在一起。PCM是脉冲编码调制，本课使用固定码长表示量化后的样本。今天只讨论未压缩整数PCM WAV：它按固定存储位数保存样本，没有再做AAC那样的音频压缩。不过WAV这个容器也能装其他格式，不能只看扩展名下结论。“未压缩”指这些样本没有再做音频压缩，不保证模拟声音经过采样、量化后毫无损失，也不撤销来源AAC已有的损失。
+          - paragraph: 追问：PCM编码和MP3／AAC压缩是一回事吗？所有WAV都一定未压缩吗？
+        - generic "Markdown Cell Content":
+          - heading "Q15 怎样从样本数推导数据量？" [level=2]: Q15 怎样从样本数推导数据量？
+          - paragraph: 每秒每声道fs个样本，录音t秒。 每样本n bit，共C个声道。 先数样本，再换算成B。
+          - paragraph: 预测：________
+          - paragraph: 观察后解释：________
+        - generic "Markdown Cell Content":
+          - paragraph: 教师参考（不投影）：
+          - paragraph: 提问稿：先数，不先背公式。一秒一条路有多少样本？录t秒、共C路后有多少个数？每个数占n位，最后怎样换成byte？请把每一步的单位说出来。
+          - paragraph: 作答后解释稿：刚才逐层数过了：每秒一条路有fs个样本，t秒共fs乘t个；再有C条路，一共fs乘t乘C个数。每个数占n位，现在得到的是bit。要用B表示，还要除以八。每一个乘数都能在记录动作里找到。这里算的是样本数据，不包含文件头。
+          - paragraph: 追问：式子的哪个因子把bit换成了byte？哪个因子记录了时间？
+        - generic "Markdown Cell Content":
+          - heading "Q16 一分钟双声道PCM有多大？" [level=2]: Q16 一分钟双声道PCM有多大？
+          - paragraph: 44.1kHz、16bit、双声道，录音1分钟。 求样本数据量（B）；换算MiB列式即可。 1 MiB = 1,048,576 B。
+          - paragraph: 预测：________
+          - paragraph: 观察后解释：________
+        - generic "Markdown Cell Content":
+          - paragraph: 教师参考（不投影）：
+          - paragraph: 提问稿：给大家六十秒，独立写四个参数、B的算式与结果；MiB只列换算式。先检查kHz和分钟怎样换单位，再与同桌核对，不先看揭示页。
+          - paragraph: 作答后解释稿：核对刚才的算式：四十四点一千赫兹应换成四万四千一百赫兹，一分钟应换成六十秒。双声道乘二，bit换B除八。先求B，再按给定的1MiB换算；列出分式就可以，我来给近似值。MiB用1024进位，MB是十进制单位，算式与单位必须配套。
+          - paragraph: 追问：如果采样率不变、位数不变，只把时长变为30秒，怎样快速判断？
+        - generic "Markdown Cell Content":
+          - heading "Q17 算出32000B，文件一定也是32000B吗？" [level=2]: Q17 算出32000B，文件一定也是32000B吗？
+          - paragraph: 实际样例：8kHz、2秒、16bit、单声道PCM WAV。 公式得到32,000B。完整文件会一样大吗？
+          - paragraph: 预测：________
+          - paragraph: 观察后解释：________
+        - generic "Markdown Cell Content":
+          - paragraph: 教师参考（不投影）：
+          - paragraph: 提问稿：按参数已经算出三万二byte。你预测实际完整WAV文件是否也正好这么大？先说理由，再读取实际文件。解释差额后，我们才回看开场A、B。
+          - paragraph: 作答后解释稿：你算出三万二，文件却是三万二千零四十四。分开数：每声道一万六千帧、单声道每帧两个byte，样本数据正好三万二。多出的结构信息只属于这个样例，不能说所有WAV都是四十四字节头。现在先指出这44B解释了哪项差异，再翻到Q17-B，请你们预测开场A/B的实际参数支持哪条猜测，预测后才读表。
+          - paragraph: 追问：如果WAV含额外说明、其他chunk或更复杂头部，开销一定相同吗？
+        - generic "Markdown Cell Content":
+          - paragraph:
+            - strong: 先写预测或解释，等待讨论；下一单元只在作答后运行。
+        - generic "Code Cell Content with Output":
+          - generic "Click to expand":
+            - generic: size_evidence = show_pcm_evidence('size')
+          - heading "核对2秒样例：样本数据与完整文件" [level=3]: 核对2秒样例：样本数据与完整文件
+          - table:
+            - rowgroup:
+              - row "文件 采样率Hz 时长s 存储bit 声道数 样本数据B 完整文件B":
+                - columnheader "文件"
+                - columnheader "采样率Hz"
+                - columnheader "时长s"
+                - columnheader "存储bit"
+                - columnheader "声道数"
+                - columnheader "样本数据B"
+                - columnheader "完整文件B"
+            - rowgroup:
+              - row "2秒样例 8,000 2 16 1 32,000 32,044":
+                - cell "2秒样例"
+                - cell "8,000"
+                - cell "2"
+                - cell "16"
+                - cell "1"
+                - cell "32,000"
+                - cell "32,044"
+        - generic "Markdown Cell Content":
+          - heading "Q17-B 实际参数支持开场哪条猜测？" [level=3]: Q17-B 实际参数支持开场哪条猜测？
+          - paragraph: 回看A：529,244B；B：96,044B。
+          - paragraph: 两份都为6秒未压缩PCM。
+          - paragraph: 预测哪个记录参数不同，再读实际文件。
+          - paragraph: 我的预测／算式：________
+        - generic "Markdown Cell Content":
+          - paragraph:
+            - strong: 先写预测或解释，等待讨论；下一单元只在作答后运行。
+        - generic "Markdown Cell Content":
+          - paragraph: 教师参考（不投影）：实际读表显示只有采样率不同，位数、声道和时长相同。用刚才公式分别得到529,200和96,000byte。两份开销都是44B，所以大小差等于样本数据差；完整文件的比值不能直接当采样率比值。请修改没有证据支持的压缩猜测。
+        - generic "Code Cell Content with Output":
+          - generic "Click to expand":
+            - generic: opening_evidence = show_pcm_evidence('opening')
+          - heading "回看开场：A、B的哪个记录参数不同？" [level=3]: 回看开场：A、B的哪个记录参数不同？
+          - table:
+            - rowgroup:
+              - row "文件 采样率Hz 时长s 存储bit 声道数 样本数据B 完整文件B":
+                - columnheader "文件"
+                - columnheader "采样率Hz"
+                - columnheader "时长s"
+                - columnheader "存储bit"
+                - columnheader "声道数"
+                - columnheader "样本数据B"
+                - columnheader "完整文件B"
+            - rowgroup:
+              - row "开场A 44,100 6 16 1 529,200 529,244":
+                - cell "开场A"
+                - cell "44,100"
+                - cell "6"
+                - cell "16"
+                - cell "1"
+                - cell "529,200"
+                - cell "529,244"
+              - row "开场B 8,000 6 16 1 96,000 96,044":
+                - cell "开场B"
+                - cell "8,000"
+                - cell "6"
+                - cell "16"
+                - cell "1"
+                - cell "96,000"
+                - cell "96,044"
+        - generic "Markdown Cell Content":
+          - heading "T3 总结与证据" [level=3]
+          - paragraph: 用Q13帧计数、Q16算式及Q17差额说明公式数什么，哪些不在公式里。
+          - paragraph: 我的总结：________
+          - paragraph: 依据：________
+        - generic "Markdown Cell Content":
+          - heading "Q18 只有64KiB，哪种方案满足要求？" [level=2]: Q18 只有64KiB，哪种方案满足要求？
+          - paragraph: 带限信号最高频率6kHz；记录2秒。 16bit、单声道；上限64KiB = 65,536B（仅样本数据）。 候选采样率：8k、16k、24kHz。逐项检查两个条件。
+          - paragraph: 预测：________
+          - paragraph: 观察后解释：________
+        - generic "Markdown Cell Content":
+          - paragraph: 教师参考（不投影）：
+          - paragraph: 提问稿：靠窗同学先查8kHz，另一位查24kHz，各三十秒。每个方案都查频率和容量两项。然后共同检查16kHz，四十五秒合并三行表。不要只写选哪一个，要说明另两个失败在哪里。
+          - paragraph: 作答后解释稿：题目给定信号最高到六千赫兹，按刚才的理想条件，采样率要高于一万二。再看记录两秒、16bit、单声道的数据量，有没有超过给定的65,536B？核对三行：八千的容量够，但频率条件不满足；二万四满足频率条件，却超出容量。一万六在本题的理想模型中通过两项检查；实际系统仍需滤波余量。
+          - paragraph: 追问：64KiB到底是多少B？选较高参数前先检查哪个限制？
+        - generic "Markdown Cell Content":
+          - heading "T4 总结与证据" [level=3]
+          - paragraph: 学生先说8k／24k分别失败在哪里，再指出16k的两项证据。
+          - paragraph: 我的总结：________
+          - paragraph: 依据：________
+        - generic "Markdown Cell Content":
+          - heading "Q19 哪些说法需要修改？" [level=2]: Q19 哪些说法需要修改？
+          - paragraph: ① 8kHz采样，声音自身频率就是8kHz。 ② 16bit量化只有16个等级。 ③ 所有WAV都未压缩，公式算出完整文件大小。
+          - paragraph: 预测：________
+          - paragraph: 观察后解释：________
+        - generic "Markdown Cell Content":
+          - paragraph: 教师参考（不投影）：
+          - paragraph: 提问稿：每个人先独立写六十秒：第三句必须改，再选第一句或第二句改写。每项写一条规则或证据。先不与同桌交换，收齐后再看揭示。
+          - paragraph: 作答后解释稿：核对刚才的改写和依据：第一句要区分记录次数与振动次数，第二句要用二的十六次方计算等级。第三句有两个错误：WAV不一定未压缩，公式也不包含文件头；刚才的三万二和三万二千零四十四只直接反驳第二个错误。采样、量化、编码分别解决时刻、有限幅度和表示规则，再用样本计数检查数据量。
+          - paragraph: 追问：哪一条可以用今天的实际文件字节数直接反驳？
+        - generic "Markdown Cell Content":
+          - heading "可选与备用" [level=2]: 可选与备用
+          - paragraph: 24点仅时间允许时运行；HTML只显示指定阶段，不追加第五个核心Demo。
+        - generic "Code Cell Content with Output":
+          - generic "Click to expand":
+            - generic: plot_sampling(24, True)
+          - iframe [active]:
+            - heading "音频数字化实验台" [level=1]
+            - paragraph: 先预测，再点击显示或播放。所有声音均为本地文件。
+            - heading "按时刻读取波形" [level=2]
+            - paragraph: 这是一秒钟、2Hz的数学模型。按相同时间间隔，怎样留下样本？
+            - text: 每秒样本数：
+            - combobox "每秒样本数：":
+              - option "12" [selected]
+              - option "24"
+              - option "48"
+            - button "显示采样点" [active]
+            - button "逐个读取"
+            - button "重新预测"
+            - paragraph: "[0,1)内12个样本；当前设置12次/秒/声道。"
+          - generic "Collapse Output":
+        - generic "Markdown Cell Content":
+          - toolbar "Cell toolbar":
+            - generic "Create a duplicate of this cell below":
+              - button "Create a duplicate of this cell below":
+            - generic "Move this cell up (⌃ ⇧ ↑)":
+              - button "Move this cell up (⌃ ⇧ ↑)":
+            - generic "Move this cell down (⌃ ⇧ ↓)":
+              - button "Move this cell down (⌃ ⇧ ↓)":
+            - generic "Insert a cell above (A)":
+              - button "Insert a cell above (A)":
+            - generic "Insert a cell below (B)":
+              - button "Insert a cell below (B)":
+            - generic "Delete the cell":
+              - button "Delete the cell":
+          - button
+          - heading "课后练习" [level=2]: 课后练习
+          - paragraph: 22.05kHz、16bit、单声道10秒有多少B样本数据？
+          - paragraph: 4bit变8bit，等级数变为几倍？
+          - paragraph: 8kHz转48kHz能恢复未记录的6kHz吗？
+        - generic "Markdown Cell Content":
+          - paragraph: 教师答案（课后作答后提供）：441,000B；16倍；不能恢复未记录或已丢失信息。
+      - button "Click to add a cell."
+- complementary "alternate sidebar":
+  - tablist "alternate sidebar":
+    - tab "Property Inspector":
+    - tab "Debugger":
+- contentinfo "Bottom Panel":
+  - generic "0 Terminals, 5 Kernel sessions":
+    - button "5":
+      - generic: "5"
+  - button "Python 3 (ipykernel) | Idle"
+  - generic "Notebook is in Command mode": "Mode: Command"
+  - 'generic "Notebook not trusted: 2 of 13 code cells trusted."':
+  - button "Cell 76/77"
+  - button "Ln 1, Col 1"
+  - generic: demo-lab-teacher.ipynb
+  - button "1":
+    - generic: "1"
+- text: No results

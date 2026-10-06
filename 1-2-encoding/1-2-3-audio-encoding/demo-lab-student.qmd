@@ -1,5 +1,5 @@
 ---
-title: "音频数字化：学生观察"
+title: "音频数字化：学生"
 lang: zh-CN
 jupyter: python3
 execute:
@@ -11,19 +11,21 @@ format:
 
 # 音频数字化
 
-课堂观察／课后阅读视图，由教师操作。先清空旧输出、折叠代码；先在纸上预测，再运行当前证据。
+完整学生阅读版，含后续题面。课堂仅投影notebooks/staged中当前阶段，仍由教师操作。
 
 ```{python}
 from pathlib import Path
 import sys
-# 从课程目录或其demos目录启动均可；不使用当前用户的绝对路径。
 ROOT = Path.cwd()
-if not (ROOT / 'demos' / 'audio_core.py').exists():
-    if (ROOT.parent / 'demos' / 'audio_core.py').exists(): ROOT = ROOT.parent
-    else: raise RuntimeError('请从1-2-3-audio-encoding课程目录打开Notebook')
+while not (ROOT / 'demos' / 'audio_core.py').exists():
+    if ROOT == ROOT.parent:
+        raise RuntimeError('Start the kernel inside the audio lesson directory')
+    ROOT = ROOT.parent
 sys.path.insert(0, str(ROOT / 'demos'))
-from audio_core import plot_sampling, plot_quantization, plot_quantization_compare, show_quantization_evidence, show_audio, pcm_info, show_pcm_evidence, quantize, codes
-from IPython.display import display, IFrame
+from audio_core import plot_sampling, plot_quantization, plot_quantization_compare
+from audio_core import show_waveform, show_recorded_values
+from audio_core import show_quantization_evidence, show_audio, show_pcm_evidence, show_opening
+from audio_core import show_frequency_baseline, show_frequency_result, show_quantization_audio
 
 ```
 
@@ -37,14 +39,10 @@ A：529,244B；B：96,044B。
 
 观察后解释：________
 
-### 开场试听：A、B；先听，暂不揭示参数。
+**先写预测或解释，等待讨论；下一单元只在作答后运行。**
 
 ```{python}
-from IPython.display import HTML
-display(HTML('<p>A</p>'))
-show_audio('music-44100-16-mono.wav')
-display(HTML('<p>B</p>'))
-show_audio('music-8000-16-mono.wav')
+show_opening()
 ```
 
 ## Q2 声音怎样变成一条波形？
@@ -65,32 +63,34 @@ show_audio('music-8000-16-mono.wav')
 
 观察后解释：________
 
-### D1 先预测，后运行
-
 ```{python}
-plot_sampling(12, False)
+show_waveform()
 ```
 
-**等待讨论。下面单元只在完成预测后运行。**
+**先写预测或解释，等待讨论；下一单元只在作答后运行。**
 
 ```{python}
-plot_sampling(12, True)
-```
-
-可选对照：时间允许才运行24点图。
-
-```{python}
-plot_sampling(24, True)
+show_recorded_values()
 ```
 
 ## Q4 每秒采样8000次，是什么意思？
 
 单声道：每秒等间隔读取8000个样本。
-采样率是多少？相邻时刻间隔多久？
+采样率应怎样写？
 
 预测：________
 
 观察后解释：________
+
+### Q4-B 相邻采样时刻间隔多久？
+
+单声道采样率8000 Hz，等间隔记录。
+
+先列式，再把秒换成毫秒。
+
+我的预测／算式：________
+
+**先写预测或解释，等待讨论；下一单元只在作答后运行。**
 
 ## Q5 样本值不在可选等级上，怎么办？
 
@@ -120,26 +120,44 @@ plot_sampling(24, True)
 
 观察后解释：________
 
+### T1 总结与证据
+
+用Q3圈点、Q5近似、Q6互读或Q7时长举证，再用一句话说清每一步。
+
+我的总结：________
+
+依据：________
+
 ## Q8 只增加采样率，声音会怎样？
 
 同一段6秒音乐，单声道、16bit。
 比较8kHz与44.1kHz，其他条件不变。
-再看：8kHz能保留6kHz纯音吗？
+改变的是播放速度，还是保留的细节？
 
 预测：________
 
 观察后解释：________
 
-### D2 先预测，后运行
+**先写预测或解释，等待讨论；下一单元只在作答后运行。**
 
 ```{python}
-show_audio('tone-6000-at24000.wav', label='6kHz纯音：24kHz采样基准')
+show_frequency_baseline()
 ```
 
-**等待讨论。下面单元只在完成预测后运行。**
+### Q8-B 8kHz采样能保留6kHz纯音吗？
+
+带限理想条件：fs > 2fmax。
+
+最高频率6kHz，采样率8kHz。
+
+先用条件判断，再观察转换结果。
+
+我的预测／算式：________
+
+**先写预测或解释，等待讨论；下一单元只在作答后运行。**
 
 ```{python}
-show_audio('tone-lowpass-at8000.wav', label='同一纯音：先低通，再降为8kHz')
+show_frequency_result()
 ```
 
 ## Q9 采样率越高，听起来一定越好吗？
@@ -160,29 +178,36 @@ show_audio('tone-lowpass-at8000.wav', label='同一纯音：先低通，再降�
 
 观察后解释：________
 
-### D3 先预测，后运行
-
 ```{python}
 plot_quantization(2, False)
 ```
 
-**等待讨论。下面单元只在完成预测后运行。**
+**先写预测或解释，等待讨论；下一单元只在作答后运行。**
 
 ```{python}
 plot_quantization_compare()
 ```
 
-先指出误差线，再核对Q5同一个样本的误差。
+### Q10-B 同一个样本，两种近似误差是多少？
+
+原样本−0.10。
+
+2bit代表值−0.25；4bit代表值−0.0625。
+
+分别求与原样本的绝对差。
+
+我的预测／算式：________
+
+**先写预测或解释，等待讨论；下一单元只在作答后运行。**
 
 ```{python}
 quantization_evidence = show_quantization_evidence()
 ```
 
-图比较2bit／4bit；下面试听比较4bit有效模型／16bit基准。两份试听均为22.05kHz、单声道、16bit存储。
+图比较2bit／4bit；下面试听比较4bit有效模型／16bit基准。两份均为22.05kHz、单声道、16bit存储。
 
 ```{python}
-show_audio('music-22050-effective4-stored16-mono.wav', label='4bit有效量化模型；存储16bit')
-show_audio('music-22050-16-mono.wav', label='16bit基准；存储16bit')
+show_quantization_audio()
 ```
 
 ## Q11 量化位数加倍，等级也只加倍吗？
@@ -202,6 +227,14 @@ show_audio('music-22050-16-mono.wav', label='16bit基准；存储16bit')
 预测：________
 
 观察后解释：________
+
+### T2 总结与证据
+
+先用D2或D3证据说明采样率与位数各改变什么；补出适用条件。
+
+我的总结：________
+
+依据：________
 
 ## Q13 左右两路声音，怎样记录？
 
@@ -250,24 +283,35 @@ show_audio('music-22050-16-mono.wav', label='16bit基准；存储16bit')
 
 观察后解释：________
 
-### D4 先预测，后运行
+**先写预测或解释，等待讨论；下一单元只在作答后运行。**
 
 ```{python}
-# 先预测公式结果与完整文件大小是否相同。
+size_evidence = show_pcm_evidence('size')
 ```
 
-**等待讨论。下面单元只在完成预测后运行。**
+### Q17-B 实际参数支持开场哪条猜测？
 
-```{python}
-info = pcm_info(ROOT / 'assets/audio/size-check-8000-2s-16-mono.wav')
-evidence = show_pcm_evidence('size')
-```
+回看A：529,244B；B：96,044B。
 
-先解释公式结果与完整文件的差额，再运行下面单元核对开场猜测。
+两份都为6秒未压缩PCM。
+
+预测哪个记录参数不同，再读实际文件。
+
+我的预测／算式：________
+
+**先写预测或解释，等待讨论；下一单元只在作答后运行。**
 
 ```{python}
 opening_evidence = show_pcm_evidence('opening')
 ```
+
+### T3 总结与证据
+
+用Q13帧计数、Q16算式及Q17差额说明公式数什么，哪些不在公式里。
+
+我的总结：________
+
+依据：________
 
 ## Q18 只有64KiB，哪种方案满足要求？
 
@@ -278,6 +322,14 @@ opening_evidence = show_pcm_evidence('opening')
 预测：________
 
 观察后解释：________
+
+### T4 总结与证据
+
+根据自己的表格，逐项说明频率与容量是否满足，再用两项证据提出选择。
+
+我的总结：________
+
+依据：________
 
 ## Q19 哪些说法需要修改？
 
@@ -291,7 +343,8 @@ opening_evidence = show_pcm_evidence('opening')
 
 ## 课后练习
 
-1. 22.05kHz、16bit、单声道10秒，样本数据量是多少B？
-2. 4bit变成8bit，等级数变成几倍？
-3. 把8kHz录音转换成48kHz，能恢复未记录的6kHz吗？
+22.05kHz、16bit、单声道10秒有多少B样本数据？
 
+4bit变8bit，等级数变为几倍？
+
+8kHz转48kHz能恢复未记录的6kHz吗？
