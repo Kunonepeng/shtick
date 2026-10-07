@@ -14,6 +14,7 @@ The name comes from `SHSIC` being easy to mistype or remember as `shtick`.
 - [1-2-3 字符编码 · Reveal.js reference](1-2-encoding/1-2-3-character-encoding/slides.qmd)
 - [1-2-3 字符编码 · Teacher Demo Lab](1-2-encoding/1-2-3-character-encoding/demo-lab-teacher.qmd)
 - [1-2-3 字符编码 · Student Demo Lab](1-2-encoding/1-2-3-character-encoding/demo-lab-student.qmd)
+- [1-2-3 图像编码 . 教学设计](1-2-encoding/1-2-3-image-encoding/course-design.qmd)
 
 ## Current workflow
 
