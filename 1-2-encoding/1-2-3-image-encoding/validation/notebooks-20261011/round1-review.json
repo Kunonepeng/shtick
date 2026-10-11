@@ -1,0 +1,36 @@
+{
+  "review": "round1",
+  "before_build": "NotebookValidationError: cell id unsupported by nbformat_minor=4",
+  "frozen_deck_sha256": "aa2661338514e717294236bdad42c0bbba8acfa370148a53f9c89ab156c1521b",
+  "issues": [
+    {
+      "id": "R1-01",
+      "priority": "P1",
+      "issue": "Notebook schema rejected cell IDs",
+      "fix": "Set nbformat minor to at least 5 before assigning stable cell IDs",
+      "status": "fixed"
+    },
+    {
+      "id": "R1-02",
+      "priority": "P1",
+      "issue": "PNG and decode entry points accepted inconsistent palette/width or fractional indices",
+      "fix": "Validate integer indices, palette membership, code capacity and PNG legal width; add negative cases",
+      "status": "fixed"
+    },
+    {
+      "id": "R1-03",
+      "priority": "P2",
+      "issue": "Converted notebooks displayed QMD frontmatter",
+      "fix": "Remove source-only frontmatter from first Markdown cell",
+      "status": "fixed"
+    },
+    {
+      "id": "R1-04",
+      "priority": "P2",
+      "issue": "Kernel failure would lose the accumulated partial results",
+      "fix": "Save execution-failure.json and the partially executed notebook",
+      "status": "fixed"
+    }
+  ],
+  "P0": "none"
+}

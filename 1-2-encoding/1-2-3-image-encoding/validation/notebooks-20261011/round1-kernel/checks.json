@@ -1,0 +1,252 @@
+{
+  "round": "round1-kernel",
+  "python": "3.11.16 (main, Aug 27 2026, 14:37:43) [Clang 20.1.8 ]",
+  "executable": "/Users/chran/miniconda3/envs/shtick/bin/python",
+  "working_directory": "/Users/chran/repo/shtick/1-2-encoding/1-2-3-image-encoding",
+  "deck_sha256": "aa2661338514e717294236bdad42c0bbba8acfa370148a53f9c89ab156c1521b",
+  "PNG_example": {
+    "file_B": 164,
+    "PNG_index_bits": 2,
+    "indices_equal": true,
+    "RGB_equal": true
+  },
+  "packages": {
+    "numpy": "2.4.6",
+    "Pillow": "12.3.0",
+    "matplotlib": "3.11.2",
+    "nbformat": "5.11.1",
+    "nbclient": "0.11.0",
+    "ipykernel": "7.3.0",
+    "jupyterlab": "4.6.3"
+  },
+  "results": [
+    {
+      "check": "frozen_deck_hash",
+      "status": "pass"
+    },
+    {
+      "check": "original_image_hash",
+      "status": "pass"
+    },
+    {
+      "check": "image_dimensions",
+      "status": "pass"
+    },
+    {
+      "check": "Q15_RGB",
+      "status": "pass"
+    },
+    {
+      "check": "palette_matches_existing_demo",
+      "status": "pass"
+    },
+    {
+      "check": "means8_match_existing_fixture",
+      "status": "pass"
+    },
+    {
+      "check": "means8_independent_pixel_sums",
+      "status": "pass"
+    },
+    {
+      "check": "indices8_4_independent_search",
+      "status": "pass"
+    },
+    {
+      "check": "indices8_6_independent_search",
+      "status": "pass"
+    },
+    {
+      "check": "means16_match_existing_fixture",
+      "status": "pass"
+    },
+    {
+      "check": "means16_independent_pixel_sums",
+      "status": "pass"
+    },
+    {
+      "check": "indices16_4_independent_search",
+      "status": "pass"
+    },
+    {
+      "check": "indices16_6_independent_search",
+      "status": "pass"
+    },
+    {
+      "check": "Q6_fourth_row",
+      "status": "pass"
+    },
+    {
+      "check": "Q7_read_Q18_fixed_words",
+      "status": "pass"
+    },
+    {
+      "check": "Q18_4x2_round_trip",
+      "status": "pass"
+    },
+    {
+      "check": "Q18_2x4_round_trip",
+      "status": "pass"
+    },
+    {
+      "check": "Q18_8x1_round_trip",
+      "status": "pass"
+    },
+    {
+      "check": "Q18_1x8_round_trip",
+      "status": "pass"
+    },
+    {
+      "check": "three_payloads",
+      "status": "pass"
+    },
+    {
+      "check": "Q16_payload",
+      "status": "pass"
+    },
+    {
+      "check": "Q16_KiB",
+      "status": "pass"
+    },
+    {
+      "check": "non_byte_aligned_payload",
+      "status": "pass"
+    },
+    {
+      "check": "budget_B_D",
+      "status": "pass"
+    },
+    {
+      "check": "E1_fixed_model",
+      "status": "pass"
+    },
+    {
+      "check": "PNG_real_IHDR_bits",
+      "status": "pass"
+    },
+    {
+      "check": "PNG_exact_recorded_indices",
+      "status": "pass"
+    },
+    {
+      "check": "PNG_exact_recorded_RGB",
+      "status": "pass"
+    },
+    {
+      "check": "reject_mismatched_dimensions",
+      "status": "pass"
+    },
+    {
+      "check": "reject_missing_leading_zero",
+      "status": "pass"
+    },
+    {
+      "check": "reject_nonbinary",
+      "status": "pass"
+    },
+    {
+      "check": "reject_missing_palette_entry",
+      "status": "pass"
+    },
+    {
+      "check": "reject_insufficient_code_width",
+      "status": "pass"
+    },
+    {
+      "check": "reject_fractional_grid",
+      "status": "pass"
+    },
+    {
+      "check": "reject_unequal_blocks",
+      "status": "pass"
+    },
+    {
+      "check": "reject_boolean_dimension",
+      "status": "pass"
+    },
+    {
+      "check": "reject_inconsistent_decode_capacity",
+      "status": "pass"
+    },
+    {
+      "check": "reject_fractional_PNG_indices",
+      "status": "pass"
+    },
+    {
+      "check": "reject_PNG_missing_palette_entry",
+      "status": "pass"
+    },
+    {
+      "check": "reject_PNG_unsupported_lesson_palette",
+      "status": "pass"
+    },
+    {
+      "check": "five_color_PNG_uses_four_bits",
+      "status": "pass"
+    },
+    {
+      "check": "teacher_source_hash",
+      "status": "pass"
+    },
+    {
+      "check": "teacher_cell_digest",
+      "status": "pass"
+    },
+    {
+      "check": "teacher_clean_outputs",
+      "status": "pass"
+    },
+    {
+      "check": "teacher_no_visible_frontmatter",
+      "status": "pass"
+    },
+    {
+      "check": "teacher_English_implementation_comments",
+      "status": "pass"
+    },
+    {
+      "check": "teacher_fresh_kernel",
+      "status": "pass"
+    },
+    {
+      "check": "student_source_hash",
+      "status": "pass"
+    },
+    {
+      "check": "student_cell_digest",
+      "status": "pass"
+    },
+    {
+      "check": "student_clean_outputs",
+      "status": "pass"
+    },
+    {
+      "check": "student_no_visible_frontmatter",
+      "status": "pass"
+    },
+    {
+      "check": "student_English_implementation_comments",
+      "status": "pass"
+    },
+    {
+      "check": "student_no_teacher_blocks",
+      "status": "pass"
+    },
+    {
+      "check": "student_no_precomputed_challenge_words",
+      "status": "pass"
+    },
+    {
+      "check": "student_E1_independent_first",
+      "status": "pass"
+    },
+    {
+      "check": "student_fresh_kernel",
+      "status": "pass"
+    },
+    {
+      "check": "frozen_deck_hash_after_execution",
+      "status": "pass"
+    }
+  ]
+}

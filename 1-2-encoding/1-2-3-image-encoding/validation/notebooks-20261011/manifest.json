@@ -1,0 +1,64 @@
+{
+  "date": "2026-10-11",
+  "deck_sha256": "aa2661338514e717294236bdad42c0bbba8acfa370148a53f9c89ab156c1521b",
+  "artifacts": {
+    "course-design.qmd": "b07fe8872aab4bdcbf90b2fcfd230c9f95184042407dbdf65b48a385f7b09017",
+    "README-notebooks-20261011.md": "dd800138902884bf05932b45a493d477761480cbc32a984478e7bcc38b856b39",
+    "demo-lab-teacher.qmd": "94d0db690b71559c7bfdeab6220b803951abec1ea7330401630e2ccdb22fb4ed",
+    "demo-lab-student.qmd": "133105381c2ac7dedc8905333ecd2f303c1f60606fe0851ff9f68930b72bfc08",
+    "demo-lab-teacher.ipynb": "0fdfb00e716bccebf31bff511b6a4ed89cc9139f8d85668640ea40d5c0d6133a",
+    "demo-lab-student.ipynb": "163757584eb08759dad00b92e406c486ad94bf54ca05d9ab033c42a513605ab9",
+    "demos/panda_lab.py": "f37a683e95f85ed9515fb06013cc30b6061e1d2633b468d5d682a151dd2782aa",
+    "assets/pandas.jpg": "f6679d0c7f119ec953e44be6912f03b2bd35bd032e27579241562b1bb46b5186",
+    "requirements-notebook.txt": "0616bdc823606e10f3cf97c3fd4f0b12c1a5051400c8ca51b821da31c5b350e9",
+    "requirements-notebook-checks.txt": "86b7c46d57bbe6aaadff48f7822e53bff531673c0cde5d7f4bc9cfe74dd37023",
+    "scripts/build-panda-notebooks.py": "cd06324438c4ede43d0f6d29009d689fa30c7515afb1f32e06f02549d65eae8d",
+    "scripts/check-panda-notebooks.py": "48aaf359441f2a3adbb4276acc0dddc3fc6d1410d8537ea90dcb8940eb838db8",
+    "scripts/export-panda-notebook-kit.py": "6ef3d87312b3715bb4df7df5df0af6d2510d3f39ff174b0b3ed6654902d1caaa",
+    "fallback/teacher-evidence.html": "9b7f2daf1289eeab0723814385849c620bda93fdcb3aef9b8393a6aa3fcffac5",
+    "exports/notebooks-20261011/panda-notebooks-teacher-20261011.zip": "f0e2af19b665f05ccdd95332b2fdd4879d90b20dc93435c05648c819e0eafd7a",
+    "exports/notebooks-20261011/panda-notebooks-student-20261011.zip": "fdc70bd48be6a636313df9fd01e70063ff281493be7e0caf64df87c6103e8c77"
+  },
+  "final_checks": [
+    {
+      "check": "local_links_README-notebooks-20261011.md",
+      "status": "pass"
+    },
+    {
+      "check": "local_links_course-design.qmd",
+      "status": "pass"
+    },
+    {
+      "check": "local_links_validation/notebooks-20261011/audit.md",
+      "status": "pass"
+    },
+    {
+      "check": "syntax_English_comments_docstrings_demos/panda_lab.py",
+      "status": "pass"
+    },
+    {
+      "check": "syntax_English_comments_docstrings_scripts/build-panda-notebooks.py",
+      "status": "pass"
+    },
+    {
+      "check": "syntax_English_comments_docstrings_scripts/check-panda-notebooks.py",
+      "status": "pass"
+    },
+    {
+      "check": "syntax_English_comments_docstrings_scripts/export-panda-notebook-kit.py",
+      "status": "pass"
+    },
+    {
+      "check": "teacher_final_source_and_clean_output",
+      "status": "pass"
+    },
+    {
+      "check": "student_final_source_and_clean_output",
+      "status": "pass"
+    },
+    {
+      "check": "frozen_deck_final_hash",
+      "status": "pass"
+    }
+  ]
+}

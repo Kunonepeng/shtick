@@ -1,0 +1,62 @@
+{
+  "review": "round2",
+  "P0": "none",
+  "issues": [
+    {
+      "id": "R2-01",
+      "priority": "P1",
+      "issue": "教师版下一个问题的答案会出现在证据下方，同屏滚动有泄露风险。",
+      "fix": "改为投影无教师答案段落的学生版；教师版仅备课/私下参考。",
+      "verification": "ui-rgb-final.jpg：下一题只有问题与任务；student_no_teacher_blocks检查通过。",
+      "status": "fixed"
+    },
+    {
+      "id": "R2-02",
+      "priority": "P1",
+      "issue": "E1填写变量后仍只打印提示，没有完成后的核对流程。",
+      "fix": "增加submitted开关；四项填全且提交后才给三个计算项诊断；自由文本理由人工评价。",
+      "verification": "E1反馈四项断言；student-completed-portable-executed.ipynb实际填写并成功核对。",
+      "status": "fixed"
+    },
+    {
+      "id": "R2-03",
+      "priority": "P1",
+      "issue": "课程入口仍称当前77页且Notebook不适用，可能用错85页定稿及总结时点。",
+      "fix": "C0/C6登记冻结版、Notebook源与输出；C5注明共同熊猫矩阵，记录T3a/T3b/T4及KB/KiB对应。",
+      "verification": "course-design.qmd差异审查；README的85页对应表、主路径时长与分发说明。",
+      "status": "fixed"
+    },
+    {
+      "id": "R2-04",
+      "priority": "P2",
+      "issue": "RGB输出含np.float64/np.uint8字样，表格换行；逐格读码竖表高。",
+      "fix": "递归格式化数字；颜色、位置、编号、码字改为横向对齐。",
+      "verification": "ui-rgb-final.jpg和ui-row-final.jpg复查，display_hides_numpy_types通过。",
+      "status": "fixed"
+    },
+    {
+      "id": "R2-05",
+      "priority": "P2",
+      "issue": "D3调用没有显式可改参数，不利于控制变量操作。",
+      "fix": "把left_grid/right_grid/color_levels置于当前单元；相同颜色与区域由共用函数保持。",
+      "verification": "JupyterLab新内核只运行准备→D3，两个结果同屏；ui-live-sampling.jpg。",
+      "status": "fixed"
+    },
+    {
+      "id": "R2-06",
+      "priority": "P2",
+      "issue": "离线结果与分角色便携包尚未生成，复制完整目录的边界不明确。",
+      "fix": "生成默认折叠的教师离线HTML，分别封装教师/学生ZIP；记录最小演示顺序与依赖。",
+      "verification": "独立目录的完整学生路径通过；ZIP CRC/哈希及学生包排除教师文件通过。",
+      "status": "fixed"
+    },
+    {
+      "id": "R2-07",
+      "priority": "P2",
+      "issue": "总结的ASCII下划线在Markdown中被解析为强调，书写空间标记消失。",
+      "fix": "改为全角书写线；重生成干净Notebook，执行最终版本。",
+      "verification": "源/输出文本一致；round2-final fresh-kernel与清空输出检查通过。",
+      "status": "fixed"
+    }
+  ]
+}

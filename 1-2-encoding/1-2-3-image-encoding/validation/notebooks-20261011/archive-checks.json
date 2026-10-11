@@ -1,0 +1,35 @@
+[
+  {
+    "role": "teacher",
+    "path": "exports/notebooks-20261011/panda-notebooks-teacher-20261011.zip",
+    "sha256": "f0e2af19b665f05ccdd95332b2fdd4879d90b20dc93435c05648c819e0eafd7a",
+    "members": [
+      "demo-lab-student.ipynb",
+      "demos/panda_lab.py",
+      "assets/pandas.jpg",
+      "requirements-notebook.txt",
+      "demo-lab-teacher.ipynb",
+      "demo-lab-teacher.qmd",
+      "demo-lab-student.qmd",
+      "README-notebooks-20261011.md",
+      "fallback/teacher-evidence.html",
+      "START-HERE.md",
+      "manifest.json"
+    ],
+    "status": "pass"
+  },
+  {
+    "role": "student",
+    "path": "exports/notebooks-20261011/panda-notebooks-student-20261011.zip",
+    "sha256": "fdc70bd48be6a636313df9fd01e70063ff281493be7e0caf64df87c6103e8c77",
+    "members": [
+      "demo-lab-student.ipynb",
+      "demos/panda_lab.py",
+      "assets/pandas.jpg",
+      "requirements-notebook.txt",
+      "START-HERE.md",
+      "manifest.json"
+    ],
+    "status": "pass"
+  }
+]

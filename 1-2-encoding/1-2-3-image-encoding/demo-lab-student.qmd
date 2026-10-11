@@ -1,0 +1,430 @@
+---
+title: "图像编码熊猫实验｜学生版"
+lang: zh-CN
+jupyter: python3
+---
+
+# 图像编码熊猫实验｜学生版
+
+对应冻结课件 `1-2-3-image-encoding-panda-v4-20261011.pptx`（85页，2026-10-11）。
+
+课堂由教师投影本学生版、按阶段运行；也用于加课时或课后实验。先写预测，再逐单元运行、观察、解释；不要一次运行全部单元。代码核对不能代替独立算式和画图。输出初始为空，后面的题到相应阶段才使用。
+
+## 准备｜打开原图，不运行后面的实验
+
+从课程目录启动JupyterLab，选择已安装NumPy、Pillow、Matplotlib的Python内核。依次运行单元；不要使用“Run All”。课堂由教师操作，学生先写预测再观察。学生版用于加课时或课后练习，代码结果只有运行后才出现。
+
+本实验处理已有JPEG的解码像素，不是对真实光线进行相机拍摄。图像区域固定为(x,y,w,h)=(280,100,288,288)，坐标从0开始；矩阵的行列说明从1开始。
+
+在运行前写下预测；运行后记录实际证据，解释预测是否需要修改。
+
+```{python}
+#| label: setup
+from pathlib import Path
+import numpy as np
+from IPython.display import display
+from demos import panda_lab as lab
+source = lab.load_source()
+print("素材就绪；原图尺寸：", source.size)
+```
+
+## D1｜采样后，每格的颜色怎样记录？（Q3–Q6，6–14页）
+
+固定熊猫区域，先划成8×8格。每格保留平均RGB。只能从四色表中选一色时，第2行第3列会怎样改变？
+
+先指认：网格决定哪些位置？平均色与有限代表色是否总相同？
+
+在运行前写下预测；运行后记录实际证据，解释预测是否需要修改。
+
+```{python}
+#| label: d1
+means8 = lab.sample_blocks(8)
+lab.show_images([
+    ("原图同一区域", source.crop((280, 100, 568, 388))),
+    ("每格的平均RGB", lab.Image.fromarray(np.rint(means8).astype(np.uint8))),
+])
+lab.show_palette(4)
+```
+
+**记录**：预测＿＿＿＿；观察证据＿＿＿＿；解释／修正＿＿＿＿。
+
+## D1证据｜用相同规则处理64个样本
+
+先在四色表中作选择，再运行。比较第2行第3列的平均RGB、代表色编号及代表色RGB。
+
+在运行前写下预测；运行后记录实际证据，解释预测是否需要修改。
+
+```{python}
+#| label: d1-reveal
+coarse = lab.quantize(means8, 4)
+lab.show_images([("平均RGB", lab.Image.fromarray(np.rint(means8).astype(np.uint8))),
+                 ("限制为4色", lab.rgb_image(coarse))])
+row, column = 2, 3
+value = means8[row - 1, column - 1]
+index = int(coarse[row - 1, column - 1])
+lab.show_table(["样本位置", "平均RGB（显示近似）", "代表色编号", "代表色RGB"],
+               [(f"第{row}行，第{column}列", tuple(np.round(value, 2)), index, tuple(lab.PALETTE[index]))])
+```
+
+**记录**：预测＿＿＿＿；观察证据＿＿＿＿；解释／修正＿＿＿＿。
+
+## D2｜怎样编码？每像素用几bit？（Q5–Q6，11–14页）
+
+先用四色表写出8×8矩阵第四行的码字。每个码字长度相同，不能省掉前导0。先看颜色编号，独立写出二进制。
+
+在运行前写下预测；运行后记录实际证据，解释预测是否需要修改。
+
+```{python}
+#| label: d2
+coarse = lab.quantize(lab.sample_blocks(8), 4)
+lab.show_row(coarse[3])
+```
+
+**记录**：预测＿＿＿＿；观察证据＿＿＿＿；解释／修正＿＿＿＿。
+
+## D2证据｜编号换成固定长度码字
+
+填写后运行。编码是否改变了已确定的代表色？
+
+在运行前写下预测；运行后记录实际证据，解释预测是否需要修改。
+
+```{python}
+#| label: d2-reveal
+bits_per_pixel = 2
+lab.show_row(coarse[3], bits_per_pixel)
+coarse_words = lab.encode(coarse, bits_per_pixel)
+print("整图像素数：", coarse.size, "；固定码字数：", len(coarse_words))
+```
+
+**记录**：预测＿＿＿＿；观察证据＿＿＿＿；解释／修正＿＿＿＿。
+
+## T1｜先总结，再随课件更新知识树（15–18页）
+
+用刚才的证据分别说明：确定位置、选择有限颜色、写成码字，各做了什么？请写三句话及对应证据。不要只写三个名词。
+
+我的总结：＿＿＿＿；证据：＿＿＿＿。
+
+## D3｜怎样让数字熊猫更接近原图？（Q7，19–20页）
+
+只把采样从8×8改为16×16，保留同一区域和四色表。预测：位置数、每个码字长度分别会怎样变化？
+
+在运行前写下预测；运行后记录实际证据，解释预测是否需要修改。
+
+```{python}
+#| label: d3
+left_grid, right_grid, color_levels = 8, 16, 4
+lab.show_sampling(left_grid, right_grid, color_levels)
+```
+
+**记录**：预测＿＿＿＿；观察证据＿＿＿＿；解释／修正＿＿＿＿。
+
+## D3读码｜红框里的8个像素怎样编码？（Q7-read，21–22页）
+
+使用16×16、四色结果；取第6行第5–12列，从左到右写出8个2位码字。先独立填写，不运行后面的核对单元。
+
+在运行前写下预测；运行后记录实际证据，解释预测是否需要修改。
+
+```{python}
+#| label: d3-read
+fine = lab.quantize(lab.sample_blocks(16), 4)
+selected = fine[5, 4:12]
+lab.show_row(selected)
+```
+
+**记录**：预测＿＿＿＿；观察证据＿＿＿＿；解释／修正＿＿＿＿。
+
+## D3读码核对｜保留前导0
+
+写好后运行；说明这里是一行的一段，还是整幅图。
+
+在运行前写下预测；运行后记录实际证据，解释预测是否需要修改。
+
+```{python}
+#| label: d3-read-reveal
+lab.show_row(selected, 2)
+selected_words = lab.encode(selected, 2)
+print("这一段共", len(selected_words) * 2, "bit")
+```
+
+**记录**：预测＿＿＿＿；观察证据＿＿＿＿；解释／修正＿＿＿＿。
+
+## D4｜格子不变，颜色还能怎样改进？（Q9，25–29页）
+
+保持16×16样本不变，四色表保留全部原颜色，再加两色。预测：变化的是样本位置还是可选颜色？六色还可用2bit吗？
+
+在运行前写下预测；运行后记录实际证据，解释预测是否需要修改。
+
+```{python}
+#| label: d4
+color_levels = 6
+lab.show_quantization(color_levels)
+lab.show_palette(color_levels)
+```
+
+**记录**：预测＿＿＿＿；观察证据＿＿＿＿；解释／修正＿＿＿＿。
+
+## D4局部证据｜同一个样本的选择改变了吗？（27页）
+
+取第10行第13列。先指出两次操作中保持不变的值，再运行核对。
+
+在运行前写下预测；运行后记录实际证据，解释预测是否需要修改。
+
+```{python}
+#| label: d4-probe
+means16 = lab.sample_blocks(16)
+four = lab.quantize(means16, 4)
+six = lab.quantize(means16, 6)
+r, c = 10 - 1, 13 - 1
+lab.show_table(["可选颜色数", "同一样本平均RGB", "代表色编号", "代表色RGB"],
+    [(n, tuple(np.round(means16[r, c], 2)), int(a[r, c]), tuple(lab.PALETTE[a[r, c]]))
+     for n, a in [(4, four), (6, six)]])
+```
+
+**记录**：预测＿＿＿＿；观察证据＿＿＿＿；解释／修正＿＿＿＿。
+
+## D5｜颜色数、位深度怎样联系？（Q10–Q13，30–41页）
+
+分别预测2、4、6、16、256种颜色的最少固定码长，写不等式后运行。代码使用从0开始的颜色编号。
+
+在运行前写下预测；运行后记录实际证据，解释预测是否需要修改。
+
+```{python}
+#| label: d5
+color_counts = [2, 4, 6, 16, 256]
+lab.show_table(["需区分颜色数", "最少bit", "码字容量"],
+    [(n, lab.minimum_bits(n), 2 ** lab.minimum_bits(n)) for n in color_counts])
+```
+
+**记录**：预测＿＿＿＿；观察证据＿＿＿＿；解释／修正＿＿＿＿。
+
+## D6｜三幅图的像素码字占多少？（Q11–Q12，34–37页）
+
+先写像素数×每像素位数，给三轮实验计算bit，再换成B。只计未压缩码字，不计头部、调色板、压缩和行填充。
+
+在运行前写下预测；运行后记录实际证据，解释预测是否需要修改。
+
+```{python}
+#| label: d6
+experiments = [(8, 8, 4), (16, 16, 4), (16, 16, 6)]
+lab.show_table(["横×纵", "可选颜色", "每像素bit", "总bit", "理想B"],
+    [(f"{w}×{h}", colors, lab.minimum_bits(colors),
+      lab.payload(w, h, lab.minimum_bits(colors))["bits"],
+      lab.payload(w, h, lab.minimum_bits(colors))["ideal_B"])
+     for w, h, colors in experiments])
+```
+
+**记录**：预测＿＿＿＿；观察证据＿＿＿＿；解释／修正＿＿＿＿。
+
+## T2｜数据量怎样接入知识树？（38–39页）
+
+三轮实验中，像素数与每像素位数怎样共同决定数据量？请引用两组对照，不只复述公式。
+
+我的关系与证据：＿＿＿＿。
+
+## D7｜R=138怎样写成8位二进制？（Q14–Q15，44–50页）
+
+原图零起始坐标(x,y)=(422,230)的解码RGB为(138,179,111)。先完成R通道的128、64、32、16、8、4、2、1位权表，再运行。24位RGB不含alpha；每通道固定8位。
+
+在运行前写下预测；运行后记录实际证据，解释预测是否需要修改。
+
+```{python}
+#| label: d7
+pixel_rgb = source.getpixel((422, 230))
+lab.show_table(["通道", "十进制", "8位二进制"],
+               [(name, value, format(value, "08b")) for name, value in zip("RGB", pixel_rgb)])
+red_bits = format(pixel_rgb[0], "08b")
+weights = [128, 64, 32, 16, 8, 4, 2, 1]
+lab.show_table(["位权", "R通道该位", "贡献"],
+               [(w, int(b), w * int(b)) for w, b in zip(weights, red_bits)])
+```
+
+**记录**：预测＿＿＿＿；观察证据＿＿＿＿；解释／修正＿＿＿＿。
+
+## D8｜500×333的24位图像有多大？（Q16，51–53页）
+
+先列式：求未压缩像素数据量，以B和1024B为单位表示。这个结果能直接当作完整图像文件大小吗？
+
+在运行前写下预测；运行后记录实际证据，解释预测是否需要修改。
+
+```{python}
+#| label: d8
+width, height, bits_per_pixel = 500, 333, 24
+size = lab.payload(width, height, bits_per_pixel)
+lab.show_table(["像素数", "总bit", "理想像素B", "KiB（1024B）"],
+               [(size["pixels"], size["bits"], size["ideal_B"], round(size["KiB"], 2))])
+```
+
+**记录**：预测＿＿＿＿；观察证据＿＿＿＿；解释／修正＿＿＿＿。
+
+## D8补充证据｜真实PNG文件大小等于公式吗？（53页）
+
+用同一个16×16、四色像素矩阵保存真实PNG。预测：完整文件长度是否一定等于64B？保存后读回的编号和RGB是否相同？
+
+本操作只在内存中保存，不覆盖原图。
+
+在运行前写下预测；运行后记录实际证据，解释预测是否需要修改。
+
+```{python}
+#| label: d8-file
+indices = lab.quantize(lab.sample_blocks(16), 4)
+measurement = lab.png_measurement(indices, 4)
+lab.show_table(["对象", "结果"], [
+    ("理想像素码字（B）", lab.payload(16, 16, 2)["ideal_B"]),
+    ("这次PNG完整文件（B）", measurement["file_B"]),
+    ("PNG索引位数", measurement["PNG_index_bits"]),
+    ("读回颜色编号完全相同", measurement["indices_equal"]),
+    ("读回RGB像素完全相同", measurement["RGB_equal"]),
+])
+```
+
+**记录**：预测＿＿＿＿；观察证据＿＿＿＿；解释／修正＿＿＿＿。
+
+## D9｜放大显示能产生新细节吗？（Q17，54–55页）
+
+同一份8×8矩阵，只改变显示大小。预测：原来记录的像素值是否增加？与D3重新从源区域取得16×16样本有何区别？
+
+在运行前写下预测；运行后记录实际证据，解释预测是否需要修改。
+
+```{python}
+#| label: d9
+lab.show_zoom()
+```
+
+**记录**：预测＿＿＿＿；观察证据＿＿＿＿；解释／修正＿＿＿＿。
+
+## T3a｜颜色表示的总结（56–57页）
+
+同一种颜色采用查表编号与三个8位RGB通道时，为什么码长不同？引用四色码与RGB通道证据。
+
+我的解释：＿＿＿＿。
+
+## D10｜只有这些码字，能唯一画出图像吗？（Q18，58–60页）
+
+把D3-read核对后的8个码字当作完整小图。四色码表与每像素2bit不变；每行从左到右，各行从上到下。先画一种排列，再与同桌比较。总像素数是否决定换行位置？
+
+本题到58页才出现。
+
+在运行前写下预测；运行后记录实际证据，解释预测是否需要修改。
+
+```{python}
+#| label: d10
+challenge_words = lab.encode(lab.quantize(lab.sample_blocks(16), 4)[5, 4:12], 2)
+print(" ".join(challenge_words))
+lab.show_palette(4, 2)
+```
+
+**记录**：预测＿＿＿＿；观察证据＿＿＿＿；解释／修正＿＿＿＿。
+
+## D10证据｜约定每行宽度后，再读回验证
+
+先画好再运行。改变width、height，保持像素总数为8。检验按约定顺序读回后是否仍为原码字。
+
+在运行前写下预测；运行后记录实际证据，解释预测是否需要修改。
+
+```{python}
+#| label: d10-reveal
+width, height = 4, 2
+restored = lab.show_decoded(challenge_words, width, height)
+read_back = lab.encode(restored, 2)
+print("按行读回：", " ".join(read_back))
+print("与输入码字相同：", read_back == challenge_words)
+```
+
+**记录**：预测＿＿＿＿；观察证据＿＿＿＿；解释／修正＿＿＿＿。
+
+## T3b｜解码规则的总结（61–64页）
+
+举出两种有效排列，说明相同码字怎样读回，并指出还需哪些解释规则。
+
+我的规则与证据：＿＿＿＿。
+
+## D11｜连续量与有限位置有什么不同？（Q19–Q21，65–76页；85页附录）
+
+温度从25到26，中间可否取25.5、25.51？请区分仪表显示精度与被测量。
+
+下面用一条数学连续函数作示意：先取6个位置，但暂不限制数值等级。预测：取样会改变哪些位置有记录？密集曲线是绘图近似，不是无限精度的传感器记录。
+
+在运行前写下预测；运行后记录实际证据，解释预测是否需要修改。
+
+```{python}
+#| label: d11
+sample_count = 6
+lab.show_signal(sample_count, "sample")
+```
+
+**记录**：预测＿＿＿＿；观察证据＿＿＿＿；解释／修正＿＿＿＿。
+
+## D11证据｜位置不变，数值限制为四级
+
+保留相同采样位置与样本值，数值限制为0、1、2、3四级，再写成2位码。先预测哪些样本会被映射到同一级。
+
+在运行前写下预测；运行后记录实际证据，解释预测是否需要修改。
+
+```{python}
+#| label: d11-reveal
+lab.show_signal(sample_count, "quantize")
+positions, values, quantized_values = lab.signal_samples(sample_count)
+lab.show_table(["位置", "样本值（近似）", "量化级", "2位码"],
+    [(round(float(x), 2), round(float(y), 2), int(q), format(int(q), "02b"))
+     for x, y, q in zip(positions, values, quantized_values)])
+```
+
+**记录**：预测＿＿＿＿；观察证据＿＿＿＿；解释／修正＿＿＿＿。
+
+## T4｜整个数字化过程的边界（76页总结后）
+
+用已完成的实验连起采样、量化、编码、数据量、颜色表示与解码。请指出：放大显示和解码各自不能恢复什么？列一项已验证的事实与一项实验未模拟的物理过程。
+
+我的完整总结：＿＿＿＿。
+
+## D12｜32B预算下，哪些方案可行？（Q21-budget，78–79页）
+
+需区分4色，固定长度编码，最多32B，只计像素码字。A=16×16/2bit；B=16×8/2bit；C=16×16/1bit；D=8×8/2bit。
+
+先独立判断并写容量条件与数据量。不要只检查是否恰好32B。完成后再运行核对。
+
+在运行前写下预测；运行后记录实际证据，解释预测是否需要修改。
+
+```{python}
+#| label: d12
+plans = {"A": (16, 16, 2), "B": (16, 8, 2), "C": (16, 16, 1), "D": (8, 8, 2)}
+lab.show_table(["方案", "容量", "像素B", "容量足够", "数据量达标", "两项都满足"],
+    [(name, result["capacity"], result["packed_B"], result["capacity_ok"], result["size_ok"], result["valid"])
+     for name, parameters in plans.items()
+     for result in [lab.check_budget(*parameters, colors=4, budget_B=32)]])
+```
+
+**记录**：预测＿＿＿＿；观察证据＿＿＿＿；解释／修正＿＿＿＿。
+
+## E1｜独立退出题，先交答再核对（80–82页）
+
+12×10像素，要区分5种颜色；最短固定长度码，只计未压缩像素码字，最多50B。
+
+1. 至少几bit？写容量不等式。
+2. 数据量多少B？写带单位的算式。
+3. 是否满足预算？
+4. 这个结果能当作完整PNG文件大小吗？写一句理由。
+
+先提交四项答案，本题运行单元不自动填写答案。教师收齐后才把submitted改为True；文件理由需人工核对。
+
+提交前不用计算器或程序自动求解。教师收答后，把四个变量换成自己的答案，再把submitted改为True运行；程序诊断三个计算项，文件理由与同桌或教师按提示核对。
+
+```{python}
+#| label: e1
+answer_bits = None
+answer_bytes = None
+answer_fits = None
+answer_file_reason = ""
+submitted = False
+feedback = lab.exit_feedback(answer_bits, answer_bytes, answer_fits, answer_file_reason, submitted)
+lab.show_table(["核对项目", "反馈"], list(feedback.items()))
+```
+
+## 课后迁移｜换参数时仍要说明边界（83页）
+
+1. 6种颜色的最短固定码长是多少？写不等式。
+2. 800×600、24位RGB的未压缩像素数据量是多少B？
+3. 把宽和高都放大2倍，就获得新采集的细节了吗？
+
+用独立书面回答。若用代码核对，先交保留算式的答案。
+

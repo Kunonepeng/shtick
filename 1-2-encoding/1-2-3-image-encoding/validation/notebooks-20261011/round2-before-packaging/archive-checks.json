@@ -1,0 +1,33 @@
+[
+  {
+    "role": "teacher",
+    "files": [
+      "demo-lab-student.ipynb",
+      "demos/panda_lab.py",
+      "assets/pandas.jpg",
+      "requirements-notebook.txt",
+      "demo-lab-teacher.ipynb",
+      "demo-lab-teacher.qmd",
+      "demo-lab-student.qmd",
+      "README-notebooks-20261011.md",
+      "fallback/teacher-evidence.html",
+      "START-HERE.md",
+      "manifest.json"
+    ],
+    "sha256": "59e2bbb9c5095c0a25a70134aa5fb695ea9798b14c02c30d4cfa3df4a39c04b4",
+    "status": "pass"
+  },
+  {
+    "role": "student",
+    "files": [
+      "demo-lab-student.ipynb",
+      "demos/panda_lab.py",
+      "assets/pandas.jpg",
+      "requirements-notebook.txt",
+      "START-HERE.md",
+      "manifest.json"
+    ],
+    "sha256": "f0ebfb98f8b6a95829598ff2fe6dc1c47003e69fc6f07735f982d599df8e8ed0",
+    "status": "pass"
+  }
+]

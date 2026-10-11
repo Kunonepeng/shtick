@@ -1,0 +1,6 @@
+# Classroom dependencies; tested versions are recorded in validation.
+numpy>=1.26,<3
+Pillow>=10.4,<13
+matplotlib>=3.8,<4
+jupyterlab>=4,<5
+ipykernel>=6,<8
