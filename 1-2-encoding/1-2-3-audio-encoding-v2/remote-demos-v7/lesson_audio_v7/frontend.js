@@ -52,60 +52,113 @@ function audioControls(payload,update){
  row.appendChild(audio);
  return {row,audio};
 }
-function makePlayer(root,payload,zoom){
- root.appendChild(el('h3',{}, zoom?'Demo B｜放大波形，找到样本点':'Demo A｜听见声音，看见波形'));
- root.appendChild(el('div',{class:'tip'}, zoom?'先观察整段声音，再选择时间位置并放大。小圆点是实际保存的数字样本。':'请点击浏览器里的播放键。红色光标跟随教室电脑的播放进度，而不是Mac音箱。'));
- const overview=el('canvas',{width:'960',height:zoom?'205':'250'});root.appendChild(overview);
- const status=el('div',{class:'readout'},'准备播放。');root.appendChild(status);
- let current=0, raf=0;
- const {row,audio}=audioControls(payload,t=>{current=t;});
- root.insertBefore(row,overview);
- let detail=null,slider=null,zoomChoice=null;
- if(zoom){
+function makePlayer(root,payload,zoom) {
+ root.appendChild(el('h3',{},zoom?'Demo B｜放大波形，看见真实采样点':'Demo A｜声音与波形：听到什么，就看见什么？'));
+ root.appendChild(el('div',{class:'tip'},zoom?
+  '先观察整段音频，点击波形选择位置，再放大到4毫秒。请预测：放大后能否看见一个个记录的样本？':
+  '点击“播放”后，观察时间光标如何移动。请预测：横轴是声音传播的距离，还是时间？'));
+ const {row,audio}=audioControls(payload,()=>{});
+ const replay=button('↻ 从头播放',()=>{audio.currentTime=0;audio.play().catch(()=>{});});
+ row.appendChild(replay);root.appendChild(row);
+ const overview=el('canvas',{width:'960',height:zoom?'205':'265'});
+ overview.setAttribute('aria-label','声音信号整体幅度随时间变化的图');
+ root.appendChild(overview);
+ const status=el('div',{class:'readout'});root.appendChild(status);
+ const guidance=el('div',{class:'tip'},zoom?
+ '整段概览记录每一小段时间中的最大、最小值；局部的小圆点才对应真实保存的样本。':
+ '观察：曲线离零线较远，代表当时记录的信号幅度较大；正负方向不代表有没有声音。');
+ root.appendChild(guidance);
+ let slider=null,zoomChoice=null,detail=null,sampleReadout=null,selectedSample=null,raf=0;
+ if(!zoom){
+  const phases=el('div',{class:'segment-key'});
+  [['0–1.1秒','平稳的单音'],['1.1–2.3秒','音高不同的组合'],['2.3–2.7秒','很轻的声音'],['2.7–4.0秒','逐渐减弱']].forEach(([time,label])=>{
+   const t=el('div',{class:'segment'});
+   t.appendChild(el('b',{},time));t.appendChild(el('span',{},label));phases.appendChild(t);
+  });
+  root.appendChild(phases);
+ }else{
   const controls=el('div',{class:'bar'});
-  controls.appendChild(el('span',{},'观察时刻'));
-  slider=el('input',{type:'range',min:'.01',max:String(payload.duration-.01),step:'.001',value:'.45',style:'width:390px;max-width:80%'});
+  controls.appendChild(el('label',{},'观察时刻'));
+  slider=el('input',{type:'range',min:'0',max:String(payload.duration),step:String(1/payload.rate),value:'.45',style:'width:310px;max-width:95%'});
   controls.appendChild(slider);
-  controls.appendChild(el('span',{},'局部显示范围'));
+  controls.appendChild(el('label',{},'放大时间范围'));
   zoomChoice=el('select');
-  [['0.100','100毫秒'],['0.020','20毫秒'],['0.004','4毫秒']].forEach(([v,label])=>{const o=el('option',{value:v},label);if(v==='0.020')o.selected=true;zoomChoice.appendChild(o);});
+  [['0.100','100毫秒'],['0.020','20毫秒'],['0.004','4毫秒']].forEach(([v,label])=>{
+   const option=el('option',{value:v},label);
+   if(v==='0.004')option.selected=true;
+   zoomChoice.appendChild(option);
+  });
   controls.appendChild(zoomChoice);root.appendChild(controls);
-  detail=el('canvas',{width:'960',height:'215'});root.appendChild(detail);
-  root.appendChild(el('div',{class:'small'},'整段图是极值概览；局部小圆点才是实际样本。投影时可用浏览器 F11 全屏。')); 
-  slider.addEventListener('input',redraw);zoomChoice.addEventListener('change',redraw);
-  overview.addEventListener('click',e=>{const bounds=overview.getBoundingClientRect();const px=(e.clientX-bounds.left)/(bounds.width||1)*overview.width;const relative=Math.max(0,Math.min(1,(px-62)/(overview.width-24-62)));slider.value=String(relative*payload.duration);redraw();});
+  detail=el('canvas',{width:'960',height:'245'});
+  detail.setAttribute('aria-label','局部真实数字样本点，点击选择样本');
+  root.appendChild(detail);
+  sampleReadout=el('div',{class:'sample-readout'});
+  root.appendChild(sampleReadout);
+  root.appendChild(el('p',{class:'small'},'蓝色圆点=真实样本；灰色细线只是阅读辅助。点击圆点（或附近位置）查看该样本的时间与幅度。'));
+  slider.addEventListener('input',()=>{selectedSample=null;redraw();});
+  zoomChoice.addEventListener('change',()=>{selectedSample=null;redraw();});
+  overview.addEventListener('click',event=>{
+   const rect=overview.getBoundingClientRect();
+   const px=(event.clientX-rect.left)*overview.width/rect.width;
+   const fraction=Math.max(0,Math.min(1,(px-62)/(overview.width-24-62)));
+   slider.value=String(fraction*payload.duration);
+   selectedSample=null;redraw();
+  });
+  detail.addEventListener('click',event=>{
+   const rect=detail.getBoundingClientRect();
+   const px=(event.clientX-rect.left)*detail.width/rect.width;
+   const times=getWindow();
+   const fraction=Math.max(0,Math.min(1,(px-62)/(detail.width-24-62)));
+   const time=times.left+fraction*(times.right-times.left);
+   selectedSample=Math.max(0,Math.min(payload.samples.length-1,Math.round(time*payload.rate)));
+   redraw();
+  });
+ }
+ function getWindow(){
+  const width=Number(zoomChoice.value),center=Number(slider.value);
+  const left=Math.max(0,Math.min(payload.duration-width,center-width/2));
+  return {left,right:left+width,width};
  }
  function localPlot(){
   if(!detail)return;
-  const width=Number(zoomChoice.value),center=Number(slider.value);
-  const left=Math.max(0,Math.min(payload.duration-width,center-width/2)),right=left+width;
-  const d=graphBase(detail,`局部放大｜${(width*1000).toFixed(0)}毫秒`,left,right);
+  const {left,right}=getWindow();
+  const d=graphBase(detail,'局部真实采样点｜'+(Number(zoomChoice.value)*1000).toFixed(0)+'毫秒',left,right);
   const {g,xmap,ymap}=d;
-  const start=Math.ceil(left*payload.rate),last=Math.min(payload.samples.length-1,Math.floor(right*payload.rate));
-  g.strokeStyle='#999';g.lineWidth=1.3;g.beginPath();
+  const start=Math.max(0,Math.ceil(left*payload.rate)),last=Math.min(payload.samples.length-1,Math.floor(right*payload.rate));
+  g.strokeStyle='#999';g.lineWidth=1.5;g.beginPath();
   for(let i=start;i<=last;i++){
-    const x=xmap(i/payload.rate),y=ymap(payload.samples[i]);
-    if(i===start)g.moveTo(x,y);else g.lineTo(x,y);
+   const x=xmap(i/payload.rate),y=ymap(payload.samples[i]);
+   if(i===start)g.moveTo(x,y);else g.lineTo(x,y);
   }
   g.stroke();
-  // Real samples (not the envelope). Keep markers visually distinct from a connecting guide.
-  g.fillStyle=C;
   for(let i=start;i<=last;i++){
-    const x=xmap(i/payload.rate),y=ymap(payload.samples[i]);
-    g.beginPath();g.arc(x,y,3.2,0,Math.PI*2);g.fill();
+   const x=xmap(i/payload.rate),y=ymap(payload.samples[i]);
+   g.fillStyle=C;g.beginPath();g.arc(x,y,4.2,0,Math.PI*2);g.fill();
   }
+  if(selectedSample===null||selectedSample<start||selectedSample>last){
+   selectedSample=Math.max(start,Math.min(last,Math.round(Number(slider.value)*payload.rate)));
+  }
+  if(last>=start){
+   const x=xmap(selectedSample/payload.rate),y=ymap(payload.samples[selectedSample]);
+   g.strokeStyle='#e24444';g.lineWidth=2.4;g.beginPath();g.arc(x,y,10,0,Math.PI*2);g.stroke();
+   sampleReadout.textContent='当前样本：第 '+(selectedSample+1)+' 个 ｜ 时间 '+(selectedSample/payload.rate).toFixed(6)+' 秒 ｜ 幅度 '+payload.samples[selectedSample].toFixed(5);
+  }else sampleReadout.textContent='当前范围无样本点，请扩大观察范围。';
  }
  function redraw(){
-  const t=audio.currentTime||current;
+  const t=audio.currentTime||0;
   plotEnvelope(overview,payload,zoom?Number(slider.value):t);
-  if(!zoom)status.textContent=`播放进度 ${timeLabel(t)} / ${timeLabel(payload.duration)}。横轴：时间；纵轴：信号幅度。`;
-  else {
-    localPlot();
-    status.textContent=`整段录音共 ${payload.length.toLocaleString()} 个样本，采样率 ${payload.rate.toLocaleString()} Hz；当前观察时刻 ${Number(slider.value).toFixed(3)} 秒。`;
+  if(!zoom){
+    status.textContent=(audio.paused?'已暂停 / 等待播放':'正在播放')+' ｜ '+t.toFixed(2)+' / '+payload.duration.toFixed(2)+' 秒。播放进度由教室浏览器决定。';
+  }else{
+   localPlot();
+   status.textContent='整段录音有 '+payload.length.toLocaleString()+' 个样本；采样率 '+payload.rate.toLocaleString()+' Hz。蓝色点不是随意绘制的，是文件保存的实际数值。';
   }
  }
- let lastDraw=0;
- function animate(now){if(!document.hidden && now-lastDraw>=65){redraw();lastDraw=now;}raf=requestAnimationFrame(animate);}
+ let lastFrame=0;
+ function animate(time){
+  if(!document.hidden && time-lastFrame>=100){redraw();lastFrame=time;}
+  raf=requestAnimationFrame(animate);
+ }
  redraw();raf=requestAnimationFrame(animate);
  return ()=>{cancelAnimationFrame(raf);audio.pause();audio.removeAttribute('src');};
 }
