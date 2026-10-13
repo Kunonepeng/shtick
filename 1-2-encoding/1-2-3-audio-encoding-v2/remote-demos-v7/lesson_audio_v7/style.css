@@ -1,0 +1,14 @@
+.audio-v7{font-family:system-ui,'Microsoft YaHei',sans-serif;color:#262626;background:#fff;border-top:5px solid #6251B1;border-bottom:5px solid #6251B1;padding:16px 20px;max-width:1060px;box-sizing:border-box}
+.audio-v7 *{box-sizing:border-box}
+.audio-v7 h3{font-size:23px;margin:0 0 12px;font-weight:760;line-height:1.4}
+.audio-v7 .bar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:10px 0}
+.audio-v7 button,.audio-v7 select,.audio-v7 input{font:inherit}
+.audio-v7 button,.audio-v7 select{border:1.5px solid #8C64E1;background:white;color:#262626;border-radius:5px;padding:8px 14px;font-weight:700;cursor:pointer}
+.audio-v7 button.active{background:#6251B1;color:white}
+.audio-v7 button:focus-visible,.audio-v7 select:focus-visible,.audio-v7 input:focus-visible{outline:3px solid #00B0F0;outline-offset:2px}
+.audio-v7 canvas{width:100%;height:auto;max-height:330px;border:1px solid #e2e2e7;background:#fff;touch-action:manipulation}
+.audio-v7 .tip{color:#444;font-size:17px;line-height:1.55;margin:8px 0}
+.audio-v7 .metric{color:#6251B1;font-weight:760}
+.audio-v7 .small{font-size:14px;color:#656565}
+.audio-v7 .readout{background:#f6f3ff;border-left:5px solid #8C64E1;padding:12px 15px;font-size:19px;line-height:1.55;min-height:54px}
+.audio-v7 audio{width:100%;max-width:720px}

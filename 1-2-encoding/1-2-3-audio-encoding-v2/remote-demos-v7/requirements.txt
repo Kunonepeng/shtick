@@ -1,0 +1,4 @@
+# Install only on the macOS Jupyter kernel; nothing on the classroom Windows PC.
+anywidget>=0.9,<1
+ipywidgets>=8,<9
+jupyterlab>=4,<5
