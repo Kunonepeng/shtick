@@ -1,0 +1,13 @@
+{
+  "round": 7,
+  "severity": "P1",
+  "identified_issue": "视频容量冲突缺少视觉证据",
+  "refinement": "第49页用大量视频帧与未知大小文件的对照，邀请学生解释差异，不预先揭示压缩",
+  "verified_by": "6.44GiB仅标注为题设计算结果，右图用问号不提前揭示答案",
+  "slides": 70,
+  "speaker_notes": 70,
+  "qa_pairs": 6,
+  "input_sha256": "871c53f06baf5d8672b4164556654dc06c4fb84c1aa86fe583e105f95639749e",
+  "output_sha256": "7b3731398c940619d00a8fec1f87f3034a573538166d4d0f10fd822a81cf7823",
+  "output_bytes": 414447
+}
