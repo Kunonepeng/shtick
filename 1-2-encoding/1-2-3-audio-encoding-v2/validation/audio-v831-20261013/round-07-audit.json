@@ -1,0 +1,12 @@
+{
+  "round": 7,
+  "severity": "P1",
+  "identified_issue": "音轨和声道只以标签区分，缺少信号图",
+  "refinement": "第41页以两条音轨和两条输出声道可视对照",
+  "slides": 70,
+  "notes": 70,
+  "question_answer_pairs": 6,
+  "input_sha256": "a375d8ea23243fa7a9c1cda45c269088ff95751cdc137f5c281c636282d15be5",
+  "output_sha256": "45ef3789f9f62c639963ff34ad8f7448e7e98e6860f30d6f7572677f4649a794",
+  "method": "PowerPoint native diagram; round 9 actual same-source PNG/JPEG image pair"
+}
