@@ -37,6 +37,9 @@ def box(sl,x,y,w,h,fill=None,border=None,width=1):
  else:s.fill.background()
  if border:s.line.color.rgb=border;s.line.width=Pt(width)
  else:s.line.fill.background()
+ # Switch off shape-theme shadows; diagrams should not look like cards.
+ for elem in s._element.xpath('.//a:effectRef'):
+  elem.set('idx','0')
  return s
 def text(sl,val,x,y,w,h,size=21,color=INK,bold=False,center=False):
  s=sl.shapes.add_textbox(Inches(x),Inches(y),Inches(w),Inches(h))
@@ -91,13 +94,13 @@ def reopen(dest): return Presentation(dest)
 # exercise/reveal sequence and illustrative scenarios. Borrow only visuals
 # where v8.4.10 adds distinct evidence, rather than decorating every slide.
 p=base
-s=p.slides[2];image_from_ref(s,3,.83,3.03,11.60,2.52)
+s=p.slides[2];image_from_ref(s,3,2.12,3.00,8.90,3.18)
 n(s,"复用v8.4.10声源图；上面已有的声源→空气→耳朵框为结构，图片帮助看到音叉与麦克风，波弧代表传播示意，不是波形传播路线。")
-s=p.slides[7];cover(s,.78,1.71,11.8,4.03);image_from_ref(s,8,1.10,2.20,11.05,3.28)
+s=p.slides[7];cover(s,.78,1.71,11.8,4.03);image_from_ref(s,8,2.02,2.10,9.20,3.95)
 marker(s,"空间里：扰动传到记录点",1.17,1.80,5.5)
 marker(s,"固定位置：信号随时间变化",7.04,1.80,5.6)
 n(s,"借用v8.4.10空间传播与固定测点时间波形的对照，前半是空间快照，后半不是声音弯曲路线。")
-s=p.slides[26];cover(s,.78,2.06,11.73,3.64);image_from_ref(s,27,1.10,2.57,11.0,2.66)
+s=p.slides[26];cover(s,.78,2.06,11.73,3.64);image_from_ref(s,27,1.20,2.30,10.9,3.38)
 marker(s,"描述如何解释音频数据",1.28,2.18,4.05)
 marker(s,"保存一系列数字样本",5.04,2.18,6.70,DKCYAN)
 n(s,"借用v8.4.10文件结构图；文件头是必要的格式信息，PCM样本是内容。每个小格仅为示意，不承诺WAV固定44Byte。")
@@ -145,34 +148,32 @@ for i,(rank,problem,solution) in enumerate(ROUND_DETAILS,1):
   text(s,"在1秒内：2个采样点",9.38,4.17,3.24,.48,18,DKCYAN,True)
   n(s,"明确[0,1)秒、右端点不重复记。演示1 Hz取1点，2 Hz取2点；此为慢速教学模型。")
  if i==3:
-  box(s,10.7,2.76,1.74,2.30,A)
+  box(s,10.7,2.76,1.74,2.30,SHADE,A)
   text(s,"L0–L7",10.87,3.07,1.38,.52,22,A,True,center=True)
   text(s,"共 8 级",10.87,3.95,1.38,.55,19,INK,True,center=True)
   n(s,"此页只建立8个等级编号，暂不揭示需要3bit，以便后续由学生推导。")
  if i==4:
-  box(s,7.76,5.21,4.64,.79,LT,SHADE)
-  text(s,"原值3.71 → 代表值3.50",7.95,5.34,4.24,.45,19,A,True)
+  text(s,"原值3.71 → 代表值3.50",8.30,5.98,4.24,.43,19,A,True)
   n(s,"区间[3,4)对应L3，代表值为3.5，绝对差为0.21；这是本例量化误差，不是所有量化算法必然的结果。")
  if i==5:
-  box(s,3.04,5.19,7.26,.99,A,SHADE)
+  box(s,3.04,5.19,7.26,.99,SHADE,A)
   text(s,"样本1：等级 L3 → 3 bit码字 011",3.18,5.40,7.0,.52,23,A,True,center=True)
   n(s,"先看整行十组数据，再聚焦第一个样本，教师问三位码字如何由等级编号得到，不把它误看为样本数量。")
  if i==6:
-  box(s,2.38,5.30,8.58,.86,A,SHADE)
-  text(s,"横向：采样时刻不变     纵向：等级从8级增至16级",2.56,5.46,8.25,.48,20,A,True,center=True)
+  text(s,"横向：采样时刻不变；纵向：等级从8级增至16级",2.15,6.04,9.1,.42,18,A,True,center=True)
   n(s,"采样时刻相同，改变量化位数，横向样本点数量不变；更密集的是纵向可选择的代表值。")
  if i==7:
-  box(s,.80,5.16,5.54,.88,A,SHADE)
-  text(s,"双声道：每个时刻存 2 个样本",.98,5.33,5.10,.47,20,A,True)
-  box(s,6.68,5.16,5.54,.88,CYAN,RGBColor(241,250,255))
-  text(s,"单声道：每个时刻存 1 个样本",6.86,5.33,5.10,.47,20,DKCYAN,True)
+  box(s,.80,5.39,5.54,.65,SHADE,A)
+  text(s,"双声道：每时刻2个样本",.98,5.48,5.10,.44,19,A,True)
+  box(s,6.68,5.39,5.54,.65,RGBColor(241,250,255),CYAN)
+  text(s,"单声道：每时刻1个样本",6.86,5.48,5.10,.44,19,DKCYAN,True)
   n(s,"同一个时刻双声道需要两个样本，单声道一个样本。讨论仍需固定采样率、位数、时长才能得出样本字节数减半。")
  if i==8:
   # Preserve uncertainty: question must not disclose a fabricated encoded file size.
-  box(s,1.1,3.85,5.16,1.10,A,SHADE)
+  box(s,1.1,3.85,5.16,1.10,SHADE,A)
   text(s,"逐帧未压缩估算",1.30,3.99,4.7,.37,19,A,True,center=True)
   text(s,"约 6.44 GiB",1.31,4.37,4.7,.40,22,INK,True,center=True)
-  box(s,7.12,3.85,5.11,1.10,DKCYAN,RGBColor(241,250,255))
+  box(s,7.12,3.85,5.11,1.10,RGBColor(241,250,255),DKCYAN)
   text(s,"实际压缩文件",7.27,3.99,4.74,.37,19,DKCYAN,True,center=True)
   text(s,"为什么可能小得多？",7.27,4.37,4.74,.40,22,INK,True,center=True)
   n(s,"数值仅是本课逐帧未压缩的理论计算；不虚构“普通视频”必定多少MB，由压缩原理解释差别。")
@@ -192,7 +193,7 @@ for i,(rank,problem,solution) in enumerate(ROUND_DETAILS,1):
   text(s,"部分细节变化",9.06,5.83,2.50,.39,18,DKCYAN,True)
   n(s,"像素图只是数学示意：原始与无损恢复逐值一致，有损近似允许不同。不能据此讲解JPEG的实际DCT步骤。")
  if i==10:
-  box(s,1.52,5.83,10.30,.53,LT,SHADE)
+  box(s,1.52,5.83,10.30,.53,SHADE,LT)
   text(s,"对照条件：同一局部放大 · JPEG极低质量只为放大差别",1.66,5.88,10.04,.42,18,A,True,center=True)
   n(s,"该图使用同一局部而非两张毫不相关的图；极端压缩用于观察差别，不推断所有JPEG都严重失真。")
  dest=persist(p, f"round-{i:02d}.pptx",{"round":i,"rank":rank,"problem":problem,"fix":solution,"source_file":prev.name})
