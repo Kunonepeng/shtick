@@ -140,6 +140,7 @@ def audit(round_num,filename,problems):
 
 deck=Presentation(ORIGINAL)
 assert len(deck.slides)==77
+storage_slide=deck.slides[53]
 # Round 1: P1 real object anchor for microphone conversion,
 # P1 real audio editor evidence for track/channel distinction,
 # P2 storage vs transfer concrete settings.
@@ -153,9 +154,9 @@ addnotes(deck.slides[27],
  "OpenMoji speaker-high.svg，CC BY-SA 4.0，"
  "https://github.com/hfg-gmuend/openmoji/blob/master/color/svg/1F50A.svg 。"
  "扬声器是物理输出设备；DAC先将数字数据变为模拟电信号。")
-put(deck.slides[53],"computer-disk.svg",2.70,4.07,1.44)
-put(deck.slides[53],"smartphone.svg",8.87,4.07,1.44)
-addnotes(deck.slides[53],
+put(storage_slide,"computer-disk.svg",2.70,4.07,1.44)
+put(storage_slide,"smartphone.svg",8.87,4.07,1.44)
+addnotes(storage_slide,
  "OpenMoji computer-disk.svg (1F4BD) 与 smartphone.svg (1F4F1)，"
  "CC BY-SA 4.0; https://github.com/hfg-gmuend/openmoji 。"
  "左侧代表本地保存数据，右侧代表设备之间的文件传输，二者不是压缩算法的图像证明。")
@@ -198,9 +199,9 @@ new.notes_slide.notes_text_frame.text=(
  "https://github.com/audacity/audacity-manual/blob/master/manual/m/images/f/fb/tracks_for_mixing.png 。")
 move_after(new,45)
 # Keep labels far from 6.43 in slide 54 and do not compete with conclusion.
-addtext(deck.slides[53],"本地存储",2.61,5.42,1.65,.47,17,ACC,True,center=True)
-addtext(deck.slides[53],"在线传输",8.76,5.42,1.65,.47,17,CYAN,True,center=True)
-addnotes(deck.slides[53],"读图：图标表达场景，不等于“数据被减半”的证据；压缩收益仍需要数字比较。")
+addtext(storage_slide,"本地存储",2.61,5.42,1.65,.47,17,ACC,True,center=True)
+addtext(storage_slide,"在线传输",8.76,5.42,1.65,.47,17,CYAN,True,center=True)
+addnotes(storage_slide,"读图：图标表达场景，不等于“数据被减半”的证据；压缩收益仍需要数字比较。")
 round2_issues=[
  {"level":"P0","issue":"一张Audacity截图中3行波形可能被误作导出3声道","fix":"新增长度/布局相同的渐进揭示页，明确2条音轨分别有1与2路波形，同时说明最终导出声道另行指定","verified":"问题/答案相邻、截图尺寸与位置完全一致；Notes明确限制"},
  {"level":"P1","issue":"真实软件英文UI和轨道分组对于高中生不够直接","fix":"用不同语义色细框标出两条音轨，中文指出mono与stereo，保留原界面不篡改","verified":"紫/青边框几何尺寸可复查"},
@@ -210,5 +211,5 @@ two=audit(2,"round-2-with-images.pptx",round2_issues)
 DEST.write_bytes(two.read_bytes())
 final=Presentation(DEST)
 assert len(final.slides)==79
-assert final.slides[44].shapes[0].has_text_frame is False or True
+assert any("软件里：一条音轨" in sh.text for sh in final.slides[44].shapes if sh.has_text_frame)
 print("FINAL",DEST,DEST.stat().st_size,flush=True)
