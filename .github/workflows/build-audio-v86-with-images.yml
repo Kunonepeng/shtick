@@ -1,0 +1,107 @@
+name: Build audio v8.6 with sourced classroom images
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/build-audio-v86-with-images.yml"
+      - "1-2-encoding/1-2-3-audio-encoding-v2/validation/audio-v86-images-20261014/build_with_images.py"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-review-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install Python and image/render dependencies
+        run: |
+          python -m pip install python-pptx pillow cairosvg
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq libreoffice-impress poppler-utils fonts-noto-cjk libcairo2
+      - name: Build in two audited rounds
+        run: python 1-2-encoding/1-2-3-audio-encoding-v2/validation/audio-v86-images-20261014/build_with_images.py
+      - name: Verify provenance, source preservation, notes and question reveal
+        run: |
+          python - <<'PY'
+          import hashlib,json
+          from pathlib import Path
+          from pptx import Presentation
+          base=Path("1-2-encoding/1-2-3-audio-encoding-v2")
+          v=base/"validation/audio-v86-images-20261014"
+          source=base/"1-2-3-audio-encoding-v8.6.gpt.pptx"
+          target=base/"1-2-3-audio-encoding-v8.6.with-images-by-gpt.pptx"
+          assert hashlib.sha256(source.read_bytes()).hexdigest()=="a8a60b2719677cc6e98fddbff5bd23f5b23bb38181f918283f3894021ae4768a"
+          deck=Presentation(target)
+          assert len(deck.slides)==79
+          assert sum(s.has_notes_slide for s in deck.slides)==79
+          for round_num,count in ((1,78),(2,79)):
+              audit=json.loads((v/f"audit-round-{round_num}.json").read_text())
+              item=v/f"round-{round_num}-with-images.pptx"
+              assert audit["slides"]==count
+              assert audit["speaker_notes"]==count
+              assert len(audit["issues"])>=3
+              assert all(t["level"] in ("P0","P1","P2") and t["fix"] and t["verified"] for t in audit["issues"])
+              assert audit["sha256"]==hashlib.sha256(item.read_bytes()).hexdigest()
+          assert target.read_bytes()==(v/"round-2-with-images.pptx").read_bytes()
+          titles=[next((sh.text.strip() for sh in sl.shapes if sh.has_text_frame and sh.text.strip()),"") for sl in deck.slides]
+          assert titles[44]==titles[45]=="软件里：一条音轨能包含几个声道？"
+          assert titles[46]=="练习题 3"
+          assert titles[55]=="为什么要压缩？先想两种真实需求"
+          print("PASS: 2 rounds, 79 pages, images with provenance and stable exercise")
+          PY
+      - name: Render and inspect selected visual pages in each round
+        run: |
+          set -eu
+          D="1-2-encoding/1-2-3-audio-encoding-v2/validation/audio-v86-images-20261014"
+          mkdir -p "$D/previews"
+          for n in 1 2; do
+            pdfname="round-$n-with-images"
+            soffice -env:UserInstallation=file:///tmp/lo-v86-images-$n --headless \
+               --convert-to pdf --outdir "$D/previews" "$D/$pdfname.pptx" >/dev/null
+            pdf="$D/previews/$pdfname.pdf"
+            test -s "$pdf"
+            expected=78; if [ "$n" = 2 ]; then expected=79; fi
+            test "$(pdfinfo "$pdf" | sed -n 's/^Pages:[[:space:]]*//p')" = "$expected"
+            for pg in 5 28 45 54; do
+              pdftoppm -f "$pg" -l "$pg" -r 115 -singlefile -png \
+                "$pdf" "$D/previews/round-$n-slide-$pg" >/dev/null 2>&1
+            done
+            if [ "$n" = 2 ]; then
+              for pg in 46 56; do
+                pdftoppm -f "$pg" -l "$pg" -r 115 -singlefile -png \
+                  "$pdf" "$D/previews/round-$n-slide-$pg" >/dev/null 2>&1
+              done
+            fi
+            rm -f "$pdf"
+          done
+      - uses: actions/upload-artifact@v4
+        with:
+          name: audio-v86-sourced-images-two-round-review
+          path: |
+            1-2-encoding/1-2-3-audio-encoding-v2/validation/audio-v86-images-20261014/round-*-with-images.pptx
+            1-2-encoding/1-2-3-audio-encoding-v2/validation/audio-v86-images-20261014/previews/*.png
+          retention-days: 30
+      - name: Commit final deck and audits without force
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          D="1-2-encoding/1-2-3-audio-encoding-v2"
+          git add "$D/1-2-3-audio-encoding-v8.6.with-images-by-gpt.pptx"
+          git add "$D/validation/audio-v86-images-20261014/"*.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Publish audio v8.6 with selected sourced imagery after two reviews"
+            for attempt in 1 2 3; do
+              git fetch origin main
+              git rebase origin/main
+              if git push origin HEAD:main; then break; fi
+              if [ "$attempt" = 3 ]; then exit 1; fi
+            done
+          fi
