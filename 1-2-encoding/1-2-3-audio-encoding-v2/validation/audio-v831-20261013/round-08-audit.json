@@ -1,0 +1,12 @@
+{
+  "round": 8,
+  "severity": "P0",
+  "identified_issue": "连续视频帧的小球位置变化不易在投影上分辨",
+  "refinement": "第45页以固定背景、清晰位移重绘五帧序列",
+  "slides": 70,
+  "notes": 70,
+  "question_answer_pairs": 6,
+  "input_sha256": "45ef3789f9f62c639963ff34ad8f7448e7e98e6860f30d6f7572677f4649a794",
+  "output_sha256": "a091c0c23aab343b22eeca3ead5a95ef6fb40ed9ff748f03b12b74224214b151",
+  "method": "PowerPoint native diagram; round 9 actual same-source PNG/JPEG image pair"
+}
