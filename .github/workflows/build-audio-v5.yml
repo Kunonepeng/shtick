@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - '.github/workflows/build-audio-v5.yml'
+      - '1-2-encoding/1-2-3-audio-encoding-v2/validation/audio-v5-20261013/build_v5.py'
   workflow_dispatch:
 
 permissions:
