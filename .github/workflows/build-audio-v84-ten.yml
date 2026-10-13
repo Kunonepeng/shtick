@@ -5,6 +5,8 @@ on:
     branches: [main]
     paths:
       - ".github/workflows/build-audio-v84-ten.yml"
+      - "1-2-encoding/1-2-3-audio-encoding-v2/validation/audio-v84-20261013/build_ten_visual_rounds.py"
+      - "1-2-encoding/1-2-3-audio-encoding-v2/validation/audio-v84-20261013/v831_base.py"
   workflow_dispatch:
 
 permissions:
@@ -27,6 +29,10 @@ jobs:
           python-version: '3.11'
       - name: Install binary image and PowerPoint dependencies
         run: python -m pip install --disable-pip-version-check python-pptx pillow
+      - name: Configure GitHub Actions commit identity
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
       - name: Build, audit, commit and push one round at a time
         env:
           RUN_PUSH: '1'
