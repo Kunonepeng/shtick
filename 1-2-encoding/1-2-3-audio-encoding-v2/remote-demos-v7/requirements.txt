@@ -1,4 +1,3 @@
-# Install only on the macOS Jupyter kernel; nothing on the classroom Windows PC.
-anywidget>=0.9,<1
-ipywidgets>=8,<9
+# Only on macOS Jupyter server/kernel. No Windows installation.
+# In a standard JupyterLab installation, IPython and its notebook frontend are already present.
 jupyterlab>=4,<5
