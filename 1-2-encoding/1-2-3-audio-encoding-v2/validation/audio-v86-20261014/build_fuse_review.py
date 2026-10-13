@@ -94,9 +94,13 @@ def reopen(dest): return Presentation(dest)
 # exercise/reveal sequence and illustrative scenarios. Borrow only visuals
 # where v8.4.10 adds distinct evidence, rather than decorating every slide.
 p=base
-s=p.slides[2];image_from_ref(s,3,2.12,3.00,8.90,3.18)
-n(s,"复用v8.4.10声源图；上面已有的声源→空气→耳朵框为结构，图片帮助看到音叉与麦克风，波弧代表传播示意，不是波形传播路线。")
-s=p.slides[7];cover(s,.78,1.71,11.8,4.03);image_from_ref(s,8,2.02,2.10,9.20,3.95)
+s=p.slides[2]
+cover(s,.75,1.83,11.85,4.51)
+text(s,"声源振动      →      空气中传播      →      麦克风接收",1.02,2.05,11.45,.57,24,A,True,center=True)
+image_from_ref(s,3,2.45,2.80,8.55,2.78)
+text(s,"声音由振动产生，并通过介质传播。",1.06,5.79,11.26,.52,23,A,True,center=True)
+n(s,"重新组织v8.4.10声源示意与原Codex概念文字：上方三阶段对应下方音叉、空间声压变化和麦克风；以一句话收束。示意图的波弧是传播方向，不是“波形在空间弯曲传播”的路线。")
+s=p.slides[7];cover(s,.78,1.57,11.8,4.20);image_from_ref(s,8,2.02,2.10,9.20,3.95)
 marker(s,"空间里：扰动传到记录点",1.17,1.80,5.5)
 marker(s,"固定位置：信号随时间变化",7.04,1.80,5.6)
 n(s,"借用v8.4.10空间传播与固定测点时间波形的对照，前半是空间快照，后半不是声音弯曲路线。")
