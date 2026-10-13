@@ -1,0 +1,13 @@
+{
+  "round": 8,
+  "severity": "P1",
+  "identified_issue": "编辑音轨到左右声道虽然有波形仍缺实际输出场景",
+  "refinement": "第41页在已有示意基础上突出混音后的左右声道分别送至扬声器",
+  "verified_by": "音轨数量不被误认为声道数量",
+  "slides": 70,
+  "speaker_notes": 70,
+  "qa_pairs": 6,
+  "input_sha256": "7b3731398c940619d00a8fec1f87f3034a573538166d4d0f10fd822a81cf7823",
+  "output_sha256": "f6b46ac9fc157738dce264ed9bcf0c03b6c3eaef7192e0ab7a75a7ece9ff7ee8",
+  "output_bytes": 412706
+}
