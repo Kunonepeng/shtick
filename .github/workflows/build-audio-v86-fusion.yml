@@ -25,7 +25,7 @@ jobs:
         run: |
           python -m pip install python-pptx pillow
           sudo apt-get update -qq
-          sudo apt-get install -y -qq libreoffice-impress poppler-utils
+          sudo apt-get install -y -qq libreoffice-impress poppler-utils fonts-noto-cjk
       - name: Fuse real GitHub inputs and refine ten times
         run: |
           python 1-2-encoding/1-2-3-audio-encoding-v2/validation/audio-v86-20261014/build_fuse_review.py
