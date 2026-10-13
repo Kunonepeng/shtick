@@ -44,7 +44,9 @@ def tx(sl,text,x,y,w,h,size=22,bold=False,color=INK,align=None,font=None):
     return s
 
 def base(title,note):
-    sl=p.slides.add_slide(p.slide_layouts[6]);
+    sl=p.slides.add_slide(p.slide_layouts[min(6,len(p.slide_layouts)-1)]);
+    for placeholder in list(sl.placeholders):
+        node=placeholder._element; node.getparent().remove(node)
     rect(sl,0,0,13.333,.09,VIO);rect(sl,0,7.41,13.333,.09,VIO)
     tx(sl,title,.67,.65,12,.85,36,True)
     sl.notes_slide.notes_text_frame.text=note
