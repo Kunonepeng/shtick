@@ -125,9 +125,11 @@ function mountPandaEncoding(mount, payload, config) {
         grid.appendChild(cell);
       }
       resultPanel.appendChild(grid);
+      const sourceBlock=288/state.grid;
       const countSummary=make('div','pd-stephelp',
-        '网格 '+state.grid+'×'+state.grid+'；'+count+' 个样本位置'
-        +(state.stage >=2 ? '；'+state.levels+' 种可选颜色' : ''));
+        '固定原 JPEG 同一 288×288 像素区域；每格覆盖 '+sourceBlock+'×'+sourceBlock+' 个源像素。'
+        +' 网格 '+state.grid+'×'+state.grid+'：共 '+count+' 个样本位置。'
+        +(state.stage>=2 ? ' 此时可选颜色为 '+state.levels+' 种。' : ' 此时尚未做有限色表量化。'));
       resultPanel.appendChild(countSummary);
     }
     layout.appendChild(resultPanel);
@@ -164,6 +166,9 @@ function mountPandaEncoding(mount, payload, config) {
         legend.appendChild(entry);
       }
       root.appendChild(legend);
+    }
+    if(state.stage>=2 && state.levels===6) {
+      add(root,make('div','pd-subtitle','六色表保留原四色并新增两色；这只扩大可选颜色集合，不改变采样位置。'));
     }
     if(state.stage===3){
       if(features.has('codeFocus')) add(root,make('div','pd-binaryfocus','L'+index+' → '+code));
