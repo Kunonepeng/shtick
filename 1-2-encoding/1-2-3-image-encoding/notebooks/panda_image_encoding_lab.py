@@ -59,6 +59,18 @@ def self_check() -> dict:
     if lab.SOURCE_SHA256 != EXPECTED_SHA256:
         raise AssertionError("Fixture hash contract changed.")
     payload = build_payload()
+    fixture_path = HERE.parent / "demos" / "panda-digitization" / "panda_samples.json"
+    fixture = json.loads(fixture_path.read_text(encoding="utf-8"))
+    assert fixture["source_sha256"] == EXPECTED_SHA256
+    assert fixture["crop"] == dict(zip(("x", "y", "width", "height"), lab.CROP))
+    assert fixture["palette_rgb"] == payload["palette"]
+    for grid in SUPPORTED_GRIDS:
+        expected_rows = fixture["grids"][str(grid)]
+        computed_rows = payload["states"][str(grid)]["4"]["samples"]
+        assert len(expected_rows) == len(computed_rows)
+        for expected_row, computed_row in zip(expected_rows, computed_rows):
+            for expected_pixel, computed_pixel in zip(expected_row, computed_row):
+                assert all(abs(a - b) < 1e-8 for a, b in zip(expected_pixel, computed_pixel))
     for grid in SUPPORTED_GRIDS:
         reference_samples = lab.sample_blocks(grid)
         for levels in SUPPORTED_LEVELS:
