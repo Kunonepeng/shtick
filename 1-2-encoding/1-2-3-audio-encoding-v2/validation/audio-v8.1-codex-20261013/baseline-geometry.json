@@ -1,0 +1,2906 @@
+{
+  "finding_count": 401,
+  "findings": [
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 1
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "5",
+      "script": "ea",
+      "slide": 1
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 2
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "6",
+      "script": "ea",
+      "slide": 2
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "8",
+      "script": "ea",
+      "slide": 2
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "9",
+      "script": "ea",
+      "slide": 2
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "10",
+      "script": "ea",
+      "slide": 2
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 3
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "6",
+      "script": "ea",
+      "slide": 3
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "7",
+      "script": "ea",
+      "slide": 3
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "10",
+      "script": "ea",
+      "slide": 3
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "11",
+      "script": "ea",
+      "slide": 3
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "14",
+      "script": "ea",
+      "slide": 3
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "15",
+      "script": "ea",
+      "slide": 3
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "16",
+      "script": "ea",
+      "slide": 3
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 4
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "6",
+      "script": "ea",
+      "slide": 4
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "7",
+      "script": "ea",
+      "slide": 4
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "8",
+      "script": "ea",
+      "slide": 4
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "8",
+      "script": "ea",
+      "slide": 4
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "9",
+      "script": "ea",
+      "slide": 4
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "9",
+      "script": "ea",
+      "slide": 4
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "10",
+      "script": "ea",
+      "slide": 4
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 5
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "6",
+      "script": "ea",
+      "slide": 5
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "9",
+      "script": "ea",
+      "slide": 5
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "12",
+      "script": "ea",
+      "slide": 5
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "13",
+      "script": "ea",
+      "slide": 5
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 6
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "6",
+      "script": "ea",
+      "slide": 6
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "9",
+      "script": "ea",
+      "slide": 6
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "12",
+      "script": "ea",
+      "slide": 6
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "13",
+      "script": "ea",
+      "slide": 6
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "14",
+      "script": "ea",
+      "slide": 6
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 7
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "6",
+      "script": "ea",
+      "slide": 7
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "9",
+      "script": "ea",
+      "slide": 7
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "15",
+      "script": "ea",
+      "slide": 7
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "17",
+      "script": "ea",
+      "slide": 7
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "23",
+      "script": "ea",
+      "slide": 7
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "26",
+      "script": "ea",
+      "slide": 7
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "27",
+      "script": "ea",
+      "slide": 7
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "28",
+      "script": "ea",
+      "slide": 7
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 8
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "7",
+      "script": "ea",
+      "slide": 8
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "8",
+      "script": "ea",
+      "slide": 8
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "9",
+      "script": "ea",
+      "slide": 8
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "110",
+      "script": "ea",
+      "slide": 8
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 9
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "5",
+      "script": "ea",
+      "slide": 9
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "8",
+      "script": "ea",
+      "slide": 9
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "9",
+      "script": "ea",
+      "slide": 9
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "111",
+      "script": "ea",
+      "slide": 9
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "112",
+      "script": "ea",
+      "slide": 9
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 10
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "7",
+      "script": "ea",
+      "slide": 10
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "8",
+      "script": "ea",
+      "slide": 10
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "109",
+      "script": "ea",
+      "slide": 10
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 11
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "7",
+      "script": "ea",
+      "slide": 11
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "8",
+      "script": "ea",
+      "slide": 11
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "133",
+      "script": "ea",
+      "slide": 11
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 12
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "5",
+      "script": "ea",
+      "slide": 12
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "6",
+      "script": "ea",
+      "slide": 12
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "7",
+      "script": "ea",
+      "slide": 12
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "10",
+      "script": "ea",
+      "slide": 12
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "11",
+      "script": "ea",
+      "slide": 12
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "114",
+      "script": "ea",
+      "slide": 12
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "115",
+      "script": "ea",
+      "slide": 12
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "231",
+      "script": "ea",
+      "slide": 12
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 13
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "7",
+      "script": "ea",
+      "slide": 13
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "8",
+      "script": "ea",
+      "slide": 13
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "16",
+      "script": "ea",
+      "slide": 13
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "17",
+      "script": "ea",
+      "slide": 13
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "27",
+      "script": "ea",
+      "slide": 13
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 14
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "7",
+      "script": "ea",
+      "slide": 14
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "8",
+      "script": "ea",
+      "slide": 14
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "9",
+      "script": "ea",
+      "slide": 14
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "120",
+      "script": "ea",
+      "slide": 14
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "121",
+      "script": "ea",
+      "slide": 14
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "122",
+      "script": "ea",
+      "slide": 14
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "243",
+      "script": "ea",
+      "slide": 14
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 15
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "7",
+      "script": "ea",
+      "slide": 15
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "8",
+      "script": "ea",
+      "slide": 15
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "120",
+      "script": "ea",
+      "slide": 15
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "121",
+      "script": "ea",
+      "slide": 15
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 16
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "21",
+      "script": "ea",
+      "slide": 16
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 17
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "5",
+      "script": "ea",
+      "slide": 17
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "22",
+      "script": "ea",
+      "slide": 17
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "23",
+      "script": "ea",
+      "slide": 17
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 18
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "24",
+      "script": "ea",
+      "slide": 18
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "25",
+      "script": "ea",
+      "slide": 18
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "26",
+      "script": "ea",
+      "slide": 18
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "27",
+      "script": "ea",
+      "slide": 18
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 19
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "5",
+      "script": "ea",
+      "slide": 19
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "6",
+      "script": "ea",
+      "slide": 19
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "7",
+      "script": "ea",
+      "slide": 19
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "58",
+      "script": "ea",
+      "slide": 19
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 20
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "6",
+      "script": "ea",
+      "slide": 20
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "10",
+      "script": "ea",
+      "slide": 20
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "14",
+      "script": "ea",
+      "slide": 20
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "18",
+      "script": "ea",
+      "slide": 20
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "20",
+      "script": "ea",
+      "slide": 20
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "21",
+      "script": "ea",
+      "slide": 20
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 21
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "5",
+      "script": "ea",
+      "slide": 21
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "22",
+      "script": "ea",
+      "slide": 21
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 22
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "5",
+      "script": "ea",
+      "slide": 22
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "14",
+      "script": "ea",
+      "slide": 22
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "15",
+      "script": "ea",
+      "slide": 22
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "32",
+      "script": "ea",
+      "slide": 22
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 23
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "7",
+      "script": "ea",
+      "slide": 23
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "8",
+      "script": "ea",
+      "slide": 23
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "123",
+      "script": "ea",
+      "slide": 23
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "125",
+      "script": "ea",
+      "slide": 23
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "125",
+      "script": "ea",
+      "slide": 23
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 24
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "5",
+      "script": "ea",
+      "slide": 24
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "6",
+      "script": "ea",
+      "slide": 24
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "24",
+      "script": "ea",
+      "slide": 24
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "50",
+      "script": "ea",
+      "slide": 24
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 25
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "5",
+      "script": "ea",
+      "slide": 25
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "6",
+      "script": "ea",
+      "slide": 25
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "7",
+      "script": "ea",
+      "slide": 25
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "8",
+      "script": "ea",
+      "slide": 25
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "9",
+      "script": "ea",
+      "slide": 25
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 26
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "6",
+      "script": "ea",
+      "slide": 26
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "8",
+      "script": "ea",
+      "slide": 26
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "47",
+      "script": "ea",
+      "slide": 26
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 27
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "6",
+      "script": "ea",
+      "slide": 27
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "8",
+      "script": "ea",
+      "slide": 27
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "9",
+      "script": "ea",
+      "slide": 27
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "10",
+      "script": "ea",
+      "slide": 27
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "11",
+      "script": "ea",
+      "slide": 27
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 28
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "6",
+      "script": "ea",
+      "slide": 28
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "12",
+      "script": "ea",
+      "slide": 28
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "15",
+      "script": "ea",
+      "slide": 28
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "16",
+      "script": "ea",
+      "slide": 28
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 29
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "5",
+      "script": "ea",
+      "slide": 29
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "6",
+      "script": "ea",
+      "slide": 29
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "7",
+      "script": "ea",
+      "slide": 29
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "8",
+      "script": "ea",
+      "slide": 29
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "9",
+      "script": "ea",
+      "slide": 29
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "10",
+      "script": "ea",
+      "slide": 29
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "11",
+      "script": "ea",
+      "slide": 29
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "12",
+      "script": "ea",
+      "slide": 29
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 30
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "5",
+      "script": "ea",
+      "slide": 30
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "22",
+      "script": "ea",
+      "slide": 30
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "23",
+      "script": "ea",
+      "slide": 30
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 31
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "5",
+      "script": "ea",
+      "slide": 31
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "7",
+      "script": "ea",
+      "slide": 31
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "8",
+      "script": "ea",
+      "slide": 31
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "9",
+      "script": "ea",
+      "slide": 31
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "10",
+      "script": "ea",
+      "slide": 31
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "11",
+      "script": "ea",
+      "slide": 31
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 32
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "5",
+      "script": "ea",
+      "slide": 32
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "5",
+      "script": "ea",
+      "slide": 32
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "7",
+      "script": "ea",
+      "slide": 32
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 33
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "5",
+      "script": "ea",
+      "slide": 33
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "5",
+      "script": "ea",
+      "slide": 33
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "7",
+      "script": "ea",
+      "slide": 33
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "8",
+      "script": "ea",
+      "slide": 33
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 34
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "5",
+      "script": "ea",
+      "slide": 34
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "6",
+      "script": "ea",
+      "slide": 34
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "7",
+      "script": "ea",
+      "slide": 34
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "8",
+      "script": "ea",
+      "slide": 34
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "9",
+      "script": "ea",
+      "slide": 34
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "10",
+      "script": "ea",
+      "slide": 34
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 35
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "5",
+      "script": "ea",
+      "slide": 35
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 36
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "6",
+      "script": "ea",
+      "slide": 36
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "8",
+      "script": "ea",
+      "slide": 36
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "10",
+      "script": "ea",
+      "slide": 36
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "12",
+      "script": "ea",
+      "slide": 36
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "13",
+      "script": "ea",
+      "slide": 36
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 37
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "5",
+      "script": "ea",
+      "slide": 37
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "5",
+      "script": "ea",
+      "slide": 37
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "7",
+      "script": "ea",
+      "slide": 37
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 38
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "5",
+      "script": "ea",
+      "slide": 38
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "5",
+      "script": "ea",
+      "slide": 38
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "7",
+      "script": "ea",
+      "slide": 38
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "8",
+      "script": "ea",
+      "slide": 38
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 39
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "5",
+      "script": "ea",
+      "slide": 39
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "5",
+      "script": "ea",
+      "slide": 39
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "5",
+      "script": "ea",
+      "slide": 39
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "7",
+      "script": "ea",
+      "slide": 39
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 40
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "6",
+      "script": "ea",
+      "slide": 40
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "7",
+      "script": "ea",
+      "slide": 40
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "8",
+      "script": "ea",
+      "slide": 40
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "9",
+      "script": "ea",
+      "slide": 40
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "10",
+      "script": "ea",
+      "slide": 40
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 41
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "6",
+      "script": "ea",
+      "slide": 41
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "8",
+      "script": "ea",
+      "slide": 41
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "10",
+      "script": "ea",
+      "slide": 41
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "12",
+      "script": "ea",
+      "slide": 41
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "14",
+      "script": "ea",
+      "slide": 41
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "15",
+      "script": "ea",
+      "slide": 41
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 42
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "5",
+      "script": "ea",
+      "slide": 42
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "5",
+      "script": "ea",
+      "slide": 42
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "5",
+      "script": "ea",
+      "slide": 42
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "7",
+      "script": "ea",
+      "slide": 42
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "8",
+      "script": "ea",
+      "slide": 42
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 43
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "5",
+      "script": "ea",
+      "slide": 43
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "6",
+      "script": "ea",
+      "slide": 43
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "10",
+      "script": "ea",
+      "slide": 43
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 44
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "5",
+      "script": "ea",
+      "slide": 44
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "6",
+      "script": "ea",
+      "slide": 44
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "7",
+      "script": "ea",
+      "slide": 44
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "9",
+      "script": "ea",
+      "slide": 44
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "10",
+      "script": "ea",
+      "slide": 44
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "11",
+      "script": "ea",
+      "slide": 44
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "13",
+      "script": "ea",
+      "slide": 44
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "14",
+      "script": "ea",
+      "slide": 44
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "15",
+      "script": "ea",
+      "slide": 44
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "16",
+      "script": "ea",
+      "slide": 44
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 45
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "7",
+      "script": "ea",
+      "slide": 45
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "10",
+      "script": "ea",
+      "slide": 45
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "13",
+      "script": "ea",
+      "slide": 45
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "16",
+      "script": "ea",
+      "slide": 45
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "19",
+      "script": "ea",
+      "slide": 45
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "20",
+      "script": "ea",
+      "slide": 45
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "21",
+      "script": "ea",
+      "slide": 45
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 46
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "5",
+      "script": "ea",
+      "slide": 46
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "6",
+      "script": "ea",
+      "slide": 46
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "7",
+      "script": "ea",
+      "slide": 46
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 47
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "5",
+      "script": "ea",
+      "slide": 47
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "5",
+      "script": "ea",
+      "slide": 47
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "5",
+      "script": "ea",
+      "slide": 47
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "7",
+      "script": "ea",
+      "slide": 47
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 48
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "5",
+      "script": "ea",
+      "slide": 48
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "5",
+      "script": "ea",
+      "slide": 48
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "5",
+      "script": "ea",
+      "slide": 48
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "7",
+      "script": "ea",
+      "slide": 48
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "8",
+      "script": "ea",
+      "slide": 48
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 49
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "5",
+      "script": "ea",
+      "slide": 49
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "6",
+      "script": "ea",
+      "slide": 49
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "7",
+      "script": "ea",
+      "slide": 49
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 50
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "6",
+      "script": "ea",
+      "slide": 50
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "9",
+      "script": "ea",
+      "slide": 50
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "10",
+      "script": "ea",
+      "slide": 50
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "11",
+      "script": "ea",
+      "slide": 50
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "12",
+      "script": "ea",
+      "slide": 50
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 51
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "6",
+      "script": "ea",
+      "slide": 51
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "7",
+      "script": "ea",
+      "slide": 51
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "8",
+      "script": "ea",
+      "slide": 51
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "9",
+      "script": "ea",
+      "slide": 51
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "10",
+      "script": "ea",
+      "slide": 51
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 52
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "5",
+      "script": "ea",
+      "slide": 52
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "7",
+      "script": "ea",
+      "slide": 52
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "8",
+      "script": "ea",
+      "slide": 52
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 53
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "6",
+      "script": "ea",
+      "slide": 53
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "7",
+      "script": "ea",
+      "slide": 53
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "8",
+      "script": "ea",
+      "slide": 53
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "9",
+      "script": "ea",
+      "slide": 53
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "10",
+      "script": "ea",
+      "slide": 53
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 54
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "5",
+      "script": "ea",
+      "slide": 54
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "6",
+      "script": "ea",
+      "slide": 54
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "7",
+      "script": "ea",
+      "slide": 54
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "8",
+      "script": "ea",
+      "slide": 54
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 55
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "5",
+      "script": "ea",
+      "slide": 55
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "7",
+      "script": "ea",
+      "slide": 55
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "8",
+      "script": "ea",
+      "slide": 55
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "10",
+      "script": "ea",
+      "slide": 55
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "11",
+      "script": "ea",
+      "slide": 55
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "12",
+      "script": "ea",
+      "slide": 55
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "13",
+      "script": "ea",
+      "slide": 55
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 56
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "6",
+      "script": "ea",
+      "slide": 56
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "7",
+      "script": "ea",
+      "slide": 56
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "8",
+      "script": "ea",
+      "slide": 56
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "8",
+      "script": "ea",
+      "slide": 56
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "9",
+      "script": "ea",
+      "slide": 56
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "9",
+      "script": "ea",
+      "slide": 56
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "10",
+      "script": "ea",
+      "slide": 56
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 57
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "5",
+      "script": "ea",
+      "slide": 57
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "6",
+      "script": "ea",
+      "slide": 57
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "7",
+      "script": "ea",
+      "slide": 57
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 58
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "6",
+      "script": "ea",
+      "slide": 58
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "7",
+      "script": "ea",
+      "slide": 58
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "8",
+      "script": "ea",
+      "slide": 58
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "8",
+      "script": "ea",
+      "slide": 58
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "9",
+      "script": "ea",
+      "slide": 58
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "9",
+      "script": "ea",
+      "slide": 58
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "10",
+      "script": "ea",
+      "slide": 58
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 59
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "6",
+      "script": "ea",
+      "slide": 59
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "8",
+      "script": "ea",
+      "slide": 59
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "10",
+      "script": "ea",
+      "slide": 59
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "12",
+      "script": "ea",
+      "slide": 59
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "13",
+      "script": "ea",
+      "slide": 59
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 60
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "5",
+      "script": "ea",
+      "slide": 60
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "60",
+      "script": "ea",
+      "slide": 60
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "61",
+      "script": "ea",
+      "slide": 60
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "116",
+      "script": "ea",
+      "slide": 60
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "117",
+      "script": "ea",
+      "slide": 60
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "172",
+      "script": "ea",
+      "slide": 60
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "173",
+      "script": "ea",
+      "slide": 60
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 61
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "5",
+      "script": "ea",
+      "slide": 61
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "5",
+      "script": "ea",
+      "slide": 61
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "7",
+      "script": "ea",
+      "slide": 61
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 62
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "5",
+      "script": "ea",
+      "slide": 62
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "5",
+      "script": "ea",
+      "slide": 62
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "7",
+      "script": "ea",
+      "slide": 62
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "8",
+      "script": "ea",
+      "slide": 62
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 63
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "6",
+      "script": "ea",
+      "slide": 63
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "7",
+      "script": "ea",
+      "slide": 63
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "8",
+      "script": "ea",
+      "slide": 63
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "8",
+      "script": "ea",
+      "slide": 63
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "9",
+      "script": "ea",
+      "slide": 63
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "9",
+      "script": "ea",
+      "slide": 63
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "10",
+      "script": "ea",
+      "slide": 63
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 64
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "6",
+      "script": "ea",
+      "slide": 64
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "7",
+      "script": "ea",
+      "slide": 64
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "8",
+      "script": "ea",
+      "slide": 64
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "9",
+      "script": "ea",
+      "slide": 64
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "10",
+      "script": "ea",
+      "slide": 64
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 65
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "6",
+      "script": "ea",
+      "slide": 65
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "7",
+      "script": "ea",
+      "slide": 65
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "8",
+      "script": "ea",
+      "slide": 65
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "9",
+      "script": "ea",
+      "slide": 65
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "10",
+      "script": "ea",
+      "slide": 65
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 66
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "5",
+      "script": "ea",
+      "slide": 66
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "5",
+      "script": "ea",
+      "slide": 66
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "5",
+      "script": "ea",
+      "slide": 66
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "5",
+      "script": "ea",
+      "slide": 66
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "7",
+      "script": "ea",
+      "slide": 66
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 67
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "5",
+      "script": "ea",
+      "slide": 67
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "5",
+      "script": "ea",
+      "slide": 67
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "5",
+      "script": "ea",
+      "slide": 67
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "5",
+      "script": "ea",
+      "slide": 67
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "7",
+      "script": "ea",
+      "slide": 67
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "8",
+      "script": "ea",
+      "slide": 67
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 68
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "5",
+      "script": "ea",
+      "slide": 68
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "6",
+      "script": "ea",
+      "slide": 68
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "7",
+      "script": "ea",
+      "slide": 68
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 69
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "7",
+      "script": "ea",
+      "slide": 69
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "8",
+      "script": "ea",
+      "slide": 69
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "9",
+      "script": "ea",
+      "slide": 69
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "112",
+      "script": "ea",
+      "slide": 69
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "113",
+      "script": "ea",
+      "slide": 69
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "114",
+      "script": "ea",
+      "slide": 69
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "215",
+      "script": "ea",
+      "slide": 69
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "4",
+      "script": "ea",
+      "slide": 70
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "6",
+      "script": "ea",
+      "slide": 70
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "7",
+      "script": "ea",
+      "slide": 70
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "8",
+      "script": "ea",
+      "slide": 70
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "9",
+      "script": "ea",
+      "slide": 70
+    },
+    {
+      "font_family": null,
+      "kind": "unresolved_presentation_font",
+      "object_id": "10",
+      "script": "ea",
+      "slide": 70
+    }
+  ],
+  "font_policy": {
+    "checked_text_script_count": 673,
+    "native_font_rendering_verified": false,
+    "observed_font_families": [
+      "Alibaba PuHuiTi 3.0 115 Black",
+      "Alibaba PuHuiTi 3.0 55 Regular"
+    ],
+    "observed_font_use_counts": {
+      "Alibaba PuHuiTi 3.0 115 Black": 207,
+      "Alibaba PuHuiTi 3.0 55 Regular": 65
+    },
+    "passed": false,
+    "performed": true
+  },
+  "slide_count": 70,
+  "slide_size_in": [
+    13.333,
+    7.5
+  ],
+  "warning_count": 9,
+  "warnings": [
+    {
+      "connector_id": "104",
+      "connector_z": 104,
+      "kind": "connector_over_text",
+      "slide": 9,
+      "text_object_id": "9",
+      "text_z": 9
+    },
+    {
+      "connector_id": "105",
+      "connector_z": 105,
+      "kind": "connector_over_text",
+      "slide": 9,
+      "text_object_id": "9",
+      "text_z": 9
+    },
+    {
+      "connector_id": "106",
+      "connector_z": 106,
+      "kind": "connector_over_text",
+      "slide": 9,
+      "text_object_id": "9",
+      "text_z": 9
+    },
+    {
+      "connector_id": "107",
+      "connector_z": 107,
+      "kind": "connector_over_text",
+      "slide": 9,
+      "text_object_id": "9",
+      "text_z": 9
+    },
+    {
+      "connector_id": "105",
+      "connector_z": 105,
+      "kind": "connector_over_text",
+      "slide": 12,
+      "text_object_id": "11",
+      "text_z": 11
+    },
+    {
+      "connector_id": "106",
+      "connector_z": 106,
+      "kind": "connector_over_text",
+      "slide": 12,
+      "text_object_id": "11",
+      "text_z": 11
+    },
+    {
+      "connector_id": "107",
+      "connector_z": 107,
+      "kind": "connector_over_text",
+      "slide": 12,
+      "text_object_id": "11",
+      "text_z": 11
+    },
+    {
+      "connector_id": "108",
+      "connector_z": 108,
+      "kind": "connector_over_text",
+      "slide": 12,
+      "text_object_id": "11",
+      "text_z": 11
+    },
+    {
+      "connector_id": "124",
+      "connector_z": 124,
+      "kind": "connector_over_text",
+      "slide": 23,
+      "text_object_id": "8",
+      "text_z": 8
+    }
+  ]
+}

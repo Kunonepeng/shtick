@@ -1,0 +1,25 @@
+{
+  "finding_count": 0,
+  "findings": [],
+  "font_policy": {
+    "checked_text_script_count": 861,
+    "native_font_rendering_verified": false,
+    "observed_font_families": [
+      "Alibaba PuHuiTi 3.0 115 Black",
+      "Alibaba PuHuiTi 3.0 55 Regular"
+    ],
+    "observed_font_use_counts": {
+      "Alibaba PuHuiTi 3.0 115 Black": 441,
+      "Alibaba PuHuiTi 3.0 55 Regular": 420
+    },
+    "passed": true,
+    "performed": true
+  },
+  "slide_count": 77,
+  "slide_size_in": [
+    13.333,
+    7.5
+  ],
+  "warning_count": 0,
+  "warnings": []
+}

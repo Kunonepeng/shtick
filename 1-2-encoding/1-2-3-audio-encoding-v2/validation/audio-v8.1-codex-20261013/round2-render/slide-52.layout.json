@@ -1,0 +1,10 @@
+{"schema":"openai.presentation.layout/v5","unit":"px","slide":{"id":"sl/gfe1wbu1","index":51,"layout":{"id":"ly/07y1cjyt","name":"Blank"},"backgroundColor":"rgba(255,255,255,1)","position":{"left":0,"top":0,"width":1279.9679790026248,"height":720}},
+"elements":[
+{"id":"sh/hozadsnm","kind":"shape","name":"top-rail","position":{"left":0,"top":0,"width":1279.97,"height":10.67},"style":{"fontSize":24,"typeface":"Alibaba PuHuiTi 3.0 55 Regular","color":"#FFFFFF","alignment":"left"},"geometry":"rect","fillColor":"#6251B1","lineWidth":0},
+{"id":"sh/gnq94n61","kind":"shape","name":"bottom-rail","position":{"left":0,"top":709.33,"width":1279.97,"height":10.67},"style":{"fontSize":24,"typeface":"Alibaba PuHuiTi 3.0 55 Regular","color":"#FFFFFF","alignment":"left"},"geometry":"rect","fillColor":"#6251B1","lineWidth":0},
+{"id":"sh/3q1sf25s","kind":"textbox","name":"question-title","position":{"left":63.84,"top":63.84,"width":1152,"height":74},"text":"“中国”重复100次，怎样写得更短？","style":{"fontSize":48,"typeface":"Alibaba PuHuiTi 3.0 115 Black","color":"#262626","bold":true,"alignment":"left"},"geometry":"rect"},
+{"id":"sh/2psr6xo7","kind":"textbox","name":"TextBox 4","position":{"left":82.56,"top":207.36,"width":1132.8,"height":48},"text":"中国中国中国中国中国中国……","style":{"fontSize":40,"typeface":"Alibaba PuHuiTi 3.0 115 Black","color":"#262626","bold":true,"alignment":"left"},"geometry":"rect"},
+{"id":"sh/psjahcny","kind":"shape","name":"Connector 5","position":{"left":345.6,"top":386.88,"width":331.2,"height":0},"geometry":"line","lineColor":"#8C64E1","lineWidth":4},
+{"id":"sh/4ra987md","kind":"textbox","name":"TextBox 6","position":{"left":714.24,"top":347.52,"width":451.2,"height":52.8},"text":"“中国” × 100","style":{"fontSize":44,"typeface":"Alibaba PuHuiTi 3.0 115 Black","color":"#8C64E1","bold":true,"alignment":"left"},"geometry":"rect"},
+{"id":"sh/bu1sj254","kind":"textbox","name":"TextBox 7","position":{"left":81.6,"top":617.28,"width":1132.8,"height":35.2},"text":"在不改变内容的前提下，用规则和次数来表示重复部分。","style":{"fontSize":29.33,"typeface":"Alibaba PuHuiTi 3.0 55 Regular","color":"#262626","alignment":"left"},"geometry":"rect"}
+]}

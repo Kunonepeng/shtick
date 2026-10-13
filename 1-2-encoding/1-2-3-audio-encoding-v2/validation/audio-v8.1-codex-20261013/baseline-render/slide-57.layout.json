@@ -1,0 +1,9 @@
+{"schema":"openai.presentation.layout/v5","unit":"px","slide":{"id":"sl/uhgfqdcf","index":56,"layout":{"id":"ly/07y1cjyt","name":"Blank"},"backgroundColor":"rgba(255,255,255,1)","position":{"left":0,"top":0,"width":1279.9679790026248,"height":720}},
+"elements":[
+{"id":"sh/lwjyporq","kind":"shape","name":"Rectangle 1","position":{"left":0,"top":3.84,"width":1279.97,"height":7.68},"style":{"fontSize":24,"typeface":"Calibri","color":"#FFFFFF","alignment":"left"},"geometry":"rect","fillColor":"#6251B1","lineWidth":0},
+{"id":"sh/0vqxgja5","kind":"shape","name":"Rectangle 2","position":{"left":0,"top":709.44,"width":1279.97,"height":7.68},"style":{"fontSize":24,"typeface":"Calibri","color":"#FFFFFF","alignment":"left"},"geometry":"rect","fillColor":"#6251B1","lineWidth":0},
+{"id":"sh/b6hgju9o","kind":"textbox","name":"TextBox 3","position":{"left":64.32,"top":60.48,"width":1152,"height":82.56},"text":"压缩到底改变了什么？","style":{"fontSize":45.33,"typeface":"Alibaba PuHuiTi 3.0 115 Black","color":"#262626","bold":true,"alignment":"left"},"geometry":"rect"},
+{"id":"sh/q58faps3","kind":"textbox","name":"TextBox 4","position":{"left":85.44,"top":192.96,"width":1123.2,"height":76.8},"text":"数据本身在计算机中仍是0和1。","style":{"fontSize":38.67,"typeface":"Alibaba PuHuiTi 3.0 115 Black","color":"#262626","bold":true,"alignment":"left"},"geometry":"rect"},
+{"id":"sh/dszyl4ru","kind":"textbox","name":"TextBox 5","position":{"left":87.36,"top":314.88,"width":1123.2,"height":127.68},"text":"压缩：用更少的比特，重新表示相同或近似相同的内容。","style":{"fontSize":36,"typeface":"Alibaba PuHuiTi 3.0 115 Black","color":"#8C64E1","bold":true,"alignment":"left"},"geometry":"rect"},
+{"id":"sh/c7qxcza9","kind":"textbox","name":"TextBox 6","position":{"left":81.6,"top":617.28,"width":1132.8,"height":48},"text":"方法有很多，今天重点研究能不能完整还原。","style":{"fontSize":26.67,"typeface":"Alibaba PuHuiTi 3.0 115 Black","color":"#8C64E1","bold":true,"alignment":"left"},"geometry":"rect"}
+]}

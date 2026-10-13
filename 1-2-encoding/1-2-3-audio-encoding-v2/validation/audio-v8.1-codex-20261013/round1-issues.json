@@ -1,0 +1,300 @@
+{
+  "round": 1,
+  "before_sha256": "c2b7a67ee9bbaa06af78fb0d3d6d3bdd6e0be16c9826a76fe86672389bb95181",
+  "issues": [
+    {
+      "id": "R1-01",
+      "rank": "p0",
+      "pages": [
+        13
+      ],
+      "issue": "1秒1Hz/2Hz的图实际画出4/8个点，计数证据与题意矛盾。",
+      "fix": "明确[0,1)区间，改画1/2个实际采样点及秒刻度。",
+      "recheck": "独立核对点数、时刻和相同波形。",
+      "status": "pass",
+      "evidence": [
+        "round1-audit.json",
+        "round1-after-geometry.json",
+        "round1-measurements.json",
+        "round1-render/",
+        "round1-montage.png"
+      ]
+    },
+    {
+      "id": "R1-02",
+      "rank": "p1",
+      "pages": "all",
+      "issue": "中文文本缺少显式East Asian字体；结构检查报401项未解析字体。",
+      "fix": "原生文字显式设置Alibaba Regular/Black及导出默认字体。",
+      "recheck": "扫描所有字体声明并验证实际注册字体渲染。",
+      "status": "pass",
+      "evidence": [
+        "round1-audit.json",
+        "round1-after-geometry.json",
+        "round1-measurements.json",
+        "round1-render/",
+        "round1-montage.png"
+      ]
+    },
+    {
+      "id": "R1-03",
+      "rank": "p1",
+      "pages": "all cyan text",
+      "issue": "白底青色#00B0F0文字仅约2.48:1对比度。",
+      "fix": "必要文字改用#007C9B，保留原生图形的青色语义。",
+      "recheck": "对比度独立复算；关键码字、标签逐页检查。",
+      "status": "pass",
+      "evidence": [
+        "round1-audit.json",
+        "round1-after-geometry.json",
+        "round1-measurements.json",
+        "round1-render/",
+        "round1-montage.png"
+      ]
+    },
+    {
+      "id": "R1-04",
+      "rank": "p1",
+      "pages": [
+        8,
+        9,
+        12,
+        14,
+        23,
+        69
+      ],
+      "issue": "振幅标签贴近标题/分组名；时间标签与波形走线冲突。",
+      "fix": "调整标签位置、背景和叠放顺序。",
+      "recheck": "全分辨率检查各轴与曲线、组名分离。",
+      "status": "pass",
+      "evidence": [
+        "round1-audit.json",
+        "round1-after-geometry.json",
+        "round1-measurements.json",
+        "round1-render/",
+        "round1-montage.png"
+      ]
+    },
+    {
+      "id": "R1-05",
+      "rank": "p1",
+      "pages": [
+        27
+      ],
+      "issue": "文件头说明与PCM示例挤在同一视觉行，难分辨归属。",
+      "fix": "说明按各自原生框的列位置重新排布。",
+      "recheck": "两段说明分别位于文件头/样本列，无混读。",
+      "status": "pass",
+      "evidence": [
+        "round1-audit.json",
+        "round1-after-geometry.json",
+        "round1-measurements.json",
+        "round1-render/",
+        "round1-montage.png"
+      ]
+    },
+    {
+      "id": "R1-06",
+      "rank": "p1",
+      "pages": [
+        33,
+        38,
+        48
+      ],
+      "issue": "计算压在一条长式子中，样本计数、bit到byte和单位换算难定位。",
+      "fix": "将推导排为有单位的短步骤，保留题干位置。",
+      "recheck": "独立计算三个结果并检查题目/答案页几何。",
+      "status": "pass",
+      "evidence": [
+        "round1-audit.json",
+        "round1-after-geometry.json",
+        "round1-measurements.json",
+        "round1-render/",
+        "round1-montage.png"
+      ]
+    },
+    {
+      "id": "R1-07",
+      "rank": "p2",
+      "pages": "all",
+      "issue": "轨线略内缩且多个原生框/点有默认阴影。",
+      "fix": "轨线贴齐画布上下边，统一8pt高度，清除阴影。",
+      "recheck": "检查画布与轨线边界、全部效果列表及渲染。",
+      "status": "pass",
+      "evidence": [
+        "round1-audit.json",
+        "round1-after-geometry.json",
+        "round1-measurements.json",
+        "round1-render/",
+        "round1-montage.png"
+      ]
+    },
+    {
+      "id": "R1-08",
+      "rank": "p2",
+      "pages": "all titles",
+      "issue": "普通标题34/35pt与封面52pt不符合统一36/60pt层次。",
+      "fix": "标题统一36pt、封面60pt，必要处精简标题而不缩字号。",
+      "recheck": "实际字体测量、共同基线与配对标题检查。",
+      "status": "pass",
+      "evidence": [
+        "round1-audit.json",
+        "round1-after-geometry.json",
+        "round1-measurements.json",
+        "round1-render/",
+        "round1-montage.png"
+      ]
+    },
+    {
+      "id": "R1-09",
+      "rank": "p2",
+      "pages": [
+        58
+      ],
+      "issue": "无损标签出现旧描边效果，正文孤立句号换行。",
+      "fix": "清除描边并精简同义描述。",
+      "recheck": "无损/有损对照无孤立标点和字体效果。",
+      "status": "pass",
+      "evidence": [
+        "round1-audit.json",
+        "round1-after-geometry.json",
+        "round1-measurements.json",
+        "round1-render/",
+        "round1-montage.png"
+      ]
+    },
+    {
+      "id": "R1-10",
+      "rank": "p2",
+      "pages": [
+        68
+      ],
+      "issue": "退出条三个问题的垂直间距不均，第二/三项挤在一起。",
+      "fix": "三项等间距排列。",
+      "recheck": "三项坐标间隔一致，学生可逐项阅读。",
+      "status": "pass",
+      "evidence": [
+        "round1-audit.json",
+        "round1-after-geometry.json",
+        "round1-measurements.json",
+        "round1-render/",
+        "round1-montage.png"
+      ]
+    },
+    {
+      "id": "R1-11",
+      "rank": "p1",
+      "pages": [
+        18
+      ],
+      "issue": "图把等级编号3画成幅度代表值，尽管规则说明代表值可取3.5。",
+      "fix": "用[0,8)区间图分别标原值3.71、代表值3.5与等级L3。",
+      "recheck": "独立检查区间、幅度位置和标签的不同含义。",
+      "status": "pass",
+      "evidence": [
+        "round1-audit.json",
+        "round1-after-geometry.json",
+        "round1-measurements.json",
+        "round1-render/",
+        "round1-montage.png"
+      ]
+    },
+    {
+      "id": "R1-12",
+      "rank": "p1",
+      "pages": [
+        30
+      ],
+      "issue": "3bit算成3Byte的图缺少连续打包条件，容易与16bit实际PCM存储混读。",
+      "fix": "在图上明确3bit连续打包教学模型与实际PCM的边界。",
+      "recheck": "24bit/3Byte算式与模型条件同时可读，Notes保留存储位宽条件。",
+      "status": "pass",
+      "evidence": [
+        "round1-audit.json",
+        "round1-after-geometry.json",
+        "round1-measurements.json",
+        "round1-render/",
+        "round1-montage.png"
+      ]
+    }
+  ],
+  "after_sha256": "404239cc589fc732374f35a8d746adec5888235f9d5dfce6d7726dc985228b66",
+  "verification": {
+    "structural_checks": 2082,
+    "rendered_and_inspected_pages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      69,
+      70
+    ],
+    "measurements": 501,
+    "geometry_findings": 0,
+    "geometry_warnings": 0
+  }
+}

@@ -1,0 +1,171 @@
+{
+  "round": 2,
+  "before_sha256": "404239cc589fc732374f35a8d746adec5888235f9d5dfce6d7726dc985228b66",
+  "issues": [
+    {
+      "id": "R2-01",
+      "rank": "p2",
+      "pages": [
+        2,
+        65
+      ],
+      "issue": "抽象的文字/图像/声音与备份/通话场景缺少可见情境。",
+      "fix": "加入三张生成情境插图，保留原生标题、问题与比较标准。",
+      "recheck": "查验图片比例、位置、非事实用途及提示词出处。",
+      "status": "pass",
+      "evidence": [
+        "round2-audit.json",
+        "round2-after-geometry.json",
+        "round2-measurements.json",
+        "round2-render-comparison.json",
+        "round2-render/"
+      ]
+    },
+    {
+      "id": "R2-02",
+      "rank": "p2",
+      "pages": [
+        19
+      ],
+      "issue": "十列样本/等级/码字缺少一个连续观察焦点。",
+      "fix": "红框标出第一列1→3→011。",
+      "recheck": "框与三行同列，码字值未改。",
+      "status": "pass",
+      "evidence": [
+        "round2-audit.json",
+        "round2-after-geometry.json",
+        "round2-measurements.json",
+        "round2-render-comparison.json",
+        "round2-render/"
+      ]
+    },
+    {
+      "id": "R2-03",
+      "rank": "p2",
+      "pages": [
+        26
+      ],
+      "issue": "16bit存储只显示两行0/1，Byte分组关系不直观。",
+      "fix": "每行标8bit=1B，总计2B。",
+      "recheck": "独立点数16与字节2。",
+      "status": "pass",
+      "evidence": [
+        "round2-audit.json",
+        "round2-after-geometry.json",
+        "round2-measurements.json",
+        "round2-render-comparison.json",
+        "round2-render/"
+      ]
+    },
+    {
+      "id": "R2-04",
+      "rank": "p1",
+      "pages": [
+        41
+      ],
+      "issue": "并列音轨与声道图没有汇合/分流，容易误读一一对应。",
+      "fix": "原生绘制两轨汇入混音，再分到L/R。",
+      "recheck": "走线无交叠文字，两轨共同混音。",
+      "status": "pass",
+      "evidence": [
+        "round2-audit.json",
+        "round2-after-geometry.json",
+        "round2-measurements.json",
+        "round2-render-comparison.json",
+        "round2-render/"
+      ]
+    },
+    {
+      "id": "R2-05",
+      "rank": "p1",
+      "pages": [
+        43
+      ],
+      "issue": "双/单声道只有空框，无法直接数同一时刻的样本。",
+      "fix": "同三个时刻分别画6/3个样本。",
+      "recheck": "核对共同时间与2:1数量关系。",
+      "status": "pass",
+      "evidence": [
+        "round2-audit.json",
+        "round2-after-geometry.json",
+        "round2-measurements.json",
+        "round2-render-comparison.json",
+        "round2-render/"
+      ]
+    },
+    {
+      "id": "R2-06",
+      "rank": "p1",
+      "pages": [
+        56
+      ],
+      "issue": "1000B→17B/1011B仅文字，体量差异不能直接比较。",
+      "fix": "按同一比例尺绘制原始/压缩条与多11B部分。",
+      "recheck": "独立检查17/1000、1011/1000比例与zlib示例。",
+      "status": "pass",
+      "evidence": [
+        "round2-audit.json",
+        "round2-after-geometry.json",
+        "round2-measurements.json",
+        "round2-render-comparison.json",
+        "round2-render/"
+      ]
+    },
+    {
+      "id": "R2-07",
+      "rank": "p1",
+      "pages": [
+        31
+      ],
+      "issue": "容量公式因素并列，样本计数与每时刻字节数的乘法关系不清。",
+      "fix": "原生分组两部分，黑色乘号连接。",
+      "recheck": "因素、存储位宽与单位完整；结果不含结构开销。",
+      "status": "pass",
+      "evidence": [
+        "round2-audit.json",
+        "round2-after-geometry.json",
+        "round2-measurements.json",
+        "round2-render-comparison.json",
+        "round2-render/"
+      ]
+    },
+    {
+      "id": "R2-08",
+      "rank": "p2",
+      "pages": [
+        44
+      ],
+      "issue": "图像/音频比较只有行名，列归属需猜测。",
+      "fix": "增加空间采样/时间采样列名。",
+      "recheck": "列标题与对应数据对齐。",
+      "status": "pass",
+      "evidence": [
+        "round2-audit.json",
+        "round2-after-geometry.json",
+        "round2-measurements.json",
+        "round2-render-comparison.json",
+        "round2-render/"
+      ]
+    }
+  ],
+  "after_sha256": "12774e2d926ca4bc079a684e6f5af2d07ce43ec96ce6d3f8df4ddb8f25271a11",
+  "verification": {
+    "structural_checks": 2178,
+    "changed_pages_inspected": [
+      2,
+      19,
+      26,
+      31,
+      41,
+      43,
+      44,
+      56,
+      65
+    ],
+    "unchanged_pages_pixel_identical_to_round1": 61,
+    "rendered_pages": 70,
+    "measurements": 533,
+    "geometry_findings": 0,
+    "geometry_warnings": 0
+  }
+}

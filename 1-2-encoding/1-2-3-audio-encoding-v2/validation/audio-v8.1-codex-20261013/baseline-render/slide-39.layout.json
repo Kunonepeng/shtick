@@ -1,0 +1,9 @@
+{"schema":"openai.presentation.layout/v5","unit":"px","slide":{"id":"sl/jyhsreh4","index":38,"layout":{"id":"ly/07y1cjyt","name":"Blank"},"backgroundColor":"rgba(255,255,255,1)","position":{"left":0,"top":0,"width":1279.9679790026248,"height":720}},
+"elements":[
+{"id":"sh/61c7md0r","kind":"shape","name":"Rectangle 1","position":{"left":0,"top":3.84,"width":1279.97,"height":7.68},"style":{"fontSize":24,"typeface":"Calibri","color":"#FFFFFF","alignment":"left"},"geometry":"rect","fillColor":"#6251B1","lineWidth":0},
+{"id":"sh/7m58vyhw","kind":"shape","name":"Rectangle 2","position":{"left":0,"top":709.44,"width":1279.97,"height":7.68},"style":{"fontSize":24,"typeface":"Calibri","color":"#FFFFFF","alignment":"left"},"geometry":"rect","fillColor":"#6251B1","lineWidth":0},
+{"id":"sh/kzupk3il","kind":"textbox","name":"TextBox 3","position":{"left":64.32,"top":60.48,"width":1152,"height":82.56},"text":"练习题 3","style":{"fontSize":45.33,"typeface":"Alibaba PuHuiTi 3.0 115 Black","color":"#262626","bold":true,"alignment":"left"},"geometry":"rect"},
+{"id":"sh/503qt8z6","kind":"textbox","name":"TextBox 4","position":{"left":82.56,"top":177.6,"width":1118.4,"height":318.72},"text":"给5分钟的诗朗诵加入一条等时长背景音乐音轨。\n如果导出时仍为44.1 kHz、16 bit、双声道PCM，\n数据量会翻倍吗？","style":{"fontSize":36,"typeface":"Alibaba PuHuiTi 3.0 55 Regular","color":"#262626","alignment":"left"},"geometry":"rect"},
+{"id":"sh/ixc7it0f","kind":"shape","name":"Connector 5","position":{"left":86.4,"top":516.48,"width":1077.12,"height":0},"geometry":"line","lineColor":"#E2E2E7","lineWidth":2.67},
+{"id":"sh/jyl8ryh0","kind":"textbox","name":"TextBox 6","position":{"left":87.36,"top":542.4,"width":1084.8,"height":71.04},"text":"先投票：翻倍 / 不变 / 说不清。","style":{"fontSize":29.33,"typeface":"Alibaba PuHuiTi 3.0 115 Black","color":"#8C64E1","bold":true,"alignment":"left"},"geometry":"rect"}
+]}

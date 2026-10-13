@@ -1,0 +1,212 @@
+{
+  "round": 3,
+  "before_sha256": "12774e2d926ca4bc079a684e6f5af2d07ce43ec96ce6d3f8df4ddb8f25271a11",
+  "issues": [
+    {
+      "id": "R3-01",
+      "rank": "p1",
+      "pages": [
+        34,
+        68
+      ],
+      "issue": "两课时总结只有分散问答，缺少可逐步累积的关系树。",
+      "fix": "保留三问与退出条，增加六个原生总结/知识树构建页。",
+      "recheck": "按0→1→2→3、3→4→5检查；原70页保留。",
+      "status": "pass",
+      "evidence": [
+        "round3-audit.json",
+        "round3-after-geometry.json",
+        "round3-measurements.json",
+        "round3-render-comparison.json",
+        "round3-render/"
+      ]
+    },
+    {
+      "id": "R3-02",
+      "rank": "p1",
+      "pages": [
+        69
+      ],
+      "issue": "欠采样拓展图没有实际采样点，无法看到两个波形如何共享观测值。",
+      "fix": "先显示三个观测点，再复制揭示两个不同数学波形通过相同点。",
+      "recheck": "独立复算1Hz/3Hz余弦在0、0.5、1秒同为1、−1、1，静态揭示。",
+      "status": "pass",
+      "evidence": [
+        "round3-audit.json",
+        "round3-after-geometry.json",
+        "round3-measurements.json",
+        "round3-render-comparison.json",
+        "round3-render/"
+      ]
+    },
+    {
+      "id": "R3-03",
+      "rank": "p1",
+      "pages": [
+        9,
+        47,
+        61
+      ],
+      "issue": "若干预测/练习页以彩色结论或方法提示提前引导答案。",
+      "fix": "保留必要题意；方法与答案移至后续证据及Notes。",
+      "recheck": "题干/配对几何不变，先独立作答后揭示。",
+      "status": "pass",
+      "evidence": [
+        "round3-audit.json",
+        "round3-after-geometry.json",
+        "round3-measurements.json",
+        "round3-render-comparison.json",
+        "round3-render/"
+      ]
+    },
+    {
+      "id": "R3-04",
+      "rank": "p1",
+      "pages": [
+        57,
+        70
+      ],
+      "issue": "压缩一定用更少bit的措辞与B增加11Byte的证据不一致。",
+      "fix": "将减少数据量明确为目标，保留具体数据可能增大。",
+      "recheck": "视觉核心结论不再承诺所有输入均变小。",
+      "status": "pass",
+      "evidence": [
+        "round3-audit.json",
+        "round3-after-geometry.json",
+        "round3-measurements.json",
+        "round3-render-comparison.json",
+        "round3-render/"
+      ]
+    },
+    {
+      "id": "R3-05",
+      "rank": "p2",
+      "pages": [
+        18
+      ],
+      "issue": "代表值3.5只有底部解释，蓝点缺少直接标签。",
+      "fix": "蓝点旁加代表值3.5标签，区分原值和等级。",
+      "recheck": "标签和引线不穿过量化编号。",
+      "status": "pass",
+      "evidence": [
+        "round3-audit.json",
+        "round3-after-geometry.json",
+        "round3-measurements.json",
+        "round3-render-comparison.json",
+        "round3-render/"
+      ]
+    },
+    {
+      "id": "R3-06",
+      "rank": "p2",
+      "pages": [
+        43,
+        44
+      ],
+      "issue": "时刻标签贴住样本框；比较表分隔线贴近文字。",
+      "fix": "时刻上移，分隔线置于行间空白。",
+      "recheck": "全分辨率检查标签/框及行分隔间距。",
+      "status": "pass",
+      "evidence": [
+        "round3-audit.json",
+        "round3-after-geometry.json",
+        "round3-measurements.json",
+        "round3-render-comparison.json",
+        "round3-render/"
+      ]
+    },
+    {
+      "id": "R3-07",
+      "rank": "p2",
+      "pages": [
+        45,
+        55,
+        60
+      ],
+      "issue": "部分原生图表和演示框逼近右边界。",
+      "fix": "在不改字体和样本数的前提下调整几何到安全边距。",
+      "recheck": "图表等比宽高、相同格数与最终边界。",
+      "status": "pass",
+      "evidence": [
+        "round3-audit.json",
+        "round3-after-geometry.json",
+        "round3-measurements.json",
+        "round3-render-comparison.json",
+        "round3-render/"
+      ]
+    },
+    {
+      "id": "R3-08",
+      "rank": "p2",
+      "pages": [
+        59
+      ],
+      "issue": "格式分类呈四块散列表，类别关系仍需读长说明。",
+      "fix": "重排为归档格式、音频编码、容器的原生比较表。",
+      "recheck": "类型与例子对应，WAV/MP4不被误标固定压缩算法。",
+      "status": "pass",
+      "evidence": [
+        "round3-audit.json",
+        "round3-after-geometry.json",
+        "round3-measurements.json",
+        "round3-render-comparison.json",
+        "round3-render/"
+      ]
+    },
+    {
+      "id": "R3-09",
+      "rank": "p2",
+      "pages": [
+        13,
+        29
+      ],
+      "issue": "秒刻度贴近轴名称；量化位数与实际存储位宽的视觉称呼未统一。",
+      "fix": "分离秒单位与刻度；容量页直接写存储位宽条件。",
+      "recheck": "计数图与PCM公式使用一致单位和存储条件。",
+      "status": "pass",
+      "evidence": [
+        "round3-audit.json",
+        "round3-after-geometry.json",
+        "round3-measurements.json",
+        "round3-render-comparison.json",
+        "round3-render/"
+      ]
+    }
+  ],
+  "after_sha256": "d6e6676b68e958c21606df78a45027557eaa35971e1beba684a47c3314d18dbc",
+  "verification": {
+    "structural_checks": 2549,
+    "rendered_pages": 77,
+    "changed_source_pages_inspected": [
+      9,
+      13,
+      18,
+      29,
+      34,
+      43,
+      44,
+      45,
+      47,
+      55,
+      57,
+      59,
+      60,
+      61,
+      69,
+      70
+    ],
+    "new_pages_inspected": [
+      35,
+      36,
+      37,
+      72,
+      73,
+      74,
+      76
+    ],
+    "unchanged_source_pages_pixel_identical_to_round2": 54,
+    "measured_text_groups": 602,
+    "geometry_findings": 0,
+    "geometry_warnings": 0
+  }
+}

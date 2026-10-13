@@ -1,0 +1,8343 @@
+{
+  "pptx": "/private/tmp/audio-v81-codex-20261013/round1-after.pptx",
+  "sha256": "404239cc589fc732374f35a8d746adec5888235f9d5dfce6d7726dc985228b66",
+  "slides": 70,
+  "checks": 2082,
+  "passed": true,
+  "failures": [],
+  "details": [
+    {
+      "check": "slide count matches accepted plan",
+      "pass": true
+    },
+    {
+      "check": "all seventy source pages retained",
+      "pass": true
+    },
+    {
+      "check": "1: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "1: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "1: title baseline",
+      "pass": true
+    },
+    {
+      "check": "1: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "1: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "1: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "1: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "1: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "1: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "1: no shadow",
+      "pass": true
+    },
+    {
+      "check": "1: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "1: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "2: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "2: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "2: title baseline",
+      "pass": true
+    },
+    {
+      "check": "2: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "2: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "2: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "2: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "2: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "2: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "2: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "2: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "2: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "2: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "2: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "2: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "2: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "2: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "2: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "2: no shadow",
+      "pass": true
+    },
+    {
+      "check": "2: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "2: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "3: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "3: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "3: title baseline",
+      "pass": true
+    },
+    {
+      "check": "3: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "3: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "3: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "3: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "3: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "3: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "3: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "3: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "3: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "3: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "3: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "3: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "3: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "3: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "3: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "3: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "3: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "3: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "3: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "3: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "3: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "3: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "3: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "3: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "3: no shadow",
+      "pass": true
+    },
+    {
+      "check": "3: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "3: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "4: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "4: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "4: title baseline",
+      "pass": true
+    },
+    {
+      "check": "4: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "4: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "4: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "4: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "4: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "4: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "4: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "4: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "4: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "4: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "4: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "4: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "4: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "4: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "4: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "4: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "4: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "4: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "4: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "4: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "4: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "4: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "4: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "4: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "4: no shadow",
+      "pass": true
+    },
+    {
+      "check": "4: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "4: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "5: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "5: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "5: title baseline",
+      "pass": true
+    },
+    {
+      "check": "5: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "5: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "5: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "5: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "5: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "5: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "5: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "5: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "5: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "5: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "5: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "5: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "5: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "5: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "5: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "5: no shadow",
+      "pass": true
+    },
+    {
+      "check": "5: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "5: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "6: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "6: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "6: title baseline",
+      "pass": true
+    },
+    {
+      "check": "6: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "6: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "6: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "6: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "6: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "6: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "6: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "6: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "6: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "6: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "6: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "6: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "6: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "6: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "6: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "6: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "6: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "6: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "6: no shadow",
+      "pass": true
+    },
+    {
+      "check": "6: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "6: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "7: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "7: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "7: title baseline",
+      "pass": true
+    },
+    {
+      "check": "7: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "7: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "7: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "7: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "7: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "7: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "7: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "7: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "7: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "7: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "7: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "7: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "7: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "7: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "7: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "7: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "7: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "7: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "7: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "7: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "7: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "7: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "7: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "7: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "7: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "7: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "7: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "7: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "7: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "7: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "7: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "7: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "7: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "7: no shadow",
+      "pass": true
+    },
+    {
+      "check": "7: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "7: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "8: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "8: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "8: title baseline",
+      "pass": true
+    },
+    {
+      "check": "8: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "8: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "8: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "8: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "8: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "8: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "8: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "8: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "8: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "8: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "8: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "8: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "8: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "8: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "8: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "8: no shadow",
+      "pass": true
+    },
+    {
+      "check": "8: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "8: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "9: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "9: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "9: title baseline",
+      "pass": true
+    },
+    {
+      "check": "9: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "9: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "9: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "9: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "9: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "9: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "9: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "9: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "9: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "9: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "9: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "9: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "9: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "9: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "9: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "9: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "9: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "9: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "9: no shadow",
+      "pass": true
+    },
+    {
+      "check": "9: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "9: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "10: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "10: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "10: title baseline",
+      "pass": true
+    },
+    {
+      "check": "10: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "10: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "10: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "10: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "10: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "10: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "10: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "10: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "10: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "10: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "10: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "10: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "10: no shadow",
+      "pass": true
+    },
+    {
+      "check": "10: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "10: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "11: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "11: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "11: title baseline",
+      "pass": true
+    },
+    {
+      "check": "11: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "11: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "11: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "11: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "11: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "11: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "11: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "11: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "11: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "11: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "11: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "11: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "11: no shadow",
+      "pass": true
+    },
+    {
+      "check": "11: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "11: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "12: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "12: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "12: title baseline",
+      "pass": true
+    },
+    {
+      "check": "12: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "12: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "12: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "12: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "12: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "12: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "12: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "12: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "12: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "12: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "12: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "12: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "12: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "12: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "12: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "12: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "12: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "12: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "12: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "12: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "12: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "12: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "12: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "12: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "12: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "12: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "12: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "12: no shadow",
+      "pass": true
+    },
+    {
+      "check": "12: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "12: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "13: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "13: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "13: title baseline",
+      "pass": true
+    },
+    {
+      "check": "13: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "13: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "13: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "13: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "13: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "13: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "13: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "13: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "13: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "13: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "13: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "13: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "13: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "13: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "13: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "13: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "13: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "13: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "13: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "13: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "13: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "13: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "13: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "13: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "13: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "13: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "13: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "13: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "13: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "13: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "13: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "13: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "13: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "13: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "13: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "13: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "13: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "13: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "13: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "13: no shadow",
+      "pass": true
+    },
+    {
+      "check": "13: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "13: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "14: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "14: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "14: title baseline",
+      "pass": true
+    },
+    {
+      "check": "14: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "14: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "14: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "14: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "14: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "14: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "14: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "14: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "14: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "14: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "14: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "14: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "14: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "14: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "14: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "14: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "14: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "14: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "14: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "14: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "14: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "14: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "14: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "14: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "14: no shadow",
+      "pass": true
+    },
+    {
+      "check": "14: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "14: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "15: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "15: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "15: title baseline",
+      "pass": true
+    },
+    {
+      "check": "15: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "15: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "15: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "15: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "15: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "15: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "15: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "15: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "15: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "15: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "15: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "15: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "15: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "15: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "15: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "15: no shadow",
+      "pass": true
+    },
+    {
+      "check": "15: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "15: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "16: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "16: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "16: title baseline",
+      "pass": true
+    },
+    {
+      "check": "16: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "16: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "16: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "16: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "16: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "16: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "16: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "16: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "16: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "16: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "16: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "16: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "16: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "16: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "16: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "16: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "16: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "16: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "16: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "16: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "16: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "16: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "16: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "16: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "16: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "16: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "16: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "16: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "16: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "16: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "16: no shadow",
+      "pass": true
+    },
+    {
+      "check": "16: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "16: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "17: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "17: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "17: title baseline",
+      "pass": true
+    },
+    {
+      "check": "17: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "17: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "17: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "17: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "17: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "17: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "17: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "17: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "17: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "17: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "17: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "17: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "17: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "17: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "17: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "17: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "17: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "17: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "17: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "17: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "17: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "17: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "17: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "17: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "17: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "17: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "17: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "17: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "17: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "17: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "17: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "17: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "17: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "17: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "17: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "17: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "17: no shadow",
+      "pass": true
+    },
+    {
+      "check": "17: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "17: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "18: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "18: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "18: title baseline",
+      "pass": true
+    },
+    {
+      "check": "18: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "18: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "18: no shadow",
+      "pass": true
+    },
+    {
+      "check": "18: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "18: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "19: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "19: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "19: title baseline",
+      "pass": true
+    },
+    {
+      "check": "19: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "19: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "19: no shadow",
+      "pass": true
+    },
+    {
+      "check": "19: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "19: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "20: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "20: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "20: title baseline",
+      "pass": true
+    },
+    {
+      "check": "20: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "20: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "20: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "20: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "20: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "20: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "20: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "20: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "20: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "20: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "20: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "20: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "20: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "20: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "20: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "20: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "20: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "20: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "20: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "20: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "20: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "20: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "20: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "20: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "20: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "20: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "20: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "20: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "20: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "20: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "20: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "20: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "20: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "20: no shadow",
+      "pass": true
+    },
+    {
+      "check": "20: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "20: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "21: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "21: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "21: title baseline",
+      "pass": true
+    },
+    {
+      "check": "21: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "21: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "21: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "21: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "21: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "21: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "21: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "21: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "21: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "21: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "21: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "21: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "21: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "21: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "21: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "21: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "21: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "21: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "21: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "21: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "21: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "21: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "21: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "21: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "21: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "21: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "21: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "21: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "21: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "21: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "21: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "21: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "21: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "21: no shadow",
+      "pass": true
+    },
+    {
+      "check": "21: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "21: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "22: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "22: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "22: title baseline",
+      "pass": true
+    },
+    {
+      "check": "22: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "22: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "22: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "22: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "22: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "22: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "22: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "22: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "22: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "22: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "22: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "22: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "22: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "22: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "22: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "22: no shadow",
+      "pass": true
+    },
+    {
+      "check": "22: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "22: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "23: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "23: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "23: title baseline",
+      "pass": true
+    },
+    {
+      "check": "23: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "23: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "23: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "23: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "23: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "23: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "23: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "23: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "23: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "23: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "23: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "23: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "23: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "23: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "23: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "23: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "23: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "23: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "23: no shadow",
+      "pass": true
+    },
+    {
+      "check": "23: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "23: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "24: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "24: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "24: title baseline",
+      "pass": true
+    },
+    {
+      "check": "24: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "24: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "24: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "24: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "24: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "24: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "24: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "24: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "24: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "24: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "24: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "24: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "24: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "24: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "24: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "24: no shadow",
+      "pass": true
+    },
+    {
+      "check": "24: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "24: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "25: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "25: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "25: title baseline",
+      "pass": true
+    },
+    {
+      "check": "25: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "25: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "25: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "25: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "25: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "25: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "25: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "25: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "25: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "25: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "25: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "25: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "25: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "25: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "25: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "25: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "25: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "25: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "25: no shadow",
+      "pass": true
+    },
+    {
+      "check": "25: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "25: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "26: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "26: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "26: title baseline",
+      "pass": true
+    },
+    {
+      "check": "26: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "26: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "26: no shadow",
+      "pass": true
+    },
+    {
+      "check": "26: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "26: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "27: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "27: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "27: title baseline",
+      "pass": true
+    },
+    {
+      "check": "27: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "27: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "27: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "27: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "27: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "27: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "27: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "27: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "27: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "27: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "27: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "27: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "27: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "27: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "27: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "27: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "27: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "27: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "27: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "27: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "27: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "27: no shadow",
+      "pass": true
+    },
+    {
+      "check": "27: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "27: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "28: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "28: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "28: title baseline",
+      "pass": true
+    },
+    {
+      "check": "28: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "28: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "28: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "28: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "28: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "28: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "28: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "28: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "28: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "28: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "28: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "28: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "28: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "28: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "28: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "28: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "28: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "28: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "28: no shadow",
+      "pass": true
+    },
+    {
+      "check": "28: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "28: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "29: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "29: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "29: title baseline",
+      "pass": true
+    },
+    {
+      "check": "29: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "29: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "29: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "29: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "29: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "29: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "29: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "29: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "29: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "29: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "29: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "29: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "29: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "29: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "29: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "29: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "29: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "29: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "29: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "29: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "29: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "29: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "29: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "29: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "29: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "29: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "29: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "29: no shadow",
+      "pass": true
+    },
+    {
+      "check": "29: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "29: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "30: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "30: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "30: title baseline",
+      "pass": true
+    },
+    {
+      "check": "30: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "30: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "30: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "30: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "30: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "30: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "30: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "30: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "30: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "30: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "30: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "30: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "30: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "30: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "30: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "30: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "30: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "30: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "30: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "30: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "30: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "30: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "30: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "30: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "30: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "30: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "30: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "30: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "30: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "30: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "30: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "30: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "30: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "30: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "30: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "30: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "30: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "30: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "30: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "30: no shadow",
+      "pass": true
+    },
+    {
+      "check": "30: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "30: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "31: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "31: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "31: title baseline",
+      "pass": true
+    },
+    {
+      "check": "31: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "31: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "31: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "31: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "31: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "31: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "31: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "31: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "31: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "31: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "31: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "31: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "31: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "31: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "31: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "31: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "31: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "31: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "31: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "31: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "31: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "31: no shadow",
+      "pass": true
+    },
+    {
+      "check": "31: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "31: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "32: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "32: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "32: title baseline",
+      "pass": true
+    },
+    {
+      "check": "32: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "32: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "32: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "32: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "32: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "32: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "32: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "32: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "32: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "32: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "32: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "32: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "32: no shadow",
+      "pass": true
+    },
+    {
+      "check": "32: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "32: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "33: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "33: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "33: title baseline",
+      "pass": true
+    },
+    {
+      "check": "33: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "33: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "33: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "33: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "33: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "33: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "33: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "33: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "33: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "33: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "33: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "33: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "33: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "33: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "33: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "33: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "33: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "33: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "33: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "33: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "33: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "33: no shadow",
+      "pass": true
+    },
+    {
+      "check": "33: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "33: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "34: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "34: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "34: title baseline",
+      "pass": true
+    },
+    {
+      "check": "34: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "34: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "34: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "34: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "34: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "34: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "34: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "34: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "34: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "34: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "34: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "34: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "34: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "34: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "34: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "34: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "34: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "34: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "34: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "34: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "34: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "34: no shadow",
+      "pass": true
+    },
+    {
+      "check": "34: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "34: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "35: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "35: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "35: title baseline",
+      "pass": true
+    },
+    {
+      "check": "35: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "35: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "35: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "35: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "35: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "35: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "35: no shadow",
+      "pass": true
+    },
+    {
+      "check": "35: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "35: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "36: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "36: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "36: title baseline",
+      "pass": true
+    },
+    {
+      "check": "36: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "36: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "36: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "36: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "36: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "36: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "36: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "36: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "36: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "36: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "36: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "36: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "36: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "36: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "36: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "36: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "36: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "36: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "36: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "36: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "36: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "36: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "36: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "36: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "36: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "36: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "36: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "36: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "36: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "36: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "36: no shadow",
+      "pass": true
+    },
+    {
+      "check": "36: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "36: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "37: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "37: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "37: title baseline",
+      "pass": true
+    },
+    {
+      "check": "37: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "37: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "37: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "37: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "37: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "37: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "37: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "37: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "37: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "37: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "37: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "37: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "37: no shadow",
+      "pass": true
+    },
+    {
+      "check": "37: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "37: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "38: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "38: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "38: title baseline",
+      "pass": true
+    },
+    {
+      "check": "38: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "38: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "38: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "38: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "38: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "38: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "38: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "38: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "38: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "38: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "38: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "38: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "38: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "38: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "38: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "38: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "38: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "38: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "38: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "38: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "38: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "38: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "38: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "38: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "38: no shadow",
+      "pass": true
+    },
+    {
+      "check": "38: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "38: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "39: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "39: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "39: title baseline",
+      "pass": true
+    },
+    {
+      "check": "39: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "39: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "39: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "39: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "39: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "39: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "39: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "39: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "39: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "39: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "39: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "39: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "39: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "39: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "39: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "39: no shadow",
+      "pass": true
+    },
+    {
+      "check": "39: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "39: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "40: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "40: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "40: title baseline",
+      "pass": true
+    },
+    {
+      "check": "40: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "40: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "40: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "40: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "40: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "40: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "40: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "40: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "40: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "40: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "40: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "40: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "40: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "40: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "40: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "40: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "40: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "40: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "40: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "40: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "40: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "40: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "40: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "40: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "40: no shadow",
+      "pass": true
+    },
+    {
+      "check": "40: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "40: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "41: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "41: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "41: title baseline",
+      "pass": true
+    },
+    {
+      "check": "41: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "41: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "41: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "41: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "41: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "41: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "41: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "41: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "41: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "41: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "41: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "41: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "41: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "41: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "41: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "41: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "41: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "41: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "41: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "41: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "41: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "41: no shadow",
+      "pass": true
+    },
+    {
+      "check": "41: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "41: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "42: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "42: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "42: title baseline",
+      "pass": true
+    },
+    {
+      "check": "42: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "42: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "42: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "42: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "42: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "42: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "42: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "42: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "42: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "42: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "42: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "42: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "42: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "42: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "42: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "42: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "42: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "42: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "42: no shadow",
+      "pass": true
+    },
+    {
+      "check": "42: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "42: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "43: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "43: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "43: title baseline",
+      "pass": true
+    },
+    {
+      "check": "43: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "43: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "43: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "43: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "43: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "43: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "43: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "43: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "43: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "43: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "43: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "43: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "43: no shadow",
+      "pass": true
+    },
+    {
+      "check": "43: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "43: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "44: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "44: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "44: title baseline",
+      "pass": true
+    },
+    {
+      "check": "44: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "44: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "44: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "44: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "44: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "44: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "44: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "44: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "44: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "44: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "44: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "44: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "44: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "44: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "44: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "44: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "44: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "44: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "44: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "44: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "44: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "44: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "44: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "44: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "44: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "44: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "44: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "44: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "44: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "44: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "44: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "44: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "44: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "44: no shadow",
+      "pass": true
+    },
+    {
+      "check": "44: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "44: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "45: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "45: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "45: title baseline",
+      "pass": true
+    },
+    {
+      "check": "45: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "45: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "45: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "45: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "45: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "45: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "45: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "45: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "45: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "45: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "45: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "45: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "45: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "45: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "45: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "45: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "45: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "45: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "45: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "45: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "45: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "45: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "45: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "45: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "45: no shadow",
+      "pass": true
+    },
+    {
+      "check": "45: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "45: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "46: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "46: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "46: title baseline",
+      "pass": true
+    },
+    {
+      "check": "46: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "46: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "46: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "46: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "46: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "46: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "46: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "46: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "46: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "46: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "46: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "46: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "46: no shadow",
+      "pass": true
+    },
+    {
+      "check": "46: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "46: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "47: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "47: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "47: title baseline",
+      "pass": true
+    },
+    {
+      "check": "47: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "47: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "47: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "47: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "47: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "47: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "47: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "47: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "47: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "47: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "47: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "47: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "47: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "47: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "47: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "47: no shadow",
+      "pass": true
+    },
+    {
+      "check": "47: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "47: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "48: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "48: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "48: title baseline",
+      "pass": true
+    },
+    {
+      "check": "48: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "48: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "48: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "48: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "48: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "48: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "48: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "48: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "48: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "48: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "48: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "48: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "48: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "48: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "48: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "48: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "48: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "48: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "48: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "48: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "48: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "48: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "48: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "48: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "48: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "48: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "48: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "48: no shadow",
+      "pass": true
+    },
+    {
+      "check": "48: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "48: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "49: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "49: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "49: title baseline",
+      "pass": true
+    },
+    {
+      "check": "49: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "49: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "49: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "49: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "49: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "49: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "49: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "49: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "49: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "49: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "49: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "49: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "49: no shadow",
+      "pass": true
+    },
+    {
+      "check": "49: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "49: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "50: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "50: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "50: title baseline",
+      "pass": true
+    },
+    {
+      "check": "50: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "50: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "50: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "50: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "50: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "50: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "50: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "50: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "50: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "50: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "50: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "50: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "50: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "50: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "50: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "50: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "50: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "50: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "50: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "50: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "50: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "50: no shadow",
+      "pass": true
+    },
+    {
+      "check": "50: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "50: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "51: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "51: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "51: title baseline",
+      "pass": true
+    },
+    {
+      "check": "51: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "51: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "51: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "51: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "51: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "51: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "51: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "51: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "51: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "51: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "51: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "51: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "51: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "51: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "51: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "51: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "51: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "51: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "51: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "51: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "51: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "51: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "51: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "51: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "51: no shadow",
+      "pass": true
+    },
+    {
+      "check": "51: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "51: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "52: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "52: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "52: title baseline",
+      "pass": true
+    },
+    {
+      "check": "52: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "52: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "52: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "52: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "52: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "52: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "52: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "52: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "52: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "52: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "52: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "52: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "52: no shadow",
+      "pass": true
+    },
+    {
+      "check": "52: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "52: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "53: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "53: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "53: title baseline",
+      "pass": true
+    },
+    {
+      "check": "53: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "53: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "53: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "53: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "53: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "53: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "53: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "53: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "53: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "53: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "53: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "53: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "53: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "53: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "53: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "53: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "53: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "53: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "53: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "53: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "53: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "53: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "53: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "53: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "53: no shadow",
+      "pass": true
+    },
+    {
+      "check": "53: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "53: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "54: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "54: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "54: title baseline",
+      "pass": true
+    },
+    {
+      "check": "54: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "54: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "54: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "54: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "54: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "54: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "54: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "54: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "54: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "54: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "54: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "54: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "54: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "54: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "54: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "54: no shadow",
+      "pass": true
+    },
+    {
+      "check": "54: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "54: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "55: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "55: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "55: title baseline",
+      "pass": true
+    },
+    {
+      "check": "55: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "55: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "55: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "55: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "55: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "55: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "55: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "55: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "55: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "55: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "55: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "55: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "55: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "55: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "55: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "55: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "55: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "55: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "55: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "55: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "55: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "55: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "55: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "55: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "55: no shadow",
+      "pass": true
+    },
+    {
+      "check": "55: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "55: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "56: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "56: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "56: title baseline",
+      "pass": true
+    },
+    {
+      "check": "56: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "56: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "56: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "56: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "56: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "56: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "56: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "56: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "56: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "56: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "56: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "56: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "56: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "56: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "56: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "56: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "56: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "56: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "56: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "56: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "56: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "56: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "56: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "56: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "56: no shadow",
+      "pass": true
+    },
+    {
+      "check": "56: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "56: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "57: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "57: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "57: title baseline",
+      "pass": true
+    },
+    {
+      "check": "57: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "57: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "57: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "57: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "57: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "57: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "57: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "57: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "57: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "57: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "57: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "57: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "57: no shadow",
+      "pass": true
+    },
+    {
+      "check": "57: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "57: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "58: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "58: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "58: title baseline",
+      "pass": true
+    },
+    {
+      "check": "58: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "58: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "58: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "58: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "58: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "58: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "58: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "58: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "58: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "58: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "58: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "58: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "58: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "58: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "58: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "58: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "58: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "58: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "58: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "58: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "58: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "58: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "58: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "58: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "58: no shadow",
+      "pass": true
+    },
+    {
+      "check": "58: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "58: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "59: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "59: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "59: title baseline",
+      "pass": true
+    },
+    {
+      "check": "59: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "59: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "59: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "59: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "59: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "59: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "59: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "59: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "59: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "59: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "59: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "59: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "59: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "59: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "59: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "59: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "59: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "59: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "59: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "59: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "59: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "59: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "59: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "59: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "59: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "59: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "59: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "59: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "59: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "59: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "59: no shadow",
+      "pass": true
+    },
+    {
+      "check": "59: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "59: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "60: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "60: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "60: title baseline",
+      "pass": true
+    },
+    {
+      "check": "60: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "60: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "60: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "60: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "60: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "60: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "60: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "60: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "60: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "60: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "60: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "60: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "60: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "60: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "60: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "60: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "60: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "60: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "60: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "60: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "60: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "60: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "60: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "60: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "60: no shadow",
+      "pass": true
+    },
+    {
+      "check": "60: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "60: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "61: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "61: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "61: title baseline",
+      "pass": true
+    },
+    {
+      "check": "61: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "61: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "61: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "61: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "61: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "61: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "61: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "61: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "61: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "61: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "61: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "61: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "61: no shadow",
+      "pass": true
+    },
+    {
+      "check": "61: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "61: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "62: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "62: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "62: title baseline",
+      "pass": true
+    },
+    {
+      "check": "62: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "62: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "62: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "62: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "62: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "62: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "62: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "62: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "62: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "62: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "62: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "62: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "62: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "62: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "62: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "62: no shadow",
+      "pass": true
+    },
+    {
+      "check": "62: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "62: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "63: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "63: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "63: title baseline",
+      "pass": true
+    },
+    {
+      "check": "63: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "63: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "63: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "63: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "63: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "63: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "63: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "63: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "63: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "63: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "63: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "63: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "63: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "63: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "63: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "63: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "63: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "63: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "63: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "63: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "63: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "63: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "63: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "63: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "63: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "63: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "63: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "63: no shadow",
+      "pass": true
+    },
+    {
+      "check": "63: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "63: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "64: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "64: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "64: title baseline",
+      "pass": true
+    },
+    {
+      "check": "64: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "64: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "64: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "64: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "64: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "64: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "64: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "64: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "64: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "64: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "64: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "64: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "64: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "64: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "64: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "64: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "64: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "64: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "64: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "64: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "64: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "64: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "64: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "64: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "64: no shadow",
+      "pass": true
+    },
+    {
+      "check": "64: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "64: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "65: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "65: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "65: title baseline",
+      "pass": true
+    },
+    {
+      "check": "65: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "65: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "65: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "65: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "65: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "65: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "65: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "65: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "65: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "65: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "65: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "65: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "65: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "65: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "65: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "65: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "65: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "65: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "65: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "65: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "65: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "65: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "65: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "65: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "65: no shadow",
+      "pass": true
+    },
+    {
+      "check": "65: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "65: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "66: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "66: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "66: title baseline",
+      "pass": true
+    },
+    {
+      "check": "66: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "66: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "66: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "66: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "66: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "66: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "66: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "66: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "66: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "66: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "66: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "66: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "66: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "66: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "66: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "66: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "66: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "66: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "66: no shadow",
+      "pass": true
+    },
+    {
+      "check": "66: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "66: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "67: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "67: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "67: title baseline",
+      "pass": true
+    },
+    {
+      "check": "67: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "67: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "67: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "67: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "67: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "67: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "67: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "67: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "67: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "67: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "67: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "67: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "67: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "67: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "67: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "67: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "67: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "67: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "67: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "67: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "67: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "67: no shadow",
+      "pass": true
+    },
+    {
+      "check": "67: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "67: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "68: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "68: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "68: title baseline",
+      "pass": true
+    },
+    {
+      "check": "68: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "68: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "68: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "68: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "68: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "68: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "68: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "68: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "68: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "68: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "68: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "68: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "68: no shadow",
+      "pass": true
+    },
+    {
+      "check": "68: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "68: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "69: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "69: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "69: title baseline",
+      "pass": true
+    },
+    {
+      "check": "69: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "69: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "69: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "69: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "69: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "69: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "69: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "69: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "69: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "69: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "69: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "69: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "69: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "69: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "69: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "69: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "69: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "69: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "69: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "69: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "69: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "69: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "69: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "69: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "69: no shadow",
+      "pass": true
+    },
+    {
+      "check": "69: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "69: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "70: top-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "70: bottom-rail edge and height",
+      "pass": true
+    },
+    {
+      "check": "70: title baseline",
+      "pass": true
+    },
+    {
+      "check": "70: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "70: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "70: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "70: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "70: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "70: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "70: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "70: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "70: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "70: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "70: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "70: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "70: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "70: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "70: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "70: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "70: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "70: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "70: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "70: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "70: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "70: explicit latin font",
+      "pass": true
+    },
+    {
+      "check": "70: explicit ea font",
+      "pass": true
+    },
+    {
+      "check": "70: explicit cs font",
+      "pass": true
+    },
+    {
+      "check": "70: no shadow",
+      "pass": true
+    },
+    {
+      "check": "70: no animation needed",
+      "pass": true
+    },
+    {
+      "check": "70: full purpose and transcript",
+      "pass": true
+    },
+    {
+      "check": "practice 32/33: title unchanged",
+      "pass": true
+    },
+    {
+      "check": "practice 32/33: givens unchanged",
+      "pass": true
+    },
+    {
+      "check": "practice 37/38: title unchanged",
+      "pass": true
+    },
+    {
+      "check": "practice 37/38: givens unchanged",
+      "pass": true
+    },
+    {
+      "check": "practice 39/42: title unchanged",
+      "pass": true
+    },
+    {
+      "check": "practice 39/42: givens unchanged",
+      "pass": true
+    },
+    {
+      "check": "practice 47/48: title unchanged",
+      "pass": true
+    },
+    {
+      "check": "practice 47/48: givens unchanged",
+      "pass": true
+    },
+    {
+      "check": "practice 61/62: title unchanged",
+      "pass": true
+    },
+    {
+      "check": "practice 61/62: givens unchanged",
+      "pass": true
+    },
+    {
+      "check": "practice 66/67: title unchanged",
+      "pass": true
+    },
+    {
+      "check": "practice 66/67: givens unchanged",
+      "pass": true
+    },
+    {
+      "check": "1Hz: one-second point count",
+      "pass": true
+    },
+    {
+      "check": "1Hz: actual time 0",
+      "pass": true
+    },
+    {
+      "check": "2Hz: one-second point count",
+      "pass": true
+    },
+    {
+      "check": "2Hz: actual time 0",
+      "pass": true
+    },
+    {
+      "check": "2Hz: actual time 1",
+      "pass": true
+    },
+    {
+      "check": "one-second interval is half open",
+      "pass": true
+    },
+    {
+      "check": "quantizer: native raw-3.71 coordinate",
+      "pass": true
+    },
+    {
+      "check": "quantizer: native representative-3.5 coordinate",
+      "pass": true
+    },
+    {
+      "check": "quantizer: independent bin and midpoint",
+      "pass": true
+    },
+    {
+      "check": "packing model and actual PCM distinguished",
+      "pass": true
+    },
+    {
+      "check": "practice 1 independent payload",
+      "pass": true
+    },
+    {
+      "check": "practice 2 independent payload and MiB",
+      "pass": true
+    },
+    {
+      "check": "practice 4 independent frame count and GiB",
+      "pass": true
+    }
+  ],
+  "unverified": [
+    "WPS/PowerPoint native rendering and notes",
+    "Windows remote JupyterLab operation",
+    "classroom projection/audio/pacing"
+  ]
+}

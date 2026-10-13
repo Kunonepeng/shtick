@@ -1,0 +1,814 @@
+{
+  "version": "audio-v8.1.codex-20261013",
+  "stage": 3,
+  "slideCount": 77,
+  "baseline_sha256": "c2b7a67ee9bbaa06af78fb0d3d6d3bdd6e0be16c9826a76fe86672389bb95181",
+  "manifest": [
+    {
+      "page": 1,
+      "source_page": 1,
+      "title": "声音怎样变成0和1？",
+      "source_title": "声音怎样变成0和1？",
+      "source_xml": "ppt/slides/slide1.xml",
+      "stage": "evidence",
+      "tree_level": null,
+      "practice_pair": null
+    },
+    {
+      "page": 2,
+      "source_page": 2,
+      "title": "文字、图像能编码，声音呢？",
+      "source_title": "我们会编码文字、图像，那声音呢？",
+      "source_xml": "ppt/slides/slide2.xml",
+      "stage": "question",
+      "tree_level": null,
+      "practice_pair": null
+    },
+    {
+      "page": 3,
+      "source_page": 3,
+      "title": "声音首先是什么？",
+      "source_title": "声音首先是什么？",
+      "source_xml": "ppt/slides/slide3.xml",
+      "stage": "evidence",
+      "tree_level": null,
+      "practice_pair": null
+    },
+    {
+      "page": 4,
+      "source_page": 4,
+      "title": "声音和电脑里的音频文件，是同一种量吗？",
+      "source_title": "声音和电脑里的音频文件，是同一种量吗？",
+      "source_xml": "ppt/slides/slide4.xml",
+      "stage": "evidence",
+      "tree_level": null,
+      "practice_pair": null
+    },
+    {
+      "page": 5,
+      "source_page": 5,
+      "title": "麦克风把声波变成什么？",
+      "source_title": "麦克风把声波变成什么？",
+      "source_xml": "ppt/slides/slide5.xml",
+      "stage": "evidence",
+      "tree_level": null,
+      "practice_pair": null
+    },
+    {
+      "page": 6,
+      "source_page": 6,
+      "title": "连续电信号，怎样变成数字？",
+      "source_title": "连续电信号，怎样变成数字？",
+      "source_xml": "ppt/slides/slide6.xml",
+      "stage": "evidence",
+      "tree_level": null,
+      "practice_pair": null
+    },
+    {
+      "page": 7,
+      "source_page": 7,
+      "title": "把录音过程和播放过程接起来",
+      "source_title": "把录音过程和播放过程接起来",
+      "source_xml": "ppt/slides/slide7.xml",
+      "stage": "evidence",
+      "tree_level": null,
+      "practice_pair": null
+    },
+    {
+      "page": 8,
+      "source_page": 8,
+      "title": "波形图是声音的传播路线吗？",
+      "source_title": "波形图画的是“声音的传播路线”吗？",
+      "source_xml": "ppt/slides/slide8.xml",
+      "stage": "evidence",
+      "tree_level": null,
+      "practice_pair": null
+    },
+    {
+      "page": 9,
+      "source_page": 9,
+      "title": "演示A：红线向右，表示什么？",
+      "source_title": "演示A：听声音，波形上的红线如何移动？",
+      "source_xml": "ppt/slides/slide9.xml",
+      "stage": "evidence",
+      "tree_level": null,
+      "practice_pair": null
+    },
+    {
+      "page": 10,
+      "source_page": 10,
+      "title": "只能留下有限个数字，该在哪些时刻取样？",
+      "source_title": "如果只能记录有限个数字，应该记录哪些时刻？",
+      "source_xml": "ppt/slides/slide10.xml",
+      "stage": "question",
+      "tree_level": null,
+      "practice_pair": null
+    },
+    {
+      "page": 11,
+      "source_page": 11,
+      "title": "每隔相同时间，取一个幅度值",
+      "source_title": "每隔相同时间，取一个幅度值。",
+      "source_xml": "ppt/slides/slide11.xml",
+      "stage": "evidence",
+      "tree_level": null,
+      "practice_pair": null
+    },
+    {
+      "page": 12,
+      "source_page": 12,
+      "title": "演示B：放大后，能看见采样点吗？",
+      "source_title": "演示B：把波形放大，能看见一个个采样点吗？",
+      "source_xml": "ppt/slides/slide12.xml",
+      "stage": "evidence",
+      "tree_level": null,
+      "practice_pair": null
+    },
+    {
+      "page": 13,
+      "source_page": 13,
+      "title": "1 Hz和2 Hz，一秒内取几个样本？",
+      "source_title": "1 Hz和2 Hz，一秒内取几个样本？",
+      "source_xml": "ppt/slides/slide13.xml",
+      "stage": "evidence",
+      "tree_level": null,
+      "practice_pair": null
+    },
+    {
+      "page": 14,
+      "source_page": 14,
+      "title": "提高采样率，时间轴上的什么变了？",
+      "source_title": "提高采样率，改变的是时间轴上的什么？",
+      "source_xml": "ppt/slides/slide14.xml",
+      "stage": "evidence",
+      "tree_level": null,
+      "practice_pair": null
+    },
+    {
+      "page": 15,
+      "source_page": 15,
+      "title": "采样值可能是3.71，怎样记录？",
+      "source_title": "采样点的值，可能是3.71这样的数。",
+      "source_xml": "ppt/slides/slide15.xml",
+      "stage": "question",
+      "tree_level": null,
+      "practice_pair": null
+    },
+    {
+      "page": 16,
+      "source_page": 16,
+      "title": "把振幅划分成0～7，共几个等级？",
+      "source_title": "把振幅划分成0～7，共几个等级？",
+      "source_xml": "ppt/slides/slide16.xml",
+      "stage": "evidence",
+      "tree_level": null,
+      "practice_pair": null
+    },
+    {
+      "page": 17,
+      "source_page": 17,
+      "title": "3.71 应记为等级3，还是等级4？",
+      "source_title": "3.71 应记为等级3，还是等级4？",
+      "source_xml": "ppt/slides/slide68.xml",
+      "stage": "question",
+      "tree_level": null,
+      "practice_pair": null
+    },
+    {
+      "page": 18,
+      "source_page": 18,
+      "title": "量化：用有限代表值近似样本",
+      "source_title": "量化：把每个样本归入一个代表值。",
+      "source_xml": "ppt/slides/slide17.xml",
+      "stage": "evidence",
+      "tree_level": null,
+      "practice_pair": null
+    },
+    {
+      "page": 19,
+      "source_page": 19,
+      "title": "10个样本，怎样依次编码？",
+      "source_title": "同一个声音的10个样本，怎样依次编码？",
+      "source_xml": "ppt/slides/slide19.xml",
+      "stage": "evidence",
+      "tree_level": null,
+      "practice_pair": null
+    },
+    {
+      "page": 20,
+      "source_page": 20,
+      "title": "3.71为什么写成011，而不是100？",
+      "source_title": "3.71 为什么写成 011，而不是 100？",
+      "source_xml": "ppt/slides/slide69.xml",
+      "stage": "evidence",
+      "tree_level": null,
+      "practice_pair": null
+    },
+    {
+      "page": 21,
+      "source_page": 21,
+      "title": "一个样本需要几个二进制位？",
+      "source_title": "一个样本需要几个二进制位？",
+      "source_xml": "ppt/slides/slide18.xml",
+      "stage": "evidence",
+      "tree_level": null,
+      "practice_pair": null
+    },
+    {
+      "page": 22,
+      "source_page": 22,
+      "title": "把量化等级分得更细，会发生什么？",
+      "source_title": "把量化等级分得更细，会发生什么？",
+      "source_xml": "ppt/slides/slide20.xml",
+      "stage": "evidence",
+      "tree_level": null,
+      "practice_pair": null
+    },
+    {
+      "page": 23,
+      "source_page": 23,
+      "title": "采样率与量化位数，分别控制什么？",
+      "source_title": "不要混淆：采样率和量化位数。",
+      "source_xml": "ppt/slides/slide21.xml",
+      "stage": "evidence",
+      "tree_level": null,
+      "practice_pair": null
+    },
+    {
+      "page": 24,
+      "source_page": 24,
+      "title": "演示C：3bit变4bit，样本点会变多吗？",
+      "source_title": "演示C：3 bit变4 bit，横向的点会变多吗？",
+      "source_xml": "ppt/slides/slide22.xml",
+      "stage": "evidence",
+      "tree_level": null,
+      "practice_pair": null
+    },
+    {
+      "page": 25,
+      "source_page": 25,
+      "title": "采样更多、等级更密，就一定听得更好吗？",
+      "source_title": "采样更多、等级更密，就一定听得更好吗？",
+      "source_xml": "ppt/slides/slide23.xml",
+      "stage": "evidence",
+      "tree_level": null,
+      "practice_pair": null
+    },
+    {
+      "page": 26,
+      "source_page": 26,
+      "title": "3bit模型与16bit实际存储",
+      "source_title": "3 bit是教学模型，真实录音常见16 bit。",
+      "source_xml": "ppt/slides/slide24.xml",
+      "stage": "evidence",
+      "tree_level": null,
+      "practice_pair": null
+    },
+    {
+      "page": 27,
+      "source_page": 27,
+      "title": "PCM样本和WAV文件，是一回事吗？",
+      "source_title": "PCM样本和WAV文件，是一回事吗？",
+      "source_xml": "ppt/slides/slide25.xml",
+      "stage": "evidence",
+      "tree_level": null,
+      "practice_pair": null
+    },
+    {
+      "page": 28,
+      "source_page": 28,
+      "title": "播放时，数字样本怎样变成声音？",
+      "source_title": "播放时：数字样本怎样重新变成声音？",
+      "source_xml": "ppt/slides/slide26.xml",
+      "stage": "evidence",
+      "tree_level": null,
+      "practice_pair": null
+    },
+    {
+      "page": 29,
+      "source_page": 29,
+      "title": "声音数据量为什么与四个参数有关？",
+      "source_title": "声音数据量为什么与四个参数有关？",
+      "source_xml": "ppt/slides/slide27.xml",
+      "stage": "evidence",
+      "tree_level": null,
+      "practice_pair": null
+    },
+    {
+      "page": 30,
+      "source_page": 30,
+      "title": "先数样本，再数bit，最后换成Byte",
+      "source_title": "先数样本，再数bit，最后换算成Byte。",
+      "source_xml": "ppt/slides/slide28.xml",
+      "stage": "evidence",
+      "tree_level": null,
+      "practice_pair": null
+    },
+    {
+      "page": 31,
+      "source_page": 31,
+      "title": "未压缩PCM数据量公式，从哪里来？",
+      "source_title": "未压缩PCM数据量公式，从哪里来？",
+      "source_xml": "ppt/slides/slide29.xml",
+      "stage": "evidence",
+      "tree_level": null,
+      "practice_pair": null
+    },
+    {
+      "page": 32,
+      "source_page": 32,
+      "title": "练习题 1",
+      "source_title": "练习题 1",
+      "source_xml": "ppt/slides/slide30.xml",
+      "stage": "question",
+      "tree_level": null,
+      "practice_pair": [
+        32,
+        33
+      ]
+    },
+    {
+      "page": 33,
+      "source_page": 33,
+      "title": "练习题 1",
+      "source_title": "练习题 1",
+      "source_xml": "ppt/slides/slide31.xml",
+      "stage": "evidence",
+      "tree_level": null,
+      "practice_pair": [
+        32,
+        33
+      ]
+    },
+    {
+      "page": 34,
+      "source_page": 34,
+      "title": "本节课你能解释三件事吗？",
+      "source_title": "本节课你能解释三件事吗？",
+      "source_xml": "ppt/slides/slide32.xml",
+      "stage": "tree",
+      "tree_level": 0,
+      "practice_pair": null
+    },
+    {
+      "page": 35,
+      "source_page": null,
+      "title": "本节课你能解释三件事吗？",
+      "source_title": null,
+      "source_xml": null,
+      "stage": "tree",
+      "tree_level": 1,
+      "practice_pair": null
+    },
+    {
+      "page": 36,
+      "source_page": null,
+      "title": "本节课你能解释三件事吗？",
+      "source_title": null,
+      "source_xml": null,
+      "stage": "tree",
+      "tree_level": 2,
+      "practice_pair": null
+    },
+    {
+      "page": 37,
+      "source_page": null,
+      "title": "本节课你能解释三件事吗？",
+      "source_title": null,
+      "source_xml": null,
+      "stage": "tree",
+      "tree_level": 3,
+      "practice_pair": null
+    },
+    {
+      "page": 38,
+      "source_page": 35,
+      "title": "为什么文件还需要压缩？",
+      "source_title": "为什么文件还需要压缩？",
+      "source_xml": "ppt/slides/slide33.xml",
+      "stage": "evidence",
+      "tree_level": null,
+      "practice_pair": null
+    },
+    {
+      "page": 39,
+      "source_page": 36,
+      "title": "先回忆：这四个数字，分别是什么意思？",
+      "source_title": "先回忆：这四个数字，分别是什么意思？",
+      "source_xml": "ppt/slides/slide34.xml",
+      "stage": "evidence",
+      "tree_level": null,
+      "practice_pair": null
+    },
+    {
+      "page": 40,
+      "source_page": 37,
+      "title": "练习题 2",
+      "source_title": "练习题 2",
+      "source_xml": "ppt/slides/slide35.xml",
+      "stage": "question",
+      "tree_level": null,
+      "practice_pair": [
+        37,
+        38
+      ]
+    },
+    {
+      "page": 41,
+      "source_page": 38,
+      "title": "练习题 2",
+      "source_title": "练习题 2",
+      "source_xml": "ppt/slides/slide36.xml",
+      "stage": "evidence",
+      "tree_level": null,
+      "practice_pair": [
+        37,
+        38
+      ]
+    },
+    {
+      "page": 42,
+      "source_page": 39,
+      "title": "练习题 3",
+      "source_title": "练习题 3",
+      "source_xml": "ppt/slides/slide37.xml",
+      "stage": "question",
+      "tree_level": null,
+      "practice_pair": [
+        39,
+        42
+      ]
+    },
+    {
+      "page": 43,
+      "source_page": 40,
+      "title": "两个看似有道理的答案，你支持哪一个？",
+      "source_title": "两个看似有道理的答案，你支持哪一个？",
+      "source_xml": "ppt/slides/slide38.xml",
+      "stage": "evidence",
+      "tree_level": null,
+      "practice_pair": null
+    },
+    {
+      "page": 44,
+      "source_page": 41,
+      "title": "编辑音轨与输出声道，有什么不同？",
+      "source_title": "音轨是编辑时的层，声道是输出时的通道。",
+      "source_xml": "ppt/slides/slide39.xml",
+      "stage": "evidence",
+      "tree_level": null,
+      "practice_pair": null
+    },
+    {
+      "page": 45,
+      "source_page": 42,
+      "title": "练习题 3",
+      "source_title": "练习题 3",
+      "source_xml": "ppt/slides/slide40.xml",
+      "stage": "evidence",
+      "tree_level": null,
+      "practice_pair": [
+        39,
+        42
+      ]
+    },
+    {
+      "page": 46,
+      "source_page": 43,
+      "title": "迁移：把双声道改成单声道，会怎样？",
+      "source_title": "迁移：把双声道改成单声道，会怎样？",
+      "source_xml": "ppt/slides/slide41.xml",
+      "stage": "evidence",
+      "tree_level": null,
+      "practice_pair": null
+    },
+    {
+      "page": 47,
+      "source_page": 44,
+      "title": "图像采样与声音采样，哪里相同？",
+      "source_title": "图像采样与声音采样，哪里相同？",
+      "source_xml": "ppt/slides/slide42.xml",
+      "stage": "evidence",
+      "tree_level": null,
+      "practice_pair": null
+    },
+    {
+      "page": 48,
+      "source_page": 45,
+      "title": "连续的图片，怎样让我们看到运动？",
+      "source_title": "一张张图片连续变化，就能让我们看到运动。",
+      "source_xml": "ppt/slides/slide43.xml",
+      "stage": "evidence",
+      "tree_level": null,
+      "practice_pair": null
+    },
+    {
+      "page": 49,
+      "source_page": 46,
+      "title": "10分钟、25fps，要保存多少帧？",
+      "source_title": "10分钟、每秒25帧，要保存多少张画面？",
+      "source_xml": "ppt/slides/slide44.xml",
+      "stage": "evidence",
+      "tree_level": null,
+      "practice_pair": null
+    },
+    {
+      "page": 50,
+      "source_page": 47,
+      "title": "练习题 4",
+      "source_title": "练习题 4",
+      "source_xml": "ppt/slides/slide45.xml",
+      "stage": "question",
+      "tree_level": null,
+      "practice_pair": [
+        47,
+        48
+      ]
+    },
+    {
+      "page": 51,
+      "source_page": 48,
+      "title": "练习题 4",
+      "source_title": "练习题 4",
+      "source_xml": "ppt/slides/slide46.xml",
+      "stage": "evidence",
+      "tree_level": null,
+      "practice_pair": [
+        47,
+        48
+      ]
+    },
+    {
+      "page": 52,
+      "source_page": 49,
+      "title": "视频文件为什么可能小于6.44 GiB？",
+      "source_title": "可是我们看的10分钟视频，为什么远没有6.44 GiB？",
+      "source_xml": "ppt/slides/slide47.xml",
+      "stage": "question",
+      "tree_level": null,
+      "practice_pair": null
+    },
+    {
+      "page": 53,
+      "source_page": 50,
+      "title": "刚才计算的是逐帧未压缩数据量",
+      "source_title": "因为我们算的是“逐帧未压缩数据量”。",
+      "source_xml": "ppt/slides/slide48.xml",
+      "stage": "evidence",
+      "tree_level": null,
+      "practice_pair": null
+    },
+    {
+      "page": 54,
+      "source_page": 51,
+      "title": "为什么要压缩？先想两种真实需求",
+      "source_title": "为什么要压缩？先想两种真实需求。",
+      "source_xml": "ppt/slides/slide49.xml",
+      "stage": "evidence",
+      "tree_level": null,
+      "practice_pair": null
+    },
+    {
+      "page": 55,
+      "source_page": 52,
+      "title": "“中国”重复100次，怎样写得更短？",
+      "source_title": "“中国”重复100次，有没有更简短的写法？",
+      "source_xml": "ppt/slides/slide50.xml",
+      "stage": "evidence",
+      "tree_level": null,
+      "practice_pair": null
+    },
+    {
+      "page": 56,
+      "source_page": 53,
+      "title": "为什么重复内容更容易压缩？",
+      "source_title": "为什么重复内容更容易压缩？",
+      "source_xml": "ppt/slides/slide51.xml",
+      "stage": "evidence",
+      "tree_level": null,
+      "practice_pair": null
+    },
+    {
+      "page": 57,
+      "source_page": 54,
+      "title": "两份都是1000Byte，压缩后谁更小？",
+      "source_title": "预测：两份都是1000 Byte，压缩后谁更小？",
+      "source_xml": "ppt/slides/slide52.xml",
+      "stage": "question",
+      "tree_level": null,
+      "practice_pair": null
+    },
+    {
+      "page": 58,
+      "source_page": 55,
+      "title": "演示D：同样1000Byte，压缩后会相同吗？",
+      "source_title": "演示D：同样1000 Byte，压缩后真的不同吗？",
+      "source_xml": "ppt/slides/slide70.xml",
+      "stage": "evidence",
+      "tree_level": null,
+      "practice_pair": null
+    },
+    {
+      "page": 59,
+      "source_page": 56,
+      "title": "同样原始大小，压缩结果为何不同？",
+      "source_title": "实验验证：为什么同样大小的文件效果不同？",
+      "source_xml": "ppt/slides/slide53.xml",
+      "stage": "evidence",
+      "tree_level": null,
+      "practice_pair": null
+    },
+    {
+      "page": 60,
+      "source_page": 57,
+      "title": "压缩到底改变了什么？",
+      "source_title": "压缩到底改变了什么？",
+      "source_xml": "ppt/slides/slide54.xml",
+      "stage": "evidence",
+      "tree_level": null,
+      "practice_pair": null
+    },
+    {
+      "page": 61,
+      "source_page": 58,
+      "title": "无损与有损：按什么区分？",
+      "source_title": "两种压缩：怎样区分“无损”和“有损”？",
+      "source_xml": "ppt/slides/slide55.xml",
+      "stage": "evidence",
+      "tree_level": null,
+      "practice_pair": null
+    },
+    {
+      "page": 62,
+      "source_page": 59,
+      "title": "ZIP、MP3、WAV、MP4，是同一层吗？",
+      "source_title": "ZIP、MP3、WAV、MP4，它们属于同一类吗？",
+      "source_xml": "ppt/slides/slide56.xml",
+      "stage": "evidence",
+      "tree_level": null,
+      "practice_pair": null
+    },
+    {
+      "page": 63,
+      "source_page": 60,
+      "title": "相同尺寸的三幅图，谁容易无损压缩？",
+      "source_title": "三幅相同大小的图，谁通常最容易无损压缩？",
+      "source_xml": "ppt/slides/slide57.xml",
+      "stage": "evidence",
+      "tree_level": null,
+      "practice_pair": null
+    },
+    {
+      "page": 64,
+      "source_page": 61,
+      "title": "练习题 5",
+      "source_title": "练习题 5",
+      "source_xml": "ppt/slides/slide58.xml",
+      "stage": "question",
+      "tree_level": null,
+      "practice_pair": [
+        61,
+        62
+      ]
+    },
+    {
+      "page": 65,
+      "source_page": 62,
+      "title": "练习题 5",
+      "source_title": "练习题 5",
+      "source_xml": "ppt/slides/slide59.xml",
+      "stage": "evidence",
+      "tree_level": null,
+      "practice_pair": [
+        61,
+        62
+      ]
+    },
+    {
+      "page": 66,
+      "source_page": 63,
+      "title": "同一张图：BMP与JPG有什么不同？",
+      "source_title": "同一张图：BMP与JPG有什么不同？",
+      "source_xml": "ppt/slides/slide60.xml",
+      "stage": "evidence",
+      "tree_level": null,
+      "practice_pair": null
+    },
+    {
+      "page": 67,
+      "source_page": 64,
+      "title": "MP3、JPG再用RAR压缩，会怎样？",
+      "source_title": "已经压成MP3、JPG，再用RAR压一遍呢？",
+      "source_xml": "ppt/slides/slide61.xml",
+      "stage": "evidence",
+      "tree_level": null,
+      "practice_pair": null
+    },
+    {
+      "page": 68,
+      "source_page": 65,
+      "title": "是不是压得越小就一定越好？",
+      "source_title": "是不是压得越小就一定越好？",
+      "source_xml": "ppt/slides/slide62.xml",
+      "stage": "evidence",
+      "tree_level": null,
+      "practice_pair": null
+    },
+    {
+      "page": 69,
+      "source_page": 66,
+      "title": "练习题 6",
+      "source_title": "练习题 6",
+      "source_xml": "ppt/slides/slide63.xml",
+      "stage": "question",
+      "tree_level": null,
+      "practice_pair": [
+        66,
+        67
+      ]
+    },
+    {
+      "page": 70,
+      "source_page": 67,
+      "title": "练习题 6",
+      "source_title": "练习题 6",
+      "source_xml": "ppt/slides/slide64.xml",
+      "stage": "evidence",
+      "tree_level": null,
+      "practice_pair": [
+        66,
+        67
+      ]
+    },
+    {
+      "page": 71,
+      "source_page": 68,
+      "title": "离开课堂前，解释三个为什么",
+      "source_title": "离开课堂前，你能解释三个为什么吗？",
+      "source_xml": "ppt/slides/slide65.xml",
+      "stage": "question",
+      "tree_level": null,
+      "practice_pair": null
+    },
+    {
+      "page": 72,
+      "source_page": null,
+      "title": "用证据，把今天的关系补到树上",
+      "source_title": null,
+      "source_xml": null,
+      "stage": "tree",
+      "tree_level": 3,
+      "practice_pair": null
+    },
+    {
+      "page": 73,
+      "source_page": null,
+      "title": "用证据，把今天的关系补到树上",
+      "source_title": null,
+      "source_xml": null,
+      "stage": "tree",
+      "tree_level": 4,
+      "practice_pair": null
+    },
+    {
+      "page": 74,
+      "source_page": null,
+      "title": "用证据，把今天的关系补到树上",
+      "source_title": null,
+      "source_xml": null,
+      "stage": "tree",
+      "tree_level": 5,
+      "practice_pair": null
+    },
+    {
+      "page": 75,
+      "source_page": 69,
+      "title": "可选拓展：这些采样值能唯一确定波形吗？",
+      "source_title": "可选拓展：采样不足时会发生什么？",
+      "source_xml": "ppt/slides/slide66.xml",
+      "stage": "evidence",
+      "tree_level": null,
+      "practice_pair": null
+    },
+    {
+      "page": 76,
+      "source_page": null,
+      "title": "可选拓展：这些采样值能唯一确定波形吗？",
+      "source_title": null,
+      "source_xml": null,
+      "stage": "evidence",
+      "tree_level": null,
+      "practice_pair": null
+    },
+    {
+      "page": 77,
+      "source_page": 70,
+      "title": "可选拓展：编码与压缩不同",
+      "source_title": "可选拓展：编码和压缩不是同一件事。",
+      "source_xml": "ppt/slides/slide67.xml",
+      "stage": "evidence",
+      "tree_level": null,
+      "practice_pair": null
+    }
+  ]
+}
