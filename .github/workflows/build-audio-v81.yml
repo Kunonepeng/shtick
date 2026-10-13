@@ -1,0 +1,84 @@
+name: Build and audit audio encoding v8.1 visual refinements
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/build-audio-v81.yml"
+      - "1-2-encoding/1-2-3-audio-encoding-v2/validation/audio-v81-20261013/**"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-visual:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install PowerPoint and vector-image dependencies
+        run: python -m pip install python-pptx cairosvg
+      - name: Build three successive reviewed versions
+        run: python 1-2-encoding/1-2-3-audio-encoding-v2/validation/audio-v81-20261013/build_v81.py
+      - name: Independently validate final output and audit files
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from pptx import Presentation
+          from zipfile import ZipFile
+          import json, hashlib
+          root=Path('1-2-encoding/1-2-3-audio-encoding-v2')
+          basedir=root/'validation/audio-v81-20261013'
+          for n in (1,2,3):
+              f=basedir/f'round-{n}-v8.1.pptx'
+              audit=json.loads((basedir/f'audit-round-{n}.json').read_text('utf-8'))
+              assert len(Presentation(f).slides)==70
+              assert audit['slides']==70 and audit['notes']==70 and len(audit['exercise_pairs'])==6
+              assert hashlib.sha256(f.read_bytes()).hexdigest()==audit['sha256']
+              with ZipFile(f) as z: assert z.testzip() is None
+              print('Round',n,'PASS')
+          old=Presentation(root/'1-2-3-audio-encoding-v8.pptx')
+          final=root/'1-2-3-audio-encoding-v8.1.pptx'
+          new=Presentation(final)
+          assert len(old.slides)==len(new.slides)==70
+          assert all(sl.has_notes_slide and sl.notes_slide.notes_text_frame.text.strip() for sl in new.slides)
+          for n in [32,37,39,47,61,66]:
+              q1=[x.text for x in new.slides[n-1].shapes if x.has_text_frame and x.text.strip()][1]
+              q2=[x.text for x in new.slides[n].shapes if x.has_text_frame and x.text.strip()][1]
+              assert q1==q2,(n,q1,q2)
+          assert any(sh.shape_type==13 for sh in new.slides[2].shapes)
+          with ZipFile(final) as z: assert z.testzip() is None
+          print('PASS: real v8 baseline, 70 v8.1 slides, notes, 6 original question/answer pairs, inserted vector illustration.')
+          PY
+      - name: Render final deck PDF for visual audit
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq libreoffice-impress poppler-utils
+          mkdir -p /tmp/v81-render
+          timeout 150 soffice -env:UserInstallation=file:///tmp/lo-v81-ci --headless --convert-to pdf --outdir /tmp/v81-render 1-2-encoding/1-2-3-audio-encoding-v2/1-2-3-audio-encoding-v8.1.pptx
+          pdfinfo /tmp/v81-render/1-2-3-audio-encoding-v8.1.pdf | grep 'Pages:'
+          test "$(pdfinfo /tmp/v81-render/1-2-3-audio-encoding-v8.1.pdf | awk '/Pages:/{print $2}')" = "70"
+      - name: Store three intermediate versions and evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: audio-v81-visual-three-round-audits
+          path: |
+            1-2-encoding/1-2-3-audio-encoding-v2/validation/audio-v81-20261013/round-*.pptx
+            1-2-encoding/1-2-3-audio-encoding-v2/validation/audio-v81-20261013/audit-round-*.json
+          retention-days: 14
+      - name: Publish finished v8.1 PPTX and three audit JSON reports
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add 1-2-encoding/1-2-3-audio-encoding-v2/1-2-3-audio-encoding-v8.1.pptx
+          git add 1-2-encoding/1-2-3-audio-encoding-v2/validation/audio-v81-20261013/audit-round-*.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Publish audio encoding v8.1 after three visual review refinements"
+            git push origin HEAD:main
+          fi
