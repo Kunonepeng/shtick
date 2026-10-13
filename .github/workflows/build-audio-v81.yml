@@ -48,10 +48,10 @@ jobs:
           new=Presentation(final)
           assert len(old.slides)==len(new.slides)==70
           assert all(sl.has_notes_slide and sl.notes_slide.notes_text_frame.text.strip() for sl in new.slides)
-          for n in [32,37,39,47,61,66]:
-              q1=[x.text for x in new.slides[n-1].shapes if x.has_text_frame and x.text.strip()][1]
-              q2=[x.text for x in new.slides[n].shapes if x.has_text_frame and x.text.strip()][1]
-              assert q1==q2,(n,q1,q2)
+          for question,answer in [(32,33),(37,38),(39,42),(47,48),(61,62),(66,67)]:
+              q1=[x.text for x in new.slides[question-1].shapes if x.has_text_frame and x.text.strip()][1]
+              q2=[x.text for x in new.slides[answer-1].shapes if x.has_text_frame and x.text.strip()][1]
+              assert q1==q2,(question,answer,q1,q2)
           assert any(sh.shape_type==13 for sh in new.slides[2].shapes)
           with ZipFile(final) as z: assert z.testzip() is None
           print('PASS: real v8 baseline, 70 v8.1 slides, notes, 6 original question/answer pairs, inserted vector illustration.')
