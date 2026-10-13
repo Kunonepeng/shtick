@@ -13,8 +13,7 @@ from pptx.enum.text import PP_ALIGN
 from pptx.util import Inches, Pt
 
 HERE = Path(__file__).resolve().parent
-BASE_SCRIPT=HERE.parent/'audio-v831-20261013'/'build_ten_rounds.py'
-if not BASE_SCRIPT.exists(): BASE_SCRIPT=HERE/'v831_base.py' # local QA
+BASE_SCRIPT=HERE/'v831_base.py' # pinned, verified helper; never import another version
 spec=importlib.util.spec_from_file_location('audio_v831_base',BASE_SCRIPT)
 b=importlib.util.module_from_spec(spec);spec.loader.exec_module(b)
 b.BASE=Path(os.environ.get('DECK_DIR', HERE.parent.parent)).resolve()
