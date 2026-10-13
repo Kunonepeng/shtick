@@ -65,7 +65,7 @@ with sync_playwright() as pw:
             page.locator('.code-chip').nth(5).click()
             assert '样本6' in page.locator('.readout').inner_text()
             assert page.locator('.code-chip.selected').count()==1
-        folder=Path(os.environ.get('V7_SCREENSHOTS',Path(__file__).resolve().parents[2]/'review'))
+        folder=Path(os.environ.get('V7_SCREENSHOTS',Path(__file__).resolve().parents[1]/'review'))
         folder.mkdir(parents=True,exist_ok=True)
         page.screenshot(path=str(folder/f'browser-{mode}.png'), full_page=True)
         page.evaluate('()=>window.__demoCleanup?.()')
