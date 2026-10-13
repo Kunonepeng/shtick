@@ -1,0 +1,84 @@
+name: Build and audit audio encoding v8 (3 rounds)
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/build-audio-v8.yml"
+      - "1-2-encoding/1-2-3-audio-encoding-v2/validation/audio-v8-20261013/build_v8.py"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-three-rounds:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out genuine v7 and build source
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install PowerPoint library
+        run: python -m pip install python-pptx
+      - name: Build Round 1, review/refine, Round 2, review/refine, Round 3
+        run: python 1-2-encoding/1-2-3-audio-encoding-v2/validation/audio-v8-20261013/build_v8.py
+      - name: Audit three stage outputs and final v8
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from pptx import Presentation
+          from zipfile import ZipFile
+          import json
+          root=Path('1-2-encoding/1-2-3-audio-encoding-v2')
+          d=root/'validation/audio-v8-20261013'
+          previous=0
+          for n,count in [(1,69),(2,70),(3,70)]:
+              audit=json.loads((d/f'audit-round-{n}.json').read_text(encoding='utf-8'))
+              q=Presentation(d/f'round-{n}.pptx')
+              assert len(q.slides)==count and audit['slides']==count
+              assert audit['speaker_notes']==count
+              assert audit['practice_pairs']==6
+              with ZipFile(d/f'round-{n}.pptx') as z:
+                  assert z.testzip() is None
+              print('AUDIT',n,'PASS',count,'pages and full speaker notes')
+          file=root/'1-2-3-audio-encoding-v8.pptx'
+          ppt=Presentation(file)
+          assert len(ppt.slides)==70
+          titles=[next((s.text.strip() for s in sl.shapes if s.has_text_frame and s.text.strip()),'')
+                  for sl in ppt.slides]
+          q_idx=next(i for i,t in enumerate(titles) if t.startswith('3.71 应记'))
+          a_idx=next(i for i,t in enumerate(titles) if t.startswith('量化：'))
+          assert a_idx==q_idx+1
+          demo_idx=next(i for i,t in enumerate(titles) if '演示C' in t)
+          code_idx=next(i for i,t in enumerate(titles) if '一个样本需要几个二进制位' in t)
+          assert code_idx<demo_idx
+          di=next(i for i,t in enumerate(titles) if '演示D' in t)
+          assert '预测：' in titles[di-1] and '实验验证' in titles[di+1]
+          for sl in ppt.slides:
+              assert len(sl.notes_slide.notes_text_frame.text.strip())>35
+          with ZipFile(file) as z: assert z.testzip() is None
+          print('FINAL PASS',file,len(ppt.slides),'slides')
+          PY
+      - name: Upload three intermediate versions and audits
+        uses: actions/upload-artifact@v4
+        with:
+          name: v8-three-round-versions-and-audits
+          path: |
+            1-2-encoding/1-2-3-audio-encoding-v2/validation/audio-v8-20261013/round-*.pptx
+            1-2-encoding/1-2-3-audio-encoding-v2/validation/audio-v8-20261013/audit-round-*.json
+          retention-days: 14
+      - name: Commit the final v8 PPTX and audit JSONs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add 1-2-encoding/1-2-3-audio-encoding-v2/1-2-3-audio-encoding-v8.pptx
+          git add 1-2-encoding/1-2-3-audio-encoding-v2/validation/audio-v8-20261013/audit-round-*.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Publish v8 audio encoding deck after three reviewed refinements"
+            git push origin HEAD:main
+          fi
