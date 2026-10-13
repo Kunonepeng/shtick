@@ -33,6 +33,7 @@ function mountPandaEncoding(mount, payload, config) {
       + (features.has('largeType') ? ' pd-large-type' : '')
       + (features.has('fixedAlignment') ? ' pd-align' : '')
       + (features.has('highContrast') ? ' pd-contrast' : '')
+      + (features.has('responsiveAid') ? ' pd-responsive' : '')
       + (features.has('largeTargets') ? ' pd-big-target' : '')
       + (features.has('projectionCompact') ? ' pd-projection' : '');
   }
