@@ -59,7 +59,7 @@ def verify_notebooks() -> None:
                 expected += ["projectionCompact"]
             assert notebook.metadata.panda_visual_round == round_number, version
             assert list(notebook.metadata.panda_visual_features) == expected, version
-            assert json.dumps(expected) in code, version
+            assert json.dumps(expected, separators=(",", ":")) in code, version
         print(f"PASS {version}: notebook schema, clean outputs, configuration")
 
 
