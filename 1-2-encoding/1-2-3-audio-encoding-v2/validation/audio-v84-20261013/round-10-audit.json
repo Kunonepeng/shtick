@@ -8,6 +8,7 @@
   "speaker_notes": 70,
   "qa_pairs": 6,
   "input_sha256": "d40e872186469da60377379e33bd27c4f910eb4a61d9491159ae25a71c2a88cd",
-  "output_sha256": "fa83ec5ee02f72bdb57b7f88afad8841f8e1a5837d5f3f28ba233594f0df4cdb",
-  "output_bytes": 422178
+  "output_sha256": "ba0df7d914972ce4c0b4c1782e1eb6832748e92bc4a73ac8c7efe5a0ebe29f9b",
+  "output_bytes": 422174,
+  "post_round_quality_fix": "Removed forward-looking 3.71 numeric hint from the 8-level counting slide; preserves prediction on next slide."
 }
