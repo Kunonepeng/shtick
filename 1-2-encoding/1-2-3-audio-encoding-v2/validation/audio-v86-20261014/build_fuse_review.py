@@ -104,7 +104,7 @@ s=p.slides[26];cover(s,.78,2.06,11.73,3.64);image_from_ref(s,27,1.20,2.30,10.9,3
 marker(s,"描述如何解释音频数据",1.28,2.18,4.05)
 marker(s,"保存一系列数字样本",5.04,2.18,6.70,DKCYAN)
 n(s,"借用v8.4.10文件结构图；文件头是必要的格式信息，PCM样本是内容。每个小格仅为示意，不承诺WAV固定44Byte。")
-s=p.slides[65];cover(s,.78,2.16,11.75,3.90)
+s=p.slides[65];cover(s,.78,1.82,11.75,4.27)
 marker(s,"左：原始局部（放大）",1.15,2.15,5.1)
 marker(s,"右：低质量JPEG（放大）",7.0,2.15,5.15,DKCYAN)
 image_from_ref(s,63,1.18,2.66,10.90,3.05)
@@ -170,12 +170,12 @@ for i,(rank,problem,solution) in enumerate(ROUND_DETAILS,1):
   n(s,"同一个时刻双声道需要两个样本，单声道一个样本。讨论仍需固定采样率、位数、时长才能得出样本字节数减半。")
  if i==8:
   # Preserve uncertainty: question must not disclose a fabricated encoded file size.
-  box(s,1.1,3.85,5.16,1.10,SHADE,A)
-  text(s,"逐帧未压缩估算",1.30,3.99,4.7,.37,19,A,True,center=True)
-  text(s,"约 6.44 GiB",1.31,4.37,4.7,.40,22,INK,True,center=True)
-  box(s,7.12,3.85,5.11,1.10,RGBColor(241,250,255),DKCYAN)
-  text(s,"实际压缩文件",7.27,3.99,4.74,.37,19,DKCYAN,True,center=True)
-  text(s,"为什么可能小得多？",7.27,4.37,4.74,.40,22,INK,True,center=True)
+  box(s,1.1,4.58,5.16,1.10,SHADE,A)
+  text(s,"逐帧未压缩估算",1.30,4.72,4.7,.37,19,A,True,center=True)
+  text(s,"约 6.44 GiB",1.31,5.10,4.7,.40,22,INK,True,center=True)
+  box(s,7.12,4.58,5.11,1.10,RGBColor(241,250,255),DKCYAN)
+  text(s,"实际压缩文件",7.27,4.72,4.74,.37,19,DKCYAN,True,center=True)
+  text(s,"为什么可能小得多？",7.27,5.10,4.74,.40,22,INK,True,center=True)
   n(s,"数值仅是本课逐帧未压缩的理论计算；不虚构“普通视频”必定多少MB，由压缩原理解释差别。")
  if i==9:
   # Self-contained small pixel demonstration; same pixels for original and lossless,
