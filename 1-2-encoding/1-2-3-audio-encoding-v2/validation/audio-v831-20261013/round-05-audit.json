@@ -1,0 +1,12 @@
+{
+  "round": 5,
+  "severity": "P0",
+  "identified_issue": "3.71量化示例缺乏清晰的分段归属证据",
+  "refinement": "第17页用0-8数轴和精确落点呈现[3,4)区间",
+  "slides": 70,
+  "notes": 70,
+  "question_answer_pairs": 6,
+  "input_sha256": "def7fd428ce82584ffb3fb6016a8fcc3a40806c56dd5d7f4c4618c76b299e586",
+  "output_sha256": "ac7e90f9001ef2574b8b460b2890463bac1ec7ed27bcb069cd3187c471ba227a",
+  "method": "PowerPoint native diagram; round 9 actual same-source PNG/JPEG image pair"
+}
