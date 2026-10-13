@@ -92,5 +92,13 @@ jobs:
           git add "$D/validation/audio-v86-20261014/"*.audit.json
           if ! git diff --cached --quiet; then
              git commit -m "Publish fused v8.5 and ten-round reviewed v8.6 GPT decks"
-             git push origin HEAD:main
+             for attempt in 1 2 3; do
+               git fetch origin main
+               git rebase origin/main
+               if git push origin HEAD:main; then
+                 echo "Pushed without force after syncing latest main"
+                 break
+               fi
+               if [ "$attempt" -eq 3 ]; then exit 1; fi
+             done
           fi
