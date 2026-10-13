@@ -1,0 +1,13 @@
+{
+  "round": 3,
+  "severity": "P1",
+  "identified_issue": "Demo B缺少“大尺度概览—微观真实点”的视觉对照",
+  "refinement": "第12页重新生成双尺度图，保留局部点与示意连线的图例",
+  "verified_by": "局部蓝点可辨、概览包络与真实点的名称不同",
+  "slides": 70,
+  "speaker_notes": 70,
+  "qa_pairs": 6,
+  "input_sha256": "3cf27e942dc66351f901344101c58ee811427fbeccd6da12d60bb2c497b38dab",
+  "output_sha256": "e9c8233e7fbaa058cb19323d86a1e6ec69de3d004fcd8a81374a72263df8f265",
+  "output_bytes": 407282
+}
