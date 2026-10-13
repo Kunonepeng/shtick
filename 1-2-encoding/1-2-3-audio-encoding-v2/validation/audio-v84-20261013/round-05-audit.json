@@ -1,0 +1,13 @@
+{
+  "round": 5,
+  "severity": "P1",
+  "identified_issue": "10个样本与30位编码只有密集表格，难以跟随时间顺序",
+  "refinement": "第22页改为10列逐样本对照，等级和码字原位对齐并高亮一个样本",
+  "verified_by": "码字与原10个等级逐一一致，按从左到右时间排列",
+  "slides": 70,
+  "speaker_notes": 70,
+  "qa_pairs": 6,
+  "input_sha256": "7e7f44fe0ae0e7746ed507eef401057be5b59578eda1ff59ab32f49fc37401f8",
+  "output_sha256": "0c54898869da43f01fb6a9c36be94ffbcca1875396804534f09c8de6fa2490b4",
+  "output_bytes": 410449
+}
