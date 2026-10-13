@@ -12,3 +12,27 @@
 .audio-v7 .small{font-size:14px;color:#656565}
 .audio-v7 .readout{background:#f6f3ff;border-left:5px solid #8C64E1;padding:12px 15px;font-size:19px;line-height:1.55;min-height:54px}
 .audio-v7 audio{width:100%;max-width:720px}
+
+/* Classroom readability: visual key and click-to-select code strip. */
+.audio-v7 .audio-legend{display:flex;flex-wrap:wrap;gap:10px 20px;align-items:center;margin:12px 0;font-size:15px}
+.audio-v7 .legend-item{display:flex;align-items:center;gap:7px}
+.audio-v7 .legend-mark{--mark:#6251B1;display:inline-block;width:24px;height:0;border-top:3px solid var(--mark)}
+.audio-v7 .legend-mark.dash{border-top-style:dashed}
+.audio-v7 .legend-mark.dot{width:12px;height:12px;border:none;border-radius:50%;background:var(--mark)}
+.audio-v7 .legend-mark.square{width:12px;height:12px;border:none;background:var(--mark)}
+.audio-v7 .code-strip{display:flex;align-items:stretch;gap:8px;overflow-x:auto;scrollbar-width:thin;padding:8px 0 12px}
+.audio-v7 .code-chip{min-width:73px;display:flex;flex-direction:column;gap:4px;align-items:center;border:1.5px solid #b5a2ee;background:#fff;color:#262626;border-radius:8px;padding:6px 9px;flex-shrink:0}
+.audio-v7 .code-chip b{font:700 20px Consolas,'Courier New',monospace}
+.audio-v7 .code-chip.selected{background:#6251B1;color:#fff}
+.audio-v7 .code-chip .small{color:inherit;font-size:12px}
+.audio-v7 h4{margin:14px 0 5px;font-size:17px;color:#6251B1}
+.audio-v7 .quant-table-scroll{max-height:290px;overflow:auto;margin-top:7px;border:1px solid #dad7e9}
+.audio-v7 .quant-table{border-collapse:collapse;width:100%;font-size:16px}
+.audio-v7 .quant-table th,.audio-v7 .quant-table td{padding:8px 10px;border-bottom:1px solid #e9e4f4;text-align:center}
+.audio-v7 .quant-table th{position:sticky;top:0;background:#f0ebff;color:#372571}
+.audio-v7 .quant-table tr.highlight{background:#e1d7ff;font-weight:750}
+.audio-v7 .quant-table td:last-child{font-family:Consolas,monospace;font-weight:750}
+/* Projector sizes and responsive remote classroom browser */
+.audio-v7 .readout{margin:10px 0;font-size:19px}
+.audio-v7 .small{line-height:1.55}
+@media(max-width:720px){.audio-v7{padding:12px}.audio-v7 h3{font-size:21px}.audio-v7 .code-chip{min-width:65px}.audio-v7 .quant-table{font-size:13px}}
