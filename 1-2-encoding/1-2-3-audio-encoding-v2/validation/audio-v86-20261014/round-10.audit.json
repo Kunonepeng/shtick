@@ -1,0 +1,24 @@
+{
+  "filename": "round-10.pptx",
+  "bytes": 5236946,
+  "sha256": "70da0a85e36fba69077d8bae6996803ff46463057febebab8eeca14a53b237f8",
+  "slides": 77,
+  "speaker_notes": 77,
+  "pictures": 7,
+  "picture_sha256": [
+    "5198434b6450211a059306012d6ec86ca1bf225086108dc35db6ced7c2d46c8d",
+    "94d447dad971af8cbb1c430006ea26ebb2e3ee5cfda8425d1798b77c9d2d407b",
+    "f4cb5f0d83c15dbbc40655eef72e5dfe3c198e25853079c8e92def472f9df94f",
+    "28d082f5285779144371975f9109ce00f87b0e29cd5ff4623f24d05ca8cfaa21",
+    "1fc71da139412aeceeda5c6fa10d62a048805e6f400d045402895b4bd846ca20",
+    "33ba3d904cf194e31ee9dac80e22c1cc9ce7384de8a7999ebd6017d1b3d810db",
+    "38a0318da5fb6f2f8098fa2355b56bf493a4524d1fbc8a6b996474e4acc20c0c"
+  ],
+  "change": {
+    "round": 10,
+    "rank": "P2",
+    "problem": "第66页BMP/JPG实验已具视觉对照，但必要的比较条件不够显眼",
+    "fix": "突出“同一裁剪区域、实验性极低JPEG质量”，防止以图代结论",
+    "source_file": "round-09.pptx"
+  }
+}
