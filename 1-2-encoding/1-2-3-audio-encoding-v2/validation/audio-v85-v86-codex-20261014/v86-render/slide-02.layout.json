@@ -1,0 +1,11 @@
+{"schema":"openai.presentation.layout/v5","unit":"px","slide":{"id":"sl/hwbqtkby","index":1,"layout":{"id":"ly/07y1cjyt","name":"Blank"},"backgroundColor":"rgba(255,255,255,1)","position":{"left":0,"top":0,"width":1279.9679790026248,"height":720}},
+"elements":[
+{"id":"sh/9072xkry","kind":"shape","name":"top-rail","position":{"left":0,"top":0,"width":1279.97,"height":10.67},"style":{"fontSize":24,"typeface":"Alibaba PuHuiTi 3.0 55 Regular","color":"#FFFFFF","alignment":"left"},"geometry":"rect","fillColor":"#6251B1","lineWidth":0},
+{"id":"sh/ozy1ofad","kind":"shape","name":"bottom-rail","position":{"left":0,"top":709.33,"width":1279.97,"height":10.67},"style":{"fontSize":24,"typeface":"Alibaba PuHuiTi 3.0 55 Regular","color":"#FFFFFF","alignment":"left"},"geometry":"rect","fillColor":"#6251B1","lineWidth":0},
+{"id":"sh/b29kza94","kind":"textbox","name":"question-title","position":{"left":63.84,"top":63.84,"width":1152,"height":74},"text":"文字、图像能编码，声音呢？","style":{"fontSize":48,"typeface":"Alibaba PuHuiTi 3.0 115 Black","color":"#262626","bold":true,"alignment":"left"},"geometry":"rect"},
+{"id":"sh/a10jqpsj","kind":"textbox","name":"known-text","position":{"left":64,"top":225,"width":550,"height":60},"text":"文字 → 编码","style":{"fontSize":37.33,"typeface":"Alibaba PuHuiTi 3.0 115 Black","color":"#8C64E1","bold":true,"alignment":"left"},"geometry":"rect","lineWidth":0},
+{"id":"sh/x4r21kru","kind":"textbox","name":"known-image","position":{"left":64,"top":335,"width":550,"height":60},"text":"图像 → 编码","style":{"fontSize":37.33,"typeface":"Alibaba PuHuiTi 3.0 115 Black","color":"#007C9B","bold":true,"alignment":"left"},"geometry":"rect","lineWidth":0},
+{"id":"sh/w3i1sfa9","kind":"textbox","name":"current-question","position":{"left":64,"top":445,"width":550,"height":60},"text":"声音 → ？","style":{"fontSize":44,"typeface":"Alibaba PuHuiTi 3.0 115 Black","color":"#262626","bold":true,"alignment":"left"},"geometry":"rect","lineWidth":0},
+{"id":"sh/r65knqtk","kind":"textbox","name":"recording-question","position":{"left":64,"top":610,"width":1152,"height":44},"text":"手机为什么能把说话声保存成文件？","style":{"fontSize":29.33,"typeface":"Alibaba PuHuiTi 3.0 55 Regular","color":"#262626","alignment":"left"},"geometry":"rect","lineWidth":0},
+{"id":"im/nix0be18","kind":"image","position":{"left":670,"top":166,"width":536,"height":402}}
+]}

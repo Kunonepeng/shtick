@@ -1,0 +1,9 @@
+{"schema":"openai.presentation.layout/v5","unit":"px","slide":{"id":"sl/vm1kr65c","index":76,"layout":{"id":"ly/07y1cjyt","name":"Blank"},"backgroundColor":"rgba(255,255,255,1)","position":{"left":0,"top":0,"width":1279.9679790026248,"height":720}},
+"elements":[
+{"id":"sh/614nm9gf","kind":"shape","name":"top-rail","position":{"left":0,"top":0,"width":1279.97,"height":10.67},"style":{"fontSize":24,"typeface":"Alibaba PuHuiTi 3.0 55 Regular","color":"#FFFFFF","alignment":"left"},"geometry":"rect","fillColor":"#6251B1","lineWidth":0},
+{"id":"sh/7md4vuxk","kind":"shape","name":"bottom-rail","position":{"left":0,"top":709.33,"width":1279.97,"height":10.67},"style":{"fontSize":24,"typeface":"Alibaba PuHuiTi 3.0 55 Regular","color":"#FFFFFF","alignment":"left"},"geometry":"rect","fillColor":"#6251B1","lineWidth":0},
+{"id":"sh/gr65sjyh","kind":"textbox","name":"question-title","position":{"left":63.84,"top":63.84,"width":1152,"height":74},"text":"离开课堂前，解释三个为什么","style":{"fontSize":48,"typeface":"Alibaba PuHuiTi 3.0 115 Black","color":"#262626","bold":true,"alignment":"left"},"geometry":"rect"},
+{"id":"sh/hsfm1of2","kind":"textbox","name":"TextBox 4","position":{"left":82.56,"top":205,"width":1120,"height":70},"text":"① 声音为什么能变成一组0和1？","style":{"fontSize":32,"typeface":"Alibaba PuHuiTi 3.0 115 Black","color":"#262626","bold":true,"alignment":"left"},"geometry":"rect"},
+{"id":"sh/up4nq9gb","kind":"textbox","name":"TextBox 5","position":{"left":82.56,"top":355,"width":1120,"height":70},"text":"② 小视频为什么可能算出6.44 GiB？","style":{"fontSize":32,"typeface":"Alibaba PuHuiTi 3.0 115 Black","color":"#262626","bold":true,"alignment":"left"},"geometry":"rect"},
+{"id":"sh/vqx4zexw","kind":"textbox","name":"TextBox 6","position":{"left":82.56,"top":505,"width":1120,"height":70},"text":"③ 有些文件为什么压缩后变化很小？","style":{"fontSize":32,"typeface":"Alibaba PuHuiTi 3.0 115 Black","color":"#262626","bold":true,"alignment":"left"},"geometry":"rect"}
+]}

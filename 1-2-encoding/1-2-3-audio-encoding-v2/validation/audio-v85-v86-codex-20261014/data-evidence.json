@@ -1,0 +1,29 @@
+{
+  "dimensions": [
+    640,
+    350
+  ],
+  "different_pixels": 224000,
+  "total_pixels": 224000,
+  "example_pixel": {
+    "x": 230,
+    "y": 140,
+    "original": [
+      79,
+      113,
+      165
+    ],
+    "decoded": [
+      51,
+      108,
+      153
+    ]
+  },
+  "zlib_rgb_roundtrip": true,
+  "roi": [
+    230,
+    140,
+    440,
+    300
+  ]
+}

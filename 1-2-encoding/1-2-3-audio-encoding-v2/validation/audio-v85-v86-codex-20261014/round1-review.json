@@ -1,0 +1,246 @@
+{
+  "round": 1,
+  "reviewed_version": "v8.5.codex",
+  "slideCount": 83,
+  "all_slides_inspected": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    67,
+    68,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80,
+    81,
+    82,
+    83
+  ],
+  "p0_count": 0,
+  "issues": [
+    {
+      "id": "R1-01",
+      "priority": "P1",
+      "reviewed_pages": [
+        27,
+        28
+      ],
+      "issue": "预测文字覆盖量化图，空心／实心没有形状图例",
+      "fix": "将预测移到页底，给两行图增加形状图例、同编号时刻和0～8刻度",
+      "status": "pass",
+      "recheck": "全分辨率人工复检上述页面；原生对象／数值／配对几何检查见v86-audit.json。",
+      "final_pages": [
+        29,
+        30
+      ],
+      "recheck_images": [
+        "v86-render/slide-29.png",
+        "v86-render/slide-30.png"
+      ]
+    },
+    {
+      "id": "R1-02",
+      "priority": "P1",
+      "reviewed_pages": [
+        8,
+        9
+      ],
+      "issue": "问题指向尚未出现的波形图",
+      "fix": "在提问页加入无答案标签的灰色波形，揭示页保持同一波形位置",
+      "status": "pass",
+      "recheck": "全分辨率人工复检上述页面；原生对象／数值／配对几何检查见v86-audit.json。",
+      "final_pages": [
+        8,
+        9
+      ],
+      "recheck_images": [
+        "v86-render/slide-08.png",
+        "v86-render/slide-09.png"
+      ]
+    },
+    {
+      "id": "R1-03",
+      "priority": "P1",
+      "reviewed_pages": [
+        18,
+        19,
+        20
+      ],
+      "issue": "数档页提前给答案；3.71题目规则不足，问答图几何不稳定",
+      "fix": "先提问后复制揭示；明确区间／中点规则，从提问页复制L3与3.5答案",
+      "status": "pass",
+      "recheck": "全分辨率人工复检上述页面；原生对象／数值／配对几何检查见v86-audit.json。",
+      "final_pages": [
+        18,
+        19,
+        20,
+        21
+      ],
+      "recheck_images": [
+        "v86-render/slide-18.png",
+        "v86-render/slide-19.png",
+        "v86-render/slide-20.png",
+        "v86-render/slide-21.png"
+      ]
+    },
+    {
+      "id": "R1-04",
+      "priority": "P1",
+      "reviewed_pages": [
+        35
+      ],
+      "issue": "PCM公式仍缺可逐格计数的小例子",
+      "fix": "增加2Hz×2秒、双声道、16bit的预测／4列2行网格揭示，逐列得到16Byte",
+      "status": "pass",
+      "recheck": "全分辨率人工复检上述页面；原生对象／数值／配对几何检查见v86-audit.json。",
+      "final_pages": [
+        37,
+        38,
+        39
+      ],
+      "recheck_images": [
+        "v86-render/slide-37.png",
+        "v86-render/slide-38.png",
+        "v86-render/slide-39.png"
+      ]
+    },
+    {
+      "id": "R1-05",
+      "priority": "P1",
+      "reviewed_pages": [
+        65,
+        66
+      ],
+      "issue": "恢复图缺无损／有损术语，概念示意边界不够清楚",
+      "fix": "添加无损与有损标签；提问页明确为像素概念示意",
+      "status": "pass",
+      "recheck": "全分辨率人工复检上述页面；原生对象／数值／配对几何检查见v86-audit.json。",
+      "final_pages": [
+        69,
+        70
+      ],
+      "recheck_images": [
+        "v86-render/slide-69.png",
+        "v86-render/slide-70.png"
+      ]
+    },
+    {
+      "id": "R1-06",
+      "priority": "P2",
+      "reviewed_pages": [
+        44,
+        45,
+        54,
+        55
+      ],
+      "issue": "计算中间的长横线将第三步与第四步割裂",
+      "fix": "同时清理问题／解答配对中的横线，保持题干位置",
+      "status": "pass",
+      "recheck": "全分辨率人工复检上述页面；原生对象／数值／配对几何检查见v86-audit.json。",
+      "final_pages": [
+        48,
+        49,
+        58,
+        59
+      ],
+      "recheck_images": [
+        "v86-render/slide-48.png",
+        "v86-render/slide-49.png",
+        "v86-render/slide-58.png",
+        "v86-render/slide-59.png"
+      ]
+    },
+    {
+      "id": "R1-07",
+      "priority": "P2",
+      "reviewed_pages": [
+        31
+      ],
+      "issue": "WAV图B0～B5可能被当作字节内容",
+      "fix": "原生标注1框=1Byte，B0～B5仅为位置编号",
+      "status": "pass",
+      "recheck": "全分辨率人工复检上述页面；原生对象／数值／配对几何检查见v86-audit.json。",
+      "final_pages": [
+        33
+      ],
+      "recheck_images": [
+        "v86-render/slide-33.png"
+      ]
+    }
+  ],
+  "after_sha256": "4a50504d139dadde65dd6f7314e67886ff0ced645d92bfbfcc275c0d9ef02bdd",
+  "after_slideCount": 85,
+  "repair_recheck_note": "首次修复检查发现3.71原值标签重复，删除旧标签后再次渲染；第20、21页复检只有一个原值标签。",
+  "final_sha256": "afb52840e0be06efe26edbd15003eaceeb3becfcb4f4dfb30c55c55bd0d74dde"
+}

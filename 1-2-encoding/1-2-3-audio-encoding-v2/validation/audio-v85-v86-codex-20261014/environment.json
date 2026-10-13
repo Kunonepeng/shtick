@@ -1,0 +1,15 @@
+{
+  "date": "2026-10-14",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "python": "3.12.14",
+  "Pillow": "12.3.0",
+  "Node": "24.19.0",
+  "artifact_tool": "2.8.93",
+  "canvas": "0.1.100",
+  "fonts": [
+    "Alibaba PuHuiTi 3.0 55 Regular",
+    "Alibaba PuHuiTi 3.0 115 Black"
+  ],
+  "font_source": "Local Library/Fonts explicitly loaded for raster review",
+  "renderer": "Artifact tool native PPTX importer/exporter; not WPS or PowerPoint"
+}

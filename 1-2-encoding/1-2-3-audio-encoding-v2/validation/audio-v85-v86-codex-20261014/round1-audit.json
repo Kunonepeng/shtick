@@ -1,0 +1,5105 @@
+{
+  "deck": "round1-candidate.pptx",
+  "sha256": "4a50504d139dadde65dd6f7314e67886ff0ced645d92bfbfcc275c0d9ef02bdd",
+  "checks": [
+    {
+      "check": "Slide count and canvas",
+      "status": "pass",
+      "evidence": [
+        85,
+        {
+          "cx": "12191695",
+          "cy": "6858000"
+        }
+      ]
+    },
+    {
+      "check": "p1 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p1 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p1 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        222.0,
+        1152.0,
+        120.0
+      ]
+    },
+    {
+      "check": "p1 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p1 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p1 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 声音怎样变成0和1？\n[内部编号] V81-01\n[阶段] 课时开场\n[教师逐字稿]\n【教师讲述／组织】开场。问：“上一节课学习了图像编码。那么在手机里录下我们的声音，计算机保存的到底是什么？”不要直接报出采样、量化、编码，先让学生提出问题。\n【反馈"
+    },
+    {
+      "check": "p2 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p2 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p2 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p2 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p2 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p2 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 文字、图像能编码，声音呢？\n[内部编号] V81-02\n[阶段] 提问／独立作答\n[教师逐字稿]\n【设计意图】回忆旧知识：字符编码记录符号，图像编码记录像素。请学生预测：自然声音没有像素，计算机怎么办？指向本课总问题，不求答对。\n【教师可以这样讲】大"
+    },
+    {
+      "check": "p3 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p3 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p3 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p3 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p3 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p3 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 振动怎样把声音传到麦克风？\n[内部编号] p3\n[阶段] 解释\n[教师逐字稿]\n请看音叉和麦克风。音叉振动，使空气中的声压发生变化；变化传播到麦克风的位置。先请学生用手势指出“振动源”和“接收位置”。接下来要解释麦克风怎样把这种变化变成电信号。\n[图"
+    },
+    {
+      "check": "p4 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p4 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p4 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p4 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p4 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p4 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 声音和电脑里的音频文件，是同一种量吗？\n[内部编号] V81-04\n[阶段] 证据／解释\n[教师逐字稿]\n【设计意图】先让学生表态：声波在时间上连续变化；文件保存的是离散数字。问麦克风前后，哪一阶段发生改变？\n【教师可以这样讲】请先判断：空气中的声音"
+    },
+    {
+      "check": "p5 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p5 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p5 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p5 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p5 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black"
+      ]
+    },
+    {
+      "check": "p5 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 麦克风把声波变成什么？\n[内部编号] V81-05\n[阶段] 证据／解释\n[教师逐字稿]\n【设计意图】承接实录1：猜需要哪些设备。麦克风将声压变化转为连续电信号；此时仍是模拟信号。不要说麦克风直接保存WAV。\n【教师可以这样讲】请观察这条流程。麦克风"
+    },
+    {
+      "check": "p6 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p6 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p6 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p6 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p6 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black"
+      ]
+    },
+    {
+      "check": "p6 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 连续电信号，怎样变成数字？\n[内部编号] V81-06\n[阶段] 证据／解释\n[教师逐字稿]\n【设计意图】先问：谁来把模拟电信号转换成0和1？鼓励学生猜CPU、麦克风等。展示声卡音频接口或画流程，以ADC为答案。设备可集成在主板或外置。\n【教师可以这"
+    },
+    {
+      "check": "p7 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p7 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p7 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p7 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p7 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p7 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 录音与播放，各转换了什么？\n[内部编号] p7\n[阶段] 解释\n[教师逐字稿]\n先让学生沿上行读录音过程，再沿下行读播放过程。每个箭头都对应一种操作：麦克风转换、ADC、保存；读取文件后取出样本，经DAC和扬声器播放。追问：电脑文件里保存的是空气振动"
+    },
+    {
+      "check": "p8 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p8 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p8 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p8 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p8 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p8 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 波形图的横轴，表示距离还是时间？\n[内部编号] p8\n[阶段] 提问\n[教师逐字稿]\n请看灰色波形，只讨论起伏怎样变化。先判断横轴表示空间距离还是经过的时间，并说明理由。给20秒，随后比较两种图。\n[图示边界]\n灰色数学示意波形，不标横轴答案。"
+    },
+    {
+      "check": "p9 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p9 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p9 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p9 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p9 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p9 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 波形图的横轴，表示距离还是时间？\n[内部编号] p8-reveal\n[阶段] 证据揭示\n[教师逐字稿]\n两种图讨论不同问题。左图画空间里的传播，右图在固定位置记录信号随时间的变化。请学生分别指出横轴的含义。\n\n[图示边界]左侧复用程序示意图image"
+    },
+    {
+      "check": "p10 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p10 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p10 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p10 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p10 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p10 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 演示A：红线向右，表示什么？\n[内部编号] V81-09\n[阶段] 证据／解释\n[教师逐字稿]\n运行notebooks/01_听见声音_看见波形.ipynb。请教师从Windows浏览器直接点击播放；让学生预测红线表示空间位置还是播放时间，然后暂停再"
+    },
+    {
+      "check": "p11 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p11 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p11 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p11 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p11 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p11 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 只能留下有限个数字，该在哪些时刻取样？\n[内部编号] V81-10\n[阶段] 提问／独立作答\n[教师逐字稿]\n【设计意图】先在波形上让学生指出选取若干时刻的方法，预测“隔一段时间取一个值”；不要急着宣布定义。\n【教师可以这样讲】现在只允许保存若干个数"
+    },
+    {
+      "check": "p12 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p12 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p12 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p12 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p12 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p12 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 每隔相同时间，取一个幅度值\n[内部编号] V81-11\n[阶段] 证据／解释\n[教师逐字稿]\n【设计意图】保留前页坐标与波形，叠加等间隔采样点。追问：采样之后还保留每个时刻的原始值吗？概括“时间上离散”。\n【教师可以这样讲】我们按固定时间间隔记录了1"
+    },
+    {
+      "check": "p13 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p13 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p13 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p13 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p13 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p13 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 演示B：放大红框，能看到什么？\n[内部编号] p12\n[阶段] 提问\n[教师逐字稿]\n先看左侧全段与红框时刻。请预测放大后会看到什么，停顿20秒。右侧暂不画样本，不提前给出点数。"
+    },
+    {
+      "check": "p14 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p14 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p14 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p14 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p14 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p14 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 演示B：放大红框，能看到什么？\n[内部编号] p12-reveal\n[阶段] 证据揭示\n[教师逐字稿]\n请核对右图从0.30到0.50秒，与左图红框相同；纵轴比例相同，只有横轴放大。逐个数点，再解释这是一段数字记录，而不是声音传播的路线。\n\n[数学证"
+    },
+    {
+      "check": "p15 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p15 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p15 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p15 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p15 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p15 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 1 Hz和2 Hz，一秒内取几个样本？\n[内部编号] V81-13\n[阶段] 证据／解释\n[教师逐字稿]\n【设计意图】先让学生预测1 Hz、2 Hz分别表示每秒几个点；同一时间范围，不同点数。讲采样率=单位时间样本数，间隔Δt=1/fs。\n【教师可以"
+    },
+    {
+      "check": "p16 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p16 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p16 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p16 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p16 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p16 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 提高采样率，时间轴上的什么变了？\n[内部编号] V81-14\n[阶段] 证据／解释\n[教师逐字稿]\n【教师讲述／组织】同一波形、同一个时长，采样点由少到多。先比较时间方向的点密度，不谈“采样后连线就完全恢复”。\n【反馈】先听学生如何解释，再决定是否揭"
+    },
+    {
+      "check": "p17 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p17 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p17 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p17 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p17 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p17 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 采样值可能是3.71，怎样记录？\n[内部编号] V81-15\n[阶段] 提问／独立作答\n[教师逐字稿]\n【设计意图】实录2第二步：采样点的振幅可在连续范围取值，设备却计划使用有限等级。让学生意识到有第二个问题尚未解决。\n【教师可以这样讲】假设某个时刻"
+    },
+    {
+      "check": "p18 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p18 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p18 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p18 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p18 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p18 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 等级编号0～7，一共有几档？\n[内部编号] p16\n[阶段] 提问\n[教师逐字稿]\n先从0数到7。请每人写出等级总数，给10秒，不提前说答案。"
+    },
+    {
+      "check": "p19 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p19 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p19 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p19 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p19 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p19 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 等级编号0～7，一共有几档？\n[内部编号] p16-reveal\n[阶段] 证据揭示\n[教师逐字稿]\n听完学生计数，再显示8个等级。等级编号与等级总数相差1，下一页用区间判断原值属于哪一档。"
+    },
+    {
+      "check": "p20 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p20 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p20 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p20 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p20 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p20 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 3.71 应记为等级3，还是等级4？\n[内部编号] p17\n[阶段] 提问\n[教师逐字稿]\n请先用题目给定的左闭右开区间找到3.71，再写等级编号和区间中点。给20秒，收两种解释；此时不要显示红框和答案。"
+    },
+    {
+      "check": "p21 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p21 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p21 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p21 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p21 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p21 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 3.71 应记为等级3，还是等级4？\n[内部编号] p18\n[阶段] 证据揭示\n[教师逐字稿]\n沿用题目的区间规则，3.71位于[3,4)，因此等级编号是3，中点3.5才是幅度代表值。请分别指出空心原值、实心代表值与码字011，避免把编号3当幅度3。"
+    },
+    {
+      "check": "p22 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p22 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p22 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p22 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p22 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p22 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 10个样本，怎样依次编码？\n[内部编号] V81-19\n[阶段] 证据／解释\n[教师逐字稿]\n【设计意图】引导从单样本迁移到样本序列：强调时间先后、量化值与3位二进制对应。不要把10个样本误说为10个量化等级。\n【教师可以这样讲】请从第3个样本找起："
+    },
+    {
+      "check": "p23 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p23 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p23 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p23 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p23 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p23 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 3.71为什么写成011，而不是100？\n[内部编号] V81-20\n[阶段] 证据／解释\n[教师逐字稿]\n逐步指着四个框引导：输入原值3.71，属于区间[3,4)，所以等级编号是3；把3写成三位等长码字011。反例4.15属于L4，码字100。本例"
+    },
+    {
+      "check": "p24 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p24 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p24 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p24 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p24 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p24 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 一个样本需要几个二进制位？\n[内部编号] V81-21\n[阶段] 证据／解释\n[教师逐字稿]\n【设计意图】出选择：8个等级需要2位、3位还是8位？请学生复习2的n次方。按最简单映射列出对应表，避免一次上来10个样本。\n【教师可以这样讲】刚才有8级，若"
+    },
+    {
+      "check": "p25 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p25 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p25 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p25 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p25 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p25 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 同一个3.71，4bit会怎样近似它？\n[内部编号] p22\n[阶段] 提问\n[教师逐字稿]\n沿用上一页的幅度范围和中点规则，只改变每样本位数。先请学生找4bit下对应的区间，不显示答案，停顿20秒。"
+    },
+    {
+      "check": "p26 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p26 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p26 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p26 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p26 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p26 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 同一个3.71，4bit会怎样近似它？\n[内部编号] p22-reveal\n[阶段] 证据揭示\n[教师逐字稿]\n先听学生给出的区间，再揭示红框。[3.5,4)的中点是3.75，用它近似3.71。这里的7是等级编号，3.75是幅度代表值。更细分档没有增"
+    },
+    {
+      "check": "p27 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p27 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p27 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p27 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p27 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p27 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 采样率与量化位数，分别控制什么？\n[内部编号] V81-23\n[阶段] 证据／解释\n[教师逐字稿]\n【设计意图】学生两两互问：采样率改变什么方向？量化位数改变什么方向？画时间与幅度两个方向的粗箭头，对照两种概念。\n【教师可以这样讲】请指出采样率与量化"
+    },
+    {
+      "check": "p28 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p28 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p28 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p28 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p28 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p28 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 演示C：3bit变4bit，样本点会变多吗？\n[内部编号] p24\n[阶段] 提问\n[教师逐字稿]\n先只读实验条件。请每人预测改变位数会不会增加采样时刻，再写出还会改变什么。没有运行前不要用网格或点数给出答案。\n\n[追问]同时预测代表值和码字长度是否"
+    },
+    {
+      "check": "p29 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p29 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p29 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p29 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p29 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p29 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 演示C：3bit变4bit，样本点会变多吗？\n[内部编号] p24-reveal\n[阶段] 证据揭示\n[教师逐字稿]\n对齐上下相同的10个时刻，空心点的输入完全相同。比较实心点可取的纵向位置。请学生解释改变的是幅度分档和码字长度，记录时刻没有增加。\n"
+    },
+    {
+      "check": "p30 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p30 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p30 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p30 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p30 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p30 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 采样更多、等级更密，就一定听得更好吗？\n[内部编号] V81-25\n[阶段] 证据／解释\n[教师逐字稿]\n【教师讲述／组织】技术纠偏：在其他条件一致且原先不足时通常改善还原保真度；但达到合理条件后并非“数字越大越好”，设备、声源、听觉与滤波都会限制。"
+    },
+    {
+      "check": "p31 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p31 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p31 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p31 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p31 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p31 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 3bit模型与16bit实际存储\n[内部编号] V81-26\n[阶段] 证据／解释\n[教师逐字稿]\n【教师讲述／组织】避免从课堂3位例子跳到真实16位时困惑。说明用3位为了看清规律，不是说实际音乐普遍使用3位。\n【反馈】先听学生如何解释，再决定是否揭"
+    },
+    {
+      "check": "p32 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p32 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p32 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p32 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p32 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p32 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] PCM样本和WAV文件，分别指什么？\n[内部编号] p27\n[阶段] 解释\n[教师逐字稿]\n先指出大框表示一个完整WAV文件，里面既有说明信息，也有样本数据。请学生找到采样率和声道在哪里描述，再逐个读样本字节。计算题数的是样本数据，文件结构要另外计入"
+    },
+    {
+      "check": "p33 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p33 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p33 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p33 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p33 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black"
+      ]
+    },
+    {
+      "check": "p33 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 播放时，数字样本怎样变成声音？\n[内部编号] V81-28\n[阶段] 证据／解释\n[教师逐字稿]\n【设计意图】回扣开场录音/播放闭环：读PCM样本→转换为连续电信号→推动扬声器振动；波形经过重建，不是简单用折线连接采样点。\n【教师可以这样讲】复盘完整"
+    },
+    {
+      "check": "p34 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p34 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p34 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p34 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p34 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p34 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 声音数据量为什么与四个参数有关？\n[内部编号] V81-29\n[阶段] 证据／解释\n[教师逐字稿]\n【教师讲述／组织】从实录2由学生提出因素：越长录音越大，每秒越多点越大，每个点越多bit越大，左右两路各记录一次。请先预测四项，不马上展示公式。\n【反"
+    },
+    {
+      "check": "p35 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p35 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p35 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p35 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p35 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p35 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 先数样本，再数bit，最后换成Byte\n[内部编号] V81-30\n[阶段] 证据／解释\n[教师逐字稿]\n【设计意图】用小模型实推：每秒2个样本×4秒×1声道=8个样本，每样本3bit共24bit=3Byte。用8个小方块表示样本，而不是一上来给公式"
+    },
+    {
+      "check": "p36 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p36 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p36 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p36 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p36 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p36 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 这段PCM，共要保存多少Byte？\n[内部编号] p31\n[阶段] 提问\n[教师逐字稿]\n先独立画图：2秒内每声道记录几次？16bit对应多少Byte？给30秒，请两位学生展示计数。暂不显示网格和答案。"
+    },
+    {
+      "check": "p37 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p37 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p37 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p37 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p37 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p37 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 这段PCM，共要保存多少Byte？\n[内部编号] p31-reveal\n[阶段] 证据揭示\n[教师逐字稿]\n逐列读0、0.5、1、1.5秒，四个时刻。每个时刻同时保存左右两个样本，每样本16bit即2Byte。红框这一列占4Byte，四列共16Byt"
+    },
+    {
+      "check": "p38 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p38 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p38 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p38 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p38 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p38 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 练习题 1\n[内部编号] V81-32\n[阶段] 提问／独立作答\n[教师逐字稿]\n【教师讲述／组织】问题页。给学生独立列式。若学生写16×8×2×5，追问16kHz应等于多少Hz。\n【反馈】先听学生如何解释，再决定是否揭示结论；注意控制本页停留时间。"
+    },
+    {
+      "check": "p39 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p39 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p39 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p39 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p39 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p39 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 练习题 1\n[内部编号] V81-33\n[阶段] 证据／解释\n[教师逐字稿]\n【教师讲述／组织】答案页。问：如果双声道改成单声道，结果会怎样？\n【反馈】先听学生如何解释，再决定是否揭示结论；注意控制本页停留时间。\n\n答案160000 Byte。让学生"
+    },
+    {
+      "check": "p40 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p40 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p40 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p40 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p40 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p40 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 本节课你能解释三件事吗？\n[内部编号] V81-34\n[阶段] 学生总结，知识树未揭示\n[教师逐字稿]\n请先用自己的话回答这三个问题。每一问都要指出一页图或一个演示作为依据。给30秒整理，同桌互说后请三位同学各说一问。此时不要显示后面的知识树，先记录"
+    },
+    {
+      "check": "p41 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p41 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p41 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p41 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p41 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p41 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 本节课你能解释三件事吗？\n[内部编号] TREE-1\n[阶段] 学生总结后的知识树更新\n[教师逐字稿]\n先让学生概括本次新增的这一个关系，并指出依据。听完回答，再切到这页。红框是本次补上的录音与播放，此前已经建立的关系继续保留。请学生沿连接线读：麦克"
+    },
+    {
+      "check": "p42 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p42 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p42 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p42 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p42 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p42 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 本节课你能解释三件事吗？\n[内部编号] TREE-2\n[阶段] 学生总结后的知识树更新\n[教师逐字稿]\n先让学生概括本次新增的这一个关系，并指出依据。听完回答，再切到这页。红框是本次补上的采样、量化、编码，此前已经建立的关系继续保留。请学生沿连接线读"
+    },
+    {
+      "check": "p43 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p43 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p43 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p43 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p43 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p43 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 本节课你能解释三件事吗？\n[内部编号] TREE-3\n[阶段] 学生总结后的知识树更新\n[教师逐字稿]\n先让学生概括本次新增的这一个关系，并指出依据。听完回答，再切到这页。红框是本次补上的未压缩PCM，此前已经建立的关系继续保留。请学生沿连接线读：每"
+    },
+    {
+      "check": "p44 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p44 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p44 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        222.0,
+        1152.0,
+        120.0
+      ]
+    },
+    {
+      "check": "p44 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p44 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p44 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 为什么文件还需要压缩？\n[内部编号] V81-35\n[阶段] 课时开场\n[教师逐字稿]\n【教师讲述／组织】第二课时导入。说明第一节学的是数字化与PCM数据量，第二节学数据量计算、音轨和声道、视频数据量冲突及压缩。\n【反馈】先听学生如何解释，再决定是否"
+    },
+    {
+      "check": "p45 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p45 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p45 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p45 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p45 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p45 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 先回忆：这四个数字，分别是什么意思？\n[内部编号] V81-36\n[阶段] 证据／解释\n[教师逐字稿]\n【教师讲述／组织】实录3起手计算前，先让学生能解释参数。分组对答48,000Hz、16bit、2声道、60秒。\n【反馈】先听学生如何解释，再决定是"
+    },
+    {
+      "check": "p46 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p46 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p46 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p46 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p46 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p46 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 练习题 2\n[内部编号] V81-37\n[阶段] 提问／独立作答\n[教师逐字稿]\n【教师讲述／组织】问题页。复现实录3的DVD参数题，强调对参数意义的解释，而不只是按键计算。\n【反馈】先听学生如何解释，再决定是否揭示结论；注意控制本页停留时间。\n\n先"
+    },
+    {
+      "check": "p47 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p47 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p47 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p47 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p47 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p47 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 练习题 2\n[内部编号] V81-38\n[阶段] 证据／解释\n[教师逐字稿]\n【教师讲述／组织】答案页。实录转写常写10.98MB，这是截断近似；按四舍五入保留两位应10.99 MiB。\n【反馈】先听学生如何解释，再决定是否揭示结论；注意控制本页停留"
+    },
+    {
+      "check": "p48 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p48 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p48 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p48 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p48 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p48 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 练习题 3\n[内部编号] V81-39\n[阶段] 提问／独立作答\n[教师逐字稿]\n【设计意图】问题页。先让学生预测。这是实录3较长的认知冲突案例，不要马上公布答案。\n【教师可以这样讲】再次提问：多加了一条背景音乐音轨，新的未压缩PCM文件一定比原文件"
+    },
+    {
+      "check": "p49 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p49 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p49 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p49 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p49 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p49 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 两个看似有道理的答案，你支持哪一个？\n[内部编号] V81-40\n[阶段] 证据／解释\n[教师逐字稿]\n【设计意图】把实录中两位学生的理由换一种说法重现。引导学生指出分歧其实在“音轨和声道是不是一回事”。仍不公布答案。\n【教师可以这样讲】有人支持不变"
+    },
+    {
+      "check": "p50 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p50 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p50 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p50 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p50 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p50 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 编辑音轨与输出声道，有什么不同？\n[内部编号] V81-41\n[阶段] 证据／解释\n[教师逐字稿]\n【设计意图】直观图示：两条音轨经混音成为两个输出声道，注意不是左右各有一条编辑音轨。解释可单声道或双声道输出。\n【教师可以这样讲】请指向编辑左边两行，"
+    },
+    {
+      "check": "p51 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p51 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p51 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p51 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p51 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p51 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 练习题 3\n[内部编号] V81-42\n[阶段] 证据／解释\n[教师逐字稿]\n【教师讲述／组织】答案页。让学生回看第一个预测，承认纠正了哪一个概念。提醒不同格式和压缩参数会影响最终文件大小。\n【反馈】先听学生如何解释，再决定是否揭示结论；注意控制本页"
+    },
+    {
+      "check": "p52 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p52 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p52 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p52 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p52 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p52 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 迁移：把双声道改成单声道，会怎样？\n[内部编号] V81-43\n[阶段] 证据／解释\n[教师逐字稿]\n【教师讲述／组织】让学生应用四因素公式。声道数2→1，其他不变，PCM样本数据量减半。音轨增减并不直接决定总量。\n【反馈】先听学生如何解释，再决定是"
+    },
+    {
+      "check": "p53 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p53 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p53 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p53 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p53 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p53 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 图像和声音，在哪里取样？\n[内部编号] p47\n[阶段] 比较\n[教师逐字稿]\n左图先数列与行，每个格子是一个空间位置的像素；右图逐个数时间点，每个点是一个时刻的幅度记录。两者都先数有多少份，再计算每份大小。请学生说出图像和声音的取样位置有何不同。\n"
+    },
+    {
+      "check": "p54 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p54 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p54 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p54 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p54 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p54 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 连续的图片，怎样让我们看到运动？\n[内部编号] V81-45\n[阶段] 证据／解释\n[教师逐字稿]\n【设计意图】借鉴实录3翻页小人的经验。每一帧呈现同一圆的位置改变。问学生：视频需保存几个画面？帧率如何描述？不用严格视觉暂留时间阈值。\n【教师可以这样"
+    },
+    {
+      "check": "p55 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p55 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p55 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p55 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p55 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black"
+      ]
+    },
+    {
+      "check": "p55 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 10分钟、25fps，要保存多少帧？\n[内部编号] V81-46\n[阶段] 证据／解释\n[教师逐字稿]\n【教师讲述／组织】从学生已经理解的“视频是连续图像”计算总帧数。先让学生口算25×60×10=15000帧。\n【反馈】先听学生如何解释，再决定是否"
+    },
+    {
+      "check": "p56 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p56 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p56 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p56 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p56 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p56 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 练习题 4\n[内部编号] V81-47\n[阶段] 提问／独立作答\n[教师逐字稿]\n【设计意图】问题页。来源实录3。不要把帧率误认为采样率，一帧是一张完整图。给3分钟列式，计算可用计算器。\n【教师可以这样讲】先算一帧480×320像素，需要多少bit和"
+    },
+    {
+      "check": "p57 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p57 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p57 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p57 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p57 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p57 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 练习题 4\n[内部编号] V81-48\n[阶段] 证据／解释\n[教师逐字稿]\n【教师讲述／组织】答案页。把公式拆成两段并让学生自己解释。按十进制GB约6.912 GB。\n【反馈】先听学生如何解释，再决定是否揭示结论；注意控制本页停留时间。\n\n答案约6"
+    },
+    {
+      "check": "p58 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p58 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p58 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p58 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p58 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p58 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 视频文件为什么可能小于6.44 GiB？\n[内部编号] p52\n[阶段] 提问\n[教师逐字稿]\n刚才算出了逐帧未压缩的量。先保证屏幕上的题设不变，再请学生解释为什么一个视频文件可能更小。先收预测，不把压缩算法和帧间变化图提前揭示。\n[图示边界]\n只画"
+    },
+    {
+      "check": "p59 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p59 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p59 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p59 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p59 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p59 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 刚才计算的是逐帧未压缩数据量\n[内部编号] V81-50\n[阶段] 证据／解释\n[教师逐字稿]\n【教师讲述／组织】强调不是估计所有真实视频的固定大小。实际视频通常通过压缩编码，如利用相邻帧相似部分与人眼不敏感的某些信息。高中只解释为什么可能缩小。\n【"
+    },
+    {
+      "check": "p60 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p60 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p60 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p60 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p60 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p60 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 为什么要压缩？先想两种真实需求\n[内部编号] V81-51\n[阶段] 证据／解释\n[教师逐字稿]\n【教师讲述／组织】实录3行李箱类比：整理行李节约空间；通过网络分享文件缩短传输时间。学生可以自举例，不要说压缩必然提升感知画质。\n【反馈】先听学生如何解"
+    },
+    {
+      "check": "p61 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p61 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p61 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p61 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p61 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p61 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] “中国”重复100次，怎样写得更短？\n[内部编号] V81-52\n[阶段] 证据／解释\n[教师逐字稿]\n【设计意图】实录3的经典冗余案例。向学生展示短短的“（中国）×100”与重复文字。说明这仅是启发性的编码例子，不代表真实RAR算法。\n【教师可以这"
+    },
+    {
+      "check": "p62 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p62 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p62 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p62 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p62 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p62 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 为什么重复内容更容易压缩？\n[内部编号] V81-53\n[阶段] 证据／解释\n[教师逐字稿]\n【教师讲述／组织】把“冗余”与重复的内容联系：A有规律，B无规律，但原长度相同。实际压缩算法实现不同，因此“通常更易”而非必然。\n【反馈】先听学生如何解释，"
+    },
+    {
+      "check": "p63 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p63 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p63 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p63 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p63 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p63 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 两份都是1000Byte，压缩后谁更小？\n[内部编号] V81-54\n[阶段] 提问／独立作答\n[教师逐字稿]\n【设计意图】可以用Python标准库zlib演示，代码放Notes。生成1000个A与1000个伪随机字节（固定seed），比较同一无损压"
+    },
+    {
+      "check": "p64 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p64 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p64 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p64 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p64 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p64 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 演示D：同样1000Byte，压缩后会相同吗？\n[内部编号] V81-55\n[阶段] 证据／解释\n[教师逐字稿]\n运行remote-demos-v7/notebooks/04_压缩前先预测.ipynb（Mac计算zlib，教室Windows浏览器呈现"
+    },
+    {
+      "check": "p65 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p65 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p65 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p65 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p65 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p65 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 同样原始大小，压缩结果为何不同？\n[内部编号] V81-56\n[阶段] 证据／解释\n[教师逐字稿]\n【设计意图】演示代码（Windows课堂pt环境，Python标准库即可）：\nimport zlib, random\na=b\"A\"*1000\nr=ra"
+    },
+    {
+      "check": "p66 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p66 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p66 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p66 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p66 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p66 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 压缩到底改变了什么？\n[内部编号] V81-57\n[阶段] 证据／解释\n[教师逐字稿]\n【教师讲述／组织】实录3解释重新编码：数据压缩主要是改变表示方式，无损靠高效编码，允许有损时还可舍弃部分信息。目的与实质分开讲。\n【反馈】先听学生如何解释，再决定"
+    },
+    {
+      "check": "p67 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p67 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p67 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p67 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p67 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p67 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 看起来相同，能证明完全恢复吗？\n[内部编号] p61\n[阶段] 提问\n[教师逐字稿]\n请先看原始4×4像素，独立提出检验方法。只凭远处“看起来一样”够不够？先收方法，再展示恢复结果。"
+    },
+    {
+      "check": "p68 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p68 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p68 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p68 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p68 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p68 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 看起来相同，能证明完全恢复吗？\n[内部编号] p61-reveal\n[阶段] 证据揭示\n[教师逐字稿]\n中间16处都与原值相同；右侧至少有一处不同。请学生逐格核对红框位置。区分无损与有损，要检验能否完整恢复原始数据，而不能只凭肉眼相似。\n\n[图示边界"
+    },
+    {
+      "check": "p69 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p69 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p69 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p69 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p69 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p69 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] ZIP、MP3、WAV、MP4，是同一层吗？\n[内部编号] V81-59\n[阶段] 证据／解释\n[教师逐字稿]\n【教师讲述／组织】从实录拓展一点格式分层：ZIP/RAR是典型无损归档，MP3是常见有损音频编码，WAV是音频容器可装PCM，MP4是多媒"
+    },
+    {
+      "check": "p70 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p70 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p70 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p70 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p70 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p70 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 相同尺寸的三幅图，谁容易无损压缩？\n[内部编号] V81-60\n[阶段] 证据／解释\n[教师逐字稿]\n【设计意图】实录3三种图像案例。画同尺寸位图：纯色、规则色块、较复杂花纹（不是声称真实风景照片）。首先预测排序，再归纳冗余。\n【教师可以这样讲】这三"
+    },
+    {
+      "check": "p71 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p71 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p71 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p71 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p71 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p71 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 练习题 5\n[内部编号] V81-61\n[阶段] 提问／独立作答\n[教师逐字稿]\n【教师讲述／组织】问题页。此题迁移文字实验到图像。先解释冗余，再揭示。\n【反馈】先听学生如何解释，再决定是否揭示结论；注意控制本页停留时间。\n\n练习答案不能只选A，要解"
+    },
+    {
+      "check": "p72 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p72 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p72 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p72 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p72 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p72 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 练习题 5\n[内部编号] V81-62\n[阶段] 证据／解释\n[教师逐字稿]\n【教师讲述／组织】答案页。强调不是一切文件和算法都绝对如此。\n【反馈】先听学生如何解释，再决定是否揭示结论；注意控制本页停留时间。\n\n答案中的“通常”必须保留，不同压缩方案"
+    },
+    {
+      "check": "p73 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p73 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p73 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p73 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p73 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p73 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 同一张图，JPEG能完全恢复原像素吗？\n[内部编号] p66\n[阶段] 提问\n[教师逐字稿]\n先看两幅完整图；它们的尺寸相同。请在红框区域寻找差异，并判断“大小和外观相近”能否证明恢复了所有像素。停顿20秒。"
+    },
+    {
+      "check": "p74 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p74 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p74 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p74 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p74 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p74 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 同一张图，JPEG能完全恢复原像素吗？\n[内部编号] p66-reveal\n[阶段] 证据揭示\n[教师逐字稿]\n放大同一坐标区域，比较线条与纹理。两边使用相同裁剪、相同倍率和正确长宽比。低质量JPEG的变化只是这个受控例子，不能由肉眼相似推断逐像素完"
+    },
+    {
+      "check": "p75 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p75 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p75 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p75 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p75 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p75 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] MP3、JPG再用RAR压缩，会怎样？\n[内部编号] V81-64\n[阶段] 证据／解释\n[教师逐字稿]\n【教师讲述／组织】实录3脱水比喻，但不把其当算法。说明高效压缩过的数据通常不容易进一步缩小，可能因为已缺少可利用冗余。再次有损转码可能进一步恶化"
+    },
+    {
+      "check": "p76 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p76 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p76 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p76 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p76 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p76 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 是不是压得越小就一定越好？\n[内部编号] V81-65\n[阶段] 证据／解释\n[教师逐字稿]\n【设计意图】实录3结尾的情境决策：长期备份要完整可还原；实时通话要平衡延迟和质量。用对比培养信息社会责任意识，不只追求压缩比。\n【教师可以这样讲】某个班级要"
+    },
+    {
+      "check": "p77 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p77 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p77 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p77 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p77 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p77 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 练习题 6\n[内部编号] V81-66\n[阶段] 提问／独立作答\n[教师逐字稿]\n【教师讲述／组织】问题页。综合三种理解：音轨声道、原始视频大小、无损还原。\n【反馈】先听学生如何解释，再决定是否揭示结论；注意控制本页停留时间。\n\n请学生独立判断三句话"
+    },
+    {
+      "check": "p78 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p78 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p78 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p78 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p78 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p78 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 练习题 6\n[内部编号] V81-67\n[阶段] 证据／解释\n[教师逐字稿]\n【教师讲述／组织】答案页。不接受只给三个对错而不给依据的回答。\n【反馈】先听学生如何解释，再决定是否揭示结论；注意控制本页停留时间。\n\n先让学生口头解释，再展示①错②对③对"
+    },
+    {
+      "check": "p79 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p79 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p79 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p79 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p79 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black"
+      ]
+    },
+    {
+      "check": "p79 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 离开课堂前，解释三个为什么\n[内部编号] V81-68\n[阶段] 提问／独立作答\n[教师逐字稿]\n【教师讲述／组织】出口评价：任选一个问题让学生用自己的话解释。重点检查概念因果：数字化、视频容量、压缩选择。\n【反馈】先听学生如何解释，再决定是否揭示结"
+    },
+    {
+      "check": "p80 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p80 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p80 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p80 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p80 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p80 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 用证据，把今天的关系补到树上\n[内部编号] TREE-SUMMARY-2\n[阶段] 退出条收取后的学生总结\n[教师逐字稿]\n先收起前一页每个人的独立退出条。现在看已有的三条关系，谁能用15000帧的计算说明视频数据量？谁能用17Byte和1011By"
+    },
+    {
+      "check": "p81 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p81 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p81 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p81 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p81 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p81 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 用证据，把今天的关系补到树上\n[内部编号] TREE-4\n[阶段] 学生总结后的知识树更新\n[教师逐字稿]\n先让学生概括本次新增的这一个关系，并指出依据。听完回答，再切到这页。红框是本次补上的逐帧未压缩视频，此前已经建立的关系继续保留。请学生沿连接线"
+    },
+    {
+      "check": "p82 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p82 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p82 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p82 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p82 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p82 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 用证据，把今天的关系补到树上\n[内部编号] TREE-5\n[阶段] 学生总结后的知识树更新\n[教师逐字稿]\n先让学生概括本次新增的这一个关系，并指出依据。听完回答，再切到这页。红框是本次补上的压缩与恢复，此前已经建立的关系继续保留。请学生沿连接线读："
+    },
+    {
+      "check": "p83 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p83 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p83 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p83 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p83 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p83 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 可选拓展：这些采样值能唯一确定波形吗？\n[内部编号] EXT-SAMPLING\n[阶段] 提问\n[教师逐字稿]\n只给这三个时刻和三个值。两行是同一组记录，先不要补连续曲线。请判断能否唯一确定原波形，停顿20秒，再说明依据；不要先说采样定理或揭示候选曲"
+    },
+    {
+      "check": "p84 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p84 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p84 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p84 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p84 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p84 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 可选拓展：这些采样值能唯一确定波形吗？\n[内部编号] EXT-SAMPLING-REVEAL\n[阶段] 证据揭示\n[教师逐字稿]\n现在把两条候选曲线补上。请核对：两条曲线都经过同样三个黑点，却在点之间不同。因此只有这些观测值，不能唯一确定连续信号。\n"
+    },
+    {
+      "check": "p85 top-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        0.0,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p85 bottom-rail",
+      "status": "pass",
+      "evidence": [
+        0.0,
+        709.3333333333334,
+        1279.9679790026246,
+        10.666666666666666
+      ]
+    },
+    {
+      "check": "p85 title baseline",
+      "status": "pass",
+      "evidence": [
+        63.84,
+        63.84,
+        1152.0,
+        74.0
+      ]
+    },
+    {
+      "check": "p85 canvas bounds",
+      "status": "pass",
+      "evidence": "All owned shapes/images within canvas"
+    },
+    {
+      "check": "p85 explicit font families",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p85 stage transcript",
+      "status": "pass",
+      "evidence": "[问题] 可选拓展：编码与压缩不同\n[内部编号] V81-70\n[阶段] 证据／解释\n[教师逐字稿]\n【教师讲述／组织】这一页可留作下一单元。PCM编码是样本的表示方式；压缩编码改变数据表示量。部分WAV容器可以保存其他编码形式，不能仅凭扩展名断言完全未压缩。"
+    },
+    {
+      "check": "Stable duplicated reveal p8 -> p8-reveal",
+      "status": "pass",
+      "evidence": "Question native objects remain identical in the reveal; one additional evidence focus"
+    },
+    {
+      "check": "Stable duplicated reveal p12 -> p12-reveal",
+      "status": "pass",
+      "evidence": "Question native objects remain identical in the reveal; one additional evidence focus"
+    },
+    {
+      "check": "Stable duplicated reveal p16 -> p16-reveal",
+      "status": "pass",
+      "evidence": "Question native objects remain identical in the reveal; one additional evidence focus"
+    },
+    {
+      "check": "Stable duplicated reveal p17 -> p18",
+      "status": "pass",
+      "evidence": "Question native objects remain identical in the reveal; one additional evidence focus"
+    },
+    {
+      "check": "Stable duplicated reveal p22 -> p22-reveal",
+      "status": "pass",
+      "evidence": "Question native objects remain identical in the reveal; one additional evidence focus"
+    },
+    {
+      "check": "Stable duplicated reveal p24 -> p24-reveal",
+      "status": "pass",
+      "evidence": "Question native objects remain identical in the reveal; one additional evidence focus"
+    },
+    {
+      "check": "Stable duplicated reveal p31 -> p31-reveal",
+      "status": "pass",
+      "evidence": "Question native objects remain identical in the reveal; one additional evidence focus"
+    },
+    {
+      "check": "Stable duplicated reveal p61 -> p61-reveal",
+      "status": "pass",
+      "evidence": "Question native objects remain identical in the reveal; one additional evidence focus"
+    },
+    {
+      "check": "Stable duplicated reveal p66 -> p66-reveal",
+      "status": "pass",
+      "evidence": "Question native objects remain identical in the reveal; one additional evidence focus"
+    },
+    {
+      "check": "Exercise givens stable p32 -> p33",
+      "status": "pass",
+      "evidence": [
+        [
+          [
+            "采样率 16,000 Hz，8 bit，双声道，录制5秒。\n未压缩PCM样本数据共有多少 Byte？",
+            [
+              82.56,
+              177.6,
+              1118.4,
+              185.0
+            ]
+          ]
+        ],
+        [
+          [
+            "采样率 16,000 Hz，8 bit，双声道，录制5秒。\n未压缩PCM样本数据共有多少 Byte？",
+            [
+              82.56,
+              177.6,
+              1118.4,
+              185.0
+            ]
+          ]
+        ]
+      ]
+    },
+    {
+      "check": "Exercise givens stable p40 -> p41",
+      "status": "pass",
+      "evidence": [
+        [
+          [
+            "1分钟未压缩PCM音频：48,000 Hz、16 bit、双声道。\n样本数据量约多少MiB？",
+            [
+              82.56,
+              177.6,
+              1118.4,
+              185.0
+            ]
+          ]
+        ],
+        [
+          [
+            "1分钟未压缩PCM音频：48,000 Hz、16 bit、双声道。\n样本数据量约多少MiB？",
+            [
+              82.56,
+              177.6,
+              1118.4,
+              185.0
+            ]
+          ]
+        ]
+      ]
+    },
+    {
+      "check": "Exercise givens stable p42 -> p45",
+      "status": "pass",
+      "evidence": [
+        [
+          [
+            "给5分钟的诗朗诵加入一条等时长背景音乐音轨。\n如果导出时仍为44.1 kHz、16 bit、双声道PCM，\n数据量会翻倍吗？",
+            [
+              82.56,
+              177.6,
+              1118.4,
+              185.0
+            ]
+          ]
+        ],
+        [
+          [
+            "给5分钟的诗朗诵加入一条等时长背景音乐音轨。\n如果导出时仍为44.1 kHz、16 bit、双声道PCM，\n数据量会翻倍吗？",
+            [
+              82.56,
+              177.6,
+              1118.4,
+              185.0
+            ]
+          ]
+        ]
+      ]
+    },
+    {
+      "check": "Exercise givens stable p50 -> p51",
+      "status": "pass",
+      "evidence": [
+        [
+          [
+            "10分钟的无声视频：480×320像素，24 bit/像素，\n帧率25 fps。假设逐帧未压缩存储，\n总数据量约多少GiB？",
+            [
+              82.56,
+              177.6,
+              1118.4,
+              185.0
+            ]
+          ]
+        ],
+        [
+          [
+            "10分钟的无声视频：480×320像素，24 bit/像素，\n帧率25 fps。假设逐帧未压缩存储，\n总数据量约多少GiB？",
+            [
+              82.56,
+              177.6,
+              1118.4,
+              185.0
+            ]
+          ]
+        ]
+      ]
+    },
+    {
+      "check": "Exercise givens stable p64 -> p65",
+      "status": "pass",
+      "evidence": [
+        [
+          [
+            "A纯色、B规则色块、C复杂花纹，尺寸与位深相同。\n分别用相同无损方法压缩，谁通常最小？为什么？",
+            [
+              82.56,
+              177.6,
+              1118.4,
+              185.0
+            ]
+          ]
+        ],
+        [
+          [
+            "A纯色、B规则色块、C复杂花纹，尺寸与位深相同。\n分别用相同无损方法压缩，谁通常最小？为什么？",
+            [
+              82.56,
+              177.6,
+              1118.4,
+              185.0
+            ]
+          ]
+        ]
+      ]
+    },
+    {
+      "check": "Exercise givens stable p69 -> p70",
+      "status": "pass",
+      "evidence": [
+        [
+          [
+            "下列说法，哪些正确？\n① 增加编辑音轨，未压缩PCM数据量必然翻倍。\n② 未压缩视频逐帧保存，数据量可能很大。\n③ ZIP解压后可以恢复原始文档。",
+            [
+              82.56,
+              177.6,
+              1118.4,
+              270.0
+            ]
+          ]
+        ],
+        [
+          [
+            "下列说法，哪些正确？\n① 增加编辑音轨，未压缩PCM数据量必然翻倍。\n② 未压缩视频逐帧保存，数据量可能很大。\n③ ZIP解压后可以恢复原始文档。",
+            [
+              82.56,
+              177.6,
+              1118.4,
+              270.0
+            ]
+          ]
+        ]
+      ]
+    },
+    {
+      "check": "Source conceptual sequence retained",
+      "status": "pass",
+      "evidence": [
+        "p1",
+        "p2",
+        "p3",
+        "p4",
+        "p5",
+        "p6",
+        "p7",
+        "p8",
+        "p8-reveal",
+        "p9",
+        "p10",
+        "p11",
+        "p12",
+        "p12-reveal",
+        "p13",
+        "p14",
+        "p15",
+        "p16",
+        "p16-reveal",
+        "p17",
+        "p18",
+        "p19",
+        "p20",
+        "p21",
+        "p22",
+        "p22-reveal",
+        "p23",
+        "p24",
+        "p24-reveal",
+        "p25",
+        "p26",
+        "p27",
+        "p28",
+        "p29",
+        "p30",
+        "p31",
+        "p31-reveal",
+        "p32",
+        "p33",
+        "p34",
+        "p35",
+        "p36",
+        "p37",
+        "p38",
+        "p39",
+        "p40",
+        "p41",
+        "p42",
+        "p43",
+        "p44",
+        "p45",
+        "p46",
+        "p47",
+        "p48",
+        "p49",
+        "p50",
+        "p51",
+        "p52",
+        "p53",
+        "p54",
+        "p55",
+        "p56",
+        "p57",
+        "p58",
+        "p59",
+        "p60",
+        "p61",
+        "p61-reveal",
+        "p62",
+        "p63",
+        "p64",
+        "p65",
+        "p66",
+        "p66-reveal",
+        "p67",
+        "p68",
+        "p69",
+        "p70",
+        "p71",
+        "p72",
+        "p73",
+        "p74",
+        "p75",
+        "p76",
+        "p77"
+      ]
+    },
+    {
+      "check": "Input 3bit sample 0",
+      "status": "pass",
+      "evidence": [
+        3.71,
+        [
+          365.0,
+          339.98750656167977,
+          10.0,
+          10.0
+        ]
+      ]
+    },
+    {
+      "check": "Midpoint 3bit sample 0",
+      "status": "pass",
+      "evidence": [
+        3.5,
+        [
+          366.0,
+          343.87496062992125,
+          8.0,
+          8.0
+        ]
+      ]
+    },
+    {
+      "check": "Input 3bit sample 1",
+      "status": "pass",
+      "evidence": [
+        5.2,
+        [
+          454.3333333333333,
+          319.5000524934383,
+          10.0,
+          10.0
+        ]
+      ]
+    },
+    {
+      "check": "Midpoint 3bit sample 1",
+      "status": "pass",
+      "evidence": [
+        5.5,
+        [
+          455.3333333333333,
+          316.37501312335957,
+          8.0,
+          8.0
+        ]
+      ]
+    },
+    {
+      "check": "Input 3bit sample 2",
+      "status": "pass",
+      "evidence": [
+        7.1,
+        [
+          543.6666666666666,
+          293.37501312335957,
+          10.0,
+          10.0
+        ]
+      ]
+    },
+    {
+      "check": "Midpoint 3bit sample 2",
+      "status": "pass",
+      "evidence": [
+        7.5,
+        [
+          544.6666666666666,
+          288.87496062992125,
+          8.0,
+          8.0
+        ]
+      ]
+    },
+    {
+      "check": "Input 3bit sample 3",
+      "status": "pass",
+      "evidence": [
+        6.4,
+        [
+          633.0,
+          303.0,
+          10.0,
+          10.0
+        ]
+      ]
+    },
+    {
+      "check": "Midpoint 3bit sample 3",
+      "status": "pass",
+      "evidence": [
+        6.5,
+        [
+          634.0,
+          302.62498687664043,
+          8.0,
+          8.0
+        ]
+      ]
+    },
+    {
+      "check": "Input 3bit sample 4",
+      "status": "pass",
+      "evidence": [
+        4.15,
+        [
+          722.3333333333334,
+          333.93753280839894,
+          10.0,
+          10.0
+        ]
+      ]
+    },
+    {
+      "check": "Midpoint 3bit sample 4",
+      "status": "pass",
+      "evidence": [
+        4.5,
+        [
+          723.3333333333334,
+          330.12503937007875,
+          8.0,
+          8.0
+        ]
+      ]
+    },
+    {
+      "check": "Input 3bit sample 5",
+      "status": "pass",
+      "evidence": [
+        2.3,
+        [
+          811.6666666666666,
+          359.37501312335957,
+          10.0,
+          10.0
+        ]
+      ]
+    },
+    {
+      "check": "Midpoint 3bit sample 5",
+      "status": "pass",
+      "evidence": [
+        2.5,
+        [
+          812.6666666666666,
+          357.62498687664043,
+          8.0,
+          8.0
+        ]
+      ]
+    },
+    {
+      "check": "Input 3bit sample 6",
+      "status": "pass",
+      "evidence": [
+        0.65,
+        [
+          901.0,
+          382.06246719160106,
+          10.0,
+          10.0
+        ]
+      ]
+    },
+    {
+      "check": "Midpoint 3bit sample 6",
+      "status": "pass",
+      "evidence": [
+        0.5,
+        [
+          902.0,
+          385.12503937007875,
+          8.0,
+          8.0
+        ]
+      ]
+    },
+    {
+      "check": "Input 3bit sample 7",
+      "status": "pass",
+      "evidence": [
+        1.4,
+        [
+          990.3333333333334,
+          371.7500262467192,
+          10.0,
+          10.0
+        ]
+      ]
+    },
+    {
+      "check": "Midpoint 3bit sample 7",
+      "status": "pass",
+      "evidence": [
+        1.5,
+        [
+          991.3333333333334,
+          371.37501312335957,
+          8.0,
+          8.0
+        ]
+      ]
+    },
+    {
+      "check": "Input 3bit sample 8",
+      "status": "pass",
+      "evidence": [
+        3.2,
+        [
+          1079.6666666666667,
+          347.0,
+          10.0,
+          10.0
+        ]
+      ]
+    },
+    {
+      "check": "Midpoint 3bit sample 8",
+      "status": "pass",
+      "evidence": [
+        3.5,
+        [
+          1080.6666666666667,
+          343.87496062992125,
+          8.0,
+          8.0
+        ]
+      ]
+    },
+    {
+      "check": "Input 3bit sample 9",
+      "status": "pass",
+      "evidence": [
+        4.8,
+        [
+          1169.0,
+          325.0,
+          10.0,
+          10.0
+        ]
+      ]
+    },
+    {
+      "check": "Midpoint 3bit sample 9",
+      "status": "pass",
+      "evidence": [
+        4.5,
+        [
+          1170.0,
+          330.12503937007875,
+          8.0,
+          8.0
+        ]
+      ]
+    },
+    {
+      "check": "3bit grid levels",
+      "status": "pass",
+      "evidence": "8 and 16 same-range levels"
+    },
+    {
+      "check": "Input 4bit sample 0",
+      "status": "pass",
+      "evidence": [
+        3.71,
+        [
+          365.0,
+          519.9875065616798,
+          10.0,
+          10.0
+        ]
+      ]
+    },
+    {
+      "check": "Midpoint 4bit sample 0",
+      "status": "pass",
+      "evidence": [
+        3.75,
+        [
+          366.0,
+          520.4374803149607,
+          8.0,
+          8.0
+        ]
+      ]
+    },
+    {
+      "check": "Input 4bit sample 1",
+      "status": "pass",
+      "evidence": [
+        5.2,
+        [
+          454.3333333333333,
+          499.5000524934383,
+          10.0,
+          10.0
+        ]
+      ]
+    },
+    {
+      "check": "Midpoint 4bit sample 1",
+      "status": "pass",
+      "evidence": [
+        5.25,
+        [
+          455.3333333333333,
+          499.8124934383202,
+          8.0,
+          8.0
+        ]
+      ]
+    },
+    {
+      "check": "Input 4bit sample 2",
+      "status": "pass",
+      "evidence": [
+        7.1,
+        [
+          543.6666666666666,
+          473.37501312335957,
+          10.0,
+          10.0
+        ]
+      ]
+    },
+    {
+      "check": "Midpoint 4bit sample 2",
+      "status": "pass",
+      "evidence": [
+        7.25,
+        [
+          544.6666666666666,
+          472.3125459317585,
+          8.0,
+          8.0
+        ]
+      ]
+    },
+    {
+      "check": "Input 4bit sample 3",
+      "status": "pass",
+      "evidence": [
+        6.4,
+        [
+          633.0,
+          483.0,
+          10.0,
+          10.0
+        ]
+      ]
+    },
+    {
+      "check": "Midpoint 4bit sample 3",
+      "status": "pass",
+      "evidence": [
+        6.25,
+        [
+          634.0,
+          486.06246719160106,
+          8.0,
+          8.0
+        ]
+      ]
+    },
+    {
+      "check": "Input 4bit sample 4",
+      "status": "pass",
+      "evidence": [
+        4.15,
+        [
+          722.3333333333334,
+          513.9375328083989,
+          10.0,
+          10.0
+        ]
+      ]
+    },
+    {
+      "check": "Midpoint 4bit sample 4",
+      "status": "pass",
+      "evidence": [
+        4.25,
+        [
+          723.3333333333334,
+          513.5625196850393,
+          8.0,
+          8.0
+        ]
+      ]
+    },
+    {
+      "check": "Input 4bit sample 5",
+      "status": "pass",
+      "evidence": [
+        2.3,
+        [
+          811.6666666666666,
+          539.3750131233596,
+          10.0,
+          10.0
+        ]
+      ]
+    },
+    {
+      "check": "Midpoint 4bit sample 5",
+      "status": "pass",
+      "evidence": [
+        2.25,
+        [
+          812.6666666666666,
+          541.0624671916011,
+          8.0,
+          8.0
+        ]
+      ]
+    },
+    {
+      "check": "Input 4bit sample 6",
+      "status": "pass",
+      "evidence": [
+        0.65,
+        [
+          901.0,
+          562.0624671916011,
+          10.0,
+          10.0
+        ]
+      ]
+    },
+    {
+      "check": "Midpoint 4bit sample 6",
+      "status": "pass",
+      "evidence": [
+        0.75,
+        [
+          902.0,
+          561.6874540682414,
+          8.0,
+          8.0
+        ]
+      ]
+    },
+    {
+      "check": "Input 4bit sample 7",
+      "status": "pass",
+      "evidence": [
+        1.4,
+        [
+          990.3333333333334,
+          551.7500262467191,
+          10.0,
+          10.0
+        ]
+      ]
+    },
+    {
+      "check": "Midpoint 4bit sample 7",
+      "status": "pass",
+      "evidence": [
+        1.25,
+        [
+          991.3333333333334,
+          554.8124934383202,
+          8.0,
+          8.0
+        ]
+      ]
+    },
+    {
+      "check": "Input 4bit sample 8",
+      "status": "pass",
+      "evidence": [
+        3.2,
+        [
+          1079.6666666666667,
+          527.0,
+          10.0,
+          10.0
+        ]
+      ]
+    },
+    {
+      "check": "Midpoint 4bit sample 8",
+      "status": "pass",
+      "evidence": [
+        3.25,
+        [
+          1080.6666666666667,
+          527.3125459317586,
+          8.0,
+          8.0
+        ]
+      ]
+    },
+    {
+      "check": "Input 4bit sample 9",
+      "status": "pass",
+      "evidence": [
+        4.8,
+        [
+          1169.0,
+          505.0,
+          10.0,
+          10.0
+        ]
+      ]
+    },
+    {
+      "check": "Midpoint 4bit sample 9",
+      "status": "pass",
+      "evidence": [
+        4.75,
+        [
+          1170.0,
+          506.6874540682415,
+          8.0,
+          8.0
+        ]
+      ]
+    },
+    {
+      "check": "4bit grid levels",
+      "status": "pass",
+      "evidence": "8 and 16 same-range levels"
+    },
+    {
+      "check": "Neutral L3 question",
+      "status": "pass",
+      "evidence": "No answer marker in question"
+    },
+    {
+      "check": "3.71 caption occurs once",
+      "status": "pass",
+      "evidence": "Question and reveal each one original-value caption"
+    },
+    {
+      "check": "PCM counting grid",
+      "status": "pass",
+      "evidence": "4 instants x 2 channels x 2 bytes = 16 bytes"
+    },
+    {
+      "check": "Worked result p33",
+      "status": "pass",
+      "evidence": "160,000"
+    },
+    {
+      "check": "Worked result p41",
+      "status": "pass",
+      "evidence": "11,520,000"
+    },
+    {
+      "check": "Worked result p51",
+      "status": "pass",
+      "evidence": "6,912,000,000"
+    },
+    {
+      "check": "Independent PCM/video arithmetic",
+      "status": "pass",
+      "evidence": {
+        "audio_MiB": 10.986328125,
+        "video_GiB": 6.4373016357421875
+      }
+    },
+    {
+      "check": "Zoom sample times",
+      "status": "pass",
+      "evidence": "11 points j=15..25, observing closed 0.30..0.50s window"
+    },
+    {
+      "check": "Zoom exact sample 15",
+      "status": "pass",
+      "evidence": 0.3
+    },
+    {
+      "check": "Zoom exact sample 16",
+      "status": "pass",
+      "evidence": 0.32
+    },
+    {
+      "check": "Zoom exact sample 17",
+      "status": "pass",
+      "evidence": 0.34
+    },
+    {
+      "check": "Zoom exact sample 18",
+      "status": "pass",
+      "evidence": 0.36
+    },
+    {
+      "check": "Zoom exact sample 19",
+      "status": "pass",
+      "evidence": 0.38
+    },
+    {
+      "check": "Zoom exact sample 20",
+      "status": "pass",
+      "evidence": 0.4
+    },
+    {
+      "check": "Zoom exact sample 21",
+      "status": "pass",
+      "evidence": 0.42
+    },
+    {
+      "check": "Zoom exact sample 22",
+      "status": "pass",
+      "evidence": 0.44
+    },
+    {
+      "check": "Zoom exact sample 23",
+      "status": "pass",
+      "evidence": 0.46
+    },
+    {
+      "check": "Zoom exact sample 24",
+      "status": "pass",
+      "evidence": 0.48
+    },
+    {
+      "check": "Zoom exact sample 25",
+      "status": "pass",
+      "evidence": 0.5
+    },
+    {
+      "check": "Knowledge tree remains editable p35",
+      "status": "pass",
+      "evidence": 1
+    },
+    {
+      "check": "Knowledge tree established geometry p35",
+      "status": "pass",
+      "evidence": 0
+    },
+    {
+      "check": "Knowledge tree remains editable p36",
+      "status": "pass",
+      "evidence": 2
+    },
+    {
+      "check": "Knowledge tree established geometry p36",
+      "status": "pass",
+      "evidence": 1
+    },
+    {
+      "check": "Knowledge tree remains editable p37",
+      "status": "pass",
+      "evidence": 3
+    },
+    {
+      "check": "Knowledge tree established geometry p37",
+      "status": "pass",
+      "evidence": 2
+    },
+    {
+      "check": "Knowledge tree remains editable p72",
+      "status": "pass",
+      "evidence": 3
+    },
+    {
+      "check": "Knowledge tree established geometry p72",
+      "status": "pass",
+      "evidence": 3
+    },
+    {
+      "check": "Knowledge tree remains editable p73",
+      "status": "pass",
+      "evidence": 4
+    },
+    {
+      "check": "Knowledge tree established geometry p73",
+      "status": "pass",
+      "evidence": 3
+    },
+    {
+      "check": "Knowledge tree remains editable p74",
+      "status": "pass",
+      "evidence": 5
+    },
+    {
+      "check": "Knowledge tree established geometry p74",
+      "status": "pass",
+      "evidence": 4
+    },
+    {
+      "check": "JPEG assets preserved byte-for-byte",
+      "status": "pass",
+      "evidence": [
+        "Original PNG asset bytes in PPTX"
+      ]
+    },
+    {
+      "check": "Original preserved v81",
+      "status": "pass",
+      "evidence": "d6e6676b68e958c21606df78a45027557eaa35971e1beba684a47c3314d18dbc"
+    },
+    {
+      "check": "Original preserved v8410",
+      "status": "pass",
+      "evidence": "ba0df7d914972ce4c0b4c1782e1eb6832748e92bc4a73ac8c7efe5a0ebe29f9b"
+    }
+  ],
+  "passed": 603,
+  "failed": 0,
+  "classroom_apps": "unverified",
+  "notebook_execution": "not applicable: unchanged outside deck-only scope"
+}

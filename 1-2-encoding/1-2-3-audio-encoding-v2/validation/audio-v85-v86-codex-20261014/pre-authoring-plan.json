@@ -1,0 +1,149 @@
+{
+  "date": "2026-10-14",
+  "sources": {
+    "v81": "d6e6676b68e958c21606df78a45027557eaa35971e1beba684a47c3314d18dbc",
+    "v8410": "ba0df7d914972ce4c0b4c1782e1eb6832748e92bc4a73ac8c7efe5a0ebe29f9b"
+  },
+  "initial_source_review": [
+    {
+      "id": "S01",
+      "priority": "P0",
+      "source_v8410_pages": [
+        12
+      ],
+      "issue": "Overview and zoom show different time intervals and shapes.",
+      "decision": "Rebuild native traces from one signal and one explicitly selected interval."
+    },
+    {
+      "id": "S02",
+      "priority": "P0",
+      "source_v8410_pages": [
+        13
+      ],
+      "issue": "1 Hz and 2 Hz show four and eight samples without a one-second boundary.",
+      "decision": "Retain v8.1 corrected one-second half-open interval."
+    },
+    {
+      "id": "S03",
+      "priority": "P0",
+      "source_v8410_pages": [
+        17,
+        18
+      ],
+      "issue": "Question highlights L3; reveal confuses grade 3 with representative amplitude 3.5.",
+      "decision": "Use neutral question bins and retain explicit interval / midpoint mapping."
+    },
+    {
+      "id": "S04",
+      "priority": "P1",
+      "source_v8410_pages": [
+        22,
+        24
+      ],
+      "issue": "Finer quantization page repeats 3-bit codes; no controlled 8 versus 16 level comparison.",
+      "decision": "Retain v8.1 grids and improve shared sample / value correspondence."
+    },
+    {
+      "id": "S05",
+      "priority": "P1",
+      "source_v8410_pages": [
+        8
+      ],
+      "issue": "Space / time contrast is useful but raster labels and axis distinction need reinforcement.",
+      "decision": "Reuse the supplied spatial illustration, add native axes and fixed-position signal."
+    },
+    {
+      "id": "S06",
+      "priority": "P1",
+      "source_v8410_pages": [
+        27,
+        31,
+        33,
+        38,
+        48
+      ],
+      "issue": "Container captions overlap data boxes; calculations emphasize a memorized product.",
+      "decision": "Keep editable v8.1 counting sequence and show header versus data clearly."
+    },
+    {
+      "id": "S07",
+      "priority": "P1",
+      "source_v8410_pages": [
+        41,
+        43
+      ],
+      "issue": "Track picture suggests separate track-to-channel paths; empty channel rows cannot support counting.",
+      "decision": "Retain converging mix route and the six-versus-three sample comparison."
+    },
+    {
+      "id": "S08",
+      "priority": "P1",
+      "source_v8410_pages": [
+        58,
+        63
+      ],
+      "issue": "Lossy toy pixels are not an experiment; JPEG zoom distorts a 210 by 160 crop to 410 by 260.",
+      "decision": "Use native toy matrices marked as conceptual, plus exact same-aspect crops of supplied RGB/JPEG data."
+    },
+    {
+      "id": "S09",
+      "priority": "P1",
+      "source_v8410_pages": [
+        56,
+        57,
+        60
+      ],
+      "issue": "No size scale; compression guarantee contradicts larger result; image comparison changes palette and cell count.",
+      "decision": "Retain common-scale bars, goal qualification and identical-size two-color grids."
+    },
+    {
+      "id": "S10",
+      "priority": "P1",
+      "source_v8410_pages": [
+        34,
+        68
+      ],
+      "issue": "Summary pages omit a cumulative staged knowledge tree.",
+      "decision": "Preserve all six v8.1 tree stages and summary / exit timing."
+    },
+    {
+      "id": "S11",
+      "priority": "P2",
+      "source_v8410_pages": [
+        3,
+        7,
+        45,
+        49
+      ],
+      "issue": "Physical context and process / frame illustrations help, but some decorative shadows and right margins are unsafe.",
+      "decision": "Reuse only meaningful source artwork, keep editable technical diagrams and safe margins."
+    }
+  ],
+  "fusion_base": "v8.1.codex: 77 ordered slides, notes, six exercise pairs and tree stages",
+  "initial_changes_v81_pages": {
+    "3": "physical illustration",
+    "7": "record / playback arrows",
+    "8": "space versus fixed-position time comparison",
+    "12": "exact overview / zoom interval",
+    "16": "native countable eight bins",
+    "17": "neutral amplitude bins",
+    "22": "controlled finer-level comparison",
+    "24": "same times and raw values",
+    "27": "native container / sample payload",
+    "31": "counting factors",
+    "44": "spatial / temporal comparison",
+    "52": "frames versus unknown file",
+    "61": "native exact-recovery matrices",
+    "66": "supplied source / JPEG corresponding crops"
+  },
+  "added_question_pairs": [
+    8,
+    12,
+    22,
+    24,
+    61,
+    66
+  ],
+  "preservation": "Original source decks, formal package, historical validation, notebooks and Reveal remain unchanged.",
+  "inputs_needed": []
+}

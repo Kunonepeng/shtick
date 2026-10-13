@@ -1,0 +1,62 @@
+{
+  "reused": [
+    {
+      "file": "physical-sound-context.png",
+      "sha256": "94d447dad971af8cbb1c430006ea26ebb2e3ee5cfda8425d1798b77c9d2d407b",
+      "origin": "1-2-3-audio-encoding-v8.4.10.pptx/ppt/media/image4.png",
+      "purpose": "Context: tuning-fork vibration to microphone",
+      "final_pages": [
+        3
+      ],
+      "transformation": "Equal-aspect contain; native Chinese labels outside the image",
+      "permission_status": "User-supplied repository asset; public redistribution rights not independently established"
+    },
+    {
+      "file": "space-versus-time-source.png",
+      "sha256": "f4cb5f0d83c15dbbc40655eef72e5dfe3c198e25853079c8e92def472f9df94f",
+      "origin": "1-2-3-audio-encoding-v8.4.10.pptx/ppt/media/image5.png",
+      "purpose": "Context: spatial propagation contrasted with fixed-position time waveform",
+      "final_pages": [
+        9
+      ],
+      "transformation": "Native crop keeps left 49 percent; equal-aspect display; native temporal diagram",
+      "permission_status": "User-supplied repository asset; public redistribution rights not independently established"
+    },
+    {
+      "file": "original-rgb.png",
+      "sha256": "a7e0e84e4396de8cc6f0b19b9d647a59a678b0116cbe4df5eb70fbfcdae03373",
+      "origin": "1-2-3-audio-encoding-v8.4.10.pptx/ppt/media/image2.png",
+      "purpose": "Exact original 640x350 RGB evidence",
+      "final_pages": [
+        75,
+        76,
+        77
+      ],
+      "transformation": "Full image and native ROI crop [230,140,440,300); no modified raster",
+      "permission_status": "User-supplied repository asset; public redistribution rights not independently established"
+    },
+    {
+      "file": "jpeg-quality3-decoded.png",
+      "sha256": "29a1611fcf580dac0bcf43a78a0be3a3b37cee2dcf9442840fec3936b5f2bb64",
+      "origin": "1-2-3-audio-encoding-v8.4.10.pptx/ppt/media/image3.png",
+      "purpose": "Exact supplied JPEG-decoded RGB evidence",
+      "final_pages": [
+        75,
+        76,
+        77
+      ],
+      "transformation": "Same full-image display and same ROI/aspect as original; no generated artifacts",
+      "permission_status": "User-supplied repository asset; public redistribution rights not independently established"
+    }
+  ],
+  "new_AI_images": 0,
+  "retained_AI_contexts": {
+    "source": "v8.1.codex",
+    "pages": [
+      2,
+      79
+    ],
+    "exact_original_prompts": "../../assets/generated/image-prompts.md and retained [图片生成提示词] Speaker Notes",
+    "post_generation_edits_this_task": "None; imported source media bytes retained"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "method": "Copied delivered sources/assets into an isolated temporary record, linked bundled modules, regenerated stages 0/1/2, ran independent audit.",
+  "ordered_plans_equal": {
+    "v85": true,
+    "round1": true,
+    "v86": true
+  },
+  "audit_passed": 667,
+  "audit_failed": 0,
+  "output_role": "Temporary replay only; delivered decks remain unchanged."
+}

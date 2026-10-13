@@ -1,0 +1,602 @@
+{
+  "version": "round1",
+  "date": "2026-10-14",
+  "slideCount": 85,
+  "slides": [
+    {
+      "key": "p1",
+      "base81": 1,
+      "role": "retained",
+      "page": 1,
+      "title": "声音怎样变成0和1？"
+    },
+    {
+      "key": "p2",
+      "base81": 2,
+      "role": "retained",
+      "page": 2,
+      "title": "文字、图像能编码，声音呢？"
+    },
+    {
+      "key": "p3",
+      "base81": 3,
+      "role": "retained",
+      "page": 3,
+      "title": "振动怎样把声音传到麦克风？"
+    },
+    {
+      "key": "p4",
+      "base81": 4,
+      "role": "retained",
+      "page": 4,
+      "title": "声音和电脑里的音频文件，是同一种量吗？"
+    },
+    {
+      "key": "p5",
+      "base81": 5,
+      "role": "retained",
+      "page": 5,
+      "title": "麦克风把声波变成什么？"
+    },
+    {
+      "key": "p6",
+      "base81": 6,
+      "role": "retained",
+      "page": 6,
+      "title": "连续电信号，怎样变成数字？"
+    },
+    {
+      "key": "p7",
+      "base81": 7,
+      "role": "retained",
+      "page": 7,
+      "title": "录音与播放，各转换了什么？"
+    },
+    {
+      "key": "p8",
+      "base81": 8,
+      "role": "question",
+      "page": 8,
+      "title": "波形图的横轴，表示距离还是时间？"
+    },
+    {
+      "key": "p8-reveal",
+      "base81": 8,
+      "role": "reveal",
+      "page": 9,
+      "title": "波形图的横轴，表示距离还是时间？"
+    },
+    {
+      "key": "p9",
+      "base81": 9,
+      "role": "retained",
+      "page": 10,
+      "title": "演示A：红线向右，表示什么？"
+    },
+    {
+      "key": "p10",
+      "base81": 10,
+      "role": "retained",
+      "page": 11,
+      "title": "只能留下有限个数字，该在哪些时刻取样？"
+    },
+    {
+      "key": "p11",
+      "base81": 11,
+      "role": "retained",
+      "page": 12,
+      "title": "每隔相同时间，取一个幅度值"
+    },
+    {
+      "key": "p12",
+      "base81": 12,
+      "role": "question",
+      "page": 13,
+      "title": "演示B：放大红框，能看到什么？"
+    },
+    {
+      "key": "p12-reveal",
+      "base81": 12,
+      "role": "reveal",
+      "page": 14,
+      "title": "演示B：放大红框，能看到什么？"
+    },
+    {
+      "key": "p13",
+      "base81": 13,
+      "role": "retained",
+      "page": 15,
+      "title": "1 Hz和2 Hz，一秒内取几个样本？"
+    },
+    {
+      "key": "p14",
+      "base81": 14,
+      "role": "retained",
+      "page": 16,
+      "title": "提高采样率，时间轴上的什么变了？"
+    },
+    {
+      "key": "p15",
+      "base81": 15,
+      "role": "retained",
+      "page": 17,
+      "title": "采样值可能是3.71，怎样记录？"
+    },
+    {
+      "key": "p16",
+      "base81": 16,
+      "role": "question",
+      "page": 18,
+      "title": "等级编号0～7，一共有几档？"
+    },
+    {
+      "key": "p16-reveal",
+      "base81": 16,
+      "role": "reveal",
+      "page": 19,
+      "title": "等级编号0～7，一共有几档？"
+    },
+    {
+      "key": "p17",
+      "base81": 17,
+      "role": "retained",
+      "page": 20,
+      "title": "3.71 应记为等级3，还是等级4？"
+    },
+    {
+      "key": "p18",
+      "base81": 18,
+      "role": "reveal",
+      "page": 21,
+      "title": "3.71 应记为等级3，还是等级4？"
+    },
+    {
+      "key": "p19",
+      "base81": 19,
+      "role": "retained",
+      "page": 22,
+      "title": "10个样本，怎样依次编码？"
+    },
+    {
+      "key": "p20",
+      "base81": 20,
+      "role": "retained",
+      "page": 23,
+      "title": "3.71为什么写成011，而不是100？"
+    },
+    {
+      "key": "p21",
+      "base81": 21,
+      "role": "retained",
+      "page": 24,
+      "title": "一个样本需要几个二进制位？"
+    },
+    {
+      "key": "p22",
+      "base81": 22,
+      "role": "question",
+      "page": 25,
+      "title": "同一个3.71，4bit会怎样近似它？"
+    },
+    {
+      "key": "p22-reveal",
+      "base81": 22,
+      "role": "reveal",
+      "page": 26,
+      "title": "同一个3.71，4bit会怎样近似它？"
+    },
+    {
+      "key": "p23",
+      "base81": 23,
+      "role": "retained",
+      "page": 27,
+      "title": "采样率与量化位数，分别控制什么？"
+    },
+    {
+      "key": "p24",
+      "base81": 24,
+      "role": "question",
+      "page": 28,
+      "title": "演示C：3bit变4bit，样本点会变多吗？"
+    },
+    {
+      "key": "p24-reveal",
+      "base81": 24,
+      "role": "reveal",
+      "page": 29,
+      "title": "演示C：3bit变4bit，样本点会变多吗？"
+    },
+    {
+      "key": "p25",
+      "base81": 25,
+      "role": "retained",
+      "page": 30,
+      "title": "采样更多、等级更密，就一定听得更好吗？"
+    },
+    {
+      "key": "p26",
+      "base81": 26,
+      "role": "retained",
+      "page": 31,
+      "title": "3bit模型与16bit实际存储"
+    },
+    {
+      "key": "p27",
+      "base81": 27,
+      "role": "retained",
+      "page": 32,
+      "title": "PCM样本和WAV文件，分别指什么？"
+    },
+    {
+      "key": "p28",
+      "base81": 28,
+      "role": "retained",
+      "page": 33,
+      "title": "播放时，数字样本怎样变成声音？"
+    },
+    {
+      "key": "p29",
+      "base81": 29,
+      "role": "retained",
+      "page": 34,
+      "title": "声音数据量为什么与四个参数有关？"
+    },
+    {
+      "key": "p30",
+      "base81": 30,
+      "role": "retained",
+      "page": 35,
+      "title": "先数样本，再数bit，最后换成Byte"
+    },
+    {
+      "key": "p31",
+      "base81": 31,
+      "role": "question",
+      "page": 36,
+      "title": "这段PCM，共要保存多少Byte？"
+    },
+    {
+      "key": "p31-reveal",
+      "base81": 31,
+      "role": "reveal",
+      "page": 37,
+      "title": "这段PCM，共要保存多少Byte？"
+    },
+    {
+      "key": "p32",
+      "base81": 32,
+      "role": "retained",
+      "page": 38,
+      "title": "练习题 1"
+    },
+    {
+      "key": "p33",
+      "base81": 33,
+      "role": "retained",
+      "page": 39,
+      "title": "练习题 1"
+    },
+    {
+      "key": "p34",
+      "base81": 34,
+      "role": "retained",
+      "page": 40,
+      "title": "本节课你能解释三件事吗？"
+    },
+    {
+      "key": "p35",
+      "base81": 35,
+      "role": "retained",
+      "page": 41,
+      "title": "本节课你能解释三件事吗？"
+    },
+    {
+      "key": "p36",
+      "base81": 36,
+      "role": "retained",
+      "page": 42,
+      "title": "本节课你能解释三件事吗？"
+    },
+    {
+      "key": "p37",
+      "base81": 37,
+      "role": "retained",
+      "page": 43,
+      "title": "本节课你能解释三件事吗？"
+    },
+    {
+      "key": "p38",
+      "base81": 38,
+      "role": "retained",
+      "page": 44,
+      "title": "为什么文件还需要压缩？"
+    },
+    {
+      "key": "p39",
+      "base81": 39,
+      "role": "retained",
+      "page": 45,
+      "title": "先回忆：这四个数字，分别是什么意思？"
+    },
+    {
+      "key": "p40",
+      "base81": 40,
+      "role": "retained",
+      "page": 46,
+      "title": "练习题 2"
+    },
+    {
+      "key": "p41",
+      "base81": 41,
+      "role": "retained",
+      "page": 47,
+      "title": "练习题 2"
+    },
+    {
+      "key": "p42",
+      "base81": 42,
+      "role": "retained",
+      "page": 48,
+      "title": "练习题 3"
+    },
+    {
+      "key": "p43",
+      "base81": 43,
+      "role": "retained",
+      "page": 49,
+      "title": "两个看似有道理的答案，你支持哪一个？"
+    },
+    {
+      "key": "p44",
+      "base81": 44,
+      "role": "retained",
+      "page": 50,
+      "title": "编辑音轨与输出声道，有什么不同？"
+    },
+    {
+      "key": "p45",
+      "base81": 45,
+      "role": "retained",
+      "page": 51,
+      "title": "练习题 3"
+    },
+    {
+      "key": "p46",
+      "base81": 46,
+      "role": "retained",
+      "page": 52,
+      "title": "迁移：把双声道改成单声道，会怎样？"
+    },
+    {
+      "key": "p47",
+      "base81": 47,
+      "role": "retained",
+      "page": 53,
+      "title": "图像和声音，在哪里取样？"
+    },
+    {
+      "key": "p48",
+      "base81": 48,
+      "role": "retained",
+      "page": 54,
+      "title": "连续的图片，怎样让我们看到运动？"
+    },
+    {
+      "key": "p49",
+      "base81": 49,
+      "role": "retained",
+      "page": 55,
+      "title": "10分钟、25fps，要保存多少帧？"
+    },
+    {
+      "key": "p50",
+      "base81": 50,
+      "role": "retained",
+      "page": 56,
+      "title": "练习题 4"
+    },
+    {
+      "key": "p51",
+      "base81": 51,
+      "role": "retained",
+      "page": 57,
+      "title": "练习题 4"
+    },
+    {
+      "key": "p52",
+      "base81": 52,
+      "role": "retained",
+      "page": 58,
+      "title": "视频文件为什么可能小于6.44 GiB？"
+    },
+    {
+      "key": "p53",
+      "base81": 53,
+      "role": "retained",
+      "page": 59,
+      "title": "刚才计算的是逐帧未压缩数据量"
+    },
+    {
+      "key": "p54",
+      "base81": 54,
+      "role": "retained",
+      "page": 60,
+      "title": "为什么要压缩？先想两种真实需求"
+    },
+    {
+      "key": "p55",
+      "base81": 55,
+      "role": "retained",
+      "page": 61,
+      "title": "“中国”重复100次，怎样写得更短？"
+    },
+    {
+      "key": "p56",
+      "base81": 56,
+      "role": "retained",
+      "page": 62,
+      "title": "为什么重复内容更容易压缩？"
+    },
+    {
+      "key": "p57",
+      "base81": 57,
+      "role": "retained",
+      "page": 63,
+      "title": "两份都是1000Byte，压缩后谁更小？"
+    },
+    {
+      "key": "p58",
+      "base81": 58,
+      "role": "retained",
+      "page": 64,
+      "title": "演示D：同样1000Byte，压缩后会相同吗？"
+    },
+    {
+      "key": "p59",
+      "base81": 59,
+      "role": "retained",
+      "page": 65,
+      "title": "同样原始大小，压缩结果为何不同？"
+    },
+    {
+      "key": "p60",
+      "base81": 60,
+      "role": "retained",
+      "page": 66,
+      "title": "压缩到底改变了什么？"
+    },
+    {
+      "key": "p61",
+      "base81": 61,
+      "role": "question",
+      "page": 67,
+      "title": "看起来相同，能证明完全恢复吗？"
+    },
+    {
+      "key": "p61-reveal",
+      "base81": 61,
+      "role": "reveal",
+      "page": 68,
+      "title": "看起来相同，能证明完全恢复吗？"
+    },
+    {
+      "key": "p62",
+      "base81": 62,
+      "role": "retained",
+      "page": 69,
+      "title": "ZIP、MP3、WAV、MP4，是同一层吗？"
+    },
+    {
+      "key": "p63",
+      "base81": 63,
+      "role": "retained",
+      "page": 70,
+      "title": "相同尺寸的三幅图，谁容易无损压缩？"
+    },
+    {
+      "key": "p64",
+      "base81": 64,
+      "role": "retained",
+      "page": 71,
+      "title": "练习题 5"
+    },
+    {
+      "key": "p65",
+      "base81": 65,
+      "role": "retained",
+      "page": 72,
+      "title": "练习题 5"
+    },
+    {
+      "key": "p66",
+      "base81": 66,
+      "role": "question",
+      "page": 73,
+      "title": "同一张图，JPEG能完全恢复原像素吗？"
+    },
+    {
+      "key": "p66-reveal",
+      "base81": 66,
+      "role": "reveal",
+      "page": 74,
+      "title": "同一张图，JPEG能完全恢复原像素吗？"
+    },
+    {
+      "key": "p67",
+      "base81": 67,
+      "role": "retained",
+      "page": 75,
+      "title": "MP3、JPG再用RAR压缩，会怎样？"
+    },
+    {
+      "key": "p68",
+      "base81": 68,
+      "role": "retained",
+      "page": 76,
+      "title": "是不是压得越小就一定越好？"
+    },
+    {
+      "key": "p69",
+      "base81": 69,
+      "role": "retained",
+      "page": 77,
+      "title": "练习题 6"
+    },
+    {
+      "key": "p70",
+      "base81": 70,
+      "role": "retained",
+      "page": 78,
+      "title": "练习题 6"
+    },
+    {
+      "key": "p71",
+      "base81": 71,
+      "role": "retained",
+      "page": 79,
+      "title": "离开课堂前，解释三个为什么"
+    },
+    {
+      "key": "p72",
+      "base81": 72,
+      "role": "retained",
+      "page": 80,
+      "title": "用证据，把今天的关系补到树上"
+    },
+    {
+      "key": "p73",
+      "base81": 73,
+      "role": "retained",
+      "page": 81,
+      "title": "用证据，把今天的关系补到树上"
+    },
+    {
+      "key": "p74",
+      "base81": 74,
+      "role": "retained",
+      "page": 82,
+      "title": "用证据，把今天的关系补到树上"
+    },
+    {
+      "key": "p75",
+      "base81": 75,
+      "role": "retained",
+      "page": 83,
+      "title": "可选拓展：这些采样值能唯一确定波形吗？"
+    },
+    {
+      "key": "p76",
+      "base81": 76,
+      "role": "retained",
+      "page": 84,
+      "title": "可选拓展：这些采样值能唯一确定波形吗？"
+    },
+    {
+      "key": "p77",
+      "base81": 77,
+      "role": "retained",
+      "page": 85,
+      "title": "可选拓展：编码与压缩不同"
+    }
+  ]
+}

@@ -1,0 +1,165 @@
+{
+  "round": 2,
+  "reviewed_version": "round1-candidate",
+  "reviewed_sha256": "4a50504d139dadde65dd6f7314e67886ff0ced645d92bfbfcc275c0d9ef02bdd",
+  "slideCount": 85,
+  "p0_count": 0,
+  "full_render": "round1-render",
+  "issues": [
+    {
+      "id": "R2-01",
+      "priority": "P1",
+      "reviewed_pages": [
+        26
+      ],
+      "keys": [
+        "p22-reveal"
+      ],
+      "issue": "更细分档没有可直接对应的实心代表值，也看不出近似误差大小",
+      "fix": "加入3.5／3.75实心点，复制页单独揭示同尺度0.21／0.04误差",
+      "status": "pass",
+      "final_pages": [
+        25,
+        26,
+        27
+      ],
+      "recheck_images": [
+        "v86-render/slide-25.png",
+        "v86-render/slide-26.png",
+        "v86-render/slide-27.png"
+      ],
+      "recheck": "全分辨率人工复检上述页面；原生对象／数值／配对几何检查见v86-audit.json。"
+    },
+    {
+      "id": "R2-02",
+      "priority": "P1",
+      "reviewed_pages": [
+        50
+      ],
+      "keys": [
+        "p44"
+      ],
+      "issue": "混音连线正确，但抽象框看不见两条输入都贡献到两路输出",
+      "fix": "四幅共时轴／共幅度比例的原生波形，两条输入先汇合再分流；教师记录公式与示意边界",
+      "status": "pass",
+      "final_pages": [
+        52
+      ],
+      "recheck_images": [
+        "v86-render/slide-52.png"
+      ],
+      "recheck": "全分辨率人工复检上述页面；原生对象／数值／配对几何检查见v86-audit.json。"
+    },
+    {
+      "id": "R2-03",
+      "priority": "P2",
+      "reviewed_pages": [
+        54
+      ],
+      "keys": [
+        "p48"
+      ],
+      "issue": "25fps口头定义与前5张图片之间缺显式时间关系",
+      "fix": "加0.00～0.16s，间隔0.04s的时刻标签",
+      "status": "pass",
+      "final_pages": [
+        56
+      ],
+      "recheck_images": [
+        "v86-render/slide-56.png"
+      ],
+      "recheck": "全分辨率人工复检上述页面；原生对象／数值／配对几何检查见v86-audit.json。"
+    },
+    {
+      "id": "R2-04",
+      "priority": "P1",
+      "reviewed_pages": [
+        74
+      ],
+      "keys": [
+        "p66-reveal"
+      ],
+      "issue": "JPEG细节能看出差异，但恢复标准仍依赖肉眼，裁剪对应关系缺标签",
+      "fix": "标注同区域等比放大，再复制页核对同坐标真实RGB值",
+      "status": "pass",
+      "final_pages": [
+        75,
+        76,
+        77
+      ],
+      "recheck_images": [
+        "v86-render/slide-75.png",
+        "v86-render/slide-76.png",
+        "v86-render/slide-77.png"
+      ],
+      "recheck": "全分辨率人工复检上述页面；原生对象／数值／配对几何检查见v86-audit.json。"
+    },
+    {
+      "id": "R2-05",
+      "priority": "P1",
+      "reviewed_pages": [
+        36,
+        37
+      ],
+      "keys": [
+        "p31",
+        "p31-reveal"
+      ],
+      "issue": "PCM网格结果不能直接在屏幕上迁移到公式，采样终点的计数边界不足",
+      "fix": "明确[0,2)；复制网格页后追加通用公式，每个因子对应列数／列容量",
+      "status": "pass",
+      "final_pages": [
+        37,
+        38,
+        39
+      ],
+      "recheck_images": [
+        "v86-render/slide-37.png",
+        "v86-render/slide-38.png",
+        "v86-render/slide-39.png"
+      ],
+      "recheck": "全分辨率人工复检上述页面；原生对象／数值／配对几何检查见v86-audit.json。"
+    },
+    {
+      "id": "R2-06",
+      "priority": "P2",
+      "reviewed_pages": [
+        45
+      ],
+      "keys": [
+        "p39"
+      ],
+      "issue": "二进制换算提醒仍出现MB，虽练习用MiB但容易混读",
+      "fix": "用1MiB=1024²Byte直接替换提醒，Notes区分MB",
+      "status": "pass",
+      "final_pages": [
+        47
+      ],
+      "recheck_images": [
+        "v86-render/slide-47.png"
+      ],
+      "recheck": "全分辨率人工复检上述页面；原生对象／数值／配对几何检查见v86-audit.json。"
+    },
+    {
+      "id": "R2-07",
+      "priority": "P2",
+      "reviewed_pages": [
+        16
+      ],
+      "keys": [
+        "p14"
+      ],
+      "issue": "采样密度页首个图标题进入主标题区域，比较缺显式一秒区间",
+      "fix": "重绘共时轴／共幅度模型的8Hz与20Hz原生图，所有主体从y=166开始，按[0,1)计点",
+      "status": "pass",
+      "final_pages": [
+        16
+      ],
+      "recheck_images": [
+        "v86-render/slide-16.png"
+      ],
+      "recheck": "全分辨率人工复检上述页面；原生对象／数值／配对几何检查见v86-audit.json。"
+    }
+  ],
+  "final_sha256": "afb52840e0be06efe26edbd15003eaceeb3becfcb4f4dfb30c55c55bd0d74dde"
+}
