@@ -1,31 +1,59 @@
-"""Browser-first Jupyter widgets: Mac computes, remote browser displays and plays."""
+"""Browser-rendered classroom demos: no anywidget or Jupyter widgets extension needed.
+
+The Mac Jupyter kernel prepares the audio and samples. Each newly-executed output
+contains its own HTML element and browser-side JavaScript. The browser audio
+player plays on the Windows classroom computer, not the Mac.
+"""
+from __future__ import annotations
+
+import json
 from pathlib import Path
-import anywidget
-import traitlets
-from .core import player_data, lab_data
+from uuid import uuid4
+from IPython.display import HTML, Javascript, display
 
-HERE=Path(__file__).resolve().parent
+from .core import lab_data, player_data
 
-class WaveWidget(anywidget.AnyWidget):
-    _esm=HERE/'frontend.js'
-    _css=HERE/'style.css'
-    mode=traitlets.Unicode('player').tag(sync=True)
-    payload=traitlets.Dict().tag(sync=True)
+HERE = Path(__file__).resolve().parent
 
-class EncodingWidget(anywidget.AnyWidget):
-    _esm=HERE/'frontend.js'
-    _css=HERE/'style.css'
-    mode=traitlets.Unicode('lab').tag(sync=True)
-    payload=traitlets.Dict().tag(sync=True)
+
+class BrowserDemo:
+    def __init__(self, mode: str, payload: dict):
+        self.mode, self.payload = mode, payload
+        self.target = "audio_demo_" + uuid4().hex
+        self._cleanup = None
+
+    def _ipython_display_(self):
+        """Display on cell execution, using normal trusted HTML/JS outputs."""
+        css = (HERE / "style.css").read_text(encoding="utf-8")
+        js = (HERE / "frontend.js").read_text(encoding="utf-8")
+        # The original JS module finishes with the AnyWidget adapter.
+        # Its standalone DOM functions above the adapter need no extra frontend.
+        prelude, marker, _ = js.partition("\nexport default")
+        if not marker:
+            raise RuntimeError("frontend.js missing expected export adapter")
+        mount = json.dumps(self.target)
+        mode = json.dumps(self.mode)
+        data = json.dumps(self.payload, ensure_ascii=False, separators=(",", ":"))
+        display(HTML(f'<style>{css}</style><div id="{self.target}"></div>'))
+        display(Javascript(
+            "(function(){\n" + prelude + "\n"
+            + f"const mount = document.getElementById({mount});\n"
+            + "if (!mount) throw Error('Missing classroom demo container');\n"
+            + "const root = el('div',{class:'audio-v7'}); mount.replaceChildren(root);\n"
+            + f"const data={data}; const mode={mode};\n"
+            + "if(mode==='player'||mode==='zoom')makePlayer(root,data,mode==='zoom');\n"
+            + "else if(mode==='lab')makeLab(root,data);\n"
+            + "})();"
+        ))
 
 
 def listening_demo():
-    return WaveWidget(mode='player',payload=player_data(detail=False))
+    return BrowserDemo("player", player_data(detail=False))
 
 
 def zoom_demo():
-    return WaveWidget(mode='zoom',payload=player_data(detail=True))
+    return BrowserDemo("zoom", player_data(detail=True))
 
 
 def encoding_lab():
-    return EncodingWidget(mode='lab',payload=lab_data())
+    return BrowserDemo("lab", lab_data())
