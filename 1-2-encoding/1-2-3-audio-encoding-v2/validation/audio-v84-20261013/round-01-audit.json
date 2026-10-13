@@ -1,0 +1,13 @@
+{
+  "round": 1,
+  "severity": "P1",
+  "identified_issue": "声源的物理传播图信息密度不足，学生可能把弯线当空间路线",
+  "refinement": "第3页新增音叉振动、疏密波阵面与麦克风的插图，并明确模拟电信号在下一步产生",
+  "verified_by": "声源到麦克风的路径清晰、插图无正弦传播轨迹",
+  "slides": 70,
+  "speaker_notes": 70,
+  "qa_pairs": 6,
+  "input_sha256": "4991a88cf410ff13aafd9041a7ea68b05538b347171f9e0f15f253cbd2052867",
+  "output_sha256": "89c98e5bdf3fea00b39c159af52ea9d1061e7be3c126fd0deaf7f2df5c8c955e",
+  "output_bytes": 400872
+}
