@@ -44,7 +44,7 @@ jobs:
           assert '压缩' in text_of(p.slides[29])
           assert '练习题 6' in text_of(p.slides[59])
           assert '可选拓展' in text_of(p.slides[62])
-          assert all('Alibaba PuHuiTi' in (run.font.name or '') for s in p.slides for sh in s.shapes if sh.has_text_frame for pa in sh.text_frame.paragraphs for run in pa.runs)
+          assert all('Alibaba PuHuiTi' in (pa.font.name or '') for s in p.slides for sh in s.shapes if sh.has_text_frame for pa in sh.text_frame.paragraphs if pa.text.strip())
           with ZipFile(path) as z:
               assert z.testzip() is None
           print('VALIDATION PASSED: 64 slides; 64 speaker notes; visual source; ZIP package; original v5 untouched')
