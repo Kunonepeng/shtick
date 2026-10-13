@@ -1,0 +1,75 @@
+name: Ten sequential audio v8.4 visual refinements
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/build-audio-v84-ten.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: audio-v84-sequential-main
+  cancel-in-progress: false
+
+jobs:
+  ten-round-visual-build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install binary image and PowerPoint dependencies
+        run: python -m pip install --disable-pip-version-check python-pptx pillow
+      - name: Build, audit, commit and push one round at a time
+        env:
+          RUN_PUSH: '1'
+        run: |
+          python 1-2-encoding/1-2-3-audio-encoding-v2/validation/audio-v84-20261013/build_ten_visual_rounds.py
+      - name: Verify all ten committed versions and notes
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from pptx import Presentation
+          from zipfile import ZipFile
+          import json
+          d=Path("1-2-encoding/1-2-3-audio-encoding-v2")
+          audits=d/"validation/audio-v84-20261013"
+          previous=None
+          for k in range(1,11):
+              ppt=d/f"1-2-3-audio-encoding-v8.4.{k}.pptx"
+              report=audits/f"round-{k:02d}-audit.json"
+              assert ppt.exists() and report.exists()
+              a=json.loads(report.read_text(encoding="utf-8"))
+              deck=Presentation(ppt)
+              assert len(deck.slides)==70 and a["slides"]==70
+              assert a["speaker_notes"]==70 and a["qa_pairs"]==6
+              assert a["round"]==k
+              assert all(s.has_notes_slide and s.notes_slide.notes_text_frame.text.strip() for s in deck.slides)
+              with ZipFile(ppt) as z: assert z.testzip() is None
+              if previous: assert a["input_sha256"]==previous
+              assert a["input_sha256"]!=a["output_sha256"]
+              previous=a["output_sha256"]
+              print("PASS",k,ppt.name,"P0/P1/P2",a["severity"])
+          final=Presentation(d/"1-2-3-audio-encoding-v8.4.10.pptx")
+          # Preserve a true prediction before its reveal, and a question before compression.
+          q16=" ".join(sh.text for sh in final.slides[15].shapes if sh.has_text_frame)
+          q49=" ".join(sh.text for sh in final.slides[48].shapes if sh.has_text_frame)
+          assert "3.71" not in q16 and "压缩编码" not in q49
+          # All 6 paired questions still present.
+          titles=[next((s.text.strip() for s in sl.shapes if s.has_text_frame and s.text.strip()),"") for sl in final.slides]
+          for n in range(1,7): assert titles.count("练习题 "+str(n))==2
+          print("FINAL PASS: ten sequential validated decks")
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: v84-round-audits
+          path: 1-2-encoding/1-2-3-audio-encoding-v2/validation/audio-v84-20261013/round-*-audit.json
+          retention-days: 30
