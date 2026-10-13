@@ -1,0 +1,13 @@
+{
+  "round": 9,
+  "severity": "P1",
+  "identified_issue": "无损和有损仅靠定义，缺少输出是否同源的视觉证据",
+  "refinement": "第58页新增一幅原图与两种还原结果图：无损完全一致、有损细节变化",
+  "verified_by": "两类结果可一眼对照且明确是示意",
+  "slides": 70,
+  "speaker_notes": 70,
+  "qa_pairs": 6,
+  "input_sha256": "f6b46ac9fc157738dce264ed9bcf0c03b6c3eaef7192e0ab7a75a7ece9ff7ee8",
+  "output_sha256": "d40e872186469da60377379e33bd27c4f910eb4a61d9491159ae25a71c2a88cd",
+  "output_bytes": 413632
+}
