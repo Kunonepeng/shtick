@@ -1,0 +1,13 @@
+{
+  "round": 4,
+  "severity": "P0",
+  "identified_issue": "0至7的等级数缺少直观可数的区间尺",
+  "refinement": "第16页绘制八段均匀量化尺，强调L0到L7共8级，并保留后面独立预测页的悬念",
+  "verified_by": "八个等级区间清晰，不提前公布3.71所属等级",
+  "slides": 70,
+  "speaker_notes": 70,
+  "qa_pairs": 6,
+  "input_sha256": "e9c8233e7fbaa058cb19323d86a1e6ec69de3d004fcd8a81374a72263df8f265",
+  "output_sha256": "7e7f44fe0ae0e7746ed507eef401057be5b59578eda1ff59ab32f49fc37401f8",
+  "output_bytes": 407873
+}
