@@ -1,0 +1,12 @@
+{
+  "round": 3,
+  "severity": "P1",
+  "identified_issue": "录音和播放两条转换路径辨识度不足",
+  "refinement": "第7页以紫/青双色双行流程图重绘",
+  "slides": 70,
+  "notes": 70,
+  "question_answer_pairs": 6,
+  "input_sha256": "91b0c939b4dd9e66748c9d3cb495a1f55286404eae1c75e0bd0f332fb0315378",
+  "output_sha256": "da2bef2c79f4d11214a15bc637e64c3efc69bd5207fa2169e073ea59e4f69390",
+  "method": "PowerPoint native diagram; round 9 actual same-source PNG/JPEG image pair"
+}
