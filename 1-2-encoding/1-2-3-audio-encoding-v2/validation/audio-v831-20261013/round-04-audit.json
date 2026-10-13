@@ -1,0 +1,12 @@
+{
+  "round": 4,
+  "severity": "P1",
+  "identified_issue": "采样率与量化位数的二维差异不够醒目",
+  "refinement": "第24页将横向样本点与纵向量化等级并列",
+  "slides": 70,
+  "notes": 70,
+  "question_answer_pairs": 6,
+  "input_sha256": "da2bef2c79f4d11214a15bc637e64c3efc69bd5207fa2169e073ea59e4f69390",
+  "output_sha256": "def7fd428ce82584ffb3fb6016a8fcc3a40806c56dd5d7f4c4618c76b299e586",
+  "method": "PowerPoint native diagram; round 9 actual same-source PNG/JPEG image pair"
+}
