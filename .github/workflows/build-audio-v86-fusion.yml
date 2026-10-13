@@ -1,0 +1,96 @@
+name: Fuse audio decks and review 10 visual rounds
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/build-audio-v86-fusion.yml"
+      - "1-2-encoding/1-2-3-audio-encoding-v2/validation/audio-v86-20261014/build_fuse_review.py"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fuse-and-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install reproducible PPTX tools
+        run: |
+          python -m pip install python-pptx pillow
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq libreoffice-impress poppler-utils
+      - name: Fuse real GitHub inputs and refine ten times
+        run: |
+          python 1-2-encoding/1-2-3-audio-encoding-v2/validation/audio-v86-20261014/build_fuse_review.py
+      - name: Verify deliverables and verify each round was based on predecessor
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json,hashlib
+          from pptx import Presentation
+          root=Path('1-2-encoding/1-2-3-audio-encoding-v2')
+          d=root/'validation/audio-v86-20261014'
+          fusion=root/'1-2-3-audio-encoding-v8.5.gpt.pptx'
+          final=root/'1-2-3-audio-encoding-v8.6.gpt.pptx'
+          assert len(Presentation(fusion).slides)==77
+          assert len(Presentation(final).slides)==77
+          previous=fusion
+          for n in range(1,11):
+              path=d/'rounds'/f'round-{n:02d}.pptx'
+              data=json.loads((d/f'round-{n:02d}.audit.json').read_text())
+              assert data['slides']==77 and data['speaker_notes']==77
+              assert data['change']['source_file']==previous.name,(n,data['change'])
+              assert hashlib.sha256(path.read_bytes()).hexdigest()==data['sha256']
+              previous=path
+          assert final.read_bytes()==previous.read_bytes()
+          print('PASS: Fusion + ten separately saved sequential revisions + final byte identity')
+          PY
+      - name: Render and visually sample the 10 successive rounds
+        run: |
+          set -euo pipefail
+          D="1-2-encoding/1-2-3-audio-encoding-v2/validation/audio-v86-20261014"
+          mkdir -p "$D/preview"
+          for i in $(seq 1 10); do
+            two=$(printf '%02d' "$i")
+            mkdir -p "$D/preview/pdf"
+            soffice -env:UserInstallation=file:///tmp/lo-audio-v86-$i --headless \
+              --convert-to pdf --outdir "$D/preview/pdf" "$D/rounds/round-$two.pptx" >/dev/null
+            pdf="$D/preview/pdf/round-$two.pdf"
+            test -s "$pdf"
+            page="$(echo "48 13 16 18 19 24 46 52 61 66" | awk -v n="$i" '{print $n}')"
+            pdftoppm -f "$page" -l "$page" -r 110 -singlefile -jpeg \
+               "$pdf" "$D/preview/round-$two-page-$page" >/dev/null 2>&1
+            test -s "$D/preview/round-$two-page-$page.jpg"
+            rm -f "$pdf"
+            echo "Rendered round $two: inspected focus page $page"
+          done
+          soffice -env:UserInstallation=file:///tmp/lo-audio-v86-final --headless \
+             --convert-to pdf --outdir "$D/preview" \
+             "1-2-encoding/1-2-3-audio-encoding-v2/1-2-3-audio-encoding-v8.6.gpt.pptx" >/dev/null
+          pdfinfo "$D/preview/1-2-3-audio-encoding-v8.6.gpt.pdf" | grep 'Pages:'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: v86-ten-round-pptx-and-visual-evidence
+          path: |
+            1-2-encoding/1-2-3-audio-encoding-v2/validation/audio-v86-20261014/rounds/*.pptx
+            1-2-encoding/1-2-3-audio-encoding-v2/validation/audio-v86-20261014/preview/*.jpg
+          retention-days: 30
+      - name: Commit 2 final decks and ten audits
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          D="1-2-encoding/1-2-3-audio-encoding-v2"
+          git add "$D/1-2-3-audio-encoding-v8.5.gpt.pptx"
+          git add "$D/1-2-3-audio-encoding-v8.6.gpt.pptx"
+          git add "$D/validation/audio-v86-20261014/"*.audit.json
+          if ! git diff --cached --quiet; then
+             git commit -m "Publish fused v8.5 and ten-round reviewed v8.6 GPT decks"
+             git push origin HEAD:main
+          fi
