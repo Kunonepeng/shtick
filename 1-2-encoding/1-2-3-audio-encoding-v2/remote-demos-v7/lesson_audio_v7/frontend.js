@@ -12,10 +12,10 @@ function el(tag,attrs={},str=''){
   return e;
 }
 function button(label,fn){ const e=el('button',{},label);e.type='button';e.addEventListener('click',fn);return e; }
-function graphBase(canvas,title='',timeMin=0,timeMax=4){
+function graphBase(canvas,title='',timeMin=0,timeMax=4,rightMargin=24){
  const g=canvas.getContext('2d'),w=canvas.width,h=canvas.height;
  g.clearRect(0,0,w,h); g.fillStyle='#fff';g.fillRect(0,0,w,h);
- const x0=62,x1=w-24,y0=25,y1=h-44,ym=(y0+y1)/2;
+ const x0=62,x1=w-rightMargin,y0=25,y1=h-44,ym=(y0+y1)/2;
  g.strokeStyle=GRID;g.lineWidth=1;
  for(let k=-1;k<=1;k++){
   let y=ym-k*(y1-y0)*.45;
@@ -109,59 +109,141 @@ function makePlayer(root,payload,zoom){
  redraw();raf=requestAnimationFrame(animate);
  return ()=>{cancelAnimationFrame(raf);audio.pause();audio.removeAttribute('src');};
 }
-function makeLab(root,payload){
+function buildQuantizerRows(bits) {
+ const levels=2**Number(bits), result=[];
+ for(let code=0;code<levels;code++){
+  const low=-1+2*code/levels, high=-1+2*(code+1)/levels, rep=(low+high)/2;
+  result.push({code,low,high,rep,binary:code.toString(2).padStart(Number(bits),'0')});
+ }
+ return result;
+}
+function quantRange(r,last) {
+ return '['+r.low.toFixed(3)+', '+r.high.toFixed(3)+(last?']':')');
+}
+function makeLab(root,payload) {
  root.appendChild(el('h3',{},'Demo C｜从采样点到二进制码字'));
- root.appendChild(el('div',{class:'tip'},'同一条输入波形、同一段4毫秒时间；每次只改变一个条件。先让同学预测，再点击。'));
+ root.appendChild(el('div',{class:'tip'},'固定同一条输入波形与4毫秒窗口。每次只改变一个条件：先预测，再观察。'));
  const buttons=el('div',{class:'bar'}),stageLabels=['① 原波形','② 采样','③ 量化','④ 编码'];
  let stage=0,rate='4000',bits='3',selected=0;
- stageLabels.forEach((label,i)=>buttons.appendChild(button(label,()=>{stage=i;redraw();})));
+ stageLabels.forEach((label,i)=>buttons.appendChild(button(label,()=>{stage=i;draw();})));
  root.appendChild(buttons);
  const controls=el('div',{class:'bar'});
- controls.appendChild(el('span',{},'采样率（教学模型）'));
- const rs=el('select');for(const r of ['2000','4000','8000'])rs.appendChild(el('option',{value:r},`${Number(r)/1000} kHz`));rs.value=rate;
- controls.appendChild(rs);controls.appendChild(el('span',{},'量化位数'));
- const bs=el('select');for(const b of ['2','3','4'])bs.appendChild(el('option',{value:b},`${b} bit / ${2**Number(b)}级`));bs.value=bits;
- controls.appendChild(bs);root.appendChild(controls);
- const canvas=el('canvas',{width:'960',height:'350'});root.appendChild(canvas);
+ controls.appendChild(el('label',{},'采样率（教学模型）'));
+ const rs=el('select');
+ ['2000','4000','8000'].forEach(r=>rs.appendChild(el('option',{value:r},(Number(r)/1000)+' kHz')));
+ rs.value=rate;
+ controls.appendChild(rs);
+ controls.appendChild(el('label',{},'量化位数'));
+ const bs=el('select');
+ ['2','3','4'].forEach(b=>bs.appendChild(el('option',{value:b},b+' bit / '+(2**Number(b))+'级')));
+ bs.value=bits;
+ controls.appendChild(bs);
+ root.appendChild(controls);
+ const canvas=el('canvas',{width:'1020',height:'392'});
+ root.appendChild(canvas);
+ const legend=el('div',{class:'audio-legend'});
+ [['原始波形','#777777','line'],['采样点',C,'dot'],['量化值',P,'square'],['等级线',V,'dash'],['选中及误差','#e34444','line']].forEach(([name,color,kind])=>{
+  const lab=el('span',{class:'legend-item'});
+  const mark=el('span',{class:'legend-mark '+kind,style:'--mark:'+color});
+  lab.appendChild(mark);lab.appendChild(el('span',{},name));legend.appendChild(lab);
+ });
+ root.appendChild(legend);
  const readout=el('div',{class:'readout'});root.appendChild(readout);
- root.appendChild(el('p',{class:'small'},'2、4、8 kHz仅用于放大观察4毫秒信号，并不是推荐的日常录音参数。紫色方块是量化值；蓝色圆点是采样原值。'));
- rs.addEventListener('change',()=>{rate=rs.value;selected=0;redraw();});
- bs.addEventListener('change',()=>{bits=bs.value;redraw();});
- canvas.addEventListener('click',e=>{if(stage===0)return;const b=canvas.getBoundingClientRect();const x=(e.clientX-b.left)/b.width*canvas.width;const arr=payload.rates[rate];let best=0,dist=Infinity;arr.forEach((a,i)=>{const px=62+a.t_ms/4*(canvas.width-86);let d=Math.abs(x-px);if(d<dist){dist=d;best=i;}});selected=best;redraw();});
- function redraw(){
-  [...buttons.children].forEach((x,i)=>x.classList.toggle('active',i===stage));
-  const series=payload.rates[rate];
-  const d=graphBase(canvas,'同一条波形（4毫秒）',0,.004),{g,x0,x1,ymap}=d;
-  const xmap=t=>x0+(t/4)*(x1-x0);
-  const n=2**Number(bits);
-  if(stage>=2){for(let k=0;k<n;k++){
-    let v=-1+(k+.5)*2/n;
-    g.strokeStyle='#ded6f8';g.lineWidth=1;
-    g.beginPath();g.moveTo(x0,ymap(v));g.lineTo(x1,ymap(v));g.stroke();
-  }}
-  g.strokeStyle='#777';g.lineWidth=2.2;g.beginPath();
-  for(let i=0;i<=420;i++){
-    let t=4*i/420,amp=payload.amplitude*Math.sin(2*Math.PI*payload.frequency*t/1000+payload.phase);
-    if(i===0)g.moveTo(xmap(t),ymap(amp));else g.lineTo(xmap(t),ymap(amp));
+ const codetitle=el('h4',{},'全部样本的二进制编码（按时间先后）');
+ const codeStrip=el('div',{class:'code-strip'});
+ root.appendChild(codetitle);root.appendChild(codeStrip);
+ const tabletitle=el('h4',{},'各等级的输入范围与代表值');
+ const tableWrap=el('div',{class:'quant-table-scroll'});
+ root.appendChild(tabletitle);root.appendChild(tableWrap);
+ root.appendChild(el('p',{class:'small'},'注意：2 / 4 / 8 kHz 只用于放大观察4毫秒的教学模型，不是日常录音参数。'));
+ function refreshCodes(series){
+  codeStrip.replaceChildren();
+  if(stage<3){codeStrip.appendChild(el('span',{class:'small'},'进入④ 编码后，这里才显示每个样本对应的码字。'));return;}
+  series.forEach((p,i)=>{
+   const q=p.by_bits[bits];
+   const chip=button('',()=>{selected=i;draw();});
+   chip.className='code-chip'+(i===selected?' selected':'');
+   chip.setAttribute('aria-label','选择第'+(i+1)+'个样本，编码'+q.binary);
+   chip.appendChild(el('span',{class:'small'},'点'+(i+1)));
+   chip.appendChild(el('b',{},q.binary));
+   codeStrip.appendChild(chip);
+  });
+ }
+ function refreshTable(rows,chosen){
+  const table=el('table',{class:'quant-table'}),head=el('thead'),thead=el('tr');
+  ['等级','输入幅度范围','量化代表值','二进制码字'].forEach(s=>thead.appendChild(el('th',{},s)));
+  head.appendChild(thead);table.appendChild(head);
+  const tbody=el('tbody');
+  rows.forEach((row,i)=>{
+   const tr=el('tr',{class:(i===chosen&&stage>=2)?'highlight':''});
+   tr.appendChild(el('td',{},'L'+row.code));
+   tr.appendChild(el('td',{},quantRange(row,i===rows.length-1)));
+   tr.appendChild(el('td',{},row.rep.toFixed(3)));
+   tr.appendChild(el('td',{},row.binary));
+   tbody.appendChild(tr);
+  });
+  table.appendChild(tbody);tableWrap.replaceChildren(table);
+ }
+ function draw(){
+  [...buttons.children].forEach((b,i)=>b.classList.toggle('active',i===stage));
+  const series=payload.rates[rate], rows=buildQuantizerRows(bits),n=rows.length;
+  selected=Math.min(selected,series.length-1);
+  // The plot reserves 116 pixels on the right for non-overlapping level labels.
+  const d=graphBase(canvas,'同一条波形（4毫秒）',0,.004,116);
+  const {g,x0,x1,ymap}=d;
+  const xmap=ms=>x0+(ms/4)*(x1-x0);
+  const active=series[selected].by_bits[bits];
+  if(stage>=2){
+   rows.forEach((row,i)=>{
+    const y=ymap(row.rep);
+    g.strokeStyle=i===active.level?V:'#aa8ceb';
+    g.lineWidth=i===active.level?2.8:1.8;
+    g.setLineDash([9,5]);g.beginPath();g.moveTo(x0,y);g.lineTo(x1,y);g.stroke();g.setLineDash([]);
+    g.fillStyle=i===active.level?V:'#6e579f';
+    g.font=i===active.level?'bold 12px sans-serif':'12px sans-serif';
+    g.fillText('L'+i+'  '+row.rep.toFixed(2),x1+10,y+4);
+   });
+  }
+  g.strokeStyle=GR;g.lineWidth=2.6;g.beginPath();
+  for(let i=0;i<=600;i++){
+   const t=4*i/600,amp=payload.amplitude*Math.sin(2*Math.PI*payload.frequency*t/1000+payload.phase);
+   if(i===0)g.moveTo(xmap(t),ymap(amp));else g.lineTo(xmap(t),ymap(amp));
   }
   g.stroke();
-  if(stage>=1){series.forEach((p,i)=>{
-    let x=xmap(p.t_ms),y=ymap(p.amplitude),q=p.by_bits[bits],qy=ymap(q.quant);
-    g.strokeStyle='#e7e7eb';g.lineWidth=1;g.beginPath();g.moveTo(x,32);g.lineTo(x,d.y1);g.stroke();
-    if(stage>=2){g.strokeStyle='#ff0000';g.lineWidth=1;g.beginPath();g.moveTo(x,y);g.lineTo(x,qy);g.stroke();g.fillStyle=P;g.fillRect(x-4,qy-4,8,8);}
-    g.fillStyle=C;g.beginPath();g.arc(x,y,i===selected?6:4.3,0,Math.PI*2);g.fill();
-    if(i===selected){g.strokeStyle='#ff0000';g.lineWidth=2;g.beginPath();g.arc(x,y,9,0,Math.PI*2);g.stroke();}
-  });}
-  const p=series[selected],q=p.by_bits[bits];
-  let info='';
-  if(stage===0)info='灰色曲线：同一位置的信号随时间连续变化。它不是声音传播的路线。';
-  if(stage===1)info=`采样率 ${Number(rate).toLocaleString()} Hz；4毫秒内记录了 ${series.length} 个采样值。采样并没有改变纵向量化等级。`;
-  if(stage===2)info=`量化等级：${n}级；选中样本原值 ${p.amplitude.toFixed(3)} → 代表值 ${q.quant.toFixed(3)}。`;
-  if(stage===3)info=`样本 ${selected+1}：量化等级编号 ${q.level} → ${q.binary}（${bits} bit）。每个样本按时间顺序保存。`;
-  readout.textContent=info;
+  if(stage>=1)series.forEach((p,i)=>{
+   const x=xmap(p.t_ms),y=ymap(p.amplitude),q=p.by_bits[bits],qy=ymap(q.quant);
+   g.strokeStyle='#dedee4';g.lineWidth=1;g.beginPath();g.moveTo(x,d.y0);g.lineTo(x,d.y1);g.stroke();
+   if(stage>=2){
+    g.strokeStyle=i===selected?'#dc3030':'#ecb5b5';g.lineWidth=i===selected?2.2:1.1;
+    g.beginPath();g.moveTo(x,y);g.lineTo(x,qy);g.stroke();
+    g.fillStyle=P;g.fillRect(x-5,qy-5,10,10);
+   }
+   g.fillStyle=C;g.beginPath();g.arc(x,y,i===selected?6:4.6,0,Math.PI*2);g.fill();
+   if(i===selected){g.strokeStyle='#e23e3e';g.lineWidth=2.2;g.beginPath();g.arc(x,y,9,0,Math.PI*2);g.stroke();}
+  });
+  const p=series[selected],q=p.by_bits[bits],row=rows[q.level];
+  const text=stage===0?'灰色曲线表示同一位置的信号随时间变化，不是声音在空气中传播的路线。':
+             stage===1?'采样：'+Number(rate).toLocaleString()+' Hz；4毫秒内记录 '+series.length+' 个点。改变采样率，只会改变横向取样点数量。':
+             stage===2?'样本'+(selected+1)+'：原值 '+p.amplitude.toFixed(3)+' 落在 '+quantRange(row,q.level===n-1)+'，所以量化为 L'+q.level+'，代表值 '+q.quant.toFixed(3)+'。':
+             '样本'+(selected+1)+'：原值 '+p.amplitude.toFixed(3)+' → L'+q.level+' → '+q.quant.toFixed(3)+' → '+q.binary+'（'+bits+' bit）。';
+  readout.textContent=text;
+  if(stage>=2)refreshTable(rows,q.level);else tableWrap.replaceChildren(el('span',{class:'small'},'进入③ 量化后，展示对应范围、代表值与码字。'));
+  refreshCodes(series);
  }
- redraw();return ()=>{};
+ rs.addEventListener('change',()=>{rate=rs.value;selected=0;draw();});
+ bs.addEventListener('change',()=>{bits=bs.value;draw();});
+ canvas.addEventListener('click',e=>{
+  if(stage===0)return;
+  const box=canvas.getBoundingClientRect();
+  const x=(e.clientX-box.left)*canvas.width/box.width;
+  const x0=62,x1=canvas.width-116,arr=payload.rates[rate];
+  let nearest=0,dist=Infinity;
+  arr.forEach((p,i)=>{let dd=Math.abs(x-(x0+(p.t_ms/4)*(x1-x0)));if(dd<dist){nearest=i;dist=dd;}});
+  selected=nearest;draw();
+ });
+ draw();return ()=>{};
 }
+
 export default {
  render({model,el:mount}){
   const root=el('div',{class:'audio-v7'});
