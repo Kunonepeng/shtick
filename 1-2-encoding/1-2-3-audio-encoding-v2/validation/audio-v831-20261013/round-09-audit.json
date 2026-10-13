@@ -1,0 +1,12 @@
+{
+  "round": 9,
+  "severity": "P1",
+  "identified_issue": "BMP/JPG只用文字对照，未呈现可观察的有损证据",
+  "refinement": "第63页新增同源原图与低质量JPEG的实际对照",
+  "slides": 70,
+  "notes": 70,
+  "question_answer_pairs": 6,
+  "input_sha256": "a091c0c23aab343b22eeca3ead5a95ef6fb40ed9ff748f03b12b74224214b151",
+  "output_sha256": "1ac6ffbca82bb6699bb0fb1c3935de506d0810e229b37e2a30ed01131c495525",
+  "method": "PowerPoint native diagram; round 9 actual same-source PNG/JPEG image pair"
+}
