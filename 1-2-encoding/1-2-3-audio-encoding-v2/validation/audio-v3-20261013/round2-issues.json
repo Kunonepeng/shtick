@@ -1,0 +1,110 @@
+{
+  "before_sha256": "4ccb9caf34ec3b7aa83abf6db7a67eba751bcd42c12b3c25692864988e6cbd6a",
+  "p0": 0,
+  "issues": [
+    {
+      "id": "R2-01",
+      "rank": "p1",
+      "pages": [
+        34,
+        35,
+        36
+      ],
+      "issue": "The final total appears above the already revealed intermediate equations, so top-to-bottom reading reverses the counting order.",
+      "fix": "Keep sample count first, byte width second, total third; keep earlier positions stable and emphasize only the newly revealed result.",
+      "recheck": "Inspect the three builds and compare equation coordinates and current-focus colors.",
+      "recheck_status": "pass"
+    },
+    {
+      "id": "R2-02",
+      "rank": "p1",
+      "pages": [
+        33,
+        34,
+        35,
+        36,
+        37,
+        38
+      ],
+      "issue": "Student-visible givens say 16bit without explicitly distinguishing actual storage width from the earlier 3bit grade model.",
+      "fix": "Name the width as actual storage in all mono/stereo givens and explain the model transition in stage-specific notes.",
+      "recheck": "Read visible conditions and question scripts; recompute mono, stereo, and exit payloads.",
+      "recheck_status": "pass"
+    },
+    {
+      "id": "R2-03",
+      "rank": "p1",
+      "pages": [
+        1
+      ],
+      "issue": "The minute checkpoints in cover notes contradict the accumulated section budgets, especially entering encoding at minute24 instead of18.",
+      "fix": "Align checkpoints to the 45-minute budget and retain thinking, summaries, opening closure, and exit assessment at cut points.",
+      "recheck": "Independently sum section budgets and verify checkpoint wording.",
+      "recheck_status": "pass"
+    },
+    {
+      "id": "R2-04",
+      "rank": "p2",
+      "pages": [
+        38
+      ],
+      "issue": "Two channel rows are aligned but no visible grouping highlights the two values recorded at the same instant.",
+      "fix": "Highlight one vertical left/right sample frame during reveal, with the 2B+2B=4B explanation.",
+      "recheck": "Check focus frame encloses exactly one left/right pair and notes direct attention to it.",
+      "recheck_status": "pass"
+    },
+    {
+      "id": "R2-05",
+      "rank": "p2",
+      "pages": [
+        43,
+        44
+      ],
+      "issue": "The alias example lacks explicit equal-amplitude/equal-phase conditions and vertical sample-value ticks.",
+      "fix": "State the controlled cosine conditions and label normalized +1/0/-1 values on both diagrams.",
+      "recheck": "Compare equal scales and independently verify all five displayed samples.",
+      "recheck_status": "pass"
+    },
+    {
+      "id": "R2-06",
+      "rank": "p1",
+      "pages": [
+        46
+      ],
+      "issue": "The red frequency-boundary line crosses the numeral4 below the axis.",
+      "fix": "End the focus line at the baseline, keeping the tick label unobscured.",
+      "recheck": "Inspect full-resolution frequency diagram and boundary/label coordinates.",
+      "recheck_status": "pass"
+    },
+    {
+      "id": "R2-07",
+      "rank": "p2",
+      "pages": [
+        50
+      ],
+      "issue": "The worked exit answer repeats identical factors2 without labeling the channel factor that students were asked to circle.",
+      "fix": "Label seconds and channels in the worked expression and identify the channel factor in notes.",
+      "recheck": "Confirm student answer can locate 2channels and independently gives128000B.",
+      "recheck_status": "pass"
+    },
+    {
+      "id": "R2-08",
+      "rank": "p2",
+      "pages": [
+        22,
+        32,
+        35,
+        36
+      ],
+      "issue": "Some bottom formula labels extend below the common content area and sit too close to the lower rail.",
+      "fix": "Move the code-capacity and toy-total labels up; fit the three PCM equations inside the shared content region without reducing font size.",
+      "recheck": "Check final text extents remain at or above y656 and inspect lower-rail spacing.",
+      "recheck_status": "pass"
+    }
+  ],
+  "after_sha256": "f79767cea73f58811d15e538c407745ac7cc2c5d566b5077f720f8ba453d009d",
+  "checks": 2838,
+  "geometry_findings": 0,
+  "geometry_warnings": 0,
+  "individual_final_slides_inspected": 54
+}

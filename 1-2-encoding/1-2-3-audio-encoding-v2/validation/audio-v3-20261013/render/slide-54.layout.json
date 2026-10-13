@@ -1,0 +1,10 @@
+{"schema":"openai.presentation.layout/v5","unit":"px","slide":{"id":"sl/uhgfqdcf","index":53,"layout":{"id":"ly/14ra9krq","name":"Blank"},"backgroundColor":"rgba(255,255,255,1)","position":{"left":0,"top":0,"width":1280,"height":720}},
+"elements":[
+{"id":"sh/v21gvy9s","kind":"shape","name":"top-rail","position":{"left":0,"top":0,"width":1280,"height":10.67},"geometry":"rect","fillColor":"#6251B1","lineWidth":0},
+{"id":"sh/lwjyporq","kind":"shape","name":"bottom-rail","position":{"left":0,"top":709.33,"width":1280,"height":10.67},"geometry":"rect","fillColor":"#6251B1","lineWidth":0},
+{"id":"sh/0vqxgja5","kind":"textbox","name":"question-title","position":{"left":63.84,"top":63.84,"width":1152,"height":74},"text":"等级更多，每个样本都一定更接近吗？","style":{"fontSize":48,"typeface":"Alibaba PuHuiTi 3.0 115 Black","color":"#262626","bold":true,"alignment":"left"},"geometry":"rect","lineWidth":0},
+{"id":"sh/b6hgju9o","kind":"textbox","name":"text","position":{"left":64,"top":170,"width":1152,"height":44},"text":"同一输入−0.71；范围、时刻与均匀分级规则不变。","style":{"fontSize":29.33,"typeface":"Alibaba PuHuiTi 3.0 55 Regular","color":"#262626","alignment":"left"},"geometry":"rect","lineWidth":0},
+{"id":"tb/r6h8zu9o","kind":"table","name":"evidence-table","position":{"left":180,"top":285,"width":920,"height":240},"text":"等级数\t代表值\t绝对误差\n4\t−0.75\t0.04\n8\t−0.625\t0.085","rows":3,"cols":3},
+{"id":"sh/dszyl4ru","kind":"textbox","name":"answer-1","position":{"left":64,"top":560,"width":1152,"height":44},"text":"本例8档误差更大；两者都未超过各自上界。","style":{"fontSize":29.33,"typeface":"Alibaba PuHuiTi 3.0 115 Black","color":"#8C64E1","bold":true,"alignment":"left"},"geometry":"rect","lineWidth":0},
+{"id":"sh/c7qxcza9","kind":"textbox","name":"answer-2","position":{"left":64,"top":609,"width":1152,"height":44},"text":"误差上界减小，不等于每一点都更接近。","style":{"fontSize":29.33,"typeface":"Alibaba PuHuiTi 3.0 55 Regular","color":"#262626","alignment":"left"},"geometry":"rect","lineWidth":0}
+]}

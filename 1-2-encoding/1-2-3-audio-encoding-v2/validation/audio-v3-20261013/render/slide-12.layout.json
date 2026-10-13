@@ -1,0 +1,9 @@
+{"schema":"openai.presentation.layout/v5","unit":"px","slide":{"id":"sl/8f2psfyx","index":11,"layout":{"id":"ly/14ra9krq","name":"Blank"},"backgroundColor":"rgba(255,255,255,1)","position":{"left":0,"top":0,"width":1280,"height":720}},
+"elements":[
+{"id":"sh/sb2lcnmd","kind":"shape","name":"top-rail","position":{"left":0,"top":0,"width":1280,"height":10.67},"geometry":"rect","fillColor":"#6251B1","lineWidth":0},
+{"id":"sh/1gbm9s3a","kind":"shape","name":"bottom-rail","position":{"left":0,"top":709.33,"width":1280,"height":10.67},"geometry":"rect","fillColor":"#6251B1","lineWidth":0},
+{"id":"sh/0f2lgnmp","kind":"textbox","name":"question-title","position":{"left":63.84,"top":63.84,"width":1152,"height":74},"text":"按4个等级，给这些幅度找代表值","style":{"fontSize":48,"typeface":"Alibaba PuHuiTi 3.0 115 Black","color":"#262626","bold":true,"alignment":"left"},"geometry":"rect","lineWidth":0},
+{"id":"sh/ra943il8","kind":"textbox","name":"text","position":{"left":64,"top":170,"width":1152,"height":45},"text":"范围[-1,1)；均匀分档，边界归入上档。","style":{"fontSize":29.33,"typeface":"Alibaba PuHuiTi 3.0 55 Regular","color":"#262626","alignment":"left"},"geometry":"rect","lineWidth":0},
+{"id":"tb/j2xwnmtg","kind":"table","name":"evidence-table","position":{"left":64,"top":250,"width":660,"height":280},"text":"幅度区间\t代表值\t编号\n[-1, -0.5)\t−0.75\t0\n[-0.5, 0)\t−0.25\t1\n[0, 0.5)\t0.25\t2\n[0.5, 1)\t0.75\t3","rows":5,"cols":3},
+{"id":"tb/436xgru1","kind":"table","name":"evidence-table","position":{"left":784,"top":250,"width":432,"height":280},"text":"输入幅度\t代表值\n−0.38\t\n0.12\t\n0.86\t\n−0.71\t","rows":5,"cols":2}
+]}

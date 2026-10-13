@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-13",
+  "delivered_path": "/Users/chran/repo/shtick/1-2-encoding/1-2-3-audio-encoding-v2/1-2-3-audio-encoding-v3.pptx",
+  "sha256": "18079563ab41331b0c024af78879edfc5bc2db53602730091f40a2dc20ffcc58",
+  "byte_count": 341505,
+  "preserved": {
+    "1-2-3-audio-encoding.pptx": "3a13b7546c3d53cff92fe185615882c80eb9288c908cafb2ff4581c86e3566f5",
+    "1-2-3-audio-encoding-v2.pptx": "ab329b5af80bfb9593ece665c38209aa4828c4c50727d09118955b1504a00815"
+  },
+  "fixture_origin": "/Users/chran/repo/shtick/1-2-encoding/1-2-3-audio-encoding/assets/audio/size-check-8000-2s-16-mono.wav",
+  "fixture_sha256": "bfa64efdcee71ae49d3220221eb2a88abe666bbe5e7b61b75345215e80a4c3e9",
+  "accepted_current_version": "v3 standalone revision; adjacent formal v4 unchanged",
+  "history_roles": "review candidates only; not classroom outputs"
+}

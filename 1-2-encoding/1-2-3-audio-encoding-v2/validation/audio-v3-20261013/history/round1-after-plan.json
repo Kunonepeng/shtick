@@ -1,0 +1,521 @@
+{
+  "version": "audio-v3-20261013",
+  "mainSlideCount": 50,
+  "baselineHash": "ab329b5af80bfb9593ece665c38209aa4828c4c50727d09118955b1504a00815",
+  "manifest": [
+    {
+      "page": 1,
+      "id": "opening",
+      "stage": "开场",
+      "title": "声音的数字化",
+      "pair": null
+    },
+    {
+      "page": 2,
+      "id": "Q1",
+      "stage": "提问",
+      "title": "同一段声音，为什么文件大小不同？",
+      "pair": null
+    },
+    {
+      "page": 3,
+      "id": "Q1",
+      "stage": "阶段回应",
+      "title": "同一段声音，为什么文件大小不同？",
+      "pair": 2
+    },
+    {
+      "page": 4,
+      "id": "Q2",
+      "stage": "提问",
+      "title": "这条波形的横轴和纵轴分别表示什么？",
+      "pair": null
+    },
+    {
+      "page": 5,
+      "id": "Q2",
+      "stage": "揭示",
+      "title": "这条波形的横轴和纵轴分别表示什么？",
+      "pair": 4
+    },
+    {
+      "page": 6,
+      "id": "Q3",
+      "stage": "提问",
+      "title": "5秒内每秒取1次，怎样安排采样时刻？",
+      "pair": null
+    },
+    {
+      "page": 7,
+      "id": "Q3",
+      "stage": "揭示",
+      "title": "5秒内每秒取1次，怎样安排采样时刻？",
+      "pair": 6
+    },
+    {
+      "page": 8,
+      "id": "Q4",
+      "stage": "提问",
+      "title": "采样率加倍，改变了什么？",
+      "pair": null
+    },
+    {
+      "page": 9,
+      "id": "Q4",
+      "stage": "揭示",
+      "title": "采样率加倍，改变了什么？",
+      "pair": 8
+    },
+    {
+      "page": 10,
+      "id": "T1",
+      "stage": "学生总结",
+      "title": "采样率与时长，怎样决定记录数量？",
+      "pair": null
+    },
+    {
+      "page": 11,
+      "id": "T1",
+      "stage": "树揭示",
+      "title": "采样率与时长，怎样决定记录数量？",
+      "pair": 10
+    },
+    {
+      "page": 12,
+      "id": "Q5",
+      "stage": "提问",
+      "title": "按4个等级，给这些幅度找代表值",
+      "pair": null
+    },
+    {
+      "page": 13,
+      "id": "Q5",
+      "stage": "揭示",
+      "title": "按4个等级，给这些幅度找代表值",
+      "pair": 12
+    },
+    {
+      "page": 14,
+      "id": "Q6",
+      "stage": "提问",
+      "title": "只增加等级数，哪些量没变？",
+      "pair": null
+    },
+    {
+      "page": 15,
+      "id": "Q6",
+      "stage": "揭示",
+      "title": "只增加等级数，哪些量没变？",
+      "pair": 14
+    },
+    {
+      "page": 16,
+      "id": "Q7",
+      "stage": "提问",
+      "title": "同一个幅度，两次量化的误差各是多少？",
+      "pair": null
+    },
+    {
+      "page": 17,
+      "id": "Q7",
+      "stage": "揭示",
+      "title": "同一个幅度，两次量化的误差各是多少？",
+      "pair": 16
+    },
+    {
+      "page": 18,
+      "id": "T2",
+      "stage": "学生总结",
+      "title": "量化增加了哪些幅度选择？",
+      "pair": null
+    },
+    {
+      "page": 19,
+      "id": "T2",
+      "stage": "树揭示",
+      "title": "量化增加了哪些幅度选择？",
+      "pair": 18
+    },
+    {
+      "page": 20,
+      "id": "Q8",
+      "stage": "提问",
+      "title": "4级和8级，分别至少需要几bit？",
+      "pair": null
+    },
+    {
+      "page": 21,
+      "id": "Q8",
+      "stage": "揭示一",
+      "title": "4级和8级，分别至少需要几bit？",
+      "pair": 20
+    },
+    {
+      "page": 22,
+      "id": "Q8",
+      "stage": "揭示二",
+      "title": "4级和8级，分别至少需要几bit？",
+      "pair": 21
+    },
+    {
+      "page": 23,
+      "id": "Q9",
+      "stage": "提问",
+      "title": "这十个等级，怎样写成等长码字？",
+      "pair": null
+    },
+    {
+      "page": 24,
+      "id": "Q9",
+      "stage": "揭示",
+      "title": "这十个等级，怎样写成等长码字？",
+      "pair": 23
+    },
+    {
+      "page": 25,
+      "id": "T3",
+      "stage": "学生总结",
+      "title": "时刻、幅度和码字，各解决什么问题？",
+      "pair": null
+    },
+    {
+      "page": 26,
+      "id": "T3",
+      "stage": "树揭示",
+      "title": "时刻、幅度和码字，各解决什么问题？",
+      "pair": 25
+    },
+    {
+      "page": 27,
+      "id": "Q10",
+      "stage": "提问",
+      "title": "这些名称在录音流程的哪一层？",
+      "pair": null
+    },
+    {
+      "page": 28,
+      "id": "Q10",
+      "stage": "揭示",
+      "title": "这些名称在录音流程的哪一层？",
+      "pair": 27
+    },
+    {
+      "page": 29,
+      "id": "Q11",
+      "stage": "提问",
+      "title": "MP3一定压缩到原来的1/10吗？",
+      "pair": null
+    },
+    {
+      "page": 30,
+      "id": "Q11",
+      "stage": "揭示",
+      "title": "MP3一定压缩到原来的1/10吗？",
+      "pair": 29
+    },
+    {
+      "page": 31,
+      "id": "Q12-A",
+      "stage": "提问",
+      "title": "这8个样本一共占多少byte？",
+      "pair": null
+    },
+    {
+      "page": 32,
+      "id": "Q12-A",
+      "stage": "揭示",
+      "title": "这8个样本一共占多少byte？",
+      "pair": 31
+    },
+    {
+      "page": 33,
+      "id": "Q12",
+      "stage": "提问",
+      "title": "2秒单声道PCM，需要多少样本数据？",
+      "pair": null
+    },
+    {
+      "page": 34,
+      "id": "Q12",
+      "stage": "样本数揭示",
+      "title": "2秒单声道PCM，需要多少样本数据？",
+      "pair": 33
+    },
+    {
+      "page": 35,
+      "id": "Q12",
+      "stage": "存储宽度揭示",
+      "title": "2秒单声道PCM，需要多少样本数据？",
+      "pair": 34
+    },
+    {
+      "page": 36,
+      "id": "Q12",
+      "stage": "总量揭示",
+      "title": "2秒单声道PCM，需要多少样本数据？",
+      "pair": 35
+    },
+    {
+      "page": 37,
+      "id": "Q12-B",
+      "stage": "提问",
+      "title": "增加右声道，哪些记录多了一份？",
+      "pair": null
+    },
+    {
+      "page": 38,
+      "id": "Q12-B",
+      "stage": "揭示",
+      "title": "增加右声道，哪些记录多了一份？",
+      "pair": 37
+    },
+    {
+      "page": 39,
+      "id": "Q13",
+      "stage": "提问",
+      "title": "算出32,000 B，完整文件一定同样大吗？",
+      "pair": null
+    },
+    {
+      "page": 40,
+      "id": "Q13",
+      "stage": "文件证据",
+      "title": "算出32,000 B，完整文件一定同样大吗？",
+      "pair": 39
+    },
+    {
+      "page": 41,
+      "id": "Q1-return",
+      "stage": "提问",
+      "title": "用样本数解释开场A、B的大小差异",
+      "pair": null
+    },
+    {
+      "page": 42,
+      "id": "Q1-return",
+      "stage": "闭环揭示",
+      "title": "用样本数解释开场A、B的大小差异",
+      "pair": 41
+    },
+    {
+      "page": 43,
+      "id": "Q14",
+      "stage": "提问",
+      "title": "不同波形，为什么可能留下相同样本？",
+      "pair": null
+    },
+    {
+      "page": 44,
+      "id": "Q14",
+      "stage": "证据揭示",
+      "title": "不同波形，为什么可能留下相同样本？",
+      "pair": 43
+    },
+    {
+      "page": 45,
+      "id": "Q14-B",
+      "stage": "提问",
+      "title": "8kHz采样能保留6kHz纯音吗？",
+      "pair": null
+    },
+    {
+      "page": 46,
+      "id": "Q14-B",
+      "stage": "条件揭示",
+      "title": "8kHz采样能保留6kHz纯音吗？",
+      "pair": 45
+    },
+    {
+      "page": 47,
+      "id": "T4",
+      "stage": "学生总结",
+      "title": "怎样把记录参数与数据量连起来？",
+      "pair": null
+    },
+    {
+      "page": 48,
+      "id": "T4",
+      "stage": "树揭示",
+      "title": "怎样把记录参数与数据量连起来？",
+      "pair": 47
+    },
+    {
+      "page": 49,
+      "id": "Q15",
+      "stage": "独立评价",
+      "title": "独立退出题：列式，并改写一句话",
+      "pair": null
+    },
+    {
+      "page": 50,
+      "id": "Q15",
+      "stage": "评价揭示",
+      "title": "独立退出题：列式，并改写一句话",
+      "pair": 49
+    },
+    {
+      "page": 51,
+      "id": "Q7-A",
+      "stage": "可选附录提问",
+      "title": "80分和60分，为什么会同属B？",
+      "pair": null
+    },
+    {
+      "page": 52,
+      "id": "Q7-A",
+      "stage": "可选附录揭示",
+      "title": "80分和60分，为什么会同属B？",
+      "pair": 51
+    },
+    {
+      "page": 53,
+      "id": "Q7-B",
+      "stage": "可选附录提问",
+      "title": "等级更多，每个样本都一定更接近吗？",
+      "pair": null
+    },
+    {
+      "page": 54,
+      "id": "Q7-B",
+      "stage": "可选附录揭示",
+      "title": "等级更多，每个样本都一定更接近吗？",
+      "pair": 53
+    }
+  ],
+  "amplitudes": [
+    -0.38,
+    0.12,
+    0.86,
+    0.91,
+    0.62,
+    0.08,
+    -0.38,
+    -0.46,
+    -0.71,
+    -0.13
+  ],
+  "q2": [
+    {
+      "index": 1,
+      "representative": -0.25,
+      "step": 0.5,
+      "code": "01"
+    },
+    {
+      "index": 2,
+      "representative": 0.25,
+      "step": 0.5,
+      "code": "10"
+    },
+    {
+      "index": 3,
+      "representative": 0.75,
+      "step": 0.5,
+      "code": "11"
+    },
+    {
+      "index": 3,
+      "representative": 0.75,
+      "step": 0.5,
+      "code": "11"
+    },
+    {
+      "index": 3,
+      "representative": 0.75,
+      "step": 0.5,
+      "code": "11"
+    },
+    {
+      "index": 2,
+      "representative": 0.25,
+      "step": 0.5,
+      "code": "10"
+    },
+    {
+      "index": 1,
+      "representative": -0.25,
+      "step": 0.5,
+      "code": "01"
+    },
+    {
+      "index": 1,
+      "representative": -0.25,
+      "step": 0.5,
+      "code": "01"
+    },
+    {
+      "index": 0,
+      "representative": -0.75,
+      "step": 0.5,
+      "code": "00"
+    },
+    {
+      "index": 1,
+      "representative": -0.25,
+      "step": 0.5,
+      "code": "01"
+    }
+  ],
+  "q3": [
+    {
+      "index": 2,
+      "representative": -0.375,
+      "step": 0.25,
+      "code": "010"
+    },
+    {
+      "index": 4,
+      "representative": 0.125,
+      "step": 0.25,
+      "code": "100"
+    },
+    {
+      "index": 7,
+      "representative": 0.875,
+      "step": 0.25,
+      "code": "111"
+    },
+    {
+      "index": 7,
+      "representative": 0.875,
+      "step": 0.25,
+      "code": "111"
+    },
+    {
+      "index": 6,
+      "representative": 0.625,
+      "step": 0.25,
+      "code": "110"
+    },
+    {
+      "index": 4,
+      "representative": 0.125,
+      "step": 0.25,
+      "code": "100"
+    },
+    {
+      "index": 2,
+      "representative": -0.375,
+      "step": 0.25,
+      "code": "010"
+    },
+    {
+      "index": 2,
+      "representative": -0.375,
+      "step": 0.25,
+      "code": "010"
+    },
+    {
+      "index": 1,
+      "representative": -0.625,
+      "step": 0.25,
+      "code": "001"
+    },
+    {
+      "index": 3,
+      "representative": -0.125,
+      "step": 0.25,
+      "code": "011"
+    }
+  ]
+}

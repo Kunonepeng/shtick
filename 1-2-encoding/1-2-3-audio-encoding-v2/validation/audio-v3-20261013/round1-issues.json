@@ -1,0 +1,88 @@
+{
+  "before_sha256": "80afd40d58967bb20201006522336863d153e11bd1cebbb7b98a66b6db85f23e",
+  "p0": 0,
+  "issues": [
+    {
+      "id": "R1-01",
+      "rank": "p1",
+      "pages": [
+        23,
+        24
+      ],
+      "issue": "The code-row label overlaps the first bit group; the first grade label crowds the amplitude axis and adjacent code groups have only 2px separation.",
+      "fix": "Move the plot and aligned code groups right, increase horizontal spacing, and place the first grade label to the right of its point.",
+      "recheck": "Inspect both pair renders and check label/group bounds and grade/code alignment.",
+      "recheck_status": "pass"
+    },
+    {
+      "id": "R1-02",
+      "rank": "p1",
+      "pages": [
+        27
+      ],
+      "issue": "The question-only format slide shows the PCM packaging example before classification.",
+      "fix": "Keep a neutral packaging description until the reveal.",
+      "recheck": "Read visible text and question notes; compare the duplicated reveal geometry.",
+      "recheck_status": "pass"
+    },
+    {
+      "id": "R1-03",
+      "rank": "p1",
+      "pages": [
+        28
+      ],
+      "issue": "The same arrow links PCM/MP3/WMA examples to WAV, which can suggest a universal container path.",
+      "fix": "Make the drawn upper path explicitly the PCM-in-WAV example and place MP3/WMA classification outside that path.",
+      "recheck": "Read the student-facing arrows and revised notes independently.",
+      "recheck_status": "pass"
+    },
+    {
+      "id": "R1-04",
+      "rank": "p1",
+      "pages": "all",
+      "issue": "Aptos remains in theme/master/notes defaults despite native slide text using Alibaba.",
+      "fix": "Run the owning font-default patch on every generated candidate.",
+      "recheck": "Scan all OOXML text defaults and rerender with verified font aliases.",
+      "recheck_status": "pass"
+    },
+    {
+      "id": "R1-05",
+      "rank": "p1",
+      "pages": [
+        16,
+        17
+      ],
+      "issue": "The 8-level error label is anchored to a 7px-wide bracket box, forcing text outside its frame.",
+      "fix": "Use full-width inset labels while retaining the true-scale bracket length.",
+      "recheck": "Check actual label width and render the 0.005 error alongside the unchanged scale.",
+      "recheck_status": "pass"
+    },
+    {
+      "id": "R1-06",
+      "rank": "p2",
+      "pages": [
+        21,
+        22
+      ],
+      "issue": "Reveals add identical level-index text over existing labels; geometry reports 16 overlapping text frames.",
+      "fix": "Append only bit groups on reveal, keeping original index objects.",
+      "recheck": "Check each level index exists once and geometry warnings disappear.",
+      "recheck_status": "pass"
+    },
+    {
+      "id": "R1-07",
+      "rank": "p2",
+      "pages": [
+        32
+      ],
+      "issue": "The expanded 16-bit sample still labels the two groups as 8bit without revealing their byte interpretation.",
+      "fix": "Reveal 8bit=1B under both groups before showing the 8-sample total.",
+      "recheck": "Check two byte labels, sixteen bit cells, and 8x2=16B.",
+      "recheck_status": "pass"
+    }
+  ],
+  "after_sha256": "4ccb9caf34ec3b7aa83abf6db7a67eba751bcd42c12b3c25692864988e6cbd6a",
+  "checks": 2767,
+  "geometry_findings": 0,
+  "geometry_warnings": 0
+}
