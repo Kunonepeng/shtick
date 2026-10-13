@@ -53,7 +53,7 @@ def text(s,value,x,y,w,h,size=22,bold=False,col=BLACK,align=None):
     return sh
 
 def new(title,notes):
-    s=p.slides.add_slide(p.slide_layouts[6])
+    s=p.slides.add_slide(p.slide_layouts[min(6, len(p.slide_layouts)-1)])
     for ph in list(s.placeholders):
         sh=ph._element; sh.getparent().remove(sh)
     rect(s,0,0,13.333,.09,V)
