@@ -46,6 +46,16 @@ python -m jupyter lab
 
 在原有45分钟课中**选一个**60–90秒短操作替代同页静态证据，而不是演示所有功能。交互失败超过30秒，回到已有 PPT 问答页。需要完整操作时放在加课时或课后。
 
+## 可重复检查
+
+在课程根目录运行：
+
+```bash
+python notebooks/check_panda_versions.py
+```
+
+检查原始熊猫图、四种采样/量化/编码数据状态、编码-解码往返、全部12个Notebook的nbformat结构、空输出与版本链；若安装 Node.js，还将做 JavaScript 语法检查。本脚本不执行真实浏览器绘制，**仍需投影实机观察**。该检查脚本已提交，尚未在目标课堂环境执行。
+
 ## 版本归档与质量边界
 
 v1.1–v1.10 采用**累积式功能开关**：每轮在上一版基础上启用一项新的投影/交互改进；v1.10 还针对点击面积及投影留白成组优化。所有版本共用 `panda_image_encoding_lab.py`、`panda-image-encoding-ui.js`、`panda-image-encoding-ui.css`，没有复制或替换原 JPEG。各版本的 Notebook JSON 含版本标识、轮次、功能集合；执行输出保持为空。
