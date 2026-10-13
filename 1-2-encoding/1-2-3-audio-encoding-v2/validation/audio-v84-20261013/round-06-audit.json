@@ -1,0 +1,13 @@
+{
+  "round": 6,
+  "severity": "P1",
+  "identified_issue": "PCM与WAV概念抽象，学生不易区分容器与样本数据",
+  "refinement": "第27页图解文件头和PCM样本序列的职责及关系",
+  "verified_by": "容器不是压缩算法；数据块与文件头标签正确",
+  "slides": 70,
+  "speaker_notes": 70,
+  "qa_pairs": 6,
+  "input_sha256": "0c54898869da43f01fb6a9c36be94ffbcca1875396804534f09c8de6fa2490b4",
+  "output_sha256": "871c53f06baf5d8672b4164556654dc06c4fb84c1aa86fe583e105f95639749e",
+  "output_bytes": 412202
+}
