@@ -1,0 +1,109 @@
+[
+  {
+    "file": "smartphone.svg",
+    "basePage": 2,
+    "finalPages": [
+      2
+    ],
+    "purpose": "手机录音的已知情境；跨用source.md第51页候选",
+    "sourceUrl": "https://github.com/hfg-gmuend/openmoji/blob/master/color/svg/1F4F1.svg",
+    "author": "OpenMoji contributors / HfG Schwäbisch Gmünd",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://github.com/hfg-gmuend/openmoji#license",
+    "verifiedDate": "2026-10-14",
+    "sha256": "a69cdc48cf92ad4d52a58847393a2403c469673d2738fd88de01273817a6f9ab",
+    "transformation": "SVG等比转换为720×720透明PNG"
+  },
+  {
+    "file": "microphone-studio.svg",
+    "basePage": 5,
+    "finalPages": [
+      8
+    ],
+    "purpose": "定位接收设备，转换关系仍用原生图",
+    "sourceUrl": "https://github.com/hfg-gmuend/openmoji/blob/master/color/svg/1F399.svg",
+    "author": "OpenMoji contributors / HfG Schwäbisch Gmünd",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://github.com/hfg-gmuend/openmoji#license",
+    "verifiedDate": "2026-10-14",
+    "sha256": "29fc6ed8d89fe0e5efe30359979b8fd426eabeb460c8be2d93c66daf5a915b5e",
+    "transformation": "SVG等比转换为720×720透明PNG"
+  },
+  {
+    "file": "speaker-soundwave-0180.png",
+    "basePage": 8,
+    "finalPages": [
+      13
+    ],
+    "purpose": "对照空间传播与同一位置的时间波形",
+    "sourceUrl": "https://github.com/kylethayer/wiki_diagrams/blob/main/speaker_diagram/pngs/sound%20wave%20%28Synfig%20Animation%29.0180.png",
+    "author": "KyleThayer",
+    "license": "CC0 1.0",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/File:Sound_wave_animation.gif",
+    "verifiedDate": "2026-10-14",
+    "sha256": "887cd62163d1e6621cc6847062dd430f2c10ac492257826d635b5827fca15068",
+    "transformation": "原PNG不变；PPT原生裁剪x=440..800,y=125..335"
+  },
+  {
+    "file": "audacity-spectrogram-waveform.png",
+    "basePage": 9,
+    "finalPages": [
+      14
+    ],
+    "purpose": "真实软件波形显示，播放光标另用原生红线",
+    "sourceUrl": "https://github.com/audacity/audacity-manual/blob/master/manual/m/images/6/6b/spectrogramview_waveform_display.png",
+    "author": "Audacity Manual contributors",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://raw.githubusercontent.com/audacity/audacity-manual/master/manual/index.html",
+    "verifiedDate": "2026-10-14",
+    "sha256": "10fd712580e5d8288dcce1006954dd38b868670bdcab8fd5b1877a575681ff80",
+    "transformation": "原PNG不变；等比例放大"
+  },
+  {
+    "file": "audacity-multitrack-mixing.png",
+    "basePage": 41,
+    "finalPages": [
+      63
+    ],
+    "purpose": "两音轨控制区对照两路输出；一条mono、一条stereo，共三条波形",
+    "sourceUrl": "https://github.com/audacity/audacity-manual/blob/master/manual/m/images/f/fb/tracks_for_mixing.png",
+    "author": "Audacity Manual contributors",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://raw.githubusercontent.com/audacity/audacity-manual/master/manual/index.html",
+    "verifiedDate": "2026-10-14",
+    "sha256": "d438828156baafa6440a8522a295fa02d702ab1e9fdfea3a5934f10144ef1503",
+    "transformation": "原PNG不变；等比例放大和原生中文标注"
+  },
+  {
+    "file": "folder.svg",
+    "basePage": 65,
+    "finalPages": [
+      98,
+      99
+    ],
+    "purpose": "长期备份任务，问题阶段不揭示取舍",
+    "sourceUrl": "https://github.com/hfg-gmuend/openmoji/blob/master/color/svg/1F4C1.svg",
+    "author": "OpenMoji contributors / HfG Schwäbisch Gmünd",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://github.com/hfg-gmuend/openmoji#license",
+    "verifiedDate": "2026-10-14",
+    "sha256": "dcf60816cfc6c22da70dbb2d27cad84bd5e80b7fefb2177e8621cf4fd0f9c0ef",
+    "transformation": "SVG等比转换为720×720透明PNG"
+  },
+  {
+    "file": "video-camera.svg",
+    "basePage": 65,
+    "finalPages": [
+      98,
+      99
+    ],
+    "purpose": "实时视频通话任务，问题阶段不揭示取舍",
+    "sourceUrl": "https://github.com/hfg-gmuend/openmoji/blob/master/color/svg/1F4F9.svg",
+    "author": "OpenMoji contributors / HfG Schwäbisch Gmünd",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://github.com/hfg-gmuend/openmoji#license",
+    "verifiedDate": "2026-10-14",
+    "sha256": "d30ccd2cddd2850302c954118d5355c71105b0672223fbef0fc3b4eaf40d025a",
+    "transformation": "SVG等比转换为720×720透明PNG"
+  }
+]

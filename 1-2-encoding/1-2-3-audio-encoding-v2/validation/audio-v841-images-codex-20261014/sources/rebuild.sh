@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+set -euo pipefail
+: "${AUDIO_NODE:?Set AUDIO_NODE to the Node executable}"
+: "${AUDIO_PYTHON:?Set AUDIO_PYTHON to Python with lxml and Pillow}"
+: "${RUNTIME_NODE_MODULES:?Set RUNTIME_NODE_MODULES to the bundled modules}"
+script_dir="$(cd "$(dirname "$0")" && pwd)"
+export AUDIO_LESSON_DIR="$(cd "$script_dir/../../.." && pwd)"
+rebuild_workspace="$(mktemp -d "${TMPDIR:-/tmp}/audio841-rebuild.XXXXXX")"
+export AUDIO_BUILD_DIR="$rebuild_workspace/build"
+export AUDIO_FINAL_DIR="$rebuild_workspace/output"
+export AUDIO_RECEIPT_PATH="$AUDIO_BUILD_DIR/finalizer-receipt.json"
+mkdir -p "$AUDIO_BUILD_DIR"
+ln -s "$RUNTIME_NODE_MODULES" "$AUDIO_BUILD_DIR/node_modules"
+cp "$script_dir/build-fragments.mjs" "$AUDIO_BUILD_DIR/build-fragments.mjs"
+cp "$script_dir/render.mjs" "$AUDIO_BUILD_DIR/render.mjs"
+for phase in 0 1 2; do
+    "$AUDIO_NODE" "$AUDIO_BUILD_DIR/build-fragments.mjs" "$phase"
+    "$AUDIO_PYTHON" "$script_dir/package_deck.py" "$phase"
+done
+"$AUDIO_NODE" "$script_dir/finalize.mjs"
+rebuilt_deck="$AUDIO_FINAL_DIR/1-2-3-audio-encoding-v8.4.1.with-images-by-codex.pptx"
+"$AUDIO_PYTHON" "$script_dir/audit.py" "$rebuilt_deck" "$AUDIO_BUILD_DIR/plan-2.json" "$AUDIO_LESSON_DIR/1-2-3-audio-encoding-v8.4.1.pptx" "$AUDIO_BUILD_DIR/audit.json"
+"$AUDIO_PYTHON" "$script_dir/inspect_zip.py" "$rebuilt_deck" "$AUDIO_BUILD_DIR/inspection.json"
+"$AUDIO_NODE" "$AUDIO_BUILD_DIR/render.mjs" "$rebuilt_deck" "$AUDIO_BUILD_DIR/render"
+"$AUDIO_PYTHON" "$script_dir/montage.py" "$AUDIO_BUILD_DIR/render" "$AUDIO_BUILD_DIR/montage.png"
+printf '%s\n' "$rebuild_workspace"

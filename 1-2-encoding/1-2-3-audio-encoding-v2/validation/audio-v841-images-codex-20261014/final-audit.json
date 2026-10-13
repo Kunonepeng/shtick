@@ -1,0 +1,4534 @@
+{
+  "deck": "1-2-encoding/1-2-3-audio-encoding-v2/1-2-3-audio-encoding-v8.4.1.with-images-by-codex.pptx",
+  "sha256": "d14ff8fd862846d144c705c1ecd69890c1e56185a8abaf4ca2adda0ec17a3ab9",
+  "passed": 842,
+  "failed": 0,
+  "checks": [
+    {
+      "check": "Source deck unchanged",
+      "status": "pass",
+      "evidence": "89c98e5bdf3fea00b39c159af52ea9d1061e7be3c126fd0deaf7f2df5c8c955e"
+    },
+    {
+      "check": "Wide canvas",
+      "status": "pass",
+      "evidence": {
+        "cx": "12191695",
+        "cy": "6858000",
+        "type": "screen16x9"
+      }
+    },
+    {
+      "check": "Ordered slide count",
+      "status": "pass",
+      "evidence": 108
+    },
+    {
+      "check": "Original teaching order preserved",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p1 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p1 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p1 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p1 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p1 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p1 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p1 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p2 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p2 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p2 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p2 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p2 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p2 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p2 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p2 picture aspect ppt/media/codex-d3942c2e24c2e24197.png",
+      "status": "pass",
+      "evidence": 1.0
+    },
+    {
+      "check": "q3 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q3 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "q3 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q3 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q3 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black"
+      ]
+    },
+    {
+      "check": "q3 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q3 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p3 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p3 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p3 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p3 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p3 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p3 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p3 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p3 picture aspect ppt/media/codex-94d447dad971af8cbb.png",
+      "status": "pass",
+      "evidence": 0.9999959999999998
+    },
+    {
+      "check": "q4 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q4 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "q4 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q4 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q4 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black"
+      ]
+    },
+    {
+      "check": "q4 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q4 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p4 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p4 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p4 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p4 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p4 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p4 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p4 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q5 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q5 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "q5 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q5 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q5 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black"
+      ]
+    },
+    {
+      "check": "q5 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q5 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p5 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p5 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p5 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p5 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p5 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p5 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p5 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p5 picture aspect ppt/media/codex-b650f0791dbeec7311.png",
+      "status": "pass",
+      "evidence": 1.0
+    },
+    {
+      "check": "q6 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q6 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "q6 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q6 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q6 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black"
+      ]
+    },
+    {
+      "check": "q6 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q6 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p6 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p6 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p6 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p6 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p6 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p6 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p6 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p7 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p7 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p7 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p7 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p7 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p7 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p7 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q8 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q8 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "q8 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q8 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q8 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black"
+      ]
+    },
+    {
+      "check": "q8 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q8 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p8 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p8 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p8 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p8 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p8 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p8 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p8 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p8 picture aspect ppt/media/codex-887cd62163d1e6621c.png",
+      "status": "pass",
+      "evidence": 0.999986706795514
+    },
+    {
+      "check": "p9 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p9 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p9 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p9 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p9 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p9 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p9 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p9 picture aspect ppt/media/codex-10fd712580e5d8288d.png",
+      "status": "pass",
+      "evidence": 1.000000062000128
+    },
+    {
+      "check": "p10 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p10 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p10 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p10 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p10 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p10 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p10 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p11 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p11 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p11 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p11 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p11 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p11 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p11 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q12 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q12 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "q12 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q12 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q12 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "q12 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q12 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p12 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p12 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p12 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p12 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p12 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p12 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p12 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q13 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q13 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "q13 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q13 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q13 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black"
+      ]
+    },
+    {
+      "check": "q13 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q13 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p13 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p13 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p13 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p13 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p13 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p13 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p13 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q14 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q14 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "q14 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q14 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q14 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black"
+      ]
+    },
+    {
+      "check": "q14 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q14 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p14 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p14 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p14 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p14 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p14 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p14 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p14 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p15 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p15 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p15 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p15 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p15 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p15 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p15 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q16 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q16 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "q16 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q16 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q16 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black"
+      ]
+    },
+    {
+      "check": "q16 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q16 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p16 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p16 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p16 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p16 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p16 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p16 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p16 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q17 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q17 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "q17 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q17 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q17 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "q17 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q17 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p17 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p17 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p17 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p17 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p17 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p17 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p17 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p18 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p18 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p18 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p18 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p18 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p18 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p18 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q19 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q19 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "q19 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q19 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q19 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "q19 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q19 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p19 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p19 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p19 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p19 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p19 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p19 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p19 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p20 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p20 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p20 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p20 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p20 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p20 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p20 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q21 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q21 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "q21 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q21 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q21 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "q21 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q21 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p21 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p21 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p21 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p21 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p21 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p21 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p21 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q22 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q22 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "q22 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q22 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q22 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "q22 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q22 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p22 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p22 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p22 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p22 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p22 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p22 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p22 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p23 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p23 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p23 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p23 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p23 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p23 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p23 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q24 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q24 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "q24 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q24 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q24 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "q24 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q24 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p24 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p24 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p24 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p24 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p24 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p24 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p24 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q25 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q25 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "q25 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q25 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q25 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black"
+      ]
+    },
+    {
+      "check": "q25 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q25 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p25 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p25 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p25 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p25 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p25 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p25 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p25 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p26 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p26 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p26 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p26 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p26 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p26 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p26 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q27 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q27 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "q27 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q27 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q27 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black"
+      ]
+    },
+    {
+      "check": "q27 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q27 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p27 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p27 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p27 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p27 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p27 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p27 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p27 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p28 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p28 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p28 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p28 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p28 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p28 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p28 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q29 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q29 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "q29 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q29 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q29 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "q29 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q29 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p29 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p29 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p29 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p29 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p29 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p29 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p29 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p30 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p30 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p30 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p30 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p30 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p30 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p30 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q31 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q31 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "q31 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q31 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q31 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black"
+      ]
+    },
+    {
+      "check": "q31 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q31 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p31 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p31 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p31 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p31 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p31 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p31 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p31 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p32 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p32 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p32 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p32 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p32 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p32 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p32 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p33 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p33 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p33 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p33 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p33 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p33 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p33 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p34 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p34 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p34 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p34 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p34 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p34 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p34 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "tree1 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "tree1 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "tree1 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "tree1 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "tree1 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "tree1 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "tree1 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "tree2 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "tree2 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "tree2 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "tree2 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "tree2 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "tree2 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "tree2 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "tree3 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "tree3 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "tree3 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "tree3 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "tree3 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "tree3 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "tree3 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p35 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p35 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p35 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p35 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p35 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p35 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p35 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q36 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q36 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "q36 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q36 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q36 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "q36 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q36 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p36 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p36 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p36 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p36 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p36 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p36 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p36 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p37 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p37 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p37 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p37 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p37 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p37 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p37 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p38 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p38 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p38 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p38 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p38 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p38 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p38 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p39 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p39 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p39 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p39 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p39 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p39 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p39 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p40 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p40 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p40 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p40 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p40 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p40 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p40 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p41 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p41 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p41 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p41 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p41 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p41 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p41 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p41 picture aspect ppt/media/codex-d438828156baafa644.png",
+      "status": "pass",
+      "evidence": 0.9999998403112487
+    },
+    {
+      "check": "p42 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p42 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p42 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p42 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p42 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p42 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p42 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q43 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q43 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "q43 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q43 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q43 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "q43 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q43 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p43 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p43 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p43 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p43 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p43 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p43 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p43 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q44 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q44 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "q44 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q44 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q44 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black"
+      ]
+    },
+    {
+      "check": "q44 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q44 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p44 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p44 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p44 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p44 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p44 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p44 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p44 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p45 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p45 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p45 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p45 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p45 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p45 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p45 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q46 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q46 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "q46 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q46 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q46 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black"
+      ]
+    },
+    {
+      "check": "q46 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q46 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p46 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p46 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p46 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p46 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p46 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p46 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p46 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p47 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p47 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p47 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p47 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p47 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p47 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p47 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p48 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p48 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p48 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p48 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p48 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p48 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p48 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p49 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p49 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p49 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p49 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p49 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p49 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p49 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p50 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p50 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p50 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p50 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p50 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p50 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p50 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q51 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q51 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "q51 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q51 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q51 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black"
+      ]
+    },
+    {
+      "check": "q51 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q51 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p51 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p51 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p51 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p51 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p51 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p51 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p51 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q52 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q52 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "q52 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q52 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q52 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black"
+      ]
+    },
+    {
+      "check": "q52 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q52 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p52 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p52 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p52 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p52 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p52 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p52 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p52 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q53 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q53 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "q53 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q53 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q53 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "q53 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q53 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p53 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p53 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p53 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p53 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p53 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p53 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p53 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p54 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p54 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p54 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p54 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p54 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p54 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p54 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p55 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p55 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p55 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p55 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p55 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p55 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p55 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p56 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p56 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p56 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p56 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p56 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p56 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p56 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q57 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q57 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "q57 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q57 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q57 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black"
+      ]
+    },
+    {
+      "check": "q57 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q57 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p57 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p57 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p57 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p57 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p57 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p57 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p57 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q58 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q58 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "q58 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q58 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q58 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black"
+      ]
+    },
+    {
+      "check": "q58 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q58 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p58 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p58 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p58 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p58 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p58 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p58 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p58 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q59 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q59 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "q59 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q59 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q59 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "q59 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q59 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p59 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p59 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p59 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p59 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p59 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p59 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p59 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p60 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p60 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p60 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p60 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p60 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p60 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p60 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p61 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p61 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p61 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p61 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p61 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p61 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p61 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p62 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p62 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p62 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p62 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p62 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p62 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p62 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q63 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q63 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "q63 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q63 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q63 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black"
+      ]
+    },
+    {
+      "check": "q63 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q63 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q63 picture aspect ppt/media/image2.png",
+      "status": "pass",
+      "evidence": 0.9995860927152318
+    },
+    {
+      "check": "q63 picture aspect ppt/media/image3.png",
+      "status": "pass",
+      "evidence": 0.9995860927152318
+    },
+    {
+      "check": "p63 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p63 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p63 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p63 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p63 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p63 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p63 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p63 picture aspect ppt/media/image2.png",
+      "status": "pass",
+      "evidence": 0.9995860927152318
+    },
+    {
+      "check": "p63 picture aspect ppt/media/image3.png",
+      "status": "pass",
+      "evidence": 0.9995860927152318
+    },
+    {
+      "check": "q64 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q64 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "q64 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q64 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q64 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black"
+      ]
+    },
+    {
+      "check": "q64 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q64 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p64 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p64 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p64 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p64 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p64 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p64 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p64 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q65 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q65 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "q65 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q65 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q65 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black"
+      ]
+    },
+    {
+      "check": "q65 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q65 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q65 picture aspect ppt/media/codex-4d06517be8fa9836c3.png",
+      "status": "pass",
+      "evidence": 1.0
+    },
+    {
+      "check": "q65 picture aspect ppt/media/codex-2be49ea60573c6f0ca.png",
+      "status": "pass",
+      "evidence": 1.0
+    },
+    {
+      "check": "p65 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p65 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p65 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p65 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p65 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p65 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p65 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p65 picture aspect ppt/media/codex-4d06517be8fa9836c3.png",
+      "status": "pass",
+      "evidence": 1.0
+    },
+    {
+      "check": "p65 picture aspect ppt/media/codex-2be49ea60573c6f0ca.png",
+      "status": "pass",
+      "evidence": 1.0
+    },
+    {
+      "check": "p66 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p66 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p66 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p66 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p66 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p66 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p66 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p67 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p67 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p67 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p67 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p67 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p67 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p67 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p68 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p68 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p68 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p68 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p68 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p68 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p68 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "tree4 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "tree4 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "tree4 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "tree4 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "tree4 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "tree4 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "tree4 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "tree5 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "tree5 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "tree5 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "tree5 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "tree5 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "tree5 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "tree5 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "tree6 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "tree6 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "tree6 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "tree6 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "tree6 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "tree6 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "tree6 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q69 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q69 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "q69 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q69 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q69 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "q69 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q69 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p69 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p69 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p69 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p69 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p69 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p69 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p69 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p70 unique object IDs",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p70 canvas bounds",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "p70 rail 2",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p70 rail 3",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p70 native fonts",
+      "status": "pass",
+      "evidence": [
+        "Alibaba PuHuiTi 3.0 115 Black",
+        "Alibaba PuHuiTi 3.0 55 Regular"
+      ]
+    },
+    {
+      "check": "p70 stage transcript",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "p70 teacher prompt withheld",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "q3 stable question/givens",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "q3 clean thinking pause",
+      "status": "pass",
+      "evidence": 1
+    },
+    {
+      "check": "q4 stable question/givens",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "q4 clean thinking pause",
+      "status": "pass",
+      "evidence": 1
+    },
+    {
+      "check": "q5 stable question/givens",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "q5 clean thinking pause",
+      "status": "pass",
+      "evidence": 1
+    },
+    {
+      "check": "q6 stable question/givens",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "q6 clean thinking pause",
+      "status": "pass",
+      "evidence": 1
+    },
+    {
+      "check": "q8 stable question/givens",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "q8 clean thinking pause",
+      "status": "pass",
+      "evidence": 1
+    },
+    {
+      "check": "q12 stable question/givens",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "q13 stable question/givens",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "q13 clean thinking pause",
+      "status": "pass",
+      "evidence": 1
+    },
+    {
+      "check": "q14 stable question/givens",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "q14 clean thinking pause",
+      "status": "pass",
+      "evidence": 1
+    },
+    {
+      "check": "q16 stable question/givens",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "q16 clean thinking pause",
+      "status": "pass",
+      "evidence": 1
+    },
+    {
+      "check": "q17 stable question/givens",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "q19 stable question/givens",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "q21 stable question/givens",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "q22 stable question/givens",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "q24 stable question/givens",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "q25 stable question/givens",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "q25 clean thinking pause",
+      "status": "pass",
+      "evidence": 1
+    },
+    {
+      "check": "q27 stable question/givens",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "q27 clean thinking pause",
+      "status": "pass",
+      "evidence": 1
+    },
+    {
+      "check": "q29 stable question/givens",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "q31 stable question/givens",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "q31 clean thinking pause",
+      "status": "pass",
+      "evidence": 1
+    },
+    {
+      "check": "q36 stable question/givens",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "q43 stable question/givens",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "q44 stable question/givens",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "q44 clean thinking pause",
+      "status": "pass",
+      "evidence": 1
+    },
+    {
+      "check": "q46 stable question/givens",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "q46 clean thinking pause",
+      "status": "pass",
+      "evidence": 1
+    },
+    {
+      "check": "q51 stable question/givens",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "q51 clean thinking pause",
+      "status": "pass",
+      "evidence": 1
+    },
+    {
+      "check": "q52 stable question/givens",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "q52 clean thinking pause",
+      "status": "pass",
+      "evidence": 1
+    },
+    {
+      "check": "q53 stable question/givens",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "q57 stable question/givens",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "q57 clean thinking pause",
+      "status": "pass",
+      "evidence": 1
+    },
+    {
+      "check": "q58 stable question/givens",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "q58 clean thinking pause",
+      "status": "pass",
+      "evidence": 1
+    },
+    {
+      "check": "q59 stable question/givens",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "q63 stable question/givens",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "q64 stable question/givens",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "q64 clean thinking pause",
+      "status": "pass",
+      "evidence": 1
+    },
+    {
+      "check": "q65 stable question/givens",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "q69 stable question/givens",
+      "status": "pass",
+      "evidence": []
+    },
+    {
+      "check": "tree1 one new node",
+      "status": "pass",
+      "evidence": 1
+    },
+    {
+      "check": "tree2 one new node",
+      "status": "pass",
+      "evidence": 2
+    },
+    {
+      "check": "tree2 established text stable",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "tree3 one new node",
+      "status": "pass",
+      "evidence": 3
+    },
+    {
+      "check": "tree3 established text stable",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "tree4 one new node",
+      "status": "pass",
+      "evidence": 4
+    },
+    {
+      "check": "tree4 established text stable",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "tree5 one new node",
+      "status": "pass",
+      "evidence": 5
+    },
+    {
+      "check": "tree5 established text stable",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "tree6 one new node",
+      "status": "pass",
+      "evidence": 6
+    },
+    {
+      "check": "tree6 established text stable",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "Preserved source media ppt/media/image1.png",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "Preserved source media ppt/media/image4.png",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "Preserved source media ppt/media/image2.png",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "Preserved source media ppt/media/image3.png",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "Independent PCM/video arithmetic",
+      "status": "pass",
+      "evidence": {
+        "exercise1_bytes": 160000,
+        "exercise2_bytes": 11520000,
+        "exercise3_bytes": 52920000,
+        "video_frame_bytes": 460800,
+        "video_frames": 15000,
+        "exercise2_MiB": "10.99",
+        "video_GiB": "6.44"
+      }
+    },
+    {
+      "check": "Independent midpoint quantization",
+      "status": "pass",
+      "evidence": ""
+    },
+    {
+      "check": "Independent alias equality",
+      "status": "pass",
+      "evidence": ""
+    }
+  ]
+}

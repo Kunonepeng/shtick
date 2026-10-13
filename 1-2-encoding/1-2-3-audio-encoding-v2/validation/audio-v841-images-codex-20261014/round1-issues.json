@@ -1,0 +1,62 @@
+[
+  {
+    "id": "R1-01",
+    "priority": "P0",
+    "issue": "多个主要提问页同时呈现结论、完整码字或计算结果。",
+    "fix": "复制源页创建29个只含问题与必要已知条件的提问阶段；下一页保留揭示内容。",
+    "status": "fixed-and-rechecked",
+    "evidence": "candidate-1.pptx / round1-after full render; phase-1 native XML; paired title/rail and notes checks",
+    "round1Sha256": "db5b6ea6c2a40ce4afc5747b81ace5dd510e647e06cb4ff43613e3fbc627630e",
+    "finalRegression": "Rechecked in the 108-slide final copy and final-audit.json."
+  },
+  {
+    "id": "R1-02",
+    "priority": "P1",
+    "issue": "两课时总结页没有逐步揭示的知识树，且第一课时三问直接显示答案。",
+    "fix": "第34页仅留总结问题；在两处总结后新增6个稳定原生知识树阶段。",
+    "status": "fixed-and-rechecked",
+    "evidence": "candidate-1.pptx / round1-after full render; phase-1 native XML; paired title/rail and notes checks",
+    "round1Sha256": "db5b6ea6c2a40ce4afc5747b81ace5dd510e647e06cb4ff43613e3fbc627630e",
+    "finalRegression": "Rechecked in the 108-slide final copy and final-audit.json."
+  },
+  {
+    "id": "R1-03",
+    "priority": "P1",
+    "issue": "原Notes不以完整问题开头；提问与总结阶段缺少明确的等待/收取动作。",
+    "fix": "逐页补全问题、阶段和用途；提问用独立预测脚本，总结和退出先收学生证据。",
+    "status": "fixed-and-rechecked",
+    "evidence": "candidate-1.pptx / round1-after full render; phase-1 native XML; paired title/rail and notes checks",
+    "round1Sha256": "db5b6ea6c2a40ce4afc5747b81ace5dd510e647e06cb4ff43613e3fbc627630e",
+    "finalRegression": "Rechecked in the 108-slide final copy and final-audit.json."
+  },
+  {
+    "id": "R1-04",
+    "priority": "P1",
+    "issue": "空间传播候选0040帧的空气声波位于右缘，完整缩图的电磁标签分散注意。",
+    "fix": "改选0180帧，原生裁剪至扬声器与外部波阵面；保留原PNG、比例与来源。",
+    "status": "fixed-and-rechecked",
+    "evidence": "candidate-1.pptx / round1-after full render; phase-1 native XML; paired title/rail and notes checks",
+    "round1Sha256": "db5b6ea6c2a40ce4afc5747b81ace5dd510e647e06cb4ff43613e3fbc627630e",
+    "finalRegression": "Rechecked in the 108-slide final copy and final-audit.json."
+  },
+  {
+    "id": "R1-05",
+    "priority": "P1",
+    "issue": "第3页下轨道缺失；标题为34pt/52pt，几何和色彩未满足当前规范。",
+    "fix": "修复8pt轨道；统一36pt/60pt标题与基线，必要处缩短标题而不缩字号；深色青文字。",
+    "status": "fixed-and-rechecked",
+    "evidence": "candidate-1.pptx / round1-after full render; phase-1 native XML; paired title/rail and notes checks",
+    "round1Sha256": "db5b6ea6c2a40ce4afc5747b81ace5dd510e647e06cb4ff43613e3fbc627630e",
+    "finalRegression": "Rechecked in the 108-slide final copy and final-audit.json."
+  },
+  {
+    "id": "R1-06",
+    "priority": "P2",
+    "issue": "第17页露出“先只预测，不公布答案；翻页…”教师操作文字。",
+    "fix": "移到Notes，提问页只给区间规则和3.71。",
+    "status": "fixed-and-rechecked",
+    "evidence": "candidate-1.pptx / round1-after full render; phase-1 native XML; paired title/rail and notes checks",
+    "round1Sha256": "db5b6ea6c2a40ce4afc5747b81ace5dd510e647e06cb4ff43613e3fbc627630e",
+    "finalRegression": "Rechecked in the 108-slide final copy and final-audit.json."
+  }
+]

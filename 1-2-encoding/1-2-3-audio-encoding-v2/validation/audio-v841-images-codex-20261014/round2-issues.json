@@ -1,0 +1,160 @@
+[
+  {
+    "id": "R2-01",
+    "priority": "P0",
+    "issue": "1 Hz / 2 Hz图未明确同一秒的端点，画出的点数不能支持标题计数。",
+    "fix": "重绘同一[0,1)计数：1 Hz为0；2 Hz为0、0.5；1 s不重复计入。",
+    "status": "fixed-and-rechecked",
+    "finalSha256": "d14ff8fd862846d144c705c1ecd69890c1e56185a8abaf4ca2adda0ec17a3ab9",
+    "finalPages": [
+      19,
+      20
+    ],
+    "evidence": "final-render individual inspection; final-audit.json (842 pass, 0 fail); finalizer-receipt.json (0 findings, 0 warnings)"
+  },
+  {
+    "id": "R2-02",
+    "priority": "P1",
+    "issue": "“整段波形/局部放大”没有可核对的时间窗口，左右曲线无法证明来自同一区间。",
+    "fix": "用同一数学信号，标0～1 s、0.30～0.50 s红框和11个样本点，纵轴保持一致；Notes区分教学模型与实录。",
+    "status": "fixed-and-rechecked",
+    "finalSha256": "d14ff8fd862846d144c705c1ecd69890c1e56185a8abaf4ca2adda0ec17a3ab9",
+    "finalPages": [
+      17,
+      18
+    ],
+    "evidence": "final-render individual inspection; final-audit.json (842 pass, 0 fail); finalizer-receipt.json (0 findings, 0 warnings)"
+  },
+  {
+    "id": "R2-03",
+    "priority": "P1",
+    "issue": "量化代表幅度与等级编号尚未明显区分；8/16级比较两侧都写“更密集”。",
+    "fix": "显示[3,4)中点3.5；同一3.71在4 bit下为3.75，分别标0.21/0.04误差。",
+    "status": "fixed-and-rechecked",
+    "finalSha256": "d14ff8fd862846d144c705c1ecd69890c1e56185a8abaf4ca2adda0ec17a3ab9",
+    "finalPages": [
+      26,
+      27,
+      28,
+      34,
+      35
+    ],
+    "evidence": "final-render individual inspection; final-audit.json (842 pass, 0 fail); finalizer-receipt.json (0 findings, 0 warnings)"
+  },
+  {
+    "id": "R2-04",
+    "priority": "P1",
+    "issue": "Audacity截图中需要定位的音轨控制区仍靠小号英文标签。",
+    "fix": "保留原截图，增加一个原生红框定位两个控制区；核心判断有大号中文标签。",
+    "status": "fixed-and-rechecked",
+    "finalSha256": "d14ff8fd862846d144c705c1ecd69890c1e56185a8abaf4ca2adda0ec17a3ab9",
+    "finalPages": [
+      63
+    ],
+    "evidence": "final-render individual inspection; final-audit.json (842 pass, 0 fail); finalizer-receipt.json (0 findings, 0 warnings)"
+  },
+  {
+    "id": "R2-05",
+    "priority": "P1",
+    "issue": "PCM公式仍用量化位数代指实际存储位宽；右端解释超出推荐安全区。",
+    "fix": "原生重排四个计数因子，明确样本payload、存储bit/样本、bit÷8和文件结构边界。",
+    "status": "fixed-and-rechecked",
+    "finalSha256": "d14ff8fd862846d144c705c1ecd69890c1e56185a8abaf4ca2adda0ec17a3ab9",
+    "finalPages": [
+      48,
+      49
+    ],
+    "evidence": "final-render individual inspection; final-audit.json (842 pass, 0 fail); finalizer-receipt.json (0 findings, 0 warnings)"
+  },
+  {
+    "id": "R2-06",
+    "priority": "P2",
+    "issue": "编码任务缺少3 bit输出条件；区间规则的“第n段”容易按日常1起算理解；揭示仍写先判断。",
+    "fix": "补充码字宽度；明确n=0～7；揭示文字写出验证结果。",
+    "status": "fixed-and-rechecked",
+    "finalSha256": "d14ff8fd862846d144c705c1ecd69890c1e56185a8abaf4ca2adda0ec17a3ab9",
+    "finalPages": [
+      29,
+      30,
+      27
+    ],
+    "evidence": "final-render individual inspection; final-audit.json (842 pass, 0 fail); finalizer-receipt.json (0 findings, 0 warnings)"
+  },
+  {
+    "id": "R2-07",
+    "priority": "P2",
+    "issue": "继承的量化框有装饰阴影，与平面证据图风格不一致。",
+    "fix": "清除原生形状的阴影效果；保留内容、边界和语义焦点。",
+    "status": "fixed-and-rechecked",
+    "finalSha256": "d14ff8fd862846d144c705c1ecd69890c1e56185a8abaf4ca2adda0ec17a3ab9",
+    "finalPages": [
+      11,
+      28
+    ],
+    "evidence": "final-render individual inspection; final-audit.json (842 pass, 0 fail); finalizer-receipt.json (0 findings, 0 warnings)"
+  },
+  {
+    "id": "R2-08",
+    "priority": "P1",
+    "issue": "演示B/C与可选混叠仍同时显示预测问题和答案图。",
+    "fix": "增加3个只给条件的停顿页；演示C比较同一10个输入与时刻，混叠用可独立计算的cos例子。",
+    "status": "fixed-and-rechecked",
+    "finalSha256": "d14ff8fd862846d144c705c1ecd69890c1e56185a8abaf4ca2adda0ec17a3ab9",
+    "finalPages": [
+      17,
+      18,
+      37,
+      38,
+      106,
+      107
+    ],
+    "evidence": "final-render individual inspection; final-audit.json (842 pass, 0 fail); finalizer-receipt.json (0 findings, 0 warnings)"
+  },
+  {
+    "id": "R2-09",
+    "priority": "P1",
+    "issue": "部分新增提问的已知条件与揭示页位置、文字不同；播放链右端侵入安全边距。",
+    "fix": "成对共享条件对象和原生给定行；保持标题/字体/条件坐标一致；原生重排播放链。",
+    "status": "fixed-and-rechecked",
+    "finalSha256": "d14ff8fd862846d144c705c1ecd69890c1e56185a8abaf4ca2adda0ec17a3ab9",
+    "finalPages": [
+      26,
+      27,
+      29,
+      30,
+      57,
+      58,
+      44
+    ],
+    "evidence": "final-render individual inspection; final-audit.json (842 pass, 0 fail); finalizer-receipt.json (0 findings, 0 warnings)"
+  },
+  {
+    "id": "R2-10",
+    "priority": "P1",
+    "issue": "原物理图片被拉伸；部分图的标签占用标题区，页脚逼近下轨；无损/有损解释出现孤立句号。",
+    "fix": "原图片仅裁去白边并保留比例；重绘8/20 Hz图；移回安全内容区；重排比较段落并复查全部图片比例。",
+    "status": "fixed-and-rechecked",
+    "finalSha256": "d14ff8fd862846d144c705c1ecd69890c1e56185a8abaf4ca2adda0ec17a3ab9",
+    "finalPages": [
+      4,
+      22,
+      88
+    ],
+    "evidence": "final-render individual inspection; final-audit.json (842 pass, 0 fail); finalizer-receipt.json (0 findings, 0 warnings)"
+  },
+  {
+    "id": "R2-11",
+    "priority": "P2",
+    "issue": "1024²换算仍写MB，替换后单位提醒重复；比较标题的“无”在本地渲染中呈空心字。",
+    "fix": "统一MiB/GiB二进制单位，明确MB=1,000,000 Byte；比较小标题统一使用获准55 Regular字型。",
+    "status": "fixed-and-rechecked",
+    "finalSha256": "d14ff8fd862846d144c705c1ecd69890c1e56185a8abaf4ca2adda0ec17a3ab9",
+    "finalPages": [
+      58,
+      59,
+      60,
+      88
+    ],
+    "evidence": "final-render individual inspection; final-audit.json (842 pass, 0 fail); finalizer-receipt.json (0 findings, 0 warnings)"
+  }
+]
