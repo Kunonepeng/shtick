@@ -83,6 +83,8 @@ def self_check() -> dict:
             assert len(state["indices"]) == grid
             assert all(len(row) == grid for row in state["indices"])
             assert len(state["codes"]) == grid ** 2
+            recovered = lab.decode(state["codes"], grid, grid, bits, levels)
+            assert recovered.tolist() == state["indices"]
             assert state["ideal_payload_bits"] == grid * grid * bits
             for row_index in range(grid):
                 for column in range(grid):
@@ -99,6 +101,7 @@ def self_check() -> dict:
         "palette_sizes": list(SUPPORTED_LEVELS),
         "states_checked": 4,
         "real_fixture_verified": True,
+        "decode_roundtrip_verified": True,
     }
 
 
