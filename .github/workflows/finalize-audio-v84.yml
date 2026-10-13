@@ -1,0 +1,65 @@
+name: Finalize audio v8.4 visual prediction and ten-round audit
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/finalize-audio-v84.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependency
+        run: python -m pip install python-pptx
+      - name: Finish P0 prediction page correction
+        run: python 1-2-encoding/1-2-3-audio-encoding-v2/validation/audio-v84-20261013/final_visual_fix.py
+      - name: Verify complete ten-round audit chain
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from pptx import Presentation
+          from zipfile import ZipFile
+          import json,hashlib
+          d=Path("1-2-encoding/1-2-3-audio-encoding-v2")
+          a=d/"validation/audio-v84-20261013"
+          prev=None
+          for i in range(1,11):
+              fname=d/f"1-2-3-audio-encoding-v8.4.{i}.pptx"
+              meta=json.loads((a/f"round-{i:02d}-audit.json").read_text(encoding="utf-8"))
+              p=Presentation(fname)
+              assert len(p.slides)==70 and meta["speaker_notes"]==70
+              assert meta["round"]==i
+              assert meta["output_sha256"]==hashlib.sha256(fname.read_bytes()).hexdigest()
+              if prev:assert meta["input_sha256"]==prev
+              prev=meta["output_sha256"]
+              assert all(s.has_notes_slide and s.notes_slide.notes_text_frame.text.strip() for s in p.slides)
+              with ZipFile(fname) as z:assert z.testzip() is None
+              titles=[next((s.text.strip() for s in sl.shapes if s.has_text_frame and s.text.strip()),"") for sl in p.slides]
+              for k in range(1,7):assert titles.count("练习题 "+str(k))==2
+              print(f"ROUND {i:02d} PASS {meta['severity']} {fname.stat().st_size} bytes")
+          p=Presentation(d/"1-2-3-audio-encoding-v8.4.10.pptx")
+          q16=" ".join(sh.text for sh in p.slides[15].shapes if sh.has_text_frame)
+          q49=" ".join(sh.text for sh in p.slides[48].shapes if sh.has_text_frame)
+          assert "3.71" not in q16 and "压缩编码" not in q49
+          print("FINAL PASS: 10 decks, 10 notes sets, 6 exercise pairs, no pre-empted predictions")
+          PY
+      - name: Commit published final deck correction
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add 1-2-encoding/1-2-3-audio-encoding-v2/1-2-3-audio-encoding-v8.4.10.pptx
+          git add 1-2-encoding/1-2-3-audio-encoding-v2/validation/audio-v84-20261013/round-10-audit.json
+          git commit -m "Audit fix: keep the 8-level counting slide free of the next answer"
+          git push origin HEAD:main
