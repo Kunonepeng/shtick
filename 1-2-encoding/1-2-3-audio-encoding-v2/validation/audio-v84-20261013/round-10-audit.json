@@ -1,0 +1,13 @@
+{
+  "round": 10,
+  "severity": "P1",
+  "identified_issue": "JPEG比较虽有原图和低质量版，投影时伪影仍可能不明显",
+  "refinement": "第63页添加同一坐标局部放大对照、颜色差异提示和严格的质量设置限定",
+  "verified_by": "放大区域取自同一源图同一位置，学生可看到细节变化",
+  "slides": 70,
+  "speaker_notes": 70,
+  "qa_pairs": 6,
+  "input_sha256": "d40e872186469da60377379e33bd27c4f910eb4a61d9491159ae25a71c2a88cd",
+  "output_sha256": "fa83ec5ee02f72bdb57b7f88afad8841f8e1a5837d5f3f28ba233594f0df4cdb",
+  "output_bytes": 422178
+}
