@@ -1,0 +1,12 @@
+{
+  "round": 2,
+  "severity": "P1",
+  "identified_issue": "麦克风输出连续信号的过程过于抽象",
+  "refinement": "第5页重绘声源、麦克风与连续电信号",
+  "slides": 70,
+  "notes": 70,
+  "question_answer_pairs": 6,
+  "input_sha256": "35be7ee3f3f4c13adc4a342d270059b258d1c33aa14a6bf4c6adcc6f6c213670",
+  "output_sha256": "91b0c939b4dd9e66748c9d3cb495a1f55286404eae1c75e0bd0f332fb0315378",
+  "method": "PowerPoint native diagram; round 9 actual same-source PNG/JPEG image pair"
+}
