@@ -1,0 +1,68 @@
+name: Verify remote audio v7 demos
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "1-2-encoding/1-2-3-audio-encoding-v2/remote-demos-v7/**"
+      - ".github/workflows/check-audio-v7-demos.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: 1-2-encoding/1-2-3-audio-encoding-v2/remote-demos-v7
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install Python test dependencies
+        run: python -m pip install ipython nbformat playwright
+      - name: Install Chromium for browser smoke tests
+        run: python -m playwright install --with-deps chromium
+      - name: Validate Python and browser JavaScript
+        run: |
+          export PYTHONPATH=.
+          python -m compileall -q lesson_audio_v7
+          python -m unittest discover -v -s tests -p test_core.py
+          node --check lesson_audio_v7/frontend.js
+          python - <<'PY'
+          from pathlib import Path
+          import nbformat
+          from lesson_audio_v7 import listening_demo,zoom_demo,encoding_lab
+          from lesson_audio_v7 import widgets
+          from IPython.display import HTML,Javascript
+          books=sorted(Path('notebooks').glob('*.ipynb'))
+          assert len(books)==4
+          for book in books:
+              nbformat.validate(nbformat.read(str(book),as_version=4))
+          for factory in (listening_demo,zoom_demo,encoding_lab):
+              outputs=[]
+              old=widgets.display
+              widgets.display=lambda obj: outputs.append(obj)
+              try:
+                  factory()._ipython_display_()
+              finally:
+                  widgets.display=old
+              assert len(outputs)==2
+              assert isinstance(outputs[0],HTML)
+              assert isinstance(outputs[1],Javascript)
+              assert "const data=" in outputs[1].data
+          print('PASS: 4 notebooks; 3 standard HTML/JavaScript outputs; no anywidget')
+          PY
+      - name: Browser graphics and interaction smoke
+        run: |
+          export PYTHONPATH=.
+          python tests/browser_smoke.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: v7-browser-smoke-screenshots
+          path: 1-2-encoding/1-2-3-audio-encoding-v2/remote-demos-v7/review/browser-*.png
+          retention-days: 7
