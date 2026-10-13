@@ -1,0 +1,12 @@
+{
+  "round": 1,
+  "severity": "P1",
+  "identified_issue": "模拟量与数字量主要靠文字区分",
+  "refinement": "第4页以连续波形、离散样本同轴比较替换文字",
+  "slides": 70,
+  "notes": 70,
+  "question_answer_pairs": 6,
+  "input_sha256": "4fda43f1f32a9c454b8204f91220d4efe377c3aff87ef68ca5aea4b2399a5561",
+  "output_sha256": "35be7ee3f3f4c13adc4a342d270059b258d1c33aa14a6bf4c6adcc6f6c213670",
+  "method": "PowerPoint native diagram; round 9 actual same-source PNG/JPEG image pair"
+}
