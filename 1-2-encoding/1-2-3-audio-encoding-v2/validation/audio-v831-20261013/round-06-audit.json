@@ -1,0 +1,12 @@
+{
+  "round": 6,
+  "severity": "P1",
+  "identified_issue": "PCM容量公式没有显示乘数的具体单位意义",
+  "refinement": "第31页重新绘制四因素对应关系",
+  "slides": 70,
+  "notes": 70,
+  "question_answer_pairs": 6,
+  "input_sha256": "ac7e90f9001ef2574b8b460b2890463bac1ec7ed27bcb069cd3187c471ba227a",
+  "output_sha256": "a375d8ea23243fa7a9c1cda45c269088ff95751cdc137f5c281c636282d15be5",
+  "method": "PowerPoint native diagram; round 9 actual same-source PNG/JPEG image pair"
+}
