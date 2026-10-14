@@ -55,9 +55,8 @@ function mountPandaEncoding(mount, payload, config) {
     const index = currentState.indices[rowIndex][columnIndex];
     const code = currentState.codes[state.selected];
 
-    add(root, make('div','pd-eyebrow','信息科技｜图像编码｜交互观察'));
+    add(root, make('div','pd-eyebrow','图像编码｜交互观察'));
     add(root, make('h2','', '一只熊猫，怎样变成数字数据？'));
-    add(root, make('div','pd-intro muted', '请先预测，再由教师揭示下一阶段；每次只改变一个条件。'));
 
     const tabs = make('div','pd-stages');
     labels.forEach((name, i) => {
@@ -91,7 +90,7 @@ function mountPandaEncoding(mount, payload, config) {
     controls.appendChild(paletteLabel);
     add(root,controls);
 
-    if (features.has('questionEmphasis')) add(root,make('div','pd-eyebrow','先写出你的预测，再运行验证'));
+    // if (features.has('questionEmphasis')) add(root,make('div','pd-eyebrow','----------'));
     const question=make('div','pd-question',questions[state.stage]);
     if(features.has('focusMarker')) question.style.borderLeftColor='#ff0000';
     add(root,question);
@@ -103,7 +102,7 @@ function mountPandaEncoding(mount, payload, config) {
     img.src=payload.preview;
     img.alt='原始熊猫图局部，未经本次演示网格或调色板处理';
     originalPanel.appendChild(img);
-    add(originalPanel,make('div','pd-stephelp','源图像素已是数字数据；下方演示是在解码后的 JPEG 上进行的数字化概念模型。'));
+    // add(originalPanel,make('div','pd-stephelp','----------------------------------'));
     layout.appendChild(originalPanel);
 
     const resultPanel=make('div','pd-panel');
@@ -111,7 +110,7 @@ function mountPandaEncoding(mount, payload, config) {
       : state.stage === 1 ? '采样后的 RGB 样本'
       : state.stage === 2 ? '有限调色板的量化结果' : '量化像素与对应码字'));
     if(state.stage === 0) {
-      add(resultPanel,make('div','pd-no-yet','先讨论：图像中的哪些信息需要记录？'));
+      add(resultPanel,make('div','pd-no-yet','？'));
     } else {
       const grid=make('div','pd-grid');
       grid.style.gridTemplateColumns='repeat('+state.grid+',minmax(0,1fr))';
@@ -188,11 +187,11 @@ function mountPandaEncoding(mount, payload, config) {
       add(root,make('div','pd-summary','采样确定位置 → 量化确定等级 → 编码确定数字表示'));
       add(root,make('div','pd-subtitle','2 bit 可表示 4 种状态；6 色表需至少 3 bit。码字是编号表示，不是新的颜色。'));
     }
-    if(features.has('responsiveAid')) add(root,make('div','pd-subtitle','窄屏布局会纵向排列；投影时建议浏览器全屏。'));
+    // if(features.has('responsiveAid')) add(root,make('div','pd-subtitle','窄屏布局会纵向排列；投影时建议浏览器全屏。'));
     const footer=make('div','pd-footer');
-    add(footer,make('span','',explanations[state.stage]+' '));
-    add(footer,make('span','',payload.model_notice));
-    add(footer,make('div','', '边界：未压缩理想码字数据量不等于 PNG/JPEG 完整文件大小；模型不模拟真实传感器和色彩管理。'));
+    // add(footer,make('span','',explanations[state.stage]+' '));
+    // add(footer,make('span','',payload.model_notice));
+    // add(footer,make('div','', '边界：未压缩理想码字数据量不等于 PNG/JPEG 完整文件大小；模型不模拟真实传感器和色彩管理。'));
     root.appendChild(footer);
   }
   draw();
